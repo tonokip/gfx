@@ -72,13 +72,12 @@ DisplayBackLightMenu.setDescription("Contains values for controlling the back li
 DisplayBacklightDisable = halComponent.createIntegerSymbol("DisplayBacklightDisable", DisplayBackLightMenu)
 DisplayBacklightDisable.setLabel("Back Light Disable Value")
 DisplayBacklightDisable.setDescription("The value used to disable the display back light.")
-DisplayBacklightDisable.setDefaultValue(1)
+DisplayBacklightDisable.setDefaultValue(0)
 
 DisplayBacklightEnable = halComponent.createIntegerSymbol("DisplayBacklightEnable", DisplayBackLightMenu)
 DisplayBacklightEnable.setLabel("Back Light Enable Value")
 DisplayBacklightEnable.setDescription("The value used to enable the display back light.")
 DisplayBacklightEnable.setDefaultValue(1)
-DisplayBacklightEnable.setReadOnly(True)
 
 DisplayPolarityMenu = halComponent.createMenuSymbol("DisplayPolarityMenu", DisplayMenu)
 DisplayPolarityMenu.setLabel("Polarity Settings")

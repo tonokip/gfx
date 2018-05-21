@@ -1,8 +1,6 @@
-def loadModule():
-	if Variables.get("__PROCESSOR") != "PIC32CZ2038CA70144":
-		return
-	
-	cntlComponent = Module.CreateComponent("gfx_ca70_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller.py")
-	cntlComponent.setDisplayType("CA70 LCC Display Driver")
+def loadModule():	
+	cntlComponent = Module.CreateComponent("gfx_driver_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller.py")
+	cntlComponent.setDisplayType("LCC Display Driver")
 	cntlComponent.addDependency("sys_dma", "sys_dma", True)
-	cntlComponent.addCapability("gfx_lcc_driver", "Display Driver", False)
+	cntlComponent.addDependency("sys_int", "sys_int", True)
+	cntlComponent.addCapability("gfx_driver_lcc", "Display Driver", False)

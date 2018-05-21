@@ -21,3 +21,10 @@ GlobalPaletteModeHint = halComponent.createBooleanSymbol("GlobalPaletteModeHint"
 GlobalPaletteModeHint.setLabel("Global Palette Mode")
 GlobalPaletteModeHint.setDescription("Indicates that the graphics display driver should use global palette mode if available.")
 
+DoubleBufferHint = halComponent.createBooleanSymbol("DoubleBufferHint", DriverHintMenu)
+DoubleBufferHint.setLabel("Double Buffer Mode")
+DoubleBufferHint.setDescription("Indicates that the graphics display driver should use double buffering if available.")
+
+LCCRefreshHint = halComponent.createBooleanSymbol("LCCRefreshHint", DriverHintMenu)
+LCCRefreshHint.setLabel("LCC Aggressive Refresh")
+LCCRefreshHint.setDescription("Indicates that an LCC graphics display driver should use an aggressive refresh strategy for the given display device.")
