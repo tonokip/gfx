@@ -25,6 +25,9 @@ DoubleBufferHint = halComponent.createBooleanSymbol("DoubleBufferHint", DriverHi
 DoubleBufferHint.setLabel("Double Buffer Mode")
 DoubleBufferHint.setDescription("Indicates that the graphics display driver should use double buffering if available.")
 
+#DisplayOrientationHint = halComponent.createComboSymbol("DisplayOrientationHint", DriverHintMenu)
+
+
 LCCRefreshHint = halComponent.createBooleanSymbol("LCCRefreshHint", DriverHintMenu)
 LCCRefreshHint.setLabel("LCC Aggressive Refresh")
 LCCRefreshHint.setDescription("Indicates that an LCC graphics display driver should use an aggressive refresh strategy for the given display device.")
