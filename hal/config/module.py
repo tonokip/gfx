@@ -1,5 +1,5 @@
 def loadModule():
-	halComponent = Module.CreateComponent("gfx_hal", "GFX HAL", "/Graphics/", "config/hal.py")
+	halComponent = Module.CreateComponent("gfx_hal", "GFX Core", "/Graphics/", "config/hal.py")
 	halComponent.setDisplayType("Hardware Abstraction Layer")
 	#halComponent.addCapability("gfx_hal", "GFX HAL", True)
 	halComponent.addDependency("gfx_display", "Graphics Display", False, False)
