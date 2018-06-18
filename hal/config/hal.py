@@ -1,4 +1,6 @@
 def instantiateComponent(halComponent):
+	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/hal"
+	
 	execfile(Module.getPath() + "/config/hal_pipeline.py")
 	execfile(Module.getPath() + "/config/hal_display.py")
 	execfile(Module.getPath() + "/config/hal_driver.py")

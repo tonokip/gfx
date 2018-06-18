@@ -43,8 +43,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef _LIBARIA_HARMONY_H
 #define _LIBARIA_HARMONY_H
 
-#include "system_config.h"
-#include "system_definitions.h"
 
 #include "gfx/libaria/libaria.h"
 

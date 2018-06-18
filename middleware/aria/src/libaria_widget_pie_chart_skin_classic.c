@@ -2,6 +2,7 @@
 
 #if LA_PIE_CHART_WIDGET_ENABLED
 
+#include <stdio.h>
 
 #include "gfx/libaria/inc/libaria_context.h"
 #include "gfx/libaria/inc/libaria_draw.h"
@@ -188,7 +189,7 @@ static void drawPieChart(laPieChartWidget* chart)
                     //Protect from overflow
                     if (value < MAX_TICK_LABEL_VALUE)
                     {
-                        sprintf(strbuff, "%d", value);
+                        sprintf(strbuff, "%ld", value);
                     }
                     else
                     {

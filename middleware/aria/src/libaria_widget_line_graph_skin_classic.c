@@ -2,6 +2,8 @@
 
 #if LA_LINE_GRAPH_WIDGET_ENABLED
 
+#include <stdio.h>
+
 #include "gfx/libaria/inc/libaria_context.h"
 #include "gfx/libaria/inc/libaria_draw.h"
 #include "gfx/libaria/inc/libaria_layer.h"
@@ -106,7 +108,7 @@ static void getValueLabelMaxDrawRect(laLineGraphWidget* graph, GFX_Rect * rect)
             //Protect from overflow
             if (graph->minValue > -MAX_TICK_LABEL_VALUE)
             {
-                sprintf(strbuff, "%d", graph->minValue);
+                sprintf(strbuff, "%ld", graph->minValue);
             }
             else
             {
@@ -123,7 +125,7 @@ static void getValueLabelMaxDrawRect(laLineGraphWidget* graph, GFX_Rect * rect)
         //Protect from overflow
         if (graph->maxValue < MAX_TICK_LABEL_VALUE) 
         {
-            sprintf(strbuff, "%d", graph->maxValue);
+            sprintf(strbuff, "%ld", graph->maxValue);
         } else 
         {
             sprintf(strbuff, "---");
@@ -187,7 +189,7 @@ static void drawTickLabelWithValue(laLineGraphWidget* graph, GFX_Point tickPoint
     //Protect from overflow
     if (value < MAX_TICK_LABEL_VALUE)
     {
-        sprintf(strbuff, "%d", value);
+        sprintf(strbuff, "%ld", value);
     }
     else
     {

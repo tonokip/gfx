@@ -118,8 +118,10 @@ typedef laBool (*laEvent_FilterEvent)(laEvent*);
 typedef struct laEventState_t
 {
 #ifndef _WIN32
+#ifdef LIBARIA_USE_OSAL
     OSAL_SEM_HANDLE_TYPE eventCountSem;
     OSAL_MUTEX_HANDLE_TYPE eventLock;
+#endif
 #endif
     laList events;
     laEvent_FilterEvent filter;

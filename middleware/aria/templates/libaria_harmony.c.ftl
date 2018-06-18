@@ -104,14 +104,15 @@ int32_t LibAria_Initialize(void)
 
 <#if genAriaMediaIntf?? && genAriaMediaIntf == true>
     memIntf.heap.malloc = &malloc;
-    memIntf.heap.coherent_alloc = &__pic32_alloc_coherent;
+    //memIntf.heap.coherent_alloc = &__pic32_alloc_coherent; // FIXME for H3
+    memIntf.heap.coherent_alloc = &malloc;
     memIntf.heap.calloc = &calloc;
     memIntf.heap.free = &free;
-
-    memIntf.heap.coherent_free = &__pic32_free_coherent;
+    memIntf.heap.coherent_free = &free;
+    //memIntf.heap.coherent_free = &__pic32_free_coherent; // FIXME for H3
 
     memIntf.heap.memcpy = &memcpy;
-    memIntf.heap.memset = &memset;
+    memIntf.heap.memset = (void*)&memset;
     memIntf.heap.realloc = &realloc;
     memIntf.open = &LibAria_MediaOpenRequest;
     memIntf.read = &LibAria_MediaReadRequest;

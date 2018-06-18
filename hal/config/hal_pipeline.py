@@ -58,21 +58,6 @@ DrawEllipseEnable.setLabel("Ellipse")
 DrawEllipseEnable.setDescription("Enables Ellipse primitive drawing interface.")
 DrawEllipseEnable.setDefaultValue(True)
 
-ImageDecodersMenu = halComponent.createMenuSymbol("ImageDecoderMenu", DrawPipelineEnable)
-ImageDecodersMenu.setLabel("Image Decoder Configuration")
-ImageDecodersMenu.setDescription("Configure image decoder systems.")
-ImageDecodersMenu.setDependencies(onDrawPipelineEnableChanged, ["DrawPipelineEnable"])
-
-JPEGEnable = halComponent.createBooleanSymbol("JPEGEnable", ImageDecodersMenu)
-JPEGEnable.setLabel("JPEG")
-JPEGEnable.setDescription("Enables software JPEG image decoder.")
-JPEGEnable.setDefaultValue(True)
-
-PNGEnable = halComponent.createBooleanSymbol("PNGEnable", ImageDecodersMenu)
-PNGEnable.setLabel("PNG")
-PNGEnable.setDescription("Enables software PNG image decoder.")
-PNGEnable.setDefaultValue(True)
-
 
 
 

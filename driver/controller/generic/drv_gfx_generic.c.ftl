@@ -38,7 +38,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#include "framework/gfx/driver/controller/generic/drv_gfx_generic.h"
+#include "gfx/driver/controller/generic/drv_gfx_generic.h"
 
 #include <xc.h>
 #include <sys/attribs.h>

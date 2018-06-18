@@ -3,6 +3,7 @@
 #if GFX_DRAW_PIPELINE_ENABLED && GFX_DRAW_ELLIPSE_ENABLED
 
 #include <math.h>
+#include <stdbool.h>
 
 #include "gfx/hal/inc/gfx_context.h"
 #include "gfx/hal/inc/gfx_layer.h"

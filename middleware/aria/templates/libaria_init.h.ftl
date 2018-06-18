@@ -43,11 +43,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef _LIBARIA_INIT_H
 #define _LIBARIA_INIT_H
 
-#ifndef NATIVE
-#include "system_config.h"
-#include "system_definitions.h"
-#endif
-
 #include "gfx/libaria/libaria.h"
 <#if ARIA_EVENT_HEADERS??>
 #include "gfx/libaria/libaria_events.h"

@@ -56,11 +56,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/libaria_config.h"
 
 #ifndef WIN32
-#include "system/common/sys_common.h"
-#include "system/common/sys_module.h"
-#include "driver/driver_common.h"
-#include "system_config.h"
-#include "osal/osal.h"
+//#include "osal/osal.h" FIXME for H3
 #else
 #include "native_common.h"
 #endif

@@ -54,7 +54,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stdint.h>
 #include <stddef.h>
 
-#include "system_config.h"
 #include "gfx/hal/gfx_config.h"
 #endif
 

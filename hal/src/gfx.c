@@ -53,7 +53,8 @@ GFX_Handle GFX_Open(GFX_Driver driver,
 #if defined(WIN32)
         mem.coherent_alloc = (GFX_Malloc_FnPtr) &malloc;
 #else
-        mem.coherent_alloc = &__pic32_alloc_coherent;
+        //mem.coherent_alloc = &__pic32_alloc_coherent;
+        mem.coherent_alloc = (GFX_Malloc_FnPtr) &malloc; // FIXME for H3
 #endif
         mem.calloc = (GFX_Calloc_FnPtr) &calloc;
         mem.realloc = (GFX_Realloc_FnPtr) &realloc;
@@ -61,7 +62,8 @@ GFX_Handle GFX_Open(GFX_Driver driver,
 #if defined(WIN32)
         mem.coherent_free = (GFX_Free_FnPtr) &free;
 #else
-        mem.coherent_free = (GFX_Free_FnPtr) &__pic32_free_coherent;
+        //mem.coherent_free = (GFX_Free_FnPtr) &__pic32_free_coherent;
+        mem.coherent_free = (GFX_Free_FnPtr) &free; // FIXME for H3
 #endif
         mem.memset = (GFX_Memset_FnPtr) &memset;
         mem.memcpy = (GFX_Memcpy_FnPtr) &memcpy;

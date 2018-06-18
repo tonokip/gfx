@@ -62,6 +62,11 @@ extern "C" {
 #define LA_MAX_LAYERS     ${ARIA_MAX_LAYERS}
 </#if>
 
+// OSAL support
+<#if USE_RTOS?? && USE_RTOS == true>
+#define LIBARIA_USE_RTOS
+</#if>
+
 // widget inclusion
 #define LA_ARC_WIDGET_ENABLED              ${enableArcWidget?then('1', '0')}
 #define LA_BAR_GRAPH_WIDGET_ENABLED        ${enableBarGraphWidget?then('1', '0')}

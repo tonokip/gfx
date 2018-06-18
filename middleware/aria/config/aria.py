@@ -1,12 +1,15 @@
 def instantiateComponent(component):
+	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/libaria"
+	
 	execfile(Module.getPath() + "/config/aria_config.py")
+	execfile(Module.getPath() + "/utils/config/aria_utils.py")
+	execfile(Module.getPath() + "/third_party/config/aria_thirdparty.py")
 	execfile(Module.getPath() + "/config/aria_demomode.py")
 	execfile(Module.getPath() + "/config/aria_rtos.py")
 	execfile(Module.getPath() + "/config/aria_files.py")
-	
 
 def onDependentComponentAdded(aria, dependencyID, hal):
-	print("lo here")
+	#print("lo here")
 	aria.setSymbolValue("displayWidth", hal.getSymbolValue("DisplayWidth"), 1)
 	aria.setSymbolValue("displayHeight", hal.getSymbolValue("DisplayHeight"), 1)
 
@@ -31,11 +34,11 @@ def onRTOSEnable(useRTOS, event):
 	useRTOS.getComponent().getSymbolByID("rtosTaskDelay").setVisible(event["value"])
 	
 def onDisplayWidthChanged(displayWidth, event):
-	print("here")
+	#print("here")
 	displayWidth.setValue(event["value"], 1)
 	
 def onDisplayHeightChanged(displayHeight, event):
-	print("there")
+	#print("there")
 	displayHeight.setValue(event["value"], 1)
 	
 def onEnableInputChanged(enableInput, event):
@@ -49,3 +52,17 @@ def onGenAriaDesignChanged(genAriaDesign, event):
 	genAriaMacros = genAriaDesign.getComponent().getSymbolByID("genAriaMacros")
 	genAriaMacros.setVisible(event["value"])
 	genAriaMacros.setEnabled(event["value"])
+	
+def onJPEGEnableChanged(JPEGEnable, event):
+	event["source"].getSymbolByID("GFXU_IMAGE_JPG_COMMON_H").setEnabled(event["value"])
+	event["source"].getSymbolByID("GFXU_IMAGE_JPG_COMMON_C").setEnabled(event["value"])
+	event["source"].getSymbolByID("JIDCTINT_C").setEnabled(event["value"])
+	event["source"].getSymbolByID("GFXU_IMAGE_JPG_INTERNAL_C").setEnabled(event["value"])
+	event["source"].getSymbolByID("GFXU_IMAGE_JPG_EXTERNAL_C").setEnabled(event["value"])
+	
+def onPNGEnableChanged(JPEGEnable, event):
+	event["source"].getSymbolByID("GFXU_IMAGE_PNG_EXTERNAL_C").setEnabled(event["value"])
+	event["source"].getSymbolByID("GFXU_IMAGE_PNG_INTERNAL_C").setEnabled(event["value"])
+	event["source"].getSymbolByID("LODE_PNG_DECODER_H").setEnabled(event["value"])
+	event["source"].getSymbolByID("LODE_PNG_DECODER_C").setEnabled(event["value"])
+	

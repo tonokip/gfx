@@ -5,7 +5,7 @@ GFX_Result ${ProcInfoFunction}(GFX_ProcessorInfo* info);
 GFX_Result ${ProcInitFunction}(GFX_Context* context);
 
 </#if>
-GFX_Result GFX_InitializeDriverList()
+GFX_Result GFX_InitializeProcessorList()
 {
 <#if ProcInfoFunction?has_content>
     GFX_ProcessorInterfaces[0].infoGet = &${ProcInfoFunction};

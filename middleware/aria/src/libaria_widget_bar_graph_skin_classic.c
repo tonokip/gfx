@@ -11,6 +11,8 @@
 
 #include "gfx/libaria/inc/libaria_widget_skin_classic_common.h"
 
+#include <stdio.h>
+
 #define MAX_TICK_LABEL_DIGITS 10
 #define MAX_TICK_LABEL_VALUE 999999999
 #define LABEL_OFFSET_MIN_PIX 5
@@ -100,7 +102,7 @@ static void getValueLabelMaxDrawRect(laBarGraphWidget* graph, GFX_Rect * rect)
             //Protect from overflow
             if (graph->minValue > -MAX_TICK_LABEL_VALUE)
             {
-                sprintf(strbuff, "%d", graph->minValue);
+                sprintf(strbuff, "%ld", graph->minValue);
             }
             else
             {
@@ -117,7 +119,7 @@ static void getValueLabelMaxDrawRect(laBarGraphWidget* graph, GFX_Rect * rect)
         //Protect from overflow
         if (graph->maxValue < MAX_TICK_LABEL_VALUE) 
         {
-            sprintf(strbuff, "%d", graph->maxValue);
+            sprintf(strbuff, "%ld", graph->maxValue);
         } else 
         {
             sprintf(strbuff, "---");
@@ -181,7 +183,7 @@ static void drawTickLabelWithValue(laBarGraphWidget* graph, GFX_Point tickPoint,
     //Protect from overflow
     if (value < MAX_TICK_LABEL_VALUE)
     {
-        sprintf(strbuff, "%d", value);
+        sprintf(strbuff, "%ld", value);
     }
     else
     {

@@ -11,7 +11,7 @@
     This is a hardware-agnostic generated driver.  It can be used as a starting
 	point to create a hardware specific driver.
 
-    Created with MPLAB Harmony Version ${CONFIG_MPLAB_HARMONY_VERSION_STRING}
+    Created with MPLAB Harmony Version 3.0
 *******************************************************************************/
 //DOM-IGNORE-BEGIN
 /*******************************************************************************

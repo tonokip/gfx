@@ -1,4 +1,6 @@
 def instantiateComponent(comp):
+	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/lcc"
+	
 	HALConnected = comp.createBooleanSymbol("HALConnected", None)
 	HALConnected.setVisible(False)
 	HALConnected.setDependencies(onHALConnected, ["HALConnected"])
@@ -128,14 +130,14 @@ def instantiateComponent(comp):
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
 	GFX_LCC_C.setDestPath("gfx/driver")
 	GFX_LCC_C.setOutputName("drv_gfx_lcc.c")
-	GFX_LCC_C.setProjectPath("/gfx/driver/lcc/")
+	GFX_LCC_C.setProjectPath(projectPath)
 	GFX_LCC_C.setType("SOURCE")
 	GFX_LCC_C.setMarkup(True)
 	
 	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
 	GFX_LCC_H.setDestPath("gfx/driver")
 	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
-	GFX_LCC_H.setProjectPath("/gfx/driver/lcc/")
+	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 	GFX_LCC_H.setMarkup(True)
 	
