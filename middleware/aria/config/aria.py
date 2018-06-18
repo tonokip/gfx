@@ -13,8 +13,8 @@ def onDependentComponentAdded(aria, dependencyID, hal):
 	aria.setSymbolValue("displayHeight", hal.getSymbolValue("DisplayHeight"), 1)
 
 def onDependentComponentRemoved(aria, dependencyID, hal):
-	displayWidth.clearValue()
-	displayHeight.clearValue()
+	aria.clearSymbolValue("displayWidth")
+	aria.clearSymbolValue("displayHeight")
 	
 def onDemoModeEnable(enableDemoMode, event):
 	enableDemoMode.getComponent().getSymbolByID("demoModeRecordInput").setVisible(event["value"])
