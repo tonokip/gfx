@@ -9,9 +9,6 @@ def instantiateComponent(halComponent):
 	execfile(Module.getPath() + "/config/hal_files.py")
 	
 def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
-	print(dependencyID)
-	print(dependencyComponent.getID())
-	
 	if dependencyID == "gfx_display_driver":
 		halComponent.setSymbolValue("DriverInfoFunction", dependencyComponent.getSymbolValue("DriverInfoFunction"), 1)
 		halComponent.setSymbolValue("DriverInitFunction", dependencyComponent.getSymbolValue("DriverInitFunction"), 1)
@@ -22,11 +19,6 @@ def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
 		updateDisplayValues(halComponent, dependencyComponent)
 	
 def onDependentComponentRemoved(halComponent, dependencyID, dependencyComponent):
-	print(dependencyID)
-	print(dependencyComponent.getID())
-	
-	print("foobar")
-	
 	if dependencyID == "gfx_display_driver":
 		halComponent.clearSymbolValue("DriverInfoFunction")
 		halComponent.clearSymbolValue("DriverInitFunction")

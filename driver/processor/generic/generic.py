@@ -1,2 +1,2 @@
 def instantiateComponent(ctrlComponent):
-	print("yo")
+	print("Instantiated generic driver component")

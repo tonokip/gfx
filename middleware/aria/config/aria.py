@@ -9,12 +9,10 @@ def instantiateComponent(component):
 	execfile(Module.getPath() + "/config/aria_files.py")
 
 def onDependentComponentAdded(aria, dependencyID, hal):
-	#print("lo here")
 	aria.setSymbolValue("displayWidth", hal.getSymbolValue("DisplayWidth"), 1)
 	aria.setSymbolValue("displayHeight", hal.getSymbolValue("DisplayHeight"), 1)
 
 def onDependentComponentRemoved(aria, dependencyID, hal):
-	print("lo there")
 	displayWidth.clearValue()
 	displayHeight.clearValue()
 	
@@ -34,11 +32,9 @@ def onRTOSEnable(useRTOS, event):
 	useRTOS.getComponent().getSymbolByID("rtosTaskDelay").setVisible(event["value"])
 	
 def onDisplayWidthChanged(displayWidth, event):
-	#print("here")
 	displayWidth.setValue(event["value"], 1)
 	
 def onDisplayHeightChanged(displayHeight, event):
-	#print("there")
 	displayHeight.setValue(event["value"], 1)
 	
 def onEnableInputChanged(enableInput, event):
