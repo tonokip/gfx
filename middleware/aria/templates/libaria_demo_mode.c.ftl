@@ -37,16 +37,21 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 // DOM-IGNORE-END
 
+#include "system/time/sys_time.h"
 #include "gfx/libaria/libaria_harmony.h"
 #include "gfx/libaria/libaria_demo_mode.h"
 #include "gfx/libaria/libaria.h"
+
+<#if Harmony.ENABLE_APP_FILE == true>
+#include "app.h"
+</#if>
 
 typedef enum
 {
     DEMO_TASK_INIT = 0,
     DEMO_INIT,
     DEMO_RECORDING,
-    DEMO_IDLE,            
+    DEMO_IDLE,
     DEMO_STARTING,
     DEMO_RUNNING,
     DEMO_RESTARTING,
@@ -66,7 +71,7 @@ typedef struct
 typedef struct
 {
     LIBARIA_DEMO_MODE_STATE state;
-<#if enableDemoMode == true>
+<#if demoModeRecordInput == true>
     laBool recordEnabled;
 </#if>
     uint32_t prevEventTick;
@@ -76,33 +81,33 @@ typedef struct
     uint32_t numEvents;
     uint32_t maxEvents;
     int32_t pendingEvent;
-    SYS_TMR_HANDLE demoRunTimer;
-    SYS_TMR_HANDLE demoTimeoutTimer;
-    SYS_TMR_HANDLE recordTickTimer;
+    SYS_TIME_HANDLE demoRunTimer;
+    SYS_TIME_HANDLE demoTimeoutTimer;
+    SYS_TIME_HANDLE recordTickTimer;
     LIBARIA_DEMO_EVENT_t demoEvents[MAX_DEMO_EVENTS];
 } LIBARIA_DEMO_EVENTS_t;
 
 static LIBARIA_DEMO_EVENTS_t demoModeEvents;
-<#if ARIA_USE_SYSINPUT?? && ARIA_USE_SYSINPUT == true>
+<#if enableInput == true>
 static SYS_INP_InputListener inputListener;
 </#if>
 
-static void LibAria_RestartDemoModeTimerCallback(uintptr_t context, uint32_t currTick)
+static void LibAria_RestartDemoModeTimerCallback(uintptr_t context)
 {
     LibAria_DemoModeSendEvent(DEMO_EVENT_START);
 }
-static void LibAria_DemoModeRunTimerCallback(uintptr_t context, uint32_t currTick)
+static void LibAria_DemoModeRunTimerCallback(uintptr_t context)
 {
     LibAria_DemoModeSendEvent(DEMO_EVENT_NEXT_EVENT);
 }
 
-static void LibAria_DemoModeStartTimerCallback (uintptr_t context, uint32_t currTick)
+static void LibAria_DemoModeStartTimerCallback (uintptr_t context)
 {
     LibAria_DemoModeSendEvent(DEMO_EVENT_START);
 }
 
 <#if demoModeRecordInput == true>
-static void LibAria_DemoModeRecordTickTimerCallback (uintptr_t context, uint32_t currTick)
+static void LibAria_DemoModeRecordTickTimerCallback (uintptr_t context)
 {
     demoModeEvents.recordTicks++;
 }
@@ -159,10 +164,10 @@ static void LibAria_LoadDefaultEvents(void)
     // ex. LibAria_DemoModeAddInputEvent(delay, index, event, x, y);
 }
 
-<#if enableInput?? && enableInput == true>
+<#if enableInput == true>
 void LibAria_DemoModeTouchDownHandler(const SYS_INP_TouchStateEvent* const evt)
 {
-<#if ARIA_DEMO_MODE_RECORD == true>
+<#if demoModeRecordInput == true>
     LibAria_DemoModeRecordInputEvent(DEMO_MODE_INPUT_PRESS, evt->index, evt->x, evt->y);
 </#if>
     LibAria_DemoModeSendEvent(DEMO_EVENT_INPUT);
@@ -170,7 +175,7 @@ void LibAria_DemoModeTouchDownHandler(const SYS_INP_TouchStateEvent* const evt)
 
 void LibAria_DemoModeTouchUpHandler(const SYS_INP_TouchStateEvent* const evt)
 {
-<#if ARIA_DEMO_MODE_RECORD == true>
+<#if demoModeRecordInput == true>
     LibAria_DemoModeRecordInputEvent(DEMO_MODE_INPUT_RELEASE, evt->index, evt->x, evt->y);
 </#if>
     LibAria_DemoModeSendEvent(DEMO_EVENT_INPUT);
@@ -178,7 +183,7 @@ void LibAria_DemoModeTouchUpHandler(const SYS_INP_TouchStateEvent* const evt)
 
 void LibAria_DemoModeTouchMoveHandler(const SYS_INP_TouchMoveEvent* const evt)
 {
-<#if ARIA_DEMO_MODE_RECORD == true>
+<#if demoModeRecordInput == true>
     LibAria_DemoModeRecordInputEvent(DEMO_MODE_INPUT_MOVE, evt->index, evt->x, evt->y);
 </#if>
     LibAria_DemoModeSendEvent(DEMO_EVENT_INPUT);
@@ -221,10 +226,11 @@ void LibAria_DemoModeProcessEvents(void)
 </#if>
             
             //Start timeout timer
-            demoModeEvents.demoTimeoutTimer = SYS_TMR_CallbackSingle(
-                                                 demoModeEvents.idleTimeOutMSECS,
-                                                 (uintptr_t) & demoModeEvents,
-                                                 LibAria_DemoModeStartTimerCallback);
+            demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
+                                              (LibAria_DemoModeStartTimerCallback,
+                                              (uintptr_t) & demoModeEvents,
+                                              demoModeEvents.idleTimeOutMSECS,
+                                              SYS_TIME_SINGLE);
             break;
         }
 <#if demoModeRecordInput == true>
@@ -244,11 +250,14 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
                 
                 //Restart the idle timeout timer
-                SYS_TMR_ObjectDelete(demoModeEvents.demoTimeoutTimer);
-                demoModeEvents.demoTimeoutTimer = SYS_TMR_CallbackSingle(
-                        demoModeEvents.idleTimeOutMSECS,
-                        (uintptr_t) & demoModeEvents,
-                        LibAria_DemoModeStartTimerCallback);
+                if (demoModeEvents.demoTimeoutTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
+                
+                demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeStartTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
+                                                demoModeEvents.idleTimeOutMSECS,
+                                                SYS_TIME_SINGLE);
                 
                 demoModeEvents.state = DEMO_RECORDING;
             }
@@ -277,11 +286,14 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags &= ~DEMO_EVENT_INPUT;
                 
                 //Restart the idle timeout timer
-                SYS_TMR_ObjectDelete(demoModeEvents.demoTimeoutTimer);
-                demoModeEvents.demoTimeoutTimer = SYS_TMR_CallbackSingle(
-                                        demoModeEvents.idleTimeOutMSECS,
-                                        (uintptr_t) &demoModeEvents,
-                                        LibAria_DemoModeStartTimerCallback);
+                if (demoModeEvents.demoTimeoutTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
+                
+                demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeStartTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
+                                                demoModeEvents.idleTimeOutMSECS,
+                                                SYS_TIME_SINGLE);  
                 
                 demoModeEvents.state = DEMO_IDLE;
             }
@@ -308,20 +320,25 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.pendingEvent = 0;
                 
                 // Initialize app and switch to first screen
-			<#if CONFIG_APP_IDX_0?has_content>
-				${CONFIG_APP_NAME_0?upper_case}_Initialize();
-			<#else>
-				APP_Initialize();
-			</#if>
+<#if Harmony.ENABLE_APP_FILE == true>
+<#if CONFIG_APP_IDX_0?has_content>
+                ${CONFIG_APP_NAME_0?upper_case}_Initialize();
+<#else>
+                APP_Initialize();
+</#if>
+</#if>
                 laContext_SetActiveScreen(0);
 
                 currEvent = &demoModeEvents.demoEvents[0];
 
-                SYS_TMR_ObjectDelete(demoModeEvents.demoRunTimer);
-                demoModeEvents.demoRunTimer = SYS_TMR_CallbackSingle(
+                if (demoModeEvents.demoRunTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+                
+                demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeRunTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
                                                 currEvent->delayMSECS,
-                                                (uintptr_t) &demoModeEvents,
-                                                LibAria_DemoModeRunTimerCallback);
+                                                SYS_TIME_SINGLE);
                 
                 demoModeEvents.state = DEMO_RUNNING;
             }
@@ -334,9 +351,18 @@ void LibAria_DemoModeProcessEvents(void)
         }
         case DEMO_STOPPING:
         {
-            SYS_TMR_ObjectDelete(demoModeEvents.demoTimeoutTimer);
-            SYS_TMR_ObjectDelete(demoModeEvents.demoRunTimer);
-            SYS_TMR_ObjectDelete(demoModeEvents.recordTickTimer);
+            if (demoModeEvents.demoTimeoutTimer != 0)
+                SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
+
+            if (demoModeEvents.demoRunTimer != 0)
+                SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+
+            if (demoModeEvents.recordTickTimer != 0)
+                SYS_TIME_TimerDestroy(demoModeEvents.recordTickTimer);
+
+            demoModeEvents.demoTimeoutTimer = 0;
+            demoModeEvents.demoRunTimer = 0;
+            demoModeEvents.recordTickTimer = 0;
             
             demoModeEvents.state = DEMO_STOPPED;
         }
@@ -359,20 +385,26 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
                 
                 //Restart the idle timeout timer
-                SYS_TMR_ObjectDelete(demoModeEvents.demoRunTimer);
-                SYS_TMR_ObjectDelete(demoModeEvents.demoTimeoutTimer);
-                demoModeEvents.demoTimeoutTimer = SYS_TMR_CallbackSingle(
-                                        demoModeEvents.idleTimeOutMSECS,
-                                        (uintptr_t) &demoModeEvents,
-                                        LibAria_DemoModeStartTimerCallback);
+                if (demoModeEvents.demoRunTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+
+                demoModeEvents.demoRunTimer = 0;
+
+                if (demoModeEvents.demoTimeoutTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
+                
+                demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeStartTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
+                                                demoModeEvents.idleTimeOutMSECS,
+                                                SYS_TIME_SINGLE); 
                 
                 demoModeEvents.state = DEMO_IDLE;
             }
-            
+
             if (demoModeEvents.demoEventFlags & DEMO_EVENT_STOP)
             {
                 demoModeEvents.demoEventFlags = 0;
-
                 demoModeEvents.state = DEMO_STOPPING;
                 break;
             }
@@ -405,19 +437,28 @@ void LibAria_DemoModeProcessEvents(void)
                 if (demoModeEvents.pendingEvent >= demoModeEvents.numEvents) 
                 {
                     demoModeEvents.state = DEMO_RESTARTING;
-                    demoModeEvents.demoRunTimer = SYS_TMR_CallbackSingle(
+
+                    if (demoModeEvents.demoRunTimer != 0)
+                        SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+
+                    demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_RestartDemoModeTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
                                                 (DEMO_REPEAT_TIMEOUT_S*1000),
-                                                (uintptr_t) &demoModeEvents,
-                                                LibAria_RestartDemoModeTimerCallback);
+                                                SYS_TIME_SINGLE);   
                 }
                 else 
                 {
                     nextEvent = &demoModeEvents.demoEvents[demoModeEvents.pendingEvent];
-                    SYS_TMR_ObjectDelete(demoModeEvents.demoRunTimer);
-                    demoModeEvents.demoRunTimer = SYS_TMR_CallbackSingle(
-                                            nextEvent->delayMSECS,
-                                            (uintptr_t) & demoModeEvents,
-                                            LibAria_DemoModeRunTimerCallback);
+
+                    if (demoModeEvents.demoRunTimer != 0)
+                         SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+                    
+                    demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeRunTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
+                                                nextEvent->delayMSECS,
+                                                SYS_TIME_SINGLE); 
                     
                     demoModeEvents.state = DEMO_RUNNING;
                 }
@@ -439,12 +480,19 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
 
                 //Restart the idle timeout timer
-                SYS_TMR_ObjectDelete(demoModeEvents.demoRunTimer);
-                SYS_TMR_ObjectDelete(demoModeEvents.demoTimeoutTimer);
-                demoModeEvents.demoTimeoutTimer = SYS_TMR_CallbackSingle(
-                                        demoModeEvents.idleTimeOutMSECS,
-                                        (uintptr_t) &demoModeEvents,
-                                        LibAria_DemoModeStartTimerCallback);
+                if (demoModeEvents.demoRunTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
+
+                demoModeEvents.demoRunTimer = 0;
+
+                if (demoModeEvents.demoTimeoutTimer != 0)
+                    SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
+
+                demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
+                                                (LibAria_DemoModeStartTimerCallback,
+                                                (uintptr_t) & demoModeEvents,
+                                                demoModeEvents.idleTimeOutMSECS,
+                                                SYS_TIME_SINGLE);      
 
                 demoModeEvents.state = DEMO_IDLE;
             }
@@ -454,7 +502,7 @@ void LibAria_DemoModeProcessEvents(void)
         //One time demo mode task initialization
         case DEMO_TASK_INIT:
         {
-<#if ARIA_USE_SYSINPUT?? && ARIA_USE_SYSINPUT == true>
+<#if enableInput == true>
             SYS_INP_ListenerInit(&inputListener);
 
             inputListener.handleTouchDown = &LibAria_DemoModeTouchDownHandler;
