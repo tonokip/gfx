@@ -1,3 +1,4 @@
+#include "gfx/utils/gfxu_config.h"
 #include "gfx/utils/inc/gfxu_image.h"
 #include "gfx/utils/inc/gfxu_image_utils.h"
 
