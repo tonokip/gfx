@@ -109,8 +109,8 @@ GFX_Result cpuDrawEllipse_Line(const GFX_Point* pt,
     int32_t sa = startAngle;
     GFX_Point p;
     static GFX_Point lp = {0,0};
-    bool layerClip = true;
-    bool rectClip = true;
+    GFX_Bool layerClip = GFX_TRUE;
+    GFX_Bool rectClip = GFX_TRUE;
 
     while (sa != (startAngle + centerAngle))
     {
@@ -122,7 +122,7 @@ GFX_Result cpuDrawEllipse_Line(const GFX_Point* pt,
 #if GFX_LAYER_CLIPPING_ENABLED
         if(GFX_RectContainsPoint(&state->targetClipRect, &p) == GFX_FALSE)
         {
-            layerClip = false;
+            layerClip = GFX_FALSE;
         }
 #endif
     
@@ -131,10 +131,10 @@ GFX_Result cpuDrawEllipse_Line(const GFX_Point* pt,
         if((state->clipEnable == GFX_TRUE) && 
             GFX_RectContainsPoint(&state->clipRect, &p) == GFX_FALSE)
         {
-            rectClip = false;
+            rectClip = GFX_FALSE;
         }
 #endif
-        if (layerClip == true && rectClip == true)
+        if (layerClip == GFX_TRUE && rectClip == GFX_TRUE)
         {
             state->pipeline->drawPixel[GFX_ANTIALIAS_OFF](&p, state);
 
