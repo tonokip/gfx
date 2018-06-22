@@ -44,14 +44,6 @@ def instantiateComponent(comp):
 	#PixelSupportLevel.setReadOnly(True)
 	#PixelSupportLevel.setDescription("The total number of pixels expected to be supportable.")
 	
-	DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", None)
-	DoubleBuffer.setLabel("Use Double Buffering?")
-	DoubleBuffer.setDescription("<html>Uses an additional buffer for off-screen drawing.<br>Eliminates screen tearing but doubles the required memory.</html>")
-	
-	PaletteMode = comp.createBooleanSymbol("PaletteMode", None)
-	PaletteMode.setLabel("Use 8-bit Palette?")
-	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
-	
 	LCCRefresh = comp.createBooleanSymbol("LCCRefresh", None)
 	LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
 	LCCRefresh.setDescription("<html>Indicates that the LCC refresh loop should attempt<br>to aggresively refresh the display.  May cause<br>display artifacts but is needed for some larger displays.</html>")
@@ -104,6 +96,28 @@ def instantiateComponent(comp):
 	DisplayChipSelectPolarity.setDescription("Indicates if this display chip select line should be positive.")
 	DisplayChipSelectPolarity.setDefaultValue(True)
 	
+	FrameBufferSettingsMenu = comp.createMenuSymbol("FrameBufferSettingsMenu", None)
+	FrameBufferSettingsMenu.setLabel("Frame Buffer Settings")
+
+	DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", FrameBufferSettingsMenu)
+	DoubleBuffer.setLabel("Use Double Buffering?")
+	DoubleBuffer.setDescription("<html>Uses an additional buffer for off-screen drawing.<br>Eliminates screen tearing but doubles the required memory.</html>")
+
+	PaletteMode = comp.createBooleanSymbol("PaletteMode", FrameBufferSettingsMenu)
+	PaletteMode.setLabel("Use 8-bit Palette?")
+	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
+
+	UseCachedFrameBuffer = comp.createBooleanSymbol("UseCachedFrameBuffer", FrameBufferSettingsMenu)
+	UseCachedFrameBuffer.setLabel("Uses Cache?")
+	UseCachedFrameBuffer.setDescription("Specifies if frame buffer is cached and needs to be managed by the LCC driver.")
+	UseCachedFrameBuffer.setDefaultValue(True)
+	UseCachedFrameBuffer.setDependencies(OnCacheEnabled, ["core.DATA_CACHE_ENABLE"])
+
+	FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM", "External SDRAM"])
+	FrameBufferMemory.setLabel("Memory Interface")
+	FrameBufferMemory.setDescription("Memory used for Frame Buffer")
+	FrameBufferMemory.setDefaultValue("Internal SRAM")
+	
 	DMAMenu = comp.createMenuSymbol("DMAMenu", None)
 	DMAMenu.setLabel("DMA Settings")
 	
@@ -122,31 +136,41 @@ def instantiateComponent(comp):
 	IntPriority.setMin(0)
 	IntPriority.setMax(7)
 
-	#temporary config symbol, need to find what replaced CONFIG_PROJECT_USES_CACHE in H3
-	ProjectUsesCache = comp.createBooleanSymbol("ProjectUsesCache", None)
-	
-	
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
-	GFX_LCC_C.setDestPath("gfx/driver")
+	GFX_LCC_C.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_C.setOutputName("drv_gfx_lcc.c")
 	GFX_LCC_C.setProjectPath(projectPath)
 	GFX_LCC_C.setType("SOURCE")
 	GFX_LCC_C.setMarkup(True)
 	
 	GFX_LCC_H = comp.createFileSymbol("GFX_LCC_H", None)
-	GFX_LCC_H.setDestPath("gfx/driver")
+	GFX_LCC_H.setDestPath("gfx/driver/controller/lcc/")
 	GFX_LCC_H.setOutputName("drv_gfx_lcc.h")
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 	GFX_LCC_H.setMarkup(True)
 	
-	if Variables.get("__PROCESSOR") == "PIC32CZ2038CA70144":
-		GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic_pic32c.c.ftl")
-		GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic_pic32c.h.ftl")
-	else:
+	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", None)
+	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
+	EBIChipSelectIndex.setDescription("The chip select index")	
+	EBIChipSelectIndex.setMin(0)
+	EBIChipSelectIndex.setMax(4)
+	EBIChipSelectIndex.setDefaultValue(0)
+
+	if Variables.get("__PROCESSOR") == "ATSAME70Q21B":
 		GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic.c.ftl")
 		GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
+		
+	# Use and configure XDMAC channel 0 for now
+	#print(" XDMAC_CC0_DAM = " + str(Database.getSymbolValue("core", "XDMAC_CC0_DAM")))
+	# Database.setSymbolValue("core", "XDMAC_CH0_ENABLE", True, 1)
+	# Database.setSymbolValue("core", "XDMAC_CC0_DAM", "FIXED_AM", 1)
+	# Database.setSymbolValue("core", "XDMAC_CC0_DWIDTH", "HALFWORD", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CH0_ENABLE").setValue(True, 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC0_DAM").setSelectedKey("FIXED_AM", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC0_DWIDTH").setSelectedKey("HALFWORD", 1)
+	print(" Done ")
 		
 def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
@@ -156,3 +180,28 @@ def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("PaletteMode").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("LCCRefresh").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DisplaySettingsMenu").setVisible(event["value"] == False)
+	
+def configureSMCComponent(lccComponent, smcComponent):
+	print("Configuring SMC")
+	smcChipSelNum = lccComponent.getSymbolValue("EBIChipSelectIndex")
+	smcComponent.setSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum), True, 1)
+	smcComponent.setSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum), False, 1)
+	smcComponent.setSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum), 1, 1)
+	smcComponent.setSymbolValue("SMC_NCS_WR_SETUP_CS" + str(smcChipSelNum), 0, 1)
+	smcComponent.setSymbolValue("SMC_NWE_PULSE_CS" + str(smcChipSelNum), 3, 1)
+	smcComponent.setSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum), 3, 1)
+	smcComponent.setSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum), 1, 1)
+	smcComponent.setSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum), False, 1)
+
+def onDependentComponentAdded(lccComponent, dependencyID, dependencyComponent):
+	print(dependencyID + " component added")
+	if dependencyID == "SMC":
+		configureSMCComponent(lccComponent, dependencyComponent)
+	
+def onDependentComponentRemoved(comp, dependencyID, dependencyComponent):
+	print(dependencyID + " component removed")
+	
+def OnCacheEnabled(cacheEnabled, event):
+	print("cache enabled")
+	cacheEnabled.getComponent().setSymbolValue("UseCachedFrameBuffer", event["value"] == True, 1)
+	print("UseCachedFrameBuffer enabled")

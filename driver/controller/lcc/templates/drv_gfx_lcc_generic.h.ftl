@@ -48,9 +48,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/hal/inc/gfx_driver_interface.h"
 #include "gfx/hal/inc/gfx_default_impl.h"
 
-#include "system/dma/sys_dma.h"
-#include "system/int/sys_int.h"
-
 #ifdef __cplusplus
     extern "C" {
 #endif
