@@ -22,6 +22,8 @@ def onDemoModeEnable(enableDemoMode, event):
 	enableDemoMode.getComponent().getSymbolByID("demoModeMaxEvents").setVisible(event["value"])
 	enableDemoMode.getComponent().getSymbolByID("demoModeIdleTimeout").setVisible(event["value"])
 	enableDemoMode.getComponent().getSymbolByID("demoModeReplayDelay").setVisible(event["value"])
+	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_H").setEnabled(event["value"])
+	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_C").setEnabled(event["value"])
 	
 def onRTOSEnable(useRTOS, event):
 	useRTOS.getComponent().getSymbolByID("useRTOSExtensions").setVisible(event["value"])
