@@ -2,7 +2,7 @@ def instantiateComponent(comp):
 	Name = comp.createStringSymbol("Name", None)
 	Name.setLabel("Name")
 	Name.setDescription("The display name.")
-	Name.setDefaultValue("PDA TM4301B 4.3-inch 480x272 (WQVGA) with PCAP")
+	Name.setDefaultValue("PDA TM4301B")
 	Name.setReadOnly(True)
 	
 	DisplayWidth = comp.createIntegerSymbol("DisplayWidth", None)
