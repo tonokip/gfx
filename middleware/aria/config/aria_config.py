@@ -25,6 +25,11 @@ useAcceleration = component.createBooleanSymbol("useAcceleration", libraryOption
 useAcceleration.setLabel("Enable Display Accleration?")
 useAcceleration.setDescription("<html>Enables graphics acceleration pipeline <b>if available<b>.")
 
+useGlobalPalette = component.createBooleanSymbol("useGlobalPalette", libraryOptionsMenu)
+useGlobalPalette.setLabel("Enable Global Palette Mode?")
+useGlobalPalette.setDescription("Enables global palette mode.")
+useGlobalPalette.setDependencies(onUseGlobalPaletteChanged, ["useGlobalPalette"])
+
 codeGenerationMenu = component.createMenuSymbol("codeGenerationMenu", None)
 codeGenerationMenu.setLabel("Code Generator Options")
 

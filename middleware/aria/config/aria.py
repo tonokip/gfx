@@ -11,10 +11,16 @@ def instantiateComponent(component):
 def onDependentComponentAdded(aria, dependencyID, hal):
 	aria.setSymbolValue("displayWidth", hal.getSymbolValue("DisplayWidth"), 1)
 	aria.setSymbolValue("displayHeight", hal.getSymbolValue("DisplayHeight"), 1)
+	
+	hal.setSymbolValue("GlobalPaletteModeHint", aria.getSymbolValue("useGlobalPalette"), 1)
+	hal.setSymbolValue("DisableGlobalPaletteModeHint", True, 1)
 
 def onDependentComponentRemoved(aria, dependencyID, hal):
 	aria.clearSymbolValue("displayWidth")
 	aria.clearSymbolValue("displayHeight")
+	
+	hal.clearSymbolValue("GlobalPaletteModeHint")
+	hal.clearSymbolValue("DisableGlobalPaletteModeHint")
 	
 def onDemoModeEnable(enableDemoMode, event):
 	enableDemoMode.getComponent().getSymbolByID("demoModeRecordInput").setVisible(event["value"])
@@ -62,3 +68,7 @@ def onPNGEnableChanged(JPEGEnable, event):
 	event["source"].getSymbolByID("LODE_PNG_DECODER_H").setEnabled(event["value"])
 	event["source"].getSymbolByID("LODE_PNG_DECODER_C").setEnabled(event["value"])
 	
+def onUseGlobalPaletteChanged(useGlobalPalette, event):
+	# connected to HAL, update the global palette hint
+	if event["source"].getDependencyComponent("gfx_hal") != None:
+		Database.setSymbolValue("gfx_hal", "GlobalPaletteModeHint", event["value"], 1)

@@ -1,6 +1,6 @@
 GAC_ASSETS_PATH = component.createStringSymbol("GAC_ASSETS_PATH", None)
 GAC_ASSETS_PATH.setVisible(False)
-GAC_ASSETS_PATH.setDefaultValue(Variables.get("__CONFIGURATION_NAME") + "/gfx/")
+GAC_ASSETS_PATH.setDefaultValue("/gfx/")
 
 LIBARIA_HARMONY_H = component.createFileSymbol("LIBARIA_HARMONY_H", None)
 LIBARIA_HARMONY_H.setSourcePath("templates/libaria_harmony.h.ftl")
