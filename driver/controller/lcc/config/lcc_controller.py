@@ -158,10 +158,9 @@ def instantiateComponent(comp):
 	EBIChipSelectIndex.setMax(4)
 	EBIChipSelectIndex.setDefaultValue(0)
 
-	if Variables.get("__PROCESSOR") == "ATSAME70Q21B":
-		GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic.c.ftl")
-		GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
-		
+	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic.c.ftl")
+	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
+
 	# Use and configure XDMAC channel 0 for now
 	#print(" XDMAC_CC0_DAM = " + str(Database.getSymbolValue("core", "XDMAC_CC0_DAM")))
 	# Database.setSymbolValue("core", "XDMAC_CH0_ENABLE", True, 1)

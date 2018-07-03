@@ -4,5 +4,4 @@ def loadModule():
 	cntlComponent.addDependency("sys_dma", "sys_dma", True)
 	cntlComponent.addDependency("sys_int", "sys_int", True)
 	cntlComponent.addCapability("gfx_driver_lcc", "Display Driver", False)
-	if Variables.get("__PROCESSOR") == "ATSAME70Q21B":
-		cntlComponent.addDependency("SMC", "SMC", False)
+	cntlComponent.addDependency("SMC", "SMC", False)
