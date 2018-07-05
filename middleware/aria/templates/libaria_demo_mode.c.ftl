@@ -204,6 +204,9 @@ void LibAria_DemoModeProcessEvents(void)
             demoModeEvents.maxEvents = MAX_DEMO_EVENTS;
             demoModeEvents.pendingEvent = 0;
             demoModeEvents.demoEventFlags = 0;
+            demoModeEvents.demoRunTimer = SYS_TIME_HANDLE_INVALID;
+            demoModeEvents.demoTimeoutTimer = SYS_TIME_HANDLE_INVALID;
+            demoModeEvents.recordTickTimer = SYS_TIME_HANDLE_INVALID;
 
 <#if demoModeRecordInput == true>
             // Recording is enabled
@@ -250,7 +253,7 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
                 
                 //Restart the idle timeout timer
-                if (demoModeEvents.demoTimeoutTimer != 0)
+                if (demoModeEvents.demoTimeoutTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
                 
                 demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
@@ -286,7 +289,7 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags &= ~DEMO_EVENT_INPUT;
                 
                 //Restart the idle timeout timer
-                if (demoModeEvents.demoTimeoutTimer != 0)
+                if (demoModeEvents.demoTimeoutTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
                 
                 demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
@@ -331,7 +334,7 @@ void LibAria_DemoModeProcessEvents(void)
 
                 currEvent = &demoModeEvents.demoEvents[0];
 
-                if (demoModeEvents.demoRunTimer != 0)
+                if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
                 
                 demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
@@ -351,18 +354,18 @@ void LibAria_DemoModeProcessEvents(void)
         }
         case DEMO_STOPPING:
         {
-            if (demoModeEvents.demoTimeoutTimer != 0)
+            if (demoModeEvents.demoTimeoutTimer != SYS_TIME_HANDLE_INVALID)
                 SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
 
-            if (demoModeEvents.demoRunTimer != 0)
+            if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                 SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
 
-            if (demoModeEvents.recordTickTimer != 0)
+            if (demoModeEvents.recordTickTimer != SYS_TIME_HANDLE_INVALID)
                 SYS_TIME_TimerDestroy(demoModeEvents.recordTickTimer);
 
-            demoModeEvents.demoTimeoutTimer = 0;
-            demoModeEvents.demoRunTimer = 0;
-            demoModeEvents.recordTickTimer = 0;
+            demoModeEvents.demoTimeoutTimer = SYS_TIME_HANDLE_INVALID;
+            demoModeEvents.demoRunTimer = SYS_TIME_HANDLE_INVALID;
+            demoModeEvents.recordTickTimer = SYS_TIME_HANDLE_INVALID;
             
             demoModeEvents.state = DEMO_STOPPED;
         }
@@ -385,12 +388,12 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
                 
                 //Restart the idle timeout timer
-                if (demoModeEvents.demoRunTimer != 0)
+                if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
 
-                demoModeEvents.demoRunTimer = 0;
+                demoModeEvents.demoRunTimer = SYS_TIME_HANDLE_INVALID;
 
-                if (demoModeEvents.demoTimeoutTimer != 0)
+                if (demoModeEvents.demoTimeoutTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
                 
                 demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
@@ -438,7 +441,7 @@ void LibAria_DemoModeProcessEvents(void)
                 {
                     demoModeEvents.state = DEMO_RESTARTING;
 
-                    if (demoModeEvents.demoRunTimer != 0)
+                    if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                         SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
 
                     demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
@@ -451,7 +454,7 @@ void LibAria_DemoModeProcessEvents(void)
                 {
                     nextEvent = &demoModeEvents.demoEvents[demoModeEvents.pendingEvent];
 
-                    if (demoModeEvents.demoRunTimer != 0)
+                    if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                          SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
                     
                     demoModeEvents.demoRunTimer = SYS_TIME_CallbackRegisterMS
@@ -480,12 +483,12 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.demoEventFlags = 0;
 
                 //Restart the idle timeout timer
-                if (demoModeEvents.demoRunTimer != 0)
+                if (demoModeEvents.demoRunTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoRunTimer);
 
-                demoModeEvents.demoRunTimer = 0;
+                demoModeEvents.demoRunTimer = SYS_TIME_HANDLE_INVALID;
 
-                if (demoModeEvents.demoTimeoutTimer != 0)
+                if (demoModeEvents.demoTimeoutTimer != SYS_TIME_HANDLE_INVALID)
                     SYS_TIME_TimerDestroy(demoModeEvents.demoTimeoutTimer);
 
                 demoModeEvents.demoTimeoutTimer = SYS_TIME_CallbackRegisterMS
