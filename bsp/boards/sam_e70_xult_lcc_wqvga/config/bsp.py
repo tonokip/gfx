@@ -1,6 +1,16 @@
-def instantiateComponent(bspComponent):
-	BSP_NAME = "sam_e70_xult_lcc_wqvga"
-	
+def activateComponents(bspComponent):
+	print("hello world")
+	componentIDTable = ["smc0", "gfx_hal", "smc0", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
+	autoConnectTable = [["gfx_driver_lcc", "SMC", "smc0", "SMC_0"],
+					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
+					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display_1"],
+					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
+
+	res = Database.activateComponents(componentIDTable)
+	res = Database.connectDependencies(autoConnectTable)
+
+
+def configurePins(bspComponent):
 	pinConfigs = [{"pin": 11, "name": "EBI_D0", "type": "EBI_DO", "direction": "", "latch": ""},
 				{"pin": 38, "name": "EBI_D1", "type": "EBI_D1", "direction": "", "latch": ""},
 				{"pin": 39, "name": "EBI_D2", "type": "EBI_D2", "direction": "", "latch": ""},
@@ -23,7 +33,6 @@ def instantiateComponent(bspComponent):
 				{"pin": 67, "name": "BSP_LCD_VSYNC", "type": "GPIO", "direction": "Out", "latch": "High"},
 				{"pin": 86, "name": "BSP_LCD_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High"},
 				{"pin": 94, "name": "BSP_LCD_DE", "type": "GPIO", "direction": "Out", "latch": "High"},
-				{"pin": 94, "name": "BSP_LCD_DE", "type": "GPIO", "direction": "Out", "latch": "High"},
 				]
 				
 	for pinConfig in pinConfigs:
@@ -38,6 +47,12 @@ def instantiateComponent(bspComponent):
 		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR", pinConfig["direction"])
 		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT", pinConfig["latch"])
 
+def instantiateComponent(bspComponent):
+	BSP_NAME = "sam_e70_xult_lcc_wqvga"
+	
+	configurePins(bspComponent)
+	# activateComponents(bspComponent)
+	
 	pinTypes = []
 	pinAttributs = []
 	
