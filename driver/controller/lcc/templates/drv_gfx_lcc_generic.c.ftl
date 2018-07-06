@@ -106,7 +106,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 </#if> 
 
 <#if FrameBufferMemory == "External SDRAM">
-#define FRAMEBUFFER_BASE_ADDR 0x70000000
+#define FRAMEBUFFER_BASE_ADDR SDRAM_CS_ADDR
 </#if>
 
 <#if Val_PaletteMode == true>
