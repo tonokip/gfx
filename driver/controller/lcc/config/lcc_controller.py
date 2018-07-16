@@ -162,15 +162,13 @@ def instantiateComponent(comp):
 	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
 
 	# Use and configure XDMAC channel 0 for now
-	#print(" XDMAC_CC0_DAM = " + str(Database.getSymbolValue("core", "XDMAC_CC0_DAM")))
-	# Database.setSymbolValue("core", "XDMAC_CH0_ENABLE", True, 1)
-	# Database.setSymbolValue("core", "XDMAC_CC0_DAM", "FIXED_AM", 1)
-	# Database.setSymbolValue("core", "XDMAC_CC0_DWIDTH", "HALFWORD", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CH0_ENABLE").setValue(True, 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC0_DAM").setSelectedKey("FIXED_AM", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC0_DWIDTH").setSelectedKey("HALFWORD", 1)
-	print(" Done ")
-		
+	DMA_CHANNEL = 0
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CH" + str(DMA_CHANNEL) + "_ENABLE").setValue(True, 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(DMA_CHANNEL) + "_DAM").setSelectedKey("FIXED_AM", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(DMA_CHANNEL) + "_DWIDTH").setSelectedKey("HALFWORD", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(DMA_CHANNEL) + "_SIF").setSelectedKey("AHB_IF0", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(DMA_CHANNEL) + "_MBSIZE").setSelectedKey("SIXTEEN", 1)
+
 def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
 	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
