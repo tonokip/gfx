@@ -77,6 +77,8 @@ typedef struct laCircleWidget_t
     int32_t x; // the origin x cooridnate
     int32_t y; // the origin y coordinate
     int32_t radius; // the radius of the circle
+    int32_t thickness; // the thickness of the circle outline
+    laBool filled; // fills the circle area 
 } laCircleWidget;
 
 void _laCircleWidget_Constructor(laCircleWidget* cir);
@@ -201,6 +203,92 @@ LIB_EXPORT uint32_t laCircleWidget_GetRadius(laCircleWidget* cir);
     
 */
 LIB_EXPORT laResult laCircleWidget_SetRadius(laCircleWidget* cir, uint32_t rad);
+
+// *****************************************************************************
+/* Function:
+    uint32_t laCircleWidget_GetThickness(laCircleWidget* cir)
+
+  Summary:
+    Gets the thickness of a circle widget
+
+  Description:
+    
+
+  Parameters:
+    laCircleWidget* cir - the widget
+        
+  Returns:
+    uint32_t
+    
+  Remarks:
+    
+*/
+LIB_EXPORT uint32_t laCircleWidget_GetThickness(laCircleWidget* cir);
+
+// *****************************************************************************
+/* Function:
+    laResult laCircleWidget_SetThickness(laCircleWidget* cir, uint32_t thickness)
+
+  Summary:
+    Sets the thickness of a circle widget
+
+  Description:
+    
+
+  Parameters:
+    laCircleWidget* cir - the widget
+    uint32_t thickness - the desired thickness value
+        
+  Returns:
+    laResult - the operation result
+    
+  Remarks:
+    
+*/
+LIB_EXPORT laResult laCircleWidget_SetThickness(laCircleWidget* cir, uint32_t thickness);
+
+// *****************************************************************************
+/* Function:
+    laBool laCircleWidget_GetFilled(laCircleWidget* cir)
+
+  Summary:
+    Gets the filled state of a circle widget
+
+  Description:
+    
+
+  Parameters:
+    laCircleWidget* cir - the widget
+        
+  Returns:
+    uint32_t
+    
+  Remarks:
+    
+*/
+LIB_EXPORT uint32_t laCircleWidget_GetFilled(laCircleWidget* cir);
+
+// *****************************************************************************
+/* Function:
+    laResult laCircleWidget_SetFilled(laCircleWidget* cir, laBool filled)
+
+  Summary:
+    Sets the filled state of a circle widget
+
+  Description:
+    
+
+  Parameters:
+    laCircleWidget* cir - the widget
+    laBool thickness - filled or not
+        
+  Returns:
+    laResult - the operation result
+    
+  Remarks:
+    
+*/
+LIB_EXPORT laResult laCircleWidget_SetFilled(laCircleWidget* cir, laBool filled);
 
 #endif // LA_CIRCLE_WIDGET_ENABLED
 #endif /* LIBARIA_CIRCLE_H */

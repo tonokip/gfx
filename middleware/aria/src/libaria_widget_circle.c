@@ -111,4 +111,55 @@ laResult laCircleWidget_SetRadius(laCircleWidget* cir, uint32_t rad)
     return LA_SUCCESS;
 }
 
+uint32_t laCircleWidget_GetThickness(laCircleWidget* cir)
+{
+    if(cir == NULL)
+        return 0;
+        
+    return cir->thickness;
+    
+    return LA_SUCCESS;
+}
+
+laResult laCircleWidget_SetThickness(laCircleWidget* cir, uint32_t thickness)
+{
+    if(cir == NULL ||
+       thickness < 1)
+        return LA_FAILURE;
+        
+    if(cir->thickness == thickness)
+        return LA_SUCCESS;
+        
+    cir->thickness = thickness;
+    
+    laWidget_Invalidate((laWidget*)cir);
+        
+    return LA_SUCCESS;
+}
+
+uint32_t laCircleWidget_GetFilled(laCircleWidget* cir)
+{
+    if(cir == NULL)
+        return 0;
+        
+    return cir->filled;
+    
+    return LA_SUCCESS;
+}
+
+laResult laCircleWidget_SetFilled(laCircleWidget* cir, laBool filled)
+{
+    if(cir == NULL)
+        return LA_FAILURE;
+        
+    if(cir->filled == filled)
+        return LA_SUCCESS;
+        
+    cir->filled = filled;
+    
+    laWidget_Invalidate((laWidget*)cir);
+        
+    return LA_SUCCESS;
+}
+
 #endif // LA_CIRCLE_WIDGET_ENABLED
