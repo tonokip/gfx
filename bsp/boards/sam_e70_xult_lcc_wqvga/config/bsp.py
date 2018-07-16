@@ -3,7 +3,7 @@ def activateDefaultComponents(bspComponent):
 	componentIDTable = ["smc0", "gfx_hal", "smc0", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
 	autoConnectTable = [["gfx_driver_lcc", "SMC", "smc0", "SMC_0"],
 					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
-					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display_1"],
+					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
 
 	res = Database.activateComponents(componentIDTable)
@@ -93,11 +93,11 @@ def instantiateComponent(bspComponent):
 	#activateSDRAMComponent(bspComponent)
 	
 	
-	enableSDRAM = bspComponent.createBooleanSymbol("EnableSDRAM", None)
-	enableSDRAM.setLabel("Enable SDRAM?")
-	enableSDRAM.setDependencies(onSDRAMEnabled, ["EnableSDRAM"])
+	#enableSDRAM = bspComponent.createBooleanSymbol("EnableSDRAM", None)
+	#enableSDRAM.setLabel("Enable SDRAM?")
+	#enableSDRAM.setDependencies(onSDRAMEnabled, ["EnableSDRAM"])
 	
-        pinTypes = []
+	pinTypes = []
 	pinAttributs = []
 
 	# pinAttributes = [{"attrib":"type", "symbol":"BSP_CUSTOM_TYPE", "label":"Type Name"},
