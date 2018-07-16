@@ -72,23 +72,32 @@ int32_t GFXU_CompareString(GFXU_StringTableAsset* tbl,
     
     uint32_t i, j;
     
-    if(tbl == GFX_NULL || buffer == GFX_NULL)
+    if(tbl == GFX_NULL)
         return -1;
     
     stringSize = GFXU_GetStringSizeInBytes(tbl, id, lang);
     
     buffSize = 0;
     
-    while(buffer[buffSize] != '\0')
-        buffSize++;    
-    
+    if (buffer != GFX_NULL)
+    {
+        while(buffer[buffSize] != '\0')
+            buffSize++;
+    }
+
+    if (stringSize == 0 && buffSize != 0)
+        return -1;
+
+    if (stringSize != 0 && buffSize == 0)
+        return 1;
+
     idx = GFXU_StringIndexLookup(tbl, id, lang);
-    
+
     if(GFXU_StringLookup(tbl, idx, &stringAddress, &stringSize))
         return GFX_FAILURE;
-        
+
     j = 0;
-    
+
     for(i = 0; i < stringSize && j < buffSize;)
     {
         if(GFXU_DecodeCodePoint(tbl->encodingMode,

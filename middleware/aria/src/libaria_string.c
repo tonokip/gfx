@@ -35,10 +35,10 @@ LIB_EXPORT int32_t la_strcmp(GFXU_CHAR* str1, const GFXU_CHAR* str2)
     if(str1 == NULL || str2 == NULL)
         return -1;
             
-    if(la_strlen(str1) != la_strlen(str2))
-        return -1;
+//    if(la_strlen(str1) != la_strlen(str2))
+//        return -1;
         
-    while(str1[i] != '\0' && str2[i] != '\0')
+    while(str1[i] != '\0' || str2[i] != '\0')
     {
         if(str1[i] < str2[i])
             return -1;
@@ -141,22 +141,21 @@ laString laString_CreateFromCharBuffer(const char* chr, GFXU_FontAsset* fnt)
     }
     
     len = strlen(chr);
-    
-    if(len == 0)
-        return str;
-        
-    laString_Allocate(&str, len);
-    
-    if(str.capacity == 0)
-        return str;
-        
-    for(i = 0; i < len; i++)
+    if(len != 0)
     {
-        str.data[i] = (GFXU_CHAR)((unsigned char)chr[i]);
+        laString_Allocate(&str, len);
+
+        if(str.capacity == 0)
+            return str;
+
+        for(i = 0; i < len; i++)
+        {
+            str.data[i] = (GFXU_CHAR)((unsigned char)chr[i]);
+        }
+
+        str.data[i] = '\0';
     }
-    
-    str.data[i] = '\0';
-    
+ 
     str.font = fnt;
     str.table_index = LA_STRING_NULLIDX;
     
@@ -423,15 +422,24 @@ int32_t laString_Compare(const laString* lstr, const laString* rstr)
         
     if(lstr == rstr)
         return 0;
-        
+
     if(lstr->table_index == LA_STRING_NULLIDX &&
        rstr->table_index == LA_STRING_NULLIDX)
     {
+        if (lstr->font != rstr->font)
+            return -1;
+            
         return la_strcmp(lstr->data, rstr->data);
     }
     else if(lstr->table_index == LA_STRING_NULLIDX &&
             rstr->table_index != LA_STRING_NULLIDX)
     {
+        if (lstr->font != GFXU_StringFontIndexLookup(
+                            laContext_GetActive()->stringTable,
+                            rstr->table_index,
+                            laContext_GetActive()->languageID))
+            return -1;
+        
         return GFXU_CompareString(laContext_GetActive()->stringTable,
                                   rstr->table_index,
                                   laContext_GetActive()->languageID,
@@ -440,6 +448,12 @@ int32_t laString_Compare(const laString* lstr, const laString* rstr)
     else if(lstr->table_index != LA_STRING_NULLIDX &&
             rstr->table_index == LA_STRING_NULLIDX)
     {
+        if (rstr->font != GFXU_StringFontIndexLookup(
+                            laContext_GetActive()->stringTable,
+                            lstr->table_index,
+                            laContext_GetActive()->languageID))
+            return -1;
+        
         return GFXU_CompareString(laContext_GetActive()->stringTable,
                                   lstr->table_index,
                                   laContext_GetActive()->languageID,
