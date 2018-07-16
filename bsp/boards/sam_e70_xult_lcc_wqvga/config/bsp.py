@@ -1,5 +1,5 @@
-def activateComponents(bspComponent):
-	print("hello world")
+def activateDefaultComponents(bspComponent):
+	print("activating default componetns")
 	componentIDTable = ["smc0", "gfx_hal", "smc0", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
 	autoConnectTable = [["gfx_driver_lcc", "SMC", "smc0", "SMC_0"],
 					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
@@ -9,9 +9,50 @@ def activateComponents(bspComponent):
 	res = Database.activateComponents(componentIDTable)
 	res = Database.connectDependencies(autoConnectTable)
 
+def activateSDRAMComponent(bspComponent):
+	componentIDTable = ["SDRAMC_0"]
+	
+	res = Database.activateComponents(componentIDTable)
 
-def configurePins(bspComponent):
-	pinConfigs = [{"pin": 11, "name": "EBI_D0", "type": "EBI_DO", "direction": "", "latch": ""},
+
+def configurePins(pinConfigs):
+	for pinConfig in pinConfigs:
+		print("Configuring " + pinConfig["name"])
+		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME")
+		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE")
+		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR")
+		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT")
+		
+		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME", pinConfig["name"])
+		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE", pinConfig["type"])
+		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR", pinConfig["direction"])
+		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT", pinConfig["latch"])
+
+def configureSDRAMPins(bspComponent):
+	sdramPinConfigs = [{"pin": 120, "name": "EBI_A2/SDA0", "type": "EBI_A2/SDA0", "direction": "", "latch": ""},
+				{"pin": 122, "name": "EBI_A3/SDA1", "type": "EBI_A3/SDA1", "direction": "", "latch": ""},
+				{"pin": 124, "name": "EBI_A4/SDA2", "type": "EBI_A4/SDA2", "direction": "", "latch": ""},
+				{"pin": 127, "name": "EBI_A5/SDA3", "type": "EBI_A5/SDA3", "direction": "", "latch": ""},
+				{"pin": 130, "name": "EBI_A6/SDA4", "type": "EBI_A6/SDA4", "direction": "", "latch": ""},
+				{"pin": 133, "name": "EBI_A7/SDA5", "type": "EBI_A7/SDA5", "direction": "", "latch": ""},
+				{"pin": 13, "name": "EBI_A8/SDA6", "type": "EBI_A8/SDA6", "direction": "", "latch": ""},
+				{"pin": 12, "name": "EBI_A9/SDA7", "type": "EBI_A9/SDA7", "direction": "", "latch": ""},
+				{"pin": 76, "name": "EBI_A10/SDA8", "type": "EBI_A10/SDA8", "direction": "", "latch": ""},
+				{"pin": 16, "name": "EBI_A11/SDA9", "type": "EBI_A11/SDA9", "direction": "", "latch": ""},
+				{"pin": 88, "name": "EBI_SDA10", "type": "EBI_SDA10", "direction": "", "latch": ""},
+				{"pin": 22, "name": "EBI_A16/BA0", "type": "EBI_A16/BA0", "direction": "", "latch": ""},
+				{"pin": 57, "name": "EBI_SDCK", "type": "EBI_SDCK", "direction": "", "latch": ""},
+				{"pin": 84, "name": "EBI_SDCKE", "type": "EBI_SDCKE", "direction": "", "latch": ""},
+				{"pin": 18, "name": "EBI_NCS1/SDCS", "type": "EBI_NCS1/SDCS", "direction": "", "latch": ""},
+				{"pin": 74, "name": "EBI_CAS", "type": "EBI_CAS", "direction": "", "latch": ""},
+				{"pin": 108, "name": "EBI_SDWE", "type": "EBI_SDWE", "direction": "", "latch": ""},
+				{"pin": 111, "name": "EBI_A0/NBS0/DQM0", "type": "EBI_A0/NBS0/DQM0", "direction": "", "latch": ""},
+				{"pin": 106, "name": "EBI_NWR1/NBS1/DQM1", "type": "EBI_NWR1/NBS1/DQM1", "direction": "", "latch": ""},
+				]
+	configurePins(sdramPinConfigs)
+
+def configureLCCPins(bspComponent):
+	lccPinConfigs = [{"pin": 11, "name": "EBI_D0", "type": "EBI_D0", "direction": "", "latch": ""},
 				{"pin": 38, "name": "EBI_D1", "type": "EBI_D1", "direction": "", "latch": ""},
 				{"pin": 39, "name": "EBI_D2", "type": "EBI_D2", "direction": "", "latch": ""},
 				{"pin": 40, "name": "EBI_D3", "type": "EBI_D3", "direction": "", "latch": ""},
@@ -34,28 +75,31 @@ def configurePins(bspComponent):
 				{"pin": 86, "name": "BSP_LCD_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High"},
 				{"pin": 94, "name": "BSP_LCD_DE", "type": "GPIO", "direction": "Out", "latch": "High"},
 				]
-				
-	for pinConfig in pinConfigs:
-		print("Configuring " + pinConfig["name"])
-		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME")
-		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE")
-		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR")
-		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT")
-		
-		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME", pinConfig["name"])
-		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE", pinConfig["type"])
-		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR", pinConfig["direction"])
-		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT", pinConfig["latch"])
+	configurePins(lccPinConfigs)
+
+def onSDRAMEnabled(SDRAMFrameBufferSelected, event):
+	print("BSP Configure SDRAM")
+	configureSDRAMPins(SDRAMFrameBufferSelected.getComponent())
+	activateSDRAMComponent(SDRAMFrameBufferSelected.getComponent())
 
 def instantiateComponent(bspComponent):
 	BSP_NAME = "sam_e70_xult_lcc_wqvga"
 	
-	configurePins(bspComponent)
-	# activateComponents(bspComponent)
+	activateDefaultComponents(bspComponent)
 	
-	pinTypes = []
+	configureLCCPins(bspComponent)
+	
+	#configureSDRAMPins(bspComponent)
+	#activateSDRAMComponent(bspComponent)
+	
+	
+	enableSDRAM = bspComponent.createBooleanSymbol("EnableSDRAM", None)
+	enableSDRAM.setLabel("Enable SDRAM?")
+	enableSDRAM.setDependencies(onSDRAMEnabled, ["EnableSDRAM"])
+	
+        pinTypes = []
 	pinAttributs = []
-	
+
 	# pinAttributes = [{"attrib":"type", "symbol":"BSP_CUSTOM_TYPE", "label":"Type Name"},
 		# {"attrib":"mode", "symbol":"BSP_CUSTOM_MODE", "label":"Mode"},
 		# {"attrib":"dir", "symbol":"BSP_CUSTOM_DIR", "label":"Direction"},
