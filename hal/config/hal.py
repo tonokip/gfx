@@ -33,8 +33,8 @@ def onDrawPipelineEnableChanged(menu, event):
 
 def updateDisplayValues(halComponent, displayComponent):
 	halComponent.setSymbolValue("DisplayName", displayComponent.getSymbolValue("Name"), 1)
-	halComponent.setSymbolValue("DisplayWidth", displayComponent.getSymbolValue("Width"), 1)
-	halComponent.setSymbolValue("DisplayHeight", displayComponent.getSymbolValue("Height"), 1)
+	halComponent.setSymbolValue("DisplayWidth", displayComponent.getSymbolValue("DisplayWidth"), 1)
+	halComponent.setSymbolValue("DisplayHeight", displayComponent.getSymbolValue("DisplayHeight"), 1)
 	halComponent.setSymbolValue("DisplayDataWidth", displayComponent.getSymbolValue("DataWidth"), 1)
 	halComponent.setSymbolValue("DisplayHorzPulseWidth", displayComponent.getSymbolValue("HorzPulseWidth"), 1)
 	halComponent.setSymbolValue("DisplayHorzBackPorch", displayComponent.getSymbolValue("HorzBackPorch"), 1)
@@ -91,3 +91,6 @@ def onDisableHint(symbol, event):
 	
 	LCCRefreshHint = halComponent.getSymbolByID("LCCRefreshHint")
 	LCCRefreshHint.setReadOnly(halComponent.getSymbolValue("DisableLCCRefreshHint"))
+	
+	Orientation = halComponent.getSymbolByID("DisplayOrientation")
+	Orientation.setReadOnly(halComponent.getSymbolValue("DisableDisplayOrientation"))

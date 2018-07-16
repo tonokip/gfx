@@ -9,16 +9,10 @@ def instantiateComponent(component):
 	execfile(Module.getPath() + "/config/aria_files.py")
 
 def onDependentComponentAdded(aria, dependencyID, hal):
-	aria.setSymbolValue("displayWidth", hal.getSymbolValue("DisplayWidth"), 1)
-	aria.setSymbolValue("displayHeight", hal.getSymbolValue("DisplayHeight"), 1)
-	
 	hal.setSymbolValue("GlobalPaletteModeHint", aria.getSymbolValue("useGlobalPalette"), 1)
 	hal.setSymbolValue("DisableGlobalPaletteModeHint", True, 1)
 
 def onDependentComponentRemoved(aria, dependencyID, hal):
-	aria.clearSymbolValue("displayWidth")
-	aria.clearSymbolValue("displayHeight")
-	
 	hal.clearSymbolValue("GlobalPaletteModeHint")
 	hal.clearSymbolValue("DisableGlobalPaletteModeHint")
 	
@@ -36,12 +30,6 @@ def onRTOSEnable(useRTOS, event):
 	useRTOS.getComponent().getSymbolByID("rtosTaskPriority").setVisible(event["value"])
 	useRTOS.getComponent().getSymbolByID("rtosEnableTaskDelay").setVisible(event["value"])
 	useRTOS.getComponent().getSymbolByID("rtosTaskDelay").setVisible(event["value"])
-	
-def onDisplayWidthChanged(displayWidth, event):
-	displayWidth.setValue(event["value"], 1)
-	
-def onDisplayHeightChanged(displayHeight, event):
-	displayHeight.setValue(event["value"], 1)
 	
 def onEnableInputChanged(enableInput, event):
 	enableInput.getComponent().setDependencyEnabled("sys_input", event["value"])

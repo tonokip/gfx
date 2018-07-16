@@ -1,26 +1,6 @@
 libraryOptionsMenu = component.createMenuSymbol("libraryOptionsMenu", None)
 libraryOptionsMenu.setLabel("Library Configuration")
 
-displayWidth = component.createIntegerSymbol("displayWidth", libraryOptionsMenu)
-displayWidth.setVisible(False)
-displayWidth.setDefaultValue(480)
-displayWidth.setMin(0)
-displayWidth.setDependencies(onDisplayWidthChanged, ["gfx_hal:DisplayWidth"]) #anonymous dependency
-
-displayHeight = component.createIntegerSymbol("displayHeight", libraryOptionsMenu)
-displayHeight.setVisible(False)
-displayHeight.setDefaultValue(272)
-displayHeight.setMin(0)
-displayHeight.setDependencies(onDisplayHeightChanged, ["gfx_hal:DisplayHeight"]) #anonymous dependency
-
-displayOrientation = component.createComboSymbol("displayOrientation", libraryOptionsMenu, ["0", "90", "180", "270"])
-displayOrientation.setLabel("Display Orientation")
-displayOrientation.setDescription("Configures software-based display orientation.")
-
-displayMirroring = component.createBooleanSymbol("displayMirroring", libraryOptionsMenu)
-displayMirroring.setLabel("Display Mirroring")
-displayMirroring.setDescription("Enables software-based display mirroring.")
-
 useAcceleration = component.createBooleanSymbol("useAcceleration", libraryOptionsMenu)
 useAcceleration.setLabel("Enable Display Accleration?")
 useAcceleration.setDescription("<html>Enables graphics acceleration pipeline <b>if available<b>.")
