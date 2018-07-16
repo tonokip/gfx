@@ -116,7 +116,7 @@ laCheckBoxWidget* laCheckBoxWidget_New()
     return cbox;
 }
 
-laBool laButtonWidget_GetChecked(laCheckBoxWidget* cbox)
+laBool laCheckBoxWidget_GetChecked(laCheckBoxWidget* cbox)
 {
     if(cbox == NULL)
         return LA_FALSE;
