@@ -14,11 +14,11 @@ def instantiateComponent(halComponent):
 	
 	SysInitString = halComponent.createListEntrySymbol("SysInitString", None)
 	SysInitString.addValue("    GFX_Initialize();")
-	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
+	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
 	
 	SysTasksString = halComponent.createListEntrySymbol("SYSTasksString", None)
 	SysTasksString.addValue("    GFX_Update();")
-	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
+	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
 	
 def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
 	if dependencyID == "gfx_display_driver":

@@ -54,6 +54,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 </#if>
 
 <#if enableInput?? && enableInput == true>
+#include "system/input/sys_input.h"
+#include "system/input/sys_input_listener.h"
+#include "system/input/sys_input_touch.h"
+
 SYS_INP_InputListener inputListener;
 
 static void touchDownHandler(const SYS_INP_TouchStateEvent* const evt);
