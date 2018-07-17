@@ -115,13 +115,16 @@ DRV_I2C_INIT drvI2C0InitData =
     .clockSpeed = DRV_I2C_CLOCK_SPEED_IDX0,
 };
 
-const DRV_MAXTOUCH_INIT drvMaxTouchInitData =
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
+/*** MaxTouch Driver Initialization Data ***/
+const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
 {
     .drvOpen                     = DRV_I2C_Open,
     .orientation                 = 0,
     .horizontalResolution        = 480,
     .verticalResolution          = 272,
-	
 };
 
 // </editor-fold>
@@ -195,12 +198,15 @@ void SYS_Initialize ( void* data )
     
 	TWIHS0_Initialize();
 
+    GFX_Initialize();
+    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
 
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
-    
-    sysObj.drvMaxtouch = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMaxTouchInitData);
+
+    LibAria_Initialize(); // initialize UI library
+SYS_INP_Init();
 
 
     APP_Initialize();

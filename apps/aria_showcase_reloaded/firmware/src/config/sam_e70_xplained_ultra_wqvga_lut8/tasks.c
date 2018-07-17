@@ -67,14 +67,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
   Remarks:
     See prototype in system/common/sys_module.h.
 */
-typedef int32_t      GFX_Result;
-GFX_Result GFX_Update();
-void LibAria_Tasks(void);
-GFX_Result GFX_Initialize(void);
-int32_t LibAria_Initialize(void);
-
-#include "system/input/sys_input.h"
-
 
 void SYS_Tasks ( void )
 {
@@ -82,17 +74,14 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-    DRV_MAXTOUCH_Tasks(sysObj.drvMaxtouch);
+        GFX_Update();
+DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
 
 
     /* Maintain Middleware & Other Libraries */
-    GFX_Update();
-        
-    SYS_INP_Tasks();
+        LibAria_Tasks(); // update the UI library
+SYS_INP_Tasks();
 
-    LibAria_Tasks(); 
-
-    
 
     /* Maintain the application's state machine. */
         /* Call Application task APP. */
