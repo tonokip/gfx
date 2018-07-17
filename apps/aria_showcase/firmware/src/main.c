@@ -54,9 +54,6 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     
-    GFX_Initialize();
-    LibAria_Initialize();
-
     while ( true )
     {
         SYS_Tasks();

@@ -54,6 +54,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 /*  This section Includes other configuration headers necessary to completely
     define this configuration.
 */
+#include "gfx/libaria/libaria_harmony.h"
+#include "gfx/hal/gfx.h"
+#include "driver/input/drv_maxtouch.h"
+#include "system/input/sys_input.h"
 
 #include "user.h"
 
@@ -90,6 +94,10 @@ extern "C" {
 #define DRV_I2C_INT_SRC_IDX0                  TWIHS0_IRQn
 #define DRV_I2C_QUEUE_SIZE_IDX0               2
 #define DRV_I2C_CLOCK_SPEED_IDX0              400000
+
+
+/*** MXT336T Driver Configuration ***/
+#define DRV_MAXTOUCH_I2C_MODULE_INDEX   0
 
 
 

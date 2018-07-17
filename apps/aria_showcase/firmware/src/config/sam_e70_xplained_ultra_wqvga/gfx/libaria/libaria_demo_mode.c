@@ -43,8 +43,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/libaria.h"
 
 #include "system/input/sys_input.h"
-#include "system/input/sys_input_listener.h"
-#include "system/input/sys_input_touch.h"
 
 #include "app.h"
 

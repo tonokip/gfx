@@ -58,7 +58,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "osal/osal.h"
 #include "driver/i2c/drv_i2c.h"
 #include "driver/i2c/drv_i2c.h"
-#include "driver/touch/maxtouch/drv_maxtouch.h"
 #include "peripheral/smc/plib_smc0.h"
 #include "system/time/sys_time.h"
 #include "peripheral/tc/plib_tc0.h"
@@ -186,12 +185,11 @@ void SYS_Tasks ( void );
 
 typedef struct
 {
+    SYS_MODULE_OBJ  drvMAXTOUCH;
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
 
     SYS_MODULE_OBJ  sysTime;
-    
-    SYS_MODULE_OBJ drvMaxtouch;
 
 } SYSTEM_OBJECTS;
 

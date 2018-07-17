@@ -46,9 +46,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/libaria_demo_mode.h"
 
 #include "system/input/sys_input.h"
-#include "system/input/sys_input_listener.h"
-#include "system/input/sys_input_touch.h"
-
 
 SYS_INP_InputListener inputListener;
 
@@ -124,6 +121,7 @@ void LibAria_Tasks(void)
             SYS_INP_AddListener(&inputListener);
 
             libariaState = LIBARIA_STATE_RUNNING;
+
             break;
         }
         case LIBARIA_STATE_RUNNING:

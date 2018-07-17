@@ -40,10 +40,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 //#include <sys/attribs.h>
 //#include <sys/kmem.h>
-//
-//#include "system_definitions.h"
+
 #include "driver/i2c/drv_i2c.h"
-#include "driver/touch/maxtouch/drv_maxtouch.h"
+#include "driver/input/drv_maxtouch.h"
 #include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
 
@@ -482,10 +481,7 @@ struct DEVICE_OBJECT* _pDrvObject;
 void DRV_MAXTOUCH_I2CEventHandler ( DRV_I2C_TRANSFER_EVENT  event,
                            DRV_I2C_TRANSFER_HANDLE transferHandle, 
                            uintptr_t               context )
-{
-    
-//    static bool messageWrite = false;
-    
+{    
     /* Checks for valid buffer handle */
     if( transferHandle == DRV_I2C_TRANSFER_HANDLE_INVALID )
     {
@@ -521,18 +517,11 @@ void DRV_MAXTOUCH_I2CEventHandler ( DRV_I2C_TRANSFER_EVENT  event,
     {
         _pDrvObject->deviceState = DEVICE_STATE_WRITE_T100_YRANGE;
     }
-
-//    if( transferHandle == _pDrvObject->taskQueue[0].hMessageObjWrite &&
-//        event == DRV_I2C_TRANSFER_EVENT_COMPLETE  )
-//    {
-//        messageWrite = true;
-//    }
     
     if( transferHandle == _pDrvObject->hMessageObjRead &&
         event == DRV_I2C_TRANSFER_EVENT_COMPLETE  )
     {
         _pDrvObject->deviceState = DEVICE_STATE_HANDLE_MESSAGE_OBJECT;
-//        messageWrite = false;
     }
     
 }
@@ -759,56 +748,29 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             pDrvObject->taskQueue[0].drvI2CFrameData[0] = 0;
             pDrvObject->taskQueue[0].drvI2CFrameData[1] = 0;
             
-//            pDrvObject->taskQueue[0].drvI2CBufferHandle = DRV_I2C_Transmit(pDrvObject->drvI2CHandle,
-//                                                                           I2C_MASTER_WRITE_ID, 
-//                                                                           &pDrvObject->taskQueue[0].drvI2CFrameData[0],
-//                                                                           2,
-//                                                                           NULL);  
             DRV_I2C_WriteTransferAdd(pDrvObject->drvI2CHandle,
                                        I2C_MASTER_WRITE_ID, 
                                        &pDrvObject->taskQueue[0].drvI2CFrameData[0],
                                        2,
                                        &pDrvObject->hInformationBlockWrite);
 
-//            if (pDrvObject->taskQueue[0].drvI2CBufferHandle)
-//                pDrvObject->deviceState = DEVICE_STATE_INIT_RESET;
             pDrvObject->deviceState = DEVICE_STATE_WAIT;
             
             break;
         }
         case DEVICE_STATE_INIT_RESET: /* Device reset address */
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,
-////                                          pDrvObject->taskQueue[0].drvI2CBufferHandle) != DRV_I2C_BUFFER_EVENT_COMPLETE)
-//            {
-//                return;
-//            }
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
+
 #ifdef DEBUG_ENABLE            
             SYS_DEBUG_Print("MXT Reset\n");
 #endif
             
-            /* read the information block */
-//            pDrvObject->taskQueue[0].drvI2CBufferHandle = DRV_I2C_Receive(pDrvObject->drvI2CHandle,
-//                                                                          I2C_MASTER_READ_ID,
-//                                                                          &pDrvObject->taskQueue[0].drvI2CFrameData[0],
-//                                                                          sizeof(MAXTOUCH_ID_Info),
-//                                                                          NULL);
-            
-//            gTransferHandle = pDrvObject->taskQueue[0].hInformationBlockRead;
-            
+            /* read the information block */            
             DRV_I2C_ReadTransferAdd(pDrvObject->drvI2CHandle,
                                       I2C_MASTER_READ_ID,
                                       &pDrvObject->taskQueue[0].drvI2CFrameData[0],
                                       sizeof(MAXTOUCH_ID_Info),
-                                      &pDrvObject->hInformationBlockRead);
-            
-//            if (!pDrvObject->taskQueue[0].drvI2CBufferHandle)
-//            {
-//                pDrvObject->deviceState = DEVICE_STATE_ERROR;
-//                break;
-//            }
+                                      &pDrvObject->hInformationBlockRead);            
             
             pDrvObject->deviceState = DEVICE_STATE_READ_IB;
             pDrvObject->deviceState = DEVICE_STATE_WAIT;
@@ -819,11 +781,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         }
         case DEVICE_STATE_READ_IB: /* Read information block */
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,pDrvObject->taskQueue[0].drvI2CBufferHandle))
-//                return;
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
-
 #ifdef DEBUG_ENABLE            
             SYS_DEBUG_Print("MXT Read Info Block\n");
 #endif
@@ -850,22 +807,11 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             SYS_DEBUG_Print("Message data size: %d\n", messageDataSize);
 #endif
             
-//            pDrvObject->taskQueue[0].drvI2CBufferHandle = DRV_I2C_Receive(pDrvObject->drvI2CHandle,
-//                                                                          I2C_MASTER_READ_ID,
-//                                                                          infoBlockData,
-//                                                                          infoBlockSize,
-//                                                                          NULL);
             DRV_I2C_ReadTransferAdd(pDrvObject->drvI2CHandle,
                                     I2C_MASTER_READ_ID,
                                     infoBlockData,
                                     infoBlockSize,
                                     &pDrvObject->hObjectBlockRead);
-            
-//            if (!pDrvObject->taskQueue[0].hReadTransfer)
-//            {
-//                pDrvObject->deviceState = DEVICE_STATE_ERROR;
-//                break;
-//            }
             
             pDrvObject->deviceState = DEVICE_STATE_READ_OBJECT_TABLE;
             pDrvObject->deviceState = DEVICE_STATE_WAIT;
@@ -875,13 +821,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         
         case DEVICE_STATE_READ_OBJECT_TABLE: /* Wait for object table to be read */
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,
-////                                                                           pDrvObject->taskQueue[0].drvI2CBufferHandle))
-//            {
-//                return;
-//            }
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
 
 #ifdef DEBUG_ENABLE            
             SYS_DEBUG_Print("MXT Read Object Table\n");
@@ -968,13 +907,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         }
         case DEVICE_STATE_WRITE_T100_XRANGE:
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,
-////                                                                           pDrvObject->taskQueue[0].drvI2CBufferHandle))
-//            {
-//                return;
-//            }
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
 
 #ifdef DEBUG_ENABLE            
             SYS_DEBUG_Print("MXT Write T100 XRange %d\n", pDrvObject->taskQueue[0].drvI2CFrameData[2] | pDrvObject->taskQueue[0].drvI2CFrameData[3] << 8);
@@ -989,13 +921,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         }    
         case DEVICE_STATE_WRITE_T100_YRANGE:
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,
-////                                                                           pDrvObject->taskQueue[0].drvI2CBufferHandle))
-//            {
-//                return;
-//            }
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
 
 #ifdef DEBUG_ENABLE           
             SYS_DEBUG_Print("MXT Write T100 YRange %d\n", pDrvObject->taskQueue[0].drvI2CFrameData[2] | pDrvObject->taskQueue[0].drvI2CFrameData[3] << 8);
@@ -1007,14 +932,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             break;
         }
         case DEVICE_STATE_READY: /* Driver ready state */
-        {
-//            if(pDrvObject->mxtMsg.reportID != 0xFF || pDrvObject->readRequest == 1)
-//            {
-//                pDrvObject->deviceState = DEVICE_STATE_READ_MESSAGE_OBJECT;
-//                pDrvObject->readRequest = 0;
-//            }           
-//            
-//            break;    
+        {   
             /* Check for ~CHG line asserted in case interrupt line did not come back up high */
             /* send a read request to the message processor object T5 */ 
             if(MXT_INTERRUPT_PIN_VALUE_GET() == false)
@@ -1038,13 +956,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         }
         case DEVICE_STATE_HANDLE_MESSAGE_OBJECT: /* read a specified object from the device */
         {
-//            if ( transferEvent != DRV_I2C_TRANSFER_EVENT_COMPLETE )
-////            if (DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(pDrvObject->drvI2CHandle,
-////                                                                           pDrvObject->taskQueue[1].drvI2CBufferHandle))
-//            {
-//                return;
-//            }
-//            transferEvent = DRV_I2C_TRANSFER_EVENT_PENDING;
 
 #ifdef DEBUG_ENABLE            
             SYS_DEBUG_Print("MXT message id: %d\n", pDrvObject->mxtMsg.reportID);
@@ -1108,12 +1019,7 @@ static void _MessageObjectRead(struct DEVICE_OBJECT *pDrvObject)
     /* write the address of the message processor object to the device */     
     pDrvObject->taskQueue[0].drvI2CFrameData[0] = messageProcessor->i2c_address & 0xFF;  
     pDrvObject->taskQueue[0].drvI2CFrameData[1] = messageProcessor->i2c_address >> 8;
-    
-//    pDrvObject->taskQueue[0].drvI2CBufferHandle = DRV_I2C_Transmit(pDrvObject->drvI2CHandle,
-//                                                                   I2C_MASTER_WRITE_ID, 
-//                                                                   &pDrvObject->taskQueue[0].drvI2CFrameData[0],
-//                                                                   2,
-//                                                                   NULL); 
+     
     DRV_I2C_WriteTransferAdd(pDrvObject->drvI2CHandle,
                                 I2C_MASTER_WRITE_ID, 
                                 &pDrvObject->taskQueue[0].drvI2CFrameData[0],
@@ -1122,12 +1028,7 @@ static void _MessageObjectRead(struct DEVICE_OBJECT *pDrvObject)
 
     /* schedule a read of the message processor object */
     memset(&pDrvObject->mxtMsg, 0, sizeof(MAXTOUCH_Message));
-    
-//    pDrvObject->taskQueue[1].drvI2CBufferHandle =  DRV_I2C_Receive(pDrvObject->drvI2CHandle,
-//                                                                   I2C_MASTER_READ_ID,
-//                                                                   &pDrvObject->mxtMsg,
-//                                                                   I2C_READ_ID_FRAME_SIZE,
-//                                                                   NULL);
+
     DRV_I2C_ReadTransferAdd(pDrvObject->drvI2CHandle,
                             I2C_MASTER_READ_ID,
                             &pDrvObject->mxtMsg,
@@ -1175,14 +1076,7 @@ static void _RegWrite16(struct DEVICE_OBJECT *pDrvObject, uint8_t reg, uint16_t 
     pDrvObject->taskQueue[0].drvI2CFrameData[1] = pReg >> 8;
     pDrvObject->taskQueue[0].drvI2CFrameData[2] = val & 0xFF;  
     pDrvObject->taskQueue[0].drvI2CFrameData[3] = val >> 8;
-            
-    //addr = pDrvObject->taskQueue[0].drvI2CFrameData[0]+pReg;
-//    pDrvObject->taskQueue[0].drvI2CBufferHandle = DRV_I2C_Transmit(pDrvObject->drvI2CHandle,
-//                                                                   I2C_MASTER_WRITE_ID,
-//                                                                   &pDrvObject->taskQueue[0].drvI2CFrameData[0],
-//                                                                   4,
-//                                                                   NULL); 
-//    
+              
     DRV_I2C_WriteTransferAdd(pDrvObject->drvI2CHandle,
                                 I2C_MASTER_WRITE_ID,
                                 &pDrvObject->taskQueue[0].drvI2CFrameData[0],
@@ -1503,9 +1397,6 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
 #ifdef DEBUG_ENABLE      
     SYS_DEBUG_Print("Touch event - id: %d, detect: %d, type: %d, event: %d, xpos: %d, ypos: %d\n", touchID, detect, type, event, xpos, ypos);
 #endif
-    
-    //HACK!!!
-    touchID = 0;
     
     switch(event)
     {
