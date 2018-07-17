@@ -1,19 +1,29 @@
 def activateDefaultComponents(bspComponent):
-	print("activating default componetns")
+	print("activating default components")
 	componentIDTable = ["smc0", "gfx_hal", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
 	autoConnectTable = [["gfx_driver_lcc", "SMC_CS", "smc0", "smc_cs0"],
 					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
 					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
 
+	touchComponentsIDTable = ["twihs0", "drv_i2c", "drv_i2c0", "gfx_maxtouch_controller", "sys_input"]
+	# touchComponentConnectionTable = [["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
+									# ["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
+									# ["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
+	touchComponentConnectionTable = [["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
+									["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
+									["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
+
 	res = Database.activateComponents(componentIDTable)
 	res = Database.connectDependencies(autoConnectTable)
+	
+	res = Database.activateComponents(touchComponentsIDTable)
+	res = Database.connectDependencies(touchComponentConnectionTable)
 
 def activateSDRAMComponent(bspComponent):
 	componentIDTable = ["SDRAMC_0"]
 	
 	res = Database.activateComponents(componentIDTable)
-
 
 def configurePins(pinConfigs):
 	for pinConfig in pinConfigs:
@@ -77,6 +87,13 @@ def configureLCCPins(bspComponent):
 				]
 	configurePins(lccPinConfigs)
 
+def configureTouchControllerPins(bspComponent):
+	touchCtrlrPinConfigs = [{"pin": 91, "name": "TWIHS0_TWD0", "type": "TWIHS0_TWD0", "direction": "", "latch": ""},
+							{"pin": 77, "name": "TWIHS0_TWCK0", "type": "TWIHS0_TWCK0", "direction": "", "latch": ""},
+							{"pin": 71, "name": "MXT_INTERRUPT", "type": "GPIO", "direction": "In", "latch": ""},
+							]
+	configurePins(touchCtrlrPinConfigs)
+
 def onSDRAMEnabled(SDRAMFrameBufferSelected, event):
 	print("BSP Configure SDRAM")
 	configureSDRAMPins(SDRAMFrameBufferSelected.getComponent())
@@ -88,6 +105,7 @@ def instantiateComponent(bspComponent):
 	activateDefaultComponents(bspComponent)
 	
 	configureLCCPins(bspComponent)
+	configureTouchControllerPins(bspComponent)
 	
 	#configureSDRAMPins(bspComponent)
 	#activateSDRAMComponent(bspComponent)
