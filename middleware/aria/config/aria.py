@@ -8,6 +8,18 @@ def instantiateComponent(component):
 	execfile(Module.getPath() + "/config/aria_rtos.py")
 	execfile(Module.getPath() + "/config/aria_files.py")
 
+	SysInitIncludeString = component.createListEntrySymbol("SysInitIncludeString", None)
+	SysInitIncludeString.addValue('#include "gfx/libaria/libaria_harmony.h"')
+	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
+	
+	SysInitString = component.createListEntrySymbol("SysInitString", None)
+	SysInitString.addValue("    LibAria_Initialize(); // initialize UI library")
+	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
+	
+	SysTasksString = component.createListEntrySymbol("SYSTasksString", None)
+	SysTasksString.addValue("    LibAria_Tasks(); // update the UI library")
+	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
+	
 def onDependentComponentAdded(aria, dependencyID, hal):
 	hal.setSymbolValue("GlobalPaletteModeHint", aria.getSymbolValue("useGlobalPalette"), 1)
 	hal.setSymbolValue("DisableGlobalPaletteModeHint", True, 1)

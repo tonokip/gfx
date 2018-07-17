@@ -8,6 +8,18 @@ def instantiateComponent(halComponent):
 	execfile(Module.getPath() + "/config/hal_hints.py")
 	execfile(Module.getPath() + "/config/hal_files.py")
 	
+	SysInitIncludeString = halComponent.createListEntrySymbol("SysInitIncludeString", None)
+	SysInitIncludeString.addValue('#include "gfx/hal/gfx.h"')
+	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
+	
+	SysInitString = halComponent.createListEntrySymbol("SysInitString", None)
+	SysInitString.addValue("    GFX_Initialize();")
+	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
+	
+	SysTasksString = halComponent.createListEntrySymbol("SYSTasksString", None)
+	SysTasksString.addValue("    GFX_Update();")
+	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
+	
 def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
 	if dependencyID == "gfx_display_driver":
 		halComponent.setSymbolValue("DriverInfoFunction", dependencyComponent.getSymbolValue("DriverInfoFunction"), 1)
