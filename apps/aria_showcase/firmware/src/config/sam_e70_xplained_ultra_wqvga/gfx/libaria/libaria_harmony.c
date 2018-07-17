@@ -124,7 +124,6 @@ void LibAria_Tasks(void)
             SYS_INP_AddListener(&inputListener);
 
             libariaState = LIBARIA_STATE_RUNNING;
-
             break;
         }
         case LIBARIA_STATE_RUNNING:

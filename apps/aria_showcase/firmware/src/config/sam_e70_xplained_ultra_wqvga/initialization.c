@@ -203,7 +203,6 @@ void SYS_Initialize ( void* data )
     sysObj.drvMaxtouch = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMaxTouchInitData);
 
 
-
     APP_Initialize();
 
 
