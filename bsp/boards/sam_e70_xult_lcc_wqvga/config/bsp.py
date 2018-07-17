@@ -1,7 +1,7 @@
 def activateDefaultComponents(bspComponent):
 	print("activating default componetns")
-	componentIDTable = ["smc0", "gfx_hal", "smc0", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
-	autoConnectTable = [["gfx_driver_lcc", "SMC", "smc0", "SMC_0"],
+	componentIDTable = ["smc0", "gfx_hal", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
+	autoConnectTable = [["gfx_driver_lcc", "SMC_CS", "smc0", "smc_cs0"],
 					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
 					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
