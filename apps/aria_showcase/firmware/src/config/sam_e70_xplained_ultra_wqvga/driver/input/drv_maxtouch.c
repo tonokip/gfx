@@ -1394,6 +1394,9 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
     if(event == 0)
         return;
     
+    //HACK TO GET TOUCH WORKING. Driver sends touchID = 0xF7 which aria rejects
+    touchID = 0;
+    
 #ifdef DEBUG_ENABLE      
     SYS_DEBUG_Print("Touch event - id: %d, detect: %d, type: %d, event: %d, xpos: %d, ypos: %d\n", touchID, detect, type, event, xpos, ypos);
 #endif

@@ -33,22 +33,6 @@
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-
-typedef int32_t      GFX_Result;
-
-GFX_Result GFX_Update();
-void LibAria_Tasks(void);
-GFX_Result GFX_Initialize(void);
-int32_t LibAria_Initialize(void);
-
-#include "gfx/hal/inc/gfx_common.h"
-#include "gfx/hal/gfx.h"
-
-#include "system/input/sys_input.h"
-
-
-void APP_Tasks ( void );
-
 int main ( void )
 {
     /* Initialize all modules */

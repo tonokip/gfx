@@ -33,34 +33,14 @@
 // Section: Main Entry Point
 // *****************************************************************************
 // *****************************************************************************
-
-typedef int32_t      GFX_Result;
-
-GFX_Result GFX_Update();
-void LibAria_Tasks(void);
-GFX_Result GFX_Initialize(void);
-int32_t LibAria_Initialize(void);
-
-#include "gfx/hal/inc/gfx_common.h"
-#include "gfx/hal/gfx.h"
-
-void APP_Tasks ( void );
-
 int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     
-    GFX_Initialize();
-    LibAria_Initialize();
-
     while ( true )
     {
-        GFX_Update();
-
-    	LibAria_Tasks(); 
-        
-        APP_Tasks();
+        SYS_Tasks();
     }
 
     /* Execution should not come here during normal operation */

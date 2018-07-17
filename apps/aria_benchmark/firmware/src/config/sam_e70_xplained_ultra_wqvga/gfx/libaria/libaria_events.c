@@ -40,7 +40,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_events.h"
+
+//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!
 #include "app.h"
+//END OF CUSTOM CODE
 
 // CounterSizeDownButton - PressedEvent
 void CounterSizeDownButton_PressedEvent(laButtonWidget* btn)
