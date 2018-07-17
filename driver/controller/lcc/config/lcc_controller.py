@@ -150,13 +150,15 @@ def instantiateComponent(comp):
 	GFX_LCC_H.setProjectPath(projectPath)
 	GFX_LCC_H.setType("HEADER")
 	GFX_LCC_H.setMarkup(True)
-	
+
 	EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", None)
 	EBIChipSelectIndex.setLabel("EBI Chip Select Index")
-	EBIChipSelectIndex.setDescription("The chip select index")	
+	EBIChipSelectIndex.setDescription("The chip select index")
 	EBIChipSelectIndex.setMin(0)
 	EBIChipSelectIndex.setMax(4)
 	EBIChipSelectIndex.setDefaultValue(0)
+	EBIChipSelectIndex.setVisible(False)
+
 
 	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic.c.ftl")
 	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
@@ -178,9 +180,8 @@ def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("LCCRefresh").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DisplaySettingsMenu").setVisible(event["value"] == False)
 	
-def configureSMCComponent(lccComponent, smcComponent):
-	print("Configuring SMC")
-	smcChipSelNum = lccComponent.getSymbolValue("EBIChipSelectIndex")
+def configureSMCComponent(lccComponent, smcComponent, smcChipSelNum):
+	print("LCC: Connecting SMC_CS" + str(smcChipSelNum))
 	smcComponent.setSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum), True, 1)
 	smcComponent.setSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum), False, 1)
 	smcComponent.setSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum), 1, 1)
@@ -189,16 +190,41 @@ def configureSMCComponent(lccComponent, smcComponent):
 	smcComponent.setSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum), 3, 1)
 	smcComponent.setSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum), 1, 1)
 	smcComponent.setSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum), False, 1)
+	lccComponent.setSymbolValue("EBIChipSelectIndex", smcChipSelNum, 1)
+	
+def resetSMCComponent(lccComponent, smcComponent, smcChipSelNum):
+	print("LCC: Disconnecting SMC_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_NCS_WR_SETUP_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_NWE_PULSE_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum))
+	smcComponent.clearSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum))
+	lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
-def onDependentComponentAdded(lccComponent, dependencyID, dependencyComponent):
-	print(dependencyID + " component added")
-	if dependencyID == "SMC":
-		configureSMCComponent(lccComponent, dependencyComponent)
+def onDependencyConnected(info):
+	if (info["capabilityID"] == "smc_cs0"):
+		configureSMCComponent(info["localComponent"], info["remoteComponent"], 0)
+	elif (info["capabilityID"] == "smc_cs1"):
+		configureSMCComponent(info["localComponent"], info["remoteComponent"], 1)
+	elif (info["capabilityID"] == "smc_cs2"):
+		configureSMCComponent(info["localComponent"], info["remoteComponent"], 2)
+	elif (info["capabilityID"] == "smc_cs3"):
+		configureSMCComponent(info["localComponent"], info["remoteComponent"], 3)
 	
-def onDependentComponentRemoved(comp, dependencyID, dependencyComponent):
-	print(dependencyID + " component removed")
-	
+def onDependencyDisconnected(info):
+	if (info["capabilityID"] == "smc_cs0"):
+		resetSMCComponent(info["localComponent"], info["remoteComponent"], 0)
+	elif (info["capabilityID"] == "smc_cs1"):
+		resetSMCComponent(info["localComponent"], info["remoteComponent"], 1)
+	elif (info["capabilityID"] == "smc_cs2"):
+		resetSMCComponent(info["localComponent"], info["remoteComponent"], 2)
+	elif (info["capabilityID"] == "smc_cs3"):
+		resetSMCComponent(info["localComponent"], info["remoteComponent"], 3)
+
 def OnCacheEnabled(cacheEnabled, event):
-	print("cache enabled")
+	print("LCC: cache enabled")
 	cacheEnabled.getComponent().setSymbolValue("UseCachedFrameBuffer", event["value"] == True, 1)
-	print("UseCachedFrameBuffer enabled")
+	print("LCC: UseCachedFrameBuffer enabled")
