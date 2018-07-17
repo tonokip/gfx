@@ -42,6 +42,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/libaria_demo_mode.h"
 #include "gfx/libaria/libaria.h"
 
+<#if enableInput == true>
+#include "system/input/sys_input.h"
+</#if>
+
 <#if Harmony.ENABLE_APP_FILE == true>
 #include "app.h"
 </#if>
