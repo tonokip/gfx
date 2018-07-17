@@ -81,11 +81,11 @@ def instantiateComponent(component):
 	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
 	
 	SysInitString = component.createListEntrySymbol("SYSInitString", None)
-	SysInitString.addValue("    SYS_INP_Init();")
+	SysInitString.addValue("SYS_INP_Init();")
 	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
 	
 	SysTasksString = component.createListEntrySymbol("SYSTasksString", None)
-	SysTasksString.addValue("    SYS_INP_Tasks();")
+	SysTasksString.addValue("SYS_INP_Tasks();")
 	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
 	
 def onRTOSMode(symbol, event):
