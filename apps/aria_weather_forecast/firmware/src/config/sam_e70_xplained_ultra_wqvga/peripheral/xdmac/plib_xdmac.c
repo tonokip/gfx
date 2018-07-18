@@ -49,6 +49,7 @@ typedef struct
     uint8_t                inUse;
     XDMAC_CHANNEL_CALLBACK callback;
     uintptr_t              context;
+    uint8_t                busyStatus;
 
 } XDMAC_CH_OBJECT ;
 
@@ -82,6 +83,7 @@ void XDMAC_InterruptHandler( void )
                 {
                     xdmacChObj->callback(XDMAC_TRANSFER_ERROR, xdmacChObj->context);
                 }
+                xdmacChObj->busyStatus = false;
             }
             else if (chanIntStatus & XDMAC_CIS_BIS_Msk)
             {
@@ -90,6 +92,7 @@ void XDMAC_InterruptHandler( void )
                 {
                     xdmacChObj->callback(XDMAC_TRANSFER_COMPLETE, xdmacChObj->context);
                 }
+                xdmacChObj->busyStatus = false;
             }
         }
 
@@ -109,13 +112,14 @@ void XDMAC_Initialize( void )
         xdmacChObj->inUse = 0;
         xdmacChObj->callback = NULL;
         xdmacChObj->context = 0;
+        xdmacChObj->busyStatus = false;
 
         /* Point to next channel object */
         xdmacChObj += 1;
     }
 
     /* Configure Channel 0 */
-    XDMAC_REGS->XDMAC_CHID[0].XDMAC_CC= (XDMAC_CC_TYPE_MEM_TRAN | XDMAC_CC_DAM_FIXED_AM | XDMAC_CC_SAM_INCREMENTED_AM | XDMAC_CC_SIF_AHB_IF1 | XDMAC_CC_DIF_AHB_IF1 | XDMAC_CC_DWIDTH_HALFWORD | XDMAC_CC_MBSIZE_SINGLE);
+    XDMAC_REGS->XDMAC_CHID[0].XDMAC_CC= (XDMAC_CC_TYPE_MEM_TRAN | XDMAC_CC_DAM_FIXED_AM | XDMAC_CC_SAM_INCREMENTED_AM | XDMAC_CC_SIF_AHB_IF0 | XDMAC_CC_DIF_AHB_IF1 | XDMAC_CC_DWIDTH_HALFWORD | XDMAC_CC_MBSIZE_SIXTEEN);
     XDMAC_REGS->XDMAC_CHID[0].XDMAC_CIE= (XDMAC_CIE_BIE_Msk | XDMAC_CIE_RBIE_Msk | XDMAC_CIE_WBIE_Msk | XDMAC_CIE_ROIE_Msk);
     XDMAC_REGS->XDMAC_GIE= (XDMAC_GIE_IE0_Msk << 0);
     xdmacChannelObj[0].inUse = 1;
@@ -139,6 +143,8 @@ void XDMAC_ChannelTransfer( XDMAC_CHANNEL channel, const void *srcAddr, const vo
     status = XDMAC_REGS->XDMAC_CHID[channel].XDMAC_CIS;
     (void)status;
 
+    xdmacChannelObj[channel].busyStatus = true;
+
     /*Set source address */
     XDMAC_REGS->XDMAC_CHID[channel].XDMAC_CSA= (uint32_t)srcAddr;
 
@@ -156,14 +162,7 @@ void XDMAC_ChannelTransfer( XDMAC_CHANNEL channel, const void *srcAddr, const vo
 
 bool XDMAC_ChannelIsBusy (XDMAC_CHANNEL channel)
 {
-    bool status = false;
-
-    if( (XDMAC_CC_WRIP_Msk == (XDMAC_REGS->XDMAC_CHID[channel].XDMAC_CC& XDMAC_CC_WRIP_Msk)) || (XDMAC_CC_RDIP_Msk == (XDMAC_REGS->XDMAC_CHID[channel].XDMAC_CC& XDMAC_CC_RDIP_Msk)) )
-    {
-        status = true;
-    }
-
-    return status;
+    return (bool)xdmacChannelObj[channel].busyStatus;
 }
 
 void XDMAC_ChannelDisable (XDMAC_CHANNEL channel)

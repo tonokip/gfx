@@ -39,7 +39,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 // DOM-IGNORE-END
 
+//CUSTOM CODE - DO NOT REMOVE OR MODIFY!!
 #include "app.h"
+//END OF CUSTOM CODE
+
 #include "gfx/libaria/libaria_events.h"
 
 // ButtonWidget2 - ReleasedEvent

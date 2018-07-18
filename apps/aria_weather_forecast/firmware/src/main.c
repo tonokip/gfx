@@ -43,17 +43,10 @@ int main ( void )
 {
     /* Initialize all modules */
     SYS_Initialize ( NULL );
-    
-    GFX_Initialize();
-    LibAria_Initialize();
 
     while ( true )
     {
-        GFX_Update();
-
-    	LibAria_Tasks(); 
-        
-        APP_Tasks();
+        SYS_Tasks();
     }
 
     /* Execution should not come here during normal operation */

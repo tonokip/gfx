@@ -60,6 +60,75 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+// <editor-fold defaultstate="collapsed" desc="DRV_I2C Instance 0 Initialization Data">
+
+/* I2C Client Objects Pool */
+DRV_I2C_CLIENT_OBJ drvI2C0ClientObjPool[DRV_I2C_CLIENTS_NUMBER_IDX0] = {0};
+
+/* I2C Transfer Objects Pool */
+DRV_I2C_TRANSFER_OBJ drvI2C0TransferObj[DRV_I2C_QUEUE_SIZE_IDX0] = {0};
+
+/* I2C PLib Interface Initialization */
+DRV_I2C_PLIB_INTERFACE drvI2C0PLibAPI = {
+    
+    /* I2C PLib Transfer Setup */
+    .transferSetup = (DRV_I2C_TRANSFER_SETUP_CALLBACK)TWIHS0_TransferSetup,
+    
+    /* I2C PLib Transfer Read Add function */
+    .read = (DRV_I2C_READ_CALLBACK)TWIHS0_Read,
+    
+    /* I2C PLib Transfer Write Add function */
+    .write = (DRV_I2C_WRITE_CALLBACK)TWIHS0_Write,
+    
+    /* I2C PLib Transfer Write Read Add function */
+    .writeRead = (DRV_I2C_WRITE_READ_CALLBACK)TWIHS0_WriteRead,
+    
+    /* I2C PLib Transfer Status function */
+    .errorGet = (DRV_I2C_ERROR_GET_CALLBACK)TWIHS0_ErrorGet,
+    
+    /* I2C PLib Callback Register */
+    .callbackRegister = (DRV_I2C_CALLBACK_REGISTER_CALLBACK)TWIHS0_CallbackRegister,
+};
+
+/* I2C Driver Initialization Data */
+DRV_I2C_INIT drvI2C0InitData =
+{
+    /* I2C PLib API */
+    .i2cPlib = &drvI2C0PLibAPI,
+
+    /* I2C Number of clients */
+    .numClients = DRV_I2C_CLIENTS_NUMBER_IDX0,
+
+    /* I2C Client Objects Pool */
+    .clientObjPool = (uintptr_t)&drvI2C0ClientObjPool[0],
+
+    /* I2C IRQ */
+    .interruptI2C = DRV_I2C_INT_SRC_IDX0,
+    
+    /* I2C TWI Queue Size */
+    .queueSize = DRV_I2C_QUEUE_SIZE_IDX0,
+    
+    /* I2C Transfer Objects */
+    .transferObj = (uintptr_t)&drvI2C0TransferObj[0],
+
+    /* I2C Clock Speed */
+    .clockSpeed = DRV_I2C_CLOCK_SPEED_IDX0,
+};
+
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="DRV_INPUT_MXT336T Initialization Data">
+/*** MaxTouch Driver Initialization Data ***/
+const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
+{
+    .drvOpen                     = DRV_I2C_Open,
+    .orientation                 = 0,
+    .horizontalResolution        = 480,
+    .verticalResolution          = 272,
+};
+
+// </editor-fold>
+
 
 
 // *****************************************************************************
@@ -105,9 +174,16 @@ void SYS_Initialize ( void* data )
 	WDT_REGS->WDT_MR|= WDT_MR_WDDIS_Msk; 		// Disable WDT 
 	BSP_Initialize();
     SMC0_Initialize();
+	TWIHS0_Initialize();
+
+    GFX_Initialize();
+    sysObj.drvMAXTOUCH = DRV_MAXTOUCH_Initialize(0, (SYS_MODULE_INIT *)&drvMAXTOUCHInitData);
+    /* Initialize I2C0 Driver Instance */
+    sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
 
 
-
+    LibAria_Initialize(); // initialize UI library
+SYS_INP_Init();
 
 
     APP_Initialize();

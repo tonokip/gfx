@@ -53,7 +53,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/xdmac/plib_xdmac.h"
 #include "bsp/bsp.h"
+#include "system/int/sys_int.h"
+#include "system/ports/sys_ports.h"
+#include "osal/osal.h"
+#include "driver/i2c/drv_i2c.h"
+#include "driver/i2c/drv_i2c.h"
 #include "peripheral/smc/plib_smc0.h"
+#include "peripheral/twihs/plib_twihs0.h"
 #include "app.h"
 
 
@@ -177,6 +183,10 @@ void SYS_Tasks ( void );
 
 typedef struct
 {
+    SYS_MODULE_OBJ  drvMAXTOUCH;
+    /* I2C0 Driver Object */
+    SYS_MODULE_OBJ drvI2C0;
+
 
 } SYSTEM_OBJECTS;
 
