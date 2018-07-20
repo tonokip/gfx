@@ -144,7 +144,7 @@ def instantiateComponent(comp):
 	UseChipSelect = comp.createBooleanSymbol("UseChipSelect", None)
 	UseChipSelect.setLabel("Use Chip Select?")
 	UseChipSelect.setDescription("Indicates if this display uses the chip select line.")
-	UseChipSelect.setDefaultValue(True)
+	UseChipSelect.setDefaultValue(False)
 	UseChipSelect.setReadOnly(True)
 	
 	ChipSelectPolarity = comp.createBooleanSymbol("ChipSelectPolarity", None)
