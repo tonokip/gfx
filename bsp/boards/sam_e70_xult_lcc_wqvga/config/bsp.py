@@ -55,6 +55,7 @@ def configureSDRAMPins(bspComponent):
 				{"pin": 84, "name": "EBI_SDCKE", "type": "EBI_SDCKE", "direction": "", "latch": ""},
 				{"pin": 18, "name": "EBI_NCS1/SDCS", "type": "EBI_NCS1/SDCS", "direction": "", "latch": ""},
 				{"pin": 74, "name": "EBI_CAS", "type": "EBI_CAS", "direction": "", "latch": ""},
+				{"pin": 78, "name": "EBI_RAS", "type": "EBI_RAS", "direction": "", "latch": ""},
 				{"pin": 108, "name": "EBI_SDWE", "type": "EBI_SDWE", "direction": "", "latch": ""},
 				{"pin": 111, "name": "EBI_A0/NBS0/DQM0", "type": "EBI_A0/NBS0/DQM0", "direction": "", "latch": ""},
 				{"pin": 106, "name": "EBI_NWR1/NBS1/DQM1", "type": "EBI_NWR1/NBS1/DQM1", "direction": "", "latch": ""},
