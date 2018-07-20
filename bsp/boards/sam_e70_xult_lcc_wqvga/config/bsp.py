@@ -7,9 +7,6 @@ def activateDefaultComponents(bspComponent):
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
 
 	touchComponentsIDTable = ["twihs0", "drv_i2c", "drv_i2c0", "gfx_maxtouch_controller", "sys_input"]
-	# touchComponentConnectionTable = [["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
-									# ["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
-									# ["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
 	touchComponentConnectionTable = [["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
 									["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
 									["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
@@ -107,10 +104,11 @@ def instantiateComponent(bspComponent):
 	
 	configureLCCPins(bspComponent)
 	configureTouchControllerPins(bspComponent)
+
 	
+
 	#configureSDRAMPins(bspComponent)
 	#activateSDRAMComponent(bspComponent)
-	
 	
 	#enableSDRAM = bspComponent.createBooleanSymbol("EnableSDRAM", None)
 	#enableSDRAM.setLabel("Enable SDRAM?")
@@ -136,6 +134,7 @@ def instantiateComponent(bspComponent):
 		# {"type":"VBUS_AH", "mode":"DIGITAL", "dir":"OUT"},
 		# {"type":"VBUS_AL", "mode":"DIGITAL", "dir":"OUT"}]
 
-
 	execfile(Variables.get("__BSP_DIR") + "/boards/config/bsp_common.py")
+	
+	Database.setSymbolValue("aria_gfx_library", "enableInput", True)
 
