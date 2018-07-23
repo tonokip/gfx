@@ -88,7 +88,7 @@ def configureLCCPins(bspComponent):
 def configureTouchControllerPins(bspComponent):
 	touchCtrlrPinConfigs = [{"pin": 91, "name": "TWIHS0_TWD0", "type": "TWIHS0_TWD0", "direction": "", "latch": ""},
 							{"pin": 77, "name": "TWIHS0_TWCK0", "type": "TWIHS0_TWCK0", "direction": "", "latch": ""},
-							{"pin": 71, "name": "MXT_INTERRUPT", "type": "GPIO", "direction": "In", "latch": ""},
+							{"pin": 71, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": ""},
 							]
 	configurePins(touchCtrlrPinConfigs)
 
