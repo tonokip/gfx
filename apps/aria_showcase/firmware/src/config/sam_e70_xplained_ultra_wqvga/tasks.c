@@ -74,12 +74,12 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-    DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
+        GFX_Update();
+DRV_MAXTOUCH_Tasks(sysObj.drvMAXTOUCH);
 
 
     /* Maintain Middleware & Other Libraries */
         LibAria_Tasks(); // update the UI library
-    GFX_Update();
 SYS_INP_Tasks();
 
 

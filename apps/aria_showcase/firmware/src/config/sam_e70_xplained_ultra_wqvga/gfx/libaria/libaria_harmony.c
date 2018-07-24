@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/libaria.h"
 #include "gfx/libaria/libaria_demo_mode.h"
 
+
 #include "system/input/sys_input.h"
 
 SYS_INP_InputListener inputListener;

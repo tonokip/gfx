@@ -166,7 +166,7 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
-            <logicalFolder name="input" displayName="input" projectFiles="true">
+            <logicalFolder name="f3" displayName="input" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/input/sys_input_gesture.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/input/sys_input_keyboard.h</itemPath>
@@ -182,7 +182,7 @@
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="time" projectFiles="true">
+            <logicalFolder name="f4" displayName="time" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/sys_time.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/sys_time_definitions.h</itemPath>
             </logicalFolder>

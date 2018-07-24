@@ -9894,6 +9894,8 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="core" priority="1" value="true"/>
               <Value dnOrder="1" id="core" priority="1" value="true"/>
+              <Value dnOrder="2" id="core" priority="1" value="true"/>
+              <Value dnOrder="3" id="core" priority="1" value="true"/>
             </Dynamic>
           </Values>
         </Boolean>
@@ -10175,14 +10177,34 @@
             <User dnOrder="0" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="13" id="demoModeIdleTimeout">
+        <Setting dnOrder="13" id="XC32_ARIA_PROJECT_HEAP">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+            <String dnOrder="1" id="value">
+              <Value dnOrder="0">65535</Value>
+            </String>
+          </Attributes>
+        </Setting>
+        <Integer dnOrder="14" id="ariaProjectHeap">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
+            <User dnOrder="0" value="65535"/>
+          </Values>
+        </Integer>
+        <Integer dnOrder="15" id="demoModeIdleTimeout">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Integer>
-        <Integer dnOrder="14" id="demoModeMaxEvents">
+        <Integer dnOrder="16" id="demoModeMaxEvents">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
@@ -10192,38 +10214,43 @@
             <User dnOrder="0" value="120"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="15" id="demoModeRecordInput">
+        <Boolean dnOrder="17" id="demoModeRecordInput">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Boolean>
-        <Integer dnOrder="16" id="demoModeRecordTickPeriod">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </Integer>
-        <Integer dnOrder="17" id="demoModeReplayDelay">
+        <Integer dnOrder="18" id="demoModeRecordTickPeriod">
           <Attributes dnOrder="0">
             <Boolean dnOrder="0" id="visible">
               <Value dnOrder="0">true</Value>
             </Boolean>
           </Attributes>
         </Integer>
-        <Boolean dnOrder="18" id="enableDemoMode">
+        <Integer dnOrder="19" id="demoModeReplayDelay">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+        </Integer>
+        <Boolean dnOrder="20" id="enableDemoMode">
           <Values dnOrder="0">
             <User dnOrder="0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="19" id="enableInput">
+        <Boolean dnOrder="21" id="enableInput">
           <Values dnOrder="0">
             <User dnOrder="0" value="true"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="20" id="useGlobalPalette">
+        <Boolean dnOrder="22" id="setProjectHeap">
+          <Values dnOrder="0">
+            <User dnOrder="0" value="true"/>
+          </Values>
+        </Boolean>
+        <Boolean dnOrder="23" id="useGlobalPalette">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
@@ -10239,6 +10266,8 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="drv_i2c_0" priority="1" value="1"/>
               <Value dnOrder="1" id="drv_i2c_0" priority="1" value="1"/>
+              <Value dnOrder="2" id="drv_i2c_0" priority="1" value="1"/>
+              <Value dnOrder="3" id="drv_i2c_0" priority="1" value="1"/>
             </Dynamic>
           </Values>
         </Integer>
