@@ -536,7 +536,8 @@ laResult laString_Append(laString* dst, const laString* src)
 
 laResult laString_Insert(laString* dst, const laString* src, uint32_t idx)
 {
-    uint32_t totalLength, rightLength, i;
+    uint32_t totalLength, rightLength;
+    int32_t i;
     
     if(dst == NULL || dst->data == NULL)
     {
@@ -555,6 +556,30 @@ laResult laString_Insert(laString* dst, const laString* src, uint32_t idx)
     if(idx >= dst->length)
         return laString_Append(dst, src);
     
+    if (idx == 0)
+    {
+        laString temp;
+        laResult retval = LA_FAILURE;
+
+        laString_Initialize(&temp);
+
+        retval = laString_Copy(&temp, src);
+        if (retval != LA_SUCCESS)
+            return LA_FAILURE;
+
+        retval = laString_Append(&temp, dst);
+        if (retval != LA_SUCCESS)
+        {
+            laString_Destroy(&temp);
+            return LA_FAILURE;
+        }
+
+        retval = laString_Copy(dst, &temp);
+        laString_Destroy(&temp);
+
+        return retval;
+    }
+
     rightLength = laString_Length(src);
     totalLength = dst->length + laString_Length(src);
     
