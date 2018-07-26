@@ -737,13 +737,13 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             SYS_DEBUG_Print("MXT State Init\n");
 #endif
             
-//			static uint8_t delayN = 5;
-//			
-//			while(delayN > 0)
-//			{
-//				delayN--;
-//				return;				
-//			}
+			static uint8_t delayN = 5;
+			
+			while(delayN > 0)
+			{
+				delayN--;
+				return;				
+			}
 			
             pDrvObject->taskQueue[0].drvI2CFrameData[0] = 0;
             pDrvObject->taskQueue[0].drvI2CFrameData[1] = 0;
