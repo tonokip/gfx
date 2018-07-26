@@ -96,16 +96,16 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define BSP_LCD_VSYNC_InterruptDisable()  (PIOD_REGS->PIO_IDR = (1<<19))
 #define BSP_LCD_VSYNC_PIN                  PIO_PIN_PD19
 
-/*** Macros for MXT_INTERRUPT pin ***/
-#define MXT_INTERRUPT_Set()               (PIOD_REGS->PIO_SODR = (1<<28))
-#define MXT_INTERRUPT_Clear()             (PIOD_REGS->PIO_CODR = (1<<28))
-#define MXT_INTERRUPT_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<28))
-#define MXT_INTERRUPT_Get()               ((PIOD_REGS->PIO_PDSR >> 28) & 0x1)
-#define MXT_INTERRUPT_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<28))
-#define MXT_INTERRUPT_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<28))
-#define MXT_INTERRUPT_InterruptEnable()   (PIOD_REGS->PIO_IER = (1<<28))
-#define MXT_INTERRUPT_InterruptDisable()  (PIOD_REGS->PIO_IDR = (1<<28))
-#define MXT_INTERRUPT_PIN                  PIO_PIN_PD28
+/*** Macros for BSP_MAXTOUCH_CHG pin ***/
+#define BSP_MAXTOUCH_CHG_Set()               (PIOD_REGS->PIO_SODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_Clear()             (PIOD_REGS->PIO_CODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<28))
+#define BSP_MAXTOUCH_CHG_Get()               ((PIOD_REGS->PIO_PDSR >> 28) & 0x1)
+#define BSP_MAXTOUCH_CHG_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<28))
+#define BSP_MAXTOUCH_CHG_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<28))
+#define BSP_MAXTOUCH_CHG_InterruptEnable()   (PIOD_REGS->PIO_IER = (1<<28))
+#define BSP_MAXTOUCH_CHG_InterruptDisable()  (PIOD_REGS->PIO_IDR = (1<<28))
+#define BSP_MAXTOUCH_CHG_PIN                  PIO_PIN_PD28
 
 /*** Macros for BSP_LCD_BACKLIGHT pin ***/
 #define BSP_LCD_BACKLIGHT_Set()               (PIOC_REGS->PIO_SODR = (1<<9))
