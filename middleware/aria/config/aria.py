@@ -20,34 +20,7 @@ def instantiateComponent(component):
 	SysTasksString.addValue("    LibAria_Tasks(); // update the UI library")
 	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
 	
-	setProjectHeap = component.createBooleanSymbol("setProjectHeap", None)
-	setProjectHeap.setLabel("Set Project Heap?")
-	setProjectHeap.setDefaultValue(False)
-	setProjectHeap.setDescription("Set the heap for the MPLAB project. This overrides the default heap setting.")
-
-	ariaProjectHeap = component.createIntegerSymbol("ariaProjectHeap", setProjectHeap)
-	ariaProjectHeap.setLabel("Heap")
-	ariaProjectHeap.setVisible(False)
-	ariaProjectHeap.setDefaultValue(32768)
-	ariaProjectHeap.setDescription("Heap for the MPLAB project. This overrides the default heap setting.")
-	ariaProjectHeap.setDependencies(onSetProjectHeapEnabled, ["setProjectHeap"])
-
-	xc32AriaProjectHeap = component.createSettingSymbol("XC32_ARIA_PROJECT_HEAP", setProjectHeap)
-	xc32AriaProjectHeap.setCategory("C32-LD")
-	xc32AriaProjectHeap.setKey("heap-size")
-	xc32AriaProjectHeap.setEnabled(False)
-	xc32AriaProjectHeap.setDependencies(onSetProjectHeap, ["ariaProjectHeap"])
-
-def onSetProjectHeapEnabled(enableSetProjectHeap, event):
-	enableSetProjectHeap.getComponent().getSymbolByID("ariaProjectHeap").setVisible(event["value"])
-	
-	projectHeap = enableSetProjectHeap.getComponent().getSymbolByID("ariaProjectHeap").getValue()
-	enableSetProjectHeap.getComponent().getSymbolByID("XC32_ARIA_PROJECT_HEAP").setEnabled(event["value"])
-	enableSetProjectHeap.getComponent().getSymbolByID("XC32_ARIA_PROJECT_HEAP").setValue(str(projectHeap))
-
-def onSetProjectHeap(setProjectHeap, event):
-	projectHeap = setProjectHeap.getComponent().getSymbolByID("ariaProjectHeap").getValue()
-	setProjectHeap.getComponent().getSymbolByID("XC32_ARIA_PROJECT_HEAP").setValue(str(projectHeap))
+	Database.setSymbolValue("core", "HEAP_SIZE", 32768, 1) 
 
 def onDependentComponentAdded(aria, dependencyID, hal):
 	hal.setSymbolValue("GlobalPaletteModeHint", aria.getSymbolValue("useGlobalPalette"), 1)
