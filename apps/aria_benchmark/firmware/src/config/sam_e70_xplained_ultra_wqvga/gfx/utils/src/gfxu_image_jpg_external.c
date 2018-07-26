@@ -40,7 +40,10 @@ GFX_Result GFXU_DrawImageJpgExternal(GFXU_ImageAsset* img,
     
     if(memIntf == NULL)
         return GFX_FAILURE;
-    
+
+    //JPEG masking is not supported
+    GFX_Set(GFXF_DRAW_MASK_ENABLE, GFX_FALSE);
+
     // jpeg decoder doesn't handle clipped images
     if(src_x != 0 || src_y != 0)
         return GFX_FAILURE;

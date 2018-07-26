@@ -204,9 +204,9 @@ void SYS_Initialize ( void* data )
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
 
     sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
-    
+
     LibAria_Initialize(); // initialize UI library
-    SYS_INP_Init();
+SYS_INP_Init();
 
 
     APP_Initialize();

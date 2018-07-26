@@ -737,13 +737,13 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             SYS_DEBUG_Print("MXT State Init\n");
 #endif
             
-//			static uint8_t delayN = 5;
-//			
-//			while(delayN > 0)
-//			{
-//				delayN--;
-//				return;				
-//			}
+			static uint8_t delayN = 5;
+			
+			while(delayN > 0)
+			{
+				delayN--;
+				return;				
+			}
 			
             pDrvObject->taskQueue[0].drvI2CFrameData[0] = 0;
             pDrvObject->taskQueue[0].drvI2CFrameData[1] = 0;
@@ -1393,8 +1393,8 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
     
     if(event == 0)
         return;
-    
-    //HACK TO GET TOUCH WORKING. Driver sends touchID = 0xF7 which aria rejects
+
+    //FIXME: HACK TO GET TOUCH WORKING. Driver sends touchID = 0xF7 which aria rejects
     touchID = 0;
     
 #ifdef DEBUG_ENABLE      
