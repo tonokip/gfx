@@ -105,7 +105,7 @@ def instantiateComponent(bspComponent):
 	configureLCCPins(bspComponent)
 	configureTouchControllerPins(bspComponent)
 
-	#configureSDRAMPins(bspComponent)
+	configureSDRAMPins(bspComponent)
 	#activateSDRAMComponent(bspComponent)
 	
 	#enableSDRAM = bspComponent.createBooleanSymbol("EnableSDRAM", None)
@@ -136,6 +136,3 @@ def instantiateComponent(bspComponent):
 	
 	#Enable input system service interface in GFX
 	Database.setSymbolValue("aria_gfx_library", "enableInput", True) 
-	#Enable default project heap setting
-	Database.setSymbolValue("aria_gfx_library", "setProjectHeap", True) 
-
