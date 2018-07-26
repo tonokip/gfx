@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7D0BF5022321F738EB9B40BFD87E1953</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7D0BF5022321F738EB9B40BFD87E1953</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7987C8BC178B8938AE2413DD8448C6F8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7987C8BC178B8938AE2413DD8448C6F8</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -331,16 +331,16 @@
           <Name dnOrder="1">gfxu_image_jpg_external.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/utils/src</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">33A84C8C17181563A864917443F90FD3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">33A84C8C17181563A864917443F90FD3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4AB45A600C78A4F451E26EA86B594498</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4AB45A600C78A4F451E26EA86B594498</UserChecksum>
         </File>
         <File dnOrder="41">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">gfxu_image_jpg_internal.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/utils/src</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56CA400937FB10BC1F43FD41DFC4D223</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56CA400937FB10BC1F43FD41DFC4D223</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3EB5EAB9C5DE1874E9D26D51F16D1731</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3EB5EAB9C5DE1874E9D26D51F16D1731</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
@@ -627,8 +627,8 @@
           <Name dnOrder="1">libaria_string.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">93829EC3297FF565E2BF393F0CF17AD0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">93829EC3297FF565E2BF393F0CF17AD0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1A6F8D6F6D45E3BF4470913EDBFC31B3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1A6F8D6F6D45E3BF4470913EDBFC31B3</UserChecksum>
         </File>
         <File dnOrder="78">
           <Type dnOrder="0">SOURCE</Type>
@@ -2291,8 +2291,8 @@
           <Name dnOrder="1">plib_pio.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F634B94318A7612D9160270699912DDA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F634B94318A7612D9160270699912DDA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1B2382749CAF079E06CAFC0BE006739B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1B2382749CAF079E06CAFC0BE006739B</UserChecksum>
         </File>
         <File dnOrder="286">
           <Type dnOrder="0">HEADER</Type>
@@ -2633,10 +2633,11 @@
       </Files>
       <Settings dnOrder="1">
         <Setting append="true" category="C32" delimiter=";" dnOrder="0" key="extra-include-directories" value="../src;../src/config/sam_e70_xplained_ultra_wqvga;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS"/>
-        <Setting category="C32-LD" dnOrder="1" key="no-device-startup-code" value="true"/>
-        <Setting category="C32Global" dnOrder="2" key="mdtcm" value=""/>
-        <Setting category="C32Global" dnOrder="3" key="mitcm" value=""/>
-        <Setting category="C32Global" dnOrder="4" key="mstacktcm" value="false"/>
+        <Setting category="C32-LD" dnOrder="1" key="heap-size" value="32768"/>
+        <Setting category="C32-LD" dnOrder="2" key="no-device-startup-code" value="true"/>
+        <Setting category="C32Global" dnOrder="3" key="mdtcm" value=""/>
+        <Setting category="C32Global" dnOrder="4" key="mitcm" value=""/>
+        <Setting category="C32Global" dnOrder="5" key="mstacktcm" value="false"/>
       </Settings>
     </Manifest>
   </Configurator>
