@@ -38,18 +38,15 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  ******************************************************************************/
 // DOM-IGNORE-END
 
-//#include <sys/attribs.h>
-//#include <sys/kmem.h>
-
 #include "driver/i2c/drv_i2c.h"
 #include "driver/input/drv_maxtouch.h"
 #include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
+#include "system/time/sys_time.h"
 
 #include <string.h>
 
 //#define DEBUG_ENABLE
-
 
 #define I2C_FRAME_SIZE             32
 #define I2C_READ_ID_FRAME_SIZE     sizeof(MAXTOUCH_Message)
@@ -69,6 +66,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define DEFAULT_YRES               271
 
 #define DRV_MAXTOUCH_NUM_QUEUE      2
+#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 38
+
 
 // MAXTOUCH object IDs
 typedef enum
@@ -287,7 +286,6 @@ uint32_t messageDataSize = MESSAGE_DATA_SIZE; // Prevent assert at line 739 from
                                               // firing at startup.
 MAXTOUCH_Object* objectTable;
 
-uint8_t info_block[3000];
 uint8_t* infoBlockData;
 uint32_t infoBlockSize;
 MAXTOUCH_InfoBlock infoBlock;
@@ -450,8 +448,11 @@ static MAXTOUCH_Object* _MAXTOUCH_FindObject(const struct DEVICE_OBJECT *pDrvObj
 
 bool MXT_INTERRUPT_PIN_VALUE_GET(void)
 {
-//    return(PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_E, PORTS_BIT_POS_8 ));
-    return(PIO_PinRead(PIO_PIN_PD28));
+#ifndef BSP_MAXTOUCH_CHG_Get
+#error "MAXTOUCH_INT_Get is not defined. Please use Pin Settings Tab in MHC to define the Touch Interrupt pin with the name 'MAXTOUCH_INT' as GPIO_IN"   
+#else
+return(BSP_MAXTOUCH_CHG_Get());
+#endif
 }
 
 static int32_t buildObjectMap();
@@ -472,11 +473,15 @@ static TASK_QUEUE sMAXTOUCHQueue[DRV_MAXTOUCH_NUM_QUEUE];
 
 static void calculateLargestObjectSize(struct DEVICE_OBJECT *pDrvObject);
 
-//DRV_I2C_BUFFER_EVENT operationStatus;
-
 
 struct DEVICE_OBJECT* _pDrvObject;
+static SYS_TIME_HANDLE resetTimer;
 
+static void resetTimer_Callback ( uintptr_t context )
+{
+    _pDrvObject->deviceState = DEVICE_STATE_INIT;
+    SYS_TIME_TimerDestroy(resetTimer);
+}
 
 void DRV_MAXTOUCH_I2CEventHandler ( DRV_I2C_TRANSFER_EVENT  event,
                            DRV_I2C_TRANSFER_HANDLE transferHandle, 
@@ -660,12 +665,9 @@ DRV_HANDLE DRV_MAXTOUCH_Open(const SYS_MODULE_INDEX index,
     {
         pDrvInstance->isExclusive = true;
     }
-    
-       
+          
     pDrvInstance->status = SYS_STATUS_BUSY;
-    
-    
-    
+        
     return (DRV_HANDLE)pDrvInstance;
 }
 
@@ -684,24 +686,7 @@ void DRV_MAXTOUCH_Close (DRV_HANDLE handle)
     pDrvObject->deviceState = DEVICE_STATE_INIT;    
     
     /* free up the memory used */
-//    OSAL_Free(infoBlockData);
-    infoBlockData = NULL;
-}
-
-void DRV_MAXTOUCH_ReadRequest( SYS_MODULE_OBJ object )
-{
-    struct DEVICE_OBJECT *pDrvObject = (struct DEVICE_OBJECT *)object;
-
-    /* Check we are not processing any existing transaction, if a transaction is still
-     * in process then the CHG line will still be asserted and the read will be started
-     * in the main tasks routine */
-    if (object == SYS_MODULE_OBJ_INVALID /*||
-        pDrvObject->deviceState != DEVICE_STATE_READY*/)
-        return;
-    
-    //_MessageObjectRead(pDrvObject);
-
-    pDrvObject->readRequest = 1;        
+    OSAL_Free(infoBlockData);
 }
 
 static void handleMessage(struct DEVICE_OBJECT* pDrvObject);
@@ -726,24 +711,23 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         case DEVICE_STATE_OPEN:
         {
             DRV_MAXTOUCH_Open(0, DRV_IO_INTENT_EXCLUSIVE);
+                    
+            SYS_TIME_TimerDestroy(resetTimer);
+
+            resetTimer = SYS_TIME_CallbackRegisterMS(resetTimer_Callback, 
+                                1,
+                                DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS,
+                                SYS_TIME_SINGLE);
             
-            pDrvObject->deviceState = DEVICE_STATE_INIT;
-        
+            pDrvObject->deviceState = DEVICE_STATE_WAIT;
+
             break;
         }
         case DEVICE_STATE_INIT:
         {
 #ifdef DEBUG_ENABLE           
             SYS_DEBUG_Print("MXT State Init\n");
-#endif
-            
-			static uint8_t delayN = 5;
-			
-			while(delayN > 0)
-			{
-				delayN--;
-				return;				
-			}
+#endif           
 			
             pDrvObject->taskQueue[0].drvI2CFrameData[0] = 0;
             pDrvObject->taskQueue[0].drvI2CFrameData[1] = 0;
@@ -793,8 +777,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                             (objectCount * sizeof(MAXTOUCH_Object)) +
                             sizeof(MAXTOUCH_CRC);
             
-//            infoBlockData = OSAL_Malloc(infoBlockSize);
-            infoBlockData = &info_block[0];
+            infoBlockData = OSAL_Malloc(infoBlockSize);
             
             infoBlock.id = (MAXTOUCH_ID_Info*)infoBlockData;
             infoBlock.objectTable = (MAXTOUCH_Object*)((uint8_t*)infoBlockData + sizeof(MAXTOUCH_ID_Info));
@@ -897,7 +880,6 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
 #endif
             
             _RegWrite16(pDrvObject, T100_XRANGE, pDrvObject->xRes, &pDrvObject->hXRangeWrite );
-            //_RegRead(pDrvObject, T100_XRANGE);
             
             //pDrvObject->status = SYS_STATUS_READY;
             pDrvObject->deviceState = DEVICE_STATE_WRITE_T100_XRANGE;
@@ -937,10 +919,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
             /* send a read request to the message processor object T5 */ 
             if(MXT_INTERRUPT_PIN_VALUE_GET() == false)
             {
-//                portd = MXT_INTERRUPT_PIN_VALUE_GET();
                 _MessageObjectRead(pDrvObject);
-//                pDrvObject->deviceState = DEVICE_STATE_HANDLE_MESSAGE_OBJECT;
-
             }
             break; 
         }
@@ -1126,7 +1105,7 @@ static void handleMessage(struct DEVICE_OBJECT* pDrvObject)
     }   
     
     // multitouch message?
-    if(pDrvObject->mxtMsg.reportID >= 0x2f && //touchBaseID &&
+    if(pDrvObject->mxtMsg.reportID >= touchBaseID &&
        pDrvObject->mxtMsg.reportID <= touchEndID)
     {
         _handleTouchMessage(pDrvObject->mxtMsg.reportID - touchBaseID,
@@ -1301,8 +1280,6 @@ static uint8_t checksumMessage(uint8_t* msg)
 }
 #endif
 
-    uint16_t no_of_bytes;
-
 static int32_t buildObjectMap()
 {
     reportIDMapSize = 1;
@@ -1311,8 +1288,7 @@ static int32_t buildObjectMap()
     uint8_t element_index;
     uint8_t instance_index;
     uint8_t report_index;
-//    uint16_t no_of_bytes;
-    //uint8_t baseIndex;
+    uint16_t no_of_bytes;
     
     MAXTOUCH_Object* object;
     
@@ -1325,8 +1301,7 @@ static int32_t buildObjectMap()
     
     /* Allocate memory for report ID look-up table */
     no_of_bytes = reportIDMapSize * sizeof(MAXTOUCH_ReportIDMap);
-//    reportIDMapList = OSAL_Malloc(no_of_bytes);
-    reportIDMapList = &report_id_map[0];
+    reportIDMapList = OSAL_Malloc(no_of_bytes);
     
     if(reportIDMapList == NULL)
         return -1;
@@ -1393,9 +1368,9 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
     
     if(event == 0)
         return;
-
-    //FIXME: HACK TO GET TOUCH WORKING. Driver sends touchID = 0xF7 which aria rejects
-    touchID = 0;
+    
+    //HACK TO GET TOUCH WORKING. Driver sends touchID = 0xF7 which aria rejects
+//    touchID = 0;
     
 #ifdef DEBUG_ENABLE      
     SYS_DEBUG_Print("Touch event - id: %d, detect: %d, type: %d, event: %d, xpos: %d, ypos: %d\n", touchID, detect, type, event, xpos, ypos);
@@ -1404,25 +1379,19 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
     switch(event)
     {
         case 0x4: // touch down
-        {
-            //laInput_InjectTouchDown(touchID, xpos, ypos);
-            
+        {            
             SYS_INP_InjectTouchDown(touchID, xpos, ypos);
             
             break;
         }
         case 0x5: // touch up
-        {
-            //laInput_InjectTouchUp(touchID, xpos, ypos);
-            
+        {            
             SYS_INP_InjectTouchUp(touchID, xpos, ypos);
             
             break;
         }
         case 0x1: // touch move
-        {
-            //laInput_InjectTouchMoved(touchID, xpos, ypos);
-            
+        {            
             SYS_INP_InjectTouchMove(touchID, xpos, ypos);
             
             break;
