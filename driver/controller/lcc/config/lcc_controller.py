@@ -113,7 +113,8 @@ def instantiateComponent(comp):
 	UseCachedFrameBuffer.setDefaultValue(True)
 	UseCachedFrameBuffer.setDependencies(OnCacheEnabled, ["core.DATA_CACHE_ENABLE"])
 
-	FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM", "External SDRAM"])
+	#FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM", "External SDRAM"])
+	FrameBufferMemory = comp.createComboSymbol("FrameBufferMemory", FrameBufferSettingsMenu, ["Internal SRAM"])
 	FrameBufferMemory.setLabel("Memory Interface")
 	FrameBufferMemory.setDescription("Memory used for Frame Buffer")
 	FrameBufferMemory.setDefaultValue("Internal SRAM")
@@ -137,10 +138,10 @@ def instantiateComponent(comp):
 	CurrDMAChannel.setDefaultValue(0)
 	CurrDMAChannel.setVisible(False)
 	
-	IntPriority = comp.createIntegerSymbol("IntPriority", DMAMenu)
-	IntPriority.setLabel("Interrupt Priority Level")
-	IntPriority.setMin(0)
-	IntPriority.setMax(7)
+	# IntPriority = comp.createIntegerSymbol("IntPriority", DMAMenu)
+	# IntPriority.setLabel("Interrupt Priority Level")
+	# IntPriority.setMin(0)
+	# IntPriority.setMax(7)
 
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
