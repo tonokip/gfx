@@ -3,6 +3,7 @@ def instantiateComponent(component):
 	RTOSMode.setLabel("Use RTOS Mode?")
 	RTOSMode.setDescription("Enables RTOS compatibility mode for this service.")
 	RTOSMode.setDependencies(onRTOSMode, ["RTOSMode"])
+	RTOSMode.setVisible(False) #Hide unsupported RTOS options
 	
 	RTOSTaskSize = component.createIntegerSymbol("RTOSTaskSize", RTOSMode)
 	RTOSTaskSize.setLabel("Task Size")

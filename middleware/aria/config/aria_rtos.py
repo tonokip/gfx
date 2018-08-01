@@ -1,6 +1,7 @@
 useRTOS = component.createBooleanSymbol("USE_RTOS", None)
 useRTOS.setLabel("Enable RTOS Mode?")
 useRTOS.setDependencies(onRTOSEnable, ["USE_RTOS"])
+useRTOS.setVisible(False) #Hide unsupported RTOS options
 
 #rtosMenu = component.createMenuSymbol("RTOS_MENU", None)
 #rtosMenu.setLabel("RTOS Configuration")
