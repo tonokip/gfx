@@ -94,9 +94,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
   Description:
     This data type defines the data required to initialize or reinitialize the
-    MAXTOUCH driver. If the driver is built statically, the members of this data
-    structure are statically over-ridden by static override definitions in the
-    system_config.h file.
+    MAXTOUCH driver.
 
   Remarks:
     None.
