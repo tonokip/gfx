@@ -9914,6 +9914,7 @@
               <Value dnOrder="4" id="core" priority="1" value="true"/>
               <Value dnOrder="5" id="core" priority="1" value="true"/>
               <Value dnOrder="6" id="core" priority="1" value="true"/>
+              <Value dnOrder="7" id="core" priority="1" value="true"/>
             </Dynamic>
           </Values>
         </Boolean>
@@ -10186,6 +10187,7 @@
               <Value dnOrder="4" id="drv_i2c_0" priority="1" value="1"/>
               <Value dnOrder="5" id="drv_i2c_0" priority="1" value="1"/>
               <Value dnOrder="6" id="drv_i2c_0" priority="1" value="1"/>
+              <Value dnOrder="7" id="drv_i2c_0" priority="1" value="1"/>
             </Dynamic>
           </Values>
         </Integer>
@@ -10406,7 +10408,7 @@
         <Boolean dnOrder="15" id="DisplayUseChipSelect">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
-              <Value dnOrder="0" id="gfx_hal" priority="1" value="true"/>
+              <Value dnOrder="0" id="gfx_hal" priority="1" value="false"/>
             </Dynamic>
             <User dnOrder="1" value="false"/>
           </Values>
@@ -10442,7 +10444,7 @@
         <Integer dnOrder="20" id="DisplayVertPulseWidth">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
-              <Value dnOrder="0" id="gfx_hal" priority="1" value="41"/>
+              <Value dnOrder="0" id="gfx_hal" priority="1" value="10"/>
             </Dynamic>
           </Values>
         </Integer>
@@ -10495,7 +10497,12 @@
           </Values>
         </Integer>
         <Integer dnOrder="1" id="I2CIndex">
-          <Values dnOrder="0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_maxtouch_controller" priority="1" value="0"/>
             </Dynamic>
@@ -10589,7 +10596,7 @@
         <Integer dnOrder="10" id="SMC_NCS_WR_PULSE_CS0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
-              <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="3"/>
+              <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="6"/>
             </Dynamic>
           </Values>
         </Integer>
@@ -10628,49 +10635,56 @@
             </Dynamic>
           </Values>
         </KeyValueSet>
-        <Integer dnOrder="16" id="SMC_NWE_PULSE_CS0">
+        <Integer dnOrder="16" id="SMC_NWE_CYCLE_CS0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
-              <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="3"/>
+              <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="6"/>
             </Dynamic>
           </Values>
         </Integer>
-        <Integer dnOrder="17" id="SMC_NWE_SETUP_CS0">
+        <Integer dnOrder="17" id="SMC_NWE_PULSE_CS0">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0">
+              <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="6"/>
+            </Dynamic>
+          </Values>
+        </Integer>
+        <Integer dnOrder="18" id="SMC_NWE_SETUP_CS0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="1"/>
             </Dynamic>
           </Values>
         </Integer>
-        <KeyValueSet dnOrder="18" id="SMC_PS_CS0">
+        <KeyValueSet dnOrder="19" id="SMC_PS_CS0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="smc0" priority="2" value="0"/>
             </Dynamic>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="19" id="SMC_PS_CS1">
+        <KeyValueSet dnOrder="20" id="SMC_PS_CS1">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="smc0" priority="2" value="0"/>
             </Dynamic>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="20" id="SMC_PS_CS2">
+        <KeyValueSet dnOrder="21" id="SMC_PS_CS2">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="smc0" priority="2" value="0"/>
             </Dynamic>
           </Values>
         </KeyValueSet>
-        <KeyValueSet dnOrder="21" id="SMC_PS_CS3">
+        <KeyValueSet dnOrder="22" id="SMC_PS_CS3">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="smc0" priority="2" value="0"/>
             </Dynamic>
           </Values>
         </KeyValueSet>
-        <Boolean dnOrder="22" id="SMC_WRITE_ENABLE_MODE_CS0">
+        <Boolean dnOrder="23" id="SMC_WRITE_ENABLE_MODE_CS0">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_driver_lcc" priority="1" value="false"/>
