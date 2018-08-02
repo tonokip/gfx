@@ -20,7 +20,7 @@ GFX_DisplayInfo GFX_DisplayInfoList[] =
 				2,  // horizontal front porch
 		    },
 		    {
-				41,  // vertical pulse width
+				10,  // vertical pulse width
 				2,  // vertical back porch
 				2,  // vertical front porch
 		    },

@@ -147,8 +147,8 @@
           <Name dnOrder="1">gfx_display_def.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">121A223610B176F130BB332A5B2BB089</GeneratedChecksum>
-          <UserChecksum dnOrder="5">121A223610B176F130BB332A5B2BB089</UserChecksum>
+          <GeneratedChecksum dnOrder="4">86F569A76590F4678842A352A402630C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">86F569A76590F4678842A352A402630C</UserChecksum>
         </File>
         <File dnOrder="18">
           <Type dnOrder="0">SOURCE</Type>
@@ -1179,8 +1179,8 @@
           <Name dnOrder="1">plib_smc0.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/smc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/smc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DF091EEE2EBADFF5F10F3FB20775909F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DF091EEE2EBADFF5F10F3FB20775909F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CA3C9AA90BD531683446FAB0015795D4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CA3C9AA90BD531683446FAB0015795D4</UserChecksum>
         </File>
         <File dnOrder="147">
           <Type dnOrder="0">SOURCE</Type>
@@ -1419,8 +1419,8 @@
           <Name dnOrder="1">drv_maxtouch.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0901B95DC891175C47EA46A357ABDC3A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0901B95DC891175C47EA46A357ABDC3A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8B3061AAFF2925782F7E0A221CF066A0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8B3061AAFF2925782F7E0A221CF066A0</UserChecksum>
         </File>
         <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
