@@ -93,6 +93,7 @@ typedef struct laButtonWidget_t
     uint8_t toggleable; // indicates if the button is toggleable
 
     laString text; // the string that holds the button text
+    int32_t textLineSpace; //the space between lines of text (pixels)
 
     laHAlignment halign; // horizontal alignment of the button
     laVAlignment valign; // vertical alignment of the button
@@ -275,6 +276,49 @@ LIB_EXPORT laResult laButtonWidget_GetText(laButtonWidget* btn, laString* str);
     
 */    
 LIB_EXPORT laResult laButtonWidget_SetText(laButtonWidget* btn, laString str);
+
+// *****************************************************************************
+/* Function:
+    int32_t laButtonWidget_GetTextLineSpace(laButtonWidget* btn)
+
+  Summary:
+    Returns the line spacing in pixels for the button text. If < 0, the 
+    ascent value of the string's font is used.
+
+  Description:
+    
+  Parameters:
+    laButtonWidget* btn - the button to reference
+    
+  Returns:
+    int32_t - the line spacing in pixels
+    
+  Remarks:
+    
+*/
+LIB_EXPORT int32_t laButtonWidget_GetTextLineSpace(laButtonWidget* btn);
+
+// *****************************************************************************
+/* Function:
+    laResult laButtonWidget_SetTextLineSpace(laButtonWidget* btn, int32_t pixels)
+
+  Summary:
+    Sets the line space in pixels of the text in the button widget. A value < 0
+    sets the spacing to the ascent value of the string's font.
+    
+  Description:
+    
+  Parameters:
+    laButtonWidget* btn - the button to modify
+    int32_t pixels - the line space, in pixels
+    
+  Returns:
+    laResult - the operation result
+    
+  Remarks:
+    
+*/  
+LIB_EXPORT laResult laButtonWidget_SetTextLineSpace(laButtonWidget* btn, int32_t pixels);
 
 // *****************************************************************************
 /* Function:

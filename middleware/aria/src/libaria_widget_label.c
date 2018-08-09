@@ -50,6 +50,8 @@ void _laLabelWidget_Constructor(laLabelWidget* lbl)
     
     lbl->halign = LA_HALIGN_CENTER;
     lbl->valign = LA_VALIGN_MIDDLE;
+    
+    lbl->textLineSpace = -1;
 }
 
 void _laLabelWidget_Destructor(laLabelWidget* lbl)
@@ -157,6 +159,31 @@ laResult laLabelWidget_SetText(laLabelWidget* lbl, laString str)
     invalidateTextRect(lbl);
         
     laString_Copy(&lbl->text, &str);
+    
+    invalidateTextRect(lbl);
+    
+    return LA_SUCCESS;
+}
+
+int32_t laLabelWidget_GetTextLineSpace(laLabelWidget* lbl)
+{
+    if(lbl == NULL)
+        return LA_FAILURE;
+    
+    return lbl->textLineSpace;
+}
+
+laResult laLabelWidget_SetTextLineSpace(laLabelWidget* lbl, int32_t pixels)
+{
+    if(lbl == NULL)
+        return LA_FAILURE;
+        
+    if(lbl->textLineSpace == pixels)
+        return LA_SUCCESS;
+    
+    invalidateTextRect(lbl);
+        
+    lbl->textLineSpace = pixels;
     
     invalidateTextRect(lbl);
     
