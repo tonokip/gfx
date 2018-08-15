@@ -55,10 +55,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "bsp/bsp.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
-#include "osal/osal.h"
 #include "driver/i2c/drv_i2c.h"
 #include "driver/i2c/drv_i2c.h"
 #include "peripheral/smc/plib_smc0.h"
+#include "system/time/sys_time.h"
+#include "peripheral/tc/plib_tc0.h"
 #include "peripheral/twihs/plib_twihs0.h"
 #include "app.h"
 
@@ -118,7 +119,6 @@ extern "C" {
 */
 
 void SYS_Initialize( void *data );
-
 
 // *****************************************************************************
 /* System Tasks Function
@@ -187,8 +187,10 @@ typedef struct
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
 
+    SYS_MODULE_OBJ  sysTime;
 
 } SYSTEM_OBJECTS;
+
 
 // *****************************************************************************
 // *****************************************************************************

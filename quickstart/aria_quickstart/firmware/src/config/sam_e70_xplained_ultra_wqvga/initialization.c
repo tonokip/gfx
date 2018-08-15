@@ -43,7 +43,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
 #include "configuration.h"
 #include "definitions.h"
 
@@ -138,7 +137,6 @@ const DRV_MAXTOUCH_INIT drvMAXTOUCHInitData =
 // *****************************************************************************
 /* Structure to hold the object handles for the modules in the system. */
 SYSTEM_OBJECTS sysObj;
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Library/Stack Initialization Data
@@ -151,6 +149,24 @@ SYSTEM_OBJECTS sysObj;
 // Section: System Initialization
 // *****************************************************************************
 // *****************************************************************************
+// <editor-fold defaultstate="collapsed" desc="SYS_TIME Initialization Data">
+
+TIME_PLIB_API sysTimePlibAPI = {
+    .timerCallbackSet = (TIME_CallbackSet)TC0_CH0_TimerCallbackRegister,
+    .timerCounterGet = (TIME_CounterGet)TC0_CH0_TimerCounterGet,
+    .timerPeriodSet = (TIME_PeriodSet)TC0_CH0_TimerPeriodSet,
+    .timerStart = (TIME_Start)TC0_CH0_TimerStart,
+    .timerStop = (TIME_Stop)TC0_CH0_TimerStop
+};
+
+SYS_TIME_INIT sysTimeInitData =
+{
+    .timePlib = &sysTimePlibAPI,
+    .timeInterrupt = TC0_CH0_IRQn,
+    .timeFrequency = TC0_CH0_TimerFrequencyGet()
+};
+
+// </editor-fold>
 
 
 /*******************************************************************************
@@ -174,6 +190,10 @@ void SYS_Initialize ( void* data )
 	WDT_REGS->WDT_MR|= WDT_MR_WDDIS_Msk; 		// Disable WDT 
 	BSP_Initialize();
     SMC0_Initialize();
+ 
+    TC0_CH0_TimerInitialize(); 
+     
+    
 	TWIHS0_Initialize();
 
     GFX_Initialize();
@@ -181,10 +201,10 @@ void SYS_Initialize ( void* data )
     /* Initialize I2C0 Driver Instance */
     sysObj.drvI2C0 = DRV_I2C_Initialize(DRV_I2C_INDEX_0, (SYS_MODULE_INIT *)&drvI2C0InitData);
 
+    sysObj.sysTime = SYS_TIME_Initialize(SYS_TIME_INDEX_0, (SYS_MODULE_INIT *)&sysTimeInitData);
 
     LibAria_Initialize(); // initialize UI library
 SYS_INP_Init();
-
 
     APP_Initialize();
 

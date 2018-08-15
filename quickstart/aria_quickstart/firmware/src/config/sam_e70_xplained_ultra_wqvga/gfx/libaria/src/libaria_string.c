@@ -719,7 +719,7 @@ void laString_GetLineRect(laString* str, uint32_t start, GFX_Rect* rect, uint32_
     }
 }
 
-void laString_GetMultiLineRect(laString* str, GFX_Rect* rect)
+void laString_GetMultiLineRect(laString* str, GFX_Rect* rect, int32_t lineSpace)
 {
     uint32_t offset = 0, newoffset = 0;
     GFX_Rect lineRect;
@@ -736,11 +736,18 @@ void laString_GetMultiLineRect(laString* str, GFX_Rect* rect)
         //At end of string
         if (offset == newoffset)
         {
-            rect->height += laString_GetHeight(str) - laString_GetAscent(str);
+            if (lineSpace >= 0)
+                rect->height += lineSpace;
+            else
+                rect->height += laString_GetHeight(str) - laString_GetAscent(str);                
             break;
         }
 
-		rect->height += laString_GetAscent(str);
+        if (lineSpace >= 0)
+            rect->height += lineSpace;
+        else
+            rect->height += laString_GetAscent(str);
+        
 
 		if (lineRect.width > rect->width)
 		{

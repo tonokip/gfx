@@ -147,7 +147,11 @@
             <logicalFolder name="f5" displayName="smc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/smc/plib_smc0.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="twihs" projectFiles="true">
+            <logicalFolder name="f6" displayName="tc" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/tc/plib_tc0.h</itemPath>
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/tc/plib_tc.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="twihs" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/twihs/plib_twihs_master.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/twihs/plib_twihs0.h</itemPath>
             </logicalFolder>
@@ -172,21 +176,20 @@
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f4" displayName="time" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/sys_time.h</itemPath>
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/sys_time_definitions.h</itemPath>
+            </logicalFolder>
             <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/system.h</itemPath>
             <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/system_common.h</itemPath>
             <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/system_module.h</itemPath>
           </logicalFolder>
+          <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/definitions.h</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/user.h</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/configuration.h</itemPath>
-          <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/definitions.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="osal" projectFiles="true">
-        <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/osal/osal.h</itemPath>
-        <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/osal/osal_definitions.h</itemPath>
-        <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/osal/osal_impl_basic.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="packs" projectFiles="true">
+      <logicalFolder name="f2" displayName="packs" projectFiles="true">
         <logicalFolder name="f2" displayName="ATSAME70Q21B_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
@@ -266,10 +269,10 @@
         <logicalFolder name="f1"
                        displayName="sam_e70_xplained_ultra_wqvga"
                        projectFiles="true">
-          <logicalFolder name="f2" displayName="bsp" projectFiles="true">
+          <logicalFolder name="f3" displayName="bsp" projectFiles="true">
             <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/bsp/bsp.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="driver" projectFiles="true">
+          <logicalFolder name="f6" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/driver/i2c/src/drv_i2c.c</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/driver/i2c/src/drv_i2c_local.h</itemPath>
@@ -278,7 +281,7 @@
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/driver/input/drv_maxtouch.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="gfx" projectFiles="true">
+          <logicalFolder name="f5" displayName="gfx" projectFiles="true">
             <logicalFolder name="f4" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/gfx/driver/controller/lcc/drv_gfx_lcc.c</itemPath>
@@ -429,7 +432,7 @@
             </logicalFolder>
             <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/gfx/gfx_assets.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
+          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
@@ -442,14 +445,20 @@
             <logicalFolder name="f5" displayName="smc" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/smc/plib_smc0.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="twihs" projectFiles="true">
+            <logicalFolder name="f6" displayName="tc" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/tc/plib_tc0.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f7" displayName="twihs" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/twihs/plib_twihs0.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f4" displayName="xdmac" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/peripheral/xdmac/plib_xdmac.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f3" displayName="system" projectFiles="true">
+          <logicalFolder name="f1" displayName="stdio" projectFiles="true">
+            <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/stdio/xc32_monitor.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="system" projectFiles="true">
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/input/sys_input.c</itemPath>
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/input/sys_input_listener.c</itemPath>
@@ -457,13 +466,17 @@
             <logicalFolder name="f1" displayName="int" projectFiles="true">
               <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f3" displayName="time" projectFiles="true">
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/src/sys_time.c</itemPath>
+              <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/system/time/src/sys_time_local.h</itemPath>
+            </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/initialization.c</itemPath>
-          <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/tasks.c</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/interrupts.c</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/exceptions.c</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/startup.c</itemPath>
           <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/libc_syscalls.c</itemPath>
+          <itemPath>../src/config/sam_e70_xplained_ultra_wqvga/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>

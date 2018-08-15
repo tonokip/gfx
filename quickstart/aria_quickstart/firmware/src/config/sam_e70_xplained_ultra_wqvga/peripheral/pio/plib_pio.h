@@ -361,7 +361,8 @@ void PIO_Initialize(void);
     This function writes/drives the "value" on the selected I/O line/pin.
 
   Precondition:
-    None.
+    The desired pin must be configured as an output pin.
+    PIO_Initialize() must have been called.
 
   Parameters:
     pin       - One of the IO pins from the enum PIO_PIN
@@ -414,13 +415,13 @@ static inline void PIO_PinWrite(PIO_PIN pin, bool value);
     </code>
 
   Remarks:
-       To read the latched value on this pin, PIO_PinReadLatch API should be used.
+       To read the latched value on this pin, PIO_PinLatchRead API should be used.
 */
 static inline bool  PIO_PinRead(PIO_PIN pin);
 
 // *****************************************************************************
 /* Function:
-    bool PIO_PinReadLatch ( PIO_PIN pin )
+    bool PIO_PinLatchRead ( PIO_PIN pin )
 
   Summary:
     Read the value driven on the selected pin.
@@ -443,14 +444,14 @@ static inline bool  PIO_PinRead(PIO_PIN pin);
     <code>
 
     bool value;
-    value = PIO_PinReadLatch(PIO_PIN_PB3);
+    value = PIO_PinLatchRead(PIO_PIN_PB3);
 
     </code>
 
   Remarks:
     To read actual pin value, PIO_PinRead API should be used.
 */
-static inline bool PIO_PinReadLatch( PIO_PIN pin);
+static inline bool PIO_PinLatchRead( PIO_PIN pin);
 
 // *****************************************************************************
 /* Function:
@@ -463,7 +464,7 @@ static inline bool PIO_PinReadLatch( PIO_PIN pin);
     This function toggles/inverts the value on the selected I/O line/pin.
 
   Precondition:
-    None.
+    PIO_Initialize() must have been called.
 
   Parameters:
     pin       - One of the IO pins from the enum PIO_PIN
@@ -733,6 +734,7 @@ uint32_t PIO_PortRead(PIO_PORT port);
 
   Precondition:
     The desired pins lines of the selected port must be setup as output(s).
+    PIO_Initialize() must have been called.
 
   Parameters:
     port       - One of the IO ports from the enum PIO_PORT
@@ -762,7 +764,7 @@ void PIO_PortWrite(PIO_PORT port, uint32_t mask, uint32_t value);
 
 // *****************************************************************************
 /* Function:
-    uint32_t PIO_PortReadLatch ( PIO_PORT port )
+    uint32_t PIO_PortLatchRead ( PIO_PORT port )
 
   Summary:
     Read the latched value on all the I/O lines of the selected port.
@@ -787,7 +789,7 @@ void PIO_PortWrite(PIO_PORT port, uint32_t mask, uint32_t value);
     <code>
 
     uint32_t value;
-    value = PIO_PortReadLatch(PIO_PORT_C);
+    value = PIO_PortLatchRead(PIO_PORT_C);
 
     </code>
 
@@ -796,7 +798,7 @@ void PIO_PortWrite(PIO_PORT port, uint32_t mask, uint32_t value);
     low (0).
     Implemented pins are Right aligned in the 32-bit return value.
 */
-uint32_t PIO_PortReadLatch ( PIO_PORT port );
+uint32_t PIO_PortLatchRead ( PIO_PORT port );
 
 // *****************************************************************************
 /* Function:
@@ -883,7 +885,7 @@ void PIO_PortClear(PIO_PORT port, uint32_t mask);
     This function toggles (or invert) the selected IO pins of a port.
 
   Precondition:
-    None.
+    PIO_Initialize() must have been called.
 
   Parameters:
     port       - One of the IO ports from the enum PIO_PORT

@@ -35,7 +35,7 @@ void _laButtonWidget_GetImageRect(laButtonWidget* btn,
     imgRect->x = 0;
     imgRect->y = 0;
     
-    laString_GetMultiLineRect(&btn->text, &textRect);
+    laString_GetMultiLineRect(&btn->text, &textRect, -1);
     
     if(btn->state != LA_BUTTON_STATE_UP)
     {
@@ -89,7 +89,7 @@ void _laButtonWidget_GetTextRect(laButtonWidget* btn,
     
     bounds = laUtils_WidgetLocalRect((laWidget*)btn);
     
-    laString_GetMultiLineRect(&btn->text, textRect);
+    laString_GetMultiLineRect(&btn->text, textRect, btn->textLineSpace);
     
     if(btn->state != LA_BUTTON_STATE_UP)
     {
@@ -222,7 +222,7 @@ void _laButtonWidget_InvalidateBorderAreas(laButtonWidget* btn)
 }
 
 static void drawBackground(laButtonWidget* btn);
-static void drawMultiLineString(laButtonWidget* lbl);
+static void drawMultiLineString(laButtonWidget* btn);
 static void waitString(laButtonWidget* btn);
 static void drawImage(laButtonWidget* btn);
 static void waitImage(laButtonWidget* btn);
@@ -385,12 +385,19 @@ static void drawMultiLineString(laButtonWidget* btn)
 
         if (offset[numlines] == newoffset)
         {
-            textRect.height += laString_GetHeight(&btn->text) - 
-                               laString_GetAscent(&btn->text);            
+            if (btn->textLineSpace >= 0)
+                textRect.height += btn->textLineSpace;
+            else
+                textRect.height += laString_GetHeight(&btn->text) - 
+                               laString_GetAscent(&btn->text);
+            
             break;
         }
 
-        textRect.height += laString_GetAscent(&btn->text);
+        if (btn->textLineSpace >= 0)
+            textRect.height += btn->textLineSpace;
+        else
+            textRect.height += laString_GetAscent(&btn->text);        
 
 		if (lineRect[numlines].width > textRect.width)
 		{
@@ -479,7 +486,11 @@ static void drawMultiLineString(laButtonWidget* btn)
             }
         }
         
-        lineY += laString_GetAscent(&btn->text);
+        if (btn->textLineSpace >= 0)
+            lineY += btn->textLineSpace;
+        else
+            lineY += laString_GetAscent(&btn->text);
+            
     }
 
     nextState(btn);

@@ -1,20 +1,21 @@
 /*******************************************************************************
-  NVIC PLIB Implementation
+  TIME System Service Definitions Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_nvic.h
+    sys_time_definitions.h
 
   Summary:
-    NVIC PLIB Source File
+    TIME System Service Definitions Header File
 
   Description:
-    None
-
+    This file provides implementation-specific definitions for the TIME
+    system service's system interface.
 *******************************************************************************/
 
+//DOM-IGNORE-BEGIN
 /*******************************************************************************
 Copyright (c) 2017 released Microchip Technology Inc.  All rights reserved.
 
@@ -37,36 +38,76 @@ CONSEQUENTIAL DAMAGES, LOST  PROFITS  OR  LOST  DATA,  COST  OF  PROCUREMENT  OF
 SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE  THEREOF),  OR  OTHER  SIMILAR  COSTS.
 *******************************************************************************/
+//DOM-IGNORE-END
 
-#include "device.h"
-#include "plib_nvic.h"
+#ifndef SYS_TIME_DEFINITIONS_H
+#define SYS_TIME_DEFINITIONS_H
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: NVIC Implementation
+// Section: File includes
+// *****************************************************************************
+// *****************************************************************************
+#include "system/int/sys_int.h"
+
+// DOM-IGNORE-BEGIN
+#ifdef __cplusplus  // Provide C++ Compatibility
+
+    extern "C" {
+
+#endif
+// DOM-IGNORE-END
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Data Types
 // *****************************************************************************
 // *****************************************************************************
 
-void NVIC_Initialize( void )
+// *****************************************************************************
+/* TIME PLIB API Set needed by the system service */
+
+typedef void(*TIME_CallbackSet)(void * callback, uintptr_t context);
+typedef void(*TIME_PeriodSet)(uint32_t period);
+typedef void(*TIME_Start)(void);
+typedef void(*TIME_Stop)(void);
+typedef uint32_t(*TIME_CounterGet)(void);
+
+typedef struct
 {
-    /* Priority 0 to 7 and no sub-priority. 0 is the highest priority */
-    NVIC_SetPriorityGrouping( 0x04 );
+    TIME_CallbackSet timerCallbackSet;
+    TIME_PeriodSet timerPeriodSet;
+    TIME_Start timerStart;
+    TIME_Stop timerStop;
+    TIME_CounterGet timerCounterGet;
 
-    /* Enable NVIC Controller */
-    __DMB();
-    __enable_irq();
-
-    /* Enable the interrupt sources and configure the priorities as configured
-     * from within the "Interrupt Manager" of MCC. */
-    NVIC_SetPriority(TWIHS0_IRQn, 7);
-    NVIC_EnableIRQ(TWIHS0_IRQn);
-    NVIC_SetPriority(TC0_CH0_IRQn, 7);
-    NVIC_EnableIRQ(TC0_CH0_IRQn);
-    NVIC_SetPriority(XDMAC_IRQn, 7);
-    NVIC_EnableIRQ(XDMAC_IRQn);
+} TIME_PLIB_API;
 
 
+// *****************************************************************************
+/* TIME system service Initialization Data Declaration */
+
+struct _SYS_TIME_INIT
+{
+    /* Identifies the PLIB API set to be used by the system service to access
+     * the peripheral. */
+    TIME_PLIB_API *timePlib;
+
+    /* Interrupt source ID for the TIMER interrupt. */
+    INT_SOURCE timeInterrupt;
+
+    /* Hardware timer frequency */
+    uint32_t timeFrequency;
+
+};
 
 
-    return;
+//DOM-IGNORE-BEGIN
+#ifdef __cplusplus
 }
+#endif
+//DOM-IGNORE-END
+
+
+#endif // #ifndef SYS_TIME_DEFINITIONS_H
+

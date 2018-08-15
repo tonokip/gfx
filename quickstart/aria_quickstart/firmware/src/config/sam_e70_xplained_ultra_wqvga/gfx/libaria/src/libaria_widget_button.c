@@ -79,6 +79,7 @@ void _laButtonWidget_Constructor(laButtonWidget* btn)
     btn->widget.borderType = LA_WIDGET_BORDER_BEVEL;
 
     laString_Initialize(&btn->text);
+    btn->textLineSpace = -1;
     
     btn->imageMargin = DEFAULT_IMAGE_MARGIN;
     btn->pressedOffset = DEFAULT_PRESSED_OFFSET;
@@ -275,6 +276,32 @@ laResult laButtonWidget_SetText(laButtonWidget* btn, laString str)
         return LA_FAILURE;
     
     invalidateContents(btn);
+    
+    return LA_SUCCESS;
+}
+
+
+int32_t laButtonWidget_GetTextLineSpace(laButtonWidget* btn)
+{
+    if(btn == NULL)
+        return LA_FAILURE;
+    
+    return btn->textLineSpace;
+}
+
+laResult laButtonWidget_SetTextLineSpace(laButtonWidget* btn, int32_t pixels)
+{
+    if(btn == NULL)
+        return LA_FAILURE;
+        
+    if(btn->textLineSpace == pixels)
+        return LA_SUCCESS;
+
+    invalidateTextRect(btn);
+    
+    btn->textLineSpace = pixels;
+    
+    invalidateTextRect(btn);
     
     return LA_SUCCESS;
 }

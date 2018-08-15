@@ -95,7 +95,20 @@ static void drawCircle(laCircleWidget* cir)
         GFX_Set(GFXF_DRAW_MODE, GFX_DRAW_LINE);
         GFX_Set(GFXF_DRAW_COLOR, cir->widget.scheme->foreground);
         
-        GFX_DrawCircle(p.x, p.y, cir->radius);
+        GFX_Set(GFXF_DRAW_THICKNESS, cir->thickness);
+        GFX_DrawArc(p.x, p.y, cir->radius, 0, 360);
+        
+        if (cir->filled == true && 
+            cir->thickness < cir->radius)
+        {
+            GFX_Set(GFXF_DRAW_COLOR, cir->widget.scheme->background);
+            GFX_Set(GFXF_DRAW_THICKNESS, cir->radius - cir->thickness );
+            GFX_DrawArc(p.x,
+                        p.y,
+                        cir->radius - cir->thickness,
+                        0,
+                        360);
+        }
     }
 
     nextState(cir);

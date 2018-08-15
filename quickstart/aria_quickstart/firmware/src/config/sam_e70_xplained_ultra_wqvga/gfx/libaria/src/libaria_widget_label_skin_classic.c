@@ -31,7 +31,7 @@ void _laLabelWidget_GetTextRect(laLabelWidget* lbl,
     
     bounds = laUtils_WidgetLocalRect((laWidget*)lbl);
     
-    laString_GetMultiLineRect(&lbl->text, textRect);
+    laString_GetMultiLineRect(&lbl->text, textRect, lbl->textLineSpace);
     
     // arrange relative to image rect
     laUtils_ArrangeRectangleRelative(textRect,
@@ -136,12 +136,20 @@ static void drawMultiLineString(laLabelWidget* lbl)
 
         if (offset[numlines] == newoffset)
         {
-            textRect.height += laString_GetHeight(&lbl->text) - 
-                               laString_GetAscent(&lbl->text);
+            if (lbl->textLineSpace >= 0)
+                textRect.height += lbl->textLineSpace;
+            else
+                textRect.height += laString_GetHeight(&lbl->text) - 
+                               laString_GetAscent(&lbl->text);            
+            
             break;
         }
 
-        textRect.height += laString_GetAscent(&lbl->text);
+        if (lbl->textLineSpace >= 0)
+            textRect.height += lbl->textLineSpace;
+        else
+            textRect.height += laString_GetAscent(&lbl->text);        
+        
 
 		if (lineRect[numlines].width > textRect.width)
 		{
@@ -247,7 +255,11 @@ static void drawMultiLineString(laLabelWidget* lbl)
             }
         }
 
-        lineY += laString_GetAscent(&lbl->text);
+        if (lbl->textLineSpace >= 0)
+            lineY += lbl->textLineSpace;
+        else
+            lineY += laString_GetAscent(&lbl->text);            
+            
     }
 
     nextState(lbl);

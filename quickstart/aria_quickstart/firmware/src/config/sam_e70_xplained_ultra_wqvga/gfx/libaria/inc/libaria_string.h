@@ -569,11 +569,12 @@ LIB_EXPORT void laString_GetLineRect(laString* str, uint32_t start, GFX_Rect* re
    Parameters:
     laString* str - the string to reference
     GFX_Rect* rect - the calculated string rectangle result
+    int32_t lineSpace - the space between lines. if -1, will use font ascent
 
   Returns:
     void
 */
-LIB_EXPORT void laString_GetMultiLineRect(laString* str, GFX_Rect* rect);
+LIB_EXPORT void laString_GetMultiLineRect(laString* str, GFX_Rect* rect, int32_t lineSpace);
 
 // *****************************************************************************
 /* Function:

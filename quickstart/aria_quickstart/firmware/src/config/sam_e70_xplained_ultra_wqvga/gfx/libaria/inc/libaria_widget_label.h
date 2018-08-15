@@ -79,6 +79,8 @@ typedef struct laLabelWidget_t
     laVAlignment valign; // vertical alignment of string
 
     GFXU_ExternalAssetReader* reader; // asset reader
+    
+    int32_t textLineSpace; //new line space per pixel
 } laLabelWidget;
 
 void _laLabelWidget_Constructor(laLabelWidget* lbl);
@@ -161,6 +163,49 @@ LIB_EXPORT laResult laLabelWidget_GetText(laLabelWidget* lbl, laString* str);
     
 */
 LIB_EXPORT laResult laLabelWidget_SetText(laLabelWidget* lbl, laString str);
+
+// *****************************************************************************
+/* Function:
+    int32_t laLabelWidget_GetTextLineSpace(laLabelWidget* lbl)
+
+  Summary:
+    Returns the line spacing in pixels for the label text. If < 0, the 
+    ascent value of the string's font is used.
+
+  Description:
+    
+  Parameters:
+    laLabelWidget* lbl - the label to reference
+    
+  Returns:
+    int32_t - the line spacing in pixels
+    
+  Remarks:
+    
+*/
+LIB_EXPORT int32_t laLabelWidget_GetTextLineSpace(laLabelWidget* lbl);
+
+// *****************************************************************************
+/* Function:
+    laResult laLabelWidget_SetTextLineSpace(laLabelWidget* lbl, int32_t pixels)
+
+  Summary:
+    Sets the line space in pixels of the text in the label widget. A value < 0
+    sets the spacing to the ascent value of the string's font.
+    
+  Description:
+    
+  Parameters:
+    laLabelWidget* lbl - the label to modify
+    int32_t pixels - the line space, in pixels
+    
+  Returns:
+    laResult - the operation result
+    
+  Remarks:
+    
+*/
+LIB_EXPORT laResult laLabelWidget_SetTextLineSpace(laLabelWidget* lbl, int32_t pixels);
 
 // *****************************************************************************
 /* Function:
@@ -256,7 +301,8 @@ LIB_EXPORT laResult laLabelWidget_SetVAlignment(laLabelWidget* lbl,
 // internal use only                                                
 void _laLabelWidget_GetTextRect(laLabelWidget* lbl,
                                 GFX_Rect* textRect,
-                                GFX_Rect* drawRect);                                                                                                
+                                GFX_Rect* drawRect);
+
 
 #endif // LA_LABEL_WIDGET_ENABLED
 #endif /* LIBARIA_LABEL_H */

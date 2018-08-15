@@ -77,7 +77,7 @@ Initialize Peripheral clock
 static void CLK_PeripheralClockInitialize(void)
 {
     /* Enable clock for the selected peripherals */
-    PMC_REGS->PMC_PCER0=0xb1e00;
+    PMC_REGS->PMC_PCER0=0x8b1e00;
     PMC_REGS->PMC_PCER1=0x4000000;
 }
 

@@ -109,7 +109,7 @@ void TWIHS0_InterruptHandler    ( void ) __attribute__((weak, alias("Dummy_Handl
 void TWIHS1_Handler             ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void SPI0_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void SSC_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
-void TC0_CH0_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
+void TC0_CH0_InterruptHandler   ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC0_CH1_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC0_CH2_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 void TC1_CH0_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -160,6 +160,9 @@ void GMAC_Q5_Handler            ( void ) __attribute__((weak, alias("Dummy_Handl
 
 
 
+/* Mutiple handlers for vector */
+
+
 __attribute__ ((section(".vectors")))
 const DeviceVectors exception_table=
 {
@@ -198,7 +201,7 @@ const DeviceVectors exception_table=
   .pfnTWIHS1_Handler             = (void*)TWIHS1_Handler,
   .pfnSPI0_Handler               = (void*)SPI0_Handler,
   .pfnSSC_Handler                = (void*)SSC_Handler,
-  .pfnTC0_CH0_Handler            = (void*)TC0_CH0_Handler,
+  .pfnTC0_CH0_Handler            = (void*)TC0_CH0_InterruptHandler,
   .pfnTC0_CH1_Handler            = (void*)TC0_CH1_Handler,
   .pfnTC0_CH2_Handler            = (void*)TC0_CH2_Handler,
   .pfnTC1_CH0_Handler            = (void*)TC1_CH0_Handler,
