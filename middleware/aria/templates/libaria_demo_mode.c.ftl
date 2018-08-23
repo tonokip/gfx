@@ -46,7 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/input/sys_input.h"
 </#if>
 
-<#if Harmony.ENABLE_APP_FILE == true>
+<#if HarmonyCore.ENABLE_APP_FILE == true>
 #include "app.h"
 </#if>
 
@@ -327,7 +327,7 @@ void LibAria_DemoModeProcessEvents(void)
                 demoModeEvents.pendingEvent = 0;
                 
                 // Initialize app and switch to first screen
-<#if Harmony.ENABLE_APP_FILE == true>
+<#if HarmonyCore.ENABLE_APP_FILE == true>
 <#if CONFIG_APP_IDX_0?has_content>
                 ${CONFIG_APP_NAME_0?upper_case}_Initialize();
 <#else>
