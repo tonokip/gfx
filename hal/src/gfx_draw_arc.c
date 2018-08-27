@@ -15,20 +15,6 @@
 
 typedef enum 
 {
-    Q1,
-    Q2,
-    Q3,
-    Q4
-} QUADRANT;
-
-typedef enum 
-{
-    CCW,
-    CW,
-} ARC_DIR;
-
-typedef enum 
-{
     ON_LINE,
     LEFT_OF_LINE,
     RIGHT_OF_LINE,
