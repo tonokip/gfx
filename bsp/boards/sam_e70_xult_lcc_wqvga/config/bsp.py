@@ -1,21 +1,29 @@
 def activateDefaultComponents(bspComponent):
 	print("activating default components")
-	componentIDTable = ["smc0", "gfx_hal", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
+	orderedComponentIDTable = ["HarmonyCore", "sys_input", "smc0", "gfx_driver_lcc", "gfx_hal", "aria_gfx_library", "gfx_disp_pdatm4301b_480x272", "gfx_maxtouch_controller", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+	res = Database.activateComponents(orderedComponentIDTable)
+	
+	# componentIDTable = ["HarmonyCore", "smc0", "gfx_hal", "gfx_driver_lcc", "gfx_disp_pdatm4301b_480x272", "aria_gfx_library"]
 	autoConnectTable = [["gfx_driver_lcc", "SMC_CS", "smc0", "smc_cs0"],
 					["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
 					["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"]]
 
-	touchComponentsIDTable = ["twihs0", "drv_i2c", "drv_i2c0", "gfx_maxtouch_controller", "sys_input"]
+	# touchComponentsIDTable = ["twihs0", "drv_i2c", "drv_i2c0", "gfx_maxtouch_controller", "sys_input", "sys_time", "tc0"]
 	touchComponentConnectionTable = [["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
 									["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
-									["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"]]
+									["gfx_maxtouch_controller", "touch_panel", "gfx_disp_pdatm4301b_480x272", "touch_panel"],
+									["sys_time", "sys_time_TMR_dependency", "tc0", "TC_0"]]
+									
+	deactivateIDTable = ["FreeRTOS"]
 
-	res = Database.activateComponents(componentIDTable)
+	# res = Database.activateComponents(componentIDTable)
 	res = Database.connectDependencies(autoConnectTable)
-	
-	res = Database.activateComponents(touchComponentsIDTable)
+
+	# res = Database.activateComponents(touchComponentsIDTable)
 	res = Database.connectDependencies(touchComponentConnectionTable)
+
+	res = Database.deactivateComponents(deactivateIDTable);
 
 def activateSDRAMComponent(bspComponent):
 	componentIDTable = ["SDRAMC_0"]
