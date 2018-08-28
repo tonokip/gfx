@@ -34,10 +34,9 @@ static GFX_Result rejectArc(int32_t x,
        return GFX_FAILURE;
 #endif
     
-    rect.x = x;
-    rect.width = radius + radius;
-    rect.y = y;
-    rect.height = rect.width;    
+    rect.x = x - radius;
+    rect.y = y - radius;
+    rect.height = rect.width = 2 * radius;    
 
 #if GFX_LAYER_CLIPPING_ENABLED
     // clip rect against layer rect
