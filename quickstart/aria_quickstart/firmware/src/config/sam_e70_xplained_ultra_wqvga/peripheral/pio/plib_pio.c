@@ -285,36 +285,6 @@ void PIO_PortOutputEnable(PIO_PORT port, uint32_t mask)
     ((pio_registers_t*)port)->PIO_OER = mask;
 }
 
-// *****************************************************************************
-/* Function:
-    void PIO_PortInterruptEnable(PIO_PORT port, uint32_t mask)
-
-  Summary:
-    Enables IO interrupt on selected IO pins of a port.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-void PIO_PortInterruptEnable(PIO_PORT port, uint32_t mask)
-{
-    ((pio_registers_t*)port)->PIO_IER = mask;
-}
-
-// *****************************************************************************
-/* Function:
-    void PIO_PortInterruptDisable(PIO_PORT port, uint32_t mask)
-
-  Summary:
-    Disables IO interrupt on selected IO pins of a port.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-void PIO_PortInterruptDisable(PIO_PORT port, uint32_t mask)
-{
-    ((pio_registers_t*)port)->PIO_IDR = mask;
-}
-
 
 
 

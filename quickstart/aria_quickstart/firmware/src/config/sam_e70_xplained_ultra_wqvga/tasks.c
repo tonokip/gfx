@@ -84,7 +84,11 @@ SYS_INP_Tasks();
 
 
     /* Maintain the application's state machine. */
-    
+        /* Call Application task APP. */
+    APP_Tasks();
+
+
+
 }
 
 

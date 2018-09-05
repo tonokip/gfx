@@ -168,34 +168,4 @@ static inline void PIO_PinOutputEnable(PIO_PIN pin)
     PIO_PortOutputEnable(PIOA_BASE_ADDRESS + (0x200 * (pin>>5)), 0x1 << (pin & 0x1F));
 }
 
-// *****************************************************************************
-/* Function:
-    void PIO_PinInterruptEnable(PIO_PIN pin)
-
-  Summary:
-    Enables IO interrupt on selected IO pin.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-static inline void PIO_PinInterruptEnable(PIO_PIN pin)
-{
-    PIO_PortInterruptEnable(PIOA_BASE_ADDRESS + (0x200 * (pin>>5)), 0x1 << (pin & 0x1F));
-}
-
-// *****************************************************************************
-/* Function:
-    void PIO_PinInterruptDisable(PIO_PIN pin)
-
-  Summary:
-    Disables IO interrupt on selected IO pin.
-
-  Remarks:
-    See plib_pio.h for more details.
-*/
-static inline void PIO_PinInterruptDisable(PIO_PIN pin)
-{
-    PIO_PortInterruptDisable(PIOA_BASE_ADDRESS + (0x200 * (pin>>5)), 0x1 << (pin & 0x1F));
-}
-
 #endif // PLIB_PIO_PIN_H

@@ -47,7 +47,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "configuration.h"
 #include "definitions.h"
 
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Exception Handling Routine
