@@ -409,12 +409,12 @@ static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
                     srcSize + 32);
 </#if>
 
-    XDMAC_ChannelTransfer(DRV_GFX_LCC_DMA_CHANNEL_INDEX, srcAddr, destAddr, 1);
+    XDMAC0_ChannelTransfer(DRV_GFX_LCC_DMA_CHANNEL_INDEX, srcAddr, destAddr, 1);
 }
 
 static int DRV_GFX_LCC_Start()
 {
-    XDMAC_ChannelCallbackRegister(DRV_GFX_LCC_DMA_CHANNEL_INDEX, dmaIntHandler, 0);
+    XDMAC0_ChannelCallbackRegister(DRV_GFX_LCC_DMA_CHANNEL_INDEX, dmaIntHandler, 0);
 
 <#if Val_PaletteMode == true>
     lccDMAStartTransfer(frameLine,
