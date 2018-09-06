@@ -4,6 +4,7 @@
 
 #include "gfx/libaria/inc/libaria_context.h"
 #include "gfx/hal/inc/gfx_math.h"
+#include "gfx/hal/inc/gfx_draw_arc.h"
 #include "gfx/libaria/inc/libaria_string.h"
 #include "gfx/libaria/inc/libaria_utils.h"
 #include "gfx/libaria/inc/libaria_widget.h"
