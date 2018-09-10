@@ -38,7 +38,7 @@ def configureSPIComponent(comp, spiComponent):
 
 def onDependentComponentAdded(comp, dependencyID, dependencyComponent):
 	print(comp.getID() + ": " + dependencyID + " dependent component added ")
-	if dependencyID == "SMC":
+	if dependencyID == "SMC_CS":
 		#Disable the SPI symbols
 		comp.setDependencyEnabled("DRV_SPI", False)
 		comp.getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
@@ -54,7 +54,7 @@ def onDependentComponentAdded(comp, dependencyID, dependencyComponent):
 		spiIndex = dependencyComponent.getSymbolByID("INDEX").getValue()
 		print("Using SPI port " + str(spiIndex))
 		#Disable the SMC symbols
-		#comp.setDependencyEnabled("SMC", False)
+		comp.setDependencyEnabled("SMC_CS", False)
 		comp.getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
 		#Enable the SPI symbols
 		comp.getSymbolByID("Interface").setValue("SPI 4-Line", 1)
@@ -65,7 +65,7 @@ def onDependentComponentAdded(comp, dependencyID, dependencyComponent):
 def onDependentComponentRemoved(comp, dependencyID, dependencyComponent):
 	print(comp.getID() + ": " + dependencyID + " dependent component removed ")
 	comp.setDependencyEnabled("DRV_SPI", True)
-	#comp.setDependencyEnabled("SMC", True)
+	comp.setDependencyEnabled("SMC_CS", True)
 	#Disable the SMC and SPI symbols
 	comp.getSymbolByID("ParallelInterfaceWidth").setVisible(False)
 	comp.getSymbolByID("DCXAddressBit").setVisible(False)

@@ -3,5 +3,5 @@ def loadModule():
 	cntlComponent.setDisplayType("ILI9488 Display Driver")
 	cntlComponent.addCapability("gfx_driver_ili9488", "Display Driver", False)
 	cntlComponent.addDependency("DRV_SPI", "DRV_SPI", False, True)
-	#if Variables.get("__PROCESSOR") == "ATSAME70Q21B":
-		#cntlComponent.addDependency("SMC", "SMC", False)
+	if Variables.get("__PROCESSOR") == "ATSAME70Q21B":
+		cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
