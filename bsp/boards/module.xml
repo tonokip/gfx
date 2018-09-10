@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Module name="BSP" id="8CDF6055-1C6C-4F0A-A400-C940248F8437" version="1.0.0" type="bsp">
-    <ConfigRoot path="config/module.py"/>
-    <Boards>
-        <Board name="SAM E70 Xplained Ultra LCC WQVGA" processor="ATSAME70Q21B" config="sam_e70_xult_lcc_wqvga"/>
-        <Board name="SAM E70 Xplained Ultra + Xplained Pro" processor="ATSAME70Q21B" config="sam_e70_xult_xplained_pro"/>
-    </Boards>
-</Module>
