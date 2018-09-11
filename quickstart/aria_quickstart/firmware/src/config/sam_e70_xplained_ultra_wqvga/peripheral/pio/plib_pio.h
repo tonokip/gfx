@@ -62,6 +62,24 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 
 
+/*** Macros for GPIO_PD0 pin ***/
+#define GPIO_PD0_Set()               (PIOD_REGS->PIO_SODR = (1<<0))
+#define GPIO_PD0_Clear()             (PIOD_REGS->PIO_CODR = (1<<0))
+#define GPIO_PD0_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<0))
+#define GPIO_PD0_Get()               ((PIOD_REGS->PIO_PDSR >> 0) & 0x1)
+#define GPIO_PD0_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<0))
+#define GPIO_PD0_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<0))
+#define GPIO_PD0_PIN                  PIO_PIN_PD0
+
+/*** Macros for GPIO_PD31 pin ***/
+#define GPIO_PD31_Set()               (PIOD_REGS->PIO_SODR = (1<<31))
+#define GPIO_PD31_Clear()             (PIOD_REGS->PIO_CODR = (1<<31))
+#define GPIO_PD31_Toggle()            (PIOD_REGS->PIO_ODSR ^= (1<<31))
+#define GPIO_PD31_Get()               ((PIOD_REGS->PIO_PDSR >> 31) & 0x1)
+#define GPIO_PD31_OutputEnable()      (PIOD_REGS->PIO_OER = (1<<31))
+#define GPIO_PD31_InputEnable()       (PIOD_REGS->PIO_ODR = (1<<31))
+#define GPIO_PD31_PIN                  PIO_PIN_PD31
+
 /*** Macros for BSP_LCD_HSYNC pin ***/
 #define BSP_LCD_HSYNC_Set()               (PIOC_REGS->PIO_SODR = (1<<30))
 #define BSP_LCD_HSYNC_Clear()             (PIOC_REGS->PIO_CODR = (1<<30))

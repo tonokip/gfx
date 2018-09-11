@@ -121,10 +121,12 @@ void PIO_Initialize ( void )
     ((pio_registers_t*)PIO_PORT_D)->PIO_OWER = PIO_OWER_Msk;
 
     /* PORTD Initial state High */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_SODR = 0x00080000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_SODR = 0x10080000;
+    /* PORTD Initial state Low */
+    ((pio_registers_t*)PIO_PORT_D)->PIO_CODR = 0x80000001L;
 
     /* PORTD Output Direction Enable */
-    ((pio_registers_t*)PIO_PORT_D)->PIO_OER = 0x00080000;
+    ((pio_registers_t*)PIO_PORT_D)->PIO_OER = 0x90080001;
 
 
     /************************ PIO E Initialization ************************/

@@ -72,7 +72,7 @@ int32_t libaria_initialize(void)
     defaultScheme.textInactive = 0xD71C;
     defaultScheme.textDisabled = 0x8C92;
 
-    GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCUGPU);
+    GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCU);
     laContext_SetStringTable(&stringTable);
 
     screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_default);
