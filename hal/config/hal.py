@@ -27,6 +27,14 @@ def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
 		
 		dependencyComponent.setSymbolValue("HALConnected", True, 1)
 		
+		try:
+			if (dependencyComponent.getSymbolValue("DisplayTimingOptionsEnabled") == True):
+				showDisplayTimingSettings(halComponent, dependencyComponent)
+			else:
+				hideDisplayTimingSettings(halComponent, dependencyComponent)
+		except:
+			pass
+
 	if dependencyID == "gfx_display":
 		updateDisplayValues(halComponent, dependencyComponent)
 	
@@ -36,6 +44,12 @@ def onDependentComponentRemoved(halComponent, dependencyID, dependencyComponent)
 		halComponent.clearSymbolValue("DriverInitFunction")
 	
 		dependencyComponent.clearSymbolValue("HALConnected")
+		
+		try:
+			if (dependencyComponent.getSymbolValue("DisplayTimingOptionsEnabled") == True):
+				hideDisplayTimingSettings(halComponent, dependencyComponent)
+		except:
+			pass
 	
 	if dependencyID == "gfx_display":
 		clearDisplayValues(halComponent)
@@ -88,7 +102,33 @@ def clearDisplayValues(halComponent):
 	halComponent.clearSymbolValue("DisplayResetPolarity")
 	halComponent.clearSymbolValue("DisplayUseChipSelect")
 	halComponent.clearSymbolValue("DisplayChipSelectPolarity")
-	
+
+def updateRefreshRate(halComponent):
+	totalHorzTiming = int(halComponent.getSymbolValue("DisplayWidth")) + int(halComponent.getSymbolValue("DisplayHorzPulseWidth")) \
+					+ int(halComponent.getSymbolValue("DisplayHorzBackPorch")) + int(halComponent.getSymbolValue("DisplayHorzFrontPorch"))
+	totalVertTiming = int(halComponent.getSymbolValue("DisplayHeight")) + int(halComponent.getSymbolValue("DisplayVertPulseWidth")) \
+					+ int(halComponent.getSymbolValue("DisplayVertBackPorch")) + int(halComponent.getSymbolValue("DisplayVertFrontPorch"))
+	refreshRate = halComponent.getSymbolValue("PixelClock") / (totalHorzTiming * totalVertTiming)
+	halComponent.setSymbolValue("RefreshRate", refreshRate, 1)
+
+def showDisplayTimingSettings(halComponent, displayDriverComponent):
+	halComponent.getSymbolByID("PixelClock").setVisible(True)
+	halComponent.setSymbolValue("PixelClock", displayDriverComponent.getSymbolValue("PixelClock"), 1)
+	halComponent.getSymbolByID("RefreshRate").setVisible(True)
+	updateRefreshRate(halComponent)
+	halComponent.getSymbolByID("DisplayHorzMenu").setVisible(True)
+	halComponent.getSymbolByID("DisplayVertMenu").setVisible(True)
+
+def hideDisplayTimingSettings(halComponent, displayDriverComponent):
+	halComponent.getSymbolByID("PixelClock").setVisible(False)
+	halComponent.getSymbolByID("RefreshRate").setVisible(False)
+	halComponent.getSymbolByID("DisplayHorzMenu").setVisible(False)
+	halComponent.getSymbolByID("DisplayVertMenu").setVisible(False)
+
+def onUpdateDisplayTiming(symbol, event):
+	halComponent = event["source"]
+	updateRefreshRate(halComponent)
+
 def onDisableHint(symbol, event):
 	halComponent = event["source"]
 	

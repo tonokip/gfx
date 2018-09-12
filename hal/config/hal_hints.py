@@ -40,7 +40,6 @@ DisableDoubleBufferHint.setDefaultValue(False)
 DisableDoubleBufferHint.setVisible(False)
 DisableDoubleBufferHint.setDependencies(onDisableHint, ["DisableDoubleBufferHint"])
 
-
 LCCRefreshHint = halComponent.createBooleanSymbol("LCCRefreshHint", DriverHintMenu)
 LCCRefreshHint.setLabel("Aggressive Refresh")
 LCCRefreshHint.setDescription("Indicates that a graphics display driver should use an aggressive refresh strategy for the given display device.  This involves merging the front porch pulses into the back porch.")
