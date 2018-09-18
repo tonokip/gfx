@@ -267,11 +267,13 @@ LIB_EXPORT laProgressBar_ValueChangedEventCallback laProgressBarWidget_GetValueC
 */
 LIB_EXPORT laResult laProgressBarWidget_SetValueChangedCallback(laProgressBarWidget* bar, laProgressBar_ValueChangedEventCallback cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laProgressBarWidget_GetBarRect(laProgressBarWidget* bar,
                                      int32_t val1,
                                      int32_t val2,
                                      GFX_Rect* barRect);
+// DOM-IGNORE-END
 
 #endif // LA_PROGRESSBAR_WIDGET_ENABLED
 #endif /* LIBARIA_PROGRESSBAR_H */

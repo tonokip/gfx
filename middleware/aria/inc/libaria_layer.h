@@ -711,7 +711,7 @@ LIB_EXPORT laResult laLayer_AddDamageRect(laLayer* layer,
 */
 LIB_EXPORT laBool laLayer_IsDrawing(laLayer* layer);										  
 										  
-
+// DOM-IGNORE-BEGIN
 // these are for internal use only
 void _laLayer_Reset(laLayer* layer);
 
@@ -732,5 +732,6 @@ void _laLayer_AddDamageRectToList(laRectArray* arr,
 								  laBool noCombine);
 
 void _laLayer_MergeRectLists(laLayer* layer);
+// DOM-IGNORE-END
 
 #endif /* LIBARIA_LAYER_H */

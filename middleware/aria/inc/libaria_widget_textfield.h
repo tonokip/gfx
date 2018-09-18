@@ -469,6 +469,7 @@ LIB_EXPORT laTextFieldWidget_FocusChangedCallback laTextFieldWidget_GetFocusChan
 LIB_EXPORT laResult laTextFieldWidget_SetFocusChangedEventCallback(laTextFieldWidget* txt,
                                                        laTextFieldWidget_FocusChangedCallback cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only            
 void _laTextFieldWidget_TouchDownEvent(laTextFieldWidget* txt, laInput_TouchDownEvent* evt);
 void _laTextFieldWidget_TouchUpEvent(laTextFieldWidget* txt, laInput_TouchUpEvent* evt);
@@ -482,6 +483,7 @@ void _laTextFieldWidget_GetTextRect(laTextFieldWidget* txt,
                                     GFX_Rect* drawRect);
                                     
 void _laTextFieldWidget_GetCursorRect(laTextFieldWidget* txt, GFX_Rect* cursorRect);
+// DOM-IGNORE-END
 
 #endif // LA_TEXTFIELD_WIDGET_ENABLED
 #endif /* LIBARIA_TEXTFIELD_H */

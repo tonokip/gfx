@@ -521,6 +521,7 @@ LIB_EXPORT laScrollBarWidget_ValueChangedEvent laScrollBarWidget_GetValueChanged
 LIB_EXPORT laResult laScrollBarWidget_SetValueChangedEventCallback(laScrollBarWidget* bar,
                                                                    laScrollBarWidget_ValueChangedEvent cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laScrollBarWidget_TouchDownEvent(laScrollBarWidget* bar, laInput_TouchDownEvent* evt);
 void _laScrollBarWidget_TouchUpEvent(laScrollBarWidget* bar, laInput_TouchUpEvent* evt);
@@ -536,6 +537,7 @@ uint32_t _laScrollBar_GetPercentFromPoint(laScrollBarWidget* bar, GFX_Point* pnt
 uint32_t _laScrollBar_GetValueFromPercent(laScrollBarWidget* bar, uint32_t per);
 
 void _laScrollBarWidget_InvalidateBorderAreas(laScrollBarWidget* bar);
+// DOM-IGNORE-END
 
 #endif // LA_SCROLLBAR_WIDGET_ENABLED
 #endif /* LIBARIA_SCROLLBAR_H */

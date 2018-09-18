@@ -1212,6 +1212,7 @@ LIB_EXPORT laBool laListWheelWidget_GetAutoHideWheel(laListWheelWidget* whl);
 */
 LIB_EXPORT laResult laListWheelWidget_SetAutoHideWheel(laListWheelWidget* whl, laBool autoHide);
 
+// DOM-IGNORE-BEGIN
 // internal use only            
 void _laListWheelWidget_GetItemTextRect(laListWheelWidget* whl,
                                         uint32_t idx,
@@ -1225,5 +1226,7 @@ void _laListWheelWidget_GetItemIconRect(laListWheelWidget* whl,
                                         uint32_t pos,
                                         GFX_Rect* imgRect,
                                         GFX_Rect* imgSrcRect);
+// DOM-IGNORE-END
+
 #endif // LA_LISTWHEEL_WIDGET_ENABLED
 #endif /* LIBARIA_LISTWHEELWIDGET_H */

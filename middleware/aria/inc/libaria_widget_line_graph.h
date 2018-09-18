@@ -1304,6 +1304,7 @@ LIB_EXPORT laLineGraphTickPosition laLineGraphWidget_GetCategoryAxisTicksPositio
 */
 LIB_EXPORT laResult laLineGraphWidget_SetCategoryAxisTicksPosition(laLineGraphWidget* graph, laLineGraphTickPosition position);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laLineGraphWidget_GetGraphRect(laLineGraphWidget* graph,
                                            GFX_Rect * graphRect);
@@ -1314,6 +1315,7 @@ GFX_Point _laLineGraphWidget_GetValuePoint(laLineGraphWidget* graph,
                                      GFX_Point originPoint);
 
 GFX_Point _laLineGraphWidget_GetOriginPoint(laLineGraphWidget* graph);
+// DOM-IGNORE-END
 
 #endif // LA_LINE_GRAPH_WIDGET_ENABLED
 #endif /* LIBARIA_WIDGET_LINE_GRAPH_H */

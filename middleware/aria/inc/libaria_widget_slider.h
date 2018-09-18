@@ -502,7 +502,7 @@ LIB_EXPORT laSliderWidget_ValueChangedEvent laSliderWidget_GetValueChangedEventC
 */
 LIB_EXPORT laResult laSliderWidget_SetValueChangedEventCallback(laSliderWidget* sld,
                                                                 laSliderWidget_ValueChangedEvent cb);
-
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laSliderWidget_TouchDownEvent(laSliderWidget* sld, laInput_TouchDownEvent* evt);
 void _laSliderWidget_TouchUpEvent(laSliderWidget* sld, laInput_TouchUpEvent* evt);
@@ -515,6 +515,7 @@ uint32_t _laSliderWidget_GetPercentFromPoint(laSliderWidget* sld, GFX_Point* pnt
 uint32_t _laSliderWidget_GetValueFromPercent(laSliderWidget* sld, uint32_t per);
 
 void _laSliderWidget_InvalidateBorderAreas(laSliderWidget* sld);
+// DOM-IGNORE-END
 
 #endif // LA_SLIDER_WIDGET_ENABLED
 #endif /* LIBARIA_SLIDER_H */

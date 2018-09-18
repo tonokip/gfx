@@ -822,8 +822,10 @@ LIB_EXPORT laResult laKeyPadWidget_SetKeyValue(laKeyPadWidget* pad,
                                                uint32_t col,
                                                laString str);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laKeyPadWidget_InvalidateBorderAreas(laKeyPadWidget* pad);
+// DOM-IGNORE-END
 
 #endif // LA_WIDGET_KEYPAD_ENABLED && LA_WIDGET_BUTTON_ENABLED
 #endif /* LIBARIA_KEYPAD_H */

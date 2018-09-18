@@ -650,10 +650,12 @@ LIB_EXPORT laImageSequenceImageChangedEvent_FnPtr laImageSequenceWidget_GetImage
 LIB_EXPORT laResult laImageSequenceWidget_SetImageChangedEventCallback(laImageSequenceWidget* img,
                                                                        laImageSequenceImageChangedEvent_FnPtr cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laImageSequenceWidget_GetImageRect(laImageSequenceWidget* img,
                                          GFX_Rect* imgRect,
                                          GFX_Rect* imgSrcRect);
+// DOM-IGNORE-END
 
 #endif // LA_IMAGESEQUENCE_WIDGET_ENABLED                                                             
 #endif /* LIBARIA_IMAGESEQUENCE_H */

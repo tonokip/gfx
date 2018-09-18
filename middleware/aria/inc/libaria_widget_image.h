@@ -253,11 +253,12 @@ LIB_EXPORT GFXU_ImageAsset* laImageWidget_GetImage(laImageWidget* img);
 LIB_EXPORT laResult laImageWidget_SetImage(laImageWidget* img,
                                            GFXU_ImageAsset* imgAst);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laImageWidget_GetImageRect(laImageWidget* img,
                                  GFX_Rect* imgRect,
                                  GFX_Rect* imgSrcRect);
-                                  
+// DOM-IGNORE-END                                  
 
 
 void laImageWidget_SetCallBackStart(laImageWidget* image, laImageWidget_DrawEventCallback cb);

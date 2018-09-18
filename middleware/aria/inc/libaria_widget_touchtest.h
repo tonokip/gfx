@@ -228,12 +228,13 @@ LIB_EXPORT laTouchTestWidget_PointAddedEventCallback laTouchTestWidget_GetPointA
 */
 LIB_EXPORT laResult laTouchTestWidget_SetPointAddedEventCallback(laTouchTestWidget* txt,
                                                                  laTouchTestWidget_PointAddedEventCallback cb);
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laTouchTestWidget_GetLineRects(laTouchTestWidget* tch,
                                      uint32_t idx,
                                      GFX_Rect* horzRect,
                                      GFX_Rect* vertRect);
-
+// DOM-IGNORE-END
 
 #endif // LA_TOUCHTEST_WIDGET_ENABLED
 #endif /* LIBARIA_TOUCHTEST_H */

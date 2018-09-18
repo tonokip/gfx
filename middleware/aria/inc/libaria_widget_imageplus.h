@@ -545,10 +545,12 @@ LIB_EXPORT laBool laImagePlusWidget_GetInteractive(laImagePlusWidget* img);
 LIB_EXPORT laResult laImagePlusWidget_SetInteractive(laImagePlusWidget* img,
                                                      laBool interactive);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laImagePlusWidget_GetImageRect(laImagePlusWidget* img,
                                      GFX_Rect* imgRect,
                                      GFX_Rect* imgSrcRect);
-                                  
+// DOM-IGNORE-END
+
 #endif // LA_IMAGE_WIDGET_ENABLED
 #endif /* LIBARIA_IMAGE_H */

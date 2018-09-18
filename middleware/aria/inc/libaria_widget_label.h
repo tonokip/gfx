@@ -297,12 +297,12 @@ LIB_EXPORT laVAlignment laLabelWidget_GetVAlignment(laLabelWidget* lbl);
 LIB_EXPORT laResult laLabelWidget_SetVAlignment(laLabelWidget* lbl,
                                                 laVAlignment align);
 
-
+// DOM-IGNORE-BEGIN
 // internal use only                                                
 void _laLabelWidget_GetTextRect(laLabelWidget* lbl,
                                 GFX_Rect* textRect,
                                 GFX_Rect* drawRect);
-
+// DOM-IGNORE-END
 
 #endif // LA_LABEL_WIDGET_ENABLED
 #endif /* LIBARIA_LABEL_H */

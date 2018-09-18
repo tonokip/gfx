@@ -1080,9 +1080,11 @@ LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetCategoryAxisTicksPosition(
 */
 LIB_EXPORT laResult laBarGraphWidget_SetCategoryAxisTicksPosition(laBarGraphWidget* graph, laBarGraphTickPosition position);
 
+// DOM-IGNORE-BEGIN
 //Internal use only
 void _laBarGraphWidget_GetGraphRect(laBarGraphWidget* graph,
                                            GFX_Rect * graphRect);
+// DOM-IGNORE-END
 
 #endif // LA_BAR_GRAPH_WIDGET_ENABLED
 #endif /* LIBARIA_WIDGET_BAR_GRAPH_H */

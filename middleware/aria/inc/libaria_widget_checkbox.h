@@ -586,6 +586,7 @@ LIB_EXPORT laCheckBoxWidget_UncheckedEvent laCheckBoxWidget_GetUncheckedEventCal
 LIB_EXPORT laResult laCheckBoxWidget_SetUncheckedEventCallback(laCheckBoxWidget* cbox,
                                                                laCheckBoxWidget_UncheckedEvent cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laCheckBoxWidget_GetImageRect(laCheckBoxWidget* widget,
 									GFX_Rect* imgRect,
@@ -598,6 +599,7 @@ void _laCheckBoxWidget_GetTextRect(laCheckBoxWidget* widget,
 void _laCheckBoxWidget_TouchDownEvent(laCheckBoxWidget* widget, laInput_TouchDownEvent* evt);
 void _laCheckBoxWidget_TouchUpEvent(laCheckBoxWidget* widget, laInput_TouchUpEvent* evt);
 void _laCheckBoxWidget_TouchMovedEvent(laCheckBoxWidget* widget, laInput_TouchMovedEvent* evt);
+// DOM-IGNORE-END
 
 #endif // LA_CHECKBOX_WIDGET_ENABLED
 #endif /* LIBARIA_BUTTON_H */

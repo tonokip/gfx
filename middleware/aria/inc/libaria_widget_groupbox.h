@@ -209,10 +209,12 @@ LIB_EXPORT laHAlignment laGroupBoxWidget_GetAlignment(laGroupBoxWidget* box);
 LIB_EXPORT laResult laGroupBoxWidget_SetAlignment(laGroupBoxWidget* box,
                                                   laHAlignment align);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laGroupBoxWidget_GetTextRect(laGroupBoxWidget* box,
 								   GFX_Rect* textRect,
 								   GFX_Rect* drawRect);
+// DOM-IGNORE-END
 
 #endif // LA_GROUPBOX_WIDGET_ENABLED
 #endif /* LIBARIA_GROUPBOX_H */

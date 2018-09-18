@@ -709,6 +709,7 @@ LIB_EXPORT laButtonWidget_ReleasedEvent laButtonWidget_GetReleasedEventCallback(
 LIB_EXPORT laResult laButtonWidget_SetReleasedEventCallback(laButtonWidget* btn,
                                                             laButtonWidget_ReleasedEvent cb);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laButtonWidget_GetImageRect(laButtonWidget* btn,
                                   GFX_Rect* imgRect,
@@ -719,6 +720,7 @@ void _laButtonWidget_GetTextRect(laButtonWidget* btn,
                                  GFX_Rect* drawRect);
                                  
 void _laButtonWidget_InvalidateBorderAreas(laButtonWidget* btn);
+// DOM-IGNORE-END
 
 #endif /* LA_BUTTON_WIDGET_ENABLED */
 #endif /* LIBARIA_BUTTON_H */

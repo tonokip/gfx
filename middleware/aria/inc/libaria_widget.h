@@ -1637,6 +1637,7 @@ LIB_EXPORT laResult laWidget_OverrideTouchMovedEvent(laWidget* wgt,
 */
 LIB_EXPORT void laWidget_Invalidate(laWidget* wgt);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _laWidget_Invalidate(laWidget* wgt, const GFX_Rect* rect);
 laBool _laWidget_IsOccluded(laWidget* wgt, const GFX_Rect* rect);
@@ -1646,5 +1647,6 @@ void _laWidget_ValidateChildren(laWidget* wgt);
 void _laWidget_IncreaseDirtyState(laWidget* wgt, uint32_t state);
 void _laWidget_SetDirtyState(laWidget* wgt, uint32_t state);
 void _laWidget_ClearDirtyState(laWidget* wgt);
+// DOM-IGNORE-END
 
 #endif /* LIBARIA_WIDGET_H */

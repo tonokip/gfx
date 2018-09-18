@@ -936,7 +936,7 @@ LIB_EXPORT laListWidget_SelectedItemChangedEvent laListWidget_GetSelectedItemCha
 LIB_EXPORT laResult laListWidget_SetSelectedItemChangedEventCallback(laListWidget* lst,
                                                                      laListWidget_SelectedItemChangedEvent cb);                                  
 
-
+// DOM-IGNORE-BEGIN
 // internal use only   
 void _laListWidget_GetListRect(laListWidget* lst,
                                GFX_Rect* rect);
@@ -963,6 +963,7 @@ void _laListWidget_GetIconRect(laListWidget* lst,
 
 void _laListWidget_recalculateRowRect(laListWidget* lst,
                                      uint32_t idx);
+// DOM-IGNORE-END
 
 #endif // LA_LIST_WIDGET_ENABLED && LA_SCROLLBAR_WIDGET_ENABLED
 #endif /* LIBARIA_LISTWIDGET_H */

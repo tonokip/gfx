@@ -255,10 +255,12 @@ LIB_EXPORT uint32_t laWindowWidget_GetIconMargin(laWindowWidget* win);
 */ 
 LIB_EXPORT laResult laWindowWidget_SetIconMargin(laWindowWidget* win, uint32_t mg);                                                    
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void laWindowWidget_GetTitleBarRect(laWindowWidget* win, GFX_Rect* barRect);
 void laWindowWidget_GetIconRect(laWindowWidget* win, GFX_Rect* imgRect, GFX_Rect* imgSrcRect);
 void laWindowWidget_GetTextRect(laWindowWidget* win, GFX_Rect* textRect, GFX_Rect* drawRect);
+// DOM-IGNORE-END
 
 #endif // LA_WINDOW_WIDGET_ENABLED
 #endif /* LIBARIA_WINDOW_H */
