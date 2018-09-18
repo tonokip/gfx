@@ -8,7 +8,7 @@
     libaria_widget_bar_graph.h
 
   Summary:
-    
+
 
   Description:
     This module implements bar graph drawing widget functions.
@@ -68,7 +68,7 @@ typedef enum laBarGraphTickPosition_t
 {
     BAR_GRAPH_TICK_IN,
     BAR_GRAPH_TICK_OUT,
-    BAR_GRAPH_TICK_CENTER,            
+    BAR_GRAPH_TICK_CENTER,
 } laBarGraphTickPosition;
 
 typedef struct laBarGraphDataSeries_t
@@ -121,20 +121,23 @@ typedef struct laBarGraphWidget_t
     uint32_t ticksLabelsStringID; //ID of Superset string containing numbers
     laBarGraphTickPosition valueAxisTicksPosition;
     laBarGraphTickPosition valueAxisSubticksPosition;
-    
+
     //Category axis properties
     laBool categAxisLabelsVisible;
     laBool categAxisTicksVisible;
     laBarGraphTickPosition categAxisTicksPosition;
     laArray categories;
-    
+
     GFXU_ExternalAssetReader* reader; // asset reader
 } laBarGraphWidget;
 
+// DOM-IGNORE-BEGIN
+// internal use only
 void _laBarGraphWidget_Constructor(laBarGraphWidget* graph);
 void _laBarGraphWidget_Destructor(laBarGraphWidget* graph);
 
 void _laBarGraphWidget_Paint(laBarGraphWidget* graph);
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
@@ -152,15 +155,15 @@ void _laBarGraphWidget_Paint(laBarGraphWidget* graph);
     widget is added to a widget tree.
 
   Description:
-  
+
   Parameters:
     void
-    
+
   Returns:
     laBarGraphWidget*
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBarGraphWidget* laBarGraphWidget_New();
 
@@ -172,15 +175,15 @@ LIB_EXPORT laBarGraphWidget* laBarGraphWidget_New();
     Returns the length of the ticks
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     uint32_t - tick length
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laBarGraphWidget_GetTickLength(laBarGraphWidget* graph);
 
@@ -192,16 +195,16 @@ LIB_EXPORT uint32_t laBarGraphWidget_GetTickLength(laBarGraphWidget* graph);
     Sets the length of the ticks
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t length - length in pixels
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetTickLength(laBarGraphWidget* graph, uint32_t length);
 
@@ -213,15 +216,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetTickLength(laBarGraphWidget* graph, uint
     Returns the max value of the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     uint32_t - max value
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laBarGraphWidget_GetMaxValue(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -233,17 +236,17 @@ LIB_EXPORT uint32_t laBarGraphWidget_GetMaxValue(laBarGraphWidget* graph, laBarG
     Sets the max value of the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     int32_t value - max value
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetMaxValue(laBarGraphWidget* graph, laBarGraphValueAxis axis, int32_t value);
 
@@ -255,15 +258,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetMaxValue(laBarGraphWidget* graph, laBarG
     Returns the min value of the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     uint32_t - min value
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laBarGraphWidget_GetMinValue(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -275,17 +278,17 @@ LIB_EXPORT uint32_t laBarGraphWidget_GetMinValue(laBarGraphWidget* graph, laBarG
     Sets the min value of the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     int32_t value - min value
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetMinValue(laBarGraphWidget* graph, laBarGraphValueAxis axis, int32_t value);
 
@@ -297,15 +300,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetMinValue(laBarGraphWidget* graph, laBarG
     Returns GFX_TRUE if the value axis labels are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the value axis labels are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetValueAxisLabelsVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -317,17 +320,17 @@ LIB_EXPORT laBool laBarGraphWidget_GetValueAxisLabelsVisible(laBarGraphWidget* g
     Shows/Hides the labels in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     laBool visible - shows the labels if GFX_TRUE
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisLabelsVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBool visible);
 
@@ -339,15 +342,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisLabelsVisible(laBarGraphWidget*
     Returns GFX_TRUE if the value axis ticks are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the value axis ticks are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetValueAxisTicksVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -359,17 +362,17 @@ LIB_EXPORT laBool laBarGraphWidget_GetValueAxisTicksVisible(laBarGraphWidget* gr
     Shows/Hides the ticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     laBool visible - shows the ticks if GFX_TRUE
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTicksVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBool visible);
 
@@ -381,15 +384,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTicksVisible(laBarGraphWidget* 
     Returns GFX_TRUE if the value axis subticks are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the value axis subticks are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetValueAxisSubticksVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -401,17 +404,17 @@ LIB_EXPORT laBool laBarGraphWidget_GetValueAxisSubticksVisible(laBarGraphWidget*
     Shows/Hides the subticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     laBool visible - shows the subticks if GFX_TRUE
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubticksVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBool visible);
 
@@ -423,16 +426,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubticksVisible(laBarGraphWidge
     Returns the interval between major ticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
-    
+
   Returns:
     uint32_t - ticks in pixels
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laBarGraphWidget_GetValueAxisTickInterval(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -444,17 +447,17 @@ LIB_EXPORT uint32_t laBarGraphWidget_GetValueAxisTickInterval(laBarGraphWidget* 
     Sets the tick interval in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     uint32_t interval - tick interval in pixels
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTickInterval(laBarGraphWidget* graph, laBarGraphValueAxis axis, uint32_t interval);
 
@@ -466,16 +469,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTickInterval(laBarGraphWidget* 
     Returns the interval between minor ticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
-    
+
   Returns:
     uint32_t - ticks in pixels
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laBarGraphWidget_GetValueAxisSubtickInterval(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -487,17 +490,17 @@ LIB_EXPORT uint32_t laBarGraphWidget_GetValueAxisSubtickInterval(laBarGraphWidge
     Sets the minor tick interval in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     uint32_t interval - tick interval in pixels
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubtickInterval(laBarGraphWidget* graph, laBarGraphValueAxis axis, uint32_t interval);
 
@@ -511,16 +514,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubtickInterval(laBarGraphWidge
     Adds a series to the graph
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t * seriesID - destination of the returned series ID
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_AddSeries(laBarGraphWidget* graph, uint32_t * seriesID);
 
@@ -532,15 +535,15 @@ LIB_EXPORT laResult laBarGraphWidget_AddSeries(laBarGraphWidget* graph, uint32_t
     Returns scheme of the specified series
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laScheme * - scheme of the specified series
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laScheme * laBarGraphWidget_GetSeriesScheme(laBarGraphWidget* graph, uint32_t seriesID);
 
@@ -552,17 +555,17 @@ LIB_EXPORT laScheme * laBarGraphWidget_GetSeriesScheme(laBarGraphWidget* graph, 
     Sets the color scheme of the series
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     int32_t seriesID - the series ID, if negative the last series is referenced
     laScheme * scheme - the color scheme
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetSeriesScheme(laBarGraphWidget* graph, int32_t seriesID, laScheme * scheme);
 
@@ -574,46 +577,46 @@ LIB_EXPORT laResult laBarGraphWidget_SetSeriesScheme(laBarGraphWidget* graph, in
     Adds a data (value) to the specified series at categoryID index
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t seriesID - the series ID
     int32_t value - the value
     uint32_t * index - the destination to return the index of the added data
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_AddDataToSeries(laBarGraphWidget* graph, uint32_t seriesID, int32_t value, uint32_t * index);
 
 // *****************************************************************************
 /* Function:
-    laResult laBarGraphWidget_SetDataInSeries(laBarGraphWidget* graph, 
+    laResult laBarGraphWidget_SetDataInSeries(laBarGraphWidget* graph,
                                               uint32_t seriesID,
                                               uint32_t index,
                                               int32_t value);
   Summary:
     Sets the value of the entry in the series index. The entry should have
-    been previously 
+    been previously
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t seriesID - the series ID
     uint32_t index - the index of the data
     int32_t value - the value
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
-LIB_EXPORT laResult laBarGraphWidget_SetDataInSeries(laBarGraphWidget* graph, 
+LIB_EXPORT laResult laBarGraphWidget_SetDataInSeries(laBarGraphWidget* graph,
                                           uint32_t seriesID,
                                           uint32_t index,
                                           int32_t value);
@@ -627,15 +630,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetDataInSeries(laBarGraphWidget* graph,
     Destroys data, series and categories and frees the memory allocated
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_DestroyAll(laBarGraphWidget* graph);
 
@@ -647,16 +650,16 @@ LIB_EXPORT laResult laBarGraphWidget_DestroyAll(laBarGraphWidget* graph);
     Sets the string table used for the generated axis labels
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     GFXU_StringTableAsset * stringTable - the string table
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetStringTable(laBarGraphWidget* graph, GFXU_StringTableAsset * stringTable);
 
@@ -668,16 +671,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetStringTable(laBarGraphWidget* graph, GFX
     Sets the ID of the superset string used for the value axis tick labels
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t stringID - the string ID
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetTicksLabelsStringID(laBarGraphWidget* graph, uint32_t stringID);
 
@@ -689,16 +692,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetTicksLabelsStringID(laBarGraphWidget* gr
     Returns GFX_TRUE if the axis gridlines are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
-    
+
   Returns:
     laBool - GFX_TRUE if the axis gridlines are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetGridlinesVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -710,17 +713,17 @@ LIB_EXPORT laBool laBarGraphWidget_GetGridlinesVisible(laBarGraphWidget* graph, 
     Shows/Hides the gridlines
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - category ID
     laBool visible - shows the gridlines if GFX_TRUE
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetGridlinesVisible(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBool visible);
 
@@ -732,16 +735,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetGridlinesVisible(laBarGraphWidget* graph
     Adds a category to the graph
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t * id - destination of the ID of the new category
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_AddCategory(laBarGraphWidget* graph, uint32_t * id);
 
@@ -753,17 +756,17 @@ LIB_EXPORT laResult laBarGraphWidget_AddCategory(laBarGraphWidget* graph, uint32
     Gets a copy of the string used to label the category
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     uint32_t categoryID - category ID
-    laString * str - destination of the copied string 
-    
+    laString * str - destination of the copied string
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_GetCategoryText(laBarGraphWidget* graph, uint32_t categoryID, laString * str);
 
@@ -775,17 +778,17 @@ LIB_EXPORT laResult laBarGraphWidget_GetCategoryText(laBarGraphWidget* graph, ui
     Sets the string used to label the category
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     int32_t categoryID - category ID, if -1 the last category is assigned
     laString str - the string to use
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetCategoryText(laBarGraphWidget* graph, int32_t categoryID, laString str);
 
@@ -797,15 +800,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetCategoryText(laBarGraphWidget* graph, in
     Returns GFX_TRUE if the bars are stacked
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetStacked(laBarGraphWidget* graph);
 
@@ -817,16 +820,16 @@ LIB_EXPORT laBool laBarGraphWidget_GetStacked(laBarGraphWidget* graph);
     Stacks the bar graph
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBool stacked - if GFX_TRUE, the bars are stacked
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetStacked(laBarGraphWidget* graph, laBool stacked);
 
@@ -838,15 +841,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetStacked(laBarGraphWidget* graph, laBool 
     Returns GFX_TRUE if the category axis ticks are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the category axis ticks are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetCategoryAxisTicksVisible(laBarGraphWidget* graph);
 
@@ -858,16 +861,16 @@ LIB_EXPORT laBool laBarGraphWidget_GetCategoryAxisTicksVisible(laBarGraphWidget*
     Shows/Hides the category axis ticks
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBool visible - if GFX_TRUE, the axis ticks are shown
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetCategoryAxisTicksVisible(laBarGraphWidget* graph, laBool visible);
 
@@ -879,15 +882,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetCategoryAxisTicksVisible(laBarGraphWidge
     Returns GFX_TRUE if the category axis labels are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the category axis labels are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetCategoryAxisLabelsVisible(laBarGraphWidget* graph);
 
@@ -899,16 +902,16 @@ LIB_EXPORT laBool laBarGraphWidget_GetCategoryAxisLabelsVisible(laBarGraphWidget
     Shows/Hides the category axis labels
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBool visible - if GFX_TRUE, the axis labels are shown
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetCategoryAxisLabelsVisible(laBarGraphWidget* graph, laBool visible);
 
@@ -920,15 +923,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetCategoryAxisLabelsVisible(laBarGraphWidg
     Returns GFX_TRUE if the category axis labels are visible
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBool - GFX_TRUE if the category axis labels are visible
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laBarGraphWidget_GetFillGraphArea(laBarGraphWidget* graph);
 
@@ -940,16 +943,16 @@ LIB_EXPORT laBool laBarGraphWidget_GetFillGraphArea(laBarGraphWidget* graph);
     Sets the graph area filled or not
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBool fill - if GFX_TRUE, fills the graph area
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetFillGraphArea(laBarGraphWidget* graph, laBool fill);
 
@@ -961,16 +964,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetFillGraphArea(laBarGraphWidget* graph, l
     Returns the position of the ticks in the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the index of the value axis
-    
+
   Returns:
     laBarGraphTickPosition - the tick position
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetValueAxisTicksPosition(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -982,17 +985,17 @@ LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetValueAxisTicksPosition(laB
     Sets the position of the ticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     laBarGraphTickPosition position - the tick position
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTicksPosition(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBarGraphTickPosition position);
 
@@ -1004,16 +1007,16 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisTicksPosition(laBarGraphWidget*
     Returns the position of the subticks in the axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the index of the value axis
-    
+
   Returns:
     laBarGraphTickPosition - the subtick position
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetValueAxisSubticksPosition(laBarGraphWidget* graph, laBarGraphValueAxis axis);
 
@@ -1025,17 +1028,17 @@ LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetValueAxisSubticksPosition(
     Sets the position of the subticks in the value axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphValueAxis axis - the value axis index
     laBarGraphTickPosition position  - position of the subticks
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubticksPosition(laBarGraphWidget* graph, laBarGraphValueAxis axis, laBarGraphTickPosition position);
 
@@ -1047,15 +1050,15 @@ LIB_EXPORT laResult laBarGraphWidget_SetValueAxisSubticksPosition(laBarGraphWidg
     Returns the position of the ticks in the category axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
-    
+
   Returns:
     laBarGraphTickPosition - position of the ticks in the category axis
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetCategoryAxisTicksPosition(laBarGraphWidget* graph);
 
@@ -1067,14 +1070,14 @@ LIB_EXPORT laBarGraphTickPosition laBarGraphWidget_GetCategoryAxisTicksPosition(
     Sets the position of the ticks in the category axis
 
   Description:
-    
+
   Parameters:
     laBarGraphWidget* graph - the widget
     laBarGraphTickPosition position  - position of the ticks
-    
+
   Returns:
     laResult - the result of the operation
-    
+
   Remarks:
 
 */

@@ -8,7 +8,7 @@
     libaria_widget_circular_slider.h
 
   Summary:
-    
+
 
   Description:
     This module implements slider drawing widget functions.
@@ -139,7 +139,7 @@ typedef struct laCircularSliderWidget_t
     laWidget widget; // base widget header
 
     uint32_t radius; // the radius of the slider
-    
+
     uint32_t startAngle; //the start angle of the slider
 
     uint32_t value;      //the value of the slider
@@ -166,12 +166,14 @@ typedef struct laCircularSliderWidget_t
     laCircularSliderWidget_ReleasedEvent releasedCallback;
 } laCircularSliderWidget;
 
-
+// DOM-IGNORE-BEGIN
+// internal use only
 void _laCircularSliderWidget_Constructor(laCircularSliderWidget* slider);
 void _laCircularSliderWidget_Destructor(laCircularSliderWidget* slider);
 
 void _laCircularSliderWidget_Paint(laCircularSliderWidget* slider);
 GFX_Point _laCircularSliderWidget_GetCircleCenterPointAtValue(laCircularSliderWidget* slider, int32_t value);
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
@@ -189,16 +191,16 @@ GFX_Point _laCircularSliderWidget_GetCircleCenterPointAtValue(laCircularSliderWi
     widget is added to a widget tree.
 
   Description:
-    
+
 
   Parameters:
     void
-    
+
   Returns:
     laCircularSliderWidget*
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laCircularSliderWidget* laCircularSliderWidget_New();
 
@@ -210,18 +212,18 @@ LIB_EXPORT laCircularSliderWidget* laCircularSliderWidget_New();
     Gets the origin coordinates of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     int32_t* x - pointer to an integer pointer to store x
     int32_t* y - pointer to an integer pointer to store y
-    
+
   Returns:
     laResult - the operation result
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_GetOrigin(laCircularSliderWidget* slider, int32_t* x, int32_t* y);
 
@@ -233,18 +235,18 @@ LIB_EXPORT laResult laCircularSliderWidget_GetOrigin(laCircularSliderWidget* sli
     Sets the origin coordiates of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     int32_t x - the desired x origin coordinate
     int32_t y - the desired y origin coordinate
-    
+
   Returns:
     laResult - the operation result
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetOrigin(laCircularSliderWidget* slider, int32_t x, int32_t y);
 
@@ -256,16 +258,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetOrigin(laCircularSliderWidget* sli
     Gets the radius of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetRadius(laCircularSliderWidget* slider);
 
@@ -277,17 +279,17 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetRadius(laCircularSliderWidget* sli
     Sets the radius of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     uint32_t red - the desired radius value
-        
+
   Returns:
     laResult - the operation result
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetRadius(laCircularSliderWidget* slider, uint32_t rad);
 
@@ -299,16 +301,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetRadius(laCircularSliderWidget* sli
     Returns the start angle of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetStartAngle(laCircularSliderWidget* slider);
 
@@ -320,17 +322,17 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetStartAngle(laCircularSliderWidget*
     Sets the start angle of a slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     int32_t angle - the desired start angle value
-        
+
   Returns:
     laResult - the operation result
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetStartAngle(laCircularSliderWidget* slider, uint32_t angle);
 
@@ -342,22 +344,22 @@ LIB_EXPORT laResult laCircularSliderWidget_SetStartAngle(laCircularSliderWidget*
     Returns the thickness of an arc in the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
-LIB_EXPORT uint32_t laCircularSliderWidget_GetArcThickness(laCircularSliderWidget* slider, 
+LIB_EXPORT uint32_t laCircularSliderWidget_GetArcThickness(laCircularSliderWidget* slider,
                                                            laCircularSliderWidgetArcType type);
 
-LIB_EXPORT laResult laCircularSliderWidget_SetArcThickness(laCircularSliderWidget* slider, 
+LIB_EXPORT laResult laCircularSliderWidget_SetArcThickness(laCircularSliderWidget* slider,
                                                            laCircularSliderWidgetArcType type,
                                                            uint32_t thickness);
 
@@ -369,17 +371,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetArcThickness(laCircularSliderWidge
     Returns the radius of an arc in the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetArcRadius(laCircularSliderWidget* slider,
                                                         laCircularSliderWidgetArcType type);
@@ -396,12 +398,12 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetArcRadius(laCircularSliderWidget* 
   Parameters:
     laCircularSliderWidget* slider - the widget
     uint32_t value
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetArcRadius(laCircularSliderWidget* slider,
                                                         laCircularSliderWidgetArcType type,
@@ -415,17 +417,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetArcRadius(laCircularSliderWidget* 
     Returns the scheme of an arc in the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
-        
+
   Returns:
     laScheme *
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laScheme * laCircularSliderWidget_GetArcScheme(laCircularSliderWidget* slider,
                                                           laCircularSliderWidgetArcType type);
@@ -440,18 +442,18 @@ LIB_EXPORT laScheme * laCircularSliderWidget_GetArcScheme(laCircularSliderWidget
     Sets the scheme of the specified arc
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
     laScheme * scheme - scheme
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetArcScheme(laCircularSliderWidget* slider,
                                                         laCircularSliderWidgetArcType type,
@@ -465,17 +467,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetArcScheme(laCircularSliderWidget* 
     Returns true if the specified arc is visible
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laCircularSliderWidget_GetArcVisible(laCircularSliderWidget* slider,
                                                          laCircularSliderWidgetArcType type);
@@ -490,18 +492,18 @@ LIB_EXPORT laBool laCircularSliderWidget_GetArcVisible(laCircularSliderWidget* s
     Shows/Hides the specified arc visible
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetArcType type - the type of arc
     laBool visible - show/hide
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetArcVisible(laCircularSliderWidget* slider,
                                                          laCircularSliderWidgetArcType type,
@@ -515,16 +517,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetArcVisible(laCircularSliderWidget*
     Gets the start value of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetStartValue(laCircularSliderWidget* slider);
 
@@ -540,12 +542,12 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetStartValue(laCircularSliderWidget*
   Parameters:
     laCircularSliderWidget* slider - the widget
     uint32_t value
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetStartValue(laCircularSliderWidget* slider, uint32_t value);
 
@@ -557,16 +559,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetStartValue(laCircularSliderWidget*
     Gets the end value of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetEndValue(laCircularSliderWidget* slider);
 
@@ -582,12 +584,12 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetEndValue(laCircularSliderWidget* s
   Parameters:
     laCircularSliderWidget* slider - the widget
     uint32_t value
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetEndValue(laCircularSliderWidget* slider, uint32_t value);
 
@@ -599,16 +601,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetEndValue(laCircularSliderWidget* s
     Gets the value of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     uint32_t
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT uint32_t laCircularSliderWidget_GetValue(laCircularSliderWidget* slider);
 
@@ -624,12 +626,12 @@ LIB_EXPORT uint32_t laCircularSliderWidget_GetValue(laCircularSliderWidget* slid
   Parameters:
     laCircularSliderWidget* slider - the widget
     uint32_t value
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetValue(laCircularSliderWidget* slider, uint32_t value);
 
@@ -641,16 +643,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetValue(laCircularSliderWidget* slid
     Returns true if the slider has rounded edges
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laCircularSliderWidget_GetRoundEdges(laCircularSliderWidget* slider);
 
@@ -662,17 +664,17 @@ LIB_EXPORT laBool laCircularSliderWidget_GetRoundEdges(laCircularSliderWidget* s
     If round = true, the slider active area edges are round
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laBool round
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetRoundEdges(laCircularSliderWidget* slider, laBool round);
 
@@ -684,16 +686,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetRoundEdges(laCircularSliderWidget*
     Returns true if the slider button sticks to the start/end value
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laCircularSliderWidget_GetStickyButton(laCircularSliderWidget* slider);
 
@@ -706,19 +708,19 @@ LIB_EXPORT laBool laCircularSliderWidget_GetStickyButton(laCircularSliderWidget*
 
   Description:
     When sticky is enabled, the slider button will not immediately wrap past the start or end value
-    if the button is dragged past the start angle. If the button is dragged past the threshold of 90 degrees 
+    if the button is dragged past the start angle. If the button is dragged past the threshold of 90 degrees
     beyond the start angle, only then will the slider value wrap around.
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laBool sticky - set button as sticky
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetStickyButton(laCircularSliderWidget* slider, laBool sticky);
 
@@ -731,16 +733,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetStickyButton(laCircularSliderWidge
     Returns direction of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     laCircularSliderWidgetDir
-    
+
   Remarks:
-    
+
 */
 
 // *****************************************************************************
@@ -751,16 +753,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetStickyButton(laCircularSliderWidge
     Returns true if the slider slider only responds to touch inside the button area
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     laBool
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laBool laCircularSliderWidget_GetTouchOnButtonOnly(laCircularSliderWidget* slider);
 
@@ -776,12 +778,12 @@ LIB_EXPORT laBool laCircularSliderWidget_GetTouchOnButtonOnly(laCircularSliderWi
   Parameters:
     laCircularSliderWidget* slider - the widget
     laBool buttonOnly - set touch to button only
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetTouchOnButtonOnly(laCircularSliderWidget* slider, laBool buttonOnly);
 
@@ -794,16 +796,16 @@ LIB_EXPORT laResult laCircularSliderWidget_SetTouchOnButtonOnly(laCircularSlider
     Returns direction of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
-        
+
   Returns:
     laCircularSliderWidgetDir
-    
+
   Remarks:
-    
+
 */
 
 LIB_EXPORT laCircularSliderWidgetDir laCircularSliderWidget_GetDirection(laCircularSliderWidget* slider);
@@ -816,17 +818,17 @@ LIB_EXPORT laCircularSliderWidgetDir laCircularSliderWidget_GetDirection(laCircu
     Sets the direction of the slider widget
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidgetDir dir - direction
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetDirection(laCircularSliderWidget* slider, laCircularSliderWidgetDir dir);
 
@@ -839,17 +841,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetDirection(laCircularSliderWidget* 
     Sets the function that gets called when the slider button is pressed
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidget_PressedEvent cb - the callback function
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetPressedEventCallback(laCircularSliderWidget* slider, laCircularSliderWidget_PressedEvent cb);
 
@@ -861,17 +863,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetPressedEventCallback(laCircularSli
     Sets the function that gets called when the slider value changes
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidget_ValueChangedEvent cb - the callback function
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetValueChangedEventCallback(laCircularSliderWidget* slider, laCircularSliderWidget_ValueChangedEvent cb);
 
@@ -883,17 +885,17 @@ LIB_EXPORT laResult laCircularSliderWidget_SetValueChangedEventCallback(laCircul
     Sets the function that gets called when the slider button is released
 
   Description:
-    
+
 
   Parameters:
     laCircularSliderWidget* slider - the widget
     laCircularSliderWidget_ReleasedEvent cb - the callback function
-        
+
   Returns:
     laResult
-    
+
   Remarks:
-    
+
 */
 LIB_EXPORT laResult laCircularSliderWidget_SetReleasedEventCallback(laCircularSliderWidget* slider, laCircularSliderWidget_ReleasedEvent cb);
 
