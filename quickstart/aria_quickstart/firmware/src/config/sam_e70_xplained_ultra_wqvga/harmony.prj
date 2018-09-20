@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B27640AE3198C4B7D36CE4E20C9E4D4B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B27640AE3198C4B7D36CE4E20C9E4D4B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8D1999C9A3FFB32F06A1D75AED9B7B00</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8D1999C9A3FFB32F06A1D75AED9B7B00</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -459,15 +459,15 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">59A7FEDBC64FF4F53EFCAC067505735B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">59A7FEDBC64FF4F53EFCAC067505735B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0E2B34E706E364732AD14FF46EFFEF7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0E2B34E706E364732AD14FF46EFFEF7B</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">interrupts.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0255EA43A384D10150BCFE2B0DD8F11A</GeneratedChecksum>
+          <GeneratedChecksum dnOrder="4">2326E93B1B049B5DB72731D35A9E2F25</GeneratedChecksum>
           <UserChecksum dnOrder="5">0255EA43A384D10150BCFE2B0DD8F11A</UserChecksum>
         </File>
         <File dnOrder="58">
@@ -659,8 +659,8 @@
           <Name dnOrder="1">libaria_widget_arc_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E6FD0401E619CB265553F7C729E3CF9A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E6FD0401E619CB265553F7C729E3CF9A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B6091E57DDB3450AC665FDAAA948EC10</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B6091E57DDB3450AC665FDAAA948EC10</UserChecksum>
         </File>
         <File dnOrder="82">
           <Type dnOrder="0">SOURCE</Type>
@@ -739,8 +739,8 @@
           <Name dnOrder="1">libaria_widget_circular_gauge_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F2E628DA7F64228A32EBCF7D18D721CB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F2E628DA7F64228A32EBCF7D18D721CB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6DF407270151DDA9CBAE4BD82E671079</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6DF407270151DDA9CBAE4BD82E671079</UserChecksum>
         </File>
         <File dnOrder="92">
           <Type dnOrder="0">SOURCE</Type>
@@ -755,8 +755,8 @@
           <Name dnOrder="1">libaria_widget_circular_slider_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E35BA755535D94B5899E8DE52EA506C6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E35BA755535D94B5899E8DE52EA506C6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">74AC4B885AE01661B7B5B238CF321D5E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">74AC4B885AE01661B7B5B238CF321D5E</UserChecksum>
         </File>
         <File dnOrder="94">
           <Type dnOrder="0">SOURCE</Type>
@@ -963,8 +963,8 @@
           <Name dnOrder="1">libaria_widget_pie_chart_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5C82EEF832EE62236DE1F9CA69202EAB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5C82EEF832EE62236DE1F9CA69202EAB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0E189B691362EDC183D8249B4D3AE1EA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0E189B691362EDC183D8249B4D3AE1EA</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
@@ -1163,16 +1163,16 @@
           <Name dnOrder="1">plib_nvic.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/nvic/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/nvic/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">82958CDE6304629D2BBC76C48257EE50</GeneratedChecksum>
-          <UserChecksum dnOrder="5">82958CDE6304629D2BBC76C48257EE50</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B2DC860DB4517070676C487295F60845</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B2DC860DB4517070676C487295F60845</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">77ABCD3ABABEA7020827BE9CC90213F0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">77ABCD3ABABEA7020827BE9CC90213F0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C912D1A5569214BC777BE4EC4ACFF045</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C912D1A5569214BC777BE4EC4ACFF045</UserChecksum>
         </File>
         <File dnOrder="146">
           <Type dnOrder="0">SOURCE</Type>
@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_tc0.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">05FED96B655B49A20F7A3B166F14571C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">05FED96B655B49A20F7A3B166F14571C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">74BF325810D483B03DFC33481B00AAF9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">74BF325810D483B03DFC33481B00AAF9</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1200,11 +1200,11 @@
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
-          <Name dnOrder="1">plib_xdmac0.c</Name>
+          <Name dnOrder="1">plib_xdmac.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">874573CC458E8866467466E12CCB0E5D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">874573CC458E8866467466E12CCB0E5D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">21F89F90E31D2D204DA6A109D85B8031</GeneratedChecksum>
+          <UserChecksum dnOrder="5">21F89F90E31D2D204DA6A109D85B8031</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
@@ -1243,16 +1243,16 @@
           <Name dnOrder="1">sys_time.c</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/system/time/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/time/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3B01AAF0EE9B5BDFF496980208C47699</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3B01AAF0EE9B5BDFF496980208C47699</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6A1617C583A742E184272C7BC4BB2129</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6A1617C583A742E184272C7BC4BB2129</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">sys_time_local.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/system/time/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/time/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E34C8DC0C6596B5A755BEC95CF4929DE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E34C8DC0C6596B5A755BEC95CF4929DE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4D7962EC3AADA3C9E2C656BCC10DB9B7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4D7962EC3AADA3C9E2C656BCC10DB9B7</UserChecksum>
         </File>
         <File dnOrder="156">
           <Type dnOrder="0">SOURCE</Type>
@@ -1379,8 +1379,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E6E8491AB533BC6E23A221FA3CBCCCDB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E6E8491AB533BC6E23A221FA3CBCCCDB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9AB174521997AF931BF29A4421546008</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9AB174521997AF931BF29A4421546008</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
@@ -1403,8 +1403,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">50F8D1F80E48E8B278E09B067F60A76D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">50F8D1F80E48E8B278E09B067F60A76D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">22BB8F1A26AD3B355C9D551AAEC0665C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">22BB8F1A26AD3B355C9D551AAEC0665C</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
@@ -1851,8 +1851,8 @@
           <Name dnOrder="1">libaria_context.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">53139AE03DB78FC91D4951A06F1AC99D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">53139AE03DB78FC91D4951A06F1AC99D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BA8C373D532425FC1E3B5DECE50F6A5D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BA8C373D532425FC1E3B5DECE50F6A5D</UserChecksum>
         </File>
         <File dnOrder="231">
           <Type dnOrder="0">HEADER</Type>
@@ -1867,8 +1867,8 @@
           <Name dnOrder="1">libaria_editwidget.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">429BF20995AFA99E709C36312D65D27F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">429BF20995AFA99E709C36312D65D27F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9E0C2FEB0A2F9BE66407384B27F2752B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9E0C2FEB0A2F9BE66407384B27F2752B</UserChecksum>
         </File>
         <File dnOrder="233">
           <Type dnOrder="0">HEADER</Type>
@@ -1915,16 +1915,16 @@
           <Name dnOrder="1">libaria_input.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">98CBB33029AC699AD87E9AD178025243</GeneratedChecksum>
-          <UserChecksum dnOrder="5">98CBB33029AC699AD87E9AD178025243</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1511A612C8D9D14AA5BA7F322712F664</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1511A612C8D9D14AA5BA7F322712F664</UserChecksum>
         </File>
         <File dnOrder="239">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_layer.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">007108080E4AAF347BEB2F2CD689C461</GeneratedChecksum>
-          <UserChecksum dnOrder="5">007108080E4AAF347BEB2F2CD689C461</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F6BD102385E1612C2EDE181C25347D37</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F6BD102385E1612C2EDE181C25347D37</UserChecksum>
         </File>
         <File dnOrder="240">
           <Type dnOrder="0">HEADER</Type>
@@ -2003,208 +2003,208 @@
           <Name dnOrder="1">libaria_widget.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9CC38DB178E88C0DEDAD65B14DAF5CC5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9CC38DB178E88C0DEDAD65B14DAF5CC5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E395856F26E47A2D0FAAC86B6A41EBE5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E395856F26E47A2D0FAAC86B6A41EBE5</UserChecksum>
         </File>
         <File dnOrder="250">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_arc.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">855413BEA79CD9908E2C1059B0853A7D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">855413BEA79CD9908E2C1059B0853A7D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E000BF8CB01E0EFE6B17FBD39994158B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E000BF8CB01E0EFE6B17FBD39994158B</UserChecksum>
         </File>
         <File dnOrder="251">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_bar_graph.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3D81E81531EEB60A3C0CB72D1FCB9888</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3D81E81531EEB60A3C0CB72D1FCB9888</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C1F0496666ECEE5587B411B62AD74D24</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C1F0496666ECEE5587B411B62AD74D24</UserChecksum>
         </File>
         <File dnOrder="252">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_button.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4660E46BBEA1D31465BCA1E0300F08E0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4660E46BBEA1D31465BCA1E0300F08E0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6DDE917FC5E88F544E8C20410BCBBA81</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6DDE917FC5E88F544E8C20410BCBBA81</UserChecksum>
         </File>
         <File dnOrder="253">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_checkbox.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">51589BC87AA99D92372FD0A13E466F30</GeneratedChecksum>
-          <UserChecksum dnOrder="5">51589BC87AA99D92372FD0A13E466F30</UserChecksum>
+          <GeneratedChecksum dnOrder="4">792507E9B1EADAF245669969152A2915</GeneratedChecksum>
+          <UserChecksum dnOrder="5">792507E9B1EADAF245669969152A2915</UserChecksum>
         </File>
         <File dnOrder="254">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_circle.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">56F1BEE165D6C4E982ABD255934F37A6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">56F1BEE165D6C4E982ABD255934F37A6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">26D351BD8686589A4C95A2F7135FB5A0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">26D351BD8686589A4C95A2F7135FB5A0</UserChecksum>
         </File>
         <File dnOrder="255">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_circular_gauge.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AA65D69772C60BFA605D25179A26B0C3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AA65D69772C60BFA605D25179A26B0C3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E92D29C1AE4B971A87D5FD0F1125D9ED</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E92D29C1AE4B971A87D5FD0F1125D9ED</UserChecksum>
         </File>
         <File dnOrder="256">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_circular_slider.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">78B184818DF09BAF774D33D8DA75E426</GeneratedChecksum>
-          <UserChecksum dnOrder="5">78B184818DF09BAF774D33D8DA75E426</UserChecksum>
+          <GeneratedChecksum dnOrder="4">91728FA65F624548F7A1917C58202746</GeneratedChecksum>
+          <UserChecksum dnOrder="5">91728FA65F624548F7A1917C58202746</UserChecksum>
         </File>
         <File dnOrder="257">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_drawsurface.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">62A5D6CA950F8FF1A86EBF7CBB4A129C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">62A5D6CA950F8FF1A86EBF7CBB4A129C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BEA708FD0E4F0D09E165E92F6A92089A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BEA708FD0E4F0D09E165E92F6A92089A</UserChecksum>
         </File>
         <File dnOrder="258">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_gradient.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E1E4A08D4DA338F070F651D249277591</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E1E4A08D4DA338F070F651D249277591</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7123AD6E1235B7EB1B1CF67342284822</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7123AD6E1235B7EB1B1CF67342284822</UserChecksum>
         </File>
         <File dnOrder="259">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_groupbox.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">55BC19C7F7C1859A1F2CECBF7221F06F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">55BC19C7F7C1859A1F2CECBF7221F06F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6A5B30AD9ED3B98C7D7E8E05927A2759</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6A5B30AD9ED3B98C7D7E8E05927A2759</UserChecksum>
         </File>
         <File dnOrder="260">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_image.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7F49025E17A5CE3BB9AB2B8CA1F5A4FC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7F49025E17A5CE3BB9AB2B8CA1F5A4FC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EC7334ED31DF9B54E69E862204D4ECA6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EC7334ED31DF9B54E69E862204D4ECA6</UserChecksum>
         </File>
         <File dnOrder="261">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_imageplus.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">33F25DD9CBB44577EB139E3240E91565</GeneratedChecksum>
-          <UserChecksum dnOrder="5">33F25DD9CBB44577EB139E3240E91565</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34A55964B05E63A390AEBFFDC632113D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34A55964B05E63A390AEBFFDC632113D</UserChecksum>
         </File>
         <File dnOrder="262">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_imagesequence.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">15870EECA2F1D02640B7A707124B2966</GeneratedChecksum>
-          <UserChecksum dnOrder="5">15870EECA2F1D02640B7A707124B2966</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6190C0095F9532E0243312A456A5E47D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6190C0095F9532E0243312A456A5E47D</UserChecksum>
         </File>
         <File dnOrder="263">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_keypad.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AA00452D26DB9317DBD09D6DB56CC1CC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AA00452D26DB9317DBD09D6DB56CC1CC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1908F05D58A4B4706C25A826CC75FB7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1908F05D58A4B4706C25A826CC75FB7B</UserChecksum>
         </File>
         <File dnOrder="264">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_label.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8D27BB62FE046F400B8EF49A00C78A11</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8D27BB62FE046F400B8EF49A00C78A11</UserChecksum>
+          <GeneratedChecksum dnOrder="4">981A61EEF625097CA6BEA9BBCCFC1EEC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">981A61EEF625097CA6BEA9BBCCFC1EEC</UserChecksum>
         </File>
         <File dnOrder="265">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_line.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BFE809AF3C30F1A2FCCA80F681015163</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BFE809AF3C30F1A2FCCA80F681015163</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6694D193E1A06B9537486E027CF45D04</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6694D193E1A06B9537486E027CF45D04</UserChecksum>
         </File>
         <File dnOrder="266">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_line_graph.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D82AA882B8F341AC07CE3BEFF5F97151</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D82AA882B8F341AC07CE3BEFF5F97151</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4C23145247E1E5211F0F557D6C7D8631</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4C23145247E1E5211F0F557D6C7D8631</UserChecksum>
         </File>
         <File dnOrder="267">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_list.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">245EA0CAE8143989B26B8904FD7ECE9F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">245EA0CAE8143989B26B8904FD7ECE9F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0FEB2F623927775789FB00A2687B9B36</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0FEB2F623927775789FB00A2687B9B36</UserChecksum>
         </File>
         <File dnOrder="268">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_listwheel.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">48B23ED9CD43B48993077CDA86898926</GeneratedChecksum>
-          <UserChecksum dnOrder="5">48B23ED9CD43B48993077CDA86898926</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0E4BD0ACFFDE70D2AA351F115846833</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0E4BD0ACFFDE70D2AA351F115846833</UserChecksum>
         </File>
         <File dnOrder="269">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_pie_chart.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8E900FEF7C3E7474C861804462E9067E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8E900FEF7C3E7474C861804462E9067E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F1D4BDCE223FCB6A1BA04BE48E43D87C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F1D4BDCE223FCB6A1BA04BE48E43D87C</UserChecksum>
         </File>
         <File dnOrder="270">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_progressbar.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">64D6F89D00142FF1B7B6F44B654EF81C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">64D6F89D00142FF1B7B6F44B654EF81C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6316257DCE5AE0B277D4EE10975C32B4</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6316257DCE5AE0B277D4EE10975C32B4</UserChecksum>
         </File>
         <File dnOrder="271">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_radial_menu.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F7AE8D92057A9CC3A3002282AEAAFCD2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F7AE8D92057A9CC3A3002282AEAAFCD2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6BD4C3E813B76B6834669F72B9C1DD46</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6BD4C3E813B76B6834669F72B9C1DD46</UserChecksum>
         </File>
         <File dnOrder="272">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_radiobutton.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9C784100F628C9448E3999A3B86E7CD7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9C784100F628C9448E3999A3B86E7CD7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4B1139B4B4D086CF7CA9DA9FEBA879BD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4B1139B4B4D086CF7CA9DA9FEBA879BD</UserChecksum>
         </File>
         <File dnOrder="273">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_rectangle.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D8C717CCAEFDF5EF8AD83FEC115E35B0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D8C717CCAEFDF5EF8AD83FEC115E35B0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9050F06154BE0E5D68483E6179978B16</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9050F06154BE0E5D68483E6179978B16</UserChecksum>
         </File>
         <File dnOrder="274">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_scrollbar.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5F4EB1D5BCEFB06DB5E391A69B77EB53</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5F4EB1D5BCEFB06DB5E391A69B77EB53</UserChecksum>
+          <GeneratedChecksum dnOrder="4">42DA6D86CD6A55F1BEF161A0A6232476</GeneratedChecksum>
+          <UserChecksum dnOrder="5">42DA6D86CD6A55F1BEF161A0A6232476</UserChecksum>
         </File>
         <File dnOrder="275">
           <Type dnOrder="0">HEADER</Type>
@@ -2219,32 +2219,32 @@
           <Name dnOrder="1">libaria_widget_slider.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E19CF00DB94465575EB4F860E00E18DC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E19CF00DB94465575EB4F860E00E18DC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5C9D957EBF9FA45093F4D80D08F814B6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5C9D957EBF9FA45093F4D80D08F814B6</UserChecksum>
         </File>
         <File dnOrder="277">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_textfield.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F09F090239350211E07F2C2E22642682</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F09F090239350211E07F2C2E22642682</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6204C3F6CB6B1C17DF8C083DF9596D1A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6204C3F6CB6B1C17DF8C083DF9596D1A</UserChecksum>
         </File>
         <File dnOrder="278">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_touchtest.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3B8D2A38E6307CAC4ED12AB1EB9DE480</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3B8D2A38E6307CAC4ED12AB1EB9DE480</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B2BFB64BD9F7939A45C53AD97EE457AA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B2BFB64BD9F7939A45C53AD97EE457AA</UserChecksum>
         </File>
         <File dnOrder="279">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">libaria_widget_window.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A9EBC73B90DCB184406C19740E2B1387</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A9EBC73B90DCB184406C19740E2B1387</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B46F72A652B3C6E439372DECC1F943B0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B46F72A652B3C6E439372DECC1F943B0</UserChecksum>
         </File>
         <File dnOrder="280">
           <Type dnOrder="0">HEADER</Type>
@@ -2331,8 +2331,8 @@
           <Name dnOrder="1">plib_pio.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">28C7F43F27D8E294640BD2EA8A10B5A0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">28C7F43F27D8E294640BD2EA8A10B5A0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7CC6B579DB76ED9947C58DFA3B6B775F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7CC6B579DB76ED9947C58DFA3B6B775F</UserChecksum>
         </File>
         <File dnOrder="291">
           <Type dnOrder="0">HEADER</Type>
@@ -2355,16 +2355,16 @@
           <Name dnOrder="1">plib_tc.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AA879E785ACC53F8D2D384854136E7F9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AA879E785ACC53F8D2D384854136E7F9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">94BF3DB401B2FB99801E49CAE1AAB01C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">94BF3DB401B2FB99801E49CAE1AAB01C</UserChecksum>
         </File>
         <File dnOrder="294">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc0.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3BF1EB3CA249A812E0587A930AEA3D5A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3BF1EB3CA249A812E0587A930AEA3D5A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0065D5F99F4CA91D0F84A90E21053363</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0065D5F99F4CA91D0F84A90E21053363</UserChecksum>
         </File>
         <File dnOrder="295">
           <Type dnOrder="0">HEADER</Type>
@@ -2384,11 +2384,11 @@
         </File>
         <File dnOrder="297">
           <Type dnOrder="0">HEADER</Type>
-          <Name dnOrder="1">plib_xdmac0.h</Name>
+          <Name dnOrder="1">plib_xdmac.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/peripheral/xdmac/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/xdmac/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9D9B8BDC7E78ECC4D14D61E1E3DCEB57</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9D9B8BDC7E78ECC4D14D61E1E3DCEB57</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F9BC6BBD84BDF565ABDAE526BF660195</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F9BC6BBD84BDF565ABDAE526BF660195</UserChecksum>
         </File>
         <File dnOrder="298">
           <Type dnOrder="0">HEADER</Type>
@@ -2563,16 +2563,16 @@
           <Name dnOrder="1">sys_time.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/system/time/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/time/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A0591D14A5612BF6D28FDC68C8D87A5D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A0591D14A5612BF6D28FDC68C8D87A5D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B8B7A1E4F22346A87EF15FDD0AEA196B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B8B7A1E4F22346A87EF15FDD0AEA196B</UserChecksum>
         </File>
         <File dnOrder="320">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_definitions.h</Name>
           <LogicalPath dnOrder="2">config/sam_e70_xplained_ultra_wqvga/system/time/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/time/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9476E7080DC45F651368416D3BE6E009</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9476E7080DC45F651368416D3BE6E009</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5B0BD35F4C2D7DF8E9E2C3F7BC3F6470</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5B0BD35F4C2D7DF8E9E2C3F7BC3F6470</UserChecksum>
         </File>
         <File dnOrder="321">
           <Type dnOrder="0">HEADER</Type>
