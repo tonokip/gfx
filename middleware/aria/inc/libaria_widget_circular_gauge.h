@@ -113,8 +113,16 @@ typedef enum laCircularGaugeWidgetArcType_t
     VALUE_ARC,
 } laCircularGaugeWidgetArcType;
 
+// *****************************************************************************
+/* Function Pointer:
+    laCircularGaugeWidget_ValueChangedEvent
+
+  Summary:
+    Value changed event function callback type
+*/
 typedef void (*laCircularGaugeWidget_ValueChangedEvent)(laCircularGaugeWidget*,
                                                         int32_t value);
+
 
 // *****************************************************************************
 /* Structure:
@@ -195,6 +203,19 @@ typedef struct laCircularGaugeArc_t
     laScheme* scheme;
 } laCircularGaugeArc;
 
+// *****************************************************************************
+/* Structure:
+    laCircularGaugeTick_t
+
+  Summary:
+    Tick object for the circular gauge
+
+  Description:
+    Contains properties of the ticks in the gauge
+
+  Remarks:
+    None.
+*/
 typedef struct laCircularGaugeTick_t
 {
     int32_t startValue;
@@ -205,6 +226,20 @@ typedef struct laCircularGaugeTick_t
     laScheme* scheme;
 } laCircularGaugeTick;
 
+// *****************************************************************************
+/* Structure:
+    typedef struct laCircularGaugeLabel_t
+
+
+  Summary:
+    Label object for the circular gauge
+
+  Description:
+    Contains properties of the labels in the gauge
+
+  Remarks:
+    None.
+*/
 typedef struct laCircularGaugeLabel_t
 {
     int32_t startValue;
@@ -220,6 +255,7 @@ typedef struct laCircularGaugeLabel_t
 void _laCircularGaugeWidget_Constructor(laCircularGaugeWidget* gauge);
 void _laCircularGaugeWidget_Destructor(laCircularGaugeWidget* gauge);
 void _laCircularGaugeWidget_Paint(laCircularGaugeWidget* gauge);
+
 // DOM-IGNORE-END
 
 // *****************************************************************************

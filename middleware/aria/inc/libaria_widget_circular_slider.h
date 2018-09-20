@@ -73,12 +73,38 @@ typedef enum laCircularSliderWidgetDir_t
     CIRCULAR_SLIDER_DIR_CLOCKWISE,
 } laCircularSliderWidgetDir;
 
+// *****************************************************************************
+/* Structure:
+    laCircularSliderButtonState_t
+
+  Summary:
+    State of the slider button
+
+  Description:
+    State of the slider button
+
+  Remarks:
+    None.
+*/
 typedef enum laCircularSliderButtonState_t
 {
     LA_CIRCULAR_SLIDER_STATE_UP,
     LA_CIRCULAR_SLIDER_STATE_DOWN,
 } laCircularSliderButtonState;
 
+// *****************************************************************************
+/* Enumeration:
+    laCircularSliderWidgetArcType_t
+
+  Summary:
+    The arcs that compose the circular slider
+
+  Description:
+    The arcs that compose the circular slider
+
+  Remarks:
+    None.
+*/
 typedef enum laCircularSliderWidgetArcType_t
 {
     OUTSIDE_CIRCLE_BORDER,
@@ -113,8 +139,31 @@ typedef struct laCircularSliderArc_t
 
 typedef struct laCircularSliderWidget_t laCircularSliderWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laCircularSliderWidget_PressedEvent
+
+  Summary:
+    Button pressed event function callback type
+*/
 typedef void (*laCircularSliderWidget_PressedEvent)(laCircularSliderWidget *, int32_t);
+
+// *****************************************************************************
+/* Function Pointer:
+    laCircularSliderWidget_ValueChangedEvent
+
+  Summary:
+    Value changed event function callback type
+*/
 typedef void (*laCircularSliderWidget_ValueChangedEvent)(laCircularSliderWidget *, int32_t);
+
+// *****************************************************************************
+/* Function Pointer:
+    laCircularSliderWidget_ReleasedEvent
+
+  Summary:
+    Button released event function callback type
+*/
 typedef void (*laCircularSliderWidget_ReleasedEvent)(laCircularSliderWidget *, int32_t);
 
 // *****************************************************************************
@@ -173,6 +222,7 @@ void _laCircularSliderWidget_Destructor(laCircularSliderWidget* slider);
 
 void _laCircularSliderWidget_Paint(laCircularSliderWidget* slider);
 GFX_Point _laCircularSliderWidget_GetCircleCenterPointAtValue(laCircularSliderWidget* slider, int32_t value);
+
 // DOM-IGNORE-END
 
 // *****************************************************************************

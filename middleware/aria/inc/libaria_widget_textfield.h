@@ -51,7 +51,22 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct laTextFieldWidget_t laTextFieldWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laTextFieldWidget_TextChangedCallback
+
+  Summary:
+    Text changed event function callback type
+*/
 typedef void (*laTextFieldWidget_TextChangedCallback)(laTextFieldWidget*);
+
+// *****************************************************************************
+/* Function Pointer:
+    laTextFieldWidget_FocusChangedCallback
+
+  Summary:
+    Focus changed event function callback type
+*/
 typedef void (*laTextFieldWidget_FocusChangedCallback)(laTextFieldWidget*, laBool);
 
 // *****************************************************************************

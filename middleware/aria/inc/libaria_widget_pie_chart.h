@@ -63,7 +63,16 @@ typedef struct laPieChartPie_t
 } laPieChartPie;
 
 typedef struct laPieChartWidget_t laPieChartWidget;
+
+// *****************************************************************************
+/* Function Pointer:
+    laPieChartWidget_PressedEvent
+
+  Summary:
+    Chart pressed event function callback type
+*/
 typedef void (*laPieChartWidget_PressedEvent)(laPieChartWidget *, uint32_t);
+
 
 // *****************************************************************************
 /* Structure:

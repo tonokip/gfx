@@ -58,12 +58,26 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define MAX_TICK_LABEL_VALUE 999999999
 #define LABEL_OFFSET_MIN_PIX 5
 
+// *****************************************************************************
+/* Enumeration:
+    laBarGraphValueAxis_t
+
+  Summary:
+    The value axis index value
+*/
 typedef enum laBarGraphValueAxis_t
 {
     BAR_GRAPH_AXIS_0 = 0,
 //  BAR_GRAPH_AXIS_1, //unsupported
 } laBarGraphValueAxis;
 
+// *****************************************************************************
+/* Enumeration:
+    laBarGraphTickPosition_t
+
+  Summary:
+    The tick position relative to axis
+*/
 typedef enum laBarGraphTickPosition_t
 {
     BAR_GRAPH_TICK_IN,
@@ -71,6 +85,19 @@ typedef enum laBarGraphTickPosition_t
     BAR_GRAPH_TICK_CENTER,
 } laBarGraphTickPosition;
 
+// *****************************************************************************
+/* Structure:
+    laBarGraphDataSeries_t
+
+  Summary:
+    The data series object that contains the series properties and data
+
+  Description:
+
+
+  Remarks:
+    None.
+*/
 typedef struct laBarGraphDataSeries_t
 {
     laScheme * scheme;
@@ -78,6 +105,19 @@ typedef struct laBarGraphDataSeries_t
     laBarGraphValueAxis axis;
 } laBarGraphDataSeries;
 
+// *****************************************************************************
+/* Structure:
+    laBarGraphCategory_t
+
+  Summary:
+    Contains the Category properties
+
+  Description:
+
+
+  Remarks:
+    None.
+*/
 typedef struct laBarGraphCategory_t
 {
     laString text;

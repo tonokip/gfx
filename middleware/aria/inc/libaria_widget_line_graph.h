@@ -54,12 +54,27 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Data Types and Constants
 // *****************************************************************************
 // *****************************************************************************
+
+// *****************************************************************************
+/* Enumeration:
+    laLineGraphValueAxis_t
+
+  Summary:
+    The value axis index value
+*/
 typedef enum laLineGraphValueAxis_t
 {
     LINE_GRAPH_AXIS_0 = 0,
 //  LINE_GRAPH_AXIS_1, //unsupported
 } laLineGraphValueAxis;
 
+// *****************************************************************************
+/* Enumeration:
+    laLineGraphTickPosition_t
+
+  Summary:
+    The tick position relative to axis
+*/
 typedef enum laLineGraphTickPosition_t
 {
     LINE_GRAPH_TICK_IN,
@@ -67,6 +82,13 @@ typedef enum laLineGraphTickPosition_t
     LINE_GRAPH_TICK_CENTER,
 } laLineGraphTickPosition;
 
+// *****************************************************************************
+/* Enumeration:
+    laLineGraphDataPointType_t
+
+  Summary:
+    The graph data point type
+*/
 typedef enum laLineGraphDataPointType_t
 {
     LINE_GRAPH_DATA_POINT_NONE,
@@ -74,6 +96,19 @@ typedef enum laLineGraphDataPointType_t
     LINE_GRAPH_DATA_POINT_SQUARE,
 } laLineGraphDataPointType;
 
+// *****************************************************************************
+/* Structure:
+    laLineGraphDataSeries_t
+
+  Summary:
+    The data series object that contains the series properties and data
+
+  Description:
+
+
+  Remarks:
+    None.
+*/
 typedef struct laLineGraphDataSeries_t
 {
     laScheme * scheme;
@@ -85,6 +120,19 @@ typedef struct laLineGraphDataSeries_t
     laBool drawLines;
 } laLineGraphDataSeries;
 
+// *****************************************************************************
+/* Structure:
+    laLineGraphCategory_t
+
+  Summary:
+    Contains the Category properties
+
+  Description:
+
+
+  Remarks:
+    None.
+*/
 typedef struct laLineGraphCategory_t
 {
     laString text;
