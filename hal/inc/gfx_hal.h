@@ -49,6 +49,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/hal/inc/gfx_draw.h"
 #endif
 
+// DOM-IGNORE-BEGIN
+
 typedef struct GFX_DriverInfo_t GFX_DriverInfo;
 typedef GFX_Bool   (*boolGet_FnPtr)(void);
 typedef GFX_Result (*boolSet_FnPtr)(GFX_Bool);
@@ -62,7 +64,7 @@ typedef void       (*end_FnPtr)(void);
 typedef GFX_Result (*update_FnPtr)(void);
 
 typedef GFX_Result (*brightnessRangeGet_FnPtr)(uint32_t*, uint32_t*);
-                                               
+
 typedef uint32_t   (*brightnessGet_FnPtr)(void);
 typedef GFX_Result (*brightnessSet_FnPtr)(uint32_t);
 
@@ -89,7 +91,7 @@ typedef GFX_Result (*layerBufferCountSet_FnPtr)(uint32_t);
 
 typedef GFX_Buffer (*layerBufferAddressGet_FnPtr)(uint32_t);
 typedef GFX_Result (*layerBufferAddressSet_FnPtr)(uint32_t, GFX_Buffer);
-        
+
 typedef GFX_Bool   (*layerBufferCoherentGet_FnPtr)(uint32_t);
 typedef GFX_Result (*layerBufferCoherentSet_FnPtr)(uint32_t, GFX_Bool);
 
@@ -105,15 +107,15 @@ typedef GFX_Result (*layerPositionSet_FnPtr)(int32_t, int32_t);
 
 typedef GFX_Result (*layerSizeGet_FnPtr)(int32_t* width, int32_t* height);
 typedef GFX_Result (*layerSizeSet_FnPtr)(int32_t width, int32_t height);
-                         
-typedef GFX_Result (*layerEffectSet_FnPtr)(GFX_Bool, GFX_Bool);                        
-                                                      
+
+typedef GFX_Result (*layerEffectSet_FnPtr)(GFX_Bool, GFX_Bool);
+
 typedef uint32_t   (*layerAlphaAmountGet_FnPtr)(void);
 typedef GFX_Result (*layerAlphaAmountSet_FnPtr)(uint32_t, GFX_Bool);
 
 typedef GFX_Color  (*layerMaskColorGet_FnPtr)(void);
 typedef GFX_Result (*layerMaskColorSet_FnPtr)(GFX_Color mask, GFX_Bool);
- 
+
 typedef GFX_Point (*orientPoint_FnPtr)(const GFX_Point* pnt,
                                        const GFX_Rect* rect,
                                        GFX_Orientation ori);
@@ -121,7 +123,7 @@ typedef GFX_Point (*orientPoint_FnPtr)(const GFX_Point* pnt,
 typedef GFX_Point (*mirrorPoint_FnPtr)(const GFX_Point* pnt,
                                        const GFX_Rect* rect,
                                        GFX_Orientation ori);
- 
+
 #if GFX_DRAW_PIPELINE_ENABLED
 
 typedef GFX_PipelineMode (*drawPipelineModeGet_FnPtr)(void);
@@ -129,7 +131,7 @@ typedef GFX_Result       (*drawPipelineModeSet_FnPtr)(GFX_PipelineMode);
 
 typedef GFX_DrawMode (*drawModeGet_FnPtr)(void);
 typedef GFX_Result   (*drawModeSet_FnPtr)(GFX_DrawMode);
-                     
+
 typedef GFX_Color  (*drawColorGet_FnPtr)(void);
 typedef GFX_Result (*drawColorSet_FnPtr)(GFX_Color);
 
@@ -137,7 +139,7 @@ typedef void       (*drawGradientColorGet_FnPtr)(GFX_Color*,
                                                  GFX_Color*,
                                                  GFX_Color*,
                                                  GFX_Color*);
-                                                 
+
 typedef GFX_Result (*drawGradientColorSet_FnPtr)(GFX_Color,
                                                  GFX_Color,
                                                  GFX_Color,
@@ -178,7 +180,7 @@ typedef GFX_Result (*drawPixel_FnPtr)(const GFX_Point*, const GFX_DrawState*);
 typedef GFX_Result (*drawLine_FnPtr)(const GFX_Point*,
                                      const GFX_Point*,
                                      const GFX_DrawState*);
-                                          
+
 typedef GFX_Result (*drawRect_FnPtr)(const GFX_Rect*, const GFX_DrawState*);
 
 typedef GFX_Result (*drawCircle_FnPtr)(const GFX_Point*,
@@ -207,7 +209,7 @@ typedef GFX_Result (*drawBlit_FnPtr)(const GFX_PixelBuffer*,
 typedef GFX_Result (*drawStretchBlit_FnPtr)(const GFX_PixelBuffer*,
                                             const GFX_Rect*,
                                             const GFX_Rect*,
-                                            const GFX_DrawState*);                                     
+                                            const GFX_DrawState*);
 
 #if GFX_ALPHA_BLENDING_ENABLED
 
@@ -217,34 +219,34 @@ typedef GFX_Color  (*blendGetPoint_FnPtr)(const GFX_PixelBuffer* buffer,
 
 typedef GFX_Color  (*blendColor_FnPtr)(GFX_Color source,
                                        GFX_Color dest,
-                                       GFX_ColorMode mode);                                     
+                                       GFX_ColorMode mode);
 
 #endif
-                                   
+
 typedef GFX_Result (*drawLock_FnPtr)(void);
-typedef GFX_Result (*drawUnlock_FnPtr)(void);                                    
+typedef GFX_Result (*drawUnlock_FnPtr)(void);
 
 #endif // GFX_DRAW_PIPELINE_ENABLED
 
 typedef GFX_Result (*interrupt_FnPtr)(uint32_t);
 
 typedef GFX_Color  (*pixelGet_FnPtr)(const GFX_PixelBuffer*,
-                                     const GFX_Point*); 
-                                     
+                                     const GFX_Point*);
+
 typedef GFX_Result (*pixelGetArray_FnPtr)(GFX_BufferSelection source,
                                           const GFX_Rect*,
-                                          GFX_PixelBuffer*);                                 
+                                          GFX_PixelBuffer*);
 
 typedef GFX_Result (*pixelSet_FnPtr)(const GFX_PixelBuffer*,
                                      const GFX_Point*,
-                                     GFX_Color color); 
+                                     GFX_Color color);
 
 #if GFX_DRAW_PIPELINE_ENABLED
 typedef struct GFX_DrawPipeline_t
 {
     // draw functions
     drawPixel_FnPtr       drawPixel[GFX_ANTIALIAS_MODE_COUNT];
-    drawLine_FnPtr        drawLine[GFX_DRAW_MODE_COUNT][GFX_ANTIALIAS_MODE_COUNT];          
+    drawLine_FnPtr        drawLine[GFX_DRAW_MODE_COUNT][GFX_ANTIALIAS_MODE_COUNT];
     drawLine_FnPtr        drawHorzLine[GFX_DRAW_MODE_COUNT][GFX_ANTIALIAS_MODE_COUNT];
     drawLine_FnPtr        drawVertLine[GFX_DRAW_MODE_COUNT][GFX_ANTIALIAS_MODE_COUNT];
     drawRect_FnPtr        drawRect[GFX_DRAW_MODE_COUNT][GFX_ANTIALIAS_MODE_COUNT];
@@ -254,7 +256,7 @@ typedef struct GFX_DrawPipeline_t
     drawBlit_FnPtr        drawBlit;
     drawStretchBlit_FnPtr drawStretchBlit[GFX_RESIZE_MODE_COUNT];
     drawBlit_FnPtr        drawDirectBlit;
-    
+
     pixelGet_FnPtr        pixelGet;
     pixelGetArray_FnPtr   pixelArrayGet;
     pixelSet_FnPtr        pixelSet;
@@ -266,12 +268,12 @@ typedef struct GFX_DrawPipeline_t
  * This is the core hardware abtraction table that makes everything work.  Drivers are
  * expected to reroute the functionality of this table to hardware specific implementations
  * to provide accelerated performance and features.
- */ 
+ */
 typedef struct GFX_HAL_t
 {
     initialize_FnPtr initialize;
     destroy_FnPtr    destroy;
-    
+
     begin_FnPtr      begin;
     end_FnPtr        end;
 
@@ -280,22 +282,22 @@ typedef struct GFX_HAL_t
     brightnessRangeGet_FnPtr brightnessRangeGet;
     brightnessGet_FnPtr      brightnessGet;
     brightnessSet_FnPtr      brightnessSet;
-    
+
     syncCallbackGet_FnPtr vsyncCallbackGet;
     syncCallbackSet_FnPtr vsyncCallbackSet;
-    
+
     syncCallbackGet_FnPtr hsyncCallbackGet;
     syncCallbackSet_FnPtr hsyncCallbackSet;
-    
+
     orientationGet_FnPtr orientationGet;
     orientationSet_FnPtr orientationSet;
-  
+
     boolGet_FnPtr mirroringGet;
     boolSet_FnPtr mirroringSet;
-    
+
     colorModeGet_FnPtr colorModeGet;
     colorModeSet_FnPtr colorModeSet;
-    
+
     globalPaletteGet_FnPtr globalPaletteGet;
     globalPaletteSet_FnPtr globalPaletteSet;
 
@@ -310,10 +312,10 @@ typedef struct GFX_HAL_t
 
     layerBufferAddressGet_FnPtr  layerBufferAddressGet;
     layerBufferAddressSet_FnPtr  layerBufferAddressSet;
-    
+
     layerBufferCoherentGet_FnPtr  layerBufferCoherentGet;
     layerBufferCoherentSet_FnPtr  layerBufferCoherentSet;
-    
+
     layerBufferAllocate_FnPtr    layerBufferAllocate;
     layerBufferIsAllocated_FnPtr layerBufferIsAllocated;
     layerBufferFree_FnPtr        layerBufferFree;
@@ -323,7 +325,7 @@ typedef struct GFX_HAL_t
 
     boolGet_FnPtr layerVsyncGet;
     boolSet_FnPtr layerVsyncSet;
-    
+
     boolGet_FnPtr layerInvalidGet;
     boolSet_FnPtr layerInvalidSet;
 
@@ -343,16 +345,16 @@ typedef struct GFX_HAL_t
 
     boolGet_FnPtr layerAlphaEnableGet;
     layerEffectSet_FnPtr layerAlphaEnableSet;
-    
+
     layerAlphaAmountGet_FnPtr layerAlphaAmountGet;
     layerAlphaAmountSet_FnPtr layerAlphaAmountSet;
-    
+
     layerMaskColorGet_FnPtr layerMaskEnableGet;
     layerMaskColorSet_FnPtr layerMaskEnableSet;
-    
+
     boolGet_FnPtr layerMaskColorGet;
-    layerEffectSet_FnPtr layerMaskColorSet;     
-    
+    layerEffectSet_FnPtr layerMaskColorSet;
+
     orientPoint_FnPtr orientPoint;
     mirrorPoint_FnPtr mirrorPoint;
 
@@ -362,10 +364,10 @@ typedef struct GFX_HAL_t
 
     drawModeGet_FnPtr drawModeGet;
     drawModeSet_FnPtr drawModeSet;
-                        
+
     drawColorGet_FnPtr drawColorGet;
     drawColorSet_FnPtr drawColorSet;
-    
+
     drawGradientColorGet_FnPtr drawGradientColorGet;
     drawGradientColorSet_FnPtr drawGradientColorSet;
 
@@ -380,20 +382,20 @@ typedef struct GFX_HAL_t
 
     drawResizeModeGet_FnPtr drawResizeModeGet;
     drawResizeModeSet_FnPtr drawResizeModeSet;
-    
+
     drawAlphaEnableGet_FnPtr drawAlphaEnableGet;
     drawAlphaEnableSet_FnPtr drawAlphaEnableSet;
-    
+
     drawAlphaValueGet_FnPtr drawAlphaValueGet;
     drawAlphaValueSet_FnPtr drawAlphaValueSet;
-    
+
 #if GFX_COLOR_MASKING_ENABLED
     boolGet_FnPtr drawMaskEnableGet;
     boolSet_FnPtr drawMaskEnableSet;
-    
+
     drawMaskValueGet_FnPtr drawMaskValueGet;
     drawMaskValueSet_FnPtr drawMaskValueSet;
-    
+
     maskColor_FnPtr maskColor;
 #endif
 
@@ -405,10 +407,10 @@ typedef struct GFX_HAL_t
 
     boolGet_FnPtr drawClipEnableGet;
     boolSet_FnPtr drawClipEnableSet;
-    
+
     drawClipRectGet_FnPtr drawClipRectGet;
     drawClipRectSet_FnPtr drawClipRectSet;
-    
+
 #if GFX_ALPHA_BLENDING_ENABLED
     blendGetPoint_FnPtr   alphaGetPoint;
     blendColor_FnPtr      alphaChannelBlend;
@@ -416,11 +418,13 @@ typedef struct GFX_HAL_t
 #endif
 
     GFX_DrawPipeline drawPipeline[GFX_PIPELINE_MODE_COUNT];
-    
+
 #endif // GFX_DRAW_PIPELINE_ENABLED
-    
+
     interrupt_FnPtr interrupt;
 } GFX_HAL;
+
+// DOM-IGNORE-END
 
 #endif /* GFX_HAL_H */
 

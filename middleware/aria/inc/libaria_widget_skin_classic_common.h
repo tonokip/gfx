@@ -10,7 +10,7 @@
   Summary:
     Common functions for the classic widget skin.
 
-  Description:   
+  Description:
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
@@ -46,6 +46,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/inc/libaria_context.h"
 #include "gfx/libaria/inc/libaria_draw.h"
 
+// DOM-IGNORE-BEGIN
+// internal use only
+
 void laWidget_SkinClassic_FillRect(const GFX_Rect* rect,
                                    GFX_Color clr,
                                    const GFX_Rect* dmgRect);
@@ -58,22 +61,22 @@ void laWidget_SkinClassic_DrawStandardBackground(laWidget* wgt);
 void laWidget_SkinClassic_DrawLineBorderLeft(const GFX_Rect* rect,
                                              GFX_Color clr,
                                              const GFX_Rect* dmgRect);
-                                             
+
 void laWidget_SkinClassic_DrawLineBorderTop(const GFX_Rect* rect,
                                             GFX_Color clr,
                                             const GFX_Rect* dmgRect);
-                                            
+
 void laWidget_SkinClassic_DrawLineBorderRight(const GFX_Rect* rect,
                                               GFX_Color clr,
                                               const GFX_Rect* dmgRect);
-                                              
+
 void laWidget_SkinClassic_DrawLineBorderBottom(const GFX_Rect* rect,
                                                GFX_Color clr,
                                                const GFX_Rect* dmgRect);
-                                               
+
 void laWidget_SkinClassic_DrawLineBorder(const GFX_Rect* rect,
                                          GFX_Color clr,
-                                         const GFX_Rect* dmgRect);                                           
+                                         const GFX_Rect* dmgRect);
 
 void laWidget_SkinClassic_DrawBevelBorderLeft(const GFX_Rect* rect,
                                               GFX_Color outer,
@@ -94,35 +97,35 @@ void laWidget_SkinClassic_DrawBevelBorderBottom(const GFX_Rect* rect,
                                                 GFX_Color outer,
                                                 GFX_Color inner,
                                                 const GFX_Rect* dmgRect);
-                                                
+
 void laWidget_SkinClassic_Draw2x2BeveledBorder(const GFX_Rect* rect,
                                                GFX_Color leftUpOuter,
                                                GFX_Color leftUpInner,
                                                GFX_Color bottomRightOuter,
                                                GFX_Color bototmRightInner,
-                                               const GFX_Rect* dmgRect);                                                
+                                               const GFX_Rect* dmgRect);
 
 void laWidget_SkinClassic_Draw1x2BeveledBorder(const GFX_Rect* rect,
                                               GFX_Color leftUp,
                                               GFX_Color bottomRightOuter,
                                               GFX_Color bototmRightInner,
-                                              const GFX_Rect* dmgRect);                                             
+                                              const GFX_Rect* dmgRect);
 
 void laWidget_SkinClassic_DrawBlit(laWidget* wgt,
                                    GFX_PixelBuffer* buffer);
-                                                
+
 void laWidget_SkinClassic_DrawStandardLineBorder(laWidget* wgt);
 
 void laWidget_SkinClassic_DrawStandardRoundCornerLineBorder(laWidget* wgt);
-                                                
-void laWidget_SkinClassic_DrawStandardRaisedBorder(laWidget* wgt);    
+
+void laWidget_SkinClassic_DrawStandardRaisedBorder(laWidget* wgt);
 
 void laWidget_SkinClassic_DrawStandardLoweredBorder(laWidget* wgt);
 
-void laWidget_SkinClassic_DrawStandardHybridBorder(laWidget* wgt);                             
+void laWidget_SkinClassic_DrawStandardHybridBorder(laWidget* wgt);
 
 void laWidget_SkinClassic_InvalidateBorderAreas(laWidget*);
 
-
+// DOM-IGNORE-END
 
 #endif /* LIBARIA_WIDGET_SKIN_CLASSIC_COMMON_H */

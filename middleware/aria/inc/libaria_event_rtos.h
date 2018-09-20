@@ -49,6 +49,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
     extern "C" {
 #endif
 
+// DOM-IGNORE-BEGIN
+
 typedef enum
 {
     LA_EXT_EVENT_NONE,
@@ -68,6 +70,8 @@ laResult laEvent_ClearList_RTOS();
 laResult laEvent_AddEvent_RTOS(laEvent* evt);
 laResult laEvent_SendEvent_Ext_RTOS(laEvent* evt);
 laResult laEvent_ProcessEvents_RTOS();
+
+// DOM-IGNORE-END
 
 #ifdef __cplusplus
     }

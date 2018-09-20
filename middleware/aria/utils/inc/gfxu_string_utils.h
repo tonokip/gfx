@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/utils/inc/gfxu_string.h"
 #include "gfx/utils/inc/gfxu_font.h"
 
+// DOM-IGNORE-BEGIN
 // internal use only
 uint16_t GFXU_StringIndexLookup(GFXU_StringTableAsset* table,
                                 uint32_t stringID,
@@ -150,5 +151,7 @@ int32_t GFXU_DrawUnknownGlyph(int32_t x,
                            int32_t clipY,
                            int32_t clipWidth,
                            int32_t clipHeight);
+
+// DOM-IGNORE-END
 
 #endif /* GFXU_STRING_UTILS_H */

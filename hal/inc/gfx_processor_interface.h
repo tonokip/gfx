@@ -70,7 +70,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 typedef struct GFX_ProcessorInfo_t
 {
     char name[16];
-    
+
     GFX_ColorMask color_formats;
 } GFX_ProcessorInfo;
 

@@ -48,17 +48,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/hal/inc/gfx_pixel_buffer.h"
 
 typedef struct GFX_DrawState_t GFX_DrawState;
-                       
+
+// DOM-IGNORE-BEGIN
 // internal use only
 GFX_Result cpuDrawStretchBlit_NearestNeighbor(const GFX_PixelBuffer* buffer,
                                               const GFX_Rect* source_rect,
                                               const GFX_Rect* dest_rect,
-                                              const GFX_DrawState* state);    
-                                              
+                                              const GFX_DrawState* state);
+
 GFX_Result cpuDrawStretchBlit_Bilinear(const GFX_PixelBuffer* buffer,
                                        const GFX_Rect* source_rect,
                                        const GFX_Rect* dest_rect,
-                                       const GFX_DrawState* state);  
+                                       const GFX_DrawState* state);
+// DOM-IGNORE-END
 
 #endif // GFX_DRAW_PIPELINE_ENABLED
 #endif /* GFX_DRAW_STRETCHBLIT_H */

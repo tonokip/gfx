@@ -48,6 +48,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct GFX_DrawState_t GFX_DrawState;
 
+// DOM-IGNORE-BEGIN
 // internal use only
 GFX_Result cpuDrawEllipse_Line(const GFX_Point* pt,
                            int32_t a,
@@ -56,6 +57,7 @@ GFX_Result cpuDrawEllipse_Line(const GFX_Point* pt,
                            int32_t startAngle,
                            int32_t centerAngle,
                            const GFX_DrawState* state);
+// DOM-IGNORE-END
 
 #endif // GFX_DRAW_PIPELINE_ENABLED
 #endif /* GFX_DRAW_ELLIPSE_H */

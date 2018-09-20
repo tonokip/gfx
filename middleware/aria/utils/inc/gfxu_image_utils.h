@@ -43,6 +43,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/utils/inc/gfxu_image.h"
 
+// DOM-IGNORE-BEGIN
+
 // internal use only
 uint32_t getRLEDataAtIndex(uint8_t* data,
                            uint32_t max,
@@ -61,5 +63,7 @@ GFX_Result convertColorAndSetDraw(uint32_t color, GFX_ColorMode mode);
 
 // internal use only
 void createDefaultMemIntf(GFXU_MemoryIntf* memIntf);
+
+// DOM-IGNORE-END
 
 #endif /* GFXU_IMAGE_UTILS_H */

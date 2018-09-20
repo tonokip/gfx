@@ -45,41 +45,45 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct GFX_DrawState_t GFX_DrawState;
 
+// DOM-IGNORE-BEGIN
+
 // internal use only
 GFX_Result cpuDrawRect_Line(const GFX_Rect* rect,
                             const GFX_DrawState* state);
-                   
-// internal use only                   
+
+// internal use only
 GFX_Result cpuDrawRect_Fill(const GFX_Rect* rect,
                             const GFX_DrawState* state);
 
-// internal use only                           
+// internal use only
 GFX_Result cpuDrawRect_Gradient_LeftRight(const GFX_Rect* rect,
                                           const GFX_DrawState* state);
 
-// internal use only                        
+// internal use only
 GFX_Result cpuDrawRect_Gradient_TopBottom(const GFX_Rect* rect,
-                                          const GFX_DrawState* state);                        
+                                          const GFX_DrawState* state);
 
-// internal use only                          
+// internal use only
 GFX_Result cpuDrawRect_Gradient_Quad(const GFX_Rect* rect,
-                                     const GFX_DrawState* state);                          
+                                     const GFX_DrawState* state);
 
 // internal use only
 GFX_Result cpuDrawRect_Line_AA(const GFX_Rect* rect,
                                const GFX_DrawState* state);
 
-// internal use only                     
+// internal use only
 GFX_Result cpuDrawRect_Fill_AA(const GFX_Rect* rect,
                                const GFX_DrawState* state);
 
-// internal use only                            
+// internal use only
 GFX_Result cpuDrawRect_Gradient_Bi_AA(const GFX_Rect* rect,
                                       const GFX_DrawState* state);
 
-// internal use only                                                               
-GFX_Result cpuDrawRect_Gradient_Quad_AA(const GFX_Rect* rect, 
-                                        const GFX_DrawState* state); 
+// internal use only
+GFX_Result cpuDrawRect_Gradient_Quad_AA(const GFX_Rect* rect,
+                                        const GFX_DrawState* state);
+
+// DOM-IGNORE-END
 
 #endif /* GFX_DRAW_RECT_H */
 

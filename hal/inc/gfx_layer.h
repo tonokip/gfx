@@ -57,11 +57,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
   Summary:
     A frame buffer is a wrapper around a pixel buffer construct that is used by
-    display drivers to manage frame buffers.  
+    display drivers to manage frame buffers.
 
   Description:
     pb - The pixel buffer description of the frame buffer.
-    state - The state of the frame buffer. 
+    state - The state of the frame buffer.
     coherent - Indicates if the frame buffer is allocated from coherent dynamic
                memory
 
@@ -71,7 +71,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 typedef struct GFX_FrameBuffer_t
 {
     GFX_PixelBuffer pb;
-    
+
     GFX_BufferState state;
     GFX_Bool coherent;
 
@@ -84,7 +84,7 @@ typedef struct GFX_FrameBuffer_t
 
   Summary:
     Layers describe basic display drawing areas and are meant to map directly to
-    graphics controller hardware layers.  
+    graphics controller hardware layers.
 
   Description:
     Graphics controllers will typically offer at least one drawing layer for
@@ -93,55 +93,55 @@ typedef struct GFX_FrameBuffer_t
     and drawing features.
 
     uint32_t id - the unique id of the layer
-    
+
     struct
     {
         GFX_Rect display - represents area in display space
         GFX_Rect local - represents position in local space
     } rect;
-    
+
     uint32_t pixel_size - size of a layer pixel in bytes
-    
+
     GFX_Bool alphaEnable - indicates if layer alpha blending is enabled
     uint32_t alphaAmount - indicates the amount of alpha blending
-    
+
     GFX_Bool maskEnable - indicates if layer masking/transparency is enabled
     uint32_t maskColor - the color to mask
-    
+
     uint32_t buffer_count - the number of buffers this layer owns
     uint32_t buffer_read_idx - the index of the current read buffer
     uint32_t buffer_write_idx - the index of the current write buffer
     GFX_FrameBuffer buffers[GFX_MAX_BUFFER_COUNT] - the layer buffer array
-    
+
     GFX_Bool enabled - indicates if the layer is enabled
     GFX_Bool visible - indicates if the layer is visible
-    
+
     GFX_Bool swap - indicates if the layer is waiting to advance its buffer
                     chain
-                    
+
     GFX_Bool locked - indicates if the layer's buffers are locked for
                       manipulation.  this is typically meant to prevent things
                       like swapping before drawing operations have been
                       completed
-    
+
     GFX_Bool vsync - indicates if this layer should swap during the display
                      driver's blanking period.  if this is true then it is the
-                     responsibility of the display driver to call 
+                     responsibility of the display driver to call
                      GFX_LayerSwap on this layer during vblank.  If this is false
                      then the layer will swap immediately upon application request.
 
     void* driver_data - this is a pointer that may be allocated by the display
                         driver to store driver-specific per layer data.  the
                         driver is responsible for the management of this pointer
-                        during the application life cycle 
+                        during the application life cycle
 
   Remarks:
     None.
 */
 typedef struct GFX_Layer_t
 {
-    uint32_t id; 
-    
+    uint32_t id;
+
     struct
     {
         // sizes are redunant between these rects but it makes for cleaner code
@@ -149,28 +149,28 @@ typedef struct GFX_Layer_t
         GFX_Rect display; // represents area in display space
         GFX_Rect local;   // represents position in local space
     } rect;
-    
+
     uint32_t pixel_size;
-    
+
     GFX_Bool alphaEnable;
     uint32_t alphaAmount;
-    
+
     GFX_Bool maskEnable;
     uint32_t maskColor;
-    
+
     uint32_t buffer_count;
     uint32_t buffer_read_idx;
     uint32_t buffer_write_idx;
     GFX_FrameBuffer buffers[GFX_MAX_BUFFER_COUNT];
-    
+
     GFX_Bool enabled;
     GFX_Bool visible;
-    
+
     GFX_Bool swap;
     uint32_t swapCount;
     GFX_Bool locked;
     GFX_Bool invalid;
-    
+
     GFX_Bool vsync;
 
     void* driver_data;
@@ -187,11 +187,11 @@ typedef struct GFX_Layer_t
     GFX_PixelBuffer* GFX_LayerReadBuffer(GFX_Layer* layer)
 
   Summary:
-    Gets the pointer to the layer's current read pixel buffer.    
+    Gets the pointer to the layer's current read pixel buffer.
 
   Parameters:
     GFX_Layer* - the pointer to the layer
-    
+
   Returns:
     GFX_PixelBuffer* - the pointer to the read pixel buffer
 */
@@ -206,7 +206,7 @@ GFX_PixelBuffer* GFX_LayerReadBuffer(GFX_Layer* layer);
 
   Parameters:
     GFX_Layer* - the pointer to the layer
-    
+
   Returns:
     GFX_PixelBuffer* - the pointer to the write pixel buffer
 */
@@ -233,15 +233,18 @@ void GFX_LayerRotate(GFX_Layer* layer);
     Performs a swap operation on the given layer.  This advances the pointers of
     layer's buffer chain.  The current write buffer becomes the new read buffer
     and a new buffer is chosen as the new write buffer.  Has no effect in
-    single buffer environments.  
-    
+    single buffer environments.
+
   Parameters:
     GFX_Layer* - the layer to operate on
 */
 void GFX_LayerSwap(GFX_Layer* layer);
 
+// DOM-IGNORE-BEGIN
 // internal use only
 void _GFX_LayerSizeSet(GFX_Layer* layer, int32_t width, int32_t height);
+// DOM-IGNORE-END
+
 
 // *****************************************************************************
 /* Function:
@@ -258,10 +261,10 @@ void _GFX_LayerSizeSet(GFX_Layer* layer, int32_t width, int32_t height);
     GFX_Layert* layer - the layer
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     void
-*/                     
+*/
 void GFX_LayerFromOrientedSpace(GFX_Rect* displayRect,
                                 GFX_Layer* layer,
                                 GFX_Orientation ori,
@@ -282,15 +285,15 @@ void GFX_LayerFromOrientedSpace(GFX_Rect* displayRect,
     GFX_Rect* layer - the layer
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     void
-*/                                      
+*/
 void GFX_LayerToOrientedSpace(GFX_Rect* displayRect,
                               GFX_Layer* layer,
                               GFX_Orientation ori,
                               GFX_Bool mirrored);
-                              
+
 // *****************************************************************************
 /* Function:
     GFX_Point GFX_LayerPointFromOrientedSpace(const GFX_Layer* layer,
@@ -307,10 +310,10 @@ void GFX_LayerToOrientedSpace(GFX_Rect* displayRect,
     const GFX_Point* point - the point
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     GFX_Point
-*/                     
+*/
 LIB_EXPORT GFX_Point GFX_LayerPointFromOrientedSpace(const GFX_Layer* layer,
                                                      const GFX_Point* point,
                                                      GFX_Orientation ori,
@@ -332,10 +335,10 @@ LIB_EXPORT GFX_Point GFX_LayerPointFromOrientedSpace(const GFX_Layer* layer,
     const GFX_Point* point - the point to transform
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     GFX_Point
-*/                                      
+*/
 LIB_EXPORT GFX_Point GFX_LayerPointToOrientedSpace(const GFX_Layer* layer,
                                                    const GFX_Point* point,
                                                    GFX_Orientation ori,
@@ -357,10 +360,10 @@ LIB_EXPORT GFX_Point GFX_LayerPointToOrientedSpace(const GFX_Layer* layer,
     const GFX_Rect* rect - the rectangle to transform
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     GFX_Point
-*/                     
+*/
 LIB_EXPORT GFX_Rect GFX_LayerRectFromOrientedSpace(const GFX_Layer* layer,
                                                    const GFX_Rect* rect,
                                                    GFX_Orientation ori,
@@ -382,10 +385,10 @@ LIB_EXPORT GFX_Rect GFX_LayerRectFromOrientedSpace(const GFX_Layer* layer,
     const GFX_Rect* rect - the rectangle to transform
     GFX_Orientation - the orientation setting
     GFX_Bool - the mirroring setting
-    
+
   Returns:
     GFX_Point
-*/                                      
+*/
 LIB_EXPORT GFX_Rect GFX_LayerRectToOrientedSpace(const GFX_Layer* layer,
                                                  const GFX_Rect* rect,
                                                  GFX_Orientation ori,

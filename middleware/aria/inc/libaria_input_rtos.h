@@ -8,9 +8,9 @@
     libaria_input_rtos.h
 
   Summary:
- 
-    This file contains the RTOS extensions of the libaria_input module. 
-    
+
+    This file contains the RTOS extensions of the libaria_input module.
+
 
 *******************************************************************************/
 
@@ -42,12 +42,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef LIBARIA_INPUT_RTOS_H
 #define LIBARIA_INPUT_RTOS_H
 
+// DOM-IGNORE-BEGIN
 laResult laInput_SendTouchDown_Ext_RTOS(uint32_t id, int32_t x, int32_t y);
 laResult laInput_SendTouchUp_Ext_RTOS(uint32_t id, int32_t x, int32_t y);
 laResult laInput_SendTouchMoved_Ext_RTOS(uint32_t id, int32_t x, int32_t y);
+// DOM-IGNORE-END
 
 #ifdef __cplusplus
     }
 #endif
-    
+
 #endif // LIBARIA_INPUT_RTOS_H
