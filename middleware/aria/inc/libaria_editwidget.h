@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/inc/libaria_common.h"
 #include "gfx/libaria/inc/libaria_widget.h"
 
+// DOM-IGNORE-BEGIN
 typedef struct laEditWidget_t laEditWidget;
 typedef struct laString_t laString;
 
@@ -55,6 +56,7 @@ typedef void (*laEditWidget_Accept_FnPtr)(laEditWidget*);
 typedef void (*laEditWidget_Set_FnPtr)(laEditWidget*, laString);
 typedef void (*laEditWidget_Append_FnPtr)(laEditWidget*, laString);
 typedef void (*laEditWidget_Backspace_FnPtr)(laEditWidget*);
+// DOM-IGNORE-END
 
 /* Structure:
         laEditWidget_t
@@ -89,7 +91,6 @@ typedef struct laEditWidget_t
 // DOM-IGNORE-BEGIN
 void _laEditWidget_Constructor(laEditWidget* edit);
 void _laEditWidget_Destructor(laEditWidget* edit);
-// DOM-IGNORE-END
 
 laResult laEditWidget_StartEdit();
 void laEditWidget_EndEdit();
@@ -99,5 +100,6 @@ void laEditWidget_Accept();
 void laEditWidget_Set(laString str);
 void laEditWidget_Append(laString str);
 void laEditWidget_Backspace();
+// DOM-IGNORE-END
 
 #endif // LIBARIA_EDITWIDGET_H

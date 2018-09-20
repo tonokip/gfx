@@ -52,7 +52,22 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 typedef struct laRadioButtonWidget_t laRadioButtonWidget;
 typedef struct laRadioButtonGroup_t laRadioButtonGroup;
 
+// *****************************************************************************
+/* Function Pointer:
+    laRadioButtonWidget_SelectedEvent
+
+  Summary:
+    Radio button selected function callback type
+*/
 typedef void (*laRadioButtonWidget_SelectedEvent)(laRadioButtonWidget*);
+
+// *****************************************************************************
+/* Function Pointer:
+    laRadioButtonWidget_DeselectedEvent
+
+  Summary:
+    Radio button deselected function callback type
+*/
 typedef void (*laRadioButtonWidget_DeselectedEvent)(laRadioButtonWidget*);
 
 // *****************************************************************************

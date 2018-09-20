@@ -83,7 +83,9 @@ typedef struct laString_t
                              // to local modifiable versions
 } laString;
 
+// DOM-IGNORE-BEGIN
 #define LA_STRING_NULLIDX -1
+// DOM-IGNORE-END
 
 // *****************************************************************************
 /* Function:

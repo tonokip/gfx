@@ -51,6 +51,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 typedef struct laKeyPadWidget_t laKeyPadWidget;
 typedef struct laButtonWidget_t laButtonWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laKeyPadWidget_KeyClickEvent
+
+  Summary:
+    Key click event function callback type
+*/
 typedef void (*laKeyPadWidget_KeyClickEvent)(laKeyPadWidget*,
                                              laButtonWidget*,
                                              uint32_t,

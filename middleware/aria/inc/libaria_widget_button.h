@@ -68,7 +68,22 @@ typedef enum laButtonState_t
 
 typedef struct laButtonWidget_t laButtonWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laButtonWidget_PressedEvent
+
+  Summary:
+    Button pressed event function callback type
+*/
 typedef void (*laButtonWidget_PressedEvent)(laButtonWidget*);
+
+// *****************************************************************************
+/* Function Pointer:
+    laButtonWidget_ReleasedEvent
+
+  Summary:
+    Button released event function callback type
+*/
 typedef void (*laButtonWidget_ReleasedEvent)(laButtonWidget*);
 
 // *****************************************************************************

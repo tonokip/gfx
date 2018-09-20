@@ -49,10 +49,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/libaria/inc/libaria_widget.h"
 #include "gfx/libaria/inc/libaria_string.h"
 
+// DOM-IGNORE-BEGIN
 #define LA_IMAGESEQ_RESTART -1
+// DOM-IGNORE-END
 
 typedef struct laImageSequenceWidget_t laImageSequenceWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laImageSequenceImageChangedEvent_FnPtr
+
+  Summary:
+    Image changed event function callback type
+*/
 typedef void (*laImageSequenceImageChangedEvent_FnPtr)(laImageSequenceWidget*);
 
 // *****************************************************************************

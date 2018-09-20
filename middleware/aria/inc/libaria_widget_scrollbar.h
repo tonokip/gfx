@@ -98,6 +98,13 @@ typedef enum laScrollBarOrientation_t
 
 typedef struct laScrollBarWidget_t laScrollBarWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laScrollBarWidget_ValueChangedEvent
+
+  Summary:
+    Value changed event function callback type
+*/
 typedef void (*laScrollBarWidget_ValueChangedEvent)(laScrollBarWidget*);
 
 // *****************************************************************************

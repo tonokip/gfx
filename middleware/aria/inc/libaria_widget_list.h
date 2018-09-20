@@ -53,6 +53,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct laListWidget_t laListWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laListWidget_SelectedItemChangedEvent
+
+  Summary:
+    Selected item changed event function callback type
+*/
 typedef void (*laListWidget_SelectedItemChangedEvent)(laListWidget*,
                                                       uint32_t idx,
                                                       laBool selected);
@@ -108,10 +115,6 @@ typedef struct laListItem_t
     laBool enabled; //enable or disable the item
 } laListItem;
 
-typedef void (*laListWidget_ItemSelectedChangedEvent)(laListWidget*,
-                                                      uint32_t idx,
-                                                      laBool selected);
-
 // *****************************************************************************
 /* Structure:
     laListWidget_t
@@ -156,7 +159,7 @@ typedef struct laListWidget_t
         uint32_t nextItem;
     } paintState;
 
-    laListWidget_ItemSelectedChangedEvent cb; // item selected changed event
+    laListWidget_SelectedItemChangedEvent cb; // item selected changed event
 
     GFXU_ExternalAssetReader* reader;
 } laListWidget;

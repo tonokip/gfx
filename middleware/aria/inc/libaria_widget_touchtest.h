@@ -47,7 +47,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/libaria/inc/libaria_widget.h"
 
+// DOM-IGNORE-BEGIN
 #define LA_TOUCHTEST_MEMORY_SIZE 20
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
@@ -76,6 +78,13 @@ typedef enum laTouchTestState_t
 
 typedef struct laTouchTestWidget_t laTouchTestWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laTouchTestWidget_PointAddedEventCallback
+
+  Summary:
+    Point added event function callback type
+*/
 typedef void (*laTouchTestWidget_PointAddedEventCallback)(laTouchTestWidget*, GFX_Point*);
 
 // *****************************************************************************

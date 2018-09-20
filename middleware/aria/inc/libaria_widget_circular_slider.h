@@ -409,6 +409,29 @@ LIB_EXPORT laResult laCircularSliderWidget_SetStartAngle(laCircularSliderWidget*
 LIB_EXPORT uint32_t laCircularSliderWidget_GetArcThickness(laCircularSliderWidget* slider,
                                                            laCircularSliderWidgetArcType type);
 
+// *****************************************************************************
+/* Function:
+    laResult laCircularSliderWidget_SetArcThickness(laCircularSliderWidget* slider,
+                                                    laCircularSliderWidgetArcType type,
+                                                    uint32_t thickness)
+
+  Summary:
+    Sets the thickness of an arc in the slider widget
+
+  Description:
+
+
+  Parameters:
+    laCircularSliderWidget* slider - the widget
+    laCircularSliderWidgetArcType type - the type of arc
+    uint32_t thickness - the thickness of the arc
+
+  Returns:
+    laResult
+
+  Remarks:
+
+*/
 LIB_EXPORT laResult laCircularSliderWidget_SetArcThickness(laCircularSliderWidget* slider,
                                                            laCircularSliderWidgetArcType type,
                                                            uint32_t thickness);

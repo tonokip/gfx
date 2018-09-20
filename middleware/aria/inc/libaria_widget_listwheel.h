@@ -53,6 +53,16 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 typedef struct laListWheelWidget_t laListWheelWidget;
 
 // *****************************************************************************
+/* Function Pointer:
+    laListWheelWidget_SelectedItemChangedEvent
+
+  Summary:
+    Selected item changed event function callback type
+*/
+typedef void (*laListWheelWidget_SelectedItemChangedEvent)(laListWheelWidget*,
+                                                           uint32_t idx);
+
+// *****************************************************************************
 // *****************************************************************************
 // Section: Data Types and Constants
 // *****************************************************************************
@@ -105,9 +115,6 @@ typedef struct laListWheelItem_t
     laString string;
     GFXU_ImageAsset* icon;
 } laListWheelItem;
-
-typedef void (*laListWheelWidget_SelectedItemChangedEvent)(laListWheelWidget*,
-                                                           uint32_t idx);
 
 // *****************************************************************************
 /* Structure:

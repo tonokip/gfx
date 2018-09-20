@@ -261,11 +261,10 @@ LIB_EXPORT laResult laImageWidget_SetImage(laImageWidget* img,
 void _laImageWidget_GetImageRect(laImageWidget* img,
                                  GFX_Rect* imgRect,
                                  GFX_Rect* imgSrcRect);
-// DOM-IGNORE-END
-
 
 void laImageWidget_SetCallBackStart(laImageWidget* image, laImageWidget_DrawEventCallback cb);
 void laImageWidget_SetCallBackEnd(laImageWidget* image, laImageWidget_DrawEventCallback cb);
+// DOM-IGNORE-END
 
 
 #endif // LA_IMAGE_WIDGET_ENABLED

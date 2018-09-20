@@ -50,6 +50,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct laDrawSurfaceWidget_t laDrawSurfaceWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laDrawSurfaceWidget_DrawCallback
+
+  Summary:
+    Draw surface draw event function callback type
+*/
 typedef laBool (*laDrawSurfaceWidget_DrawCallback)(laDrawSurfaceWidget* sfc,
                                                    GFX_Rect* bounds);
 

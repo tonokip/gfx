@@ -50,7 +50,22 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct laCheckBoxWidget_t laCheckBoxWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laCheckBoxWidget_CheckedEvent
+
+  Summary:
+    Checkbox checked event function callback type
+*/
 typedef void (*laCheckBoxWidget_CheckedEvent)(laCheckBoxWidget*);
+
+// *****************************************************************************
+/* Function Pointer:
+    laCheckBoxWidget_UncheckedEvent
+
+  Summary:
+    Checkbox unchecked event function callback type
+*/
 typedef void (*laCheckBoxWidget_UncheckedEvent)(laCheckBoxWidget*);
 
 // *****************************************************************************

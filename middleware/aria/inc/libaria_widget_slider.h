@@ -95,6 +95,13 @@ typedef enum laSliderOrientation_t
 
 typedef struct laSliderWidget_t laSliderWidget;
 
+// *****************************************************************************
+/* Function Pointer:
+    laSliderWidget_ValueChangedEvent
+
+  Summary:
+    Value changed event function callback type
+*/
 typedef void (*laSliderWidget_ValueChangedEvent)(laSliderWidget*);
 
 // *****************************************************************************

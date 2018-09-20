@@ -50,7 +50,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "gfx/hal/inc/gfx_rect.h"
 #include "gfx/utils/gfx_utils.h"
 
+// DOM-IGNORE-BEGIN
 #define DEFAULT_BORDER_MARGIN   4
+// DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
@@ -334,6 +336,7 @@ typedef enum laWidgetOptimizationFlags_t
 typedef struct laWidget_t laWidget;
 typedef struct laRectArray_t laRectArray;
 
+// DOM-IGNORE-BEGIN
 typedef void (*laWidget_Constructor_FnPtr)(laWidget*);
 typedef void (*laWidget_Destructor_FnPtr)(laWidget*);
 typedef laWidgetUpdateState (*laWidget_Update_FnPtr)(laWidget*, uint32_t);
@@ -352,6 +355,7 @@ typedef void (*laWidget_TouchMovedEvent_FnPtr)(laWidget*, laInput_TouchMovedEven
 typedef void (*laWidget_LanguageChangingEvent_FnPtr)(laWidget*);
 
 typedef void (*laWidget_InvalidateBorderAreas_FnPtr)(laWidget*);
+// DOM-IGNORE-END
 
 /* Structure:
         laWidget_t

@@ -53,8 +53,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 typedef struct laWidget_t laWidget;
 
+// DOM-IGNORE-BEGIN
 #define LA_INPUT_PRIMARY_ID    0
 #define LA_MAX_TOUCH_STATES    2
+// DOM-IGNORE-END
 
 // *****************************************************************************
 /* Enumeration:

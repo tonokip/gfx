@@ -436,6 +436,20 @@ laBool laUtils_OcclusionCullTest(laWidget* widget);
 */    
 void laUtils_ListOcclusionCullTest(laList* list, GFX_Rect rect);
 
+/*  Function:
+        laBool laUtils_WidgetIsOccluded(laWidget* wgt, const GFX_Rect* rect)
+ 
+    Summary:
+        Returns LA_TRUE if the specified widget is occluded in the 
+        specified rectangle area.
+        
+    Parameters:
+        laWidget* wgt - the widget to test
+        GFX_Rect * rect - the occlusion area
+        
+    Returns:
+        void
+*/   
 laBool laUtils_WidgetIsOccluded(laWidget* wgt, const GFX_Rect* rect);
 
 

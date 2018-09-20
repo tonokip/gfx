@@ -75,8 +75,17 @@ typedef enum laProgressBarDirection_t
     LA_PROGRESSBAR_DIRECTION_DOWN
 } laProgressBarDirection;
 
+// DOM-IGNORE-BEGIN
 typedef struct laProgressBarWidget_t laProgressBar;
+// DOM-IGNORE-END
 
+// *****************************************************************************
+/* Function Pointer:
+    laProgressBar_ValueChangedEventCallback
+
+  Summary:
+    Value changed event function callback type
+*/
 typedef void (*laProgressBar_ValueChangedEventCallback)(laProgressBar*, uint32_t);
 
 // *****************************************************************************
