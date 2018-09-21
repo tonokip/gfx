@@ -72,6 +72,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define GFX_DEPRECATED __attribute__ ((deprecated))
 #endif
 
+// DOM-IGNORE-BEGIN
 #define GFX_MAX_BUFFER_COUNT     2
 
 #define GFX_NULL     0
@@ -99,6 +100,7 @@ typedef struct GFX_Context_t GFX_Context;
 typedef enum GFX_ColorMode_t GFX_ColorMode;
 
 typedef void (*GFX_SyncCallback_FnPtr)(void);
+//DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************

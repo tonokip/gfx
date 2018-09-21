@@ -143,28 +143,147 @@ LIB_EXPORT GFX_Rect GFX_RectCombine(const GFX_Rect* l_rect,
 LIB_EXPORT void GFX_RectClip(const GFX_Rect* l_rect, 
                              const GFX_Rect* r_rect, 
                              GFX_Rect* result);
-                             
+
+// *****************************************************************************
+/* Function:
+    GFX_Rect GFX_RectClipAdj(const GFX_Rect* l_rect,
+                             const GFX_Rect* r_rect, 
+                             GFX_Rect* adj)
+
+  Summary:
+    Returns the rectangle clipped using r_rect, and also adjusts the third rectangle
+
+  Parameters:
+    const GFX_Rect* l_rect - the subject rectangle
+    const GFX_Rect* r_rect - the object rectangle
+    GFX_Rect* adj - the adjust rectangle
+    
+  Returns:
+    void
+    
+  Remarks:
+    result will equals l_rect if the rectangles aren't intersecting
+    
+*/
 LIB_EXPORT GFX_Rect GFX_RectClipAdj(const GFX_Rect* l_rect,
                                     const GFX_Rect* r_rect, 
-                                    GFX_Rect* adj);                                 
-                             
+                                    GFX_Rect* adj);
+
+// *****************************************************************************
+/* Function:
+    GFX_Rect GFX_RectFromPoints(const GFX_Point* p1,
+                                const GFX_Point* p2)
+
+  Summary:
+    Returns a GFX_Rect structure based on 2 points
+
+  Parameters:
+    const GFX_Point* p1 - the first point
+    const GFX_Point* p2 - the second point
+    
+  Returns:
+    GFX_Rect
+    
+  Remarks:
+    
+*/                             
 LIB_EXPORT GFX_Rect GFX_RectFromPoints(const GFX_Point* p1,
                                        const GFX_Point* p2);
-                                       
+
+// *****************************************************************************
+/* Function:
+    void GFX_RectToPoints(const GFX_Rect* rect,
+                          GFX_Point* p1,
+                          GFX_Point* p2
+
+  Summary:
+    Returns the points for the upper left and lower right vertices 
+    of a rectangle
+
+  Parameters:
+    const GFX_Rect* rect - the rectangle
+    GFX_Point* p1 - the point of upper left vertex
+    GFX_Point* p2 - the point of the lower right vertex
+    
+  Returns:
+    GFX_Rect
+    
+  Remarks:
+    
+*/
 LIB_EXPORT void GFX_RectToPoints(const GFX_Rect* rect,
                                  GFX_Point* p1,
                                  GFX_Point* p2);    
-                                 
+
+// *****************************************************************************
+/* Function:
+    uint32_t GFX_RectSplit(const GFX_Rect* sub,
+                           const GFX_Rect* obj,
+                           GFX_Rect res[4])
+
+  Summary:
+    Splits two overlapping rectangles into several (up to 4) 
+    non-overlapping rectangles
+
+  Parameters:
+    const GFX_Rect* sub - the first rectangle
+    const GFX_Rect* obj - the second rectangle
+    GFX_Rect res[4] - the output rectangles
+    
+  Returns:
+    uint32_t - the number of non-overlapping rectangles returned
+    
+  Remarks:
+    
+*/
 LIB_EXPORT uint32_t GFX_RectSplit(const GFX_Rect* sub,
                                   const GFX_Rect* obj,
                                   GFX_Rect res[4]); 
-                                  
+
+// *****************************************************************************
+/* Function:
+    int32_t GFX_RectCompare(const GFX_Rect* l,
+                            const GFX_Rect* r)
+
+  Summary:
+    Returns 1 if the two rectangles have the same position and dimensions
+
+  Parameters:
+    const GFX_Rect* l,
+    const GFX_Rect* r
+    
+  Returns:
+    int32_t
+    
+  Remarks:
+    
+*/
 LIB_EXPORT int32_t GFX_RectCompare(const GFX_Rect* l,
                                    const GFX_Rect* r);   
-                                   
+
+// *****************************************************************************
+/* Function:
+    GFX_Bool GFX_RectsAreSimilar(const GFX_Rect* l,
+                                 const GFX_Rect* r)
+
+  Summary:
+    Returns GFX_TRUE if the two rectangles are adjacent and vertically 
+    or horizontally aligned
+
+  Parameters:
+    const GFX_Rect* l - the first rectangle
+    const GFX_Rect* r - the second rectangle
+    
+  Returns:
+    GFX_Bool
+    
+  Remarks:
+    
+*/
 LIB_EXPORT GFX_Bool GFX_RectsAreSimilar(const GFX_Rect* l,
                                         const GFX_Rect* r);                                                            
 
+//DOM-IGNORE-BEGIN
 static const GFX_Rect GFX_Rect_Zero = {0, 0, 0, 0};
-
+//DOM-IGNORE-END
 #endif /* GFX_RECT_H */

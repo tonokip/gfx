@@ -113,13 +113,28 @@ typedef enum GFX_AntialiasMode_t
 
 #define GFX_ANTIALIAS_MODE_COUNT (GFX_ANTIALIAS_ON+1)
 
+// *****************************************************************************
+/* Enumeration:
+    GFX_ResizeMode_t
+
+  Summary:
+    The algorithm used for resizing a frame
+
+  Description:
+    
+
+  Remarks:
+    None.
+*/
 typedef enum GFX_ResizeMode_t
 {
     GFX_RESIZE_NEARESTNEIGHBOR = 0x0,
     GFX_RESIZE_BILINEAR
 } GFX_ResizeMode;
 
+// DOM-IGNORE-BEGIN
 #define GFX_RESIZE_MODE_COUNT (GFX_RESIZE_BILINEAR+1)
+//DOM-IGNORE-END
 
 // *****************************************************************************
 /* Structure:

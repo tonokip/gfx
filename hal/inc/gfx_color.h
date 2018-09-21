@@ -44,6 +44,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/hal/inc/gfx_common.h"
 
+// DOM-IGNORE-BEGIN
 #define GFX_COLOR_MAX_SIZE 4
 
 #define RGB_8_BITS             255
@@ -78,6 +79,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define AGBA_8888_GREEN_MASK   0xFF00
 #define AGBA_8888_BLUE_MASK    0xFF
 #define AGBA_8888_ALPHA_MASK   0xFF000000
+
+//DOM-IGNORE-END
 
 // *****************************************************************************
 // *****************************************************************************
