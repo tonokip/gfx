@@ -1,9 +1,9 @@
 componentActivateList = ["smc", "gfx_driver_lcc", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
 componentAutoConnectList = [["gfx_driver_lcc", "SMC_CS", "smc", "smc_cs0"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
-						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
+						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS0_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
-						["sys_time", "sys_time_TMR_dependency", "tc0", "TC_0"]]
+						["sys_time", "sys_time_TMR_dependency", "tc0", "TC0_TMR"]]
 
 pinConfig = [{"pin": 11, "name": "EBI_D0", "type": "EBI_D0", "direction": "", "latch": ""},
 			{"pin": 38, "name": "EBI_D1", "type": "EBI_D1", "direction": "", "latch": ""},
@@ -51,6 +51,7 @@ sdramPinConfig = [{"pin": 120, "name": "EBI_A2/SDA0", "type": "EBI_A2/SDA0", "di
 				{"pin": 108, "name": "EBI_SDWE", "type": "EBI_SDWE", "direction": "", "latch": ""},
 				{"pin": 111, "name": "EBI_A0/NBS0/DQM0", "type": "EBI_A0/NBS0/DQM0", "direction": "", "latch": ""},
 				{"pin": 106, "name": "EBI_NWR1/NBS1/DQM1", "type": "EBI_NWR1/NBS1/DQM1", "direction": "", "latch": ""}]
+				
 
 sam_e70_xplained_utra = bspSupportObj(pinConfig, componentActivateList, None, componentAutoConnectList, None)
 

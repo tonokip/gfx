@@ -20,6 +20,7 @@ def instantiateComponent(templateComponent):
 		if (getBSPSupportNode(bspUsedKeyID, None).getComponentAutoConnectList() != None):
 			autoConnectTable += getBSPSupportNode(bspUsedKeyID, None).getComponentAutoConnectList()
 		if (getBSPSupportNode(bspUsedKeyID, None).getPinConfig() != None):
+			resetPins(getBSPSupportNode(bspUsedKeyID, None).getPinConfig())
 			configurePins(getBSPSupportNode(bspUsedKeyID, None).getPinConfig())
 
 	res = Database.activateComponents(componentsIDTable)

@@ -1,5 +1,5 @@
 spi4PinComponentIDList = ["spi0", "drv_spi", "drv_spi_0"]
-spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "spi0", "SPI_0"],
+spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "spi0", "SPI0_SPI"],
 							["gfx_driver_ili9488", "DRV_SPI", "drv_spi_0", "drv_spi"]]
 spi4PinConfigs = [{"pin": 31, "name": "BSP_ILI9488_SPI_DCX", "type": "GPIO", "direction": "Out", "latch": "High"},
 				{"pin": 52, "name": "BSP_ILI9488_SPI_CSX", "type": "GPIO", "direction": "Out", "latch": "High"},
