@@ -9,8 +9,8 @@ spi4PinConfigs = [{"pin": 31, "name": "BSP_ILI9488_SPI_DCX", "type": "GPIO", "di
 				{"pin": 102, "name": "BSP_DisplayBacklight", "type": "GPIO", "direction": "Out", "latch": "High"},
 				{"pin": 103, "name": "BSP_DisplayReset", "type": "GPIO", "direction": "Out", "latch": "High"}]
 
-parallelComponentIDList = ["smc0"]
-parallelAutoConnectList = [["gfx_driver_ili9488", "SMC_CS", "smc0", "smc_cs0"]]				
+parallelComponentIDList = ["smc"]
+parallelAutoConnectList = [["gfx_driver_ili9488", "SMC_CS", "smc", "smc_cs0"]]
 ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": ""},
 					{"pin": 6, "name": "EBI_D9", "type": "EBI_D9", "direction": "", "latch": ""},
 					{"pin": 7, "name": "EBI_D10", "type": "EBI_D10", "direction": "", "latch": ""},
@@ -36,9 +36,7 @@ ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction"
 
 					
 def eventHandlerSPI4line(event):
-	print("event handler called")
 	if (event == "configure"):
-		print("here")
 		#set the SPI clock to 20MHz
 		try:
 			Database.setSymbolValue("spi0", "SPI_BAUD_RATE", 20000000, 1)

@@ -1,5 +1,5 @@
-componentActivateList = ["smc0", "gfx_driver_lcc", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-componentAutoConnectList = [["gfx_driver_lcc", "SMC_CS", "smc0", "smc_cs0"],
+componentActivateList = ["smc", "gfx_driver_lcc", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+componentAutoConnectList = [["gfx_driver_lcc", "SMC_CS", "smc", "smc_cs0"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS_0"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
