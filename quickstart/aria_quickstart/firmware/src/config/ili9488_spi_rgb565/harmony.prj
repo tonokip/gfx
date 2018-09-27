@@ -25,7 +25,7 @@
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
-          <LogicalPath dnOrder="2">/gfx/driver/controller/ili9488/</LogicalPath>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">572F0B58F3888ACBDE15428AAB646FD9</GeneratedChecksum>
           <UserChecksum dnOrder="5">572F0B58F3888ACBDE15428AAB646FD9</UserChecksum>
@@ -33,7 +33,7 @@
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_ili9488_intf.c</Name>
-          <LogicalPath dnOrder="2">/gfx/driver/controller/ili9488/</LogicalPath>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">D882E7AD3F66CB20382B9C6A4C02D691</GeneratedChecksum>
           <UserChecksum dnOrder="5">D882E7AD3F66CB20382B9C6A4C02D691</UserChecksum>
@@ -1377,7 +1377,7 @@
         <File dnOrder="171">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_ili9488.h</Name>
-          <LogicalPath dnOrder="2">/gfx/driver/controller/ili9488/</LogicalPath>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">D96BA00E30EFE8473FB83E7AE1474F83</GeneratedChecksum>
           <UserChecksum dnOrder="5">D96BA00E30EFE8473FB83E7AE1474F83</UserChecksum>
@@ -1385,7 +1385,7 @@
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_ili9488_cmd_defs.h</Name>
-          <LogicalPath dnOrder="2">/gfx/driver/controller/ili9488/</LogicalPath>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">3AB693B048B52A8C35C99FA7B56F94E1</GeneratedChecksum>
           <UserChecksum dnOrder="5">3AB693B048B52A8C35C99FA7B56F94E1</UserChecksum>
@@ -1393,7 +1393,7 @@
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_ili9488_common.h</Name>
-          <LogicalPath dnOrder="2">/gfx/driver/controller/ili9488/</LogicalPath>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">45EAFF3FAFEDDCC30ADA3C88018EA40A</GeneratedChecksum>
           <UserChecksum dnOrder="5">45EAFF3FAFEDDCC30ADA3C88018EA40A</UserChecksum>
@@ -2563,8 +2563,8 @@
           <Name dnOrder="1">user.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4B3C3EF8A318908A22B78500515C3288</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4B3C3EF8A318908A22B78500515C3288</UserChecksum>
+          <GeneratedChecksum dnOrder="4"/>
+          <UserChecksum dnOrder="5"/>
         </File>
         <File dnOrder="320">
           <Type dnOrder="0">HEADER</Type>

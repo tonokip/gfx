@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8D1999C9A3FFB32F06A1D75AED9B7B00</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8D1999C9A3FFB32F06A1D75AED9B7B00</UserChecksum>
+          <GeneratedChecksum dnOrder="4">20BB948DD1E6BA391C23E15DBB860442</GeneratedChecksum>
+          <UserChecksum dnOrder="5">20BB948DD1E6BA391C23E15DBB860442</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>

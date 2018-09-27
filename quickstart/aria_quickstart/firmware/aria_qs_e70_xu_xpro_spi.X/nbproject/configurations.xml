@@ -19,7 +19,14 @@
             <itemPath>../src/config/ili9488_spi_rgb565/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f4" displayName="hal" projectFiles="true">
+            <logicalFolder name="f4" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.h</itemPath>
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_common.h</itemPath>
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_cmd_defs.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="hal" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/gfx.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/inc/gfx_color.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/inc/gfx_common.h</itemPath>
@@ -165,17 +172,6 @@
           <itemPath>../src/config/ili9488_spi_rgb565/configuration.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f4" displayName="gfx" projectFiles="true">
-        <logicalFolder name="f1" displayName="driver" projectFiles="true">
-          <logicalFolder name="f1" displayName="controller" projectFiles="true">
-            <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
-              <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.h</itemPath>
-              <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_common.h</itemPath>
-              <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_cmd_defs.h</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
-      </logicalFolder>
       <logicalFolder name="f2" displayName="osal" projectFiles="true">
         <itemPath>../src/config/ili9488_spi_rgb565/osal/osal.h</itemPath>
         <itemPath>../src/config/ili9488_spi_rgb565/osal/osal_definitions.h</itemPath>
@@ -269,7 +265,13 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f5" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f4" displayName="hal" projectFiles="true">
+            <logicalFolder name="f4" displayName="driver" projectFiles="true">
+              <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.c</itemPath>
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_intf.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f5" displayName="hal" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/src/gfx.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/src/gfx_color.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/src/gfx_context.c</itemPath>
@@ -447,16 +449,6 @@
           <itemPath>../src/config/ili9488_spi_rgb565/tasks.c</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="gfx" projectFiles="true">
-        <logicalFolder name="f1" displayName="driver" projectFiles="true">
-          <logicalFolder name="f1" displayName="controller" projectFiles="true">
-            <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
-              <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.c</itemPath>
-              <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_intf.c</itemPath>
-            </logicalFolder>
-          </logicalFolder>
-        </logicalFolder>
-      </logicalFolder>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
     </logicalFolder>
@@ -543,7 +535,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/ili9488_spi_rgb565;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/"/>
+                  value="../src;../src/config/ili9488_spi_rgb565;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
