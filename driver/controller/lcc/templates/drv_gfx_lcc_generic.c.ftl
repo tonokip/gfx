@@ -398,10 +398,7 @@ GFX_Result driverLCCContextInitialize(GFX_Context* context)
 static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
                                        const void *destAddr)
 {
-    // The DMA APIs currently do not provide access to configure the DMA registers
-    // to the desired settings, so we need to do a couple of direct register writes
-    // outside the DMA API.
-    XDMAC_REGS->XDMAC_CHID[DRV_GFX_LCC_DMA_CHANNEL_INDEX].XDMAC_CBC = (srcSize >> 1) - 1;
+    XDMAC_ChannelBlockLengthSet(DRV_GFX_LCC_DMA_CHANNEL_INDEX, (srcSize >> 1) - 1);
 
 <#if UseCachedFrameBuffer == true>
     SCB_CleanInvalidateDCache_by_Addr(
