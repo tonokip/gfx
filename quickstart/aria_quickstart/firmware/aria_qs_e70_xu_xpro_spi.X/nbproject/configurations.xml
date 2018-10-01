@@ -143,12 +143,9 @@
               <itemPath>../src/config/ili9488_spi_rgb565/peripheral/pio/plib_pio.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/peripheral/pio/plib_pio_pin.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="spi" projectFiles="true">
+            <logicalFolder name="f4" displayName="spi" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/peripheral/spi/plib_spi_common.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/peripheral/spi/plib_spi0.h</itemPath>
-            </logicalFolder>
-            <logicalFolder name="f4" displayName="xdmac" projectFiles="true">
-              <itemPath>../src/config/ili9488_spi_rgb565/peripheral/xdmac/plib_xdmac_common.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
