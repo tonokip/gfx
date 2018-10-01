@@ -36,53 +36,26 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  *******************************************************************************/
 // DOM-IGNORE-END
-#include "driver/spi/drv_spi.h"
-
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_context.h"
 
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
 
-// Macros for controlling pins. Need to be defined in pin settings manager
-#ifdef BSP_ILI9488_SPI_CSX_Clear
-#define ILI9488_SPI_SS_Assert()     BSP_ILI9488_SPI_CSX_Clear()
-#else
-#error "BSP_ILI9488_SPI_CSX_Clear must be defined using the Pin Config Manager."
-#endif
+#include "drv_gfx_disp_intf.h"
 
-#ifdef BSP_ILI9488_SPI_CSX_Set
-#define ILI9488_SPI_SS_Deassert()   BSP_ILI9488_SPI_CSX_Set()
-#else
-#error "BSP_ILI9488_SPI_CSX_Set must be defined using the Pin Config Manager."
-#endif
-
-#ifdef BSP_ILI9488_SPI_DCX_Clear
-#define ILI9488_SPI_DCX_Command()   BSP_ILI9488_SPI_DCX_Clear()
-#else
-#error "BSP_ILI9488_SPI_DCX_Clear must be defined using the Pin Config Manager."
-#endif
-
-#ifdef BSP_ILI9488_SPI_DCX_Clear
-#define ILI9488_SPI_DCX_Data()      BSP_ILI9488_SPI_DCX_Set()
-#else
-#error "BSP_ILI9488_SPI_DCX_Set must be defined using the Pin Config Manager."
-#endif
-
-/** SPI_TRANS_STATUS
-
-  Summary:
-    Enum type of SPI transaction status
-
- */
-typedef enum 
-{
-    SPI_TRANS_IDLE,
-    SPI_TRANS_CMD_WR_PENDING,
-    SPI_TRANS_CMD_RD_PENDING,
-    SPI_TRANS_DONE,
-    SPI_TRANS_FAIL,
-} SPI_TRANS_STATUS;
+#define ILI9488_SPI_SS_Assert(intf)     GFX_Disp_Intf_PinControl(intf, \
+                                            GFX_DISP_INTF_PIN_CS, \
+                                            GFX_DISP_INTF_PIN_CLEAR)
+#define ILI9488_SPI_SS_Deassert(intf)   GFX_Disp_Intf_PinControl(intf, \
+                                            GFX_DISP_INTF_PIN_CS, \
+                                            GFX_DISP_INTF_PIN_SET)
+#define ILI9488_SPI_DCX_Command(intf)   GFX_Disp_Intf_PinControl(intf, \
+                                            GFX_DISP_INTF_PIN_RSDC, \
+                                            GFX_DISP_INTF_PIN_CLEAR)
+#define ILI9488_SPI_DCX_Data(intf)      GFX_Disp_Intf_PinControl(intf, \
+                                            GFX_DISP_INTF_PIN_RSDC, \
+                                            GFX_DISP_INTF_PIN_SET)
 
 /** ILI9488_SPI_PRIV
 
@@ -92,63 +65,10 @@ typedef enum
  */
 typedef struct 
 {
-    /* SPI Device handle */
-    DRV_HANDLE drvSPIHandle;
-
-    /* Transfer handle */
-    DRV_SPI_TRANSFER_HANDLE drvSPITransferHandle;
-
-    /* SPI transaction status */
-    volatile SPI_TRANS_STATUS drvSPITransStatus;
+    GFX_Disp_Intf handle;
 } ILI9488_SPI_PRIV;
 
 /* ************************************************************************** */
-
-/** 
-  Function:
-    static void ILI9488_SPI_CallBack(DRV_SPI_BUFFER_EVENT event, 
-                                     DRV_SPI_BUFFER_HANDLE bufferHandle, 
-                                     void * context )
-
-  Summary:
-    Callback function called by SPI driver to deliver events.
-
-  Description:
-
-    This callback will set the ILI9488 SPI driver's SPI transaction status 
-    based on the event.
-
-
-  Parameters:
-    event           - SPI buffer event
-    bufferHandle    - SPI buffer handle
-    context         - SPI transaction context
-
-  Returns:
-    None
-
- */
-static void ILI9488_SPI_CallBack(DRV_SPI_TRANSFER_EVENT event,
-                                DRV_SPI_TRANSFER_HANDLE bufferHandle,
-                                uintptr_t context)
-{
-    volatile SPI_TRANS_STATUS *status = 
-                    ((SPI_TRANS_STATUS *) context);
-
-   if (!status)
-        return;
-
-    switch (event) 
-    {
-        case DRV_SPI_TRANSFER_EVENT_COMPLETE:
-            *status = SPI_TRANS_DONE;
-            break;
-        case DRV_SPI_TRANSFER_EVENT_ERROR:
-            *status = SPI_TRANS_FAIL;
-        default:
-            break;
-    }
-}
 
 /** 
   Function:
@@ -186,60 +106,28 @@ static GFX_Result ILI9488_Intf_Read(struct ILI9488_DRV *drv,
                                     int bytes) 
 {
     GFX_Result returnValue = GFX_FAILURE;
-    ILI9488_SPI_PRIV *spiPriv = NULL;
+    GFX_Disp_Intf intf;
 
     if ((!drv) || (!data) || (bytes <= 0))
         return GFX_FAILURE;
 
-    spiPriv = (ILI9488_SPI_PRIV *) drv->port_priv;
+    intf = (GFX_Disp_Intf) drv->port_priv;
 
     //Assert SS = LOW and D/CX = LOW (command)
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Assert();
-
-    spiPriv->drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
-    DRV_SPI_WriteTransferAdd(spiPriv->drvSPIHandle,
-            (void*) &cmd,
-            1,
-            (void*) &spiPriv->drvSPITransferHandle);
-    if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-    {
-        ILI9488_SPI_SS_Deassert();
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Assert(intf);
+            
+    returnValue = GFX_Disp_Intf_Write(intf, &cmd, 1);
+    if (returnValue != GFX_SUCCESS)
         return GFX_FAILURE;
-    }
     
-    //Wait for the callback (full block/no timeout)
-    while (SPI_TRANS_CMD_RD_PENDING == spiPriv->drvSPITransStatus);    
+    ILI9488_SPI_DCX_Data(intf);
+    returnValue = GFX_Disp_Intf_Read(intf, data, bytes);
+    if (returnValue != GFX_SUCCESS)
+        return GFX_FAILURE;
 
-    // Read data
-    if ((SPI_TRANS_DONE == spiPriv->drvSPITransStatus))
-    {
-        ILI9488_SPI_DCX_Data();
-
-        spiPriv->drvSPITransStatus = SPI_TRANS_CMD_RD_PENDING;
-        DRV_SPI_ReadTransferAdd(spiPriv->drvSPIHandle,
-                (void *) data,
-                bytes,
-                (void *) &spiPriv->drvSPITransStatus);
-        if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-        {
-            ILI9488_SPI_DCX_Command();
-            ILI9488_SPI_SS_Deassert();
-            return GFX_FAILURE;
-        }
-
-
-        //Wait for the callback (full block/no timeout)
-        while (SPI_TRANS_CMD_RD_PENDING == spiPriv->drvSPITransStatus);
-    }
-
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Deassert();
-
-    if (SPI_TRANS_DONE == spiPriv->drvSPITransStatus)
-        returnValue = GFX_SUCCESS;
-
-    spiPriv->drvSPITransStatus = SPI_TRANS_IDLE;
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -279,59 +167,18 @@ GFX_Result ILI9488_Intf_WriteCmd(struct ILI9488_DRV *drv,
                                  int num_parms) 
 {
     GFX_Result returnValue = GFX_FAILURE;
-    ILI9488_SPI_PRIV *spiPriv = NULL;
+    GFX_Disp_Intf intf;
 
     if (!drv)
         return GFX_FAILURE;
 
-    spiPriv = (ILI9488_SPI_PRIV *) drv->port_priv;
+    intf = (GFX_Disp_Intf) drv->port_priv;
 
-    //Assert SS = LOW and D/CX = LOW (command)
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Assert();
-
-    spiPriv->drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
-    DRV_SPI_WriteTransferAdd(spiPriv->drvSPIHandle,
-                                        (void *) &cmd,
-                                        1,
-                                        (void *) &spiPriv->drvSPITransferHandle);
-    if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-    {
-        ILI9488_SPI_SS_Deassert();
-        return GFX_FAILURE;
-    }
-
-    //Wait for the callback (full block/no timeout)
-    while (SPI_TRANS_CMD_WR_PENDING == spiPriv->drvSPITransStatus);
-
-    // Send command parameters if any
-    if ((SPI_TRANS_DONE == spiPriv->drvSPITransStatus) && (num_parms > 0))
-    {
-        ILI9488_SPI_DCX_Data();
-
-        spiPriv->drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
-        DRV_SPI_WriteTransferAdd(spiPriv->drvSPIHandle,
-                                (void *) parms,
-                                (size_t) num_parms,
-                                (void *) &spiPriv->drvSPITransferHandle);
-        if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-        {
-            ILI9488_SPI_DCX_Command();
-            ILI9488_SPI_SS_Deassert();
-            return GFX_FAILURE;
-        }
-
-        //Wait for the callback (full block/no timeout)
-        while (SPI_TRANS_CMD_WR_PENDING == spiPriv->drvSPITransStatus);
-    }
-
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Deassert();
-
-    if (SPI_TRANS_DONE == spiPriv->drvSPITransStatus)
-        returnValue = GFX_SUCCESS;
-
-    spiPriv->drvSPITransStatus = SPI_TRANS_IDLE;
+    ILI9488_SPI_SS_Assert(intf);
+    
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, num_parms);
+    
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -375,35 +222,51 @@ GFX_Result ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
 {
     GFX_Result returnValue = GFX_FAILURE;
     uint8_t buf[4];
+    GFX_Disp_Intf intf;
+
+    if (!drv)
+        return GFX_FAILURE;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
+
+    ILI9488_SPI_SS_Assert(intf);    
 
     //Set column
     buf[0] = (start_x >> 8);
     buf[1] = (start_x & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
-                                       ILI9488_CMD_COLUMN_ADDRESS_SET,
-                                       buf,
-                                       4);
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_COLUMN_ADDRESS_SET,
+                                            buf,
+                                            4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_SPI_SS_Deassert(intf);
         return GFX_FAILURE;
+    }
 
     //Set page
     buf[0] = (start_y >> 8);
     buf[1] = (start_y & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
-                                       ILI9488_CMD_PAGE_ADDRESS_SET,
-                                       buf,
-                                       4);
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_PAGE_ADDRESS_SET,
+                                            buf,
+                                            4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_SPI_SS_Deassert(intf);
         return GFX_FAILURE;
+    }
 
-    returnValue = ILI9488_Intf_WriteCmd(drv,
-                                       ILI9488_CMD_MEMORY_WRITE,
-                                       data,
-                                       num_pixels * 3);
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
+                                            ILI9488_CMD_MEMORY_WRITE,
+                                            data,
+                                            num_pixels * 3);
+    
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -446,17 +309,24 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
                                   unsigned int num_pixels)
 {
     GFX_Result returnValue = GFX_FAILURE;
-    ILI9488_SPI_PRIV *spiPriv = (ILI9488_SPI_PRIV *) drv->port_priv;
     uint8_t cmd = ILI9488_CMD_MEMORY_READ;
     uint8_t dummy;
     uint8_t buf[4];
+    GFX_Disp_Intf intf;
+
+    if (!drv)
+        return GFX_FAILURE;
+
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    ILI9488_SPI_SS_Assert(intf);
 
     //Set column
     buf[0] = ((x & 0xff00) >> 8);
     buf[1] = (x & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_COLUMN_ADDRESS_SET,
                                        buf,
                                        4);
@@ -468,76 +338,39 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     buf[1] = (y & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_PAGE_ADDRESS_SET,
                                        buf,
                                        4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_SPI_SS_Deassert(intf);
         return GFX_FAILURE;
+    }
 
     //Assert SS = LOW and D/CX = LOW (command)
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Assert();
+    ILI9488_SPI_DCX_Command(intf);
+    ILI9488_SPI_SS_Assert(intf);
 
-    spiPriv->drvSPITransStatus = SPI_TRANS_CMD_WR_PENDING;
-    DRV_SPI_WriteTransferAdd(spiPriv->drvSPIHandle,
-                             (void*) &cmd,
-                             1,
-                             (void*) &spiPriv->drvSPITransferHandle);
-    if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
+    returnValue = GFX_Disp_Intf_Write(intf, &cmd, 1);
+    if (GFX_SUCCESS != returnValue)
     {
-        ILI9488_SPI_SS_Deassert();
+        ILI9488_SPI_SS_Deassert(intf);        
         return GFX_FAILURE;
     }
 
-    //Wait for the callback (full block/no timeout)
-    while (SPI_TRANS_CMD_WR_PENDING == spiPriv->drvSPITransStatus);
+    ILI9488_SPI_DCX_Data(intf);
 
-    // Read the pixel data from display GRAM
-    if ((SPI_TRANS_DONE == spiPriv->drvSPITransStatus))
-    {
-        ILI9488_SPI_DCX_Data();
+    // Read the dummy byte
+    returnValue = GFX_Disp_Intf_Read(intf, &dummy, 1);
+    if (GFX_SUCCESS != returnValue)
+        return GFX_FAILURE;
 
-        // Read the dummy byte
-        spiPriv->drvSPITransStatus = SPI_TRANS_CMD_RD_PENDING;
-        DRV_SPI_ReadTransferAdd(spiPriv->drvSPIHandle,
-                                        (void *) &dummy,
-                                        1,
-                                        (void *) &spiPriv->drvSPITransferHandle);
-        if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-        {
-            ILI9488_SPI_DCX_Command();
-            ILI9488_SPI_SS_Deassert();
-            return GFX_FAILURE;
-        }
+    returnValue = GFX_Disp_Intf_Read(intf, value, num_pixels * 3);
+    if (GFX_SUCCESS != returnValue)
+        return GFX_FAILURE;
 
-        //Wait for the callback (full block/no timeout)
-        while (SPI_TRANS_CMD_RD_PENDING == spiPriv->drvSPITransStatus);
-
-        // Read the valid pixels
-        spiPriv->drvSPITransStatus = SPI_TRANS_CMD_RD_PENDING;
-        DRV_SPI_ReadTransferAdd(spiPriv->drvSPIHandle,
-                                (void *) value,
-                                num_pixels * 3,
-                                (void *) &spiPriv->drvSPITransferHandle);
-        if (DRV_SPI_TRANSFER_HANDLE_INVALID == spiPriv->drvSPITransferHandle)
-        {
-            ILI9488_SPI_DCX_Command();
-            ILI9488_SPI_SS_Deassert();
-            return GFX_FAILURE;
-        }
-
-        //Wait for the callback (full block/no timeout)
-        while (SPI_TRANS_CMD_RD_PENDING == spiPriv->drvSPITransStatus);
-    }
-
-    ILI9488_SPI_DCX_Command();
-    ILI9488_SPI_SS_Deassert();
-
-    if (SPI_TRANS_DONE == spiPriv->drvSPITransStatus)
-        returnValue = GFX_SUCCESS;
-
-    spiPriv->drvSPITransStatus = SPI_TRANS_IDLE;
+    ILI9488_SPI_SS_Deassert(intf);
 
     return returnValue;
 }
@@ -638,26 +471,10 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
  */
 GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
 {
-    ILI9488_SPI_PRIV *spiPriv = NULL;
-
     if (!drv)
         return GFX_FAILURE;
 
-    spiPriv = (ILI9488_SPI_PRIV *) 
-                drv->gfx->memory.calloc(1, sizeof (ILI9488_SPI_PRIV));
-
-    spiPriv->drvSPIHandle = DRV_SPI_Open(index, DRV_IO_INTENT_READWRITE);
-    if (DRV_HANDLE_INVALID == spiPriv->drvSPIHandle)
-    {
-        drv->gfx->memory.free(spiPriv);
-
-        return GFX_FAILURE;
-    }
-
-    DRV_SPI_TransferEventHandlerSet(spiPriv->drvSPIHandle,
-                                    ILI9488_SPI_CallBack,
-                                    (uintptr_t)&spiPriv->drvSPITransStatus );
-    drv->port_priv = (void *) spiPriv;
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, index);
 
     return GFX_SUCCESS;
 }
@@ -682,19 +499,12 @@ GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
  */
 void ILI9488_Intf_Close(ILI9488_DRV *drv) 
 {
-    ILI9488_SPI_PRIV *spiPriv = NULL;
-
     if (!drv)
         return;
 
-    spiPriv = (ILI9488_SPI_PRIV *) drv->port_priv;
-
-    DRV_SPI_Close(spiPriv->drvSPIHandle);
-
-    drv->gfx->memory.free(spiPriv);
+    GFX_Disp_Intf_Close((GFX_Disp_Intf) drv->port_priv);
 
     drv->port_priv = NULL;
-
 }
 /* *****************************************************************************
  End of File

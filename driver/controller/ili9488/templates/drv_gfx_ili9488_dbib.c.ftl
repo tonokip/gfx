@@ -8,8 +8,7 @@
     Implements DBIB parallel interface for the ILI9488
 
   Description:
-    Implements DBIB parallel interface for the ILI9488. This driver uses the SMC
-    peripheral port to drive the parallel interface.
+    Implements DBIB parallel interface for the ILI9488. 
 
     Created with MPLAB Harmony Version 3.0
  *******************************************************************************/
@@ -46,69 +45,23 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
 
-// This is the base address of the SMC0 peripheral on V71.
-// Update to appropriate base address for other MCUs.
+#include "drv_gfx_disp_intf.h"
 
-#define EBI_CS_INDEX  ${EBIChipSelectIndex}
+#define ILI9488_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
+                                    GFX_DISP_INTF_PIN_CS, \
+                                    GFX_DISP_INTF_PIN_CLEAR)
 
-<#if EBIChipSelectIndex == 0>
-#define EBI_BASE_ADDR  EBI_CS0_ADDR
-<#elseif EBIChipSelectIndex == 1>
-#define EBI_BASE_ADDR  EBI_CS1_ADDR
-<#elseif EBIChipSelectIndex == 2>
-#define EBI_BASE_ADDR  EBI_CS2_ADDR
-<#elseif EBIChipSelectIndex == 3>
-#define EBI_BASE_ADDR  EBI_CS3_ADDR
-</#if> 
+#define ILI9488_NCSDeassert(intf) GFX_Disp_Intf_PinControl(intf, \
+                                    GFX_DISP_INTF_PIN_CS, \
+                                    GFX_DISP_INTF_PIN_SET)
 
-#define ILI9488_NCSAssert() BSP_ILI9488_NCS_Clear()
-#define ILI9488_NCSDeassert() BSP_ILI9488_NCS_Set()
-
-// Use Address bit ${DCXAddressBit} as DCX
-// This lets set set DCX = 1 by writing the data/params to ILI9488_DBIB_DATA_ADDR
-#define ILI9488_DBIB_DATA_ADDR  (EBI_BASE_ADDR | (1 << ${DCXAddressBit}))
-#define ILI9488_DBIB_CMD_ADDR EBI_BASE_ADDR
-
+//Width of data bus
 <#if ParallelInterfaceWidth == "16-bit">
-// Data width for 16-bit SMC
 typedef uint16_t DBUS_WIDTH_T;
 </#if>
 <#if ParallelInterfaceWidth == "8-bit">
-// Data width for 8-bit SMC
 typedef uint8_t DBUS_WIDTH_T;
 </#if>
-
-/** ILI9488_DBIB_PRIV
-
-  Summary:
-    Structure contains status and handles for DBI-B interface
-    
- */
-typedef struct 
-{
-    /* Address to write commands */
-    volatile DBUS_WIDTH_T * cmdAddr;
-    
-    /* Address to write data/parameters */
-    volatile DBUS_WIDTH_T * dataAddr;
-} ILI9488_DBIB_PRIV;
-
-/** ILI9488_DBIB_PRIV
-
-  Function:
-    static GFX_Result ILI9488_Intf_Sync(void)
-
-  Summary:
-    Add synchronization for core writes to the SMC
-
- */
-static inline void ILI9488_Intf_Sync(void)
-{
-<#if UseSyncBarriers == true>
-    __ASM volatile ("dsb");
-    __ASM volatile ("dmb");
-</#if>	
-}
 
 /** 
   Function:
@@ -121,8 +74,9 @@ static inline void ILI9488_Intf_Sync(void)
     Sends read command and returns response from the ILI9488 device.
 
   Description:
-    This function will do an SMC write operation to send the read command 
-    to the ILI9488, and then do a SMC read operation to read the response.
+    This function will do a write operation over the parallel interface to send 
+    the read command to the ILI9488, and then do a read operation to read the 
+    response.
 
   Parameters:
     drv         - ILI9488 driver handle
@@ -141,29 +95,28 @@ static GFX_Result ILI9488_Intf_Read(struct ILI9488_DRV *drv,
                                     uint8_t *data,
                                     int bytes) 
 {
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
-    unsigned int i;
+    GFX_Disp_Intf intf;
+    GFX_Result retval = GFX_FAILURE;
 
     if ((!drv) || (!data) || (bytes <= 0))
         return GFX_FAILURE;
 
-    ILI9488_NCSAssert();
-
-    dbiPriv = (ILI9488_DBIB_PRIV *) drv->port_priv;
-
-    ILI9488_Intf_Sync();  
-    *dbiPriv->cmdAddr = cmd;
-    ILI9488_Intf_Sync();  
+    intf = (GFX_Disp_Intf) drv->port_priv;
     
-    // Read data 1 byte a time
-    for (i = 0; i < bytes; i++)
+    ILI9488_NCSAssert(intf);
+
+    retval = GFX_Disp_Intf_Write(intf, &cmd, 1);
+    if (retval == GFX_FAILURE)
     {
-        *(data + i) = *(dbiPriv->dataAddr);
+        ILI9488_NCSDeassert(intf);
+        return GFX_FAILURE;
     }
     
-    ILI9488_NCSDeassert();
+    retval = GFX_Disp_Intf_ReadData(intf, data, bytes);
+    
+    ILI9488_NCSDeassert(intf);
 
-    return GFX_SUCCESS;;
+    return retval;
 }
 
 /** 
@@ -177,8 +130,7 @@ static GFX_Result ILI9488_Intf_Read(struct ILI9488_DRV *drv,
     Sends write command and parameters to the ILI9488 device.
 
   Description:
-
-    This function will do a SMC write operation to send the write command 
+    This function will do a write operation to send the write command 
     and its parameters to the ILI9488.
 
 
@@ -199,32 +151,22 @@ GFX_Result ILI9488_Intf_WriteCmd(struct ILI9488_DRV *drv,
                                 uint8_t *parms,
                                 int num_parms) 
 {
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
-    unsigned int i;
+    GFX_Result returnValue = GFX_FAILURE;
+    GFX_Disp_Intf intf;
 
     if (!drv)
         return GFX_FAILURE;
 
-    ILI9488_NCSAssert();
-
-    dbiPriv = (ILI9488_DBIB_PRIV *) drv->port_priv;
-
-    // Write the command
-    ILI9488_Intf_Sync();  
-    *(dbiPriv->cmdAddr) = cmd ;
-    ILI9488_Intf_Sync();  
-   
-    // Write data one byte at a time
-    for (i = 0; i < num_parms; i++)
-    {
-        *(dbiPriv->dataAddr) = *(parms);
-        parms++;
-        ILI9488_Intf_Sync();  
-    }
+    intf = (GFX_Disp_Intf ) drv->port_priv;
     
-    ILI9488_NCSDeassert();
+    ILI9488_NCSAssert(intf);
 
-    return GFX_SUCCESS;
+    // Write the command and parameters
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf, cmd, parms, num_parms);
+   
+    ILI9488_NCSDeassert(intf);
+
+    return returnValue;
 }
 
 /** 
@@ -261,65 +203,66 @@ GFX_Result ILI9488_Intf_WritePixels(struct ILI9488_DRV *drv,
                                    unsigned int num_pixels)
 {
     GFX_Result returnValue = GFX_FAILURE;
-<#if ParallelInterfaceWidth == "16-bit">
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
-    unsigned int i;
-</#if>
+    GFX_Disp_Intf intf;
     uint8_t buf[4];
     
     if (!drv)
         return GFX_FAILURE;
-
+    
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    ILI9488_NCSAssert(intf);
+    
     //Set column
     buf[0] = (start_x >> 8);
     buf[1] = (start_x & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_COLUMN_ADDRESS_SET,
                                        buf,
                                        4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSDeassert(intf);
         return GFX_FAILURE;
+    }
 
     //Set page
     buf[0] = (start_y >> 8);
     buf[1] = (start_y & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_PAGE_ADDRESS_SET,
                                        buf,
                                        4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSDeassert(intf);
         return GFX_FAILURE;
+    }
 
 <#if ParallelInterfaceWidth == "16-bit">
-    dbiPriv = (ILI9488_DBIB_PRIV *) drv->port_priv;
-    
-    ILI9488_NCSAssert();
-
     // Write the command
-    ILI9488_Intf_Sync();  
-    *(dbiPriv->cmdAddr) = ILI9488_CMD_MEMORY_WRITE ;
-    ILI9488_Intf_Sync();  
-
-    // Write data 2 bytes at a time
-    for (i = 0; i < num_pixels; i++)
+    returnValue = GFX_Disp_Intf_WriteCommand(intf, ILI9488_CMD_MEMORY_WRITE);
+    if (GFX_SUCCESS != returnValue)
     {
-        *(dbiPriv->dataAddr) = *((uint16_t *) data); //(data[0] << 8) | data[1];
-        ILI9488_Intf_Sync();  
-        data += 2;
+        ILI9488_NCSDeassert(intf);
+        return GFX_FAILURE;
     }
     
-    ILI9488_NCSDeassert();
+    // Write 16-bit pixel data stream
+    returnValue = GFX_Disp_Intf_WriteData16(intf, (uint16_t *) data, num_pixels);
 </#if>
 <#if ParallelInterfaceWidth == "8-bit">
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_MEMORY_WRITE,
-                                       data,
+                                       (uint8_t *) data,
                                        num_pixels * 2);
 </#if>
+
+    ILI9488_NCSDeassert(intf);
 
     return returnValue;
 }
@@ -358,10 +301,10 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
                                   unsigned int num_pixels)
 {
     GFX_Result returnValue = GFX_FAILURE;
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
+    GFX_Disp_Intf intf;
     uint8_t buf[4];
     unsigned int i;
-    volatile DBUS_WIDTH_T pixel[3] = {0};
+    DBUS_WIDTH_T pixel[3] = {0};
 <#if ParallelInterfaceWidth == "16-bit">
     uint16_t * pixelPtr;
 </#if>
@@ -369,40 +312,59 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     if (!drv)
         return GFX_FAILURE;
 
-    dbiPriv = (ILI9488_DBIB_PRIV *) drv->port_priv;
-
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    ILI9488_NCSAssert(intf);
+    
     //Set column
     buf[0] = ((x & 0xff00) >> 8);
     buf[1] = (x & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.width - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.width - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_COLUMN_ADDRESS_SET,
                                        buf,
                                        4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSDeassert(intf);    
         return GFX_FAILURE;
+    }
 
     //Set page
     buf[0] = ((y & 0xff00) >> 8);
     buf[1] = (y & 0xff);
     buf[2] = (((drv->gfx->display_info->rect.height - 1) & 0xff00) >> 8);
     buf[3] = ((drv->gfx->display_info->rect.height - 1) & 0xff);
-    returnValue = ILI9488_Intf_WriteCmd(drv,
+    returnValue = GFX_Disp_Intf_WriteCommandParm(intf,
                                        ILI9488_CMD_PAGE_ADDRESS_SET,
                                        buf,
                                        4);
     if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSAssert(intf);        
         return GFX_FAILURE;
+    }
 
-    ILI9488_NCSAssert();
-
-    ILI9488_Intf_Sync();  
-    *dbiPriv->cmdAddr = ILI9488_CMD_MEMORY_READ;
-    ILI9488_Intf_Sync();  
-
+    returnValue = GFX_Disp_Intf_WriteCommand(intf, ILI9488_CMD_MEMORY_READ);
+    if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSDeassert(intf);
+        return GFX_FAILURE;
+    }
+    
     // Read the dummy byte
-    pixel[0] = *(dbiPriv->dataAddr);
+<#if ParallelInterfaceWidth == "16-bit">
+    returnValue = GFX_Disp_Intf_ReadData16(intf, pixel, 1);
+</#if>
+<#if ParallelInterfaceWidth == "8-bit">
+    returnValue = GFX_Disp_Intf_ReadData(intf, pixel, 1);
+</#if>
+    if (GFX_SUCCESS != returnValue)
+    {
+        ILI9488_NCSDeassert(intf);        
+        return GFX_FAILURE;
+    }    
 
     // Read the pixel data
 <#if ParallelInterfaceWidth == "16-bit">
@@ -410,11 +372,17 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     {
         //In 16-bit mode, each 16-bit read contains 2 bytes of color data, with 
         //each byte containing one color in RGB565 mode. So 3 16-bit reads will 
-        //read 2 pixels
-        pixel[0] = *(dbiPriv->dataAddr); //pixel[0] bits [15:11] -> R(n), bits [7:2] -> G(n)
-        pixel[1] = *(dbiPriv->dataAddr); //pixel[1] bits [15:11] -> B(n), bits [7:3] -> R(n+1)
-        pixel[2] = *(dbiPriv->dataAddr); //pixel[2] bits [15:10] -> G(n+1), bits [7:3] -> B(n+1)
+        //read 2 pixelsc
+        returnValue = GFX_Disp_Intf_ReadData16(intf, pixel, 3);
+        if (GFX_SUCCESS != returnValue)
+        {
+            ILI9488_NCSDeassert(intf);        
+            return GFX_FAILURE;
+        }
         
+        //pixel[0] bits [15:11] -> R(n), bits [7:2] -> G(n)
+        //pixel[1] bits [15:11] -> B(n), bits [7:3] -> R(n+1)
+        //pixel[2] bits [15:10] -> G(n+1), bits [7:3] -> B(n+1)
         *pixelPtr = (pixel[0] & 0xf800)             //R
                     | ((pixel[0] & 0x00fc) << 3)    //G 
                     | ((pixel[1] & 0xf800) >> 11);  //B
@@ -436,9 +404,12 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     {
         // In 8-bit mode, each 8-bit read gets one color in RGB565 color mode.
         // Read 3 bytes to get R, G, and B.
-        pixel[0] = *(dbiPriv->dataAddr); //R
-        pixel[1] = *(dbiPriv->dataAddr); //G
-        pixel[2] = *(dbiPriv->dataAddr); //B
+        returnValue = GFX_Disp_Intf_ReadData(intf, pixel, 3);
+        if (GFX_SUCCESS != returnValue)
+        {
+            ILI9488_NCSDeassert(intf);        
+            return GFX_FAILURE;
+        }
         
         value[i * drv->bytesPerPixelBuffer] = (pixel[0] | (pixel[1] >> 5));
         value[(i * drv->bytesPerPixelBuffer) + 1] = 
@@ -446,7 +417,7 @@ GFX_Result ILI9488_Intf_ReadPixels(struct ILI9488_DRV *drv,
     }
 </#if>
 
-    ILI9488_NCSDeassert();
+    ILI9488_NCSDeassert(intf);
 
     return GFX_SUCCESS;
 }
@@ -486,14 +457,20 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 {
     GFX_Result returnValue = GFX_FAILURE;
     uint8_t buff[5];
+    GFX_Disp_Intf intf;    
 
     //API supports only 8-, 24-, or 32-bit reads
     if ((!drv) || (!data) ||
         ((bytes != 1) && (bytes != 3) && (bytes != 4)))
         return GFX_FAILURE;
-
+    
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    ILI9488_NCSAssert(intf);
     returnValue = ILI9488_Intf_Read(drv, cmd, buff, bytes + 1);
-
+    ILI9488_NCSDeassert(intf);    
+    
+    
     return returnValue;
 }
 
@@ -523,20 +500,16 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
  */
 GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
 {
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
-
+    GFX_Disp_Intf intf;
+    
     if (!drv)
         return GFX_FAILURE;
-
-    dbiPriv = (ILI9488_DBIB_PRIV *) 
-                drv->gfx->memory.calloc(1, sizeof (ILI9488_DBIB_PRIV));
-
-    dbiPriv->dataAddr = (DBUS_WIDTH_T *) ILI9488_DBIB_DATA_ADDR;
-    dbiPriv->cmdAddr = (DBUS_WIDTH_T *) ILI9488_DBIB_CMD_ADDR;
     
-    drv->port_priv = (void *) dbiPriv;
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, index);
+    
+    intf = (GFX_Disp_Intf) drv->port_priv;
 
-    ILI9488_NCSDeassert();
+    ILI9488_NCSDeassert(intf);
 
     return GFX_SUCCESS;
 }
@@ -561,18 +534,18 @@ GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
  */
 void ILI9488_Intf_Close(ILI9488_DRV *drv) 
 {
-    ILI9488_DBIB_PRIV *dbiPriv = NULL;
-
+    GFX_Disp_Intf intf;
+    
     if (!drv)
         return;
 
-    dbiPriv = (ILI9488_DBIB_PRIV *) drv->port_priv;
-
-    drv->gfx->memory.free(dbiPriv);
+    intf = (GFX_Disp_Intf) drv->port_priv;
+    
+    ILI9488_NCSDeassert(intf);
+    
+    GFX_Disp_Intf_Close((GFX_Disp_Intf) drv->port_priv);
 
     drv->port_priv = NULL;
-
-    ILI9488_NCSDeassert();
 }
 /* *****************************************************************************
  End of File
