@@ -262,7 +262,7 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="aria_gfx_xplained_pro" priority="1" value="BSP_DisplayBacklight"/>
             </Dynamic>
-            <User dnOrder="1" value="BSP_DisplayBacklight"/>
+            <User dnOrder="1" value="GFX_DISP_INTF_PIN_BACKLIGHT"/>
           </Values>
         </String>
         <String dnOrder="38" id="PIN_102_FUNCTION_TYPE">
@@ -318,7 +318,7 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="aria_gfx_xplained_pro" priority="1" value="BSP_DisplayReset"/>
             </Dynamic>
-            <User dnOrder="1" value="BSP_DisplayReset"/>
+            <User dnOrder="1" value="GFX_DISP_INTF_PIN_RESET"/>
           </Values>
         </String>
         <String dnOrder="46" id="PIN_103_FUNCTION_TYPE">
@@ -1628,7 +1628,7 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="aria_gfx_xplained_pro" priority="1" value="BSP_ILI9488_SPI_DCX"/>
             </Dynamic>
-            <User dnOrder="1" value="BSP_ILI9488_SPI_DCX"/>
+            <User dnOrder="1" value="GFX_DISP_INTF_PIN_RSDC"/>
           </Values>
         </String>
         <String dnOrder="250" id="PIN_31_FUNCTION_TYPE">
@@ -2126,7 +2126,7 @@
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="aria_gfx_xplained_pro" priority="1" value="BSP_ILI9488_SPI_CSX"/>
             </Dynamic>
-            <User dnOrder="1" value="BSP_ILI9488_SPI_CSX"/>
+            <User dnOrder="1" value="GFX_DISP_INTF_PIN_CS"/>
           </Values>
         </String>
         <String dnOrder="324" id="PIN_52_FUNCTION_TYPE">
@@ -5870,49 +5870,21 @@
         <Dependency dnOrder="1" enabled="false" id="SMC_CS"/>
       </Dependencies>
       <Symbols dnOrder="2">
-        <Integer dnOrder="0" id="DisplayHeight">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Integer>
-        <Integer dnOrder="1" id="DisplayWidth">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Integer>
-        <File dnOrder="2" id="GFX_ILI9488_SPI">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Comment dnOrder="3" id="HALComment">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </Comment>
-        <Boolean dnOrder="4" id="HALConnected">
+        <Boolean dnOrder="0" id="HALConnected">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_hal" priority="1" value="true"/>
             </Dynamic>
           </Values>
         </Boolean>
-        <Combo dnOrder="5" id="Interface">
+        <Combo dnOrder="1" id="Interface">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_driver_ili9488" priority="1" value="SPI 4-Line"/>
             </Dynamic>
           </Values>
         </Combo>
-        <Integer dnOrder="6" id="SPIPortIndex">
+        <Integer dnOrder="2" id="SPIPortIndex">
           <Values dnOrder="0">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="gfx_driver_ili9488" priority="1" value="0"/>
@@ -6099,7 +6071,12 @@
           </Values>
         </String>
         <Boolean dnOrder="24" id="GlobalPaletteModeHint">
-          <Values dnOrder="0">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
             <Dynamic dnOrder="0">
               <Value dnOrder="0" id="aria_gfx_library" priority="1" value="false"/>
             </Dynamic>
@@ -6138,7 +6115,8 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <ComponentGraph dnOrder="0">
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0" minimap="false"/>
+    <ComponentGraph dnOrder="1">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="BSP_SAM_E70_Xplained_Ultra" x="480" y="20"/>
         <ElementPosition dnOrder="1" id="HarmonyCore" x="702" y="11"/>
@@ -6154,6 +6132,5 @@
         <ElementPosition dnOrder="11" id="spi0" x="-3" y="124"/>
       </ElementPositions>
     </ComponentGraph>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1" minimap="false"/>
   </UserData>
 </Configuration>

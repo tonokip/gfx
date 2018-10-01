@@ -42,11 +42,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #ifndef DRV_GFX_ILI9488_COMMON_H    /* Guard against multiple inclusion */
 #define DRV_GFX_ILI9488_COMMON_H
 
-#define ILI9488_Reset_Assert()      BSP_DisplayReset_Clear()
-#define ILI9488_Reset_Deassert()    BSP_DisplayReset_Set()
+#define ILI9488_Reset_Assert()      GFX_DISP_INTF_PIN_RESET_Clear()
+#define ILI9488_Reset_Deassert()    GFX_DISP_INTF_PIN_RESET_Set()
 
-#define ILI9488_Backlight_On()      BSP_DisplayBacklight_Set()
-#define ILI9488_Backlight_Off()     BSP_DisplayBacklight_Clear()
+#define ILI9488_Backlight_On()      GFX_DISP_INTF_PIN_BACKLIGHT_Set()
+#define ILI9488_Backlight_Off()     GFX_DISP_INTF_PIN_BACKLIGHT_Clear()
 
 /** ILI9488_CMD_PARAM
 
