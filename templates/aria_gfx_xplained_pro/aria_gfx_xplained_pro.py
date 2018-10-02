@@ -74,7 +74,8 @@ def instantiateComponent(bspComponent):
 	res = Database.connectDependencies(autoConnectTable)
 	res = Database.deactivateComponents(deactivateIDTable);
 	
-	DisplayInterface = bspComponent.createComboSymbol("DisplayInterface", None, ["SPI 4-line", "Parallel"])
+	#DisplayInterface = bspComponent.createComboSymbol("DisplayInterface", None, ["SPI 4-line", "Parallel"])
+	DisplayInterface = bspComponent.createComboSymbol("DisplayInterface", None, ["SPI 4-line"])
 	DisplayInterface.setLabel("Display Interface")
 	DisplayInterface.setDescription("Configures the display interface to the maXTouch Xplained Pro display.")
 	DisplayInterface.setDefaultValue("SPI 4-line")
