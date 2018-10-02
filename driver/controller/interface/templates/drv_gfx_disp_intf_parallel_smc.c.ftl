@@ -60,8 +60,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 // Use Address bit ${DCXAddressBit} as DCX
 // This lets set set DCX = 1 by writing the data/params to ILI9488_DBIB_DATA_ADDR
-#define ILI9488_DBIB_DATA_ADDR  (EBI_BASE_ADDR | (1 << ${DCXAddressBit}))
-#define ILI9488_DBIB_CMD_ADDR EBI_BASE_ADDR
+#define GFX_DISP_INTF_SMC_DATA_ADDR  (EBI_BASE_ADDR | (1 << ${DCXAddressBit}))
+#define GFX_DISP_INTF_SMC_CMD_ADDR EBI_BASE_ADDR
 
 <#if ParallelInterfaceWidth == "16-bit">
 // Data width for 16-bit SMC
