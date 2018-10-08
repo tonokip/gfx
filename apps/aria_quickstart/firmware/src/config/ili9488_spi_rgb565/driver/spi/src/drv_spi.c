@@ -16,26 +16,26 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-Copyright (c) 2018 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute Software
-only when embedded on a Microchip microcontroller or digital  signal  controller
-that is integrated into your product or third party  product  (pursuant  to  the
-sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS  WITHOUT  WARRANTY  OF  ANY  KIND,
-EITHER EXPRESS  OR  IMPLIED,  INCLUDING  WITHOUT  LIMITATION,  ANY  WARRANTY  OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A  PARTICULAR  PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR  ITS  LICENSORS  BE  LIABLE  OR  OBLIGATED  UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION,  BREACH  OF  WARRANTY,  OR
-OTHER LEGAL  EQUITABLE  THEORY  ANY  DIRECT  OR  INDIRECT  DAMAGES  OR  EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY  INCIDENTAL,  SPECIAL,  INDIRECT,  PUNITIVE  OR
-CONSEQUENTIAL DAMAGES, LOST  PROFITS  OR  LOST  DATA,  COST  OF  PROCUREMENT  OF
-SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE  THEREOF),  OR  OTHER  SIMILAR  COSTS.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 //DOM-IGNORE-END
 
@@ -230,7 +230,7 @@ static void _DRV_SPI_StartDMATransfer(DRV_SPI_TRANSFER_OBJ    *transferObj)
     SYS_DMA_ChannelCallbackRegister(hDriver->txDMAChannel, _DRV_SPI_TX_DMA_CallbackHandler, (uintptr_t)transferObj);
     SYS_DMA_ChannelCallbackRegister(hDriver->rxDMAChannel, _DRV_SPI_RX_DMA_CallbackHandler, (uintptr_t)transferObj);
 
-    if(clientObj->setup.dataBits == DRV_SPI_DATA_BITS_8_BIT)
+    if(clientObj->setup.dataBits == DRV_SPI_DATA_BITS_8)
     {
         SYS_DMA_DataWidthSetup(hDriver->rxDMAChannel, DRV_SPI_DMA_WIDTH_8_BIT);
         SYS_DMA_DataWidthSetup(hDriver->txDMAChannel, DRV_SPI_DMA_WIDTH_8_BIT);
@@ -327,7 +327,6 @@ static void _DRV_SPI_PlibCallbackHandler(uintptr_t contextHandle)
     DRV_SPI_OBJ             *dObj             = (DRV_SPI_OBJ *)contextHandle;
     DRV_SPI_CLIENT_OBJ      *clientObj        = (DRV_SPI_CLIENT_OBJ *)NULL;
     DRV_SPI_TRANSFER_OBJ    *transferObj      = (DRV_SPI_TRANSFER_OBJ *)NULL;
-    DRV_SPI_ERROR           errorStatus;
 
     if((!dObj->inUse) || (dObj->status != SYS_STATUS_READY))
     {
@@ -345,16 +344,7 @@ static void _DRV_SPI_PlibCallbackHandler(uintptr_t contextHandle)
         SYS_PORT_PinWrite(clientObj->setup.chipSelect, !((bool)(clientObj->setup.csPolarity)));
     }
 
-    errorStatus = dObj->spiPlib->errorGet();
-
-    if(errorStatus == DRV_SPI_ERROR_NONE)
-    {
-        transferObj->event = DRV_SPI_TRANSFER_EVENT_COMPLETE;
-    }
-    else
-    {
-        transferObj->event = DRV_SPI_TRANSFER_EVENT_ERROR;
-    }
+    transferObj->event = DRV_SPI_TRANSFER_EVENT_COMPLETE;
 
     _DRV_SPI_ReleaseBufferObject(transferObj);
 
@@ -528,16 +518,14 @@ SYS_MODULE_OBJ DRV_SPI_Initialize( const SYS_MODULE_INDEX drvIndex, const SYS_MO
     dObj->spiTokenCount         = 1;
     dObj->interruptNestingCount = 0;
 
-    dObj->baudRateInHz          = spiInit->baudRateInHz;
-    dObj->clockPhase            = spiInit->clockPhase;
-    dObj->clockPolarity         = spiInit->clockPolarity;
-    dObj->dataBits              = spiInit->dataBits;
-
     dObj->isExclusive           = false;
     dObj->txDMAChannel          = spiInit->dmaChannelTransmit;
     dObj->rxDMAChannel          = spiInit->dmaChannelReceive;
     dObj->txAddress             = spiInit->spiTransmitAddress;
     dObj->rxAddress             = spiInit->spiReceiveAddress;
+    dObj->remapDataBits         = spiInit->remapDataBits;
+    dObj->remapClockPolarity    = spiInit->remapClockPolarity;
+    dObj->remapClockPhase       = spiInit->remapClockPhase;
 
     for (txDummyDataIdx = 0; txDummyDataIdx < sizeof(txDummyData); txDummyDataIdx++)
     {
@@ -695,13 +683,8 @@ DRV_HANDLE DRV_SPI_Open( const SYS_MODULE_INDEX drvIndex, const DRV_IO_INTENT io
             /* Initialize other elements in Client Object */
             clientObj->eventHandler         = NULL;
             clientObj->context              = (uintptr_t)NULL;
-
-            clientObj->setup.baudRateInHz   = dObj->baudRateInHz;
-            clientObj->setup.clockPhase     = dObj->clockPhase;
-            clientObj->setup.clockPolarity  = dObj->clockPolarity;
-            clientObj->setup.dataBits       = dObj->dataBits;
             clientObj->setup.chipSelect     = SYS_PORT_PIN_NONE;
-            clientObj->setupChanged         = true;
+            clientObj->setupChanged         = false;
             clientObj->drvIndex             = drvIndex;
 
             return clientObj->clientHandle;
@@ -838,29 +821,37 @@ void DRV_SPI_TransferEventHandlerSet( const DRV_HANDLE handle, const DRV_SPI_TRA
 bool DRV_SPI_TransferSetup( const DRV_HANDLE handle, DRV_SPI_TRANSFER_SETUP * setup )
 {
     DRV_SPI_CLIENT_OBJ * clientObj = NULL;
+    DRV_SPI_OBJ* hDriver = (DRV_SPI_OBJ *)NULL;
+    DRV_SPI_TRANSFER_SETUP setupRemap;
+    bool isSuccess = false;
 
     /* Validate the driver handle */
     clientObj = _DRV_SPI_DriverHandleValidate(handle);
-    if(clientObj == NULL)
+
+    if((clientObj != NULL) && (setup != NULL))
     {
-        SYS_DEBUG(SYS_ERROR_ERROR, "Invalid Driver Handle");
-        return false;
+        hDriver = (DRV_SPI_OBJ *)&gDrvSPIObj[clientObj->drvIndex];
+
+        setupRemap = *setup;
+
+        setupRemap.clockPolarity = hDriver->remapClockPolarity[setup->clockPolarity];
+        setupRemap.clockPhase = hDriver->remapClockPhase[setup->clockPhase];
+        setupRemap.dataBits = hDriver->remapDataBits[setup->dataBits];
+
+        if ((setupRemap.clockPhase != DRV_SPI_CLOCK_PHASE_INVALID) && (setupRemap.clockPolarity != DRV_SPI_CLOCK_POLARITY_INVALID) \
+                && (setupRemap.dataBits != DRV_SPI_DATA_BITS_INVALID))
+        {
+            /* Save the required setup in client object which can be used while
+            processing queue requests. */
+            clientObj->setup = setupRemap;
+
+            /* Update the flag denoting that setup has been changed dynamically */
+            clientObj->setupChanged = true;
+
+            isSuccess = true;
+        }
     }
-
-    if(setup == NULL)
-    {
-        SYS_DEBUG(SYS_ERROR_ERROR, "Invalid input setup");
-        return false;
-    }
-
-    /* Save the required setup in client object which can be used while
-    processing queue requests. */
-    clientObj->setup = *setup;
-
-    /* Update the flag denoting that setup has been changed dynamically */
-    clientObj->setupChanged = true;
-
-    return true;
+    return isSuccess;
 }
 
 // *****************************************************************************
@@ -940,7 +931,7 @@ void DRV_SPI_WriteReadTransferAdd
         transferObj->pTransmitData  = pTransmitData;
         transferObj->event          = DRV_SPI_TRANSFER_EVENT_PENDING;
         transferObj->nextIndex      = NULL_INDEX;
-        if((hDriver->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (hDriver->rxDMAChannel != SYS_DMA_CHANNEL_NONE) && (clientObj->setup.dataBits != DRV_SPI_DATA_BITS_8_BIT))
+        if((hDriver->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (hDriver->rxDMAChannel != SYS_DMA_CHANNEL_NONE) && (clientObj->setup.dataBits != DRV_SPI_DATA_BITS_8))
         {
             /* If its DMA mode and SPI data bits is other than 8 bit, then divide transmit sizes by 2 */
             transferObj->txSize = txSize >> 1;
@@ -1086,7 +1077,7 @@ DRV_SPI_TRANSFER_EVENT DRV_SPI_TransferStatusGet(const DRV_SPI_TRANSFER_HANDLE t
     if(drvInstance >= DRV_SPI_INSTANCES_NUMBER)
     {
         SYS_DEBUG(SYS_ERROR_ERROR, "Transfer Handle Invalid");
-        return DRV_SPI_TRANSFER_HANDLE_INVALID_OR_EXPIRED;
+        return DRV_SPI_TRANSFER_EVENT_HANDLE_INVALID;
     }
 
     dObj = (DRV_SPI_OBJ*)&gDrvSPIObj[drvInstance];
@@ -1098,12 +1089,12 @@ DRV_SPI_TRANSFER_EVENT DRV_SPI_TransferStatusGet(const DRV_SPI_TRANSFER_HANDLE t
     if(transferIndex >= dObj->transferQueueSize)
     {
         SYS_DEBUG(SYS_ERROR_ERROR, "Transfer Handle Invalid");
-        return DRV_SPI_TRANSFER_HANDLE_INVALID_OR_EXPIRED;
+        return DRV_SPI_TRANSFER_EVENT_HANDLE_INVALID;
     }
     else if(transferHandle != dObj->transferArray[transferIndex].transferHandle)
     {
         SYS_DEBUG(SYS_ERROR_ERROR, "Transfer Handle Expired");
-        return DRV_SPI_TRANSFER_HANDLE_INVALID_OR_EXPIRED;
+        return DRV_SPI_TRANSFER_EVENT_HANDLE_EXPIRED;
     }
     else
     {

@@ -17,30 +17,30 @@
 *******************************************************************************/
 
 /*******************************************************************************
-Copyright (c) 2017 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS  WITHOUT  WARRANTY  OF  ANY  KIND,
-EITHER EXPRESS  OR  IMPLIED,  INCLUDING  WITHOUT  LIMITATION,  ANY  WARRANTY  OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A  PARTICULAR  PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR  ITS  LICENSORS  BE  LIABLE  OR  OBLIGATED  UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION,  BREACH  OF  WARRANTY,  OR
-OTHER LEGAL  EQUITABLE  THEORY  ANY  DIRECT  OR  INDIRECT  DAMAGES  OR  EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY  INCIDENTAL,  SPECIAL,  INDIRECT,  PUNITIVE  OR
-CONSEQUENTIAL DAMAGES, LOST  PROFITS  OR  LOST  DATA,  COST  OF  PROCUREMENT  OF
-SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE  THEREOF),  OR  OTHER  SIMILAR  COSTS.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SPI_H
-#define PLIB_SPI_H
+#ifndef PLIB_SPI_COMMON_H
+#define PLIB_SPI_COMMON_H
 
 #include <stdint.h>
 #include <stddef.h>
@@ -59,28 +59,37 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 typedef enum
 {
     SPI_CLOCK_PHASE_TRAILING_EDGE = 0 << SPI_CSR_NCPHA_Pos,
-    SPI_CLOCK_PHASE_LEADING_EDGE = 1 << SPI_CSR_NCPHA_Pos
+    SPI_CLOCK_PHASE_LEADING_EDGE = 1 << SPI_CSR_NCPHA_Pos,
+
+    /* Force the compiler to reserve 32-bit space for each enum value */
+    SPI_CLOCK_PHASE_INVALID = 0xFFFFFFFF
 
 }SPI_CLOCK_PHASE;
 
 typedef enum
 {
     SPI_CLOCK_POLARITY_IDLE_LOW = 0 << SPI_CSR_CPOL_Pos,
-    SPI_CLOCK_POLARITY_IDLE_HIGH = 1 << SPI_CSR_CPOL_Pos
+    SPI_CLOCK_POLARITY_IDLE_HIGH = 1 << SPI_CSR_CPOL_Pos,
+
+    /* Force the compiler to reserve 32-bit space for each enum value */
+    SPI_CLOCK_POLARITY_INVALID = 0xFFFFFFFF
 
 }SPI_CLOCK_POLARITY;
 
 typedef enum
 {
-    SPI_DATA_BITS_8 = SPI_CSR_BITS_8_BIT_Val,
-    SPI_DATA_BITS_9 = SPI_CSR_BITS_9_BIT_Val,
-    SPI_DATA_BITS_10 = SPI_CSR_BITS_10_BIT_Val,
-    SPI_DATA_BITS_11 = SPI_CSR_BITS_11_BIT_Val,
-    SPI_DATA_BITS_12 = SPI_CSR_BITS_12_BIT_Val,
-    SPI_DATA_BITS_13 = SPI_CSR_BITS_13_BIT_Val,
-    SPI_DATA_BITS_14 = SPI_CSR_BITS_14_BIT_Val,
-    SPI_DATA_BITS_15 = SPI_CSR_BITS_15_BIT_Val,
-    SPI_DATA_BITS_16 = SPI_CSR_BITS_16_BIT_Val
+    SPI_DATA_BITS_8 = SPI_CSR_BITS_8_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_9 = SPI_CSR_BITS_9_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_10 = SPI_CSR_BITS_10_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_11 = SPI_CSR_BITS_11_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_12 = SPI_CSR_BITS_12_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_13 = SPI_CSR_BITS_13_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_14 = SPI_CSR_BITS_14_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_15 = SPI_CSR_BITS_15_BIT_Val << SPI_CSR_BITS_Pos,
+    SPI_DATA_BITS_16 = SPI_CSR_BITS_16_BIT_Val << SPI_CSR_BITS_Pos,
+
+    /* Force the compiler to reserve 32-bit space for each enum value */
+    SPI_DATA_BITS_INVALID = 0xFFFFFFFF
 
 }SPI_DATA_BITS;
 
@@ -92,13 +101,6 @@ typedef struct
     SPI_DATA_BITS   dataBits;
 
 }SPI_TRANSFER_SETUP;
-
-typedef enum
-{
-    SPI_ERROR_NONE = 0,
-    SPI_ERROR_OVERRUN = 1 << SPI_SR_OVRES_Pos
-
-}SPI_ERROR;
 
 typedef  void (*SPI_CALLBACK) (uintptr_t context);
 
@@ -120,7 +122,6 @@ typedef struct
     bool                    transferIsBusy;
     SPI_CALLBACK       		callback;
     uintptr_t               context;
-    uint32_t                status;
 
 } SPI_OBJECT ;
 
@@ -131,7 +132,7 @@ typedef struct
 
 #endif
 
-#endif // PLIB_SPI_H
+#endif // PLIB_SPI_COMMON_H
 
 /*******************************************************************************
  End of File

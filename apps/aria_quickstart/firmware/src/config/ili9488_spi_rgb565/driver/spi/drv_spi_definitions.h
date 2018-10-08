@@ -17,26 +17,26 @@
 
 //DOM-IGNORE-BEGIN
 /*******************************************************************************
-Copyright (c) 2018 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS  WITHOUT  WARRANTY  OF  ANY  KIND,
-EITHER EXPRESS  OR  IMPLIED,  INCLUDING  WITHOUT  LIMITATION,  ANY  WARRANTY  OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A  PARTICULAR  PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR  ITS  LICENSORS  BE  LIABLE  OR  OBLIGATED  UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION,  BREACH  OF  WARRANTY,  OR
-OTHER LEGAL  EQUITABLE  THEORY  ANY  DIRECT  OR  INDIRECT  DAMAGES  OR  EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY  INCIDENTAL,  SPECIAL,  INDIRECT,  PUNITIVE  OR
-CONSEQUENTIAL DAMAGES, LOST  PROFITS  OR  LOST  DATA,  COST  OF  PROCUREMENT  OF
-SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE  THEREOF),  OR  OTHER  SIMILAR  COSTS.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 //DOM-IGNORE-END
 
@@ -71,29 +71,38 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 typedef enum
 {
-    DRV_SPI_CLOCK_PHASE_VALID_TRAILING_EDGE = 0x0,
-    DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE = 0x2
+    DRV_SPI_CLOCK_PHASE_VALID_TRAILING_EDGE = 0,
+    DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE = 1,
+
+    /* Force the compiler to reserve 32-bit memory space for each enum */
+    DRV_SPI_CLOCK_PHASE_INVALID = 0xFFFFFFFF
 
 }DRV_SPI_CLOCK_PHASE;
 
 typedef enum
 {
-    DRV_SPI_CLOCK_POLARITY_IDLE_LOW = 0x0,
-    DRV_SPI_CLOCK_POLARITY_IDLE_HIGH = 0x1
+    DRV_SPI_CLOCK_POLARITY_IDLE_LOW = 0,
+    DRV_SPI_CLOCK_POLARITY_IDLE_HIGH = 1,
+
+    /* Force the compiler to reserve 32-bit memory space for each enum */
+    DRV_SPI_CLOCK_POLARITY_INVALID = 0xFFFFFFFF
 
 }DRV_SPI_CLOCK_POLARITY;
 
 typedef enum
 {
-    DRV_SPI_DATA_BITS_8_BIT = 0x0,
-    DRV_SPI_DATA_BITS_9_BIT = 0x10,
-    DRV_SPI_DATA_BITS_10_BIT = 0x20,
-    DRV_SPI_DATA_BITS_11_BIT = 0x30,
-    DRV_SPI_DATA_BITS_12_BIT = 0x40,
-    DRV_SPI_DATA_BITS_13_BIT = 0x50,
-    DRV_SPI_DATA_BITS_14_BIT = 0x60,
-    DRV_SPI_DATA_BITS_15_BIT = 0x70,
-    DRV_SPI_DATA_BITS_16_BIT = 0x80,
+    DRV_SPI_DATA_BITS_8 = 0,
+    DRV_SPI_DATA_BITS_9 = 1,
+    DRV_SPI_DATA_BITS_10 = 2,
+    DRV_SPI_DATA_BITS_11 = 3,
+    DRV_SPI_DATA_BITS_12 = 4,
+    DRV_SPI_DATA_BITS_13 = 5,
+    DRV_SPI_DATA_BITS_14 = 6,
+    DRV_SPI_DATA_BITS_15 = 7,
+    DRV_SPI_DATA_BITS_16 = 8,
+
+    /* Force the compiler to reserve 32-bit memory space for each enum */
+    DRV_SPI_DATA_BITS_INVALID = 0xFFFFFFFF
 
 }DRV_SPI_DATA_BITS;
 
@@ -135,13 +144,6 @@ typedef struct
 
 } DRV_SPI_TRANSFER_SETUP;
 
-typedef enum
-{
-    DRV_SPI_ERROR_NONE = 0,
-    DRV_SPI_ERROR_OVERRUN = 0x8,
-
-}DRV_SPI_ERROR;
-
 typedef void (* DRV_SPI_PLIB_CALLBACK)( uintptr_t );
 
 typedef    bool (* DRV_SETUP) (DRV_SPI_TRANSFER_SETUP *, uint32_t);
@@ -149,8 +151,6 @@ typedef    bool (* DRV_SETUP) (DRV_SPI_TRANSFER_SETUP *, uint32_t);
 typedef    bool (* DRV_WRITEREAD)(void*, size_t, void *, size_t);
 
 typedef    bool (* DRV_IS_BUSY)(void);
-
-typedef    DRV_SPI_ERROR (* DRV_ERROR_GET)(void);
 
 typedef    void (* DRV_CALLBACK_REGISTER)(DRV_SPI_PLIB_CALLBACK, uintptr_t);
 
@@ -178,9 +178,6 @@ typedef struct
 
     /* SPI PLIB Transfer status API */
     DRV_IS_BUSY                 isBusy;
-
-    /* SPI PLIB Error get API */
-    DRV_ERROR_GET               errorGet;
 
     /* SPI PLIB callback register API */
     DRV_CALLBACK_REGISTER       callbackRegister;
@@ -218,23 +215,15 @@ typedef struct
     /* SPI receive register address used for DMA operation. */
     void                        *spiReceiveAddress;
 
-    /* Default baud rate */
-    uint32_t                    baudRateInHz;
-
-    /* Default clock phase */
-    DRV_SPI_CLOCK_PHASE         clockPhase;
-
-    /* Default clock polarity */
-    DRV_SPI_CLOCK_POLARITY      clockPolarity;
-
-    /* Default data bits */
-    DRV_SPI_DATA_BITS           dataBits;
-
     /* Memory Pool for Client Objects */
     uintptr_t                   clientObjPool;
 
     /* Number of clients */
     size_t                      numClients;
+
+    uint32_t *remapDataBits;
+    uint32_t *remapClockPolarity;
+    uint32_t *remapClockPhase;
 
     /* Queue for Transfer Objects */
     uintptr_t                   transferObjPool;
@@ -258,3 +247,4 @@ typedef struct
 /*******************************************************************************
  End of File
 */
+

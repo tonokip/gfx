@@ -15,26 +15,26 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-Copyright (c) 2017-2018 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
-OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
-CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
-SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  *******************************************************************************/
 // DOM-IGNORE-END
 
@@ -79,12 +79,15 @@ DRV_SPI_PLIB_INTERFACE drvSPI0PlibAPI = {
     /* SPI PLIB Transfer Status function */
     .isBusy = (DRV_IS_BUSY)SPI0_IsBusy,
 
-    /* SPI PLIB Error Status function */
-    .errorGet = (DRV_ERROR_GET)SPI0_ErrorGet,
-
     /* SPI PLIB Callback Register */
     .callbackRegister = (DRV_CALLBACK_REGISTER)SPI0_CallbackRegister,
 };
+
+
+
+uint32_t drvSPI0remapDataBits[]= { 0x0, 0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80 };
+uint32_t drvSPI0remapClockPolarity[] = { 0x0, 0x1 };
+uint32_t drvSPI0remapClockPhase[] = { 0x0, 0x2 };
 
 /* SPI Driver Initialization Data */
 DRV_SPI_INIT drvSPI0InitData =
@@ -92,23 +95,16 @@ DRV_SPI_INIT drvSPI0InitData =
     /* SPI PLIB API */
     .spiPlib = &drvSPI0PlibAPI,
 
+    .remapDataBits = drvSPI0remapDataBits,
+    .remapClockPolarity = drvSPI0remapClockPolarity,
+    .remapClockPhase = drvSPI0remapClockPhase,
+
+
     /* SPI Number of clients */
     .numClients = DRV_SPI_CLIENTS_NUMBER_IDX0,
 
     /* SPI Client Objects Pool */
     .clientObjPool = (uintptr_t)&drvSPI0ClientObjPool[0],
-
-    /* SPI setup parameters */
-    .baudRateInHz = (uint32_t)20000000,
-
-    /* SPI Clock Phase */
-    .clockPhase = DRV_SPI_CLOCK_PHASE_VALID_LEADING_EDGE,
-
-    /* SPI Clock Polarity */
-    .clockPolarity = DRV_SPI_CLOCK_POLARITY_IDLE_LOW,
-
-    /* SPI data length per transfer */
-    .dataBits = DRV_SPI_DATA_BITS_8_BIT,
 
     /* DMA Channel for Transmit */
     .dmaChannelTransmit = SYS_DMA_CHANNEL_NONE,

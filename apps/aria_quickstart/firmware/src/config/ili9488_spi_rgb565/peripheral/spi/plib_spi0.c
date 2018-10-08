@@ -17,26 +17,26 @@
 *******************************************************************************/
 
 /*******************************************************************************
-Copyright (c) 2017 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED AS IS  WITHOUT  WARRANTY  OF  ANY  KIND,
-EITHER EXPRESS  OR  IMPLIED,  INCLUDING  WITHOUT  LIMITATION,  ANY  WARRANTY  OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A  PARTICULAR  PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR  ITS  LICENSORS  BE  LIABLE  OR  OBLIGATED  UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION,  BREACH  OF  WARRANTY,  OR
-OTHER LEGAL  EQUITABLE  THEORY  ANY  DIRECT  OR  INDIRECT  DAMAGES  OR  EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY  INCIDENTAL,  SPECIAL,  INDIRECT,  PUNITIVE  OR
-CONSEQUENTIAL DAMAGES, LOST  PROFITS  OR  LOST  DATA,  COST  OF  PROCUREMENT  OF
-SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE  THEREOF),  OR  OTHER  SIMILAR  COSTS.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
 #include "plib_spi0.h"
@@ -63,7 +63,6 @@ void SPI0_Initialize ( void )
     /* Initialize global variables */
     spi0Obj.transferIsBusy = false;
     spi0Obj.callback = NULL;
-    spi0Obj.status = SPI_ERROR_NONE;
 
     /* Enable SPI0 */
     SPI0_REGS->SPI_CR = SPI_CR_SPIEN_Msk;
@@ -103,7 +102,6 @@ bool SPI0_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, siz
         }
 
         spi0Obj.transferIsBusy = true;
-        spi0Obj.status = SPI_ERROR_NONE;
 
         /* Flush out any unread data in SPI read buffer */
         dummyData = (SPI0_REGS->SPI_RDR & SPI_RDR_RD_Msk) >> SPI_RDR_RD_Pos;
@@ -185,14 +183,9 @@ bool SPI0_TransferSetup (SPI_TRANSFER_SETUP * setup, uint32_t spiSourceClock )
         scbr = 255;
     }
 
-    SPI0_REGS->SPI_CSR[0]= setup->clockPolarity | setup->clockPhase | SPI_CSR_BITS(setup->dataBits) | SPI_CSR_SCBR(scbr);
+    SPI0_REGS->SPI_CSR[0]= setup->clockPolarity | setup->clockPhase | setup->dataBits | SPI_CSR_SCBR(scbr);
 
     return true;
-}
-
-SPI_ERROR SPI0_ErrorGet ( void )
-{
-    return (SPI_ERROR)(spi0Obj.status & (SPI_SR_OVRES_Msk));
 }
 
 void SPI0_CallbackRegister (SPI_CALLBACK callback, uintptr_t context)
@@ -210,10 +203,9 @@ void SPI0_InterruptHandler(void)
 {
     uint32_t dataBits ;
     uint32_t receivedData;
-    dataBits = SPI0_REGS->SPI_CSR[0] & SPI_CSR_BITS_Msk;
+    static bool isLastByteTransferInProgress = false;
 
-    /* save the status in global object before it gets cleared */
-    spi0Obj.status = SPI0_REGS->SPI_SR;
+    dataBits = SPI0_REGS->SPI_CSR[0] & SPI_CSR_BITS_Msk;
 
     if ((SPI0_REGS->SPI_SR & SPI_SR_RDRF_Msk ) == SPI_SR_RDRF_Msk)
     {
@@ -235,6 +227,12 @@ void SPI0_InterruptHandler(void)
     /* If there are more words to be transmitted, then transmit them here and keep track of the count */
     if((SPI0_REGS->SPI_SR & SPI_SR_TDRE_Msk) == SPI_SR_TDRE_Msk)
     {
+
+        /* Disable the TDRE interrupt. This will be enabled back if more than
+         * one byte is pending to be transmitted */
+
+        SPI0_REGS->SPI_IDR = SPI_IDR_TDRE_Msk;
+
         if(dataBits == SPI_CSR_BITS_8_BIT)
         {
             if (spi0Obj.txCount < spi0Obj.txSize)
@@ -261,16 +259,29 @@ void SPI0_InterruptHandler(void)
         }
         if ((spi0Obj.txCount == spi0Obj.txSize) && (spi0Obj.dummySize == 0))
         {
-            /* Disable the TDRE interrupt and enable TXEMPTY interrupt to ensure
-             * no data is present in the shift register before CS is de-selected
+            /* At higher baud rates, the data in the shift register can be
+             * shifted out and TXEMPTY flag can get set resulting in a
+             * callback been given to the application with the SPI interrupt
+             * pending with the application. This will then result in the
+             * interrupt handler being called again with nothing to transmit.
+             * To avoid this, a software flag is set, but
+             * the TXEMPTY interrupt is not enabled until the very end.
              */
-            SPI0_REGS->SPI_IDR = SPI_IDR_TDRE_Msk;
-            SPI0_REGS->SPI_IER = SPI_IER_TXEMPTY_Msk;
+
+            isLastByteTransferInProgress = true;
+        }
+        else if (spi0Obj.rxCount == spi0Obj.rxSize)
+        {
+            /* Enable TDRE interrupt as all the requested bytes are received
+             * and can now make use of the internal transmit shift register.
+             */
+            SPI0_REGS->SPI_IDR = SPI_IDR_RDRF_Msk;
+            SPI0_REGS->SPI_IER = SPI_IDR_TDRE_Msk;
         }
     }
 
     /* See if Exchange is complete */
-    if (((SPI0_REGS->SPI_IMR & SPI_IMR_TXEMPTY_Msk) == SPI_IMR_TXEMPTY_Msk) && ((SPI0_REGS->SPI_SR & SPI_SR_TXEMPTY_Msk) == SPI_SR_TXEMPTY_Msk))
+    if ((isLastByteTransferInProgress == true) && ((SPI0_REGS->SPI_SR & SPI_SR_TXEMPTY_Msk) == SPI_SR_TXEMPTY_Msk))
     {
         if (spi0Obj.rxCount == spi0Obj.rxSize)
         {
@@ -279,14 +290,7 @@ void SPI0_InterruptHandler(void)
             /* Disable TDRE, RDRF and TXEMPTY interrupts */
             SPI0_REGS->SPI_IDR = SPI_IDR_TDRE_Msk | SPI_IDR_RDRF_Msk | SPI_IDR_TXEMPTY_Msk;
 
-            /* Flush out any pending SPI IRQ with NVIC */
-            NVIC_ClearPendingIRQ(SPI0_IRQn);
-
-            /* If it was only transmit, then ignore receiver overflow error, if any */
-            if(spi0Obj.rxSize == 0)
-            {
-                spi0Obj.status = SPI_ERROR_NONE;
-            }
+            isLastByteTransferInProgress = false;
 
             if(spi0Obj.callback != NULL)
             {
@@ -294,6 +298,15 @@ void SPI0_InterruptHandler(void)
             }
         }
     }
+    if (isLastByteTransferInProgress == true)
+    {
+        /* For the last byte transfer, the TDRE interrupt is already disabled.
+         * Enable TXEMPTY interrupt to ensure no data is present in the shift
+         * register before application callback is called.
+         */
+        SPI0_REGS->SPI_IER = SPI_IER_TXEMPTY_Msk;
+    }
+
 }
 
 
