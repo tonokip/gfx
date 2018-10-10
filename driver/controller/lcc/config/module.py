@@ -28,4 +28,4 @@ def loadModule():
 	cntlComponent.addDependency("sys_dma", "sys_dma", True)
 	cntlComponent.addDependency("sys_int", "sys_int", True)
 	cntlComponent.addCapability("gfx_driver_lcc", "Display Driver", False)
-	cntlComponent.addDependency("SMC_CS", "SMC_CS", False)
+	cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
