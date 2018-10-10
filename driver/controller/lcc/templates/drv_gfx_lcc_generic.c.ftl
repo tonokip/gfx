@@ -1,13 +1,13 @@
-<#macro MACRO_HSYNC_OFF><#if CONFIG_DRV_GFX_DISPLAY_HSYNC_NEGATIVE_POLARITY == true>BSP_LCD_HSYNC_Set();<#else>BSP_LCD_HSYNC_Clear();</#if></#macro>
-<#macro MACRO_HSYNC_ON><#if CONFIG_DRV_GFX_DISPLAY_HSYNC_NEGATIVE_POLARITY == true>BSP_LCD_HSYNC_Clear();<#else>BSP_LCD_HSYNC_Set();</#if></#macro>
-<#macro MACRO_VSYNC_OFF><#if CONFIG_DRV_GFX_DISPLAY_VSYNC_NEGATIVE_POLARITY == true>BSP_LCD_VSYNC_Set();<#else>BSP_LCD_VSYNC_Clear();</#if></#macro>
-<#macro MACRO_VSYNC_ON><#if CONFIG_DRV_GFX_DISPLAY_VSYNC_NEGATIVE_POLARITY == true>BSP_LCD_VSYNC_Clear();<#else>BSP_LCD_VSYNC_Set();</#if></#macro>
-<#macro MACRO_DE_OFF><#if CONFIG_DRV_GFX_DISPLAY_DATA_ENABLE_POSITIVE_POLARITY == true>BSP_LCD_DE_Set();<#else>BSP_LCD_DE_Clear();</#if></#macro>
-<#macro MACRO_DE_ON><#if CONFIG_DRV_GFX_DISPLAY_DATA_ENABLE_POSITIVE_POLARITY == true>BSP_LCD_DE_Clear();<#else>BSP_LCD_DE_Set();</#if></#macro>
-<#macro MACRO_RESET_OFF><#if CONFIG_DRV_GFX_DISPLAY_RESET_POSITIVE_POLARITY == true>BSP_LCD_RESET_Clear();<#else>BSP_LCD_RESET_Set();</#if></#macro>
-<#macro MACRO_RESET_ON><#if CONFIG_DRV_GFX_DISPLAY_RESET_POSITIVE_POLARITY == true>BSP_LCD_RESET_Set();<#else>BSP_LCD_RESET_Clear();</#if></#macro>
-<#macro MACRO_CS_OFF><#if CONFIG_DRV_GFX_DISPLAY_CHIP_SELECT_POSITIVE_POLARITY == true>BSP_LCD_CS_Clear();<#else>BSP_LCD_CS_Set();</#if></#macro>
-<#macro MACRO_CS_ON><#if CONFIG_DRV_GFX_DISPLAY_CHIP_SELECT_POSITIVE_POLARITY == true>BSP_LCD_CS_Set();<#else>BSP_LCD_CS_Clear();</#if></#macro>
+<#macro MACRO_HSYNC_OFF><#if CONFIG_DRV_GFX_DISPLAY_HSYNC_NEGATIVE_POLARITY == true>GFX_DISP_INTF_PIN_HSYNC_Set();<#else>GFX_DISP_INTF_PIN_HSYNC_Clear();</#if></#macro>
+<#macro MACRO_HSYNC_ON><#if CONFIG_DRV_GFX_DISPLAY_HSYNC_NEGATIVE_POLARITY == true>GFX_DISP_INTF_PIN_HSYNC_Clear();<#else>GFX_DISP_INTF_PIN_HSYNC_Set();</#if></#macro>
+<#macro MACRO_VSYNC_OFF><#if CONFIG_DRV_GFX_DISPLAY_VSYNC_NEGATIVE_POLARITY == true>GFX_DISP_INTF_PIN_VSYNC_Set();<#else>GFX_DISP_INTF_PIN_VSYNC_Clear();</#if></#macro>
+<#macro MACRO_VSYNC_ON><#if CONFIG_DRV_GFX_DISPLAY_VSYNC_NEGATIVE_POLARITY == true>GFX_DISP_INTF_PIN_VSYNC_Clear();<#else>GFX_DISP_INTF_PIN_VSYNC_Set();</#if></#macro>
+<#macro MACRO_DE_OFF><#if CONFIG_DRV_GFX_DISPLAY_DATA_ENABLE_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_DE_Set();<#else>GFX_DISP_INTF_PIN_DE_Clear();</#if></#macro>
+<#macro MACRO_DE_ON><#if CONFIG_DRV_GFX_DISPLAY_DATA_ENABLE_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_DE_Clear();<#else>GFX_DISP_INTF_PIN_DE_Set();</#if></#macro>
+<#macro MACRO_RESET_OFF><#if CONFIG_DRV_GFX_DISPLAY_RESET_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_RESET_Clear();<#else>GFX_DISP_INTF_PIN_RESET_Set();</#if></#macro>
+<#macro MACRO_RESET_ON><#if CONFIG_DRV_GFX_DISPLAY_RESET_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_RESET_Set();<#else>GFX_DISP_INTF_PIN_RESET_Clear();</#if></#macro>
+<#macro MACRO_CS_OFF><#if CONFIG_DRV_GFX_DISPLAY_CHIP_SELECT_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_CS_Clear();<#else>GFX_DISP_INTF_PIN_CS_Set();</#if></#macro>
+<#macro MACRO_CS_ON><#if CONFIG_DRV_GFX_DISPLAY_CHIP_SELECT_POSITIVE_POLARITY == true>GFX_DISP_INTF_PIN_CS_Set();<#else>GFX_DISP_INTF_PIN_CS_Clear();</#if></#macro>
 /*******************************************************************************
   MPLAB Harmony LCC Generated Driver Implementation File
 
@@ -138,32 +138,32 @@ uint16_t __attribute__((aligned(16))) frameLine[DISPLAY_WIDTH];
 #define DRV_GFX_LCC_DMA_CHANNEL_INDEX XDMAC_CHANNEL_${DMAChannel}
 
 <#if Val_UseReset == true>
-#ifndef BSP_LCD_RESET_Set
-#error "BSP_LCD_RESET GPIO must be defined in the Pin Settings"
+#ifndef GFX_DISP_INTF_PIN_RESET_Set
+#error "GFX_DISP_INTF_PIN_RESET GPIO must be defined in the Pin Settings"
 #endif
 </#if>
 
 <#if Val_UseChipSelect == true>
-#ifndef BSP_LCD_CS_Set
-#error "BSP_LCD_CS GPIO must be defined in the Pin Settings"
+#ifndef GFX_DISP_INTF_PIN_CS_Set
+#error "GFX_DISP_INTF_PIN_CS GPIO must be defined in the Pin Settings"
 #endif
 </#if>
 
-#ifndef BSP_LCD_BACKLIGHT_Set
-#warning "BSP_LCD_BACKLIGHT GPIO must be defined in the Pin Settings"
-#define BSP_LCD_BACKLIGHT_Set()
+#ifndef GFX_DISP_INTF_PIN_BACKLIGHT_Set
+#warning "GFX_DISP_INTF_PIN_BACKLIGHT GPIO must be defined in the Pin Settings"
+#define GFX_DISP_INTF_PIN_BACKLIGHT_Set()
 #endif
 
-#ifndef BSP_LCD_VSYNC_Set
-#error "BSP_LCD_VSYNC GPIO must be defined in the Pin Settings"
+#ifndef GFX_DISP_INTF_PIN_VSYNC_Set
+#error "GFX_DISP_INTF_PIN_VSYNC GPIO must be defined in the Pin Settings"
 #endif
 
-#ifndef BSP_LCD_DE_Set
-#error "BSP_LCD_DE GPIO must be defined in the Pin Settings"
+#ifndef GFX_DISP_INTF_PIN_DE_Set
+#error "GFX_DISP_INTF_PIN_DE GPIO must be defined in the Pin Settings"
 #endif
 
-#ifndef BSP_LCD_HSYNC_Set
-#error "BSP_LCD_HSYNC GPIO must be defined in the Pin Settings"
+#ifndef GFX_DISP_INTF_PIN_HSYNC_Set
+#error "GFX_DISP_INTF_PIN_HSYNC GPIO must be defined in the Pin Settings"
 #endif
 
 /**** Hardware Abstraction Interfaces ****/
@@ -357,25 +357,25 @@ static GFX_Result lccInitialize(GFX_Context* context)
 
 <#if Val_UseReset == true>
 <#if Val_ResetPolarity == true>
-    BSP_LCD_RESET_Set();
+    GFX_DISP_INTF_PIN_RESET_Set();
 <#else>
-    BSP_LCD_RESET_Clear();
+    GFX_DISP_INTF_PIN_RESET_Clear();
 
 </#if>
 </#if>
 <#if Val_UseChipSelect == true>
 <#if Val_ChipSelectPolarity == true>
-    BSP_LCD_CS_Clear();
+    GFX_DISP_INTF_PIN_CS_Clear();
 <#else>
-    BSP_LCD_CS_Set();
+    GFX_DISP_INTF_PIN_CS_Set();
 </#if>
 </#if>
 
     /*Turn Backlight on*/
 <#if Val_BacklightEnable == 1>
-    BSP_LCD_BACKLIGHT_Set();
+    GFX_DISP_INTF_PIN_BACKLIGHT_Set();
 <#else>
-    BSP_LCD_BACKLIGHT_Clear();
+    GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
 </#if>
 
     return GFX_SUCCESS;
@@ -465,9 +465,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
             if (hSyncs > vsyncPulseDown)
             {
 <#if Val_VSYNCNegative == true>
-                BSP_LCD_VSYNC_Set();
+                GFX_DISP_INTF_PIN_VSYNC_Set();
 <#else>
-                BSP_LCD_VSYNC_Clear();
+                GFX_DISP_INTF_PIN_VSYNC_Clear();
 </#if>
 
                 vsyncPulseUp = hSyncs + DISP_VER_PULSE_WIDTH;
@@ -499,9 +499,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
             if (hSyncs >= vsyncPulseUp)
             {
 <#if Val_VSYNCNegative == true>
-                BSP_LCD_VSYNC_Clear();
+                GFX_DISP_INTF_PIN_VSYNC_Clear();
 <#else>
-                BSP_LCD_VSYNC_Set();
+                GFX_DISP_INTF_PIN_VSYNC_Set();
 </#if>
                 vsyncEnd = hSyncs + DISP_VER_BACK_PORCH;
                 vsyncState = VSYNC_BACK_PORCH;
@@ -528,9 +528,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         {
 <#if Val_UseDataEnable == true>
 <#if Val_DataEnablePolarity == true>
-            BSP_LCD_DE_Clear();
+            GFX_DISP_INTF_PIN_DE_Clear();
 <#else>
-            BSP_LCD_DE_Set();
+            GFX_DISP_INTF_PIN_DE_Set();
 </#if>
 </#if>
 
@@ -545,9 +545,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         case HSYNC_PULSE:
         {
 <#if Val_HSYNCNegative == true>
-            BSP_LCD_HSYNC_Set();
+            GFX_DISP_INTF_PIN_HSYNC_Set();
 <#else>
-            BSP_LCD_HSYNC_Clear();
+            GFX_DISP_INTF_PIN_HSYNC_Clear();
 </#if>
 
             if (hSyncs >= vsyncPeriod)
@@ -567,9 +567,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
         case HSYNC_BACK_PORCH:
         {
 <#if Val_HSYNCNegative == true>
-            BSP_LCD_HSYNC_Clear();
+            GFX_DISP_INTF_PIN_HSYNC_Clear();
 <#else>
-            BSP_LCD_HSYNC_Set();
+            GFX_DISP_INTF_PIN_HSYNC_Set();
 </#if>
 
             hsyncState = HSYNC_DATA_ENABLE; 
@@ -586,9 +586,9 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
             {
 <#if Val_UseDataEnable == true>
 <#if Val_DataEnablePolarity == true>
-                BSP_LCD_DE_Set();
+                GFX_DISP_INTF_PIN_DE_Set();
 <#else>
-                BSP_LCD_DE_Clear();
+                GFX_DISP_INTF_PIN_DE_Clear();
 </#if>
 </#if>
                 drawPoint.x = 0;
