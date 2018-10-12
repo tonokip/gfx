@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0E418B64B1AB6E3FEB12C3368BB88D39</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0E418B64B1AB6E3FEB12C3368BB88D39</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B13C521F56E2C04A9BE0935E2B5F83A8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B13C521F56E2C04A9BE0935E2B5F83A8</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -1403,8 +1403,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">78295EA4B57788E50DD6186E53955F64</GeneratedChecksum>
-          <UserChecksum dnOrder="5">78295EA4B57788E50DD6186E53955F64</UserChecksum>
+          <GeneratedChecksum dnOrder="4">99290069F01CF7B90DF202F2356BBF84</GeneratedChecksum>
+          <UserChecksum dnOrder="5">99290069F01CF7B90DF202F2356BBF84</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
@@ -2331,8 +2331,8 @@
           <Name dnOrder="1">plib_pio.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B471D0C31409B079E1FB5DD7042D9EB0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B471D0C31409B079E1FB5DD7042D9EB0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">37A7511EF8A0FF20952CCD31E0BE1614</GeneratedChecksum>
+          <UserChecksum dnOrder="5">37A7511EF8A0FF20952CCD31E0BE1614</UserChecksum>
         </File>
         <File dnOrder="291">
           <Type dnOrder="0">HEADER</Type>

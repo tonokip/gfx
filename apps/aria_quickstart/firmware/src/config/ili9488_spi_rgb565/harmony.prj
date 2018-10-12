@@ -19,8 +19,8 @@
           <Name dnOrder="1">bsp.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E54DB4562AD7AD0E64F353DFA492E79C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E54DB4562AD7AD0E64F353DFA492E79C</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
@@ -1291,8 +1291,8 @@
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7D30F7597F71C1C727788E948604786C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7D30F7597F71C1C727788E948604786C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BB2EC445832E6AC4BB7DE7AC7DEF27AD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BB2EC445832E6AC4BB7DE7AC7DEF27AD</UserChecksum>
         </File>
         <File dnOrder="161">
           <Type dnOrder="0">HEADER</Type>

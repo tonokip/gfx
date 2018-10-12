@@ -60,6 +60,10 @@
 // Section: BSP Macros
 // *****************************************************************************
 // *****************************************************************************
+/*** LED Macros for LED_AL_PC8 ***/
+#define LED_AL_PC8_Toggle() (PIOC_REGS->PIO_ODSR ^= (1<<8))
+#define LED_AL_PC8_On() (PIOC_REGS->PIO_CODR = (1<<8))
+#define LED_AL_PC8_Off() (PIOC_REGS->PIO_SODR = (1<<8))
 /*** SWITCH Macros for SWITCH ***/
 #define SWITCH_Get() ((PIOA_REGS->PIO_PDSR >> 11) & 0x1)
 #define SWITCH_STATE_PRESSED 0
