@@ -490,7 +490,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
    n bytes - character code point data, 1-4 bytes each character per encoding	 
  *****************************************************************************/
 <#if GAC_STRINGTABLE_DATA??>
-    <@GAC_ASSET_DATA
+    <@GAC_CONST_ASSET_DATA
 		NAME = GAC_STRINGTABLE_NAME
 		SIZE = GAC_STRINGTABLE_DATA_SIZE
 		DESC = GAC_STRINGTABLE_DESC
@@ -510,7 +510,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 	    1-2 bytes - string data table entry	 
  *****************************************************************************/
 <#if GAC_FONTINDEX_DATA??>
-    <@GAC_ASSET_DATA
+    <@GAC_CONST_ASSET_DATA
 		NAME = "stringIndexTable"
 		SIZE = GAC_STRINGINDEX_DATA_SIZE
 		DESC = "Lookup table for associating string and language IDs to string data."
@@ -540,7 +540,7 @@ GFXU_FontAsset* fontList[${GAC_NUM_FONTS}] =
  id = 0xFF if no font association
  *****************************************************************************/
 <#if GAC_FONTINDEX_DATA??>
-    <@GAC_ASSET_DATA
+    <@GAC_CONST_ASSET_DATA
 		NAME = "fontIndexTable"
 		SIZE = GAC_FONTINDEX_DATA_SIZE
 		DESC = "Lookup table for associating strings, languages, and fonts"
@@ -557,7 +557,7 @@ GFXU_StringTableAsset ${GAC_STRINGTABLE_NAME} =
 	${GAC_STRINGTABLE_LANGUAGECOUNT}, // language count
 	${GAC_STRINGTABLE_COUNT}, // string count
 <#if GAC_STRINGTABLE_DATA??>
-    stringIndexTable_data, // font lookup table
+    (void*)stringIndexTable_data, // font lookup table
 <#else>
 	GFX_NULL, // no font lookup table
 </#if>
@@ -567,7 +567,7 @@ GFXU_StringTableAsset ${GAC_STRINGTABLE_NAME} =
 	GFX_NULL, // no font lookup table
 </#if>
 <#if GAC_FONTINDEX_DATA??>
-    fontIndexTable_data, // font index table
+    (void*)fontIndexTable_data, // font index table
 <#else>
 	GFX_NULL, // no font index data
 </#if>
