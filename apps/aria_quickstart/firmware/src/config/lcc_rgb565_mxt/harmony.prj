@@ -75,8 +75,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5E830E2BA2C634D1EEAADB7FAE69904B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5E830E2BA2C634D1EEAADB7FAE69904B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6C42CB92ACDCC857C301D28C49EF022E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6C42CB92ACDCC857C301D28C49EF022E</UserChecksum>
         </File>
         <File dnOrder="9">
           <Type dnOrder="0">SOURCE</Type>
@@ -571,8 +571,8 @@
           <Name dnOrder="1">libaria_layer.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C943449084098B7F1A79825E166E792D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C943449084098B7F1A79825E166E792D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F67EDBF092BC6EBFB70C1B4FF9DF1DCE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F67EDBF092BC6EBFB70C1B4FF9DF1DCE</UserChecksum>
         </File>
         <File dnOrder="71">
           <Type dnOrder="0">SOURCE</Type>
@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B5DE43EC37D70EEE16A9AB8160DE54A2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B5DE43EC37D70EEE16A9AB8160DE54A2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3F15B05449622493F1E3453D488903BC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3F15B05449622493F1E3453D488903BC</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>

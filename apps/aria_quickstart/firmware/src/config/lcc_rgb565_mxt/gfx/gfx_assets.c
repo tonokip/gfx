@@ -972,7 +972,7 @@ GFXU_FontAsset TimesNewRoman12 =
    n bytes - character code point data, 1-4 bytes each character per encoding	 
  *****************************************************************************/
 // 1 language, 2 unique string values, ASCII encoding
-uint8_t stringTable_data[50] =
+const uint8_t stringTable_data[50] =
 {
     0x02,0x00,0x0E,0x00,0x47,0x46,0x58,0x5F,0x51,0x75,0x69,0x63,0x6B,0x73,0x74,
     0x61,0x72,0x74,0x1E,0x00,0x4D,0x61,0x6B,0x65,0x20,0x63,0x68,0x61,0x6E,0x67,
@@ -993,7 +993,7 @@ uint8_t stringTable_data[50] =
 	    1-2 bytes - string data table entry	 
  *****************************************************************************/
 // Lookup table for associating string and language IDs to string data.
-uint8_t stringIndexTable_data[6] =
+const uint8_t stringIndexTable_data[6] =
 {
     0x02,0x00,0x01,0x01,0x00,0x01,
 };
@@ -1017,7 +1017,7 @@ GFXU_FontAsset* fontList[2] =
  id = 0xFF if no font association
  *****************************************************************************/
 // Lookup table for associating strings, languages, and fonts
-uint8_t fontIndexTable_data[5] =
+const uint8_t fontIndexTable_data[5] =
 {
     0x02,0x00,0x01,0x00,0x01,
 };
@@ -1032,9 +1032,9 @@ GFXU_StringTableAsset stringTable =
     },	
 	1, // language count
 	2, // string count
-    stringIndexTable_data, // font lookup table
+    (void*)stringIndexTable_data, // font lookup table
     fontList, // font lookup table
-    fontIndexTable_data, // font index table
+    (void*)fontIndexTable_data, // font index table
 	GFXU_STRING_ENCODING_ASCII // encoding standard
 };
 		
