@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B0DFA85DCF204EA1C4C91D4C13F22874</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B0DFA85DCF204EA1C4C91D4C13F22874</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6059D15BC3A1F796A85FBAC207F9BFAE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6059D15BC3A1F796A85FBAC207F9BFAE</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
