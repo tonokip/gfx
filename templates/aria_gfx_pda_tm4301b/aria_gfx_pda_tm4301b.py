@@ -27,6 +27,49 @@ execfile(Module.getPath() + "../common/bsp_utils.py")
 
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 
+def enableConfigPins(bspID, configID, enable):
+	if (enable == True):
+		print("enableCOnfig " + configID)
+	else:
+		print("disableCOnfig " + configID)
+	pinConfig = getBSPSupportNode(bspID, configID).getPinConfig()
+
+	if (enable == True):
+		configurePins(pinConfig)
+
+def enableConfig(bspID, configID, enable):
+	componentIDTable = getBSPSupportNode(bspID, configID).getComponentActivateList()
+	autoConnectTable = getBSPSupportNode(bspID, configID).getComponentAutoConnectList()
+	if (enable == True):
+		res = Database.activateComponents(componentIDTable)
+		res = Database.connectDependencies(autoConnectTable)
+	elif (enable == False):
+		res = Database.deactivateComponents(componentIDTable)
+	enableConfigPins(bspID, configID, enable)
+	try:
+		getBSPSupportNode(bspID, configID).getEventCallbackFxn()("configure")
+	except:
+		print("No event callback for " + bspID + " configID.")
+
+def configureDisplayInterface(bspID, interface):
+	print("Configuring for " + str(interface) + " Interface.")
+	if (bspID == None):
+		print("No BSP used, will not configure")
+	else:
+		if (str(interface) == "LCC"):
+			enableConfig(bspID, "SSD1963", False)
+			enableConfig(bspID, "LCC", True)
+		elif (str(interface) == "SSD1963"):
+			enableConfig(bspID, "LCC", False)
+			enableConfig(bspID, "SSD1963", True)
+
+def onDisplayInterfaceSelected(interfaceSelected, event):
+	bspID = getSupportedBSP()
+	newDisplayInterface= interfaceSelected.getComponent().getSymbolByID("DisplayInterface").getValue()
+	currDisplayInterface = interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").getValue()
+	interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").setValue(event["value"], 1)
+	configureDisplayInterface(bspID, str(newDisplayInterface))
+
 def instantiateComponent(templateComponent):
 	componentsIDTable = ["HarmonyCore", "sys_input", "gfx_hal", "aria_gfx_library", "gfx_disp_pdatm4301b_480x272", "gfx_maxtouch_controller"]
 	autoConnectTable = [["gfx_hal", "gfx_display", "gfx_disp_pdatm4301b_480x272", "gfx_display"],
@@ -37,21 +80,25 @@ def instantiateComponent(templateComponent):
 	#Check if a supported BSP is loaded
 	bspUsedKeyID = getSupportedBSP()
 
-	if (bspUsedKeyID != None):
-		print("Configuring for BSP : " + bspUsedKeyID)
-		if (getBSPSupportNode(bspUsedKeyID, None).getComponentActivateList() != None):
-			componentsIDTable += getBSPSupportNode(bspUsedKeyID, None).getComponentActivateList()
-		if (getBSPSupportNode(bspUsedKeyID, None).getComponentAutoConnectList() != None):
-			autoConnectTable += getBSPSupportNode(bspUsedKeyID, None).getComponentAutoConnectList()
-		if (getBSPSupportNode(bspUsedKeyID, None).getPinConfig() != None):
-			resetPins(getBSPSupportNode(bspUsedKeyID, None).getPinConfig())
-			configurePins(getBSPSupportNode(bspUsedKeyID, None).getPinConfig())
-
 	res = Database.activateComponents(componentsIDTable)
 	res = Database.connectDependencies(autoConnectTable)
 	res = Database.deactivateComponents(deactivateIDTable);
 
+	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, ["LCC", "SSD1963"])
+	DisplayInterface.setLabel("Display Interface")
+	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM4301B.")
+	DisplayInterface.setDefaultValue("LCC")
+	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
+	DisplayInterface.setVisible(True)
+	
+	# Shadow display interface symbol
+	currDisplayInterface = templateComponent.createComboSymbol("currDisplayInterface", None, ["LCC", "SSD1963"])
+	currDisplayInterface.setDefaultValue("LCC")
+	currDisplayInterface.setVisible(False)
+
 	Database.setSymbolValue("aria_gfx_library", "enableInput", True, 1)
 
-	if (bspUsedKeyID == None):
-		print("No BSP used, only software components are configured. Please add board-specific components")
+	if (bspUsedKeyID != None):
+		configureDisplayInterface(bspUsedKeyID, str(currDisplayInterface.getValue()))
+	else:
+		print("No BSP used, only software components are configured. Please add board-specific components.")

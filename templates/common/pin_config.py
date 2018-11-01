@@ -26,6 +26,7 @@ def resetPins(pinConfigs):
 	for pinConfig in pinConfigs:
 		print("Resetting " + pinConfig["name"])
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME")
+		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE")
 		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE", "Available", 1)
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR")
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT")
@@ -37,7 +38,9 @@ def configurePins(pinConfigs):
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_NAME")
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE")
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_DIR")
-		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT")
+		### Comment out clear of Pin Latch, it looks like if latch symbol is cleared it couldn't
+		### be changed from low
+		#Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_LAT")
 		Database.clearSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_PERIPHERAL_FUNCTION")
 		Database.setSymbolValue("core", "PIN_" + str(pinConfig["pin"]) + "_FUNCTION_TYPE", pinConfig["type"], 1)
 
