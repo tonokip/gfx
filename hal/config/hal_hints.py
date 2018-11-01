@@ -77,7 +77,8 @@ HardwareLayerCountHint = halComponent.createIntegerSymbol("HardwareLayerCountHin
 HardwareLayerCountHint.setLabel("Hardware Layer Count")
 HardwareLayerCountHint.setDefaultValue(1)
 HardwareLayerCountHint.setDescription("Indicates the number of hardware layers provided by the display driver.")
-#HardwareLayerCountHint.setReadOnly(True)
+HardwareLayerCountHint.setReadOnly(True)
+HardwareLayerCountHint.setUseSingleDynamicValue(True)
 
 DisableHardwareLayerCountHint = halComponent.createBooleanSymbol("DisableHardwareLayerCountHint", DriverHintMenu)
 DisableHardwareLayerCountHint.setDefaultValue(False)
