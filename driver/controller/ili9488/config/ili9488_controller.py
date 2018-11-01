@@ -68,33 +68,26 @@ def onAttachmentConnected(source, target):
 		source["component"].setDependencyEnabled("DRV_SPI", False)
 		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
 		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
-		
+		source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(False)
 		#Enable the SMC symbols
 		source["component"].getSymbolByID("Interface").setValue("Parallel", 1)
-		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		source["component"].getSymbolByID("DCXAddressBit").setVisible(True)
-		source["component"].getSymbolByID("UseSyncBarriers").setVisible(True)
-		source["component"].getSymbolByID("EBIChipSelectIndex").setVisible(True)
+		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(True)
 		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
 		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(True)
-		
 		configureSMCComponent(source["component"], target["component"])
-		
 	if source["id"] == "DRV_SPI":
 		spiIndex = target["component"].getSymbolByID("INDEX").getValue()
-		#print("Using SPI port " + str(spiIndex))
-		
+		print("Using SPI port " + str(spiIndex))
 		#Disable the SMC symbols
 		source["component"].setDependencyEnabled("SMC_CS", False)
 		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
 		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(False)
-		
+		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
 		#Enable the SPI symbols
 		source["component"].getSymbolByID("Interface").setValue("SPI 4-Line", 1)
-		source["component"].getSymbolByID("SPIPortIndex").setValue(spiIndex, 1)
+		source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(True)
 		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
 		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(True)
-		
 		configureSPIComponent(source["component"], target["component"])
 
 def onAttachmentDisconnected(source, target):
@@ -107,10 +100,9 @@ def onAttachmentDisconnected(source, target):
 	source["component"].setDependencyEnabled("SMC_CS", True)
 	
 	#Disable the SMC and SPI symbols
-	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
-	source["component"].getSymbolByID("DCXAddressBit").setVisible(False)
+	source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(False)
+	source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
 	source["component"].getSymbolByID("UseSyncBarriers").setVisible(False)
-	source["component"].getSymbolByID("EBIChipSelectIndex").setVisible(False)
 	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
 	source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
 	source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
@@ -126,3 +118,9 @@ def onInterfaceSetParallel(symbol, event):
 		symbol.setVisible(True)
 	else:
 		symbol.setVisible(False)
+
+def onDataCommandSelectSet(dataCommandSelected, event):
+	if (dataCommandSelected.getComponent().getSymbolByID("DataCommandSelectControl").getValue() == "GPIO"):
+		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(False)
+	else:
+		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(True)

@@ -47,14 +47,8 @@ Interface.setDescription("Interface to ILI9488.")
 Interface.setDefaultValue("SPI 4-Line")
 Interface.setVisible(False)
 
-ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", None, ["16-bit", "8-bit"])
-ParallelInterfaceWidth.setLabel("Parallel Interface Width")
-ParallelInterfaceWidth.setDescription("Parallel Interface Width")
-ParallelInterfaceWidth.setDefaultValue("16-bit")
-ParallelInterfaceWidth.setVisible(False)
-
 ## Display Settings Menu
-DisplaySettingsMenu = comp.createMenuSymbol("DISPLAY_SETTINGS_MENU", None)
+DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")
 
 HALComment = comp.createCommentSymbol("HALComment", DisplaySettingsMenu)
@@ -71,21 +65,19 @@ DisplayHeight.setLabel("Height")
 DisplayHeight.setDescription("The height of the frame buffer in pixels.")
 DisplayHeight.setDefaultValue(480)
 
-## Driver Settings Menu
-DriverSettingsMenu = comp.createMenuSymbol("DRIVER_SETTINGS_MENU", None)
-DriverSettingsMenu.setLabel("Driver Settings")
-
-### SPI mode specific options
-SPIPortIndex = comp.createIntegerSymbol("SPIPortIndex", DriverSettingsMenu)
-SPIPortIndex.setLabel("SPI Port Index")
-SPIPortIndex.setDescription("SPI Port Index.")
-SPIPortIndex.setDefaultValue(0)
-SPIPortIndex.setMin(0)
-SPIPortIndex.setMax(31)
-SPIPortIndex.setVisible(False);
+### Interface Settings Menu
+InterfaceSettingsSMCMenu = comp.createMenuSymbol("InterfaceSettingsSMCMenu", None)
+InterfaceSettingsSMCMenu.setLabel("Parallel 8080 Display Interface Settings")
+InterfaceSettingsSMCMenu.setVisible(False)
 
 ### Parallel mode specific options
-EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", DriverSettingsMenu)
+ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", InterfaceSettingsSMCMenu, ["16-bit", "8-bit"])
+ParallelInterfaceWidth.setLabel("Data Bus Width")
+ParallelInterfaceWidth.setDescription("Data Bus Width")
+ParallelInterfaceWidth.setDefaultValue("16-bit")
+#ParallelInterfaceWidth.setReadOnly(True)
+
+EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", InterfaceSettingsSMCMenu)
 EBIChipSelectIndex.setLabel("EBI Chip Select Index")
 EBIChipSelectIndex.setDescription("The chip select index")
 EBIChipSelectIndex.setDefaultValue(0)
@@ -93,13 +85,58 @@ EBIChipSelectIndex.setMin(0)
 EBIChipSelectIndex.setMax(4)
 EBIChipSelectIndex.setVisible(False)
 
-DCXAddressBit = comp.createIntegerSymbol("DCXAddressBit", DriverSettingsMenu)
+ControlPinsMenu = comp.createMenuSymbol("ControlPinsMenu", InterfaceSettingsSMCMenu)
+ControlPinsMenu.setLabel("Control Pin Settings")
+
+ChipSelectControl = comp.createComboSymbol("ChipSelectControl", ControlPinsMenu, ["GPIO", "Peripheral"])
+ChipSelectControl.setLabel("CS# Control")
+ChipSelectControl.setDescription("Chip Select Control")
+ChipSelectControl.setDefaultValue("GPIO")
+ChipSelectControl.setReadOnly(True)
+
+DataCommandSelectControl = comp.createComboSymbol("DataCommandSelectControl", ControlPinsMenu, ["GPIO", "Peripheral"])
+DataCommandSelectControl.setLabel("D/C# Control")
+DataCommandSelectControl.setDescription("Data Command Select Control")
+DataCommandSelectControl.setDefaultValue("Peripheral")
+DataCommandSelectControl.setDependencies(onDataCommandSelectSet, ["DataCommandSelectControl"])
+
+ReadStrobeControl = comp.createComboSymbol("ReadStrobeControl", ControlPinsMenu, ["GPIO", "Peripheral"])
+ReadStrobeControl.setLabel("RD# Control")
+ReadStrobeControl.setDescription("Read Strobe Control")
+ReadStrobeControl.setDefaultValue("Peripheral")
+
+WriteStrobeControl = comp.createComboSymbol("WriteStrobeControl", ControlPinsMenu, ["GPIO", "Peripheral"])
+WriteStrobeControl.setLabel("WR# Control")
+WriteStrobeControl.setDescription("Write Strobe Control")
+WriteStrobeControl.setDefaultValue("Peripheral")
+
+DelayNOPCount = comp.createIntegerSymbol("DelayNOPCount", InterfaceSettingsSMCMenu)
+DelayNOPCount.setLabel("Number of NOP for delay")
+DelayNOPCount.setDescription("Number of NOP for delay")
+DelayNOPCount.setDefaultValue(4)
+
+DCXAddressBit = comp.createIntegerSymbol("DCXAddressBit", DataCommandSelectControl)
 DCXAddressBit.setLabel("DCX Address Bit")
 DCXAddressBit.setDescription("Address bit used for DCX signal.")
 DCXAddressBit.setDefaultValue(12)
 DCXAddressBit.setMin(0)
 DCXAddressBit.setMax(31)
-DCXAddressBit.setVisible(False)
+
+InterfaceSettingsSPIMenu = comp.createMenuSymbol("InterfaceSettingsSPIMenu", None)
+InterfaceSettingsSPIMenu.setLabel("SPI 4-Line Display Interface Settings")
+InterfaceSettingsSPIMenu.setVisible(False)
+
+### SPI mode specific options
+SPIPortIndex = comp.createIntegerSymbol("SPIPortIndex", InterfaceSettingsSPIMenu)
+SPIPortIndex.setLabel("SPI Port Index")
+SPIPortIndex.setDescription("SPI Port Index.")
+SPIPortIndex.setDefaultValue(0)
+SPIPortIndex.setMin(0)
+SPIPortIndex.setMax(31)
+
+## Driver Settings Menu
+DriverSettingsMenu = comp.createMenuSymbol("DRIVER_SETTINGS_MENU", None)
+DriverSettingsMenu.setLabel("Driver Settings")
 
 UseSyncBarriers = comp.createBooleanSymbol("UseSyncBarriers", DriverSettingsMenu)
 UseSyncBarriers.setLabel("Use Synchronization Barriers")
