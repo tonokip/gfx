@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
+<html>
+<head>
+<title>How Does MPLAB Harmony Graphics Work?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Doc-O-Matic" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <link rel="STYLESHEET" href="default.css" type="text/css" />
+
+<script type="text/javascript" src="scripts.js"></script>
+</head>
+<body class="Element700" onload="onBodyLoadEx('frames.html', 'topic', '00379.html');" onmousedown="onBodyMouseDown();">
+
+<!-- Begin Popups -->
+
+<!-- End Popups -->
+
+<!-- Begin Page Header -->
+<div class="Element710" id="areafixed">
+<div class="Element94">
+<a href="00378.html" target="topic">Graphics Overview</a> &gt; <a href="00379.html" target="topic">How Does MPLAB Harmony Graphics Work?</a></div>
+<div class="Element92">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="25%">
+<div class="Element1">
+MPLAB Harmony Graphics Library Help</div>
+</td><td width="25%">
+<div class="Element2">
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+</td><td width="25%">
+<div class="Element90">
+<a href="00381.html" target="topic">Previous</a> | <a href="00378.html" target="topic">Up</a> | <a href="00376.html" target="topic">Next</a></div>
+</td><td width="25%">
+<div class="Element96">
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR How Does PIC32 Graphics Work? Topic Title: How Does MPLAB Harmony Graphics Work?)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+</td></tr></table><div class="Element5">
+How Does MPLAB Harmony Graphics Work?</div>
+</div>
+</div>
+
+<!-- End Page Header -->
+
+<!-- Begin Client Area -->
+<div class="Element720" id="areascroll">
+<div class="Element721">
+
+<!-- Begin Page Content -->
+<a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Conceptually, MPLAB Harmony graphics can be partitioned into two parts: the development architecture and the application code architecture: </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR PIC32 Graphics Architecture.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+During graphics development the <a href="02603.html" target="topic">MPLAB Harmony Graphics Composer</a> (MHGC) suite is launched from the MPLAB Harmony Configurator (MHC). MHC supports the basic setup of the application’s code, including system clock setup, selection and configuration of drivers, and display setup (displays and display drivers). MHGC supports the design of the application’s graphics, including asset (fonts, strings, images) management. The setup of color schemes and widgets is supported by MHGC.&nbsp;</p>
+<p class="Element10">
+The MPLAB Harmony Graphics Composer (MHGC) supports designing a graphical user interface (GUI) using a graphical drag and drop interface in the Screen Designer tool. MHGC configures all the code needed to initialize, configure, and manage an Aria library context. Then MHC can generate the code.&nbsp;</p>
+<p class="Element10">
+MHGC tools include:&nbsp;</p>
+<p class="Element10">
+• <a href="02594.html" target="topic">WYSIWYG GUI editor</a> – Enables drag and drop capability to visualize your design.&nbsp;</p>
+<p class="Element10">
+• <a href="02600.html" target="topic">Tree Manager</a> – Enables the user to select the drawing priority and establish parent / child relationships so that objects (widgets) can be grouped as desired.&nbsp;</p>
+<p class="Element10">
+• <a href="02576.html" target="topic">Event Manager</a> – Enables the user to customize the experience of touch and logical (application) events and to interact with graphical attributes.&nbsp;</p>
+<p class="Element10">
+• <a href="02598.html" target="topic">String</a> and <a href="02569.html" target="topic">Font</a> Managers – Used to input strings in multiple languages for potential reuse, and optimization of fonts and memory requirements.&nbsp;</p>
+<p class="Element10">
+•<a href="02583.html" target="topic">Image Manager</a> - Enabling palette, compression, format changes, and editing of images without external tools.&nbsp;</p>
+<p class="Element10">
+<a href="02587.html" target="topic">•Resource Manager</a> – Tabulated totals of memory usage for images, fonts and other elements used within the graphics design. These can be used to optimize a specific design to fit within a given device’s Flash memory. &nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR App Code Architecture.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+<strong><a href="00465.html" target="topic">Aria User Interface Library</a></strong> – This library provides the capability for interface generation, management, and interaction. It provides the building blocks for constructing a user interface in the form of “Widgets” or user interface elements. These consist of things like buttons, check-boxes, images, etc. This library also handles user interaction events for things like touch actions.&nbsp;</p>
+<p class="Element10">
+For more information, see MPLAB Harmony Graphics Composer Suite &gt; Aria User Interface Library.&nbsp;</p>
+<p class="Element10">
+<strong><a href="00479.html" target="topic">Graphics Utilities Library</a></strong> – This library is primarily responsible for managing and decoding assets such as images, fonts, and strings. It provides the means for interacting with asset data, complex data decoding, data decompression, and string asset look-up. It also abstractly handles accessing external memory sources during asset decoding.&nbsp;</p>
+<p class="Element10">
+<strong><a href="00479.html" target="topic">Hardware Abstraction Layer</a> (HAL)</strong> – Provides a standard software interface between the Aria User Interface Library (or a future 3rd Party Graphics Library) and graphics hardware (Display Driver and Graphics Processing Unit (GPU)). The HAL supports graphics buffer management, the graphics render pipeline, and graphics primitive algorithms. &nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR Aria Lib vs 3rd Party for HAL.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+The HAL supports a seamless integration of a Graphics Processing Unit (GPU) by via a standardized application interface that can switch between using a GPU for a hardware implementation of graphics primitives and a software implementation of the same primitives.&nbsp;</p>
+<p class="Element10">
+For more information, see <a href="00472.html" target="topic">MPLAB Harmony Graphics Composer Suite &gt;Hardware Abstraction Layer (HAL)</a>.&nbsp;</p>
+<p class="Element10">
+<strong>Third Party Graphics Library (Future Upgrade)</strong> – The third-party library can be used with the Harmony framework to perform the graphics operations if desired by the user. The third-party library has access to the Hardware Abstraction Layer (HAL), which has been configured to supply the frame buffer to be filled in by the third-party graphics library.&nbsp;</p>
+<p class="Element10">
+<strong><a href="00022.html" target="topic">Touch Driver</a></strong> – Supports capacitive or resistive touch interface on the display.&nbsp;</p>
+<p class="Element10">
+<strong><a href="00025.html" target="topic">Graphics Controller Driver</a></strong> – Software that talks directly to hardware. Multiple drivers for internal, external and no-controller options are available. These can be customized with the new Display Manager interface. No other software in the stack should have hardware access.&nbsp;</p>
+<p class="Element10">
+<strong>Graphics Accelerator Driver</strong>- Software that interfaces with graphics accelerator hardware. (<i>If available</i>.) &nbsp;</p><p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p></div>
+</div>
+</div>
+<!-- End Page Content -->
+
+<!-- Begin Page Footer -->
+<div class="Element95">
+<a href="00378.html" target="topic">Graphics Overview</a> &gt; <a href="00379.html" target="topic">How Does MPLAB Harmony Graphics Work?</a></div>
+<div class="Element93">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr><td width="25%">
+<div class="Element3">
+MPLAB Harmony Graphics Library Help</div>
+</td><td width="25%">
+<div class="Element4">
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+</td><td width="25%">
+<div class="Element91">
+<a href="00381.html" target="topic">Previous</a> | <a href="00378.html" target="topic">Up</a> | <a href="00376.html" target="topic">Next</a></div>
+</td><td width="25%">
+<div class="Element97">
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR How Does PIC32 Graphics Work? Topic Title: How Does MPLAB Harmony Graphics Work?)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+</td></tr></table></div>
+
+<!-- End Page Footer -->
+</div>
+</div>
+
+<!-- End Client Area -->
+</body></html>
