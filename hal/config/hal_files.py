@@ -359,4 +359,3 @@ GFX_CONFIG_H.setOutputName("gfx_config.h")
 GFX_CONFIG_H.setProjectPath(projectPath)
 GFX_CONFIG_H.setType("HEADER")
 GFX_CONFIG_H.setMarkup(True)
-

@@ -32,18 +32,80 @@ def instantiateComponent(halComponent):
 	execfile(Module.getPath() + "/config/hal_hints.py")
 	execfile(Module.getPath() + "/config/hal_files.py")
 	
-	SysInitIncludeString = halComponent.createListEntrySymbol("SysInitIncludeString", None)
-	SysInitIncludeString.addValue('#include "gfx/hal/gfx.h"')
-	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
+	GFXRTOSMenu = halComponent.createMenuSymbol("GFXRTOSMenu", None)
+	GFXRTOSMenu.setLabel("RTOS settings")
+	GFXRTOSMenu.setDescription("RTOS settings")
+	GFXRTOSMenu.setVisible((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
+	GFXRTOSMenu.setDependencies(showGFXRTOSMenu, ["HarmonyCore.SELECT_RTOS"])
+
+	GFXRTOSTask = halComponent.createComboSymbol("GFXRTOSTask", GFXRTOSMenu, ["Standalone"])
+	GFXRTOSTask.setLabel("Run Library Tasks As")
+	GFXRTOSTask.setDefaultValue("Standalone")
+	GFXRTOSTask.setVisible(False)
+
+	GFXRTOSStackSize = halComponent.createIntegerSymbol("GFXRTOSStackSize", GFXRTOSMenu)
+	GFXRTOSStackSize.setLabel("Stack Size")
+	GFXRTOSStackSize.setDefaultValue(1024)
+
+	GFXRTOSTaskPriority = halComponent.createIntegerSymbol("GFXRTOSTaskPriority", GFXRTOSMenu)
+	GFXRTOSTaskPriority.setLabel("Task Priority")
+	GFXRTOSTaskPriority.setDefaultValue(1)
+
+	GFXRTOSTaskUseDelay = halComponent.createBooleanSymbol("GFXRTOSTaskUseDelay", GFXRTOSMenu)
+	GFXRTOSTaskUseDelay.setLabel("Use Task Delay?")
+	GFXRTOSTaskUseDelay.setDefaultValue(True)
+
+	GFXRTOSTaskDelayVal = halComponent.createIntegerSymbol("GFXRTOSTaskDelayVal", GFXRTOSMenu)
+	GFXRTOSTaskDelayVal.setLabel("Task Delay")
+	GFXRTOSTaskDelayVal.setDefaultValue(10)
+	GFXRTOSTaskDelayVal.setDependencies(showGFXRTOSTaskDel, ["GFXRTOSTaskDelay"])
 	
-	SysInitString = halComponent.createListEntrySymbol("SysInitString", None)
-	SysInitString.addValue("    GFX_Initialize();")
-	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	GFX_SYS_DEFINITIONS_H = halComponent.createFileSymbol("GFX_SYS_DEFINITIONS_H", None)
+	GFX_SYS_DEFINITIONS_H.setType("STRING")
+	GFX_SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+	GFX_SYS_DEFINITIONS_H.setSourcePath("templates/system/gfx_definitions.h.ftl")
+	GFX_SYS_DEFINITIONS_H.setMarkup(True)
+
+	GFX_SYS_INIT_C = halComponent.createFileSymbol("GFX_SYS_INIT_C", None)
+	GFX_SYS_INIT_C.setType("STRING")
+	GFX_SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
+	GFX_SYS_INIT_C.setSourcePath("templates/system/gfx_initialize.c.ftl")
+	GFX_SYS_INIT_C.setMarkup(True)
+
+	GFX_DRV_TASK_C = halComponent.createFileSymbol("GFX_DRV_TASK_C", None)
+	GFX_DRV_TASK_C.setType("STRING")
+	GFX_DRV_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+	GFX_DRV_TASK_C.setSourcePath("templates/system/gfx_tasks.c.ftl")
+	GFX_DRV_TASK_C.setMarkup(True)
+
+	GFX_SYS_RTOS_TASK_C = halComponent.createFileSymbol("GFX_SYS_RTOS_TASK_C", None)
+	GFX_SYS_RTOS_TASK_C.setType("STRING")
+	GFX_SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	GFX_SYS_RTOS_TASK_C.setSourcePath("templates/system/gfx_rtos_tasks.c.ftl")
+	GFX_SYS_RTOS_TASK_C.setMarkup(True)
+	GFX_SYS_RTOS_TASK_C.setEnabled((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
+	GFX_SYS_RTOS_TASK_C.setDependencies(getGFXRTOSTask, ["HarmonyCore.SELECT_RTOS"])
 	
-	SysTasksString = halComponent.createListEntrySymbol("SYSTasksString", None)
-	SysTasksString.addValue("    GFX_Update();")
-	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
+def showGFXRTOSMenu(symbol, event):
+	if (event["value"] != "BareMetal"):
+		symbol.setVisible(True)
+	else:
+		symbol.setVisible(False)
+
+def showGFXRTOSTaskDel(symbol, enable):
+	symbol.setVisible(enable["value"])
 	
+def onAttachmentConnected(source, target):
+	if source["id"] == "gfx_display_driver":
+		source["component"].setSymbolValue("DriverInfoFunction", target["component"].getSymbolValue("DriverInfoFunction"), 1)
+		source["component"].setSymbolValue("DriverInitFunction", target["component"].getSymbolValue("DriverInitFunction"), 1)
+
+def getGFXRTOSTask(symbol, event):
+	if (event["value"] != "BareMetal"):
+		symbol.setEnabled(True)
+	else:
+		symbol.setEnabled(False)
+
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_display_driver":
 		source["component"].setSymbolValue("DriverInfoFunction", target["component"].getSymbolValue("DriverInfoFunction"), 1)
