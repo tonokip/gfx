@@ -21,6 +21,9 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
+<#if RTOSEnabled == true>
+#include "osal/osal.h"
+</#if>
 #include "system/input/sys_input.h"
 
 #include <string.h>
@@ -49,7 +52,6 @@ enum
 typedef struct InputEvent_t
 {
     uint8_t type;
-    
     union
     {
         SYS_INP_KeyEvent key;
@@ -77,6 +79,11 @@ uint32_t touchNextEvent;*/
 SYS_INP_InputListener listeners[SYS_INP_MAX_LISTENERS];
 uint8_t listenerFlags[SYS_INP_MAX_LISTENERS];
 
+<#if RTOSEnabled == true>
+OSAL_MUTEX_HANDLE_TYPE listenersLock;
+OSAL_MUTEX_HANDLE_TYPE eventsLock;
+</#if>
+
 /*static int32_t _insertIntoEventQueue(InputEvent* evt)
 {
     if(nextEvent == eventCount)
@@ -91,6 +98,11 @@ uint8_t listenerFlags[SYS_INP_MAX_LISTENERS];
 int32_t SYS_INP_Init()
 {
     eventCount = 0;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Create(&eventsLock);
+    OSAL_MUTEX_Create(&listenersLock);
+</#if>
     
     memset(generalEvents, 0, sizeof(generalEvents));
     //memset(touchEvents, 0, sizeof(touchEvents));
@@ -106,6 +118,10 @@ void SYS_INP_Tasks()
     // no events?  nothing to do
     if(eventCount == 0)
         return;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
     
     // iterate over all listeners
     for(j = 0; j < SYS_INP_MAX_LISTENERS; j++)
@@ -183,11 +199,20 @@ void SYS_INP_Tasks()
     }
     
     eventCount = 0;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+    
 }
 
 int32_t SYS_INP_AddListener(SYS_INP_InputListener* lst)
 {
     int32_t i;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&listenersLock, OSAL_WAIT_FOREVER);
+</#if>
     
     // find the next available listener slot
     for(i = 0; i < SYS_INP_MAX_LISTENERS; i++)
@@ -197,85 +222,163 @@ int32_t SYS_INP_AddListener(SYS_INP_InputListener* lst)
             listeners[i] = *lst;
             listenerFlags[i] = 1;
             
+            OSAL_MUTEX_Unlock(&listenersLock);
             return i;
         }
     }
+    
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&listenersLock);
+</#if>
     
     return -1;
 }
 
 int32_t SYS_INP_RemoveListener(uint16_t idx)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&listenersLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     if(idx >= SYS_INP_MAX_LISTENERS || listenerFlags[idx] == 0)
+    {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&listenersLock);
+</#if>
         return -1;
+    }
     
     // clear the indicated array index
     listenerFlags[idx] = 0;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&listenersLock);
+</#if>
     return 0;
 }
 
 int32_t SYS_INP_InjectKeyDown(SYS_INP_Key key)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = KEY_DOWN_EVENT;
     generalEvents[eventCount].event.key.key = key;
-    
+
     eventCount++;
-    
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+
     return 0;
 }
 
 int32_t SYS_INP_InjectKeyUp(SYS_INP_Key key)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&listenersLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = KEY_UP_EVENT;
     generalEvents[eventCount].event.key.key = key;
     
     eventCount++;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
     
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseButtonDown(SYS_INP_MouseButton btn)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = MOUSE_DOWN_EVENT;
     generalEvents[eventCount].event.mouseBtn.btn = btn;
     
     eventCount++;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
     
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseButtonUp(SYS_INP_MouseButton btn)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = MOUSE_UP_EVENT;
     generalEvents[eventCount].event.mouseBtn.btn = btn;
     
     eventCount++;
-    
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+
     return 0;
 }
 
 int32_t SYS_INP_InjectMouseMove(uint16_t x, uint16_t y)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = MOUSE_MOVE_EVENT;
     generalEvents[eventCount].event.mouseMove.x = x;
@@ -283,14 +386,27 @@ int32_t SYS_INP_InjectMouseMove(uint16_t x, uint16_t y)
     
     eventCount++;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+    
     return 0;
 }
 
 int32_t SYS_INP_InjectTouchDown(uint16_t idx, uint16_t x, uint16_t y)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = TOUCH_DOWN_EVENT;
     generalEvents[eventCount].event.touchState.index = idx;
@@ -299,14 +415,27 @@ int32_t SYS_INP_InjectTouchDown(uint16_t idx, uint16_t x, uint16_t y)
     
     eventCount++;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+    
     return 0;
 }
 
 int32_t SYS_INP_InjectTouchUp(uint16_t idx, uint16_t x, uint16_t y)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = TOUCH_UP_EVENT;
     generalEvents[eventCount].event.touchState.index = idx;
@@ -315,14 +444,27 @@ int32_t SYS_INP_InjectTouchUp(uint16_t idx, uint16_t x, uint16_t y)
     
     eventCount++;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+    
     return 0;
 }
 
 int32_t SYS_INP_InjectTouchMove(uint16_t idx, uint16_t x, uint16_t y)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = TOUCH_MOVE_EVENT;
     generalEvents[eventCount].event.touchMove.index = idx;
@@ -330,6 +472,10 @@ int32_t SYS_INP_InjectTouchMove(uint16_t idx, uint16_t x, uint16_t y)
     generalEvents[eventCount].event.touchMove.y = y;
     
     eventCount++;
+    
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
     
     return 0;
 }
@@ -339,9 +485,18 @@ int32_t SYS_INP_InjectFlickGesture(uint16_t x,
                                    uint16_t dir,
                                    uint16_t dist)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = GESTURE_FLICK_EVENT;
     generalEvents[eventCount].event.flickGesture.x = x;
@@ -350,6 +505,10 @@ int32_t SYS_INP_InjectFlickGesture(uint16_t x,
     generalEvents[eventCount].event.flickGesture.dist = dist;
     
     eventCount++;
+
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
     
     return 0;
 }
@@ -359,9 +518,18 @@ int32_t SYS_INP_InjectPinchGesture(uint16_t x,
                                    uint16_t angle,
                                    uint16_t sep)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+    
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = GESTURE_PINCH_EVENT;
     generalEvents[eventCount].event.pinchGesture.x = x;
@@ -371,6 +539,10 @@ int32_t SYS_INP_InjectPinchGesture(uint16_t x,
     
     eventCount++;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+
     return 0;
 }
 
@@ -379,9 +551,18 @@ int32_t SYS_INP_InjectStretchGesture(uint16_t x,
                                      uint16_t angle,
                                      uint16_t sep)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = GESTURE_STRETCH_EVENT;
     generalEvents[eventCount].event.stretchGesture.x = x;
@@ -391,6 +572,10 @@ int32_t SYS_INP_InjectStretchGesture(uint16_t x,
     
     eventCount++;
     
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
+
     return 0;
 }
 
@@ -400,9 +585,18 @@ int32_t SYS_INP_InjectRotateGesture(uint16_t x,
                                     uint16_t sep,
                                     uint16_t dir)
 {
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Lock(&eventsLock, OSAL_WAIT_FOREVER);
+</#if>
+
     // add the event to the next empty slot
     if(eventCount >= SYS_INP_MAX_GENERAL_EVENTS)
+    {
+<#if RTOSEnabled == true>
+        OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
         return -1;
+    }
     
     generalEvents[eventCount].type = GESTURE_STRETCH_EVENT;
     generalEvents[eventCount].event.rotateGesture.x = x;
@@ -412,6 +606,10 @@ int32_t SYS_INP_InjectRotateGesture(uint16_t x,
     generalEvents[eventCount].event.rotateGesture.dir = dir;
     
     eventCount++;
+    
+<#if RTOSEnabled == true>
+    OSAL_MUTEX_Unlock(&eventsLock);
+</#if>
     
     return 0;
 }
