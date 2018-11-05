@@ -21,6 +21,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
+#include "osal/osal.h"
 #include "gfx/libaria/inc/libaria_event.h"
 #include "gfx/libaria/inc/libaria_event_rtos.h"
 

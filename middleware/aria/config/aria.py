@@ -32,17 +32,33 @@ def instantiateComponent(component):
 	execfile(Module.getPath() + "/config/aria_rtos.py")
 	execfile(Module.getPath() + "/config/aria_files.py")
 
-	SysInitIncludeString = component.createListEntrySymbol("SysInitIncludeString", None)
-	SysInitIncludeString.addValue('#include "gfx/libaria/libaria_harmony.h"')
-	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
+	LIBARIA_SYS_DEFINITIONS_H = component.createFileSymbol("LIBARIA_SYS_DEFINITIONS_H", None)
+	LIBARIA_SYS_DEFINITIONS_H.setType("STRING")
+	LIBARIA_SYS_DEFINITIONS_H.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
+	LIBARIA_SYS_DEFINITIONS_H.setSourcePath("templates/system/libaria_definitions.h.ftl")
+	LIBARIA_SYS_DEFINITIONS_H.setMarkup(True)
 	
-	SysInitString = component.createListEntrySymbol("SysInitString", None)
-	SysInitString.addValue("    LibAria_Initialize(); // initialize UI library")
-	SysInitString.setTarget("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
+	LIBARIA_SYS_INIT_C = component.createFileSymbol("LIBARIA_SYS_INIT_C", None)
+	LIBARIA_SYS_INIT_C.setType("STRING")
+	LIBARIA_SYS_INIT_C.setOutputName("core.LIST_SYSTEM_INIT_C_INITIALIZE_MIDDLEWARE")
+	LIBARIA_SYS_INIT_C.setSourcePath("templates/system/libaria_init.c.ftl")
+	LIBARIA_SYS_INIT_C.setMarkup(True)
+
+	LIBARIA_SYS_TASK_C = component.createFileSymbol("LIBARIA_SYS_TASK_C", None)
+	LIBARIA_SYS_TASK_C.setType("STRING")
+	LIBARIA_SYS_TASK_C.setOutputName("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
+	LIBARIA_SYS_TASK_C.setSourcePath("templates/system/libaria_tasks.c.ftl")
+	LIBARIA_SYS_TASK_C.setMarkup(True)
+
+	LIBARIA_SYS_RTOS_TASK_C = component.createFileSymbol("LIBARIA_SYS_RTOS_TASK_C", None)
+	LIBARIA_SYS_RTOS_TASK_C.setType("STRING")
+	LIBARIA_SYS_RTOS_TASK_C.setOutputName("core.LIST_SYSTEM_RTOS_TASKS_C_DEFINITIONS")
+	LIBARIA_SYS_RTOS_TASK_C.setSourcePath("templates/system/libaria_rtos_tasks.c.ftl")
+	LIBARIA_SYS_RTOS_TASK_C.setMarkup(True)
+	LIBARIA_SYS_RTOS_TASK_C.setEnabled((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
+	LIBARIA_SYS_RTOS_TASK_C.setDependencies(enableAriaRTOSTask, ["HarmonyCore.SELECT_RTOS"])
 	
-	SysTasksString = component.createListEntrySymbol("SYSTasksString", None)
-	SysTasksString.addValue("    LibAria_Tasks(); // update the UI library")
-	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
+	Database.setSymbolValue("core", "HEAP_SIZE", 32768, 1) 
 
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_hal":
@@ -63,14 +79,36 @@ def onDemoModeEnable(enableDemoMode, event):
 	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_H").setEnabled(event["value"])
 	event["source"].getSymbolByID("LIBARIA_DEMO_MODE_C").setEnabled(event["value"])
 	
-def onRTOSEnable(useRTOS, event):
-	useRTOS.getComponent().getSymbolByID("useRTOSExtensions").setVisible(event["value"])
-	useRTOS.getComponent().getSymbolByID("rtosfullBlockingMode").setVisible(event["value"])
-	useRTOS.getComponent().getSymbolByID("rtosTaskSize").setVisible(event["value"])
-	useRTOS.getComponent().getSymbolByID("rtosTaskPriority").setVisible(event["value"])
-	useRTOS.getComponent().getSymbolByID("rtosEnableTaskDelay").setVisible(event["value"])
-	useRTOS.getComponent().getSymbolByID("rtosTaskDelay").setVisible(event["value"])
+def showAriaRTOSMenu(symbol, event):
+	symbol.setVisible(event["value"] != "BareMetal")
+	symbol.getComponent().getSymbolByID("useRTOSExtensions").setValue(event["value"] != "BareMetal", 1)
 	
+def enableAriaRTOSExtensions(symbol, event):
+	enableAriaExtensionsFiles(symbol.getComponent(), event["value"] == True)
+
+def enableAriaRTOSSymbol(symbol, event):
+	if (event["value"] == "True"):
+		symbol.setEnabled(True)
+	else:
+		symbol.setEnabled(False)
+
+def enableAriaExtensionsFiles(component, enable):
+	print("Enabling extension files " + str(enable))
+### Enable/Disable the RTOS extension files
+	component.getSymbolByID("LIBARIA_RTOS_H").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_CONTEXT_RTOS_H").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_EVENT_RTOS_H").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_INPUT_RTOS_H").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_RTOS_C").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_CONTEXT_RTOS_C").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_EVENT_RTOS_C").setEnabled(enable)
+	component.getSymbolByID("LIBARIA_INPUT_RTOS_C").setEnabled(enable)
+	
+#def useAriaRTOSExtensions(symbol, event):
+#	symbol.getComponent().getSymbolByID("rtosFullBlockingMode").setVisible(event["value"] == True)
+#	symbol.getComponent().getSymbolByID("rtosEnableTaskDelay").setValue(event["value"] == False, 1)
+#	enableAriaExtensionsFiles(symbol.getComponent(), event["value"] == True)
+
 def onEnableInputChanged(enableInput, event):
 	enableInput.getComponent().setDependencyEnabled("sys_input", event["value"])
 	
@@ -100,3 +138,9 @@ def onUseGlobalPaletteChanged(useGlobalPalette, event):
 	# connected to HAL, update the global palette hint
 	if event["source"].getDependencyComponent("gfx_hal") != None:
 		Database.setSymbolValue("gfx_hal", "GlobalPaletteModeHint", event["value"], 1)
+	
+def enableAriaRTOSTask(symbol, event):
+    if (event["value"] != "BareMetal"):
+        symbol.setEnabled(True)
+    else:
+        symbol.setEnabled(False)

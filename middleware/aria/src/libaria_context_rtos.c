@@ -43,6 +43,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 // DOM-IGNORE-END
+#include "osal/osal.h"
 #include "gfx/libaria/inc/libaria_context.h"
 
 #include "gfx/hal/gfx.h"

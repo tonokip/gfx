@@ -853,4 +853,3 @@ LIBARIA_MACROS_C.setOutputName("libaria_macros.c")
 LIBARIA_MACROS_C.setProjectPath(projectPath)
 LIBARIA_MACROS_C.setType("SOURCE")
 LIBARIA_MACROS_C.setMarkup(True)
-

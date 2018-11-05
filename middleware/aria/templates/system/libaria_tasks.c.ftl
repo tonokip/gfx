@@ -1,20 +1,4 @@
-/*******************************************************************************
-  MPLAB Harmony Graphics Composer Generated Implementation File
-
-  File Name:
-    libaria_init.c
-
-  Summary:
-    Build-time generated implementation from the MPLAB Harmony
-    Graphics Composer.
-
-  Description:
-    Build-time generated implementation from the MPLAB Harmony
-    Graphics Composer.
-
-    Created with MPLAB Harmony Version 3.0
-*******************************************************************************/
-// DOM-IGNORE-BEGIN
+<#--
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -37,36 +21,19 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
-// DOM-IGNORE-END
+-->
 
-#include "gfx/libaria/libaria_init.h"
-<#if useRTOSExtensions == true>
-#include "gfx/libaria/inc/libaria_context_rtos.h"
+<#if HarmonyCore.SELECT_RTOS == "BareMetal">
+    <#lt>    LibAria_Tasks();
+<#elseif HarmonyCore.SELECT_RTOS == "FreeRTOS">
+    <#lt>    xTaskCreate( _LIBARIA_Tasks,
+    <#lt>        "LIBARIA_Tasks",
+    <#lt>        ${rtosTaskSize},
+    <#lt>        (void*)NULL,
+    <#lt>        ${rtosTaskPriority},
+    <#lt>        (TaskHandle_t*)NULL
+    <#lt>    );
 </#if>
-
-<#if ARIA_INIT_LOCAL_VARS??>
-${ARIA_INIT_LOCAL_VARS}
-
-</#if>
-<#if ARIA_INIT_LOCAL_FUNC_DEFS??>
-${ARIA_INIT_LOCAL_FUNC_DEFS}
-
-</#if>
-int32_t libaria_initialize(void)
-{
-<#if ARIA_INIT_VARS??>
-${ARIA_INIT_VARS}
-</#if>
-<#if ARIA_INIT_CODE??>
-${ARIA_INIT_CODE}
-</#if>
-	return 0;
-}
-
-<#if ARIA_INIT_LOCAL_FUNCS??>
-${ARIA_INIT_LOCAL_FUNCS}
-</#if>
-
 <#--
 /*******************************************************************************
  End of File

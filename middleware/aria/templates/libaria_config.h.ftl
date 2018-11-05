@@ -63,8 +63,8 @@ extern "C" {
 </#if>
 
 // OSAL support
-<#if USE_RTOS?? && USE_RTOS == true>
-#define LIBARIA_USE_RTOS
+<#if useRTOSExtensions?? && useRTOSExtensions == true>
+#define LIBARIA_USE_RTOS_EXTENSIONS
 </#if>
 
 // widget inclusion
