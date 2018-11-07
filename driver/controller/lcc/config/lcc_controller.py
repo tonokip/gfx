@@ -22,6 +22,8 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
+import re
+
 def instantiateComponent(comp):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/lcc"
 	
@@ -166,6 +168,8 @@ def instantiateComponent(comp):
 	DMAChannel.setDependencies(onDMAChannelSet, ["DMAChannel"])
 	
 	CurrDMAChannel = comp.createIntegerSymbol("CurrDMAChannel", DMAMenu)
+	CurrDMAChannel.setMin(0)
+	CurrDMAChannel.setMax(64)
 	CurrDMAChannel.setDefaultValue(0)
 	CurrDMAChannel.setVisible(False)
 	
@@ -173,6 +177,48 @@ def instantiateComponent(comp):
 	# IntPriority.setLabel("Interrupt Priority Level")
 	# IntPriority.setMin(0)
 	# IntPriority.setMax(7)
+	
+	### Start of Backlight config options
+	BacklightSettings = comp.createMenuSymbol("BacklightSettings", None)
+	BacklightSettings.setLabel("Backlight Settings")
+	
+	DefaultBrightness = comp.createIntegerSymbol("DefaultBrightness", BacklightSettings)
+	DefaultBrightness.setLabel("Default Brightness (%)")
+	DefaultBrightness.setDescription("The default brightness setting at driver startup")
+	DefaultBrightness.setMin(0)
+	DefaultBrightness.setMax(100)
+	DefaultBrightness.setDefaultValue(100)
+
+	PeripheralControl = comp.createComboSymbol("PeripheralControl", BacklightSettings, ["GPIO", "TC"])
+	PeripheralControl.setLabel("Peripheral")
+	PeripheralControl.setDescription("Peripheral used to control the backlight PWM")
+	PeripheralControl.setDefaultValue("GPIO")
+	PeripheralControl.setDependencies(onBacklightPeripheralSelected, ["PeripheralControl"])
+	
+	TCPeripheralSettings = comp.createMenuSymbol("TCPeripheralSettings", PeripheralControl)
+	TCPeripheralSettings.setLabel("Timer Counter Settings")
+	TCPeripheralSettings.setDescription("Settings for using the TC peripheral library")
+	TCPeripheralSettings.setVisible(False)
+	
+	TCInstance = comp.createIntegerSymbol("TCInstance", TCPeripheralSettings)
+	TCInstance.setLabel("TC Instance")
+	TCInstance.setDescription("The TC peripheral IDx")
+	TCInstance.setMin(0)
+	TCInstance.setMax(64)
+	TCInstance.setDefaultValue(0)
+
+	TCChannel = comp.createIntegerSymbol("TCChannel", TCPeripheralSettings)
+	TCChannel.setLabel("TC Channel")
+	TCChannel.setDescription("The TC channel that controls the PWM signal")
+	TCChannel.setMin(0)
+	TCChannel.setMax(64)
+	TCChannel.setDefaultValue(0)
+
+	TCChannelCompare = comp.createComboSymbol("TCChannelCompare", TCPeripheralSettings, ["A", "B"])
+	TCChannelCompare.setLabel("Compare Register")
+	TCChannelCompare.setDescription("Compare Register for PWM")
+	TCChannelCompare.setDefaultValue("A")
+	### End of Backlight config options
 
 	# generated code files
 	GFX_LCC_C = comp.createFileSymbol("GFX_LCC_C", None)
@@ -201,7 +247,6 @@ def instantiateComponent(comp):
 	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
 
 	configureDMAChannel(str(DMAChannel.getValue()), str(CurrDMAChannel.getValue()))
-
 
 def configureDMAChannel(newChannel, oldChannel):
 	# print("old channel " + str(oldChannel))
@@ -260,26 +305,35 @@ def resetSMCComponent(lccComponent, smcComponent, smcChipSelNum):
 	lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
 def onAttachmentConnected(source, target):
-	if (target["id"] == "smc_cs0"):
-		configureSMCComponent(source["component"], target["component"], 0)
-	elif (target["id"] == "smc_cs1"):
-		configureSMCComponent(source["component"], target["component"], 1)
-	elif (target["id"] == "smc_cs2"):
-		configureSMCComponent(source["component"], target["component"], 2)
-	elif (target["id"] == "smc_cs3"):
-		configureSMCComponent(source["component"], target["component"], 3)
+	print("dependency Connected = " + str(target['id']))
+	#### test for SMC dependency
+	if (source["id"] == "SMC_CS"):
+		sub = re.search('smc_cs(.*)', str(target["id"]))
+		if (sub and sub.group(1)):
+			configureSMCComponent(source["component"], target["component"], int(sub.group(1)))
+	#### test for TC dependency (backlight)
+	elif (source["id"] == "TMR"):
+		sub = re.search('TC(.*)', target["component"].getDisplayName())
+		if (sub and sub.group(1)):
+			source["component"].getSymbolByID("TCInstance").setValue(int(sub.group(1)), 1)
+	
 	
 def onAttachmentDisconnected(source, target):
-	if (target["id"] == "smc_cs0"):
-		resetSMCComponent(source["component"], target["component"], 0)
-	elif (target["id"] == "smc_cs1"):
-		resetSMCComponent(source["component"], target["component"], 1)
-	elif (target["id"] == "smc_cs2"):
-		resetSMCComponent(source["component"], target["component"], 2)
-	elif (target["id"] == "smc_cs3"):
-		resetSMCComponent(source["component"], target["component"], 3)
+	if (source["id"] == "SMC_CS"):
+		sub = re.search('smc_cs(.*)', str(target["id"]))
+		if (sub and sub.group(1)):
+			resetSMCComponent(source["component"], target["component"], int(sub.group(1)))
 
 def OnCacheEnabled(cacheEnabled, event):
 	print("LCC: cache enabled")
 	cacheEnabled.getComponent().setSymbolValue("UseCachedFrameBuffer", event["value"] == True, 1)
 	print("LCC: UseCachedFrameBuffer enabled")
+
+def onBacklightPeripheralSelected(symbol, event):
+	print("onBacklightPeripheralSelected = " + event["value"])
+	if (event["value"] == "TC"):
+		symbol.getComponent().setDependencyEnabled("TMR", True)
+		symbol.getComponent().getSymbolByID("TCPeripheralSettings").setVisible(True)
+	else:
+		symbol.getComponent().getSymbolByID("TCPeripheralSettings").setVisible(False)
+		symbol.getComponent().setDependencyEnabled("TMR", False)

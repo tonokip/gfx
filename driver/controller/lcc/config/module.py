@@ -22,10 +22,13 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-def loadModule():	
+def loadModule():
 	cntlComponent = Module.CreateComponent("gfx_driver_lcc", "LCC ", "/Graphics/Driver", "config/lcc_controller.py")
 	cntlComponent.setDisplayType("LCC Display Driver")
 	cntlComponent.addDependency("sys_dma", "sys_dma", True)
 	cntlComponent.addDependency("sys_int", "sys_int", True)
 	cntlComponent.addCapability("gfx_driver_lcc", "Display Driver", False)
 	cntlComponent.addDependency("SMC_CS", "SMC_CS", False, True)
+	### TMR dependency for PWM backlight control
+	cntlComponent.addDependency("TMR", "TMR", False, True)
+	cntlComponent.setDependencyEnabled("TMR", False)

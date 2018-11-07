@@ -222,7 +222,9 @@ int32_t SYS_INP_AddListener(SYS_INP_InputListener* lst)
             listeners[i] = *lst;
             listenerFlags[i] = 1;
             
+<#if RTOSEnabled == true>
             OSAL_MUTEX_Unlock(&listenersLock);
+</#if>
             return i;
         }
     }

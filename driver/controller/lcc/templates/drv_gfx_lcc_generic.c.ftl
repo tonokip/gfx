@@ -149,10 +149,12 @@ uint16_t __attribute__((aligned(16))) frameLine[DISPLAY_WIDTH];
 #endif
 </#if>
 
+<#if PeripheralControl != "TC">
 #ifndef GFX_DISP_INTF_PIN_BACKLIGHT_Set
 #warning "GFX_DISP_INTF_PIN_BACKLIGHT GPIO must be defined in the Pin Settings"
 #define GFX_DISP_INTF_PIN_BACKLIGHT_Set()
 #endif
+</#if>
 
 #ifndef GFX_DISP_INTF_PIN_VSYNC_Set
 #error "GFX_DISP_INTF_PIN_VSYNC GPIO must be defined in the Pin Settings"
@@ -291,6 +293,42 @@ static void layerSwapPending(GFX_Layer* layer)
 }
 </#if>
 
+static GFX_Result lccBacklightBrightnessSet(uint32_t brightness)
+{
+<#if PeripheralControl == "TC">
+    uint32_t value;
+    brightness = (brightness <= 100) ? brightness : 100;
+    
+    value = TC${TCInstance}_CH${TCChannel}_ComparePeriodGet() * (100 - brightness) / 100;
+    
+    //Use a positive value
+    if (value == 0)
+        value = 1;
+    
+    TC${TCInstance}_CH${TCChannel}_Compare${TCChannelCompare}Set(value);
+<#else>
+    if (brightness == 0)
+    {
+<#if Val_BacklightEnable == 1>
+        GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
+<#else>
+        GFX_DISP_INTF_PIN_BACKLIGHT_Set();
+</#if>
+    }
+    else
+    {
+<#if Val_BacklightEnable == 1>
+        GFX_DISP_INTF_PIN_BACKLIGHT_Set();
+<#else>
+        GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
+</#if>
+    }
+</#if>
+
+    return GFX_SUCCESS;
+
+}
+
 static GFX_Result lccInitialize(GFX_Context* context)
 {
     uint32_t i, j;
@@ -307,6 +345,7 @@ static GFX_Result lccInitialize(GFX_Context* context)
     context->hal.layerBufferCountSet = &layerBufferCountSet;
     context->hal.layerBufferAddressSet = &layerBufferAddressSet;
     context->hal.layerBufferAllocate = &layerBufferAllocate;
+    context->hal.brightnessSet = &lccBacklightBrightnessSet;
 <#if Val_DoubleBuffer == true>
     context->hal.layerSwapped = &layerSwapped;
     context->hal.layerSwapPending = &layerSwapPending;
@@ -372,11 +411,11 @@ static GFX_Result lccInitialize(GFX_Context* context)
 </#if>
 
     /*Turn Backlight on*/
-<#if Val_BacklightEnable == 1>
-    GFX_DISP_INTF_PIN_BACKLIGHT_Set();
-<#else>
-    GFX_DISP_INTF_PIN_BACKLIGHT_Clear();
+<#if PeripheralControl == "TC">
+    TC${TCInstance}_CH${TCChannel}_CompareStart();
 </#if>
+
+    lccBacklightBrightnessSet(${DefaultBrightness});
 
     return GFX_SUCCESS;
 }
