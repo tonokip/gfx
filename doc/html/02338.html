@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laUtils_GetNextHighestWidget Function</title>
+<title>laUtils_PickFromLayer Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02338.html" target="topic">laUtils_GetNextHighestWidget Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02338.html" target="topic">laUtils_PickFromLayer Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -32,9 +32,9 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="02337.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02339.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_GetNextHighestWidget@laWidget* Topic Title: laUtils_GetNextHighestWidget Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PickFromLayer@laLayer*@int32_t@int32_t Topic Title: laUtils_PickFromLayer Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laUtils_GetNextHighestWidget Function</div>
+laUtils_PickFromLayer Function</div>
 </div>
 </div>
 
@@ -48,8 +48,10 @@ laUtils_GetNextHighestWidget Function</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><a href="02360.html" target="topic">laWidget</a>* <strong><span style="color: #000000">laUtils_GetNextHighestWidget</span></strong>(
-    <a href="02360.html" target="topic">laWidget</a>* <strong><span style="color: #000000">wgt</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02356.html" target="topic">laWidget</a>* <strong><span style="color: #000000">laUtils_PickFromLayer</span></strong>(
+    <strong><span style="color: #000080">const</span></strong> <a href="01484.html" target="topic">laLayer</a>* <strong><span style="color: #000000">layer</span></strong>, 
+    int32_t <strong><span style="color: #000000">x</span></strong>, 
+    int32_t <strong><span style="color: #000000">y</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -66,9 +68,14 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-laWidget* wgt&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the widget to analyze&nbsp;</div></td></tr></table></div></div>
+the x coordinate of the pick point&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+int32_t y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the y coordinate of the pick point&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -76,14 +83,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="02360.html" target="topic">laWidget</a>* - the next highest widget or NULL if 'wgt' is already the highest</p></div>
+<a href="02356.html" target="topic">laWidget</a>* - the result widget</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02338.html" target="topic">laUtils_GetNextHighestWidget Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02338.html" target="topic">laUtils_PickFromLayer Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -97,7 +104,7 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="02337.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02339.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_GetNextHighestWidget@laWidget* Topic Title: laUtils_GetNextHighestWidget Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_PickFromLayer@laLayer*@int32_t@int32_t Topic Title: laUtils_PickFromLayer Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

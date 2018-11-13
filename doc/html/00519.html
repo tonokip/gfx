@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFXU_DrawCharString Function</title>
+<title>GFXU_DrawString Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00519.html" target="topic">GFXU_DrawCharString Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00519.html" target="topic">GFXU_DrawString Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -32,9 +32,9 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="00518.html" target="topic">Previous</a> | <a href="00478.html" target="topic">Up</a> | <a href="00520.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_DrawCharString@GFXU_CHAR*@GFXU_FontAsset*@int32_t@int32_t@GFXU_MemoryIntf*@GFXU_ExternalAssetReader** Topic Title: GFXU_DrawCharString Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_DrawString@GFXU_StringTableAsset*@uint32_t@uint32_t@int32_t@int32_t@GFXU_MemoryIntf*@GFXU_ExternalAssetReader** Topic Title: GFXU_DrawString Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFXU_DrawCharString Function</div>
+GFXU_DrawString Function</div>
 </div>
 </div>
 
@@ -48,13 +48,14 @@ GFXU_DrawCharString Function</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT GFX_Result <strong><span style="color: #000000">GFXU_DrawCharString</span></strong>(
-    <a href="00517.html" target="topic">GFXU_CHAR</a>* <strong><span style="color: #000000">str</span></strong>, 
-    <a href="00545.html" target="topic">GFXU_FontAsset</a>* <strong><span style="color: #000000">fnt</span></strong>, 
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT GFX_Result <strong><span style="color: #000000">GFXU_DrawString</span></strong>(
+    <a href="00630.html" target="topic">GFXU_StringTableAsset</a>* <strong><span style="color: #000000">tbl</span></strong>, 
+    uint32_t <strong><span style="color: #000000">id</span></strong>, 
+    uint32_t <strong><span style="color: #000000">lang</span></strong>, 
     int32_t <strong><span style="color: #000000">x</span></strong>, 
     int32_t <strong><span style="color: #000000">y</span></strong>, 
-    <a href="00610.html" target="topic">GFXU_MemoryIntf</a>* <strong><span style="color: #000000">memoryInterface</span></strong>, 
-    <a href="00526.html" target="topic">GFXU_ExternalAssetReader</a>** <strong><span style="color: #000000">reader</span></strong>
+    <a href="00606.html" target="topic">GFXU_MemoryIntf</a>* <strong><span style="color: #000000">memoryInterface</span></strong>, 
+    <a href="00522.html" target="topic">GFXU_ExternalAssetReader</a>** <strong><span style="color: #000000">reader</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -71,9 +72,19 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-GFXU_CHAR* str&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+GFXU_StringTableAsset* tbl&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the string buffer to draw&nbsp;</div></td></tr><tr>
+the string table to reference&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t id&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the id of the string to look up&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t lang&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the language entry to look up&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
 int32_t x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
@@ -108,7 +119,7 @@ GFX_Result</p></div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00519.html" target="topic">GFXU_DrawCharString Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00519.html" target="topic">GFXU_DrawString Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -122,7 +133,7 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="00518.html" target="topic">Previous</a> | <a href="00478.html" target="topic">Up</a> | <a href="00520.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_DrawCharString@GFXU_CHAR*@GFXU_FontAsset*@int32_t@int32_t@GFXU_MemoryIntf*@GFXU_ExternalAssetReader** Topic Title: GFXU_DrawCharString Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXU_DrawString@GFXU_StringTableAsset*@uint32_t@uint32_t@int32_t@int32_t@GFXU_MemoryIntf*@GFXU_ExternalAssetReader** Topic Title: GFXU_DrawString Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

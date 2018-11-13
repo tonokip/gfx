@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laWidget_SetPosition Function</title>
+<title>laWidget_SetWidth Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02406.html" target="topic">laWidget_SetPosition Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02406.html" target="topic">laWidget_SetWidth Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -32,9 +32,9 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="02405.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02407.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_SetPosition@laWidget*@int32_t@int32_t Topic Title: laWidget_SetPosition Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_SetWidth@laWidget*@int32_t Topic Title: laWidget_SetWidth Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laWidget_SetPosition Function</div>
+laWidget_SetWidth Function</div>
 </div>
 </div>
 
@@ -49,14 +49,13 @@ laWidget_SetPosition Function</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Changes the widget position to the new defined x and y coordinates. Moving widgets can be expensive as it needs to repaint multiple areas of its parent widget.</p></div>
+Sets the widget's width value</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02095.html" target="topic">laResult</a> <strong><span style="color: #000000">laWidget_SetPosition</span></strong>(
-    <a href="02360.html" target="topic">laWidget</a>* <strong><span style="color: #000000">wgt</span></strong>, 
-    int32_t <strong><span style="color: #000000">x</span></strong>, 
-    int32_t <strong><span style="color: #000000">y</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02091.html" target="topic">laResult</a> <strong><span style="color: #000000">laWidget_SetWidth</span></strong>(
+    <a href="02356.html" target="topic">laWidget</a>* <strong><span style="color: #000000">wgt</span></strong>, 
+    int32_t <strong><span style="color: #000000">width</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -73,19 +72,14 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-laWidget* wgt&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+lawidget* wgt&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
 the widget&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-int32_t x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t width&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the new x coordinate&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-int32_t y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the new y coordinate&nbsp;</div></td></tr></table></div></div>
+the desired width value, must be &gt; 0&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -93,14 +87,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="02095.html" target="topic">laResult</a> - the operation result</p></div>
+<a href="02091.html" target="topic">laResult</a> - result of the operation</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02406.html" target="topic">laWidget_SetPosition Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02406.html" target="topic">laWidget_SetWidth Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -114,7 +108,7 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="02405.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02407.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_SetPosition@laWidget*@int32_t@int32_t Topic Title: laWidget_SetPosition Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_SetWidth@laWidget*@int32_t Topic Title: laWidget_SetWidth Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

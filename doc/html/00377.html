@@ -49,60 +49,53 @@ Graphics Basics</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<strong>If you are new to graphics, this section provides definitions of basic concepts found in most discussions of graphics.</strong>&nbsp;</p>
-<p class="Element10">
-<strong>Pixel</strong>: A pixel is a physical point in a raster image, or the smallest addressable element in an all points addressable display device. The number of pixels per inch (PPI) is a metric for how finely the image is displayed: </p><p class="Element10" style="text-align: center;">
+<strong>For someone new to graphics, this section provides definitions of basic concepts found in most discussions of graphics.</strong></p>
+<ul class="Element630">
+<li class="Element600"><strong>Pixel</strong>: A pixel is a physical point in a raster image, or the smallest addressable element in an all points addressable display device. The number of pixels per inch (PPI) is a metric for how finely the image is displayed:</li>
+</ul><p class="Element10" style="text-align: center;">
 <img src="gfx_ovr Pixels Per Inch.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10">
-<strong>Primitive</strong>: A primitive is a basic building block for drawing to the screen: e.g. point, line, arc, circle, bar. Widgets are created by assembling multiple primitives.&nbsp;</p>
-<p class="Element10">
-<strong>Widget</strong>: A widget is a graphical object that is used to convey information or provide user input to the system. Examples of Widgets in MPLAB Harmony Graphics are: &nbsp;</p><p class="Element10" style="text-align: center;">
+
+<ul class="Element630">
+<li class="Element600"><strong>Primitive</strong>: A primitive is a basic building block for drawing to the screen: e.g. point, line, arc, circle, bar. Widgets are created by assembling multiple primitives.</li>
+<li class="Element600"><strong>Widget</strong>: A widget is a graphical object that is used to convey information or provide user input to the system.</li>
+</ul><p class="Element10">
+Examples of Widgets in MPLAB Harmony Graphics are: </p><p class="Element10" style="text-align: center;">
 <img src="grx_ovr example widgets.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-<strong>Font: </strong>A set of type or characters of one style and size, for example: </p><p class="Element10" style="text-align: center;">
+
+<ul class="Element630">
+<li class="Element600"><strong>Font: </strong>A set of type or characters of one style and size, for example:</li>
+</ul><p class="Element10" style="text-align: center;">
 <img src="gfx_ovr font examples.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10">
-<strong>Glyph</strong>: A pixel representation of an individual character in a given typeface, such as Times New Roman or Arial. On a computer a Font is a digital collection of glyphs for a given typeface.&nbsp;</p>
-<p class="Element10">
-<strong>BLIT</strong>: Bit Block Transfer, a data operation that combines two or more bitmaps using Boolean functions. An example BLIT would be to add an animated object (sprite) on top of a background image while ignoring the background (black) pixels in the sprite’s bitmap.&nbsp;</p>
-<p class="Element10">
-<strong>Layer</strong>: The objects of a graphics design can be organized into a hierarchy with child objects inheriting properties from a parent object, which can also a child of another parent object higher in the hierarchy. Every design in MPLAB Harmony Graphics has a Layer0. Additional layers can be added in the Tree View panel to provide overlapping layers of objects which are all children of their parent layer.&nbsp;</p>
-<p class="Element10">
-<strong>Sprite</strong>: A small two-dimensional bit map that is added to a larger scene. Typically, sprites are used to simulate movement by quickly erasing a prior drawing and redrawing the sprite in a slightly different position.&nbsp;</p>
-<p class="Element10">
-<strong>Display Resolution or Resolution</strong>: The number of distinct pixels in each dimension that can be displayed. It is usually quoted in width x height in units of pixels.&nbsp;</p>
-<p class="Element10">
-<strong>Alpha Blending</strong>: A graphical technique which blends pixels of overlapping widgets together instead of overwriting one with another. Alpha blending ranges from fully transparent (invisible) to fully visible (blocking all beneath).&nbsp;</p>
-<p class="Element10">
-<strong>Color Depth</strong>: The number of bits required to represent the color of a single pixel. It is expressed as bits per pixel (bpp). Typical bits per pixel are 8, 16, 24, and 32.&nbsp;</p>
-<p class="Element10">
-<strong>Color Model, RGB</strong>: The RGB Color Model is an additive color model in which red, green, and blue light are added together in various ways to reproduce a broad array of colors. Colors are expressed as a triplet (RGB) (Source: Wikipedia).&nbsp;</p>
-<p class="Element10">
-Examples of color models are:&nbsp;</p>
-<p class="Element10">
-<strong> RGB 565</strong> (16 bpp, Red: 5 bits, Green: 6 bits, Blue: 5 bits)&nbsp;</p>
-<p class="Element10">
-<strong> RGBA 8888</strong> (32 bpp, Red: 8 bits, Green 8 bits, Blue: 8 bits, Alpha: 8 Bits)&nbsp;</p>
-<p class="Element10">
-<strong>Graphics Controller</strong>: The peripheral of a processor or separate device responsible for driving the pixel data to the display.&nbsp;</p>
-<p class="Element10">
-<strong>Frame Buffer</strong>: The block of memory that stores the pixel data to be transferred to the screen. A Frame Buffer can be thought of as a copy of the display’s pixel values.&nbsp;</p>
-<p class="Element10">
-<strong>Graphics Processor</strong>: A dedicated hardware within the microcontroller designed to accelerate updating the frame buffer for primitives such as lines and rectangles and for bit block transfers (blits).&nbsp;</p>
-<p class="Element10">
+
+<ul class="Element630">
+<li class="Element600"><strong>Glyph</strong>: A pixel representation of an individual character in a given typeface, such as Times New Roman or Arial. On a computer a Font is a digital collection of glyphs for a given typeface.</li>
+<li class="Element600"><strong>BLIT</strong>: Bit Block Transfer, a data operation that combines two or more bitmaps using Boolean functions. An example BLIT would be to add an animated object (sprite) on top of a background image while ignoring the background (black) pixels in the sprite’s bitmap.</li>
+<li class="Element600"><strong>Layer</strong>: The objects of a graphics design can be organized into a hierarchy with child objects inheriting properties from a parent object, which can also a child of another parent object higher in the hierarchy. Every design in MPLAB Harmony Graphics has a Layer0. Additional layers can be added in the Tree View panel to provide overlapping layers of objects which are all children of their parent layer.</li>
+<li class="Element600"><strong>Sprite</strong>: A small two-dimensional bit map that is added to a larger scene. Typically, sprites are used to simulate movement by quickly erasing a prior drawing and redrawing the sprite in a slightly different position.</li>
+<li class="Element600"><strong>Display Resolution or Resolution</strong>: The number of distinct pixels in each dimension that can be displayed. It is usually quoted in width x height in units of pixels.</li>
+<li class="Element600"><strong>Alpha Blending</strong>: A graphical technique which blends pixels of overlapping widgets together instead of overwriting one with another. Alpha blending ranges from fully transparent (invisible) to fully visible (blocking all beneath).</li>
+<li class="Element600"><strong>Color Depth</strong>: The number of bits required to represent the color of a single pixel. It is expressed as bits per pixel (bpp). Typical bits per pixel are 8, 16, 24, and 32.</li>
+<li class="Element600"><strong>Color Model, RGB</strong>: The RGB Color Model is an additive color model in which red, green, and blue light are added together in various ways to reproduce a broad array of colors. Colors are expressed as a triplet (RGB) (Source: Wikipedia).</li>
+</ul><p class="Element10">
+Examples of color models are:</p>
+<ul class="Element630">
+<li class="Element600"> <strong> RGB 565</strong> (16 bpp, Red: 5 bits, Green: 6 bits, Blue: 5 bits)</li>
+<li class="Element600"> <strong> RGBA 8888</strong> (32 bpp, Red: 8 bits, Green 8 bits, Blue: 8 bits, Alpha: 8 Bits)</li>
+<li class="Element600"><strong>Graphics Controller</strong>: The peripheral of a processor or separate device responsible for driving the pixel data to the display.</li>
+<li class="Element600"><strong>Frame Buffer</strong>: The block of memory that stores the pixel data to be transferred to the screen. A Frame Buffer can be thought of as a copy of the display’s pixel values.</li>
+<li class="Element600"><strong>Graphics Processor</strong>: A dedicated hardware within the microcontroller designed to accelerate updating the frame buffer for primitives such as lines and rectangles and for bit block transfers (blits).</li>
+</ul><p class="Element10">
 Here is an example Display Hardware Block Diagram: </p><p class="Element10" style="text-align: center;">
 <img src="gfx_ovr example LCD hardware architecture.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->

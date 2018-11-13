@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Widget Tool Box Panel</title>
+<title>Enabling Demo Mode in a MPLAB Harmony Graphics Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02602.html" target="topic">Widget Tool Box Panel</a></div>
+<a href="02605.html" target="topic">Quick Start Guides</a> &gt; <a href="02602.html" target="topic">Enabling Demo Mode in a MPLAB Harmony Graphics Application</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02591.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02592.html" target="topic">Next</a></div>
+<a href="02603.html" target="topic">Previous</a> | <a href="02605.html" target="topic">Up</a> | <a href="00639.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Tool Box Panel Topic Title: Widget Tool Box Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG  Enabling Demo Mode in a MPLAB Harmony Graphics Application Topic Title: Enabling Demo Mode in a MPLAB Harmony Graphics Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Widget Tool Box Panel</div>
+Enabling Demo Mode in a MPLAB Harmony Graphics Application</div>
 </div>
 </div>
 
@@ -49,281 +49,100 @@ Widget Tool Box Panel</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-All the available graphics widgets are shown in the Widget Tool Box:&nbsp;</p>
+Demo Mode is a feature in the MPLAB Harmony Graphics Library that enables an application to automatically replay touch input events after a specified period of idle time. This feature is useful for the application to automatically show simulated user activity, and show various screens and widgets without user input.&nbsp;</p>
 <p class="Element10">
-MPLAB Harmony Graphics Composer provides automatic code optimization by keeping track of the widgets that are currently being used. When MHC generates or regenerates the application, only the Graphics Library code necessary for your design is included in the project.&nbsp;</p>
-<p class="Element10">
-There are two primary methods for creating new widget objects: clicking and dragging. To add a new layer to a screen use the Screens sub-tab.</p><div class="Element15">
-Click Method</div>
-<p class="Element10">
-The following actions can be performed by using the Click method:</p>
-<ul class="Element630">
-<li class="Element600">Clicking an item selects it as active. Users can then move the cursor into the screen window and view a representation of the object about to be added.</li>
-<li class="Element600">Left-clicking confirms the placement of the new object</li>
-<li class="Element600">Right-clicking aborts object creation</li>
-<li class="Element600">Clicking the active item again deactivates it</li>
-</ul><div class="Element15">
-Drag Method</div>
-<p class="Element10">
-Dragging and dropping a tool item into the Screen Designer Window creates a new instance of an object. When dragging a tool item, releasing the cursor outside of the Screen Designer Window cancels the drag operation.</p><div class="Element15">
-Widget List</div>
-<p class="Element10">
-The Graphics Composer Tool Box is the interface by which users add widgets into the screen representation. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG widgetToolBox.png" border="0" alt="" title=""></p><div class="Element63">
+Demo Mode is enabled by clicking on the Aria Graphic Library component in MHC's Project Graph. Then under the component's Configuration Options panel, select &quot;Enable Demo Mode?&quot;: </p><p class="Element10" style="text-align: center;">
+<img src="QSG Enabling Demo Mode.png" border="0" alt="" title=""></p><p class="Element10">
+The following table lists the Demo Mode options and their functions: </p><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table2">
 <tr>
-<td class="Element65" valign="top" width="33%">
+<td class="Element65" valign="top" width="25%">
 <div class="Element66">
-Widget&nbsp;</div></td><td class="Element65" valign="top" width="67%">
+MHC Option&nbsp;</div></td><td class="Element65" valign="top" width="75%">
 <div class="Element66">
-Example Application&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
+Function&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
 <div class="Element68">
-Arc&nbsp;</div></td><td class="Element67" valign="top" width="67%">
+Record Input Events&nbsp;</div></td><td class="Element67" valign="top" width="75%">
 <div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
+Enables input recording (touch input events are recorded and replayed).&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
 <div class="Element68">
-Bar Graph&nbsp;</div></td><td class="Element67" valign="top" width="67%">
+Record Tick Period&nbsp;</div></td><td class="Element67" valign="top" width="75%">
 <div class="Element68">
-aria_showcase_reloaded, aria_weather_forecast&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
+Minimum time stamp interval between recorded input events.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
 <div class="Element68">
-Button&nbsp;</div></td><td class="Element67" valign="top" width="67%">
+Maximum number of events&nbsp;</div></td><td class="Element67" valign="top" width="75%">
 <div class="Element68">
-aria_benchmark, aria_showcase, aria_quickstart, aria_weather_forecast&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
+Size of the events list (statically allocated).&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
 <div class="Element68">
-Check Box&nbsp;</div></td><td class="Element67" valign="top" width="67%">
+Idle Timeout (seconds)&nbsp;</div></td><td class="Element67" valign="top" width="75%">
 <div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
+Period of inactivity before Demo mode starts. The idle time-out counter resets when a touch input event occurs.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
 <div class="Element68">
-Circle&nbsp;</div></td><td class="Element67" valign="top" width="67%">
+Replay Delay (seconds)&nbsp;</div></td><td class="Element67" valign="top" width="75%">
 <div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Circular Gauge&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Circular Slider&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Draw Surface&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Gradient&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase (background)&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Group Box&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Image&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_quickstart&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Image Plus&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Image Sequence&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Key Pad&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Label&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_quickstart&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Line&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Line Graph&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase_reloaded, aria_weather_forecast&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-List Wheel&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-List&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Panel&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_benchmark, aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Pie Chart&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Progress Bar&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_flash&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Radial Menu&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase_reloaded&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Radio Button&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Rectangle&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_benchmark&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Scroll Bar&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Slider&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Text Field&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Touch Test&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-aria_showcase&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="33%">
-<div class="Element68">
-Window&nbsp;</div></td><td class="Element67" valign="top" width="67%">
-<div class="Element68">
-None&nbsp;</div></td></tr></table></div></div>
+Delay period in after Demo mode ends and restarts.&nbsp;</div></td></tr></table></div></div>
 <p class="Element10">
-<strong>Click Method</strong>&nbsp;</p>
+The Demo Mode feature can record input touch events, or load a default (programmed) list of events and replay them after the idle time-out period lapses.&nbsp;</p>
 <p class="Element10">
-The following actions can be performed by using the Click method:</p>
-<ul class="Element630">
-<li class="Element600">Clicking an item selects it as active. Users can then move the cursor into the screen window and view a representation of the object about to be added.</li>
-<li class="Element600">Left-clicking confirms the placement of the new object</li>
-<li class="Element600">Right-clicking aborts object creation</li>
-<li class="Element600">Clicking the active item again deactivates it.</li>
-</ul><p class="Element10">
-<strong>Drag Method</strong>&nbsp;</p>
+To configure Demo Mode to record touch events, select the Record Input Events option in Demo Mode in MHC. This will start capturing touch input events by recording the event type and the interval between events. Intervals will be a multiple of the Record Tick Period time. The first touch event should occur before the Idle Timeout period lapses; otherwise, it will stop recording and use a default list of events, if available.&nbsp;</p>
 <p class="Element10">
-Dragging and dropping a tool item into the Screen Designer Window creates a new instance of an object. When dragging a tool item, releasing the cursor outside of the Screen Designer Window cancels the drag operation.&nbsp;</p>
+To program a default list of touch events, go to LibAria_LoadDefaultEvents(void) in <span class="Element146">libaria_demo_mode.c</span> and call LibAria_DemoModeAddInputEvents with the desired touch parameters. This list of touch events will be loaded when Demo Mode starts.&nbsp;</p>
 <p class="Element10">
-<strong>Automatic Code Optimization</strong>&nbsp;</p>
-<p class="Element10">
-MPLAB Harmony Graphics Composer keeps track of the types of widgets that are used and updates the MHGC Tree View panel constantly to ensure that only the Graphics Library code necessary for your design is included in the project.&nbsp;</p>
-<p class="Element10">
-<strong>Widgets</strong>&nbsp;</p>
-<p class="Element10">
-Widgets can be configured by using the <a href="02592.html" target="topic">Properties Editor</a> on the right side of the MHGC interface. Each widget has multiple properties to manage their appearance as well as their functioning. Most properties related to appearance are common between widgets, though some widgets require specific property entries.&nbsp;</p>
-<p class="Element10">
-<strong>Arc</strong> – A graphical object in the shape of an arc. The arc thickness can be set and filled.&nbsp;</p>
-<p class="Element10">
-<strong>Bar Graph</strong> – A graphing widget that shows data in categories using rectangular bars.&nbsp;</p>
-<p class="Element10">
-<strong>Button</strong> - A binary On and Off control with events generation for Press and Release state.&nbsp;</p>
-<p class="Element10">
-<strong>Check Box</strong> - A selection box with Checked and Unchecked states, and associated events.&nbsp;</p>
-<p class="Element10">
-<strong>Circle</strong> - A graphical object in the shape of a circle.&nbsp;</p>
-<p class="Element10">
-<strong>Circular Gauge</strong> – A circular widget that operates like a gauge, where the hand/needle position indicates a value.&nbsp;</p>
-<p class="Element10">
-<strong>Circular Slider</strong> – A circular widget that can change values based on external input like touch. The slider is filled based on the value of the widget relative to the maximum value.&nbsp;</p>
-<p class="Element10">
-<strong>Draw Surface</strong> - A container with a callback from its paint loop. a draw surface lets the application have a chance to make draw calls directly to the HAL during LibAria's paint loop.&nbsp;</p>
-<p class="Element10">
-<strong>Gradient</strong> - A draw window that can be associated with a gradient color scheme. This allows for color variation on the window.&nbsp;</p>
-<p class="Element10">
-<strong>Group Box</strong> - A container with a border and a text title. With respect to functionality, a group box is similar to a window.&nbsp;</p>
-<p class="Element10">
-<strong>Image Sequence</strong> - A special widget that allows image display on screen to be scheduled and sequenced. Select the images to be displayed, and the order for display. A timer to trigger the transitions must be created by calling the image sequence APIs to show the next image from the timer callback function.&nbsp;</p>
-<p class="Element10">
-<strong>Image</strong> - Allows an image to be displayed on screen. The size and shape of the widget decides the visible part of the image, as scaling is not enabled for images at this time.&nbsp;</p>
-<p class="Element10">
-<strong>Image Plus</strong> - Allows an image to be displayed on screen. The image can be resized (aspect ratio lock is optional). The widget can be set to accept two-finger touch input.&nbsp;</p>
-<p class="Element10">
-<strong>Key Pad</strong> - A key entry widget that can can be designed for the number of entries divided as specified number of rows and column entries. The widget has a key click event that can be customized.&nbsp;</p>
-<p class="Element10">
-<strong>Label</strong> - A text display widget. This does not have any input at runtime capability. A Text Field widget should be used instead when user input is needed.&nbsp;</p>
-<p class="Element10">
-<strong>Line</strong> - A graphical object in the shape of a line.&nbsp;</p>
-<p class="Element10">
-<strong>Line Graph</strong> – A graphing widget that shows data in categories using points and lines.&nbsp;</p>
-<p class="Element10">
-<strong>List Wheel</strong> - Allows multiple radial selections that were usually touch-based selections and browsing.&nbsp;</p>
-<p class="Element10">
-<strong>List</strong> - Allows making lists of text and image items. The list contents, number of items, and the sequence can be managed through a List Configuration dialog box in the Properties box.&nbsp;</p>
-<p class="Element10">
-<strong>Panel</strong> - A container widget that is a simpler alternative to DrawSurface as it does not have the DrawSurface callback feature.&nbsp;</p>
-<p class="Element10">
-<strong>Pie Chart</strong> – A graphing widget that shows data entries as sectors in a circle.&nbsp;</p>
-<p class="Element10">
-<strong>Progress Bar</strong> - Displays the progress pointer for an event being monitored through the &quot;Value Changed&quot; event in the <a href="02592.html" target="topic">Properties Editor</a>.&nbsp;</p>
-<p class="Element10">
-<strong>Radial Menu</strong> - A widget that groups any number of images into an elliptical carousel. It can configured as a touch interactive image carousel or interface menu.&nbsp;</p>
-<p class="Element10">
-<strong>Radio Button</strong> - A set of button widgets that are selected out of the group one at a time. The group is specified by the Group property in the <a href="02592.html" target="topic">Properties Editor</a>. &nbsp;</p><div class="Element63">
+The following figure shows the Demo Mode states and the actions in each state. </p><p class="Element10" style="text-align: center;">
+<img src="QSP Demo Mode Diagram.png" border="0" alt="" title=""></p><p class="Element10">
+The following table lists and describes each state. </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table0">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
+<td class="Element65" valign="top" width="12%">
+<div class="Element66">
+State&nbsp;</div></td><td class="Element65" valign="top" width="88%">
+<div class="Element66">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+Demo Init&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-The radio buttons in the same group must have the same group number specified in their properties.&nbsp;</div></td></tr></table></div></div>
-<p class="Element10">
-<strong>Rectangle</strong> - A graphical object in the shape of a rectangle.&nbsp;</p>
-<p class="Element10">
-<strong>Scroll Bar</strong> - Intended to be used with another relevant widget such as the List Wheel to scroll up and down. It has a callback each time the value is changed. The callback allows users to trigger actions to be handled on the scroll value change event.&nbsp;</p>
-<p class="Element10">
-<strong>Slider -</strong> Can change values with an external input such as touch. Event callbacks on value change are also available through the <a href="02592.html" target="topic">Properties Editor</a>.&nbsp;</p>
-<p class="Element10">
-<strong>Text Field</strong> - Text input can be accepted into the text field from an external input or from a widget such as keypad. The Event 'Text Changed' in the <a href="02592.html" target="topic">Properties Editor</a> is used for accepting the input. This widget can also generate an event when the widget is touched (gains focus) by the user or is no longer touched (loses focus).&nbsp;</p>
-<p class="Element10">
-<strong>Touch Test</strong> - Allows tracking of touch inputs. Each new touch input is added to the list of displayed touch coordinates. The input is accepted through the 'Point Added' event callback in the <a href="02592.html" target="topic">Properties Editor</a>.&nbsp;</p>
-<p class="Element10">
-<strong>Window</strong> - A container widget similar to the Panel but has the customizable title bar.&nbsp;</p></div>
+Initializes data structures, launches record and idle timeout timers.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
+<div class="Element68">
+Demo Recording&nbsp;</div></td><td class="Element67" valign="top" width="88%">
+<div class="Element68">
+If recording is enabled, touch events are captured to a list. Idle timeout timer is reset when a touch event occurs.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
+<div class="Element68">
+Demo Idle&nbsp;</div></td><td class="Element67" valign="top" width="88%">
+<div class="Element68">
+Waits for idle timeout timer to trigger. If a touch event occurs, idle timeout timer is reset.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
+<div class="Element68">
+Demo Starting&nbsp;</div></td><td class="Element67" valign="top" width="88%">
+<div class="Element68">
+Loads captured or default events list, reset application to first screen.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
+<div class="Element68">
+Demo Running&nbsp;</div></td><td class="Element67" valign="top" width="88%">
+<div class="Element68">
+Replays events list. If a touch event occurs, demo is stopped and goes back to idle state. If all events have been replayed, starts replay delay timer.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
+<div class="Element68">
+Demo Restarting&nbsp;</div></td><td class="Element67" valign="top" width="88%">
+<div class="Element68">
+Restarts Demo Mode after the delay timer lapses.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02602.html" target="topic">Widget Tool Box Panel</a></div>
+<a href="02605.html" target="topic">Quick Start Guides</a> &gt; <a href="02602.html" target="topic">Enabling Demo Mode in a MPLAB Harmony Graphics Application</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -334,10 +153,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02591.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02592.html" target="topic">Next</a></div>
+<a href="02603.html" target="topic">Previous</a> | <a href="02605.html" target="topic">Up</a> | <a href="00639.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Tool Box Panel Topic Title: Widget Tool Box Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG  Enabling Demo Mode in a MPLAB Harmony Graphics Application Topic Title: Enabling Demo Mode in a MPLAB Harmony Graphics Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

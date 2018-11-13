@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laUtils_ScreenToMirroredSpace Function</title>
+<title>laUtils_WidgetLocalRect Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02351.html" target="topic">laUtils_ScreenToMirroredSpace Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02351.html" target="topic">laUtils_WidgetLocalRect Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02350.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02352.html" target="topic">Next</a></div>
+<a href="02350.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02357.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_ScreenToMirroredSpace@GFX_Point*@GFX_Rect*@GFX_Orientation Topic Title: laUtils_ScreenToMirroredSpace Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_WidgetLocalRect@laWidget* Topic Title: laUtils_WidgetLocalRect Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laUtils_ScreenToMirroredSpace Function</div>
+laUtils_WidgetLocalRect Function</div>
 </div>
 </div>
 
@@ -48,10 +48,8 @@ laUtils_ScreenToMirroredSpace Function</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><a href="00423.html" target="topic">GFX_Point</a> <strong><span style="color: #000000">laUtils_ScreenToMirroredSpace</span></strong>(
-    <strong><span style="color: #000080">const</span></strong> <a href="00423.html" target="topic">GFX_Point</a>* <strong><span style="color: #000000">pnt</span></strong>, 
-    <strong><span style="color: #000080">const</span></strong> <a href="00430.html" target="topic">GFX_Rect</a>* <strong><span style="color: #000000">rect</span></strong>, 
-    <a href="00370.html" target="topic">GFX_Orientation</a> <strong><span style="color: #000000">ori</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100"><a href="00430.html" target="topic">GFX_Rect</a> <strong><span style="color: #000000">laUtils_WidgetLocalRect</span></strong>(
+    <a href="02356.html" target="topic">laWidget</a>* <strong><span style="color: #000000">widget</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -68,19 +66,9 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-const GFX_Point* point&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+laWidget* widget&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the point to transform&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-const GFX_Rect* rect&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the screen dimensionrectangle&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-<a href="00370.html" target="topic">GFX_Orientation</a>&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the orientation setting&nbsp;</div></td></tr></table></div></div>
+the subject widget&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -88,14 +76,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="00423.html" target="topic">GFX_Point</a></p></div>
+<a href="00430.html" target="topic">GFX_Rect</a> - the bounding rectangle</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02351.html" target="topic">laUtils_ScreenToMirroredSpace Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02351.html" target="topic">laUtils_WidgetLocalRect Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -106,10 +94,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02350.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02352.html" target="topic">Next</a></div>
+<a href="02350.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="02357.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_ScreenToMirroredSpace@GFX_Point*@GFX_Rect*@GFX_Orientation Topic Title: laUtils_ScreenToMirroredSpace Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laUtils_WidgetLocalRect@laWidget* Topic Title: laUtils_WidgetLocalRect Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

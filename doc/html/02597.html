@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Speed and Performance of Different Image Decode Formats in MHGC</title>
+<title>Widget Colors</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02597.html" target="topic">Speed and Performance of Different Image Decode Formats in MHGC</a></div>
+<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02575.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02597.html" target="topic">Widget Colors</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02570.html" target="topic">Previous</a> | <a href="02570.html" target="topic">Up</a> | <a href="02575.html" target="topic">Next</a></div>
+<a href="02578.html" target="topic">Previous</a> | <a href="02575.html" target="topic">Up</a> | <a href="02569.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Speed and Performance of Different Image Decode Formats in MHGC Topic Title: Speed and Performance of Different Image Decode Formats in MHGC)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Colors Topic Title: Widget Colors)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Speed and Performance of Different Image Decode Formats in MHGC</div>
+Widget Colors</div>
 </div>
 </div>
 
@@ -48,74 +48,182 @@ Speed and Performance of Different Image Decode Formats in MHGC</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<p class="Element10">
-MHGC supports various image formats and the MHGC Image Assets Manager provides the ability to convert and store a source image into to the following formats</p>
-<ul class="Element630">
-<li class="Element600">Bitmap RAW</li>
-<li class="Element600">Bitmap Raw Run-Length Encoded (RLE)</li>
-<li class="Element600">JPEG</li>
-<li class="Element600">PNG</li>
-<li class="Element600">Predecoded RAW Bitmap in DDR (PIC32MZ DA)</li>
-</ul><p class="Element10">
-The following table shows the relative rendering time and Flash memory requirements of the different image formats in the MPLAB Harmony Graphics Library. The rendering time includes decoding the image and drawing it to the screen. This information is helpful when optimizing a MPLAB Harmony graphics project for performance and/or Flash memory space. For example, as shown by the red highlighted text in the table, a 40x40 pixel 16-bit RAW image renders 2.38 times faster and uses 2.59 times more Flash space than a JPEG image. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Decode Table.png" border="0" alt="" title=""></p><div class="Element15">
-Predecoded Images in DDR (RAW)</div>
-<p class="Element10">
-For PIC32MZ DA devices with DDR, the MHGC Image Asset Manager provides an option to predecode images from Flash and store them into DDR as RAW images. The GPU is used to render the decoded image from DDR to the frame buffer. This provides a faster render time than an equivalent RAW image in Flash memory, specifically for large images (up to 10 times faster for a 200x200 image). Conversely, predecoding small images 40x40 pixels or smaller in DDR may not render faster due to the additional overhead of setting up the GPU.&nbsp;</p>
-<p class="Element10">
-<i>Recommendations:</i>&nbsp;</p>
-<ul class="Element630">
-<li class="Element600">If there is adequate DDR memory available, consider predecoding images to DDR for best performance</li>
-<li class="Element600">Using JPEG images and predecoding them into DDR can provide the best rendering performance and most Flash memory savings.</li>
-</ul><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
-<div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
-<div class="Element68">
-The images are decoded from Flash to DDR memory by the Graphics Library during initialization and may introduce delay at boot-up, depending on the number and size of the images.&nbsp;</div></td></tr></table></div></div>
 <div class="Element15">
-RAW Images</div>
+Widget Colors</div>
 <p class="Element10">
-RAW images provide fast rendering time, as there is no decoding needed. However, depending on image content, it can be two times larger than a Run-Length Encoded (RLE) image and about 3 to 10 times larger than a JPEG.&nbsp;</p>
+Widget coloring can be customized by creating additional color schemes and assigning these customized schemes to a subset of the widgets uses. For example, a ButtonColorScheme could be customized and used only for Button Widgets.&nbsp;</p>
 <p class="Element10">
-<i>Recommendation:</i>&nbsp;</p>
+To help highlight the different colors available for each widget, a “CrazyScheme”, with extreme contrast among the 16 available colors, was used as the color scheme for each widget: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG CrazyScheme Color Scheme.png" border="0" alt="" title=""></p><p class="Element10">
+Use this color scheme to help identify the relevant colors for the widgets listed below.&nbsp;</p>
 <p class="Element10">
-For small images that are to be rendered frequently, consider using a RAW image for better performance</p><div class="Element15">
-JPEG Images</div>
-<p class="Element10">
-JPEG images provide the most Flash space savings, but are slower to render compared to RAW and RAW RLE.&nbsp;</p>
-<p class="Element10">
-<i>Recommendations:</i>&nbsp;</p>
-<ul class="Element630">
-<li class="Element600">If images are large and not used frequently, consider using the JPEG image format to save flash memory space</li>
-<li class="Element600">If DDR memory is available, consider predecoding JPEG images in DDR for better rendering performance</li>
-</ul><div class="Element15">
-Run-Length Encoded RAW Images</div>
-<p class="Element10">
-In terms of rendering speed and size, RAW RLE images are in between RAW and other compressed formats like JPEG or PNG. Depending on the image contents, RAW RLE can be approximately 1.5 times faster than JPEG, but could be significantly larger in size for large images. Again, depending on the image content, RAW RLE can be about half the size and performance of a RAW image.&nbsp;</p>
-<p class="Element10">
-<i>Recommendation:</i>&nbsp;</p>
-<p class="Element10">
-If optimizing your application for both speed and flash size consider using RAW RLE images</p><div class="Element15">
-PNG Images</div>
-<p class="Element10">
-Among the image formats, PNG is slowest to render and requires more memory to decode.&nbsp;</p>
-<p class="Element10">
-<i>Recommendations:</i>&nbsp;</p>
-<ul class="Element630">
-<li class="Element600">Unless fine levels of alpha-blending are needed, it is better to use other image formats to achieve the best performance. Use the MHGC Asset Manager to convert the source PNG image and store it in a different image format.</li>
-<li class="Element600">If you would like to use an image with a transparent background, it may be better to use a RAW RLE image with background color masking to achieve the same effect with better performance than a PNG. Color masking is supported in the MHGC Image Asset Manager.</li>
-</ul></div>
+The left column shows the coloring assignments for a Bezel boarder. The right side shows Line/No Border color assignments. </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element65" valign="top" width="54%">
+<div class="Element66">
+Widget With Bezel Border&nbsp;</div></td><td class="Element65" valign="top" width="46%">
+<div class="Element66">
+Widget With Line or No Borders&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+Arc Widget:<br><img src="MHGC UG Arc with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Arc with Line or No Border.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+Bar Graph:<br><img src="MHGC UG Bar Graph Boundary with Bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Bar Graph Boundary with Line or None.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Button, unasserted.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Check Box, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Check Box.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Check Box Checked.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Check Box Unchecked.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Circle, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Circle.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Circular Slider with Bezel Border.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Circular Slider with line or none border.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Draw Surface, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Draw Surface.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Gradient, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Gradient.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Group Box, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Group Box.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Image or Image Sequence with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Image ImagePlus orImageSequence with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Key Pad, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Key Pad.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Label, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Label.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Line, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Line.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Line Graph Boundary, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Line Graph Boundary with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG List Wheel with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG List Wheel1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG List with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG List1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Panel, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Panel.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Pie Chart Boundary with Bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Pie Chart Boundary with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Progress Bar with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Progress Bar1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG RadialMenu.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Radio Buttons, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Radio Buttons.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Rectangle, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Rectangle.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Scroll Bar with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Scroll Bar1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Scroll bar with bezel released and pressed.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Scroll bar with line or none released and pressed.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Slider, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Slider.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Text Field, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Text Field.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Touch Test, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Touch Test.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Window, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Window.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02597.html" target="topic">Speed and Performance of Different Image Decode Formats in MHGC</a></div>
+<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02575.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02597.html" target="topic">Widget Colors</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -126,10 +234,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02570.html" target="topic">Previous</a> | <a href="02570.html" target="topic">Up</a> | <a href="02575.html" target="topic">Next</a></div>
+<a href="02578.html" target="topic">Previous</a> | <a href="02575.html" target="topic">Up</a> | <a href="02569.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Speed and Performance of Different Image Decode Formats in MHGC Topic Title: Speed and Performance of Different Image Decode Formats in MHGC)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Colors Topic Title: Widget Colors)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

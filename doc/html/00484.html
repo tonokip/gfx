@@ -55,30 +55,30 @@ Before looking at the operation and structure of the HAL, the following definiti
 Hardware Abstraction Layer Definitions:</div>
 
 <ul class="Element630">
-<li class="Element600"><i>Alpha blending</i><strong>: </strong>An operation that combines two colors into a single color, based on one or more percentage values</li>
-<li class="Element600"><i>Blit</i><strong>: </strong>Writing an area of pixel data to a buffer</li>
-<li class="Element600"><i>Buffer swap</i><strong>: </strong>Cycling through a buffer chain, therefore changing the read and write buffer pointers</li>
-<li class="Element600"><i>Cache coherent</i><strong>: </strong>Data that must always be current in memory, such as data that is accessed by a peripheral, which should use coherent memory</li>
-<li class="Element600"><i>Clipping</i><strong>: </strong>Comparing a point to a rectangle, or a rectangle to a rectangle, to assess whether the point is contained inside the rectangle or conforming the area of one rectangle to fit inside another</li>
-<li class="Element600"><i>Color masking</i><strong>: </strong>An operation that compares a color value with a color mask value. If the values are equal, the color is ignored and not rendered to the write buffer.</li>
-<li class="Element600"><i>Color mode</i><strong>: </strong>Defines how pixel data is stored in memory. Some color modes consume less memory than others.</li>
-<li class="Element600"><i>Context</i><strong>: </strong>An instance of the hardware abstraction layer. Combines a display, a driver, and possibly a graphics accelerator.</li>
-<li class="Element600"><i>Display</i><strong>: </strong>A display device capable of rendering color data</li>
-<li class="Element600"><i>Draw Target</i><strong>: </strong>An application-defined area of memory to be used as the target for draw operations. This is often different than the active frame buffer and can be used for off-screen rendering operations.</li>
-<li class="Element600"><i>Driver</i><strong>: </strong>A software program that communicates directly with, and manages, hardware</li>
-<li class="Element600"><i>Double buffer</i><strong>: </strong>A display configuration in which multiple frame buffers are chained together to avoid screen tearing artifacts</li>
-<li class="Element600"><i>Frame buffer</i><strong>: </strong>An area of memory that contains pixel data. Pixel data is one of several color modes with each mode consuming various quantities of memory.</li>
-<li class="Element600"><i>Heap</i><strong>: </strong>A pool of memory that can be dynamically allocated</li>
-<li class="Element600"><i>HSync</i><strong>: </strong>A refresh state of a display device when the device is being refreshed outside the horizontal viewing area</li>
-<li class="Element600"><i>Layer</i><strong>: </strong>A rectangular area of space that contains one or more frame buffers. Can directly correspond to a hardware-managed layer.</li>
-<li class="Element600"><i>Pixel</i><strong>: </strong>A single color value stored in a predefined mode. Usually 8 to 32 bits in size.</li>
-<li class="Element600"><i>Pixel buffer</i><strong>: </strong>A struct that describes a rectangle of pixel data. May or may not actually contain valid pixel data.</li>
-<li class="Element600"><i>Point</i><strong>: </strong>A two dimensional Cartesian coordinate consisting of a horizontal “x” value and a vertical “y” value</li>
-<li class="Element600"><i>Raster operation</i><strong>: </strong>Any operation or algorithm that writes pixel data to the write buffer</li>
-<li class="Element600"><i>Read buffer</i><strong>: </strong>A buffer that is currently being used to feed display data to display hardware</li>
-<li class="Element600"><i>Size</i><strong>: </strong>A two dimensional measurement of magnitude consisting of a “width” and a “height” value</li>
-<li class="Element600"><i>VSync</i><strong>: </strong>A refresh state of a display device when the device is being refreshed outside the vertical viewing area</li>
-<li class="Element600"><i>Write buffer</i><strong>: </strong>A buffer that is designated as the receiver of raster operations</li>
+<li class="Element600"><strong><i>Alpha blending</i>: </strong>An operation that combines two colors into a single color, based on one or more percentage values</li>
+<li class="Element600"><strong><i>Blit</i>: </strong>Writing an area of pixel data to a buffer</li>
+<li class="Element600"><strong><i>Buffer swap</i>: </strong>Cycling through a buffer chain, therefore changing the read and write buffer pointers</li>
+<li class="Element600"><strong><i>Cache coherent</i>: </strong>Data that must always be current in memory, such as data that is accessed by a peripheral, which should use coherent memory</li>
+<li class="Element600"><strong><i>Clipping</i>: </strong>Comparing a point to a rectangle, or a rectangle to a rectangle, to assess whether the point is contained inside the rectangle or conforming the area of one rectangle to fit inside another</li>
+<li class="Element600"><strong><i>Color masking</i>: </strong>An operation that compares a color value with a color mask value. If the values are equal, the color is ignored and not rendered to the write buffer.</li>
+<li class="Element600"><strong><i>Color mode</i>: </strong>Defines how pixel data is stored in memory. Some color modes consume less memory than others.</li>
+<li class="Element600"><strong><i>Context</i>: </strong>An instance of the hardware abstraction layer. Combines a display, a driver, and possibly a graphics accelerator.</li>
+<li class="Element600"><strong><i>Display</i>: </strong>A display device capable of rendering color data</li>
+<li class="Element600"><strong><i>Draw Target</i>: </strong>An application-defined area of memory to be used as the target for draw operations. This is often different than the active frame buffer and can be used for off-screen rendering operations.</li>
+<li class="Element600"><strong><i>Driver</i>: </strong>A software program that communicates directly with, and manages, hardware</li>
+<li class="Element600"><strong><i>Double buffer</i>: </strong>A display configuration in which multiple frame buffers are chained together to avoid screen tearing artifacts</li>
+<li class="Element600"><strong><i>Frame buffer</i>: </strong>An area of memory that contains pixel data. Pixel data is one of several color modes with each mode consuming various quantities of memory.</li>
+<li class="Element600"><strong><i>Heap</i>: </strong>A pool of memory that can be dynamically allocated</li>
+<li class="Element600"><strong><i>HSync</i>: </strong>A refresh state of a display device when the device is being refreshed outside the horizontal viewing area</li>
+<li class="Element600"><strong><i>Layer</i>: </strong>A rectangular area of space that contains one or more frame buffers. Can directly correspond to a hardware-managed layer.</li>
+<li class="Element600"><strong><i>Pixel</i>: </strong>A single color value stored in a predefined mode. Usually 8 to 32 bits in size.</li>
+<li class="Element600"><strong><i>Pixel buffer</i>: </strong>A struct that describes a rectangle of pixel data. May or may not actually contain valid pixel data.</li>
+<li class="Element600"><strong><i>Point</i>: </strong>A two dimensional Cartesian coordinate consisting of a horizontal “x” value and a vertical “y” value</li>
+<li class="Element600"><strong><i>Raster operation</i>: </strong>Any operation or algorithm that writes pixel data to the write buffer</li>
+<li class="Element600"><strong><i>Read buffer</i>: </strong>A buffer that is currently being used to feed display data to display hardware</li>
+<li class="Element600"><strong><i>Size</i>: </strong>A two dimensional measurement of magnitude consisting of a “width” and a “height” value</li>
+<li class="Element600"><strong><i>VSync</i>: </strong>A refresh state of a display device when the device is being refreshed outside the vertical viewing area</li>
+<li class="Element600"><strong><i>Write buffer</i>: </strong>A buffer that is designated as the receiver of raster operations</li>
 </ul><div class="Element15">
 HAL Features</div>
 <p class="Element10">
@@ -124,10 +124,10 @@ Graphics Display Info</div>
 <p class="Element10">
 The application uses a “Display” definition to obtain knowledge about the displays that are available through the HAL. This definition contains information such as:</p>
 <ul class="Element630">
-<li class="Element600"><i>Name</i>: A short identifier for the display</li>
-<li class="Element600"><i>Color Modes</i>: The color modes the display supports</li>
-<li class="Element600"><i>Size</i>: A width and height</li>
-<li class="Element600"><i>Timing settings</i>: Values for the front porches, back porches, pulse widths, etc.</li>
+<li class="Element600"><strong><i>Name</i></strong>: A short identifier for the display</li>
+<li class="Element600"><strong><i>Color Modes</i></strong>: The color modes the display supports</li>
+<li class="Element600"><strong><i>Size</i></strong>: A width and height</li>
+<li class="Element600"><strong><i>Timing settings</i></strong>: Values for the front porches, back porches, pulse widths, etc.</li>
 </ul><p class="Element10">
 Display definitions are generated through the use of HConfig and Freemarker templates. These definitions are created during the code generation phase of MHC and are expected to exist at run-time.</p><div class="Element15">
 Graphics Controller Driver</div>
@@ -136,9 +136,9 @@ The application uses a “Driver” definition to obtain information from the HA
 <p class="Element10">
 The driver definition consists of the following information:</p>
 <ul class="Element630">
-<li class="Element600"><i>Name</i>: A short identifier for the controller</li>
-<li class="Element600"><i>Color Modes</i>: The color modes the controller supports</li>
-<li class="Element600"><i>Layer Count</i>: The number of hardware layers the controller supports</li>
+<li class="Element600"><strong><i>Name</i></strong>: A short identifier for the controller</li>
+<li class="Element600"><strong><i>Color Modes</i></strong>: The color modes the controller supports</li>
+<li class="Element600"><strong><i>Layer Count</i></strong>: The number of hardware layers the controller supports</li>
 </ul><p class="Element10">
 Driver integration with the HAL will be covered in a subsequent section.</p><div class="Element15">
 Graphics Accelerator Driver</div>
@@ -155,8 +155,8 @@ Frame Buffer</div>
 <p class="Element10">
 An extension of a pixel buffer, frame buffers are used by layers to track frame buffer states. Frame buffers contain a pixel buffer, but also contain the following:</p>
 <ul class="Element630">
-<li class="Element600"><i>Pixel Buffer State</i>: An indication of the origin of the data for the pixel buffer. This can indicate that the buffer contains no pixel data, that the pixel data was allocated from the heap, or that the buffer and associated pixel data is owned and managed by the graphics driver. The latter state is used to prevent the application from freeing buffers managed by the graphic driver.</li>
-<li class="Element600"><i>Coherent</i>: An indication that the buffer should be allocated from cache coherent memory when it is dynamically allocated</li>
+<li class="Element600"><strong><i>Pixel Buffer State</i></strong>: An indication of the origin of the data for the pixel buffer. This can indicate that the buffer contains no pixel data, that the pixel data was allocated from the heap, or that the buffer and associated pixel data is owned and managed by the graphics driver. The latter state is used to prevent the application from freeing buffers managed by the graphic driver.</li>
+<li class="Element600"><strong><i>Coherent</i></strong>: An indication that the buffer should be allocated from cache coherent memory when it is dynamically allocated</li>
 </ul><div class="Element15">
 Memory Interface</div>
 <p class="Element10">
@@ -176,13 +176,13 @@ Color Support</div>
 <p class="Element10">
 The HAL is able to create and manage a context using one of several color formats.</p>
 <ul class="Element630">
-<li class="Element600">GS8: 8-bit gray scale</li>
-<li class="Element600">RGB_332: 8-bit, 256 colors</li>
-<li class="Element600">RGB_565: 16-bit, 65536 colors</li>
-<li class="Element600">RGB_5551: 15-bit color, 1-bit alpha, 32767 colors</li>
-<li class="Element600">RGB_888: 24-bit color, 16 million colors</li>
-<li class="Element600">RGBA_8888: 24-bit color, 8-bit alpha, 16 million colors</li>
-<li class="Element600">ARGB_8888: 24-bit color 8-bit alpha, 16 million colors</li>
+<li class="Element600"><strong>GS8</strong>: 8-bit gray scale</li>
+<li class="Element600"><strong>RGB_332</strong>: 8-bit, 256 colors</li>
+<li class="Element600"><strong>RGB_565</strong>: 16-bit, 65536 colors</li>
+<li class="Element600"><strong>RGB_5551</strong>: 15-bit color, 1-bit alpha, 32767 colors</li>
+<li class="Element600"><strong>RGB_888</strong>: 24-bit color, 16 million colors</li>
+<li class="Element600"><strong>RGBA_8888</strong>: 24-bit color, 8-bit alpha, 16 million colors</li>
+<li class="Element600"><strong>ARGB_8888</strong>: 24-bit color 8-bit alpha, 16 million colors</li>
 </ul><p class="Element10">
 All buffers that are created by the context will use this color mode. This can affect the sizes of the frame buffers that will be created.</p><div class="Element15">
 HAL State Management</div>
@@ -195,9 +195,9 @@ To get the current draw color the code would appear as follows: </p><div class="
 <p class="Element10">
 These get and set functions can return these status values:</p>
 <ul class="Element630">
-<li class="Element600">GFX_FAILURE: An error occurred during this operation</li>
-<li class="Element600">GFX_SUCCESS: The operation was successful</li>
-<li class="Element600">GFX_UNSUPPORTED: The operation is not supported by the context</li>
+<li class="Element600"><strong>GFX_FAILURE</strong>: An error occurred during this operation</li>
+<li class="Element600"><strong>GFX_SUCCESS</strong>: The operation was successful</li>
+<li class="Element600"><strong>GFX_UNSUPPORTED</strong>: The operation is not supported by the context</li>
 </ul><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table0">
@@ -222,13 +222,13 @@ The HAL uses a multi-stage pixel rendering pipeline to apply the various effects
 Stage Description</div>
 
 <ul class="Element630">
-<li class="Element600"><i>Layer Clipping</i><strong>: </strong>The pixel is clipped to the destination layer. It is rejected if it falls outside the layer. Writing outside of the layer can cause memory out-of-bounds exceptions.</li>
-<li class="Element600"><i>Orientation and Mirroring</i><strong>: </strong>The pixel's destination point is rotated and mirrored according to the draw state</li>
-<li class="Element600"><i>Rectangle Clipping</i><strong>: </strong>The pixel is containment evaluated with the context's clipping rectangle and rejected if it is out of bounds</li>
-<li class="Element600"><i>Color Masking</i><strong>: </strong>The pixel is compared to the context's color mask value. If the color matches the value it is rejected</li>
-<li class="Element600"><i>Alpha Blending</i><strong>: </strong>The source pixel is blended with the destination pixel. Both the color's alpha channel and the global alpha blending value is taken into consideration. A color without an alpha channel is upscaled to 32-bits and its alpha channel is set to max.</li>
-<li class="Element600"><i>Color Conversion</i><strong>: </strong>The color is converted to the color mode of the destination buffer. This only applies to blits.</li>
-<li class="Element600"><i>Buffer Write</i><strong>: </strong>The result color is written to the frame buffer at the potentially transformed point</li>
+<li class="Element600"><strong><i>Layer Clipping</i>: </strong>The pixel is clipped to the destination layer. It is rejected if it falls outside the layer. Writing outside of the layer can cause memory out-of-bounds exceptions.</li>
+<li class="Element600"><strong><i>Orientation and Mirroring</i>: </strong>The pixel's destination point is rotated and mirrored according to the draw state</li>
+<li class="Element600"><strong><i>Rectangle Clipping</i>: </strong>The pixel is containment evaluated with the context's clipping rectangle and rejected if it is out of bounds</li>
+<li class="Element600"><strong><i>Color Masking</i>: </strong>The pixel is compared to the context's color mask value. If the color matches the value it is rejected</li>
+<li class="Element600"><strong><i>Alpha Blending</i>: </strong>The source pixel is blended with the destination pixel. Both the color's alpha channel and the global alpha blending value is taken into consideration. A color without an alpha channel is upscaled to 32-bits and its alpha channel is set to max.</li>
+<li class="Element600"><strong><i>Color Conversion</i>: </strong>The color is converted to the color mode of the destination buffer. This only applies to blits.</li>
+<li class="Element600"><strong><i>Buffer Write</i>: </strong>The result color is written to the frame buffer at the potentially transformed point</li>
 </ul><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table0">
@@ -246,15 +246,15 @@ Stage Description</div>
 <div class="Element15">
 Using The Library</div>
 <p class="Element10">
-To access the HAL, simply include the header file <span class="Element146">gfx.h</span> in your application. This is assuming that the appropriate flags have been checked in the configuration.&nbsp;</p>
+To access the HAL, simply include the header file <span class="Element146">gfx.h</span> in the application. This is assuming that the appropriate flags have been checked in the configuration.&nbsp;</p>
 <p class="Element10">
 The HAL APIs typically fall into one of several groups:</p>
 <ul class="Element630">
-<li class="Element600"><i>Initialization</i><strong>: </strong>Interfaces in the MHC configuration that are responsible for setting up the state of the HAL</li>
-<li class="Element600"><i>Context Management</i><strong>: </strong>Interfaces that create or destroy a graphics context</li>
-<li class="Element600"><i>Context Maintenance</i><strong>: </strong>Interfaces that allow the context to perform tasks such as HAL or driver state updates</li>
-<li class="Element600"><i>Draw State Management</i><strong>: </strong>This consists of two generic interfaces that allow the application to manage the state of a context. This is accomplished by indicating the get/set operation from a predefined list of option IDs, and sending the appropriate arguments into the variable argument functions</li>
-<li class="Element600"><i>Blitting and</i> <i>Shape Drawing</i><strong>: </strong>These interfaces perform raster operations on the active frame buffer according to the current draw state of the HAL</li>
+<li class="Element600"><strong><i>Initialization</i>: </strong>Interfaces in the MHC configuration that are responsible for setting up the state of the HAL</li>
+<li class="Element600"><strong><i>Context Management</i>: </strong>Interfaces that create or destroy a graphics context</li>
+<li class="Element600"><strong><i>Context Maintenance</i>: </strong>Interfaces that allow the context to perform tasks such as HAL or driver state updates</li>
+<li class="Element600"><strong><i>Draw State Management</i>: </strong>This consists of two generic interfaces that allow the application to manage the state of a context. This is accomplished by indicating the get/set operation from a predefined list of option IDs, and sending the appropriate arguments into the variable argument functions</li>
+<li class="Element600"><strong><i>Blitting and</i> <i>Shape Drawing</i>: </strong>These interfaces perform raster operations on the active frame buffer according to the current draw state of the HAL</li>
 </ul><p class="Element10">
 The following sample code displays how to initialize the HAL, create a context, create some layers and buffers, and draw a rectangle. </p><div class="Element63">
 <div class="TableDiv">

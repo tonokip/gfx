@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Heap Estimator</title>
+<title>Introduction</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02589.html" target="topic">MHGC Tools</a> &gt; <a href="02582.html" target="topic">Heap Estimator</a></div>
+<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02582.html" target="topic">Introduction</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02577.html" target="topic">Previous</a> | <a href="02589.html" target="topic">Up</a> | <a href="02601.html" target="topic">Next</a></div>
+<a href="02599.html" target="topic">Previous</a> | <a href="02599.html" target="topic">Up</a> | <a href="02575.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Heap Estimator</div>
+Introduction</div>
 </div>
 </div>
 
@@ -49,57 +49,85 @@ Heap Estimator</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Many parts of a graphics design are implemented using memory allocated from the application’s heap space. Therefore, it is important to allocate sufficient memory for the heap. This tool can estimate heap usage by the allocation based on the widgets, layers, screens, and decoders currently in the design.&nbsp;</p>
+The MPLAB Harmony Graphics Composer (MHGC), also referred to as the graphics composer, is a graphics user interface design tool that is integrated as part of the MPLAB Harmony Configurator (MHC). MHGC is tightly coupled with the Aria User Interface Library to facilitate rapid prototyping and optimization of the application's graphical user interface (GUI). The tool provides a &quot;What you see is what you get&quot; (WSYWIG) environment for users to design the graphics user interface for their application. Refer to <i>MPLAB Harmony Graphics Library Help &gt; Graphics Library Help &gt; <a href="00465.html" target="topic">Aria User Interface Library</a></i> for more information.&nbsp;</p>
 <p class="Element10">
-When launching the tool from the Tools menu, the Heap Configuration window appears. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
+The MPLAB Harmony Graphics Composer (MHGC) Tool Suite and the Aria User Interface Library provide the following benefits to developers:</p>
+<ul class="Element630">
+<li class="Element600"><strong>Enhanced User Experience</strong> – Libraries and tools are easy to learn and use.</li>
+<li class="Element600"><strong>Intuitive MHGC Window Tool</strong> – Flexible window docking/undocking. Undo/Redo and Copy/Paste support. Tree-based design model. Display design canvas control including zooming.</li>
+<li class="Element600"><strong>Tight Integration Experience</strong> – Graphics design &amp; code generator tools are tightly integrated, providing rapid prototyping and optimization of look and feel</li>
+<li class="Element600"><strong>Powerful User Interface (UI) Library</strong> – Provides graphics objects and touch support</li>
+<li class="Element600"><strong>Multi-Layer UI design</strong> – Supported in the MHGC tool and Aria Library</li>
+<li class="Element600"><strong>Complete Code Generation</strong> – Can generate code for library initialization, library management, touch integration, color schemes and event handling with a single click</li>
+<li class="Element600"><strong>Supports Performance and Resource Optimization</strong> – Draw order, background caching, and advanced color mode support improve performance</li>
+<li class="Element600"><strong>Resource Optimization</strong> – Measures Flash memory usage and can direct resources to external memory if needed. Global 8-bit color look-up table (LUT) supports reduced memory footprint. Heap Estimator tool, which helps to manage the SRAM memory footprint.</li>
+<li class="Element600"><strong>Text Localization</strong> – Easily integrate international language characters into a design and seamlessly change between defined languages at run-time</li>
+<li class="Element600"><strong>Easy to Use Asset Management</strong> – Tools provide intuitive management of all graphics assets (fonts, images, text strings)</li>
+<li class="Element600"><strong>Image Optimization</strong> – Supports cropping, resizing, and color mode tuning of images</li>
+<li class="Element600"><strong>Expanded Color Mode Support</strong> – The graphics stack can manage frame buffers using 8-bit to 32-bit color</li>
+<li class="Element600"><strong>Powerful Asset Converter</strong> – Inputs several image formats, auto converts from input format to several popular internal asset formats, performs auto palette generation for image compression, supports run-length encoding. Supports automatic font character inclusion &amp; rasterization.</li>
+<li class="Element600"><strong>Event Management</strong> – Wizard-based event configuration. Tight coupling to enable touch user events and external logical events to change the graphics state machine and graphics properties.</li>
+<li class="Element600"><strong>Abstract Hardware Support</strong> – Graphics controllers and accelerators can be added or removed without any change to the application.</li>
+</ul><div class="Element15">
+Glossary of Terms</div>
 <p class="Element10">
-Clicking <strong>Calculate</strong> estimates heap usage. The following figure shows what occurs within the <a href="00004.html" target="topic">Aria Quickstart</a> demonstration if the heap space is only 4096 bytes: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration Insufficient Memory Alert.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-The <a href="02610.html" target="topic">Summary</a> tab shows how the estimated heap requirements was derived by summing up all the sizes shown under the “Size (Bytes)” column. Note that the largest contribution comes from the screen requiring the largest heap allocation (in this case MainMenu).&nbsp;</p>
-<p class="Element10">
-If there is insufficient memory allocated to the heap, an exclamation point ( ! ) appears in the window. If you hold your mouse pointer over this icon, the following message appears: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Insufficient Heap Value.png" border="0" alt="" title=""></p><p class="Element10">
-You can click <strong>Set MHC Heap Value</strong> to reset the heap allocation to match the estimated requirements. Selecting <strong>Add to MHC Heap Value</strong> adds the estimated heap requirements to the current heap value. (In the case above, this would change the heap allocation to 4096+10664 bytes.)&nbsp;</p>
-<p class="Element10">
-Alternately, you can set the heap allocation to a larger value by going to MHC's Project Graph panel, clicking on the System component, and then editing the Heap Size shown under the Configuration Options panel: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Setting Heap Size.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Screen Details tab (from the Aria Showcase demonstration) shows screen-by-screen the heap space needed for each layer and widget on the screen selected. </p><div class="Element63">
+Throughout this user's guide the following terms are used: </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table0">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
+<td class="Element65" valign="top" width="20%">
+<div class="Element66">
+Acronym or Term&nbsp;</div></td><td class="Element65" valign="top" width="80%">
+<div class="Element66">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
 <div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+Action&nbsp;</div></td><td class="Element67" valign="top" width="80%">
 <div class="Element68">
-After you have updated the Heap Size, either using the Heap Estimator tool or by directly editing the value as shown above, you must regenerate the project using the Generate Code button. This will update the actual heap size value used in building the application.&nbsp;</div></td></tr></table></div></div>
-<p class="Element10" style="text-align: center;">
-<img src="MHGC UG Heap Configuration Details.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Clicking the “Name” column will alphabetize the list. Clicking the “Size (Bytes)” column sorts the assets by size, with the largest at the top and smallest at the bottom.&nbsp;</p>
-<p class="Element10">
-This sub-tab can help in managing the application’s utilization of heap space. For example, excess use of cached backgrounds for widgets can become ruinously expensive, expanding the application’s need for heap well beyond the capabilities of the device. As an example, consider a screen label from the Aria Showcase demonstration. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG List Wheel Widget Demo.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Heap Estimator tool shows that if caching is enabled for the label’s background, this widget requires 23699 bytes of heap to store the widget. Note that the label is twice the size of the text it contains, so one way of reducing the cost of the widget is to make it smaller, thereby reducing the number of background pixels that must be stored. If the label is resized, the heap allocation is reduced to 11688 bytes, which is a drop of appoximately 50%. Finally, if the background is changed from “Cache” to “Fill” the widget only needs 188 bytes.&nbsp;</p>
-<p class="Element10">
-The lesson learned is to use Cache as a background only for widgets where it is absolutely necessary and to make the “cached” widgets as small as possible.</p></div>
+A specific task to perform when an event occurs.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Asset&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+An image, font, or binary data blob that is used by a user interface.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Event&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+A notification that a specific occurrence has taken place.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Resolution&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+The size of the target device screen in pixels.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Screen&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+A discrete presentation of organized objects.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Tool&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+An interface used to create objects.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+UI&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+Abbreviation for User Interface.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="20%">
+<div class="Element68">
+Widget&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+<div class="Element68">
+A graphical object that resides on the user interface screen.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02603.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02589.html" target="topic">MHGC Tools</a> &gt; <a href="02582.html" target="topic">Heap Estimator</a></div>
+<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02582.html" target="topic">Introduction</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -110,10 +138,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02577.html" target="topic">Previous</a> | <a href="02589.html" target="topic">Up</a> | <a href="02601.html" target="topic">Next</a></div>
+<a href="02599.html" target="topic">Previous</a> | <a href="02599.html" target="topic">Up</a> | <a href="02575.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

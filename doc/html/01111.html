@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laDraw_1x2BevelBorder Function</title>
+<title>laDrawSurfaceWidget Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01111.html" target="topic">laDraw_1x2BevelBorder Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="01111.html" target="topic">laDrawSurfaceWidget Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="01099.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01112.html" target="topic">Next</a></div>
+<a href="01103.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01112.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laDraw_1x2BevelBorder@GFX_Rect*@GFX_Color@GFX_Color@GFX_Color Topic Title: laDraw_1x2BevelBorder Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laDrawSurfaceWidget Topic Title: laDrawSurfaceWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laDraw_1x2BevelBorder Function</div>
+laDrawSurfaceWidget Structure</div>
 </div>
 </div>
 
@@ -46,55 +46,59 @@ laDraw_1x2BevelBorder Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Structure: laDrawSurfaceWidget_t&nbsp;</p>
+<p class="Element10">
+A draw surface widget is a special widget that allows an application to perform custom HAL draw calls during Aria's paint loop. To use, create and add a draw surface widget to the desired place in the widget tree. Then register for the callback through the API '<a href="01115.html" target="topic">laDrawSurfaceWidget_SetDrawCallback</a>'. This callback occurs during the paint loop. The application should then be free to adjust the HAL draw state and issue draw calls as desired. The HAL layer, buffer, or context state must not be adjusted in any way.&nbsp;</p>
+<p class="Element10">
+It is also important to not stall for too long during the draw callback.</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <strong><span style="color: #000080">void</span></strong> <strong><span style="color: #000000">laDraw_1x2BevelBorder</span></strong>(
-    <a href="00430.html" target="topic">GFX_Rect</a>* <strong><span style="color: #000000">rect</span></strong>, 
-    GFX_Color <strong><span style="color: #000000">topColor</span></strong>, 
-    GFX_Color <strong><span style="color: #000000">bottomInnerColor</span></strong>, 
-    GFX_Color <strong><span style="color: #000000">bottomOuterColor</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laDrawSurfaceWidget_t</span></strong> {
+  <a href="02356.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
+  <a href="01112.html" target="topic">laDrawSurfaceWidget_DrawCallback</a> <strong><span style="color: #000000">cb</span></strong>;
+} laDrawSurfaceWidget;</pre></div></div>
+<a name="4D656D62657273"></a><div class="Element14">
+Members</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element312">
+<div class="Element272">
 <div class="TableDiv">
-<table cellspacing="0" class="Table3">
+<table cellspacing="0" class="Table4">
 <tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
+<td class="Element260" valign="top" width="35%">
+<div class="Element261">
+Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
+<div class="Element265">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_Rect* rect&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the rect to draw (screen space)&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_Color topColor&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the color of the top left lines&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_Color bottomInnerColor&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the color of the bottom inner line&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-GFX_Color bottomOuterColor&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the color of the bottom outer line&nbsp;</div></td></tr></table></div></div>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the widget base class&nbsp;</div></td></tr><tr>
+<td class="Element262" valign="top" width="35%">
+<div class="Element263">
+laDrawSurfaceWidget_DrawCallback cb;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+<div class="Element267">
+the draw callback&nbsp;</div></td></tr></table></div></div>
 </div>
+</div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+None.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01111.html" target="topic">laDraw_1x2BevelBorder Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="01111.html" target="topic">laDrawSurfaceWidget Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -105,10 +109,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="01099.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01112.html" target="topic">Next</a></div>
+<a href="01103.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01112.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laDraw_1x2BevelBorder@GFX_Rect*@GFX_Color@GFX_Color@GFX_Color Topic Title: laDraw_1x2BevelBorder Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laDrawSurfaceWidget Topic Title: laDrawSurfaceWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

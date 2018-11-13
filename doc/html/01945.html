@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laRadialMenuWidget_GetWidget Function</title>
+<title>laRadialMenuWidget_SetAlphaScaleMinMax Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01945.html" target="topic">laRadialMenuWidget_GetWidget Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01945.html" target="topic">laRadialMenuWidget_SetAlphaScaleMinMax Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -32,9 +32,9 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="01944.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01946.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRadialMenuWidget_GetWidget@laRadialMenuWidget*@int32_t Topic Title: laRadialMenuWidget_GetWidget Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRadialMenuWidget_SetAlphaScaleMinMax@laRadialMenuWidget*@int32_t@int32_t Topic Title: laRadialMenuWidget_SetAlphaScaleMinMax Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laRadialMenuWidget_GetWidget Function</div>
+laRadialMenuWidget_SetAlphaScaleMinMax Function</div>
 </div>
 </div>
 
@@ -49,13 +49,14 @@ laRadialMenuWidget_GetWidget Function</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Returns the pointer to the widget</p></div>
+Sets the minimum and maximum alpha scaling ratio for the items. These values are only used if <a href="01946.html" target="topic">laRadialMenuWidget_SetAlphaScaling</a> is called and alpha scaling is enabled</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02360.html" target="topic">laWidget</a>* <strong><span style="color: #000000">laRadialMenuWidget_GetWidget</span></strong>(
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02091.html" target="topic">laResult</a> <strong><span style="color: #000000">laRadialMenuWidget_SetAlphaScaleMinMax</span></strong>(
     laRadialMenuWidget* <strong><span style="color: #000000">mn</span></strong>, 
-    int32_t <strong><span style="color: #000000">index</span></strong>
+    int32_t <strong><span style="color: #000000">min</span></strong>, 
+    int32_t <strong><span style="color: #000000">max</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -74,12 +75,17 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element303">
 laRadialMenuWidget* mn&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the radial menu widget&nbsp;</div></td></tr><tr>
+the widget&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-int32_t index&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t min&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-index value&nbsp;</div></td></tr></table></div></div>
+the minimum alpha scale, it should be between 0 - 255&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+int32_t max&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the maximum alpha scale, it should be between 0 - 255&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -87,14 +93,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="02360.html" target="topic">laWidget</a>* - the pointer to the widget at the index value on the list Returns NULL if the index is out-of-range of the current list</p></div>
+<a href="02091.html" target="topic">laResult</a> - the operation result</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01945.html" target="topic">laRadialMenuWidget_GetWidget Function</a></div>
+<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00464.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01945.html" target="topic">laRadialMenuWidget_SetAlphaScaleMinMax Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -108,7 +114,7 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="01944.html" target="topic">Previous</a> | <a href="00464.html" target="topic">Up</a> | <a href="01946.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRadialMenuWidget_GetWidget@laRadialMenuWidget*@int32_t Topic Title: laRadialMenuWidget_GetWidget Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRadialMenuWidget_SetAlphaScaleMinMax@laRadialMenuWidget*@int32_t@int32_t Topic Title: laRadialMenuWidget_SetAlphaScaleMinMax Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

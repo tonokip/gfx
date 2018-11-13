@@ -168,7 +168,7 @@ A widget is an abstract representation of an object in the user interface. In it
 <p class="Element10">
 The Aria library relies on function pointers to take advantage of some object oriented programming concepts like inheritance and polymorphism.&nbsp;</p>
 <p class="Element10">
-Widgets are typically created by calling their specific “new” function. For instance: “<a href="02386.html" target="topic">laWidget_New</a>()” will allocate a new basic widget and return a pointer to it (similar to calling new in C++). Calling this function will automatically initialize the widget by calling the constructor for that widget. Deleting widgets is done through the use of the function “<a href="02362.html" target="topic">laWidget_Delete</a>()”.&nbsp;</p>
+Widgets are typically created by calling their specific “new” function. For instance: “<a href="02382.html" target="topic">laWidget_New</a>()” will allocate a new basic widget and return a pointer to it (similar to calling new in C++). Calling this function will automatically initialize the widget by calling the constructor for that widget. Deleting widgets is done through the use of the function “<a href="02358.html" target="topic">laWidget_Delete</a>()”.&nbsp;</p>
 <p class="Element10">
 Widgets can then be added to layers or other widgets as desired.&nbsp;</p>
 <p class="Element10">
@@ -292,7 +292,7 @@ The following are descriptions of the widgets offered by Aria:</p>
 </ul><div class="Element15">
 Event Management</div>
 <p class="Element10">
-The Aria state maintains an internal list of events that must get serviced frequently. This is done by called by “<a href="02331.html" target="topic">laUpdate</a>()”. This is known as the ‘update loop’.</p><div class="Element15">
+The Aria state maintains an internal list of events that must get serviced frequently. This is done by called by “<a href="02327.html" target="topic">laUpdate</a>()”. This is known as the ‘update loop’.</p><div class="Element15">
 Input Handling</div>
 <p class="Element10">
 The user interface library has no knowledge of existing hardware but it must provide the means for the user to interact with the scene. Aria thus provides several generic APIs to allow any source to inject input events into the system. These events are stored in the internal event list and are handled during the next update phase.</p><div class="Element15">
