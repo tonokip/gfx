@@ -54,8 +54,8 @@
 /*  This section Includes other configuration headers necessary to completely
     define this configuration.
 */
-#include "gfx/libaria/libaria_harmony.h"
 #include "gfx/hal/gfx.h"
+#include "gfx/libaria/libaria_harmony.h"
 
 #include "user.h"
 
@@ -89,15 +89,15 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/* SPI Driver Common Configuration Options */
-#define DRV_SPI_INSTANCES_NUMBER              1
-
 /* SPI Driver Instance 0 Configuration Options */
 #define DRV_SPI_INDEX_0                       0
 #define DRV_SPI_CLIENTS_NUMBER_IDX0           1
 
 #define DRV_SPI_INT_SRC_IDX0                  SPI0_IRQn
 #define DRV_SPI_QUEUE_SIZE_IDX0               4
+
+/* SPI Driver Common Configuration Options */
+#define DRV_SPI_INSTANCES_NUMBER              1
 
 
 

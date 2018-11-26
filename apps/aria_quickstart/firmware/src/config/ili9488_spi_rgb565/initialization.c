@@ -62,35 +62,35 @@
 // <editor-fold defaultstate="collapsed" desc="DRV_SPI Instance 0 Initialization Data">
 
 /* SPI Client Objects Pool */
-DRV_SPI_CLIENT_OBJ drvSPI0ClientObjPool[DRV_SPI_CLIENTS_NUMBER_IDX0] = {0};
+static DRV_SPI_CLIENT_OBJ drvSPI0ClientObjPool[DRV_SPI_CLIENTS_NUMBER_IDX0] = {0};
 
 /* SPI Transfer Objects Pool */
-DRV_SPI_TRANSFER_OBJ drvSPI0TransferObjPool[DRV_SPI_QUEUE_SIZE_IDX0] = {0};
+static DRV_SPI_TRANSFER_OBJ drvSPI0TransferObjPool[DRV_SPI_QUEUE_SIZE_IDX0] = {0};
 
 /* SPI PLIB Interface Initialization */
-DRV_SPI_PLIB_INTERFACE drvSPI0PlibAPI = {
+const DRV_SPI_PLIB_INTERFACE drvSPI0PlibAPI = {
 
     /* SPI PLIB Setup */
-    .setup = (DRV_SETUP)SPI0_TransferSetup,
+    .setup = (DRV_SPI_PLIB_SETUP)SPI0_TransferSetup,
 
     /* SPI PLIB WriteRead function */
-    .writeRead = (DRV_WRITEREAD)SPI0_WriteRead,
+    .writeRead = (DRV_SPI_PLIB_WRITE_READ)SPI0_WriteRead,
 
     /* SPI PLIB Transfer Status function */
-    .isBusy = (DRV_IS_BUSY)SPI0_IsBusy,
+    .isBusy = (DRV_SPI_PLIB_IS_BUSY)SPI0_IsBusy,
 
     /* SPI PLIB Callback Register */
-    .callbackRegister = (DRV_CALLBACK_REGISTER)SPI0_CallbackRegister,
+    .callbackRegister = (DRV_SPI_PLIB_CALLBACK_REGISTER)SPI0_CallbackRegister,
 };
 
 
 
-uint32_t drvSPI0remapDataBits[]= { 0x0, 0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80 };
-uint32_t drvSPI0remapClockPolarity[] = { 0x0, 0x1 };
-uint32_t drvSPI0remapClockPhase[] = { 0x0, 0x2 };
+const uint32_t drvSPI0remapDataBits[]= { 0x0, 0x10, 0x20, 0x30, 0x40, 0x50, 0x60, 0x70, 0x80 };
+const uint32_t drvSPI0remapClockPolarity[] = { 0x0, 0x1 };
+const uint32_t drvSPI0remapClockPhase[] = { 0x0, 0x2 };
 
 /* SPI Driver Initialization Data */
-DRV_SPI_INIT drvSPI0InitData =
+const DRV_SPI_INIT drvSPI0InitData =
 {
     /* SPI PLIB API */
     .spiPlib = &drvSPI0PlibAPI,
@@ -160,6 +160,7 @@ void SYS_Initialize ( void* data )
 {
     CLK_Initialize();
 	PIO_Initialize();
+
 
     NVIC_Initialize();
 	RSWDT_REGS->RSWDT_MR = RSWDT_MR_WDDIS_Msk;	// Disable RSWDT 
