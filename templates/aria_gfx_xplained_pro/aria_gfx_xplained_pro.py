@@ -33,39 +33,51 @@ execfile(Module.getPath() + "../common/bsp_utils.py")
 
 #Add BSP support
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
+execfile(Module.getPath() + "Support_BSP_SAM_C21_Xplained_Pro.py")
 
 def enableILI9488SPIPins(bspID, enable):
 	ili9488SPI4PinConfigs = getBSPSupportNode(bspID, "SPI 4-line").getPinConfig()
-	resetPins(ili9488SPI4PinConfigs)
-	if (enable == True):
-		configurePins(ili9488SPI4PinConfigs)
+	if (ili9488SPI4PinConfigs != None):
+		resetPins(ili9488SPI4PinConfigs)
+		if (enable == True):
+			configurePins(ili9488SPI4PinConfigs)
 
 def enableILI9488ParallelPins(bspID, enable):
 	ili9488ParallelPinConfigs = getBSPSupportNode(bspID, "Parallel").getPinConfig()
-	resetPins(ili9488ParallelPinConfigs)
-	if (enable == True):
-		configurePins(ili9488ParallelPinConfigs)
+	if (ili9488ParallelPinConfigs != None):
+		resetPins(ili9488ParallelPinConfigs)
+		if (enable == True):
+			configurePins(ili9488ParallelPinConfigs)
 
 def enableSPIInterface(bspID, enable):
 	componentIDTable = getBSPSupportNode(bspID, "SPI 4-line").getComponentActivateList()
 	autoConnectTable = getBSPSupportNode(bspID, "SPI 4-line").getComponentAutoConnectList()
 	if (enable == True):
-		res = Database.activateComponents(componentIDTable)
-		res = Database.connectDependencies(autoConnectTable)
+		if (componentIDTable != None):
+			res = Database.activateComponents(componentIDTable)
+		if (autoConnectTable != None):
+			res = Database.connectDependencies(autoConnectTable)
 	elif (enable == False):
-		res = Database.deactivateComponents(componentIDTable)
+		if (componentIDTable != None):
+			res = Database.deactivateComponents(componentIDTable)
 	enableILI9488SPIPins(bspID, enable)
-	getBSPSupportNode(bspID, "SPI 4-line").getEventCallbackFxn()("configure")
+	if (getBSPSupportNode(bspID, "SPI 4-line").getEventCallbackFxn() != None):
+		getBSPSupportNode(bspID, "SPI 4-line").getEventCallbackFxn()("configure")
 	
 def enableParallelInterface(bspID, enable):
 	componentIDTable = getBSPSupportNode(bspID, "Parallel").getComponentActivateList()
 	autoConnectTable = getBSPSupportNode(bspID, "Parallel").getComponentAutoConnectList()
 	if (enable == True):
-		res = Database.activateComponents(componentIDTable)
-		res = Database.connectDependencies(autoConnectTable)
+		if (componentIDTable != None):
+			res = Database.activateComponents(componentIDTable)
+		if (autoConnectTable != None):
+			res = Database.connectDependencies(autoConnectTable)
 	elif (enable == False):
-		res = Database.deactivateComponents(componentIDTable)
+		if (componentIDTable != None):
+			res = Database.deactivateComponents(componentIDTable)
 	enableILI9488ParallelPins(bspID, enable)
+	if (getBSPSupportNode(bspID, "Parallel").getEventCallbackFxn() != None):
+		getBSPSupportNode(bspID, "Parallel").getEventCallbackFxn()("configure")
 
 def configureDisplayInterface(bspID, interface):
 	print("Configuring for " + str(interface) + " Interface.")
