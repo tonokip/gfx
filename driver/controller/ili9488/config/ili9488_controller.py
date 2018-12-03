@@ -124,3 +124,16 @@ def onDataCommandSelectSet(dataCommandSelected, event):
 		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(False)
 	else:
 		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(True)
+		
+def onDrawBufferSizeSet(drawBufferSizeSet, event):
+	if (event["value"] == "Line"):
+		drawBufferSizeSet.getComponent().getSymbolByID("DrawBufferPreRead").setVisible(True)
+	else:
+		drawBufferSizeSet.getComponent().getSymbolByID("DrawBufferPreRead").setVisible(False)
+
+def onDrawBufferPreReadSet(drawBufferPreReadSet, event):
+	if (event["value"] == False):
+		drawBufferPreReadSet.getComponent().getSymbolByID("DrawBufferPreFillValue").setVisible(True)
+	else:
+		drawBufferPreReadSet.getComponent().getSymbolByID("DrawBufferPreFillValue").setVisible(False)
+

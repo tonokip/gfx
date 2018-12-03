@@ -73,7 +73,7 @@
 </#if>
 </#if>
 
-
+#define BUFFER_FILL_COLOR  0x${DrawBufferPreFillValue}
 
 #define PIXEL_BUFFER_WIDTH DISPLAY_WIDTH
 <#if DrawBufferSize == "Frame">
@@ -344,16 +344,37 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
 
     if (drv->linePending == GFX_FALSE)
     {
+<#if DrawBufferPreRead == false>
+        unsigned int i;
+</#if>
+
         drv->linePending = GFX_TRUE;
         drv->lineX_Start = pnt->x;
         drv->currentLine = pnt->y;
 
-        // Populate line buffer with pixels from display
+<#if DrawBufferPreRead == true>
+        //Pre-fill line buffer with pixels from display
         returnValue = ILI9488_Intf_ReadPixels(drv,
                             pnt->x,
                             pnt->y,
                             &data[pnt->x * BYTES_PER_PIXEL_BUFFER],
                             (context->display_info->rect.width - pnt->x + 1));
+<#else>
+        //Pre-fill line buffer with default color
+        for (i = (pnt->x * BYTES_PER_PIXEL_BUFFER); 
+             i < ((context->display_info->rect.width - 1)* BYTES_PER_PIXEL_BUFFER);
+             i += BYTES_PER_PIXEL_BUFFER)
+        {
+<#if Interface == "SPI 4-Line">
+            data[i] = ((BUFFER_FILL_COLOR & 0xf800) >> 8) | 0x7; //R
+            data[i+1] = ((BUFFER_FILL_COLOR & 0x07e0) >> 3 ) | 0x3; //G
+            data[i+2] = ((BUFFER_FILL_COLOR & 0x001f) << 3) | 0x7; //B
+<#else>
+            data[i] = BUFFER_FILL_COLOR >> 8;
+            data[i+1] = BUFFER_FILL_COLOR & 0xff;
+</#if>
+        }
+</#if>
     }
 
     drv->lineX_End = pnt->x;
@@ -371,9 +392,9 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
     if (context->colorMode == GFX_COLOR_MODE_RGB_565)
     {
 <#if Interface == "SPI 4-Line">
-        pixelBuffer[0] = ((color & 0xf800) >> 8);
-        pixelBuffer[1] = ((color & 0x07e0) >> 3 );
-        pixelBuffer[2] = ((color & 0x001f) << 3);
+        pixelBuffer[0] = ((color & 0xf800) >> 8) | 0x7; //R
+        pixelBuffer[1] = ((color & 0x07e0) >> 3 ) | 0x3; //G
+        pixelBuffer[2] = ((color & 0x001f) << 3) | 0x7; //B
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
         *((uint16_t *) pixelBuffer) = color;

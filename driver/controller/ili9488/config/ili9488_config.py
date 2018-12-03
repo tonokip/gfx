@@ -154,6 +154,20 @@ DrawBufferSize = comp.createComboSymbol("DrawBufferSize", DriverSettingsMenu, ["
 DrawBufferSize.setLabel("Draw Buffer Size")
 DrawBufferSize.setDescription("Size of the buffer that is written to the controller.")
 DrawBufferSize.setDefaultValue("Line")
+DrawBufferSize.setDependencies(onDrawBufferSizeSet, ["DrawBufferSize"])
+
+DrawBufferPreRead = comp.createBooleanSymbol("DrawBufferPreRead", DrawBufferSize)
+DrawBufferPreRead.setLabel("Pre-read draw buffer")
+DrawBufferPreRead.setDescription("Driver will pre-fill buffer with data from GRAM")
+DrawBufferPreRead.setDefaultValue(True)
+DrawBufferPreRead.setDependencies(onDrawBufferPreReadSet, ["DrawBufferPreRead"])
+
+DrawBufferPreFillValue = comp.createHexSymbol("DrawBufferPreFillValue", DrawBufferSize)
+DrawBufferPreFillValue.setLabel("Draw Buffer Fill Color")
+DrawBufferPreFillValue.setDescription("Fill color for draw buffer. This applies only if pre-read is disabled.")
+DrawBufferPreFillValue.setDefaultValue(0xffff)
+DrawBufferPreFillValue.setVisible(False)
+DrawBufferPreFillValue.setMax(0xfffff)
 
 PixelOrder = comp.createComboSymbol("PixelOrder", DriverSettingsMenu, ["RGB", "BGR"])
 PixelOrder.setLabel("PixelOrder")
