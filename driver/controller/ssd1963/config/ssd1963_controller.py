@@ -31,19 +31,19 @@ def configureSMCComponent(comp, smcComponent):
 	smcComponent.setSymbolValue("SMC_READ_ENABLE_MODE_CS" + str(smcChipSelNum), True, 1)
 	smcComponent.setSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum), False, 1)
 	
-def onDependentComponentAdded(comp, dependencyID, dependencyComponent):
-	print(comp.getID() + ": " + dependencyID + " dependent component added ")
-	if dependencyID == "SMC_CS":
+def onAttachmentConnected(source, target):
+	print(source["component"].getID() + ": " + source["id"] + " dependent component added")
+	if source["id"] == "SMC_CS":
 		#Enable the SMC options
-		comp.getSymbolByID("GFX_SSD1963_INTF_SMC").setEnabled(True)
-		comp.getSymbolByID("InterfaceSettingsSMCMenu").setVisible(True)
-		configureSMCComponent(comp, dependencyComponent)
+		source["component"].getSymbolByID("GFX_SSD1963_INTF_SMC").setEnabled(True)
+		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(True)
+		configureSMCComponent(source["component"], dependencyComponent)
 
-def onDependentComponentRemoved(comp, dependencyID, dependencyComponent):
-	print(comp.getID() + ": " + dependencyID + " dependent component removed ")
+def onAttachmentDisconnected(source, target):
+	print(source["component"].getID() + ": " + source["id"] + " dependent component removed")
 	#Disable the SMC options
-	comp.getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
-	comp.getSymbolByID("GFX_SSD1963_INTF_SMC").setEnabled(False)
+	source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
+	source["component"].getSymbolByID("GFX_SSD1963_INTF_SMC").setEnabled(False)
 	
 def onDataCommandSelectSet(dataCommandSelected, event):
 	if (dataCommandSelected.getComponent().getSymbolByID("DataCommandSelectControl").getValue() == "GPIO"):
