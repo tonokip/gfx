@@ -226,7 +226,38 @@ GFX_Result SSD1306_HorizontalScrollLeft(void)
     SSD1306_WriteCommand(drv, SSD1306_CMD_ACTIVATE_SCROLL);
     
     return GFX_SUCCESS;
+}
+
+GFX_Result SSD1306_HorizontalScrollRight(void)
+{
+    GFX_Context *context = GFX_ActiveContext();
+    SSD1306_DRV *drv;
+    uint8_t parms[6] = {0, 0, 7, 7, 0, 0xff};
+
+    if(context == NULL)
+        return GFX_FAILURE;
+
+    drv = (SSD1306_DRV *) context->driver_data;
     
+    SSD1306_WriteCommandParms(drv, SSD1306_CMD_SCROLL_H_RIGHT, parms, 6);
+    SSD1306_WriteCommand(drv, SSD1306_CMD_ACTIVATE_SCROLL);
+    
+    return GFX_SUCCESS;
+}
+
+GFX_Result SSD1306_HorizontalScrollStop(void)
+{
+    GFX_Context *context = GFX_ActiveContext();
+    SSD1306_DRV *drv;
+
+    if(context == NULL)
+        return GFX_FAILURE;
+
+    drv = (SSD1306_DRV *) context->driver_data;
+    
+    SSD1306_WriteCommand(drv, SSD1306_CMD_DEACTIVATE_SCROLL);
+    
+    return GFX_SUCCESS;
 }
 
 uint8_t SSD1306_GetPixel(SSD1306_DRV *drv, 
