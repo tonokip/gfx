@@ -44,39 +44,39 @@ def instantiateComponent(halComponent):
 	SysTasksString.addValue("    GFX_Update();")
 	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_DRIVER_TASKS")
 	
-def onDependentComponentAdded(halComponent, dependencyID, dependencyComponent):
-	if dependencyID == "gfx_display_driver":
-		halComponent.setSymbolValue("DriverInfoFunction", dependencyComponent.getSymbolValue("DriverInfoFunction"), 1)
-		halComponent.setSymbolValue("DriverInitFunction", dependencyComponent.getSymbolValue("DriverInitFunction"), 1)
+def onAttachmentConnected(source, target):
+	if source["id"] == "gfx_display_driver":
+		source["component"].setSymbolValue("DriverInfoFunction", target["component"].getSymbolValue("DriverInfoFunction"), 1)
+		source["component"].setSymbolValue("DriverInitFunction", target["component"].getSymbolValue("DriverInitFunction"), 1)
 		
-		dependencyComponent.setSymbolValue("HALConnected", True, 1)
+		target["component"].setSymbolValue("HALConnected", True, 1)
 		
 		try:
-			if (dependencyComponent.getSymbolValue("DisplayTimingOptionsEnabled") == True):
-				showDisplayTimingSettings(halComponent, dependencyComponent)
+			if (target["component"].getSymbolValue("DisplayTimingOptionsEnabled") == True):
+				showDisplayTimingSettings(source["component"], target["component"])
 			else:
-				hideDisplayTimingSettings(halComponent, dependencyComponent)
+				hideDisplayTimingSettings(source["component"], target["component"])
 		except:
 			pass
 
-	if dependencyID == "gfx_display":
-		updateDisplayValues(halComponent, dependencyComponent)
+	if source["id"] == "gfx_display":
+		updateDisplayValues(source["component"], target["component"])
 	
-def onDependentComponentRemoved(halComponent, dependencyID, dependencyComponent):
-	if dependencyID == "gfx_display_driver":
-		halComponent.clearSymbolValue("DriverInfoFunction")
-		halComponent.clearSymbolValue("DriverInitFunction")
+def onAttachmentDisconnected(source, target):
+	if source["id"] == "gfx_display_driver":
+		source["component"].clearSymbolValue("DriverInfoFunction")
+		source["component"].clearSymbolValue("DriverInitFunction")
 	
-		dependencyComponent.clearSymbolValue("HALConnected")
+		target["component"].clearSymbolValue("HALConnected")
 		
 		try:
-			if (dependencyComponent.getSymbolValue("DisplayTimingOptionsEnabled") == True):
-				hideDisplayTimingSettings(halComponent, dependencyComponent)
+			if (target["component"].getSymbolValue("DisplayTimingOptionsEnabled") == True):
+				hideDisplayTimingSettings(source["component"], target["component"])
 		except:
 			pass
 	
-	if dependencyID == "gfx_display":
-		clearDisplayValues(halComponent)
+	if source["id"] == "gfx_display":
+		clearDisplayValues(source["component"])
 
 def onDrawPipelineEnableChanged(menu, event):
 	menu.setVisible(event["value"])
