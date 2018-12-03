@@ -33,12 +33,12 @@ def instantiateComponent(comp):
 	Height.setDescription("The height of the touch panel in pixels.")
 	Height.setDefaultValue(272)
 	
-def onDependentComponentAdded(component, dependencyID, dependencyComponent):
-	if dependencyID == "touch_panel":
-		component.setSymbolValue("Width", dependencyComponent.getSymbolValue("TouchWidth"), 1)
-		component.setSymbolValue("Height", dependencyComponent.getSymbolValue("TouchHeight"), 1)
+def onAttachmentConnected(source, target):
+	if source["id"] == "touch_panel":
+		source["component"].setSymbolValue("Width", target["component"].getSymbolValue("TouchWidth"), 1)
+		source["component"].setSymbolValue("Height", target["component"].getSymbolValue("TouchHeight"), 1)
 	
-def onDependentComponentRemoved(component, dependencyID, dependencyComponent):
-	if dependencyID == "touch_panel":
-		component.clearSymbolValue("Width")
-		component.clearSymbolValue("Height")
+def onAttachmentDisconnected(source, target):
+	if source["id"] == "touch_panel":
+		source["component"].clearSymbolValue("Width")
+		source["component"].clearSymbolValue("Height")

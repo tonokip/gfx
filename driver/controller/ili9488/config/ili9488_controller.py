@@ -60,48 +60,60 @@ def configureSPIComponent(comp, spiComponent):
 	print("Configuring SPI")
 	# TODO: Add SPI configuration here
 
-def onDependentComponentAdded(comp, dependencyID, dependencyComponent):
-	print(comp.getID() + ": " + dependencyID + " dependent component added ")
-	if dependencyID == "SMC_CS":
+def onAttachmentConnected(source, target):
+	#print(source["component"].getID() + ": " + dependencyID + " dependent component added ")
+	
+	if source["id"] == "SMC_CS":
 		#Disable the SPI symbols
-		comp.setDependencyEnabled("DRV_SPI", False)
-		comp.getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
-		comp.getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
+		source["component"].setDependencyEnabled("DRV_SPI", False)
+		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
+		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
+		
 		#Enable the SMC symbols
-		comp.getSymbolByID("Interface").setValue("Parallel", 1)
-		comp.getSymbolByID("ParallelInterfaceWidth").setVisible(True)
-		comp.getSymbolByID("DCXAddressBit").setVisible(True)
-		comp.getSymbolByID("UseSyncBarriers").setVisible(True)
-		comp.getSymbolByID("EBIChipSelectIndex").setVisible(True)
-		comp.getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
-		comp.getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(True)
-		configureSMCComponent(comp, dependencyComponent)
-	if dependencyID == "DRV_SPI":
-		spiIndex = dependencyComponent.getSymbolByID("INDEX").getValue()
-		print("Using SPI port " + str(spiIndex))
+		source["component"].getSymbolByID("Interface").setValue("Parallel", 1)
+		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
+		source["component"].getSymbolByID("DCXAddressBit").setVisible(True)
+		source["component"].getSymbolByID("UseSyncBarriers").setVisible(True)
+		source["component"].getSymbolByID("EBIChipSelectIndex").setVisible(True)
+		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
+		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(True)
+		
+		configureSMCComponent(source["component"], target["component"])
+		
+	if source["id"] == "DRV_SPI":
+		spiIndex = target["component"].getSymbolByID("INDEX").getValue()
+		#print("Using SPI port " + str(spiIndex))
+		
 		#Disable the SMC symbols
-		comp.setDependencyEnabled("SMC_CS", False)
-		comp.getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-		comp.getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(False)
+		source["component"].setDependencyEnabled("SMC_CS", False)
+		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
+		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(False)
+		
 		#Enable the SPI symbols
-		comp.getSymbolByID("Interface").setValue("SPI 4-Line", 1)
-		comp.getSymbolByID("SPIPortIndex").setValue(spiIndex, 1)
-		comp.getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
-		comp.getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(True)
-		configureSPIComponent(comp, dependencyComponent)
+		source["component"].getSymbolByID("Interface").setValue("SPI 4-Line", 1)
+		source["component"].getSymbolByID("SPIPortIndex").setValue(spiIndex, 1)
+		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
+		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(True)
+		
+		configureSPIComponent(source["component"], target["component"])
 
-def onDependentComponentRemoved(comp, dependencyID, dependencyComponent):
-	print(comp.getID() + ": " + dependencyID + " dependent component removed ")
-	comp.setDependencyEnabled("DRV_SPI", True)
-	comp.setDependencyEnabled("SMC_CS", True)
+def onAttachmentDisconnected(source, target):
+	#print(comp.getID() + ": " + dependencyID + " dependent component removed ")
+	
+	if source["id"] == "gfx_driver_ili9488":
+		return
+	
+	source["component"].setDependencyEnabled("DRV_SPI", True)
+	source["component"].setDependencyEnabled("SMC_CS", True)
+	
 	#Disable the SMC and SPI symbols
-	comp.getSymbolByID("ParallelInterfaceWidth").setVisible(False)
-	comp.getSymbolByID("DCXAddressBit").setVisible(False)
-	comp.getSymbolByID("UseSyncBarriers").setVisible(False)
-	comp.getSymbolByID("EBIChipSelectIndex").setVisible(False)
-	comp.getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
-	comp.getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-	comp.getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
+	source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
+	source["component"].getSymbolByID("DCXAddressBit").setVisible(False)
+	source["component"].getSymbolByID("UseSyncBarriers").setVisible(False)
+	source["component"].getSymbolByID("EBIChipSelectIndex").setVisible(False)
+	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
+	source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
+	source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
 
 def onInterfaceSetSPI(symbol, event):
 	if event["value"] == "SPI 4-Line":

@@ -259,25 +259,25 @@ def resetSMCComponent(lccComponent, smcComponent, smcChipSelNum):
 	smcComponent.clearSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum))
 	lccComponent.clearSymbolValue("EBIChipSelectIndex")
 
-def onDependencyConnected(info):
-	if (info["capabilityID"] == "smc_cs0"):
-		configureSMCComponent(info["localComponent"], info["remoteComponent"], 0)
-	elif (info["capabilityID"] == "smc_cs1"):
-		configureSMCComponent(info["localComponent"], info["remoteComponent"], 1)
-	elif (info["capabilityID"] == "smc_cs2"):
-		configureSMCComponent(info["localComponent"], info["remoteComponent"], 2)
-	elif (info["capabilityID"] == "smc_cs3"):
-		configureSMCComponent(info["localComponent"], info["remoteComponent"], 3)
+def onAttachmentConnected(source, target):
+	if (target["id"] == "smc_cs0"):
+		configureSMCComponent(source["component"], target["component"], 0)
+	elif (target["id"] == "smc_cs1"):
+		configureSMCComponent(source["component"], target["component"], 1)
+	elif (target["id"] == "smc_cs2"):
+		configureSMCComponent(source["component"], target["component"], 2)
+	elif (target["id"] == "smc_cs3"):
+		configureSMCComponent(source["component"], target["component"], 3)
 	
-def onDependencyDisconnected(info):
-	if (info["capabilityID"] == "smc_cs0"):
-		resetSMCComponent(info["localComponent"], info["remoteComponent"], 0)
-	elif (info["capabilityID"] == "smc_cs1"):
-		resetSMCComponent(info["localComponent"], info["remoteComponent"], 1)
-	elif (info["capabilityID"] == "smc_cs2"):
-		resetSMCComponent(info["localComponent"], info["remoteComponent"], 2)
-	elif (info["capabilityID"] == "smc_cs3"):
-		resetSMCComponent(info["localComponent"], info["remoteComponent"], 3)
+def onAttachmentDisconnected(source, target):
+	if (target["id"] == "smc_cs0"):
+		resetSMCComponent(source["component"], target["component"], 0)
+	elif (target["id"] == "smc_cs1"):
+		resetSMCComponent(source["component"], target["component"], 1)
+	elif (target["id"] == "smc_cs2"):
+		resetSMCComponent(source["component"], target["component"], 2)
+	elif (target["id"] == "smc_cs3"):
+		resetSMCComponent(source["component"], target["component"], 3)
 
 def OnCacheEnabled(cacheEnabled, event):
 	print("LCC: cache enabled")

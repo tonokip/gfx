@@ -85,24 +85,24 @@ def instantiateComponent(component):
 	SysInitIncludeString.addValue('#include "driver/input/drv_maxtouch.h"')
 	SysInitIncludeString.setTarget("core.LIST_SYSTEM_CONFIG_H_GLOBAL_INCLUDES")
 	
-def onDependentComponentAdded(component, dependencyID, dependencyComponent):
-	print(component)
+def onAttachmentConnected(source, target):
+	#print(component)
 	
-	if dependencyID == "touch_panel":
-		component.setSymbolValue("Width", dependencyComponent.getSymbolValue("TouchWidth"), 1)
-		component.setSymbolValue("Height", dependencyComponent.getSymbolValue("TouchHeight"), 1)
+	if source["id"] == "touch_panel":
+		source["component"].setSymbolValue("Width", target["component"].getSymbolValue("TouchWidth"), 1)
+		source["component"].setSymbolValue("Height", target["component"].getSymbolValue("TouchHeight"), 1)
 		
-	if dependencyID == "i2c":
-		I2CIndex = component.getSymbolByID("I2CIndex")
-		I2CIndex.setValue(int(dependencyComponent.getID()[-1]), 1)
+	if source["id"] == "i2c":
+		I2CIndex = source["component"].getSymbolByID("I2CIndex")
+		I2CIndex.setValue(int(target["component"].getID()[-1]), 1)
 		I2CIndex.setReadOnly(True)
 	
-def onDependentComponentRemoved(component, dependencyID, dependencyComponent):
-	if dependencyID == "touch_panel":
-		component.clearSymbolValue("Width")
-		component.clearSymbolValue("Height")
+def onAttachmentDisconnected(source, target):
+	if source["id"] == "touch_panel":
+		source["component"].clearSymbolValue("Width")
+		source["component"].clearSymbolValue("Height")
 	
-	if dependencyID == "i2c":
-		I2CIndex = component.getSymbolByID("I2CIndex")
+	if source["id"] == "i2c":
+		I2CIndex = source["component"].getSymbolByID("I2CIndex")
 		I2CIndex.clearValue()
 		I2CIndex.setReadOnly(False)

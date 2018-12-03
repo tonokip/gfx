@@ -46,13 +46,15 @@ def instantiateComponent(component):
 	
 	Database.setSymbolValue("core", "HEAP_SIZE", 32768, 1) 
 
-def onDependentComponentAdded(aria, dependencyID, hal):
-	hal.setSymbolValue("GlobalPaletteModeHint", aria.getSymbolValue("useGlobalPalette"), 1)
-	hal.setSymbolValue("DisableGlobalPaletteModeHint", True, 1)
+def onAttachmentConnected(source, target):
+	if source["id"] == "gfx_hal":
+		target["component"].setSymbolValue("GlobalPaletteModeHint", source["component"].getSymbolValue("useGlobalPalette"), 1)
+		target["component"].setSymbolValue("DisableGlobalPaletteModeHint", True, 1)
 
-def onDependentComponentRemoved(aria, dependencyID, hal):
-	hal.clearSymbolValue("GlobalPaletteModeHint")
-	hal.clearSymbolValue("DisableGlobalPaletteModeHint")
+def onAttachmentDisconnected(source, target):
+	if source["id"] == "gfx_hal":
+		target["component"].clearSymbolValue("GlobalPaletteModeHint")
+		target["component"].clearSymbolValue("DisableGlobalPaletteModeHint")
 	
 def onDemoModeEnable(enableDemoMode, event):
 	enableDemoMode.getComponent().getSymbolByID("demoModeRecordInput").setVisible(event["value"])
