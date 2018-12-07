@@ -219,4 +219,12 @@ enableWindowWidget.setLabel("Enable Window Widget?")
 enableWindowWidget.setDefaultValue(True)
 enableWindowWidget.setDescription("Enables the Aria Window widget.  Disabling this will remove the code for this widget and it will not be available for use.")
 
+global onAriaHeapChanged
+def onAriaHeapChanged(sym, event):
+	Database.setSymbolValue("core", "HEAP_SIZE", sym.getValue(), 0)
 
+ariaHeap = component.createIntegerSymbol("ariaHeap", None)
+ariaHeap.setLabel("Requested Heap")
+ariaHeap.setVisible(False)
+ariaHeap.setDependencies(onAriaHeapChanged, ["ariaHeap"])
+ariaHeap.setDefaultValue(32768)
