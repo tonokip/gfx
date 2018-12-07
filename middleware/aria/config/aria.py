@@ -43,8 +43,6 @@ def instantiateComponent(component):
 	SysTasksString = component.createListEntrySymbol("SYSTasksString", None)
 	SysTasksString.addValue("    LibAria_Tasks(); // update the UI library")
 	SysTasksString.setTarget("core.LIST_SYSTEM_TASKS_C_CALL_LIB_TASKS")
-	
-	Database.setSymbolValue("core", "HEAP_SIZE", 32768, 1) 
 
 def onAttachmentConnected(source, target):
 	if source["id"] == "gfx_hal":
