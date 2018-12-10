@@ -51,8 +51,8 @@
 
 #include <device.h>
 #include "system/int/sys_int.h"
-#include "system/dma/sys_dma.h"
 #include "system/ports/sys_ports.h"
+#include "system/dma/sys_dma.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -62,7 +62,10 @@
 #endif
 // DOM-IGNORE-END
 
-#define SYS_DEBUG(x, y)
+#ifndef SYS_DEBUG
+    #define SYS_DEBUG(x, y)
+#endif
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Data Types
@@ -77,7 +80,7 @@ typedef enum
     /* Force the compiler to reserve 32-bit memory space for each enum */
     DRV_SPI_CLOCK_PHASE_INVALID = 0xFFFFFFFF
 
-}DRV_SPI_CLOCK_PHASE;
+} DRV_SPI_CLOCK_PHASE;
 
 typedef enum
 {
@@ -87,7 +90,7 @@ typedef enum
     /* Force the compiler to reserve 32-bit memory space for each enum */
     DRV_SPI_CLOCK_POLARITY_INVALID = 0xFFFFFFFF
 
-}DRV_SPI_CLOCK_POLARITY;
+} DRV_SPI_CLOCK_POLARITY;
 
 typedef enum
 {
@@ -104,14 +107,14 @@ typedef enum
     /* Force the compiler to reserve 32-bit memory space for each enum */
     DRV_SPI_DATA_BITS_INVALID = 0xFFFFFFFF
 
-}DRV_SPI_DATA_BITS;
+} DRV_SPI_DATA_BITS;
 
 typedef enum
 {
     DRV_SPI_CS_POLARITY_ACTIVE_LOW = 0,
     DRV_SPI_CS_POLARITY_ACTIVE_HIGH = 1
 
-}DRV_SPI_CS_POLARITY;
+} DRV_SPI_CS_POLARITY;
 
 // *****************************************************************************
 /* SPI Driver Setup Data
@@ -204,10 +207,10 @@ typedef struct
     const DRV_SPI_PLIB_INTERFACE*   spiPlib;
 
     /* SPI transmit DMA channel. */
-    SYS_DMA_CHANNEL                 dmaChannelTransmit;
+    SYS_DMA_CHANNEL             dmaChannelTransmit;
 
     /* SPI receive DMA channel. */
-    SYS_DMA_CHANNEL                 dmaChannelReceive;
+    SYS_DMA_CHANNEL             dmaChannelReceive;
 
     /* SPI transmit register address used for DMA operation. */
     void*                           spiTransmitAddress;
@@ -240,7 +243,9 @@ typedef struct
 
 //DOM-IGNORE-BEGIN
 #ifdef __cplusplus
-}
+
+    }
+
 #endif
 //DOM-IGNORE-END
 

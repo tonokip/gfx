@@ -51,7 +51,6 @@
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/nvic/plib_nvic.h"
-#include "bsp/bsp.h"
 #include "peripheral/spi/plib_spi0.h"
 #include "driver/spi/drv_spi.h"
 #include "system/int/sys_int.h"
