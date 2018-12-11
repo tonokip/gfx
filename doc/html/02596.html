@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Tree View Panel</title>
+<title>Screens Panel</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02575.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02596.html" target="topic">Tree View Panel</a></div>
+<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02596.html" target="topic">Screens Panel</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02586.html" target="topic">Previous</a> | <a href="02575.html" target="topic">Up</a> | <a href="02591.html" target="topic">Next</a></div>
+<a href="02601.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02594.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Tree View Panel Topic Title: Tree View Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Screens Panel Topic Title: Screens Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Tree View Panel</div>
+Screens Panel</div>
 </div>
 </div>
 
@@ -48,48 +48,44 @@ Tree View Panel</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<div class="Element15">
-Example Tree View</div>
 <p class="Element10">
-The following Tree View (from main screen of the Aria Coffee Maker demonstration shows the tree structure for a screen with three layers. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG aria_coffeemaker main screen.png" border="0" alt="" title=""></p><p class="Element10">
-The tool icons for this panel support layers and managing screen objects (layers/widgets).</p><div class="Element15">
-Drawing Order and Parent/Child Relationships</div>
+The Screens panel tab manages all the application’s screens, as shown in the following figure. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Screens Panel UI.png" border="0" alt="" title=""></p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+These screens are examples from the <a href="00008.html" target="topic">Aria Showcase</a> demonstration project&nbsp;</div></td></tr></table></div></div>
 <p class="Element10">
-The Graphics Composer Tree View panel allows you to organize the widgets per screen in the desired drawing order (z-order). It also allows for the user to organize the widgets into parent – child hierarchies to allow for the paint algorithm to draw the groups together in event of motion or re-draw. Please note that this does not associate or group the widgets by functionality. (Example: a group of radio buttons might not belong to a common parent on the screen.) This parent-child relationship is limited to the widgets location on the screen, motion on the screen and the drawing order on the screen. (Exceptions to this general rule are the Editor &gt; Hidden, Alpha Blending properties, and layer single versus double buffering. These apply to the parent and all the parent's children.)&nbsp;</p>
+The <u>underlined</u> screen name identifies the primary screen (in this case, SplashScreen.) The <strong>bold</strong> screen name identifies the currently active screen in the Graphics Composer Screen Designer window (in this case MainMenu.) The blue background identifies the selected screen (i.e., the screen that is manipulated by the tool icons), in this case FirstScreen.</p><div class="Element15">
+Window Toolbar</div>
 <p class="Element10">
-The tree is traversed depth-first. This means that the z-order goes background (bottom of z-order) to foreground (top of z-order) as we go from top to bottom in the list of widgets, i.e., ImageWidget1, is the widget at the bottom of the z-order and the PanelWidget1 is the topmost widget on the z-order. The tree structure can be arranged and modified by dragging the widgets and releasing it under the desired parent/child. Also, the list can be modified by using the up/down arrows provided at the header of the Composer Widget tree window to traverse the tree.</p><div class="Element15">
-Editor &gt; Hidden Property for Layers</div>
+The window’s tools icons support:</p>
+<ol class="Element630">
+<li value="1" class="Element600"><strong>Create New Screen</strong> – Create a new screen. The user would be prompted for the name of the new screen, which will appear at the bottom of the Screens list.</li>
+<li value="2" class="Element600"><strong>Delete Screen</strong> – Delete the selected screen. This removes the selected screen from the application.</li>
+<li value="3" class="Element600"><strong>Set as Primary Screen</strong> – Sets the selected screen as the default screen displayed by the application at boot-up.</li>
+<li value="4" class="Element600"><strong>Make Screen Active</strong> – This selected screen is displayed in the Screen Designer panel. The active screen can also be selected by clicking on the screen’s tab at the bottom of the Screen Designer panel.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Screens Make Screen Active.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="5" class="Element600"><strong>Move Screen Up in Order</strong> – Moves the selected screen up in the list of screens, which is useful in organizing a large list of screens, but has no other significance.</li>
+<li value="6" class="Element600"><strong>Move Screen Down in Order</strong> – Moves the selected screen down in the list of screens.</li>
+</ol><p class="Element10">
+Useful in organizing a large list of screens, but has no other significance.</p><div class="Element15">
+Window Columns</div>
 <p class="Element10">
-Setting <i>Editor &gt; Hidden</i> hides the layer and all its children from the Graphics Composer Screen Designer but does not affect how the layer and its children are displayed when the application is running. This can be useful when designing complex screens with overlapping layers.&nbsp;</p>
-<p class="Element10">
-<strong>Alpha Blending Property for Layers</strong>&nbsp;</p>
-<p class="Element10">
-Enabling Alpha Blending provides the ability to control the transparency of a layer and all its children. The Aria Coffee Maker demonstration provides an example of Alpha Blending. There are three layers (Layer0, Layer1, Layer2) in this demonstration. Layer1 (the drag panel on the right) and Layer2 (the drag panel on the left) have Alpha Blending enabled with Alpha Amount = 225. Setting the Alpha Amount to 255 is the same as disabling Alpha Blending (255 = no transparency). Setting the Alpha Amount to 0 makes the layer invisible (0 = full transparency, i.e., invisible).&nbsp;</p>
-<p class="Element10">
-The following figure shows the main screen with Alpha Blending = 225. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Main Screen Alpha Blending.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-The following figure shows the main screen with Layer 2’s Alpha Blending = 255. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Main Screen Layer 2 Alpha Blending.png" border="0" alt="" title=""></p><p class="Element10">
-<strong>Double Buffering for Layers</strong>&nbsp;</p>
-<p class="Element10">
-Graphics double buffering for the LCC driver is enabled in the Display Manager’s Driver Setting screen: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Display Manager Display Settings Panel_H3.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Increasing the Buffer Count of a layer from 1 to 2 enables double buffering for the layer and all its child widgets. To prevent tearing on the display when switching from one buffer to the other, VSync Enabled should also be selected. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Buffer Count.png" border="0" alt="" title=""></p></div>
+The <strong>Generate</strong> check box is used in selecting those screens that will be included in the application when MPLAB Harmony Configurator (MHC) generates/regenerates the application. (This, along with the Enabled check box for languages, allows customization of the application’s build to support different end uses from the same project.) The <strong>Visible</strong> check box can be cleared to hide a screen from the sub-tabs located at the bottom of the Screen Designer. The <strong>View</strong> column provides a mouse-over preview of the screen.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02575.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02596.html" target="topic">Tree View Panel</a></div>
+<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02596.html" target="topic">Screens Panel</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -100,10 +96,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02586.html" target="topic">Previous</a> | <a href="02575.html" target="topic">Up</a> | <a href="02591.html" target="topic">Next</a></div>
+<a href="02601.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02594.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Tree View Panel Topic Title: Tree View Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Screens Panel Topic Title: Screens Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
