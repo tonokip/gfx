@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_ili9488.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DA203D58C85EEEF3F9BB2F84431B037B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DA203D58C85EEEF3F9BB2F84431B037B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4B497269BD8A5924805F851D6A1136C3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4B497269BD8A5924805F851D6A1136C3</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -459,8 +459,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">73296DA51051B426748E2F8C7CA7270D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">73296DA51051B426748E2F8C7CA7270D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">63C2729E8226B4836D346E640ECF5902</GeneratedChecksum>
+          <UserChecksum dnOrder="5">63C2729E8226B4836D346E640ECF5902</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -603,8 +603,8 @@
           <Name dnOrder="1">libaria_rectarray.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">17DB777BA64C1102BEF8753268E02CA0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">17DB777BA64C1102BEF8753268E02CA0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">596C969750B17636DBFBF5C1933E3E3E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">596C969750B17636DBFBF5C1933E3E3E</UserChecksum>
         </File>
         <File dnOrder="75">
           <Type dnOrder="0">SOURCE</Type>
@@ -1211,8 +1211,8 @@
           <Name dnOrder="1">tasks.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F9C60E7A022E3A8E7399E0EC86FCB4C8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F9C60E7A022E3A8E7399E0EC86FCB4C8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">953FC6D0BB554D17BF7FAF80298FE35E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">953FC6D0BB554D17BF7FAF80298FE35E</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
@@ -1323,8 +1323,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B7842967B43434456DC4EF1EE23931DA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B7842967B43434456DC4EF1EE23931DA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9033F6DE56A712B85F66777C61EACE91</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9033F6DE56A712B85F66777C61EACE91</UserChecksum>
         </File>
         <File dnOrder="165">
           <Type dnOrder="0">HEADER</Type>
@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7F97DFC222D27D4742CBB39EDB318DE8</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7F97DFC222D27D4742CBB39EDB318DE8</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FF5FE15F1C8280A0E4BD96E29DA6FBA0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FF5FE15F1C8280A0E4BD96E29DA6FBA0</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">HEADER</Type>
@@ -1379,8 +1379,8 @@
           <Name dnOrder="1">drv_gfx_disp_intf.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B3DA04E2238A0A5D4A518B2391CDE9E5</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B3DA04E2238A0A5D4A518B2391CDE9E5</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5CBD6A5CAF0CC2D41857F46388733B95</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5CBD6A5CAF0CC2D41857F46388733B95</UserChecksum>
         </File>
         <File dnOrder="172">
           <Type dnOrder="0">HEADER</Type>
@@ -1835,8 +1835,8 @@
           <Name dnOrder="1">libaria_event.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9D80FE173BD41BAA104CC8D332639093</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9D80FE173BD41BAA104CC8D332639093</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B1CEDBEDE5E55CF6A367C93A9639F82F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B1CEDBEDE5E55CF6A367C93A9639F82F</UserChecksum>
         </File>
         <File dnOrder="229">
           <Type dnOrder="0">HEADER</Type>

@@ -74,11 +74,15 @@ void SYS_Tasks ( void )
     
 
     /* Maintain Device Drivers */
-        GFX_Update();
+    
+    GFX_Update();
+
 
 
     /* Maintain Middleware & Other Libraries */
-        LibAria_Tasks(); // update the UI library
+    
+    LibAria_Tasks();
+
 
 
     /* Maintain the application's state machine. */

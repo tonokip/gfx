@@ -58,7 +58,7 @@
 
 #define BYTES_PER_PIXEL_BUFFER 3
 
-
+#define BUFFER_FILL_COLOR  0xffff
 
 #define PIXEL_BUFFER_WIDTH DISPLAY_WIDTH
 #define PIXEL_BUFFER_HEIGHT 1
@@ -266,11 +266,12 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
 
     if (drv->linePending == GFX_FALSE)
     {
+
         drv->linePending = GFX_TRUE;
         drv->lineX_Start = pnt->x;
         drv->currentLine = pnt->y;
 
-        // Populate line buffer with pixels from display
+        //Pre-fill line buffer with pixels from display
         returnValue = ILI9488_Intf_ReadPixels(drv,
                             pnt->x,
                             pnt->y,
@@ -283,9 +284,9 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
 
     if (context->colorMode == GFX_COLOR_MODE_RGB_565)
     {
-        pixelBuffer[0] = ((color & 0xf800) >> 8);
-        pixelBuffer[1] = ((color & 0x07e0) >> 3 );
-        pixelBuffer[2] = ((color & 0x001f) << 3);
+        pixelBuffer[0] = ((color & 0xf800) >> 8) | 0x7; //R
+        pixelBuffer[1] = ((color & 0x07e0) >> 3 ) | 0x3; //G
+        pixelBuffer[2] = ((color & 0x001f) << 3) | 0x7; //B
     }
     else
     {

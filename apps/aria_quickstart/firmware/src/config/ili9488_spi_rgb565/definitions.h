@@ -48,11 +48,13 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "gfx/hal/gfx.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/spi/plib_spi0.h"
 #include "driver/spi/drv_spi.h"
+#include "gfx/libaria/libaria_harmony.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
 #include "system/dma/sys_dma.h"

@@ -39,8 +39,8 @@
 *******************************************************************************/
 //DOM-IGNORE-END
 
-#ifndef _DRV_GFX_INTF_H    /* Guard against multiple inclusion */
-#define _DRV_GFX_INTF_H
+#ifndef _DRV_GFX_DISP_INTF_H    /* Guard against multiple inclusion */
+#define _DRV_GFX_DISP_INTF_H
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -305,14 +305,33 @@ GFX_Result GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes);
     * GFX_FAILURE       - Operation failed
 */
 GFX_Result GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes);
-    
+
+/** 
+  Function:
+    GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data);
+
+  Summary:
+    Writes a single byte, RSDC control pin is set
+
+  Description:
+
+  Parameters:
+    intf - the interface handle
+    data - the byte stream
+    bytes - the number of bytes in the data stream
+ 
+  Returns:
+    * GFX_SUCCESS       - Operation successful
+    * GFX_FAILURE       - Operation failed
+*/
+GFX_Result GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data);
 
     /* Provide C++ Compatibility */
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* _DRV_GFX_INTF_H */
+#endif /* _DRV_GFX_DISP_INTF_H */
 
 /* *****************************************************************************
  End of File
