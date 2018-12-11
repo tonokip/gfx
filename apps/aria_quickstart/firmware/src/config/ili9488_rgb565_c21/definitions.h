@@ -56,11 +56,11 @@
 #include "peripheral/nvic/plib_nvic.h"
 #include "driver/spi/drv_spi.h"
 #include "gfx/libaria/libaria_harmony.h"
-#include "bsp/bsp.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
 #include "system/dma/sys_dma.h"
 #include "osal/osal.h"
+#include "bsp/bsp.h"
 #include "app.h"
 
 
