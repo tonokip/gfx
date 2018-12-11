@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Pipeline</title>
+<title>Screen vs. Widget Events</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02566.html" target="topic">Advanced Topics</a> &gt; <a href="02571.html" target="topic">Draw Pipeline Options</a> &gt; <a href="02576.html" target="topic">Graphics Pipeline</a></div>
+<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02590.html" target="topic">MHGC Tools</a> &gt; <a href="02573.html" target="topic">Event Manager</a> &gt; <a href="02576.html" target="topic">Screen vs. Widget Events</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -29,12 +29,12 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02571.html" target="topic">Previous</a> | <a href="02571.html" target="topic">Up</a> | <a href="02577.html" target="topic">Next</a></div>
+<a href="02574.html" target="topic">Previous</a> | <a href="02573.html" target="topic">Up</a> | <a href="02572.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Pipeline Topic Title: Graphics Pipeline)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Screen vs. Widget Events Topic Title: Screen vs. Widget Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Pipeline</div>
+Screen vs. Widget Events</div>
 </div>
 </div>
 
@@ -49,80 +49,37 @@ Graphics Pipeline</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<strong>Layer Clipping</strong>&nbsp;</p>
+ &nbsp;</p>
 <p class="Element10">
-In order of the processing, Layer Clipping is first applied to the image. If the image extends beyond the edges of the layer that contains it then those pixels are not drawn. Failure to clip out-of-bound pixels can cause the application to crash. The following figures shows an example of layer clipping:&nbsp;</p>
+&nbsp;</p><div class="Element15">
+Screen Events</div>
 <p class="Element10">
-<i>Before applying layer boundaries:</i>&nbsp;</p>
+As shown previously, the Graphics Composer Event Manager, Events sub-tab supports screen events when the screen is visible (On Show) and hidden (On Hide). These events can define event handlers based on Template actions or Custom, user-defined code.</p><div class="Element15">
+Widget Events</div>
 <p class="Element10">
-<img src="MHGC UG Before layer bounderies.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<i>After applying layer boundaries:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG after layer boundaries.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Rectangle Clipping</strong>&nbsp;</p>
-<p class="Element10">
-Next, the image is clipped to the boundaries of any widgets that contain it as a parent, such as a rectangle.&nbsp;</p>
-<p class="Element10">
-<i>Before applying the clipping rectangle</i>.:&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG before clipping rectangle.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<i>After applying the clipping rectangle:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG after clipping rectangle.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Color Masking of Pixels</strong>&nbsp;</p>
-<p class="Element10">
-Pixels in the image are matched to a mask color. If the colors match the pixel is discarded (not drawn). In the following example, the black border of the image is removed by defining the mask color to be black.&nbsp;</p>
-<p class="Element10">
-<i>Before applying color mask:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG before color mask.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<i>After applying color mask:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG after color mask.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Orientation and Mirroring</strong>&nbsp;</p>
-<p class="Element10">
-The logical orientation of the graphics design may not match the physical layout of the display. Pixels may need to be reoriented from logical to physical space before being rendered.&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG reorienting from logical to physical.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-Pixels may also need to be flipped (mirrored) before being rendered.&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG flipping pixelsbefore rendering.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Alpha Blending</strong>&nbsp;</p>
-<p class="Element10">
-Each pixel drawn is a composite of the image color and the background color based on the alpha blend value defined by a global alpha value, the pixels alpha value, or both.&nbsp;</p>
-<p class="Element10">
-<i>Before alpha blending:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG before alpha blending.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<i>After alpha blending:</i>&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG after alpha blending.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Color Conversion</strong>&nbsp;</p>
-<p class="Element10">
-The image color format may not be the same as the destination frame buffer. Each pixel must be converted before it is written. In the following example, the image is stored using 24 bits per pixel; however, the frame buffer uses 16 bits per pixel.&nbsp;</p>
-<p class="Element10">
-<img src="MHGC UG color conversion.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-<strong>Frame Buffer Write</strong>&nbsp;</p>
-<p class="Element10">
-The final stage in rendering an image is to write each-color converted pixel to the frame buffer.</p></div>
+Not all widgets can generate an event. For example, a Label Widget has nothing to generate, it just sits there on the screen, labeling. Here is a list of the widgets that can generate an event:</p>
+<ul class="Element630">
+<li class="Element600"><strong>Button</strong> – Pressed and Released events</li>
+<li class="Element600"><strong>Check Box</strong> – Checked and Unchecked events</li>
+<li class="Element600"><strong>Draw Surface</strong> – Draw Notification event</li>
+<li class="Element600"><strong>Image Sequence</strong> – Image Changed event</li>
+<li class="Element600"><strong>Key Pad</strong> – Key Click event</li>
+<li class="Element600"><strong>List Wheel</strong> – Select Item Changed event</li>
+<li class="Element600"><strong>List</strong> – Selection Changed event</li>
+<li class="Element600"><strong>Progress Bar</strong> – Value Changed event</li>
+<li class="Element600"><strong>Radio Button</strong> – Selected and Deselected event</li>
+<li class="Element600"><strong>Scroll Bar</strong> – Value Changed event</li>
+<li class="Element600"><strong>Slider Widget</strong> – Value Changed event</li>
+<li class="Element600"><strong>Text Field</strong> – Text Changed event</li>
+<li class="Element600"><strong>Touch Test</strong> – Point Added event</li>
+</ul></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02599.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02566.html" target="topic">Advanced Topics</a> &gt; <a href="02571.html" target="topic">Draw Pipeline Options</a> &gt; <a href="02576.html" target="topic">Graphics Pipeline</a></div>
+<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02590.html" target="topic">MHGC Tools</a> &gt; <a href="02573.html" target="topic">Event Manager</a> &gt; <a href="02576.html" target="topic">Screen vs. Widget Events</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -133,10 +90,10 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02571.html" target="topic">Previous</a> | <a href="02571.html" target="topic">Up</a> | <a href="02577.html" target="topic">Next</a></div>
+<a href="02574.html" target="topic">Previous</a> | <a href="02573.html" target="topic">Up</a> | <a href="02572.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Pipeline Topic Title: Graphics Pipeline)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Screen vs. Widget Events Topic Title: Screen vs. Widget Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
