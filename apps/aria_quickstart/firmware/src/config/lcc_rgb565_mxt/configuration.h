@@ -54,10 +54,6 @@
 /*  This section Includes other configuration headers necessary to completely
     define this configuration.
 */
-#include "gfx/hal/gfx.h"
-#include "system/input/sys_input.h"
-#include "gfx/libaria/libaria_harmony.h"
-#include "driver/input/drv_maxtouch.h"
 
 #include "user.h"
 #include "toolchain_specifics.h"

@@ -40,13 +40,14 @@
 
 // DOM-IGNORE-END
 
+#include <stdlib.h>
+#include <string.h>
+
 #include "driver/i2c/drv_i2c.h"
 #include "driver/input/drv_maxtouch.h"
 #include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
 #include "system/time/sys_time.h"
-
-#include <string.h>
 
 //#define DEBUG_ENABLE
 
@@ -68,7 +69,7 @@
 #define DEFAULT_YRES               271
 
 #define DRV_MAXTOUCH_NUM_QUEUE      2
-#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 38
+#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 75
 
 
 // MAXTOUCH object IDs
