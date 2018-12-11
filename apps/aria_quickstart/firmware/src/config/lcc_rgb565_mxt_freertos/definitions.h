@@ -48,26 +48,24 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "gfx/hal/gfx.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/xdmac/plib_xdmac.h"
-#include "bsp/bsp.h"
+#include "peripheral/tc/plib_tc0.h"
+#include "driver/i2c/drv_i2c.h"
+#include "system/time/sys_time.h"
+#include "system/input/sys_input.h"
+#include "peripheral/smc/plib_smc.h"
+#include "peripheral/twihs/plib_twihs0.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "gfx/libaria/libaria_harmony.h"
+#include "driver/input/drv_maxtouch.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
 #include "osal/osal.h"
-#include "gfx/libaria/libaria_harmony.h"
-#include "driver/i2c/drv_i2c.h"
-#include "driver/i2c/drv_i2c.h"
-#include "gfx/hal/gfx.h"
-#include "driver/input/drv_maxtouch.h"
-#include "peripheral/smc/plib_smc.h"
-#include "system/input/sys_input.h"
-#include "system/time/sys_time.h"
-#include "peripheral/tc/plib_tc0.h"
-#include "peripheral/twihs/plib_twihs0.h"
 #include "app.h"
 
 
@@ -193,9 +191,9 @@ typedef struct
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
 
+    SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvMAXTOUCH;
 
-    SYS_MODULE_OBJ  sysTime;
 
 } SYSTEM_OBJECTS;
 

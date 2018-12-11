@@ -58,11 +58,20 @@
 // Section: RTOS "Tasks" Routine
 // *****************************************************************************
 // *****************************************************************************
-void _APP_Tasks(  void *pvParameters  )
+void _GFX_HAL_Tasks(  void *pvParameters  )
 {
     while(1)
     {
-        APP_Tasks();
+        GFX_Update();
+        vTaskDelay(10 / portTICK_PERIOD_MS);
+    }
+}
+
+void _SYS_INPUT_Tasks(  void *pvParameters  )
+{
+    while(1)
+    {
+        SYS_INP_Tasks();
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
@@ -75,15 +84,6 @@ void _LIBARIA_Tasks(  void *pvParameters  )
     }
 }
 
-void _GFX_HAL_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        GFX_Update();
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
-
 void _DRV_MAXTOUCH_Tasks(  void *pvParameters  )
 {
     while(1)
@@ -93,11 +93,14 @@ void _DRV_MAXTOUCH_Tasks(  void *pvParameters  )
     }
 }
 
-void _SYS_INPUT_Tasks(  void *pvParameters  )
+/* Handle for the APP_Tasks. */
+TaskHandle_t xAPP_Tasks;
+
+void _APP_Tasks(  void *pvParameters  )
 {
     while(1)
     {
-        SYS_INP_Tasks();
+        APP_Tasks();
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
@@ -146,20 +149,20 @@ void SYS_Tasks ( void )
 
     /* Maintain Middleware & Other Libraries */
     
-    xTaskCreate( _LIBARIA_Tasks,
-        "LIBARIA_Tasks",
-        1024,
-        (void*)NULL,
-        2,
-        (TaskHandle_t*)NULL
-    );
-
-
     xTaskCreate( _SYS_INPUT_Tasks,
         "SYS_INPUT_Tasks",
         1024,
         (void*)NULL,
         1,
+        (TaskHandle_t*)NULL
+    );
+
+
+    xTaskCreate( _LIBARIA_Tasks,
+        "LIBARIA_Tasks",
+        1024,
+        (void*)NULL,
+        2,
         (TaskHandle_t*)NULL
     );
 
@@ -172,7 +175,7 @@ void SYS_Tasks ( void )
                 1024,
                 NULL,
                 1,
-                NULL);
+                &xAPP_Tasks);
 
 
 

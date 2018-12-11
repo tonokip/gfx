@@ -4,13 +4,13 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f2" displayName="arm" projectFiles="true">
+        <itemPath>../src/arm/toolchain_specifics.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_freertos"
                        projectFiles="true">
-          <logicalFolder name="f2" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/lcc_rgb565_mxt_freertos/bsp/bsp.h</itemPath>
-          </logicalFolder>
           <logicalFolder name="f3" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/i2c/drv_i2c.h</itemPath>
@@ -22,13 +22,13 @@
             <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/driver.h</itemPath>
             <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/driver_common.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f4" displayName="driver" projectFiles="true">
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/driver/controller/lcc/drv_gfx_lcc.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="hal" projectFiles="true">
+            <logicalFolder name="f2" displayName="hal" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/gfx.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/inc/gfx_color.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/inc/gfx_common.h</itemPath>
@@ -55,7 +55,7 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/inc/gfx_math.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_rtos.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/inc/libaria_context_rtos.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/inc/libaria_event_rtos.h</itemPath>
@@ -115,12 +115,12 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_events.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_macros.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/third_party/lodepng/lodepng.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="utils" projectFiles="true">
+            <logicalFolder name="f3" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="inc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/utils/inc/gfxu_binary.h</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/utils/inc/gfxu_font.h</itemPath>
@@ -137,7 +137,7 @@
             </logicalFolder>
             <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/gfx_assets.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
+          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
@@ -147,10 +147,10 @@
             <logicalFolder name="f2" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/pio/plib_pio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="smc" projectFiles="true">
+            <logicalFolder name="f6" displayName="smc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/smc/plib_smc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="tc" projectFiles="true">
+            <logicalFolder name="f5" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/tc/plib_tc0.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/tc/plib_tc_common.h</itemPath>
             </logicalFolder>
@@ -164,7 +164,7 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="input" projectFiles="true">
+            <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input_gesture.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input_keyboard.h</itemPath>
@@ -172,15 +172,15 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input_mouse.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input_touch.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="int" projectFiles="true">
+            <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/int/sys_int.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/int/sys_int_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="ports" projectFiles="true">
+            <logicalFolder name="f4" displayName="ports" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/ports/sys_ports.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/ports/sys_ports_mapping.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="time" projectFiles="true">
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/time/sys_time.h</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/time/sys_time_definitions.h</itemPath>
             </logicalFolder>
@@ -194,9 +194,9 @@
           <itemPath>../src/config/lcc_rgb565_mxt_freertos/configuration.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="FreeRTOS" projectFiles="true">
+      <logicalFolder name="f4" displayName="FreeRTOS" projectFiles="true">
         <logicalFolder name="f1" displayName="Source" projectFiles="true">
-          <logicalFolder name="f1" displayName="Include" projectFiles="true">
+          <logicalFolder name="f1" displayName="include" projectFiles="true">
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/croutine.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/event_groups.h</itemPath>
             <itemPath>../src/third_party/rtos/FreeRTOS/Source/Include/FreeRTOS.h</itemPath>
@@ -225,13 +225,13 @@
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
-      <logicalFolder name="f3" displayName="osal" projectFiles="true">
+      <logicalFolder name="f5" displayName="osal" projectFiles="true">
         <itemPath>../src/config/lcc_rgb565_mxt_freertos/osal/osal.h</itemPath>
         <itemPath>../src/config/lcc_rgb565_mxt_freertos/osal/osal_definitions.h</itemPath>
         <itemPath>../src/config/lcc_rgb565_mxt_freertos/osal/osal_freertos.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f4" displayName="packs" projectFiles="true">
-        <logicalFolder name="f2" displayName="ATSAME70Q21B_DFP" projectFiles="true">
+      <logicalFolder name="f3" displayName="packs" projectFiles="true">
+        <logicalFolder name="f1" displayName="ATSAME70Q21B_DFP" projectFiles="true">
           <logicalFolder name="f1" displayName="component" projectFiles="true">
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/acc.h</itemPath>
             <itemPath>../src/packs/ATSAME70Q21B_DFP/component/aes.h</itemPath>
@@ -276,7 +276,7 @@
           <itemPath>../src/packs/ATSAME70Q21B_DFP/device.h</itemPath>
           <itemPath>../src/packs/ATSAME70Q21B_DFP/atsame70q21b.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
+        <logicalFolder name="f2" displayName="CMSIS" projectFiles="true">
           <logicalFolder name="f1" displayName="CMSIS" projectFiles="true">
             <logicalFolder name="f1" displayName="Core" projectFiles="true">
               <logicalFolder name="f1" displayName="Include" projectFiles="true">
@@ -311,10 +311,7 @@
         <logicalFolder name="f1"
                        displayName="lcc_rgb565_mxt_freertos"
                        projectFiles="true">
-          <logicalFolder name="f3" displayName="bsp" projectFiles="true">
-            <itemPath>../src/config/lcc_rgb565_mxt_freertos/bsp/bsp.c</itemPath>
-          </logicalFolder>
-          <logicalFolder name="f6" displayName="driver" projectFiles="true">
+          <logicalFolder name="f4" displayName="driver" projectFiles="true">
             <logicalFolder name="f1" displayName="i2c" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/i2c/src/drv_i2c.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/i2c/src/drv_i2c_local.h</itemPath>
@@ -323,13 +320,13 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/driver/input/drv_maxtouch.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f5" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f4" displayName="driver" projectFiles="true">
+          <logicalFolder name="f1" displayName="gfx" projectFiles="true">
+            <logicalFolder name="f1" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/driver/controller/lcc/drv_gfx_lcc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="hal" projectFiles="true">
+            <logicalFolder name="f2" displayName="hal" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/src/gfx.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/src/gfx_color.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/src/gfx_context.c</itemPath>
@@ -361,7 +358,7 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_rtos.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_context_rtos.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_event_rtos.c</itemPath>
@@ -448,13 +445,13 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_events.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/libaria/libaria_macros.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/third_party/src/lodepng/lodepng.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/third_party/decoder/src/jidctint.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="utils" projectFiles="true">
+            <logicalFolder name="f3" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
                 <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
@@ -478,7 +475,7 @@
             </logicalFolder>
             <itemPath>../src/config/lcc_rgb565_mxt_freertos/gfx/gfx_assets.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
+          <logicalFolder name="f3" displayName="peripheral" projectFiles="true">
             <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
@@ -488,10 +485,10 @@
             <logicalFolder name="f2" displayName="pio" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/pio/plib_pio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="smc" projectFiles="true">
+            <logicalFolder name="f6" displayName="smc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/smc/plib_smc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="tc" projectFiles="true">
+            <logicalFolder name="f5" displayName="tc" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/tc/plib_tc0.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f7" displayName="twihs" projectFiles="true">
@@ -501,18 +498,18 @@
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/peripheral/xdmac/plib_xdmac.c</itemPath>
             </logicalFolder>
           </logicalFolder>
-          <logicalFolder name="f1" displayName="stdio" projectFiles="true">
+          <logicalFolder name="f2" displayName="stdio" projectFiles="true">
             <itemPath>../src/config/lcc_rgb565_mxt_freertos/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="f4" displayName="system" projectFiles="true">
+          <logicalFolder name="f5" displayName="system" projectFiles="true">
             <logicalFolder name="f2" displayName="input" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/input/sys_input_listener.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="int" projectFiles="true">
+            <logicalFolder name="f3" displayName="int" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/int/src/sys_int.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="time" projectFiles="true">
+            <logicalFolder name="f1" displayName="time" projectFiles="true">
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/time/src/sys_time.c</itemPath>
               <itemPath>../src/config/lcc_rgb565_mxt_freertos/system/time/src/sys_time_local.h</itemPath>
             </logicalFolder>
@@ -572,9 +569,9 @@
         <targetDevice>ATSAME70Q21B</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD4Tool</platformTool>
+        <platformTool>EdbgTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.10</languageToolchainVersion>
+        <languageToolchainVersion>2.15</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -638,7 +635,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/lcc_rgb565_mxt_freertos;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/third_party/rtos/FreeRTOS/Source/portable/GCC/SAM/CM7;../src/third_party/rtos/FreeRTOS/Source/Include;"/>
+                  value="../src;../src/config/lcc_rgb565_mxt_freertos;../src/packs/ATSAME70Q21B_DFP;../src/packs/CMSIS/CMSIS/Core/Include;../src/packs/CMSIS/;../src/third_party/rtos/FreeRTOS/Source/portable/GCC/SAM/CM7;../src/third_party/rtos/FreeRTOS/Source/Include;../src/arm"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -759,6 +756,31 @@
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
+      <EdbgTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.interface" value="swd"/>
+        <property key="communication.speed" value="2.000"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="400000-5fffff"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+      </EdbgTool>
       <ICD4Tool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
