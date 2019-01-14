@@ -66,22 +66,6 @@ def instantiateComponent(comp):
 	DisplayTimingOptionsEnabled.setDefaultValue(True)
 	DisplayTimingOptionsEnabled.setVisible(False)
 
-	OutputColorMode = comp.createKeyValueSetSymbol("OutputColorMode", None)
-	OutputColorMode.setLabel("Output Color Mode")
-	OutputColorMode.setOutputMode("Value")
-	OutputColorMode.setDescription("Output Color Mode")
-	OutputColorMode.addKey("12 BPP", "GLCD_GLCDFG5_MODE_OUTPUT_12BPP", "12 bits per pixel")
-	OutputColorMode.addKey("16 BPP", "GLCD_GLCDFG5_MODE_OUTPUT_16BPP", "16 bits per pixel")
-	OutputColorMode.addKey("18 BPP", "GLCD_GLCDFG5_MODE_OUTPUT_18BPP", "18 bits per pixel")
-	OutputColorMode.addKey("24 BPP", "GLCD_GLCDFG5_MODE_OUTPUT_24BPP", "24 bits per pixel")
-	OutputColorMode.setDefaultValue(3)
-
-	DisplayGuardTime = comp.createIntegerSymbol("DisplayGuardTime", None)
-	DisplayGuardTime.setLabel("Display Guard Time (Frames)")
-	DisplayGuardTime.setDescription("Number of frames inserted before and after LCDDISP assertion.")
-	DisplayGuardTime.setDefaultValue(30)
-	DisplayGuardTime.setMin(1)
-
 	### Clock Settings Menu
 	ClockSettingsMenu = comp.createMenuSymbol("ClockSettingsMenu", None)
 	ClockSettingsMenu.setLabel("Clock Settings")
@@ -120,35 +104,23 @@ def instantiateComponent(comp):
 	EnableLayersMenu = comp.createMenuSymbol("EnableLayersMenu", LayerConfigurationMenu)
 	EnableLayersMenu.setLabel("Enable Layers")
 	
-	BaseLayerEnable = comp.createBooleanSymbol("BaseLayerEnable", EnableLayersMenu)
-	BaseLayerEnable.setLabel("Base Layer")
-	BaseLayerEnable.setDescription("Enables Base Layer (always enabled)")
-	BaseLayerEnable.setDefaultValue(True)
-	BaseLayerEnable.setReadOnly(True)
-	BaseLayerEnable.setDependencies(OnLayersEnabled, ["BaseLayerEnable"])
+	Layer0Enable = comp.createBooleanSymbol("Layer0Enable", EnableLayersMenu)
+	Layer0Enable.setLabel("Layer 0")
+	Layer0Enable.setDescription("Enables Layer 0")
+	Layer0Enable.setDefaultValue(True)
+	Layer0Enable.setDependencies(OnLayersEnabled, ["Layer0Enable"])
 	
-	Overlay1LayerEnable = comp.createBooleanSymbol("Overlay1LayerEnable", EnableLayersMenu)
-	Overlay1LayerEnable.setLabel("Overlay 1")
-	Overlay1LayerEnable.setDescription("Enables Overlay1")
-	Overlay1LayerEnable.setDefaultValue(True)
-	Overlay1LayerEnable.setDependencies(OnLayersEnabled, ["Overlay1LayerEnable"])
+	Layer1Enable = comp.createBooleanSymbol("Layer1Enable", EnableLayersMenu)
+	Layer1Enable.setLabel("Layer 1")
+	Layer1Enable.setDescription("Enables Layer 1")
+	Layer1Enable.setDefaultValue(True)
+	Layer1Enable.setDependencies(OnLayersEnabled, ["Layer1Enable"])
 	
-	Overlay2LayerEnable = comp.createBooleanSymbol("Overlay2LayerEnable", EnableLayersMenu)
-	Overlay2LayerEnable.setLabel("Overlay 2")
-	Overlay2LayerEnable.setDescription("Enables Overlay2")
-	Overlay2LayerEnable.setDefaultValue(True)
-	Overlay2LayerEnable.setDependencies(OnLayersEnabled, ["Overlay2LayerEnable"])
-	
-	HEOLayerEnable = comp.createBooleanSymbol("HEOLayerEnable", EnableLayersMenu)
-	HEOLayerEnable.setLabel("High-End Overlay (HEO)")
-	HEOLayerEnable.setDescription("Enables High-End Overlay")
-	HEOLayerEnable.setDefaultValue(False)
-	HEOLayerEnable.setDependencies(OnLayersEnabled, ["HEOLayerEnable"])
-	
-	GlobalAlphaEnable = comp.createBooleanSymbol("GlobalAlphaEnable", LayerConfigurationMenu)
-	GlobalAlphaEnable.setLabel("Enable Global Alpha")
-	GlobalAlphaEnable.setDescription("Enables Global Alpha control of all layers. This disables local alpha for color modes with per pixel alpha channel.")
-	GlobalAlphaEnable.setDefaultValue(False)
+	Layer2Enable = comp.createBooleanSymbol("Layer2Enable", EnableLayersMenu)
+	Layer2Enable.setLabel("Layer 2")
+	Layer2Enable.setDescription("Enables Layer 2")
+	Layer2Enable.setDefaultValue(True)
+	Layer2Enable.setDependencies(OnLayersEnabled, ["Layer2Enable"])
 	
 	#Shadow symbol counter for number of layers used - not user modifiable (hidden)
 	TotalNumLayers = comp.createIntegerSymbol("TotalNumLayers", LayerConfigurationMenu)
@@ -216,25 +188,31 @@ def instantiateComponent(comp):
 	FrameBufferSettingsMenu.setLabel("Frame Buffer Settings")
 	
 	FrameBufferColorMode = comp.createKeyValueSetSymbol("FrameBufferColorMode", FrameBufferSettingsMenu)
-	FrameBufferColorMode.setLabel("FrameBuffer Color Mode")
+	FrameBufferColorMode.setLabel("Frame Buffer Color Mode")
 	FrameBufferColorMode.setOutputMode("Value")
 	FrameBufferColorMode.setDescription("FrameBuffer Color Mode")
-	FrameBufferColorMode.addKey("GS_8", "GFX_COLOR_MODE_GS_8", "Grayscale or Palette 8bpp")
+	FrameBufferColorMode.addKey("LUT8", "GFX_COLOR_MODE_GS_8", "LUT Palette 8bpp")
 	FrameBufferColorMode.addKey("RGB_565", "GFX_COLOR_MODE_RGB_565", "RGB565 16bpp")
-	FrameBufferColorMode.addKey("RGB_888", "GFX_COLOR_MODE_RGB_888", "RGB888 24bpp")
 	FrameBufferColorMode.addKey("RGBA_8888", "GFX_COLOR_MODE_RGBA_8888", "RGBA8888 32bpp")
-	FrameBufferColorMode.addKey("ARGB_8888", "GFX_COLOR_MODE_ARGB_8888", "ARGB8888 32bpp")
-	FrameBufferColorMode.setDefaultValue(3)
+	FrameBufferColorMode.setDefaultValue(2)
 
 	DoubleBuffer = comp.createBooleanSymbol("DoubleBuffer", FrameBufferSettingsMenu)
 	DoubleBuffer.setLabel("Use Double Buffering?")
 	DoubleBuffer.setDescription("<html>Uses an additional buffer for off-screen drawing.<br>Eliminates screen tearing but doubles the required memory.</html>")
 
-	UseCachedFrameBuffer = comp.createBooleanSymbol("UseCachedFrameBuffer", FrameBufferSettingsMenu)
-	UseCachedFrameBuffer.setLabel("Uses Cached Frame Buffers?")
-	UseCachedFrameBuffer.setDescription("Specifies if frame buffers are to be cached and need to be managed by the GLCD driver.")
-	UseCachedFrameBuffer.setDefaultValue(False)
-	UseCachedFrameBuffer.setDependencies(OnCacheEnabled, ["core.DATA_CACHE_ENABLE"])
+	FrameBufferMemoryMode = comp.createKeyValueSetSymbol("FrameBufferMemoryMode", FrameBufferSettingsMenu)
+	FrameBufferMemoryMode.setLabel("Frame Buffer Memory Mode")
+	FrameBufferMemoryMode.setOutputMode("Value")
+	FrameBufferMemoryMode.setDescription("FrameBuffer Memory Mode")
+	FrameBufferMemoryMode.addKey("INT_SRAM", "INT_SRAM", "Internal SRAM")
+	FrameBufferMemoryMode.addKey("DDR", "DDR", "DDR (INT/EXT)")
+	FrameBufferMemoryMode.setDefaultValue(1)
+
+	PaletteMode = comp.createBooleanSymbol("PaletteMode", FrameBufferSettingsMenu)
+	PaletteMode.setLabel("Use 8-bit Palette?")
+	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
+	PaletteMode.setDefaultValue(False)
+	PaletteMode.setVisible(True)	
 	### End of frame buffer settings
 	
 	### Unsupported symbols, but may be queried by GFX HAL
@@ -244,12 +222,6 @@ def instantiateComponent(comp):
 	
 	LCCRefresh = comp.createBooleanSymbol("LCCRefresh", UnsupportedOptionsMenu)
 	LCCRefresh.setLabel("Use Aggressive Refresh Strategy?")
-	
-	PaletteMode = comp.createBooleanSymbol("PaletteMode", FrameBufferSettingsMenu)
-	PaletteMode.setLabel("Use 8-bit Palette?")
-	PaletteMode.setDescription("<html>Enables frame buffer compression.<br>Uses an 8-bit color lookup table to reduce the required<br>frame buffer memory size.  This also reduces the<br>maximum avilable color count to 256 and significantly<br>slows down display refresh speed.</html>")
-	PaletteMode.setDefaultValue(False)
-	PaletteMode.setVisible(False)
 	### End of unsupported options
 	
 	# generated code files
@@ -271,13 +243,11 @@ def instantiateComponent(comp):
 	
 	### Update the layers count - do this last
 	numLayers = 0
-	if (BaseLayerEnable.getValue() == True):
+	if (Layer0Enable.getValue() == True):
 		numLayers += 1
-	if (Overlay1LayerEnable.getValue() == True):
+	if (Layer1Enable.getValue() == True):
 		numLayers += 1
-	if (Overlay2LayerEnable.getValue() == True):
-		numLayers += 1
-	if (HEOLayerEnable.getValue() == True):
+	if (Layer2Enable.getValue() == True):
 		numLayers += 1
 	TotalNumLayers.setValue(numLayers, 1)
 
@@ -299,13 +269,11 @@ def OnCacheEnabled(cacheEnabled, event):
 	
 def OnLayersEnabled(layerEnabled, event):
 	numLayers = 0
-	if (layerEnabled.getComponent().getSymbolValue("BaseLayerEnable") == True):
+	if (layerEnabled.getComponent().getSymbolValue("Layer0Enable") == True):
 		numLayers += 1
-	if (layerEnabled.getComponent().getSymbolValue("Overlay1LayerEnable") == True):
+	if (layerEnabled.getComponent().getSymbolValue("Layer1Enable") == True):
 		numLayers += 1
-	if (layerEnabled.getComponent().getSymbolValue("Overlay2LayerEnable") == True):
-		numLayers += 1
-	if (layerEnabled.getComponent().getSymbolValue("HEOLayerEnable") == True):
+	if (layerEnabled.getComponent().getSymbolValue("Layer2Enable") == True):
 		numLayers += 1
 	layerEnabled.getComponent().setSymbolValue("TotalNumLayers", numLayers, 1)
 	if (layerEnabled.getComponent().getSymbolValue("HALConnected") == True):

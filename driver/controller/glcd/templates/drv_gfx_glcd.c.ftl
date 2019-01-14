@@ -40,14 +40,38 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 *******************************************************************************/
 //DOM-IGNORE-END
 
+<#if HALConnected == true>
+<#assign Val_Width = gfx_hal.DisplayWidth>
+<#assign Val_Height = gfx_hal.DisplayHeight>
+<#assign Val_BacklightEnable = gfx_hal.DisplayBacklightEnable>
+<#assign Val_VSYNCNegative = gfx_hal.DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = gfx_hal.DisplayHSYNCNegative>
+<#assign Val_UseDataEnable = gfx_hal.DisplayDataEnable>
+<#assign Val_DataEnablePolarity = gfx_hal.DisplayDataEnablePolarity>
+<#assign Val_DoubleBuffer = gfx_hal.DoubleBufferHint>
+<#assign Val_PaletteMode = gfx_hal.GlobalPaletteModeHint>
+<#assign Val_FrameBufferColorMode = gfx_hal.ColorModeHint>
+<#else>
+<#assign Val_Width = DisplayWidth>
+<#assign Val_Height = DisplayHeight>
+<#assign Val_BacklightEnable = DisplayBacklightEnable>
+<#assign Val_VSYNCNegative = DisplayVSYNCNegative>
+<#assign Val_HSYNCNegative = DisplayHSYNCNegative>
+<#assign Val_UseDataEnable = DisplayDataEnable>
+<#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
+<#assign Val_DoubleBuffer = DoubleBuffer>
+<#assign Val_PaletteMode = PaletteMode>
+<#assign Val_FrameBufferColorMode = FrameBufferColorMode>
+</#if>
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
 
-#include "framework/gfx/driver/controller/glcd/drv_gfx_glcd_static.h"
-#include "system/int/sys_int.h"
+#include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
+#include "definitions.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -55,32 +79,46 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-#define BUFFER_PER_LAYER	${CONFIG_DRV_GFX_GLCD_BUFFERS_PER_LAYERS}
-#define DISPLAY_WIDTH   ${CONFIG_DRV_GFX_DISPLAY_WIDTH}
-#define DISPLAY_HEIGHT  ${CONFIG_DRV_GFX_DISPLAY_HEIGHT}
+<#if Val_DoubleBuffer == true>
+#define BUFFER_PER_LAYER    2
+<#else>
+#define BUFFER_PER_LAYER    1
+</#if>
 
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGBA_8888">
-#define FRAMEBUFFER_PTR_TYPE    uint32_t*
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGB_565">
-#define FRAMEBUFFER_PTR_TYPE    uint16_t*
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+#define DISPLAY_WIDTH  ${Val_Width}
+#define DISPLAY_HEIGHT ${Val_Height}
+
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
+#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_PTR_TYPE    uint8_t*
+<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
+#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGB_565
+#define FRAMEBUFFER_PTR_TYPE    uint16_t*
+<#elseif FrameBufferColorMode == "GFX_COLOR_MODE_RGB_888" ||
+         FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888" ||
+         FrameBufferColorMode == "GFX_COLOR_MODE_ARGB_8888">
+#define LCDC_DEFAULT_GFX_COLOR_MODE ${Val_FrameBufferColorMode}
+#define FRAMEBUFFER_PTR_TYPE    uint32_t*
+<#else>
+//Unsupported  framebuffer type specified, default to RGBA8888
+#define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGBA_8888
+#define FRAMEBUFFER_PTR_TYPE    uint32_t*
 </#if>
 
 const char* DRIVER_NAME = "GLCD";
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGBA_8888">
+<#if Val_FrameBufferColorMode == "RGBA_8888">
 static uint32_t supported_color_format = GFX_COLOR_MODE_RGBA_8888;
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGB_565">
+<#elseif Val_FrameBufferColorMode == "RGB_565">
 static uint32_t supported_color_format = GFX_COLOR_MODE_RGB_565;
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+<#elseif Val_FrameBufferColorMode == "LUT8">
 static uint32_t supported_color_format = GFX_COLOR_MODE_GS_8;
 </#if>
-<#if CONFIG_DRV_GFX_GLCD_MEMORY_MODE == "Internal SRAM">
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGBA_8888">
+<#if FrameBufferMemoryMode == "INT_SRAM">
+<#if Val_FrameBufferColorMode == "RGBA_8888">
 uint32_t __attribute__((coherent, aligned(32))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGB_565">
+<#elseif Val_FrameBufferColorMode == "RGB_565">
 uint16_t __attribute__((coherent, aligned(16))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+<#elseif Val_FrameBufferColorMode == "LUT8">
 uint8_t __attribute__((coherent, aligned(32))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#if></#if>
 uint32_t state;
@@ -245,7 +283,7 @@ static uint32_t getColorModeStrideSize(GLCD_LAYER_COLOR_MODE mode)
     }
 }
 
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+<#if Val_PaletteMode == true>
 static GFX_Result globalPaletteSet(GFX_GlobalPalette palette)
 {
     uint32_t lut[GFX_GLOBAL_PALETTE_SIZE];
@@ -357,7 +395,7 @@ static GFX_Result layerBufferAddressSet(uint32_t idx, GFX_Buffer address)
 
 static GFX_Result layerBufferAllocate(uint32_t idx)
 {
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE != "LUT8">
+<#if Val_FrameBufferColorMode != "LUT8">
     GFX_Layer* layer;
     GFX_Context* context = GFX_ActiveContext();
 	uint32_t  i,j;
@@ -374,11 +412,11 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
 	{
         for(j = 0; j < layer->rect.display.width; j++)
 		{
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGBA_8888">
+<#if Val_FrameBufferColorMode == "RGBA_8888">
             *(uint32_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGB_565">
+<#elseif Val_FrameBufferColorMode == "RGB_565">
             *(uint16_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+<#elseif Val_FrameBufferColorMode == "LUT8">
             *(uint8_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
 </#if>
 		}
@@ -457,7 +495,7 @@ static uint32_t layerAlphaAmountGet(void)
 
 void layerSwapped(GFX_Layer* layer)
 {
-<#list 0..CONFIG_DRV_GFX_GLCD_LAYERS_NUMBER?number-1 as i>
+<#list 0..(TotalNumLayers-1) as i>
     if(layer->id == GFX_ActiveContext()->layer.layers[${i}].id)
     {
         if (layer->buffer_count > BUFFER_PER_LAYER)
@@ -516,7 +554,7 @@ static GFX_Result glcdInitialize(GFX_Context* context)
 	context->hal.layerAlphaAmountGet = &layerAlphaAmountGet;
 
 	context->hal.colorModeSet = &colorModeSet;
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "LUT8">
+<#if Val_FrameBufferColorMode == "LUT8">
     context->hal.globalPaletteSet = &globalPaletteSet;
 </#if>
     <#if CONFIG_DRV_GFX_DISPLAY_SYS_INIT_SCRIPT?has_content>
@@ -557,16 +595,16 @@ static GFX_Result glcdInitialize(GFX_Context* context)
 
     PLIB_GLCD_Enable(GLCD_ID_0);   
 
-<#list 0..CONFIG_DRV_GFX_GLCD_LAYERS_NUMBER?number-1 as i>
+<#list 0..(TotalNumLayers-1) as i>
 <#if CONFIG_DRV_GFX_GLCD_MEMORY_MODE == "Internal SRAM">
-	<#if CONFIG_DRV_GFX_GLCD_BUFFERS_PER_LAYERS == "2">
+	<#if Val_DoubleBuffer == true>
     drvLayer[${i}].baseaddr[0] = frameBuffer[0];
     drvLayer[${i}].baseaddr[1] = frameBuffer[1];
 	<#else>
     drvLayer[${i}].baseaddr[0] = frameBuffer[0];
 	</#if>
 <#else>
-	<#if CONFIG_DRV_GFX_GLCD_BUFFERS_PER_LAYERS == "2">
+	<#if Val_DoubleBuffer == true>
 	drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
 	drvLayer[${i}].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_DBL_BASEADDR;
 	<#else>
@@ -592,15 +630,15 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         {
             for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
             {
-<#if CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGBA_8888">
-	<#if CONFIG_DRV_GFX_GLCD_BUFFERS_PER_LAYERS == "2">
+<#if Val_FrameBufferColorMode == "RGBA_8888">
+	<#if Val_DoubleBuffer == true>
 				*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
 				*(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
 	<#else>
 				*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
 	</#if>
-<#elseif CONFIG_DRV_GFX_GLCD_COLOR_MODE == "RGB_565">
-	<#if CONFIG_DRV_GFX_GLCD_BUFFERS_PER_LAYERS == "2">
+<#elseif Val_FrameBufferColorMode == "RGB_565">
+	<#if Val_DoubleBuffer == true>
 				*(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
 				*(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
 	<#else>

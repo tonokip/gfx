@@ -26,4 +26,3 @@ def loadModule():
 	cntlComponent = Module.CreateComponent("gfx_driver_glcd", "GLCD ", "/Graphics/Driver", "config/glcd.py")
 	cntlComponent.setDisplayType("GLCD Display Driver")
 	cntlComponent.addCapability("gfx_driver_glcd", "Display Driver", False)
-	cntlComponent.addDependency("GLCD", "GLCD", False, True)
