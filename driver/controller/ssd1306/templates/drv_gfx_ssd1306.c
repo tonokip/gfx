@@ -502,9 +502,9 @@ GFX_Result driverSSD1306InfoGet(GFX_DriverInfo *info)
 */
 static GFX_Result SSD1306_Init(SSD1306_DRV *drv)
 {
-    SSD1306_WriteCommandParm(drv, SSD1306_CMD_SET_MULTIPLEX_RATIO, 0x${MultiplexRatio});
-    SSD1306_WriteCommandParm(drv, SSD1306_CMD_SET_DISPLAY_OFFSET, 0x${DisplayOffset});
-    SSD1306_WriteCommand(drv, SSD1306_CMD_SET_DISPLAY_START_LINE(0x${DisplayStartLine}));
+    SSD1306_WriteCommandParm(drv, SSD1306_CMD_SET_MULTIPLEX_RATIO, ${MultiplexRatio});
+    SSD1306_WriteCommandParm(drv, SSD1306_CMD_SET_DISPLAY_OFFSET, ${DisplayOffset});
+    SSD1306_WriteCommand(drv, SSD1306_CMD_SET_DISPLAY_START_LINE(${DisplayStartLine}));
 <#if SegmentRemap == "Col0">
     SSD1306_WriteCommand(drv, SSD1306_CMD_SET_SEGMENT_RE_MAP_COL0_SEG0);
 <#else>
