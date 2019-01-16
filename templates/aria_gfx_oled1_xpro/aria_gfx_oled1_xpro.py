@@ -34,6 +34,7 @@ execfile(Module.getPath() + "../common/bsp_utils.py")
 #Add BSP support
 execfile(Module.getPath() + "Support_BSP_SAM_E70_OLED1_Xpro.py")
 execfile(Module.getPath() + "Support_BSP_SAM_C21_OLED1_Xpro.py")
+execfile(Module.getPath() + "Support_BSP_SAM_E54_OLED1_Xpro.py")
 
 def enableSPIPins(bspID, enable):
 	SPI4PinConfigs = getBSPSupportNode(bspID, "SPI 4-line").getPinConfig()
