@@ -46,7 +46,7 @@ def eventHandlerSPI4line(event):
 		except:
 			print("Unable to configure SERCOM1 DOPO Pads.")
 		### set heap to 16kB for C21
-		Database.setSymbolValue("core", "HEAP_SIZE", 16384, 0)
+		Database.setSymbolValue("core", "XC32_HEAP_SIZE", 16384, 0)
 			
 def eventHandlerParallel(event):
 	print("Parallel mode is not supported.")
