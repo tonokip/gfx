@@ -221,7 +221,7 @@ enableWindowWidget.setDescription("Enables the Aria Window widget.  Disabling th
 
 global onAriaHeapChanged
 def onAriaHeapChanged(sym, event):
-	Database.setSymbolValue("core", "HEAP_SIZE", sym.getValue(), 0)
+	Database.setSymbolValue("core", "XC32_HEAP_SIZE", sym.getValue(), 0)
 
 ariaHeap = component.createIntegerSymbol("ariaHeap", None)
 ariaHeap.setLabel("Requested Heap")
