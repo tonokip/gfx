@@ -94,7 +94,7 @@ def instantiateComponent(comp):
 	
 	MasterClockValue = 166000000
 	try:
-		MasterClockValue = Database.getSymbolValue("core", MasterClockSource.getValue())
+		MasterClockValue = Database.getSymbolValue("core", "MCK_CLK_FREQUENCY")
 	except:
 		print(MasterClockSource.getValue() + " symbol not found")
 
