@@ -34,6 +34,7 @@ execfile(Module.getPath() + "../common/bsp_utils.py")
 #Add BSP support
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_C21_Xplained_Pro.py")
+execfile(Module.getPath() + "Support_BSP_SAM_E54_Xplained_Pro.py")
 
 def enableILI9488SPIPins(bspID, enable):
 	ili9488SPI4PinConfigs = getBSPSupportNode(bspID, "SPI 4-line").getPinConfig()
