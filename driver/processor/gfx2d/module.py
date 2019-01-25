@@ -30,13 +30,7 @@ peripherals = {
 }
 
 def loadModule():
-        # load GFX2D module
-	cntlComponent = Module.CreateComponent("gfx_gfx2d", "GFX2D", "/Graphics/Processor", "gfx2d.py")
-	cntlComponent.setDisplayType("Graphics GFX2D Processor")
-	cntlComponent.addCapability("gfx_gfx2d", "Graphics GFX2D Processor", False)
-
-	# load GFX2D peripherals as well 
-
+	# load GFX2D peripheral 
     	periphName = "GFX2D"
     	periphID = "44061"
     	periphScript = "peripheral/" + periphName.lower() + "_" + periphID.lower() + \
@@ -46,8 +40,14 @@ def loadModule():
             
 	periphComponent = Module.CreateComponent(periphName.lower(), periphName.upper(), "/Peripherals/" +
                             periphName.upper() + "/",  periphScript)
-
         periphComponent.setDisplayType("Peripheral Library")
-
-
         periphComponent.addCapability("GFX2D", "GFX2D")
+
+
+        # load GFX2D module
+	cntlComponent = Module.CreateComponent("gfx_gfx2d", "GFX2D", "/Graphics/Processor", "gfx2d.py")
+	cntlComponent.setDisplayType("Graphics Processor")
+	cntlComponent.addCapability("gfx_driver_gfx2d", "Graphics Processor", False)
+	cntlComponent.addDependency("GFX2D", "GFX2D", False, True)
+
+

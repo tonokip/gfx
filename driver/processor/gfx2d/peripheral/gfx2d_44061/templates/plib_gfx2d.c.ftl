@@ -329,7 +329,6 @@ typedef struct
 } gfx2d_registers_t;
 
 #define GFX2D_REGS                         ((gfx2d_registers_t*)0x40044000)                /**< \brief GFX2D Registers Address        */
-#define CONF_GFX2D_LEN_REG
 #define GPU_BUFFER_FORMAT_SIZE      400
 
 // *****************************************************************************
@@ -442,7 +441,6 @@ void ${GFX2D_INSTANCE_NAME}_DeInitialize( void )
     GFX2D_Module->GFX2D_GC = 0;
 }
 
-
 void ${GFX2D_INSTANCE_NAME}_Enable( void )
 {
     GFX2D_Module->GFX2D_HEAD = 0;
@@ -507,7 +505,7 @@ void ${GFX2D_INSTANCE_NAME}_InterruptHandler(void)
     }
 }
 
-int32_t GFX2D_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color)
+GFX2D_STATUS GFX2D_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color)
 {
     struct gpu_instruction_fill instr;
 
@@ -523,7 +521,7 @@ int32_t GFX2D_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color
     return _gpu_instruction((uint32_t *)(&instr), 4);
 }
 
-int32_t GFX2D_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
+GFX2D_STATUS GFX2D_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
                         struct gpu_rectangle *src_rect)
 {
     struct gpu_instruction_copy instr;
@@ -553,7 +551,7 @@ static const uint32_t _gfx2d_blend_val[12] = {
     GFX2D_INST_BLEND_WD5(0, 0, 3, 0)  /* SUBTRACT, D * (1-S) */
 };
 
-int32_t GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
+GFX2D_STATUS GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
                          struct gpu_rectangle *fg_rect, struct gpu_buffer *bg, struct gpu_rectangle *bg_rect,
                          enum gpu_blend blend)
 {
@@ -580,4 +578,61 @@ int32_t GFX2D_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, stru
     instr.wd5 = _gfx2d_blend_val[blend];
 
     return _gpu_instruction((uint32_t *)(&instr), 6);
+}
+
+// *****************************************************************************
+/* Function:
+    bool GFX2D_IsBusy(void)
+
+   Summary:
+    Returns the Peripheral busy status.
+
+   Precondition:
+    GFX2D_Initialize must have been called.
+
+   Parameters:
+    None.
+
+   Returns:
+    true - Busy.
+    false - Not busy.
+*/
+
+bool GFX2D_IsBusy(void)
+{
+    if( gfx2dObj.state == GFX2D_STATE_IDLE )
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+// *****************************************************************************
+/* Function:
+    GFX2D_STATUS GFX2D_StatusGet(void)
+
+   Summary:
+    Returns the error during transfer.
+
+   Precondition:
+    GFX2D_Initialize must have been called.
+
+   Parameters:
+    None.
+
+   Returns:
+    Error during transfer.
+*/
+
+GFX2D_STATUS GFX2D_StatusGet(void)
+{
+    GFX2D_STATUS error;
+
+    error = gfx2dObj.error;
+    gfx2dObj.error = GFX2D_ERROR_NONE;
+
+    return error;
 }

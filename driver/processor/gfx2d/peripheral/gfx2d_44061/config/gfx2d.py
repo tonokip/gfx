@@ -43,11 +43,14 @@ def instantiateComponent(gfx2dComponent):
 
     Log.writeInfoMessage("Running " + gfx2dInstanceName.getValue())
 
-    configName = Variables.get("__CONFIGURATION_NAME")
+    gfx2dMenu = gfx2dComponent.createMenuSymbol("GFX2D_PLIB_MENU", None)
+    gfx2dMenu.setLabel("GFX2D PLIB Configurations")
 
 ###################################################################################################
 ########################### Code Generation   #################################
 ###################################################################################################
+    configName = Variables.get("__CONFIGURATION_NAME")
+  
     gfx2d = ATDF.getNode("/avr-tools-device-file/modules/module@[name=\"GFX2D\"]")
     #gfx2DID = gfx2d.getAttribute("id")
 

@@ -5,7 +5,7 @@
     Microchip Technology Inc.
 
   File Name:
-    drv_gfx_gfx2d_static.h
+    drv_gfx2d.h
 
   Summary:
     GFX GFX2D driver interface declarations for the static single instance driver.
@@ -61,16 +61,85 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
           this file.
 */
 
-#include "system_config.h"
 #include "driver/driver_common.h"
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_driver_interface.h"
 #include "gfx/hal/inc/gfx_default_impl.h"
 #include "peripheral/gfx2d/plib_gfx2d.h"
 
+#include "drv_gfx2d_definitions.h"
+
 #ifdef __cplusplus
     extern "C" {
 #endif
+
+// *****************************************************************************
+/* Function:
+    SYS_MODULE_OBJ DRV_GFX2D_Initialize
+    (
+        const SYS_MODULE_INDEX drvIndex,
+        const SYS_MODULE_INIT * const init
+    )
+
+  Summary:
+    Initializes the GFX2D instance for the specified driver index.
+
+  Description:
+    This routine initializes the GFX2D driver instance for the specified driver
+    index, making it ready for clients to open and use it. The initialization
+    data is specified by the init parameter. The initialization may fail if the
+    number of driver objects allocated are insufficient or if the specified
+    driver instance is already initialized. The driver instance index is
+    independent of the GFX2D peripheral instance it is associated with.
+    For example, driver instance 0 can be assigned to GFX2D peripheral instance 2.
+
+  Precondition:
+    None.
+
+  Parameters:
+    drvIndex - Identifier for the instance to be initialized
+
+    init - Pointer to the init data structure containing any data necessary to
+    initialize the driver.
+
+  Returns:
+    If successful, returns a valid handle to a driver instance object.
+    Otherwise, returns SYS_MODULE_OBJ_INVALID.
+
+  Example:
+    <code>
+    // The following code snippet shows an example GFX2D driver initialization.
+
+    SYS_MODULE_OBJ objectHandle;
+
+    DRV_GFX2D_PLIB_INTERFACE drvGFX2DPLibAPI = {
+        .read = (DRV_GFX2D_PLIB_FILL)GFX2D_Fill,
+        .copy = (DRV_GFX2D_PLIB_COPY)GFX2D_Copy,
+        .blend = (DRV_GFX2D_PLIB_BLEND)GFX2D_Blend,
+        .isBusy = (DRV_GFX2D_PLIB_ISBUSY)GFX2D_IsBusy,
+        .statusGet = (DRV_GFX2D_PLIB_STATUSGET)GFX2D_StatusGet,
+        .callbackRegister = (DRV_GFX2D_PLIB_CALLBACK_REGISTER)GFX2D_CallbackRegister,
+    };
+
+    DRV_GFX2D_INIT drvGFX2DInitData = {
+
+        .GFX2DPlib = &drvGFX2D0PLibAPI,
+        .interruptGFX2D = DRV_GFX2D_INT_SRC_IDX0,
+        .queueSize = DRV_GFX2D_QUEUE_SIZE_IDX0,
+    };
+
+    objectHandle = DRV_GFX2D_Initialize(DRV_GFX2D_INDEX, (SYS_MODULE_INIT*)&drvGFX2DInitData);
+    if (objectHandle == SYS_MODULE_OBJ_INVALID)
+    {
+        // Handle error
+    }
+    </code>
+
+  Remarks:
+    This routine must be called before any other GFX2D routine is called.
+    This routine should only be called once during system initialization.
+*/
+SYS_MODULE_OBJ DRV_GFX2D_Initialize( const SYS_MODULE_INDEX drvIndex, const SYS_MODULE_INIT * const init );
 
 
 // *****************************************************************************
@@ -82,7 +151,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 // *****************************************************************************
 /* Function:
-    void  DRV_GFX_GFX2D_Fill()
+    void  DRV_GFX2D_Fill()
 
    Summary:
     Fill a (partial) buffer with a specified color
@@ -109,15 +178,14 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous
 */
-void  DRV_GFX_GFX2D_Fill(
-    n2d_buffer_t *destination,
-    n2d_rectangle_t *rectangle,
-    n2d_color_t color,
-    n2d_blend_t blend);
+void  DRV_GFX2D_Fill(
+    GFX2D_BUFFER *destination,
+    GFX2D_RECTANGLE *rectangle,
+    gpu_color_t color);
 
 // *****************************************************************************
 /* Function:
-    void DRV_GFX_GFX2D_Blit()
+    void DRV_GFX2D_Copy()
 
    Summary:
     Copy a source buffer to the the destination buffer
@@ -142,21 +210,18 @@ void  DRV_GFX_GFX2D_Fill(
     source_rectangle      - Optional pointer to the rectangle that defines the region inside the source buffer.
                             If this rectangle is not specified, the entire source buffer is used as the source
                             region
-    blend                 - Optional blending mode to be applied to each pixel. If no blending is required, set this
-                            value to N2D_BLEND_NONE (0)
 
   Returns:
-    Returns the status as defined by n2d_error_t
+    Returns the status as defined by GFX_STATUS
 
   Remarks:
     This function will wait until the hardware is complete, i.e. it is synchronous.
   */
-void DRV_GFX_GFX2D_Blit(
-    n2d_buffer_t *destination,
-    n2d_rectangle_t *destination_rectangle,
-    n2d_buffer_t *source,
-    n2d_rectangle_t *source_rectangle,
-    n2d_blend_t blend);
+void DRV_GFX2D_Copy(
+    GFX2D_BUFFER *destination,
+    GFX2D_RECTANGLE *destination_rectangle,
+    GFX2D_BUFFER *source,
+    GFX2D_RECTANGLE *source_rectangle);
 
 // *****************************************************************************
 // *****************************************************************************
@@ -164,8 +229,8 @@ void DRV_GFX_GFX2D_Blit(
 // *****************************************************************************
 // *****************************************************************************
 
-GFX_Result driverGFX2DInfoGet(GFX_DriverInfo* info);
-GFX_Result driverGFX2DContextInitialize(GFX_Context* context);
+GFX_Result driverGfx2DInfoGet(GFX_DriverInfo* info);
+GFX_Result driverGfx2DContextInitialize(GFX_Context* context);
 
 #ifdef __cplusplus
     }

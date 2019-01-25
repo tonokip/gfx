@@ -22,7 +22,7 @@
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -57,6 +57,8 @@
 */
 
 #include "device.h"
+
+#include <stdbool.h>
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus // Provide C Compatibility
@@ -95,7 +97,7 @@ typedef enum
     /* GPU returned Nack */
     GFX2D_ERROR_NACK,
 
-} GFX2D_ERROR;
+} GFX2D_STATUS;
 
 // *****************************************************************************
 /* GFX2D State.
@@ -164,7 +166,7 @@ typedef struct
     GFX2D_STATE state;
 
     /* Transfer status */
-    GFX2D_ERROR error;
+    GFX2D_STATUS error;
 
     /* Transfer Event Callback */
     GFX2D_CALLBACK callback;
@@ -246,6 +248,20 @@ void ${GFX2D_INSTANCE_NAME}_Enable( void );
 
 void ${GFX2D_INSTANCE_NAME}_Disable( void );
 
+void ${GFX2D_INSTANCE_NAME}_CallbackRegister(GFX2D_CALLBACK callback, uintptr_t contextHandle);
+
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Fill(struct gpu_buffer *dst, struct gpu_rectangle *rect, gpu_color_t color);
+
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Copy(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *src,
+                        struct gpu_rectangle *src_rect);
+
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_Blend(struct gpu_buffer *dst, struct gpu_rectangle *dst_rect, struct gpu_buffer *fg,
+                         struct gpu_rectangle *fg_rect, struct gpu_buffer *bg, struct gpu_rectangle *bg_rect,
+                         enum gpu_blend blend);
+
+bool ${GFX2D_INSTANCE_NAME}_IsBusy(void);
+
+GFX2D_STATUS ${GFX2D_INSTANCE_NAME}_StatusGet(void);
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
