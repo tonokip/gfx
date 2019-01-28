@@ -103,6 +103,9 @@ extern "C" {
 #define DRV_I2C_QUEUE_SIZE_IDX0               2
 #define DRV_I2C_CLOCK_SPEED_IDX0              400000
 
+/* 2DGPU Driver Configuration Options */
+#define DRV_2DGPU_INDEX                       0
+
 /* I2C Driver Common Configuration Options */
 #define DRV_I2C_INSTANCES_NUMBER              1
 

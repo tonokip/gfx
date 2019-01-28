@@ -49,6 +49,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "gfx/hal/gfx.h"
+#include "gfx/driver/processor/2dgpu/drv_2dgpu.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/pio/plib_pio.h"
 #include "peripheral/nvic/plib_nvic.h"
@@ -189,6 +190,9 @@ typedef struct
 {
     /* I2C0 Driver Object */
     SYS_MODULE_OBJ drvI2C0;
+
+    /* 2DGPU Driver Object */
+    SYS_MODULE_OBJ drv2DGPU;
 
     SYS_MODULE_OBJ  sysTime;
     SYS_MODULE_OBJ  drvMAXTOUCH;

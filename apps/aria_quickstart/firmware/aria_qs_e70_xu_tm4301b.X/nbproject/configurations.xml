@@ -25,6 +25,10 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt/gfx/driver/processor/2dgpu/drv_2dgpu_definitions.h</itemPath>
+                <itemPath>../src/config/lcc_rgb565_mxt/driver/2dgpu/drv_2dgpu.h</itemPath>
+              </logicalFolder>
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt/gfx/driver/controller/lcc/drv_gfx_lcc.h</itemPath>
               </logicalFolder>
@@ -288,6 +292,9 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f1" displayName="driver" projectFiles="true">
+              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
+                <itemPath>../src/config/lcc_rgb565_mxt/gfx/driver/processor/2dgpu/lib/lib2dgpu.a</itemPath>
+              </logicalFolder>
               <logicalFolder name="f1" displayName="lcc" projectFiles="true">
                 <itemPath>../src/config/lcc_rgb565_mxt/gfx/driver/controller/lcc/drv_gfx_lcc.c</itemPath>
               </logicalFolder>
@@ -504,13 +511,13 @@
         <targetDevice>ATSAME70Q21B</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>EdbgTool</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.15</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Atmel" version="2.4.133"/>
+        <pack name="SAME70_DFP" vendor="Atmel" version="2.3.117"/>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
       </packs>
       <compileType>
@@ -575,7 +582,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
         <property key="make-warnings-into-errors" value="true"/>
-        <property key="optimization-level" value="-O1"/>
+        <property key="optimization-level" value=""/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>

@@ -14,7 +14,6 @@
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
-            <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../src</sourceRootElem>
             </sourceRootList>
@@ -27,6 +26,7 @@
             <formatting>
                 <project-formatting-style>false</project-formatting-style>
             </formatting>
+            <make-dep-projects/>
         </data>
     </configuration>
 </project>
