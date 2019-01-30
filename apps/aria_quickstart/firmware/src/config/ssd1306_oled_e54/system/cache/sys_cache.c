@@ -1,22 +1,23 @@
 /*******************************************************************************
-  Interface definition of EVSYS PLIB.
+  Cache System Service Library Implementation Source File
 
-  Company:
+  Company
     Microchip Technology Inc.
 
-  File Name:
-    plib_evsys.h
+  File Name
+    sys_cache.c
 
-  Summary:
-    Interface definition of the Event System Plib (EVSYS).
+  Summary
+    Cache System Service Library interface implementation.
 
-  Description:
-    This file defines the interface for the EVSYS Plib.
-    It allows user to setup event generators and users.
+  Description
+    This file implements the interface to the Cache System Service Library.
+
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -37,32 +38,71 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef EVSYS_H    // Guards against multiple inclusion
-#define EVSYS_H
-
+// *****************************************************************************
+// *****************************************************************************
+// Section: Included Files
+// *****************************************************************************
+// *****************************************************************************
 #include "device.h"
-#include <stdint.h>
-#include <stddef.h>
+#include "system/cache/sys_cache.h"
 
-#ifdef __cplusplus // Provide C++ Compatibility
- extern "C" {
-#endif
-
+#define DATA_CACHE_IS_ENABLED            (SCB->CCR & (uint32_t)SCB_CCR_DC_Msk)
+#define INSTRUCTION_CACHE_IS_ENABLED     (SCB->CCR & (uint32_t)SCB_CCR_IC_Msk)
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Interface
+// Section: System Cache Interface Functions
 // *****************************************************************************
 // *****************************************************************************
+void SYS_CACHE_EnableCaches (void)
+{
+}
 
+void SYS_CACHE_DisableCaches (void)
+{
+}
+void SYS_CACHE_EnableICache (void)
+{
+}
 
+void SYS_CACHE_DisableICache (void)
+{
+}
 
-/***************************** EVSYS API *******************************/
-void EVSYS_Initialize( void );
+void SYS_CACHE_InvalidateICache (void)
+{
+}
 
-#ifdef __cplusplus // Provide C++ Compatibility
- }
-#endif
+void SYS_CACHE_EnableDCache (void)
+{
+}
 
-#endif
+void SYS_CACHE_DisableDCache (void)
+{
+}
+
+void SYS_CACHE_InvalidateDCache (void)
+{
+}
+
+void SYS_CACHE_CleanDCache (void)
+{
+}
+
+void SYS_CACHE_CleanInvalidateDCache (void)
+{
+}
+
+void SYS_CACHE_InvalidateDCache_by_Addr (uint32_t *addr, int32_t size)
+{
+}
+
+void SYS_CACHE_CleanDCache_by_Addr (uint32_t *addr, int32_t size)
+{
+}
+
+void SYS_CACHE_CleanInvalidateDCache_by_Addr (uint32_t *addr, int32_t size)
+{
+}
