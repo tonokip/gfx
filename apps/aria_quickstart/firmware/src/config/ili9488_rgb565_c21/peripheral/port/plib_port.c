@@ -86,6 +86,7 @@ void PORT_Initialize(void)
    PORT_REGS->GROUP[1].PORT_PINCFG[19] = 0x6;
 
    /************************** GROUP 2 Initialization *************************/
+   PORT_REGS->GROUP[2].PORT_DIR = 0x20;
    PORT_REGS->GROUP[2].PORT_OUT = 0x20;
 
 }
