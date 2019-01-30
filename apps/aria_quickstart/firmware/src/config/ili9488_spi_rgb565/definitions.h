@@ -57,6 +57,7 @@
 #include "gfx/libaria/libaria_harmony.h"
 #include "system/int/sys_int.h"
 #include "system/ports/sys_ports.h"
+#include "system/cache/sys_cache.h"
 #include "system/dma/sys_dma.h"
 #include "osal/osal.h"
 #include "app.h"

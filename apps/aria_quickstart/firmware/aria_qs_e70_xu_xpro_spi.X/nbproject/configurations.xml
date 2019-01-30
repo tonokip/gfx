@@ -147,7 +147,10 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f4" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="dma" projectFiles="true">
+            <logicalFolder name="f3" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/ili9488_spi_rgb565/system/cache/sys_cache.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/system/dma/sys_dma.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/system/dma/sys_dma_mapping.h</itemPath>
             </logicalFolder>
@@ -163,6 +166,7 @@
             <itemPath>../src/config/ili9488_spi_rgb565/system/system_common.h</itemPath>
             <itemPath>../src/config/ili9488_spi_rgb565/system/system_module.h</itemPath>
           </logicalFolder>
+          <itemPath>../src/config/ili9488_spi_rgb565/device_cache.h</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/definitions.h</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/user.h</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/configuration.h</itemPath>
@@ -224,6 +228,7 @@
             <logicalFolder name="f1" displayName="Core" projectFiles="true">
               <logicalFolder name="f1" displayName="Include" projectFiles="true">
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_compiler.h</itemPath>
+                <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_iccarm.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/cmsis_gcc.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/tz_context.h</itemPath>
                 <itemPath>../src/packs/CMSIS/CMSIS/Core/Include/core_cm7.h</itemPath>
@@ -429,7 +434,10 @@
             <itemPath>../src/config/ili9488_spi_rgb565/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f5" displayName="system" projectFiles="true">
-            <logicalFolder name="f2" displayName="dma" projectFiles="true">
+            <logicalFolder name="f2" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/ili9488_spi_rgb565/system/cache/sys_cache.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="int" projectFiles="true">
@@ -439,7 +447,7 @@
           <itemPath>../src/config/ili9488_spi_rgb565/initialization.c</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/interrupts.c</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/exceptions.c</itemPath>
-          <itemPath>../src/config/ili9488_spi_rgb565/startup.c</itemPath>
+          <itemPath>../src/config/ili9488_spi_rgb565/startup_xc32.c</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/libc_syscalls.c</itemPath>
           <itemPath>../src/config/ili9488_spi_rgb565/tasks.c</itemPath>
         </logicalFolder>
@@ -464,7 +472,7 @@
         <targetDevice>ATSAME70Q21B</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>EdbgTool</platformTool>
+        <platformTool>ICD4Tool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>2.15</languageToolchainVersion>
         <platform>3</platform>
