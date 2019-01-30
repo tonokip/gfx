@@ -2878,6 +2878,9 @@
                 <name>$PROJ_DIR$\..\src\packs\ATSAMA5D27_DFP\component\ssc.h</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\cache\sys_cache.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\input\sys_input.h</name>
             </file>
             <file>
@@ -2906,6 +2909,9 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\time\sys_time_definitions.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\time\src\sys_time_local.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\system.h</name>
@@ -3409,6 +3415,9 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\peripheral\twihs\plib_twihs1.c</name>
             </file>
             <file>
+                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\cache\sys_cache.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\input\sys_input.c</name>
             </file>
             <file>
@@ -3419,9 +3428,6 @@
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\time\src\sys_time.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\system\time\src\sys_time_local.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\tasks.c</name>
