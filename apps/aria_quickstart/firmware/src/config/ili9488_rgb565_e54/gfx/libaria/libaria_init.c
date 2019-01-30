@@ -77,7 +77,7 @@ static void ScreenCreate_screen1(laScreen* screen)
     laScreen_SetLayer(screen, 0, layer0);
 
     LogoWidget = laImageWidget_New();
-    laWidget_SetPosition((laWidget*)LogoWidget, 68, 129);
+    laWidget_SetPosition((laWidget*)LogoWidget, 68, 139);
     laWidget_SetSize((laWidget*)LogoWidget, 184, 136);
     laWidget_SetBackgroundType((laWidget*)LogoWidget, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LogoWidget, LA_WIDGET_BORDER_NONE);
@@ -93,8 +93,8 @@ static void ScreenCreate_screen1(laScreen* screen)
     laWidget_AddChild((laWidget*)layer0, (laWidget*)TitleLabel);
 
     SloganButton = laButtonWidget_New();
-    laWidget_SetPosition((laWidget*)SloganButton, 43, 344);
-    laWidget_SetSize((laWidget*)SloganButton, 238, 37);
+    laWidget_SetPosition((laWidget*)SloganButton, 68, 343);
+    laWidget_SetSize((laWidget*)SloganButton, 184, 37);
     laWidget_SetBackgroundType((laWidget*)SloganButton, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)SloganButton, LA_WIDGET_BORDER_NONE);
     laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_Slogan));

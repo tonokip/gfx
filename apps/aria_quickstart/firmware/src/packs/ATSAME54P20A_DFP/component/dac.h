@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2019-01-03T09:46:20Z */
+/* file generated from device description version 2019-01-23T10:08:36Z */
 #ifndef _SAME54_DAC_COMPONENT_H_
 #define _SAME54_DAC_COMPONENT_H_
 

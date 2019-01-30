@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2019-01-03T09:46:20Z */
+/* file generated from device description version 2019-01-23T10:08:36Z */
 #ifndef _SAME54P20A_H_
 #define _SAME54P20A_H_
 
