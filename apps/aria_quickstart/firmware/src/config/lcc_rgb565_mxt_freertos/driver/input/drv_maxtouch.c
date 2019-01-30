@@ -40,19 +40,15 @@
 
 // DOM-IGNORE-END
 
-#include <stdlib.h>
-#include <string.h>
-
 #include "driver/i2c/drv_i2c.h"
 #include "driver/input/drv_maxtouch.h"
 #include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
 #include "system/time/sys_time.h"
 
-<<<<<<< Updated upstream:apps/aria_quickstart/firmware/src/config/lcc_rgb565_mxt_freertos/driver/input/drv_maxtouch.c
-=======
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Firmware config definitions */
 #define MXT_CFG_MAGIC		 "OBP_RAW V1"
@@ -63,7 +59,6 @@
 #define MXT_INFO_CHECKSUM_SIZE	3
 #define MXT_MAX_BLOCK_WRITE     253
 
->>>>>>> Stashed changes:input/driver/touch/maxtouch/drv_maxtouch.c
 //#define DEBUG_ENABLE
 
 #define I2C_FRAME_SIZE             32
@@ -84,7 +79,7 @@
 #define DEFAULT_YRES               271
 
 #define DRV_MAXTOUCH_NUM_QUEUE      2
-#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 75
+#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 38
 
 /* MXT_GEN_COMMAND_T6 field */
 #define MXT_COMMAND_RESET       0
@@ -575,7 +570,7 @@ static bool mxt_load_raw_file(struct DEVICE_OBJECT* pDeviceObject, char * cfg);
 static bool mxt_load_raw_flash(struct DEVICE_OBJECT* pDeviceObject, char * cfg);
 static bool mxt_soft_reset(struct DEVICE_OBJECT* pDeviceObject);
 static bool mxt_configure_objects(struct DEVICE_OBJECT* pDeviceObject, DRV_MAXTOUCH_Firmware *firmware);
-static uint32_t mxt_calculate_crc(uint8_t *base, off_t start_off, off_t end_off);
+static uint32_t mxt_calculate_crc(uint8_t *base, long start_off, long end_off);
 static bool mxt_parse_object_table(struct DEVICE_OBJECT* pDeviceObject,
 				  struct mxt_object *object_table);
 static int mxt_upload_cfg_mem(struct DEVICE_OBJECT* pDeviceObject);
@@ -1837,8 +1832,6 @@ static void _handleTouchMessage(uint8_t touchID, MAXTOUCH_TouchEvent* tchEvt)
         }
     }
 }
-<<<<<<< Updated upstream:apps/aria_quickstart/firmware/src/config/lcc_rgb565_mxt_freertos/driver/input/drv_maxtouch.c
-=======
 
 struct mxt_object *
 mxt_get_object(struct DEVICE_OBJECT *pDrvObject, uint8_t type)
@@ -2026,7 +2019,7 @@ static void mxt_calc_crc24(uint32_t *crc, uint8_t firstbyte, uint8_t secondbyte)
 	*crc = result;
 }
 
-uint32_t mxt_calculate_crc(uint8_t *base, off_t start_off, off_t end_off)
+uint32_t mxt_calculate_crc(uint8_t *base, long start_off, long end_off)
 {
 	uint32_t crc = 0;
 	uint8_t *ptr = base + start_off;
@@ -3014,4 +3007,3 @@ bool mxt_proc_message(struct mxt_data *data, uint8_t *message)
 
 	return true;
 }
->>>>>>> Stashed changes:input/driver/touch/maxtouch/drv_maxtouch.c
