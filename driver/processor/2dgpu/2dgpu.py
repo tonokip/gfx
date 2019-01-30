@@ -102,7 +102,7 @@ def instantiateComponent(comp):
     	gfx2DSymHeaderFile = comp.createFileSymbol("DRV_2DGPU_FILE_MAIN_HEADER", None)
     	gfx2DSymHeaderFile.setSourcePath("templates/drv_2dgpu.h.ftl")
     	gfx2DSymHeaderFile.setOutputName("drv_2dgpu.h")
-    	gfx2DSymHeaderFile.setDestPath("driver/2dgpu/")
+        gfx2DSymHeaderFile.setDestPath("gfx/driver/processor/2dgpu")
     	gfx2DSymHeaderFile.setProjectPath(projectPath)
     	gfx2DSymHeaderFile.setType("HEADER")
         gfx2DSymHeaderFile.setMarkup(True)
@@ -110,10 +110,10 @@ def instantiateComponent(comp):
 
     	gfx2DHalFile = comp.createFileSymbol("DRV_2DGPU_FILE_HAL", None)
     	gfx2DHalFile.setSourcePath("templates/drv_2dgpu_hal.c.ftl")
-    	gfx2DHalFile.setOutputName("drv_2dgpu.h")
-    	gfx2DHalFile.setDestPath("driver/2dgpu/")
+    	gfx2DHalFile.setOutputName("drv_2dgpu_hal.c")
+    	gfx2DHalFile.setDestPath("gfx/driver/processor/2dgpu")
     	gfx2DHalFile.setProjectPath(projectPath)
-    	gfx2DHalFile.setType("HEADER")
+    	gfx2DHalFile.setType("SOURCE")
         gfx2DHalFile.setMarkup(True)
     	gfx2DHalFile.setOverwrite(True)
 

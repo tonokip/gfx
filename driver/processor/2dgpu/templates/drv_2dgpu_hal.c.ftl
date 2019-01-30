@@ -39,16 +39,16 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_processor_interface.h"
-#include "gfx/driver/processor/nano2d/libnano2D.h"
+#include "gfx/driver/processor/2dgpu/drv_2dgpu.h"
 
 #include <xc.h>
 #include <sys/attribs.h>
-#include <sys/kmem.h>
+//#include <sys/kmem.h>
 
 const char* driverName = "Nano 2D";
 
 #define CMD_BUFFER_SIZE  8192
-uint32_t __attribute__((coherent, aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
+uint32_t __attribute__((aligned(32))) commandBuffer[CMD_BUFFER_SIZE];
 
 // GPU command buffer seems to work better when placed in DDR
 #define CMD_BUFFER_DDR_ADDRESS 0xA9E00000
@@ -129,7 +129,7 @@ static GFX_Result drawLine(const GFX_Point* p1,
     buffer.orientation = orientation;
     buffer.handle = NULL;
     buffer.memory = state->target->pixels;
-    buffer.gpu = KVA_TO_PA(state->target->pixels);
+    //buffer.gpu = KVA_TO_PA(state->target->pixels);
 
     np1.x = p1->x;
     np1.y = p1->y;
@@ -234,7 +234,7 @@ static GFX_Result fillRect(const GFX_Rect* rect,
     buffer.orientation = orientation;
     buffer.handle = NULL;
     buffer.memory = state->target->pixels;
-    buffer.gpu = KVA_TO_PA(state->target->pixels);
+    //buffer.gpu = KVA_TO_PA(state->target->pixels);
 
     n2d_fill(&buffer,
              (n2d_rectangle_t*)&lrect,
@@ -258,12 +258,12 @@ static GFX_Result drawBlit(const GFX_PixelBuffer* source,
     // and the source buffer must be raw pixels as the the GPU doesn't
     // understand palettized blits
     // if this fails then fall back to software mode
-    if(IS_KVA1(source->pixels) == GFX_FALSE ||
-       GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
-       GFX_COLOR_MODE_IS_INDEX(state->target->mode) == GFX_TRUE ||
-       n2dFormats[source->mode] == -1 ||
-       n2dFormats[state->colorMode] == -1)
-        return cpuDrawBlit(source, srcRect, drawPoint, state);
+    //if(IS_KVA1(source->pixels) == GFX_FALSE ||
+    //   GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
+    //   GFX_COLOR_MODE_IS_INDEX(state->target->mode) == GFX_TRUE ||
+    //   n2dFormats[source->mode] == -1 ||
+    //   n2dFormats[state->colorMode] == -1)
+    //    return cpuDrawBlit(source, srcRect, drawPoint, state);
 
     switch(context->orientation)
     {
@@ -296,7 +296,7 @@ static GFX_Result drawBlit(const GFX_PixelBuffer* source,
     src_buffer.orientation = orientation;
     src_buffer.handle = NULL;
     src_buffer.memory = source->pixels;
-    src_buffer.gpu = KVA_TO_PA(source->pixels);
+    //src_buffer.gpu = KVA_TO_PA(source->pixels);
 
     // craft dest buffer descriptor
     dest_buffer.width = state->target->size.width;
@@ -306,7 +306,7 @@ static GFX_Result drawBlit(const GFX_PixelBuffer* source,
     dest_buffer.orientation = orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = state->target->pixels;
-    dest_buffer.gpu = KVA_TO_PA(state->target->pixels);
+    //dest_buffer.gpu = KVA_TO_PA(state->target->pixels);
 
     dest_rect.x = drawPoint->x;
     dest_rect.y = drawPoint->y;
@@ -349,12 +349,12 @@ static GFX_Result drawStretchBlit(const GFX_PixelBuffer* source,
     // and the source buffer must be raw pixels as the the GPU doesn't
     // understand palettized blits
     // if this fails then fall back to software mode
-    if(IS_KVA1(source->pixels) == GFX_FALSE ||
-       GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
-       GFX_COLOR_MODE_IS_INDEX(state->target->mode) == GFX_TRUE ||
-       n2dFormats[source->mode] == -1 ||
-       n2dFormats[state->colorMode] == -1)
-        return cpuDrawStretchBlit_NearestNeighbor(source, srcRect, destRect, state);
+    //if(IS_KVA1(source->pixels) == GFX_FALSE ||
+    //   GFX_COLOR_MODE_IS_INDEX(source->mode) == GFX_TRUE ||
+    //   GFX_COLOR_MODE_IS_INDEX(state->target->mode) == GFX_TRUE ||
+    //   n2dFormats[source->mode] == -1 ||
+    //   n2dFormats[state->colorMode] == -1)
+    //    return cpuDrawStretchBlit_NearestNeighbor(source, srcRect, destRect, state);
 
     switch(context->orientation)
     {
@@ -387,7 +387,7 @@ static GFX_Result drawStretchBlit(const GFX_PixelBuffer* source,
     src_buffer.orientation = orientation;
     src_buffer.handle = NULL;
     src_buffer.memory = source->pixels;
-    src_buffer.gpu = KVA_TO_PA(source->pixels);
+    //src_buffer.gpu = KVA_TO_PA(source->pixels);
 
     // craft dest buffer descriptor
     dest_buffer.width = state->target->size.width;
@@ -397,7 +397,7 @@ static GFX_Result drawStretchBlit(const GFX_PixelBuffer* source,
     dest_buffer.orientation = orientation;
     dest_buffer.handle = NULL;
     dest_buffer.memory = state->target->pixels;
-    dest_buffer.gpu = KVA_TO_PA(state->target->pixels);
+    //dest_buffer.gpu = KVA_TO_PA(state->target->pixels);
 
     if(state->maskEnable == GFX_TRUE)
     {
