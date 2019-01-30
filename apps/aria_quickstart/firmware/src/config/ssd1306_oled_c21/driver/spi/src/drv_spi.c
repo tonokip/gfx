@@ -86,6 +86,87 @@ static inline uint16_t _DRV_SPI_UPDATE_TOKEN(uint16_t token)
     return token;
 }
 
+static void _DRV_SPI_DisableInterrupts(DRV_SPI_OBJ* dObj)
+{
+    bool interruptStatus;
+    const DRV_SPI_INTERRUPT_SOURCES* intInfo = dObj->interruptSources;
+
+    /* Disable DMA interrupt */
+    if((dObj->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (dObj->rxDMAChannel != SYS_DMA_CHANNEL_NONE))
+    {
+        if (intInfo->isSingleIntSrc == true)
+        {
+            /* Disable DMA interrupt */
+            SYS_INT_SourceDisable(intInfo->intSources.dmaInterrupt);
+        }
+        else
+        {
+            /* Disable DMA interrupt sources */
+            interruptStatus = SYS_INT_Disable();
+            SYS_INT_SourceDisable(intInfo->intSources.multi.dmaTxChannelInt);
+            SYS_INT_SourceDisable(intInfo->intSources.multi.dmaRxChannelInt);
+            SYS_INT_Restore(interruptStatus);
+        }
+    }
+    else
+    {
+        if (intInfo->isSingleIntSrc == true)
+        {
+            /* Disable SPI interrupt */
+            SYS_INT_SourceDisable(intInfo->intSources.spiInterrupt);
+        }
+        else
+        {
+            /* Disable SPI interrupt sources */
+            interruptStatus = SYS_INT_Disable();
+            SYS_INT_SourceDisable(intInfo->intSources.multi.spiTxReadyInt);
+            SYS_INT_SourceDisable(intInfo->intSources.multi.spiTxCompleteInt);
+            SYS_INT_SourceDisable(intInfo->intSources.multi.spiRxInt);
+            SYS_INT_Restore(interruptStatus);
+        }
+    }
+}
+
+static void _DRV_SPI_EnableInterrupts(DRV_SPI_OBJ* dObj)
+{
+    bool interruptStatus;
+    const DRV_SPI_INTERRUPT_SOURCES* intInfo = dObj->interruptSources;
+
+    /* Enable DMA interrupt */
+    if((dObj->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (dObj->rxDMAChannel != SYS_DMA_CHANNEL_NONE))
+    {
+        if (intInfo->isSingleIntSrc == true)
+        {
+            SYS_INT_SourceEnable(intInfo->intSources.dmaInterrupt);
+        }
+        else
+        {
+            interruptStatus = SYS_INT_Disable();
+            /* Enable DMA interrupt sources */
+            SYS_INT_SourceEnable(intInfo->intSources.multi.dmaTxChannelInt);
+            SYS_INT_SourceEnable(intInfo->intSources.multi.dmaRxChannelInt);
+            SYS_INT_Restore(interruptStatus);
+        }
+    }
+    else
+    {
+        if (intInfo->isSingleIntSrc == true)
+        {
+            /* Enable SPI interrupt */
+            SYS_INT_SourceEnable(intInfo->intSources.spiInterrupt);
+        }
+        else
+        {
+            /* Enable SPI interrupt sources */
+            interruptStatus = SYS_INT_Disable();
+            SYS_INT_SourceEnable(intInfo->intSources.multi.spiTxReadyInt);
+            SYS_INT_SourceEnable(intInfo->intSources.multi.spiTxCompleteInt);
+            SYS_INT_SourceEnable(intInfo->intSources.multi.spiRxInt);
+            SYS_INT_Restore(interruptStatus);
+        }
+    }
+}
+
 static bool _DRV_SPI_ResourceLock(DRV_SPI_OBJ * dObj)
 {
     /* We will allow buffers to be added in the interrupt
@@ -94,32 +175,22 @@ static bool _DRV_SPI_ResourceLock(DRV_SPI_OBJ * dObj)
        not modify mutexes. */
     if(dObj->interruptNestingCount == 0)
     {
-        /* Grab a mutex. This is okay because we are not in an
-           interrupt context */
-        if(OSAL_MUTEX_Lock(&(dObj->mutexTransferObjects), OSAL_WAIT_FOREVER) == OSAL_RESULT_TRUE)
+        /* Grab a mutex. This is okay because we are not in an interrupt context */
+        if(OSAL_MUTEX_Lock(&(dObj->mutexTransferObjects), OSAL_WAIT_FOREVER) == OSAL_RESULT_FALSE)
         {
-            /* We will disable interrupts so that the queue
-               status does not get updated asynchronously.
-               This code will always execute. */
-            SYS_INT_SourceDisable(dObj->interruptSource);
-
-            return true;
-        }
-        else
-        {
-            /* The mutex acquisition timed out. Return with an
-               invalid handle. This code will not execute
-               if there is no RTOS. */
             return false;
         }
     }
+
+    /* We will disable interrupts so that the queue status does not get updated asynchronously */
+    _DRV_SPI_DisableInterrupts(dObj);
 
     return true;
 }
 
 static void _DRV_SPI_ResourceUnlock(DRV_SPI_OBJ * dObj)
 {
-    SYS_INT_SourceEnable(dObj->interruptSource);
+    _DRV_SPI_EnableInterrupts(dObj);
 
     if(dObj->interruptNestingCount == 0)
     {
@@ -284,13 +355,6 @@ static void _DRV_SPI_StartDMATransfer(DRV_SPI_TRANSFER_OBJ    *transferObj)
             size = transferObj->txSize;
         }
 
-        if (DATA_CACHE_ENABLED == true)
-        {
-            /* Clean cache lines having source buffer before submitting a transfer
-             * request to DMA to load the latest data in the cache to the actual
-             * memory */
-            DCACHE_CLEAN_BY_ADDR((uint32_t *)transferObj->pTransmitData, size);
-        }
 
         SYS_DMA_ChannelTransfer(hDriver->txDMAChannel, (const void *)transferObj->pTransmitData, (const void*)hDriver->txAddress, size);
     }
@@ -435,12 +499,6 @@ void _DRV_SPI_RX_DMA_CallbackHandler(SYS_DMA_TRANSFER_EVENT event, uintptr_t con
 
         _DRV_SPI_ReleaseBufferObject(transferObj);
 
-        if (DATA_CACHE_ENABLED == true)
-        {
-            /* Invalidate cache lines having received buffer before using it
-             * to load the latest data in the actual memory to the cache */
-            DCACHE_INVALIDATE_BY_ADDR((uint32_t *)transferObj->pReceiveData, transferObj->rxSize);
-        }
 
         if(clientObj->eventHandler != NULL)
         {
@@ -498,39 +556,32 @@ SYS_MODULE_OBJ DRV_SPI_Initialize( const SYS_MODULE_INDEX drvIndex, const SYS_MO
     dObj->inUse = true;
 
     /* Update the driver parameters */
-    dObj->spiPlib               = spiInit->spiPlib;
-    dObj->interruptSource       = spiInit->interruptSource;
-    dObj->transferArray         =(DRV_SPI_TRANSFER_OBJ *)spiInit->transferObjPool;
-    dObj->transferQueueSize     = spiInit->queueSize;
-    dObj->freePoolHeadIndex     = 0;
-    dObj->queueHeadIndex        = NULL_INDEX;
-    dObj->queueTailIndex        = NULL_INDEX;
-    dObj->clientObjPool         = spiInit->clientObjPool;
-    dObj->nClientsMax           = spiInit->numClients;
-    dObj->nClients              = 0;
-    dObj->spiTokenCount         = 1;
-    dObj->interruptNestingCount = 0;
-    dObj->isExclusive           = false;
-    dObj->txDMAChannel          = spiInit->dmaChannelTransmit;
-    dObj->rxDMAChannel          = spiInit->dmaChannelReceive;
-    dObj->txAddress             = spiInit->spiTransmitAddress;
-    dObj->rxAddress             = spiInit->spiReceiveAddress;
-    dObj->remapDataBits         = spiInit->remapDataBits;
-    dObj->remapClockPolarity    = spiInit->remapClockPolarity;
-    dObj->remapClockPhase       = spiInit->remapClockPhase;
+    dObj->spiPlib                   = spiInit->spiPlib;
+    dObj->transferArray             =(DRV_SPI_TRANSFER_OBJ *)spiInit->transferObjPool;
+    dObj->transferQueueSize         = spiInit->queueSize;
+    dObj->freePoolHeadIndex         = 0;
+    dObj->queueHeadIndex            = NULL_INDEX;
+    dObj->queueTailIndex            = NULL_INDEX;
+    dObj->clientObjPool             = spiInit->clientObjPool;
+    dObj->nClientsMax               = spiInit->numClients;
+    dObj->nClients                  = 0;
+    dObj->spiTokenCount             = 1;
+    dObj->interruptNestingCount     = 0;
+    dObj->isExclusive               = false;
+    dObj->txDMAChannel              = spiInit->dmaChannelTransmit;
+    dObj->rxDMAChannel              = spiInit->dmaChannelReceive;
+    dObj->txAddress                 = spiInit->spiTransmitAddress;
+    dObj->rxAddress                 = spiInit->spiReceiveAddress;
+    dObj->remapDataBits             = spiInit->remapDataBits;
+    dObj->remapClockPolarity        = spiInit->remapClockPolarity;
+    dObj->remapClockPhase           = spiInit->remapClockPhase;
+    dObj->interruptSources          = spiInit->interruptSources;
 
     for (txDummyDataIdx = 0; txDummyDataIdx < sizeof(txDummyData); txDummyDataIdx++)
     {
         txDummyData[txDummyDataIdx] = 0xFF;
     }
 
-    if ((dObj->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (DATA_CACHE_ENABLED == true))
-    {
-        /* Clean cache lines having source buffer before submitting a transfer
-         * request to DMA to load the latest data in the cache to the actual
-         * memory */
-        DCACHE_CLEAN_BY_ADDR((uint32_t *)txDummyData, sizeof(txDummyData));
-    }
 
     /* initialize buffer free pool*/
     for(freePoolIndex = 0; freePoolIndex < spiInit->queueSize - 1; freePoolIndex++)

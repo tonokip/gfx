@@ -27,7 +27,7 @@
 GFX_DisplayInfo GFX_DisplayInfoList[] =
 {
     {
-        "OLED1_XPRO", // description
+        "ATOLED1-XPRO", // description
         0, // unused
         {
 			0,  // x position (always 0)
