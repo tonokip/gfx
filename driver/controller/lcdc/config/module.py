@@ -23,7 +23,7 @@
 ##############################################################################
 
 def loadModule():	
-	cntlComponent = Module.CreateComponent("gfx_driver_lcdc", "LCDC ", "/Graphics/Driver", "config/lcdc.py")
+	cntlComponent = Module.CreateComponent("gfx_driver_lcdc", "LCDC Driver", "/Graphics/Driver", "config/lcdc.py")
 	cntlComponent.setDisplayType("LCDC Display Driver")
 	cntlComponent.addCapability("gfx_driver_lcdc", "Display Driver", False)
 	cntlComponent.addDependency("LCDC", "LCDC", False, True)

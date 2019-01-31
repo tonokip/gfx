@@ -249,7 +249,7 @@ def instantiateComponent(comp):
 	BacklightPWMClockSource = comp.createComboSymbol("BacklightPWMClockSource", BacklightPWMSettingsMenu, ["CLK_SLOW", "CLK_MCK"])
 	BacklightPWMClockSource.setLabel("PWM Clock Source")
 	BacklightPWMClockSource.setDescription("The source PWM clock")
-	BacklightPWMClockSource.setDefaultValue("CLK_SLOW")
+	BacklightPWMClockSource.setDefaultValue("CLK_MCK")
 
 	BacklightPWMClockPrescaler = comp.createKeyValueSetSymbol("BacklightPWMClockPrescaler", BacklightPWMSettingsMenu)
 	BacklightPWMClockPrescaler.setLabel("Backlight PWM Prescaler")
