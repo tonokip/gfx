@@ -40,7 +40,7 @@ class bspSupportObj:
 		return self.componentActivateList
 
 	def getComponentDeactivateList(self):
-		return self.componentActivateList
+		return self.componentDeactivateList
 	
 	def getComponentAutoConnectList(self):
 		return self.componentAutoConnectList
@@ -92,3 +92,8 @@ def getSupportedBSP():
 			return str(keyID)
 	
 	return None
+	
+def getSupportedBSPList():
+	global bspSupportList
+	
+	return bspSupportList

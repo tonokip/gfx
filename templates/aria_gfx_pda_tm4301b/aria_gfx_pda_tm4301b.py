@@ -24,8 +24,10 @@
 
 execfile(Module.getPath() + "../common/pin_config.py")
 execfile(Module.getPath() + "../common/bsp_utils.py")
+execfile(Module.getPath() + "../common/display_utils.py")
 
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
+execfile(Module.getPath() + "Support_BSP_SAM_A5D2_Xplained_Ultra.py")
 
 def enableConfigPins(bspID, configID, enable):
 	if (enable == True):
@@ -39,12 +41,18 @@ def enableConfigPins(bspID, configID, enable):
 
 def enableConfig(bspID, configID, enable):
 	componentIDTable = getBSPSupportNode(bspID, configID).getComponentActivateList()
+	deactivateIDTable = getBSPSupportNode(bspID, configID).getComponentDeactivateList()
 	autoConnectTable = getBSPSupportNode(bspID, configID).getComponentAutoConnectList()
 	if (enable == True):
-		res = Database.activateComponents(componentIDTable)
-		res = Database.connectDependencies(autoConnectTable)
+		if (componentIDTable != None):
+			res = Database.activateComponents(componentIDTable)
+		if (deactivateIDTable != None):
+			res = Database.deactivateComponents(deactivateIDTable)
+		if (autoConnectTable != None):
+			res = Database.connectDependencies(autoConnectTable)
 	elif (enable == False):
-		res = Database.deactivateComponents(componentIDTable)
+		if (componentIDTable != None):
+			res = Database.deactivateComponents(componentIDTable)
 	enableConfigPins(bspID, configID, enable)
 	try:
 		getBSPSupportNode(bspID, configID).getEventCallbackFxn()("configure")
@@ -56,18 +64,21 @@ def configureDisplayInterface(bspID, interface):
 	if (bspID == None):
 		print("No BSP used, will not configure")
 	else:
-		if (str(interface) == "LCC"):
-			enableConfig(bspID, "SSD1963", False)
-			enableConfig(bspID, "LCC", True)
-		elif (str(interface) == "SSD1963"):
-			enableConfig(bspID, "LCC", False)
-			enableConfig(bspID, "SSD1963", True)
+		DisplayInterfaceList = getDisplayInterfaces(bspID)
+		if (DisplayInterfaceList != None):
+			if (str(interface) in DisplayInterfaceList):
+				for val in DisplayInterfaceList:
+					if (val != interface):
+						enableConfig(bspID, val, False)
+				enableConfig(bspID, interface, True)
+			else:
+				print(str(interface) + " display interface is not supported.")
 
 def onDisplayInterfaceSelected(interfaceSelected, event):
 	bspID = getSupportedBSP()
 	newDisplayInterface= interfaceSelected.getComponent().getSymbolByID("DisplayInterface").getValue()
 	currDisplayInterface = interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").getValue()
-	interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").setValue(event["value"], 1)
+	interfaceSelected.getComponent().getSymbolByID("currDisplayInterface").setValue(event["value"], 0)
 	configureDisplayInterface(bspID, str(newDisplayInterface))
 
 def instantiateComponent(templateComponent):
@@ -80,25 +91,34 @@ def instantiateComponent(templateComponent):
 	#Check if a supported BSP is loaded
 	bspUsedKeyID = getSupportedBSP()
 
+	DisplayInterfaceList = getDisplayInterfaces(bspUsedKeyID)
+
+	#if there is no list, build the list from the interfaces for each supported BSP
+	if (DisplayInterfaceList == None):
+		DisplayInterfaceList = []
+		bspSupportedList = getSupportedBSPList()
+		for bsp in bspSupportedList:
+			DisplayInterfaceList += getDisplayInterfaces(bsp)
+
+	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, DisplayInterfaceList)
+	DisplayInterface.setLabel("Display Interface")
+	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM4301B.")
+	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
+	DisplayInterface.setVisible(True)
+
+	# Shadow display interface symbol
+	currDisplayInterface = templateComponent.createComboSymbol("currDisplayInterface", None, DisplayInterfaceList)
+	currDisplayInterface.setVisible(False)
+	
 	res = Database.activateComponents(componentsIDTable)
 	res = Database.connectDependencies(autoConnectTable)
 	res = Database.deactivateComponents(deactivateIDTable);
 
-	DisplayInterface = templateComponent.createComboSymbol("DisplayInterface", None, ["LCC", "SSD1963"])
-	DisplayInterface.setLabel("Display Interface")
-	DisplayInterface.setDescription("Configures the display controller interface to the PDA TM4301B.")
-	DisplayInterface.setDefaultValue("LCC")
-	DisplayInterface.setDependencies(onDisplayInterfaceSelected, ["DisplayInterface"])
-	DisplayInterface.setVisible(True)
-	
-	# Shadow display interface symbol
-	currDisplayInterface = templateComponent.createComboSymbol("currDisplayInterface", None, ["LCC", "SSD1963"])
-	currDisplayInterface.setDefaultValue("LCC")
-	currDisplayInterface.setVisible(False)
-
 	Database.setSymbolValue("aria_gfx_library", "enableInput", True, 1)
 
 	if (bspUsedKeyID != None):
+		DisplayInterface.setDefaultValue(getDefaultDisplayInterface(bspUsedKeyID))
+		currDisplayInterface.setDefaultValue(getDefaultDisplayInterface(bspUsedKeyID))
 		configureDisplayInterface(bspUsedKeyID, str(currDisplayInterface.getValue()))
 	else:
 		print("No BSP used, only software components are configured. Please add board-specific components.")
