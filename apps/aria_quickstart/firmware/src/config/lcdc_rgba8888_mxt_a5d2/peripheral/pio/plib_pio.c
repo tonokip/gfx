@@ -71,6 +71,10 @@ void PIO_Initialize ( void )
 	PIOB_REGS->PIO_MSKR = 0x40;
 	PIOB_REGS->PIO_CFGR |= 0x100;
 	
+ /* Port B Pin 7 configuration */
+	PIOB_REGS->PIO_MSKR = 0x80;
+	PIOB_REGS->PIO_CFGR |= 0x100;
+	
  /* Port B Pin 9 configuration */
 	PIOB_REGS->PIO_MSKR = 0x200;
 	PIOB_REGS->PIO_CFGR |= 0x200;

@@ -44,7 +44,7 @@
             <path>\gfx\hal\inc\gfx_math.h</path>
             <path>\gfx\hal\gfx_config.h</path>
             <path>\device_cache.h</path>
-            <path>\..\..\arm\toolchain_specifics.h</path>
+            <path>\toolchain_specifics.h</path>
             <path>\definitions.h</path>
             <path>\peripheral\mmu\plib_mmu.h</path>
             <path>\peripheral\matrix\plib_matrix.h</path>

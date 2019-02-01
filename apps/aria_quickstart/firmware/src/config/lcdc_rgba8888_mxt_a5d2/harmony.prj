@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A8A81E2EE31011C989BFBD658886FB28</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A8A81E2EE31011C989BFBD658886FB28</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3F985618CEFFC1321C3BD4B32B7D1AF2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3F985618CEFFC1321C3BD4B32B7D1AF2</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -2737,8 +2737,8 @@
         <File dnOrder="341">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">toolchain_specifics.h</Name>
-          <LogicalPath dnOrder="2">arm</LogicalPath>
-          <PhysicalPath dnOrder="3">/../../arm/</PhysicalPath>
+          <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
+          <PhysicalPath dnOrder="3">/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">9096167262DC994CE75B9B9B302BF6C3</GeneratedChecksum>
           <UserChecksum dnOrder="5">9096167262DC994CE75B9B9B302BF6C3</UserChecksum>
         </File>
