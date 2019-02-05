@@ -23,6 +23,9 @@
 ##############################################################################
 
 def instantiateComponent(comp):
+	comp.setHelpFile("../../doc/html/help_harmony_gfx_html_alias.h")
+	#comp.setHelp("IDH_HTML_GFX_CMP__2__Display_Component")
+	
 	Name = comp.createStringSymbol("Name", None)
 	Name.setLabel("Name")
 	Name.setDescription("The display name.")

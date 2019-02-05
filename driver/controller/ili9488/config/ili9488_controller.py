@@ -23,8 +23,12 @@
 ##############################################################################
 
 def instantiateComponent(comp):
+	comp.setHelpFile("../../../doc/html/help_harmony_gfx_html_alias.h")
+	#comp.setHelp("IDH_HTML_GFXLIB_ILI9488_Display_Controller_Driver_Library")
+	
 	execfile(Module.getPath() + "/config/ili9488_config.py")
 	execfile(Module.getPath() + "/config/ili9488_files.py")
+
 
 def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)

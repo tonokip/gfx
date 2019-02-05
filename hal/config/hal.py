@@ -25,6 +25,9 @@
 def instantiateComponent(halComponent):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/hal"
 	
+	halComponent.setHelpFile("../doc/html/help_harmony_gfx_html_alias.h")
+	#halComponent.setHelp("IDH_HTML_GFX_CMP__4__GFX_Core_Component")
+	
 	execfile(Module.getPath() + "/config/hal_pipeline.py")
 	execfile(Module.getPath() + "/config/hal_display.py")
 	execfile(Module.getPath() + "/config/hal_driver.py")
@@ -37,12 +40,12 @@ def instantiateComponent(halComponent):
 	GFXRTOSMenu.setDescription("RTOS settings")
 	GFXRTOSMenu.setVisible((Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal"))
 	GFXRTOSMenu.setDependencies(showGFXRTOSMenu, ["HarmonyCore.SELECT_RTOS"])
-
+	
 	GFXRTOSTask = halComponent.createComboSymbol("GFXRTOSTask", GFXRTOSMenu, ["Standalone"])
 	GFXRTOSTask.setLabel("Run Library Tasks As")
 	GFXRTOSTask.setDefaultValue("Standalone")
 	GFXRTOSTask.setVisible(False)
-
+	
 	GFXRTOSStackSize = halComponent.createIntegerSymbol("GFXRTOSStackSize", GFXRTOSMenu)
 	GFXRTOSStackSize.setLabel("Stack Size")
 	GFXRTOSStackSize.setDefaultValue(1024)

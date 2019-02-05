@@ -26,6 +26,7 @@ enableDemoMode = component.createBooleanSymbol("enableDemoMode", None)
 enableDemoMode.setLabel("Enable Demo mode?")
 enableDemoMode.setDescription("Indicates that Aria should generate the code needed to run in 'demo mode'.")
 enableDemoMode.setDependencies(onDemoModeEnable, ["enableDemoMode"])
+enableDemoMode.setHelp("IDH_HTML_QSG__Enabling_Demo_Mode_in_a_MPLAB_Harmony_Graphics_Application")
 
 #demoModeMenu = component.createMenuSymbol("demoModeMenu", None)
 #demoModeMenu.setLabel("Demo Mode Configuration")
