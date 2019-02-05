@@ -240,8 +240,6 @@ void SYS_Initialize ( void* data )
 	TWIHS0_Initialize();
 
 
-    NVIC_Initialize();
-
 
     GFX_Initialize();
 
@@ -265,7 +263,8 @@ void SYS_Initialize ( void* data )
     APP_Initialize();
 
 
-  
+    NVIC_Initialize();
+
 }
 
 

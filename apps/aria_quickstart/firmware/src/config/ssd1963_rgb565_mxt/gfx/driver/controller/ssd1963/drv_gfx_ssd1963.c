@@ -174,8 +174,11 @@ static GFX_Result SSD1963_Configure(SSD1963_DRV *drv)
     
     GFX_Disp_Intf intf = (GFX_Disp_Intf) drv->port_priv;
 
+    SSD1963_NCSDeassert(intf);
+    SSD1963_DelayMS(10);
+
     SSD1963_NCSAssert(intf);
-    SSD1963_DelayMS(1);
+    SSD1963_DelayMS(10);
 
     //Set MN(multipliers) of PLL, VCO = crystal freq * (N+1)
     //PLL freq = VCO/M with 250MHz < VCO < 800MHz
@@ -184,14 +187,17 @@ static GFX_Result SSD1963_Configure(SSD1963_DRV *drv)
     parm[1] = 0x2; // Divider N = 2,   PLL = 360/(N+1) = 100MHz
     parm[2] = 0x54; // Validate M and N values ("Effectuate" values)
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PLL_MN, parm, 3); // Set PLL with OSC = 10MHz (hardware)
-    
+    SSD1963_DelayMS(10);
+
     parm[0] = 0x01; // enable PLL
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_PLL_START, parm, 1); // Start PLL command
     
-    SSD1963_DelayMS(10);                    // wait to stabilize
+    SSD1963_DelayMS(10);
 
     parm[0] = 0x03; // now, use PLL output as system clock
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_PLL_START, parm, 1); // Start PLL command again
+
+    SSD1963_DelayMS(10); // Wait for PLL to lock
 
     //once PLL locked (at 100MHz), the data hold time set shortest
     GFX_Disp_Intf_WriteCommand(intf,
