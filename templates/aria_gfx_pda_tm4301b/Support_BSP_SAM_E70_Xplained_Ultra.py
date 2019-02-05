@@ -114,9 +114,21 @@ ssd1963PinConfig = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": 
 				{"pin": 94, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "Low", "abcd": ""}] #PC11
 ##################################################################################
 
+def eventHandlerSSD1963(event):
+	if (event == "configure"):
+		#Enable the MPU, disable caching of SMC memory space
+		try:
+			Database.setSymbolValue("core", "CoreUseMPU", True, 1)
+			Database.setSymbolValue("core", "MPU_Region_0_Enable", True, 1)
+			Database.setSymbolValue("core", "MPU_Region_Name0", "EBI_SMC", 1)
+			Database.setSymbolValue("core", "MPU_Region_0_Address", 0x60000000, 1)
+			Database.setSymbolValue("core", "MPU_Region_0_Type", 5, 1)
+		except:
+			return
+
 bspDisplayInterfaceList = ["LCC", "SSD1963"]
 
-sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, None)
+sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, eventHandlerSSD1963)
 sam_e70_xplained_utra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, None)
 
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "LCC", sam_e70_xplained_utra_lcc)
