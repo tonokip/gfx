@@ -26,7 +26,7 @@ def instantiateComponent(component):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/libaria"
 	
 	component.setHelpFile("../../doc/html/help_harmony_gfx_html_alias.h")
-	component.setHelp("IDH_HTML_GFX_CMP__5__Aria_Graphics_LIbrary_Component")
+	#component.setHelp("IDH_HTML_GFX_CMP__5__Aria_Graphics_LIbrary_Component")
 	
 	execfile(Module.getPath() + "/config/aria_config.py")
 	execfile(Module.getPath() + "/utils/config/aria_utils.py")
