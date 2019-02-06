@@ -37,7 +37,7 @@ def onAttachmentConnected(source, target):
 		#Enable the SMC options
 		source["component"].getSymbolByID("GFX_SSD1963_INTF_SMC").setEnabled(True)
 		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(True)
-		configureSMCComponent(source["component"], dependencyComponent)
+		configureSMCComponent(source["component"], target["component"])
 
 def onAttachmentDisconnected(source, target):
 	print(source["component"].getID() + ": " + source["id"] + " dependent component removed")
