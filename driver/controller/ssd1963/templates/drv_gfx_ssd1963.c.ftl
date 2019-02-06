@@ -93,6 +93,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PIXEL_CLOCK_DIVIDER  ${PixelClockPreScaler}
 #define BACKLIGHT_PWM_FREQ_HZ ${BacklightPWMFrequency}
 #define BACKLIGHT_PWMF_PARM (MASTER_CLK_HZ / (BACKLIGHT_PWM_FREQ_HZ * 256 * 256) - 1)
+#define BACKLIGHT_PWM_BRIGHTNESS_PCT ${DefaultBrightness}
 
 // Driver name
 const char* DRIVER_NAME = "SSD1963";
@@ -665,7 +666,7 @@ static GFX_Result SSD1963_Update(void)
 
         returnValue = SSD1963_Configure(drv);
 
-        SSD1963_BrightnessSet(100);
+        SSD1963_BrightnessSet(BACKLIGHT_PWM_BRIGHTNESS_PCT);
 
         drv->state = RUN;
     }
