@@ -23,8 +23,7 @@
 ##############################################################################
 
 spi4PinComponentIDList = ["sercom4", "drv_spi", "drv_spi_0"]
-spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom4", "SERCOM4_SPI"],
-							["gfx_driver_ssd1306", "DRV_SPI", "drv_spi_0", "drv_spi"]]
+spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom4", "SERCOM4_SPI"]]
 spi4PinConfigs = [{"pin": 23, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA06
 				{"pin": 104, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB28
 				{"pin": 103, "name": "SERCOM4_PAD0", "type": "SERCOM4_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PB27

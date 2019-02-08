@@ -22,10 +22,13 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-componentsIDTable = ["HarmonyCore", "gfx_hal", "aria_gfx_library", "gfx_disp_atoled1-xpro_128x32", "gfx_driver_ssd1306"]
+componentsIDTable = ["HarmonyCore", "gfx_hal", "aria_gfx_library", "gfx_disp_atoled1-xpro_128x32", "gfx_driver_ssd1306",
+					"drv_spi", "drv_spi_0", "gfx_intf_spi4"]
 autoConnectTable = [["gfx_hal", "gfx_display", "gfx_disp_atoled1-xpro_128x32", "gfx_display"],
 					["aria_gfx_library", "gfx_hal", "gfx_hal", "gfx_hal"],
-					["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1306", "gfx_driver_ssd1306"]]
+					["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1306", "gfx_driver_ssd1306"],
+					["gfx_driver_ssd1306", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"],
+					["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"]]
 deactivateIDTable = ["FreeRTOS"]
 
 execfile(Module.getPath() + "../common/pin_config.py")

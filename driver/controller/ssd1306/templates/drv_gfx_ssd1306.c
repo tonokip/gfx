@@ -53,7 +53,7 @@
 #include "drv_gfx_ssd1306_common.h"
 #include "drv_gfx_ssd1306.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
 // Number of layers
 #define LAYER_COUNT     1
@@ -674,7 +674,7 @@ static GFX_Result SSD1306_Initialize(GFX_Context *context)
     context->layer.layers[0].buffers[0].state = GFX_BS_MANAGED;
 
     //Open interface to SSD1306 controller
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, ${SPIPortIndex});
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx);
     if (drv->port_priv == 0)
     {
         if (drv)

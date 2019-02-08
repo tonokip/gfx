@@ -22,9 +22,10 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-spi4PinComponentIDList = ["spi0", "drv_spi", "drv_spi_0"]
+spi4PinComponentIDList = ["spi0", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
 spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "spi0", "SPI0_SPI"],
-							["gfx_driver_ili9488", "DRV_SPI", "drv_spi_0", "drv_spi"]]
+							["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
+							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
 spi4PinConfigs = [{"pin": 31, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB3
 				{"pin": 52, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PD25
 				{"pin": 60, "name": "SPI0_SPCK", "type": "SPI0_SPCK", "direction": "", "latch": "", "abcd": "B"}, #PD22
@@ -33,8 +34,9 @@ spi4PinConfigs = [{"pin": 31, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", 
 				{"pin": 102, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA0
 				{"pin": 103, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PC17
 
-parallelComponentIDList = ["smc"]
-parallelAutoConnectList = [["gfx_driver_ili9488", "SMC_CS", "smc", "smc_cs0"]]
+parallelComponentIDList = ["smc", "gfx_intf_parallel_smc"]
+parallelAutoConnectList = [["gfx_intf_parallel_smc", "smc", "smc", "smc_cs0"],
+							["gfx_driver_ili9488", "Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"]]
 ParallelPinConfigs = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", "latch": "", "abcd": "A"}, #PE0
 					{"pin": 6, "name": "EBI_D9", "type": "EBI_D9", "direction": "", "latch": "", "abcd": "A"}, #PE1
 					{"pin": 7, "name": "EBI_D10", "type": "EBI_D10", "direction": "", "latch": "", "abcd": "A"}, #PE2

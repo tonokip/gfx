@@ -22,9 +22,10 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-spi4PinComponentIDList = ["sercom1", "drv_spi", "drv_spi_0"]
+spi4PinComponentIDList = ["sercom1", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
 spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom1", "SERCOM1_SPI"],
-							["gfx_driver_ili9488", "DRV_SPI", "drv_spi_0", "drv_spi"]]
+							["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
+							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
 spi4PinConfigs = [{"pin": 70, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA20
 				{"pin": 53, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA17
 				{"pin": 52, "name": "SERCOM1_PAD0", "type": "SERCOM1_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PA16

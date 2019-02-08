@@ -45,7 +45,7 @@
 #include "drv_gfx_ili9488_cmd_defs.h"
 #include "drv_gfx_ili9488_common.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
 #define ILI9488_NCSAssert(intf)   GFX_Disp_Intf_PinControl(intf, \
                                     GFX_DISP_INTF_PIN_CS, \
@@ -478,7 +478,7 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
 /** 
   Function:
-    GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+    GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv)
 
   Summary:
     Opens the specified port to the ILI9488 device.
@@ -491,21 +491,20 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
 
   Parameters:
     drv         - ILI9488 driver handle
-    index       - Port index
  
   Returns:
     * GFX_SUCCESS       - Operation successful
     * GFX_FAILURE       - Operation failed
 
  */
-GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv, unsigned int index)
+GFX_Result ILI9488_Intf_Open(ILI9488_DRV *drv)
 {
     GFX_Disp_Intf intf;
     
     if (!drv)
         return GFX_FAILURE;
     
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, index);
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx);
     
     intf = (GFX_Disp_Intf) drv->port_priv;
 

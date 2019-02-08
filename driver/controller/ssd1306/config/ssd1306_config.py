@@ -47,13 +47,6 @@ Interface.setDescription("Interface to SSD1306.")
 Interface.setDefaultValue("SPI 4-Line")
 Interface.setVisible(False)
 
-SPIPortIndex = comp.createIntegerSymbol("SPIPortIndex", None)
-SPIPortIndex.setLabel("SPI Port Index")
-SPIPortIndex.setDescription("SPI Port Index.")
-SPIPortIndex.setDefaultValue(0)
-SPIPortIndex.setMin(0)
-SPIPortIndex.setMax(31)
-
 ## Display Settings Menu
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
 DisplaySettingsMenu.setLabel("Display Settings")
@@ -71,11 +64,6 @@ DisplayHeight = comp.createIntegerSymbol("DisplayHeight", DisplaySettingsMenu)
 DisplayHeight.setLabel("Height")
 DisplayHeight.setDescription("The height of the frame buffer in pixels.")
 DisplayHeight.setDefaultValue(64)
-
-### SPI mode specific options
-InterfaceSettingsSPIMenu = comp.createMenuSymbol("InterfaceSettingsSPIMenu", None)
-InterfaceSettingsSPIMenu.setLabel("SPI 4-Line Display Interface Settings")
-InterfaceSettingsSPIMenu.setVisible(False)
 
 ## Driver Settings Menu
 DriverSettingsMenu = comp.createMenuSymbol("DRIVER_SETTINGS_MENU", None)

@@ -41,7 +41,7 @@
 
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_context.h"
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
 /** SPI_TRANS_STATUS
 
@@ -127,7 +127,7 @@ static void GFX_Disp_Intf_CallBack(DRV_SPI_TRANSFER_EVENT event,
     }
 }
 
-GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx, unsigned int index)
+GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx)
 {   
     GFX_DISP_INTF_SPI * intf = NULL;
     
@@ -141,7 +141,7 @@ GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx, unsigned int index)
     
     intf->gfx = gfx;
     
-    intf->drvSPIHandle = DRV_SPI_Open(index, DRV_IO_INTENT_READWRITE);
+    intf->drvSPIHandle = DRV_SPI_Open(0, DRV_IO_INTENT_READWRITE);
     if (DRV_HANDLE_INVALID == intf->drvSPIHandle)
     {
         gfx->memory.free(intf);

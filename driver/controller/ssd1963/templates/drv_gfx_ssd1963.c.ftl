@@ -61,7 +61,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/hal/inc/gfx_common.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 #include "drv_gfx_ssd1963_cmd_defs.h"
 #include "drv_gfx_ssd1963_common.h"
 #include "drv_gfx_ssd1963.h"
@@ -141,13 +141,6 @@ static inline void SSD1963_DelayMS(int ms)
     //Temporary delay code. Will switch over to a system delay API.
     volatile int i = 300000*ms;
     while (i--);
-}
-
-static inline void SSD1963_DelayNOP(void)
-{
-    <#list 0.. (DelayNOPCount-1) as i>
-    asm("nop");
-    </#list>
 }
 
 /**
@@ -349,8 +342,6 @@ static GFX_Color SSD1963_PixelGet(const GFX_PixelBuffer *buf,
     
         
     SSD1963_NCSAssert(intf);
-    
-    SSD1963_DelayNOP();
 
     SetArea(drv, pnt->x, pnt->y, DISP_HOR_RESOLUTION, DISP_VER_RESOLUTION);
     GFX_Disp_Intf_WriteCommand(intf, CMD_RD_MEMSTART);
@@ -360,8 +351,6 @@ static GFX_Color SSD1963_PixelGet(const GFX_PixelBuffer *buf,
 <#if ParallelInterfaceWidth == "8-bit">
     GFX_Disp_Intf_ReadData(intf, data, 3);
 </#if>
-    
-    SSD1963_DelayNOP();
     
     SSD1963_NCSDeassert(intf);
 
@@ -424,8 +413,6 @@ static GFX_Result SSD1963_PixelSet(const GFX_PixelBuffer *buf,
 </#if>
 
     SSD1963_NCSAssert(intf);
-    
-    SSD1963_DelayNOP();
 
     SetArea(drv, pnt->x, pnt->y, DISP_HOR_RESOLUTION, DISP_VER_RESOLUTION);
 <#if ParallelInterfaceWidth == "16-bit">
@@ -435,9 +422,7 @@ static GFX_Result SSD1963_PixelSet(const GFX_PixelBuffer *buf,
 <#if ParallelInterfaceWidth == "8-bit">
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_WR_MEMSTART, pixelBuffer, 3);
 </#if>
-    
-    SSD1963_DelayNOP();
-    
+
     SSD1963_NCSDeassert(intf);
 
     return GFX_SUCCESS;
@@ -505,8 +490,7 @@ GFX_Result SSD1963_fillRect(const GFX_Rect* pRect,
 </#if>
 
     SSD1963_NCSAssert(intf);
-    SSD1963_DelayNOP();
-    
+
     SetArea(drv, left,top,right,bottom);
 
     GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
@@ -522,8 +506,7 @@ GFX_Result SSD1963_fillRect(const GFX_Rect* pRect,
         }
     }
     
-    SSD1963_DelayNOP();
-    
+
     SSD1963_NCSDeassert(intf);
 
     return(GFX_SUCCESS);
@@ -588,12 +571,10 @@ static GFX_Result SSD1963_BrightnessSet(uint32_t brightness)
                       };
     
     SSD1963_NCSAssert((GFX_Disp_Intf) drv->port_priv);
-    SSD1963_DelayNOP();
-    
+
     GFX_Disp_Intf_WriteCommandParm((GFX_Disp_Intf) drv->port_priv,
                                     CMD_SET_PWM_CONF, parm, 5);
-    
-    SSD1963_DelayNOP();
+
     SSD1963_NCSDeassert((GFX_Disp_Intf) drv->port_priv);
     
     return GFX_SUCCESS;
@@ -781,7 +762,7 @@ static GFX_Result SSD1963_Initialize(GFX_Context *context)
     context->layer.layers[0].buffers[0].state = GFX_BS_MANAGED;
 
     //Open interface to SSD1963 controller
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, 0);
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx);
     if (drv->port_priv == 0)
     {
         if (drv)

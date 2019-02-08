@@ -29,106 +29,35 @@ def instantiateComponent(comp):
 	execfile(Module.getPath() + "/config/ili9488_config.py")
 	execfile(Module.getPath() + "/config/ili9488_files.py")
 
-
 def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
 	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("DisplayHeight").setVisible(event["value"] == False)
 	halConnected.getComponent().getSymbolByID("PaletteMode").setVisible(event["value"] == False)
 
-def configureSMCComponent(comp, smcComponent):
-	print("Configuring SMC")
-	smcChipSelNum = comp.getSymbolValue("EBIChipSelectIndex")
-	smcComponent.setSymbolValue("SMC_CHIP_SELECT" + str(smcChipSelNum), True, 1)
-	smcComponent.setSymbolValue("SMC_MEM_SCRAMBLING_CS" + str(smcChipSelNum), False, 1)
-	# SMC Write Timings
-	smcComponent.setSymbolValue("SMC_NWE_SETUP_CS" + str(smcChipSelNum), 2, 1)
-	smcComponent.setSymbolValue("SMC_NCS_WR_SETUP_CS" + str(smcChipSelNum), 0, 1)
-	smcComponent.setSymbolValue("SMC_NWE_PULSE_CS" + str(smcChipSelNum), 4, 1)
-	smcComponent.setSymbolValue("SMC_NCS_WR_PULSE_CS" + str(smcChipSelNum), 10, 1)
-	smcComponent.setSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum), 1, 1)
-	smcComponent.setSymbolValue("SMC_NWE_CYCLE_CS" + str(smcChipSelNum), 3, 1)
-	# SMC Read Timings
-	smcComponent.setSymbolValue("SMC_NRD_SETUP_CS" + str(smcChipSelNum), 2, 1)
-	smcComponent.setSymbolValue("SMC_NCS_RD_SETUP_CS" + str(smcChipSelNum), 0, 1)
-	smcComponent.setSymbolValue("SMC_NRD_PULSE_CS" + str(smcChipSelNum), 63, 1)
-	smcComponent.setSymbolValue("SMC_NCS_RD_PULSE_CS" + str(smcChipSelNum), 63, 1)
-	smcComponent.setSymbolValue("SMC_NRD_CYCLE_CS" + str(smcChipSelNum), 110, 1)
-	# SMC Mode Configuration
-	smcComponent.setSymbolValue("SMC_DATA_BUS_CS" + str(smcChipSelNum), 1, 1)
-	smcComponent.setSymbolValue("SMC_BAT_CS" + str(smcChipSelNum), 0, 1)
-	smcComponent.setSymbolValue("SMC_READ_ENABLE_MODE_CS" + str(smcChipSelNum), True, 1)
-	smcComponent.setSymbolValue("SMC_WRITE_ENABLE_MODE_CS" + str(smcChipSelNum), True, 1)
-	
-def configureSPIComponent(comp, spiComponent):
-	print("Configuring SPI")
-	# TODO: Add SPI configuration here
-
 def onAttachmentConnected(source, target):
-	#print(source["component"].getID() + ": " + dependencyID + " dependent component added ")
-	
-	if source["id"] == "SMC_CS":
-		#Disable the SPI symbols
-		source["component"].setDependencyEnabled("DRV_SPI", False)
-		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
-		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
-		source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(False)
-		#Enable the SMC symbols
-		source["component"].getSymbolByID("Interface").setValue("Parallel", 1)
-		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(True)
-		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
-		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(True)
-		configureSMCComponent(source["component"], target["component"])
-	if source["id"] == "DRV_SPI":
-		spiIndex = target["component"].getSymbolByID("INDEX").getValue()
-		print("Using SPI port " + str(spiIndex))
-		#Disable the SMC symbols
-		source["component"].setDependencyEnabled("SMC_CS", False)
+	if source["id"] == "Display Interface":
+		print(source["component"].getID() + ": Using " + target["component"].getID() + " interface ")
 		source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-		source["component"].getSymbolByID("GFX_ILI9488_INTF_SMC").setEnabled(False)
-		source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
-		#Enable the SPI symbols
-		source["component"].getSymbolByID("Interface").setValue("SPI 4-Line", 1)
-		source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(True)
-		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
-		source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(True)
-		configureSPIComponent(source["component"], target["component"])
+		source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
+		source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(False)
 
-def onAttachmentDisconnected(source, target):
-	#print(comp.getID() + ": " + dependencyID + " dependent component removed ")
-	
-	if source["id"] == "gfx_driver_ili9488":
-		return
-	
-	source["component"].setDependencyEnabled("DRV_SPI", True)
-	source["component"].setDependencyEnabled("SMC_CS", True)
-	
-	#Disable the SMC and SPI symbols
-	source["component"].getSymbolByID("InterfaceSettingsSPIMenu").setVisible(False)
-	source["component"].getSymbolByID("InterfaceSettingsSMCMenu").setVisible(False)
-	source["component"].getSymbolByID("UseSyncBarriers").setVisible(False)
-	source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(False)
-	source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(False)
-	source["component"].getSymbolByID("GFX_ILI9488_INTF_SPI").setEnabled(False)
+		InterfaceType = str(target["component"].getSymbolByID("InterfaceType").getValue())
+		source["component"].getSymbolByID("DisplayInterface").setValue(target["id"], 1)
+		source["component"].getSymbolByID("DisplayInterfaceType").setValue(InterfaceType, 1)
+		if InterfaceType == "SPI 4-line":
+			source["component"].getSymbolByID("GFX_ILI9488_SPI").setEnabled(True)
+		elif "Parallel" in InterfaceType:
+			source["component"].getSymbolByID("GFX_ILI9488_DBIB_C").setEnabled(True)
+			source["component"].getSymbolByID("ParallelInterfaceWidth").setVisible(True)
+			if InterfaceType == "Parallel 8-bit":
+				source["component"].getSymbolByID("ParallelInterfaceWidth").setValue("8-bit", True)
+				source["component"].getSymbolByID("ParallelInterfaceWidth").setReadOnly(True)
+			else:
+				source["component"].getSymbolByID("ParallelInterfaceWidth").setReadOnly(False)
+		else:
+			print("Interface does not contain 'InterfaceType' capability")
 
-def onInterfaceSetSPI(symbol, event):
-	if event["value"] == "SPI 4-Line":
-		symbol.setVisible(True)
-	else:
-		symbol.setVisible(False)
-
-def onInterfaceSetParallel(symbol, event):
-	if event["value"] == "16-bit" or event["value"] == "8-bit":
-		symbol.setVisible(True)
-	else:
-		symbol.setVisible(False)
-
-def onDataCommandSelectSet(dataCommandSelected, event):
-	if (dataCommandSelected.getComponent().getSymbolByID("DataCommandSelectControl").getValue() == "GPIO"):
-		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(False)
-	else:
-		dataCommandSelected.getComponent().getSymbolByID("DCXAddressBit").setVisible(True)
-		
 def onDrawBufferSizeSet(drawBufferSizeSet, event):
 	if (event["value"] == "Line"):
 		drawBufferSizeSet.getComponent().getSymbolByID("DrawBufferPreRead").setVisible(True)

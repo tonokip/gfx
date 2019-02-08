@@ -63,7 +63,7 @@
 #define DISPLAY_WIDTH   ${Val_Width}
 #define DISPLAY_HEIGHT  ${Val_Height}
 
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
 #define BYTES_PER_PIXEL_BUFFER 3
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
@@ -115,7 +115,7 @@ uint16_t frameBuffer[PIXEL_BUFFER_WIDTH * PIXEL_BUFFER_HEIGHT];
  */
 ILI9488_CMD_PARAM initCmdParm[] =
 {
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
     {ILI9488_CMD_INTERFACE_PIXEL_FORMAT_SET, 1, {ILI9488_COLOR_PIX_FMT_18BPP}},
     {ILI9488_CMD_SET_IMAGE_FUNCTION, 1, {0x00}},
 <#else>
@@ -251,7 +251,7 @@ static GFX_Color ILI9488_PixelGet(const GFX_PixelBuffer *buf,
     if (returnValue == GFX_SUCCESS &&
         context->colorMode == GFX_COLOR_MODE_RGB_565)
     {
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
         pixel = ((data[0] & 0xf8) << 8);
         pixel |= ((data[1] & 0xfc) << 3);
         pixel |= ((data[2] & 0xf8) >> 3);
@@ -305,7 +305,7 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
     ILI9488_DRV *drv;
 <#if DrawBufferSize == "Line">
     uint8_t *data;
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
     uint8_t *pixelBuffer;
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
@@ -365,7 +365,7 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
              i < ((context->display_info->rect.width - 1)* BYTES_PER_PIXEL_BUFFER);
              i += BYTES_PER_PIXEL_BUFFER)
         {
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
             data[i] = ((BUFFER_FILL_COLOR & 0xf800) >> 8) | 0x7; //R
             data[i+1] = ((BUFFER_FILL_COLOR & 0x07e0) >> 3 ) | 0x3; //G
             data[i+2] = ((BUFFER_FILL_COLOR & 0x001f) << 3) | 0x7; //B
@@ -378,7 +378,7 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
     }
 
     drv->lineX_End = pnt->x;
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
     pixelBuffer = (uint8_t *) &data[pnt->x * BYTES_PER_PIXEL_BUFFER];
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
@@ -391,7 +391,7 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
 
     if (context->colorMode == GFX_COLOR_MODE_RGB_565)
     {
-<#if Interface == "SPI 4-Line">
+<#if DisplayInterfaceType == "SPI 4-line">
         pixelBuffer[0] = ((color & 0xf800) >> 8) | 0x7; //R
         pixelBuffer[1] = ((color & 0x07e0) >> 3 ) | 0x3; //G
         pixelBuffer[2] = ((color & 0x001f) << 3) | 0x7; //B
@@ -800,11 +800,7 @@ static GFX_Result ILI9488_Initialize(GFX_Context *context)
     context->layer.layers[0].buffers[0].state = GFX_BS_MANAGED;
 
     //Open interface to ILI9488 controller
-<#if Interface == "SPI 4-Line">
-    returnValue = ILI9488_Intf_Open(drv, ${SPIPortIndex});
-<#else>
-    returnValue = ILI9488_Intf_Open(drv, 0);
-</#if>
+    returnValue = ILI9488_Intf_Open(drv);
 
     if (GFX_FAILURE == returnValue)
     {

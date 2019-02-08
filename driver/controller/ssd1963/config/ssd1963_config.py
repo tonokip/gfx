@@ -3,6 +3,24 @@ HALConnected.setVisible(False)
 HALConnected.setDefaultValue(False)
 HALConnected.setDependencies(onHALConnected, ["HALConnected"])
 
+DisplayInterface = comp.createStringSymbol("DisplayInterface", None)
+DisplayInterface.setLabel("Display Interface")
+DisplayInterface.setVisible(True)
+DisplayInterface.setReadOnly(True)
+DisplayInterface.setUseSingleDynamicValue(True)
+
+DisplayInterfaceType = comp.createStringSymbol("DisplayInterfaceType", None)
+DisplayInterfaceType.setLabel("Display Interface Type")
+DisplayInterfaceType.setVisible(True)
+DisplayInterfaceType.setReadOnly(True)
+DisplayInterfaceType.setUseSingleDynamicValue(True)
+
+ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", DisplayInterfaceType, ["16-bit", "8-bit"])
+ParallelInterfaceWidth.setLabel("Data Width")
+ParallelInterfaceWidth.setDescription("Data Width")
+ParallelInterfaceWidth.setDefaultValue("16-bit")
+ParallelInterfaceWidth.setVisible(False)
+
 # these two symbols are read by the HAL for initialization purposes
 # they must match the function names in the actual driver code
 DriverInfoFunction = comp.createStringSymbol("DriverInfoFunction", None)
@@ -20,12 +38,6 @@ DriverInitFunction.setVisible(False)
 #General Comment
 DriverComment = comp.createCommentSymbol("DriverComment", None)
 DriverComment.setLabel("The settings for this driver are limited to displays that support 16-bit RGB 565 format. For other display types, the driver may need to be modified manually.")
-
-# configuration options
-Interface = comp.createComboSymbol("Interface", None, ["Parallel 8080"])
-Interface.setLabel("Interface Mode")
-Interface.setDescription("Interface to SSD1963.")
-Interface.setVisible(False)
 
 ## Display Settings Menu
 DisplaySettingsMenu = comp.createMenuSymbol("DisplaySettingsMenu", None)
@@ -111,84 +123,13 @@ DisplayTimingOptionsEnabled.setDescription("Hints to the HAL if display timing i
 DisplayTimingOptionsEnabled.setDefaultValue(True)
 DisplayTimingOptionsEnabled.setVisible(False)
 
-### Interface Settings Menu
-InterfaceSettingsSMCMenu = comp.createMenuSymbol("InterfaceSettingsSMCMenu", None)
-InterfaceSettingsSMCMenu.setLabel("Parallel 8080 Display Interface Settings")
-InterfaceSettingsSMCMenu.setVisible(False)
-
-### Parallel mode specific options
-ParallelInterfaceWidth = comp.createComboSymbol("ParallelInterfaceWidth", InterfaceSettingsSMCMenu, ["16-bit", "8-bit"])
-ParallelInterfaceWidth.setLabel("Data Bus Width")
-ParallelInterfaceWidth.setDescription("Data Bus Width")
-ParallelInterfaceWidth.setDefaultValue("16-bit")
-#ParallelInterfaceWidth.setReadOnly(True)
-
-EBIChipSelectIndex = comp.createIntegerSymbol("EBIChipSelectIndex", InterfaceSettingsSMCMenu)
-EBIChipSelectIndex.setLabel("EBI Chip Select Index")
-EBIChipSelectIndex.setDescription("The chip select index")
-EBIChipSelectIndex.setDefaultValue(0)
-EBIChipSelectIndex.setMin(0)
-EBIChipSelectIndex.setMax(4)
-EBIChipSelectIndex.setVisible(False)
-
-ControlPinsMenu = comp.createMenuSymbol("ControlPinsMenu", InterfaceSettingsSMCMenu)
-ControlPinsMenu.setLabel("Control Pin Settings")
-
-ChipSelectControl = comp.createComboSymbol("ChipSelectControl", ControlPinsMenu, ["GPIO", "Peripheral"])
-ChipSelectControl.setLabel("CS# Control")
-ChipSelectControl.setDescription("Chip Select Control. Configures for bit-bang or peripheral mode.")
-ChipSelectControl.setDefaultValue("GPIO")
-ChipSelectControl.setReadOnly(True)
-
-DataCommandSelectControl = comp.createComboSymbol("DataCommandSelectControl", ControlPinsMenu, ["GPIO", "Peripheral"])
-DataCommandSelectControl.setLabel("D/C# Control")
-DataCommandSelectControl.setDescription("Data Command Select Control. Configures for bit-bang or peripheral mode.")
-DataCommandSelectControl.setDefaultValue("GPIO")
-#DataCommandSelectControl.setReadOnly(True)
-DataCommandSelectControl.setDependencies(onDataCommandSelectSet, ["DataCommandSelectControl"])
-
-ReadStrobeControl = comp.createComboSymbol("ReadStrobeControl", ControlPinsMenu, ["GPIO", "Peripheral"])
-ReadStrobeControl.setLabel("RD# Control")
-ReadStrobeControl.setDescription("Read Strobe Control. Configures for bit-bang or peripheral mode.")
-ReadStrobeControl.setDefaultValue("GPIO")
-#ReadStrobeControl.setReadOnly(True)
-
-WriteStrobeControl = comp.createComboSymbol("WriteStrobeControl", ControlPinsMenu, ["GPIO", "Peripheral"])
-WriteStrobeControl.setLabel("WR# Control")
-WriteStrobeControl.setDescription("Write Strobe Control. Configures for bit-bang or peripheral mode.")
-WriteStrobeControl.setDefaultValue("GPIO")
-#WriteStrobeControl.setReadOnly(True)
-
-DelayNOPCount = comp.createIntegerSymbol("DelayNOPCount", InterfaceSettingsSMCMenu)
-DelayNOPCount.setLabel("Number of NOPs for delay.")
-DelayNOPCount.setDescription("Number of NOPs for bit-bang delay.")
-DelayNOPCount.setDefaultValue(4)
-
-DCXAddressBit = comp.createIntegerSymbol("DCXAddressBit", DataCommandSelectControl)
-DCXAddressBit.setLabel("DCX Address Bit")
-DCXAddressBit.setDescription("Address bit used for DCX signal.")
-DCXAddressBit.setDefaultValue(12)
-DCXAddressBit.setMin(0)
-DCXAddressBit.setMax(31)
-DCXAddressBit.setVisible(False)
-
-## Driver Settings Menu
-DriverSettingsMenu = comp.createMenuSymbol("DRIVER_SETTINGS_MENU", None)
-DriverSettingsMenu.setLabel("Driver Settings")
-DriverSettingsMenu.setVisible(False)
-
-UseSyncBarriers = comp.createBooleanSymbol("UseSyncBarriers", DriverSettingsMenu)
-UseSyncBarriers.setLabel("Use Synchronization Barriers")
-UseSyncBarriers.setDescription("Use Synchronization Barriers.")
-UseSyncBarriers.setDefaultValue(True)
-UseSyncBarriers.setVisible(False)
-
-PaletteMode = comp.createBooleanSymbol("PaletteMode", DriverSettingsMenu)
+### Unsupported options
+PaletteMode = comp.createBooleanSymbol("PaletteMode", None)
 PaletteMode.setLabel("Palette Mode")
 PaletteMode.setDescription("Enables Palette Mode.")
 PaletteMode.setDefaultValue(False)
 PaletteMode.setVisible(False)
-### Unsupported options
+###
 
 ### Start of Backlight config options
 BacklightSettings = comp.createMenuSymbol("BacklightSettings", None)

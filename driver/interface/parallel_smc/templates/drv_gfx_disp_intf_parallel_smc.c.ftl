@@ -41,7 +41,7 @@
 
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_context.h"
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 
 // This is the base address of the SMC0 peripheral on V71.
 // Update to appropriate base address for other MCUs.
@@ -63,14 +63,8 @@
 #define GFX_DISP_INTF_SMC_DATA_ADDR  (EBI_BASE_ADDR | (1 << ${DCXAddressBit}))
 #define GFX_DISP_INTF_SMC_CMD_ADDR EBI_BASE_ADDR
 
-<#if ParallelInterfaceWidth == "16-bit">
 // Data width for 16-bit SMC
 typedef uint16_t DBUS_WIDTH_T;
-</#if>
-<#if ParallelInterfaceWidth == "8-bit">
-// Data width for 8-bit SMC
-typedef uint8_t DBUS_WIDTH_T;
-</#if>
 
 <#if WriteStrobeControl == "GPIO">
 #ifdef GFX_DISP_INTF_PIN_WR_Set
@@ -136,7 +130,7 @@ static inline void GFX_Disp_Intf_DelayNOP()
     </#list>
 }
 
-GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx, unsigned int index)
+GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx)
 {   
     GFX_DISP_INTF_SMC * intf = NULL;
     
@@ -272,7 +266,7 @@ GFX_Result GFX_Disp_Intf_WriteData(GFX_Disp_Intf intf, uint8_t * data, int bytes
     
     for (i = 0; i < bytes; i++)
     {
-        *(smcIntf->dataAddr) = *(data);
+        *(smcIntf->dataAddr) = (DBUS_WIDTH_T) *(data);
         GFX_Disp_Intf_Sync();
         data++;
 <#if WriteStrobeControl == "GPIO">
@@ -309,7 +303,7 @@ GFX_Result GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t * data, int nu
 
     for (i = 0; i < num; i++)
     {
-        *(smcIntf->dataAddr) = *(data);
+        *(smcIntf->dataAddr) = (DBUS_WIDTH_T) *(data);
         GFX_Disp_Intf_Sync();
         data++;
 <#if WriteStrobeControl == "GPIO">
@@ -457,7 +451,7 @@ GFX_Result GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8
         
         for (i = 0; i < num_parms; i++)
         {
-            *(smcIntf->dataAddr) = *(parm);
+            *(smcIntf->dataAddr) = (DBUS_WIDTH_T) *(parm);
             GFX_Disp_Intf_Sync();
             parm++;
 <#if WriteStrobeControl == "GPIO">
@@ -493,7 +487,7 @@ GFX_Result GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     
     for (i = 0; i < bytes; i++)
     {
-        *(smcIntf->cmdAddr) = *(data);
+        *(smcIntf->cmdAddr) = (DBUS_WIDTH_T) *(data);
         data++;
         GFX_Disp_Intf_Sync();
 <#if WriteStrobeControl == "GPIO">
@@ -527,7 +521,7 @@ GFX_Result GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data)
 </#if>
     
     GFX_Disp_Intf_Sync();
-    *(smcIntf->cmdAddr) = data;
+    *(smcIntf->cmdAddr) = (DBUS_WIDTH_T) data;
     GFX_Disp_Intf_Sync();
 <#if WriteStrobeControl == "GPIO">
     GFX_Disp_Intf_DelayNOP();
@@ -562,7 +556,8 @@ GFX_Result GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
         GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
         GFX_Disp_Intf_DelayNOP();
 </#if>
-        *(data + i) = *(smcIntf->cmdAddr);
+        *data = (uint8_t) *(smcIntf->dataAddr);
+        data++;
 <#if ReadStrobeControl == "GPIO">
         GFX_Disp_Intf_DelayNOP();
         GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
