@@ -82,7 +82,7 @@ void PIO_Initialize ( void )
 
     /************************ PIO C Initialization ************************/
     /* PORTC PIO Disable and Peripheral Enable*/
-    ((pio_registers_t*)PIO_PORT_C)->PIO_PDR = 0xff;
+    ((pio_registers_t*)PIO_PORT_C)->PIO_PDR = 0x400009ff;
     /* PORTC Pull Up Enable/Disable as per MHC selection */
     ((pio_registers_t*)PIO_PORT_C)->PIO_PUDR = 0xFFFFFFFF;
     /* PORTC Pull Down Enable/Disable as per MHC selection */

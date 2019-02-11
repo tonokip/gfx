@@ -58,23 +58,8 @@
 // Data width for 16-bit SMC
 typedef uint16_t DBUS_WIDTH_T;
 
-#ifdef GFX_DISP_INTF_PIN_WR_Set
-#define GFX_DISP_WR_Control(intf, value) GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_WR, value)
-#else
-#error "GFX_DISP_INTF_PIN_WR pin is not defined. Please define in Pin Manager"
-#endif
 
-#ifdef GFX_DISP_INTF_PIN_RD_Set
-#define GFX_DISP_RD_Control(intf, value) GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_RD, value)
-#else
-#error "GFX_DISP_INTF_PIN_RD pin is not defined. Please define in Pin Manager"
-#endif
 
-#ifdef GFX_DISP_INTF_PIN_RSDC_Set
-#define GFX_DISP_RSDC_Control(intf, value) GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_RSDC, value)
-#else
-#error "GFX_DISP_INTF_PIN_RSDC DCx pin is not defined. Please define in Pin Manager"
-#endif
 
 /** GFX_DISP_INTF_SMC
 
@@ -208,19 +193,11 @@ GFX_Result GFX_Disp_Intf_WriteCommand(GFX_Disp_Intf intf, uint8_t cmd)
     if (smcIntf == NULL)
         return GFX_FAILURE;
 
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
         
     GFX_Disp_Intf_Sync();  
     *(smcIntf->cmdAddr) = cmd ;
     GFX_Disp_Intf_Sync();
 	
-    GFX_Disp_Intf_DelayNOP();
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-    GFX_Disp_Intf_DelayNOP();
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
 
     return GFX_SUCCESS;
 }
@@ -237,20 +214,12 @@ GFX_Result GFX_Disp_Intf_WriteData(GFX_Disp_Intf intf, uint8_t * data, int bytes
     
     GFX_Disp_Intf_Sync();    
 
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     for (i = 0; i < bytes; i++)
     {
         *(smcIntf->dataAddr) = *(data);
         GFX_Disp_Intf_Sync();
         data++;
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-        GFX_Disp_Intf_DelayNOP();
     }
     
     return GFX_SUCCESS;
@@ -268,20 +237,12 @@ GFX_Result GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t * data, int nu
 
     GFX_Disp_Intf_Sync();
 
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
 
     for (i = 0; i < num; i++)
     {
         *(smcIntf->dataAddr) = *(data);
         GFX_Disp_Intf_Sync();
         data++;
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-        GFX_Disp_Intf_DelayNOP();
     }
     
     return GFX_SUCCESS;
@@ -298,18 +259,11 @@ GFX_Result GFX_Disp_Intf_ReadData16(GFX_Disp_Intf intf, uint16_t * data, int num
         return GFX_FAILURE;
     
     GFX_Disp_Intf_Sync();
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     for (i = 0; i < num; i++)
     {
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
         *data = *(smcIntf->dataAddr);
         data++;
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
     }
     
     return GFX_SUCCESS;
@@ -326,21 +280,40 @@ GFX_Result GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
         return GFX_FAILURE;
 
     GFX_Disp_Intf_Sync();
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     for (i = 0; i < bytes; i++)
     {
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
-        *data = *(smcIntf->dataAddr);
+        *data = (uint8_t) *(smcIntf->dataAddr);
         data++;
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
     }
     
     return GFX_SUCCESS;
+}
+
+GFX_Result GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
+{
+    GFX_DISP_INTF_SMC * smcIntf = (GFX_DISP_INTF_SMC *) intf;
+    GFX_Result retval;
+    unsigned int i;
+    
+    if (smcIntf == NULL ||
+        num_data == 0 ||
+        data == NULL)
+        return GFX_FAILURE;
+
+    retval = GFX_Disp_Intf_WriteCommand(intf, cmd);
+    if (retval != GFX_SUCCESS)
+        return GFX_FAILURE;  
+
+    GFX_Disp_Intf_Sync();
+    
+    for (i = 0; i < num_data; i++)
+    {
+        *data = (uint8_t) *(smcIntf->dataAddr);
+        data++;
+    }
+    
+    return retval;
 }
 
 GFX_Result GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
@@ -353,7 +326,6 @@ GFX_Result GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8
     if (retval != GFX_SUCCESS)
         return GFX_FAILURE;
 
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
 
     if (num_parms > 0 && parm != NULL)
     {
@@ -364,11 +336,6 @@ GFX_Result GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8
             *(smcIntf->dataAddr) = *(parm);
             GFX_Disp_Intf_Sync();
             parm++;
-            GFX_Disp_Intf_DelayNOP();
-            GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-            GFX_Disp_Intf_DelayNOP();
-            GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-            GFX_Disp_Intf_DelayNOP();
         }
     }
     
@@ -388,19 +355,12 @@ GFX_Result GFX_Disp_Intf_Write(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     smcIntf = (GFX_DISP_INTF_SMC *) intf;
     
     GFX_Disp_Intf_Sync();
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     for (i = 0; i < bytes; i++)
     {
         *(smcIntf->cmdAddr) = *(data);
         data++;
         GFX_Disp_Intf_Sync();
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-        GFX_Disp_Intf_DelayNOP();
     }
     
     return GFX_SUCCESS;
@@ -415,19 +375,11 @@ GFX_Result GFX_Disp_Intf_WriteDataByte(GFX_Disp_Intf intf, uint8_t data)
 
     smcIntf = (GFX_DISP_INTF_SMC *) intf;
 
-    GFX_DISP_RSDC_Control(intf, GFX_DISP_INTF_PIN_SET);
 
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     GFX_Disp_Intf_Sync();
     *(smcIntf->cmdAddr) = data;
     GFX_Disp_Intf_Sync();
-    GFX_Disp_Intf_DelayNOP();
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-    GFX_Disp_Intf_DelayNOP();
-    GFX_DISP_WR_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     return GFX_SUCCESS;
 }
@@ -443,16 +395,10 @@ GFX_Result GFX_Disp_Intf_Read(GFX_Disp_Intf intf, uint8_t * data, int bytes)
         return GFX_FAILURE;
     
     GFX_Disp_Intf_Sync();
-    GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
-    GFX_Disp_Intf_DelayNOP();
     
     for (i = 0; i < bytes; i++)
     {
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_CLEAR);
-        GFX_Disp_Intf_DelayNOP();
         *(data + i) = *(smcIntf->cmdAddr);
-        GFX_Disp_Intf_DelayNOP();
-        GFX_DISP_RD_Control(intf, GFX_DISP_INTF_PIN_SET);
     }
     
     return GFX_SUCCESS;
