@@ -242,6 +242,28 @@ GFX_Result GFX_Disp_Intf_WriteData16(GFX_Disp_Intf intf, uint16_t * data, int nu
 */
 GFX_Result GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes);
 
+/** 
+  Function:
+    GFX_Result GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
+
+  Summary:
+    Writes a byte command (cmd) to the interface and read num_data bytes from the interface
+    RS/DCx control pin is asserted (LOW) when the cmd is sent, and deasserted (HIGH) when the data is read
+    The RD strobe is asserted for each byte read.
+
+  Description:
+
+  Parameters:
+    intf - the interface handle
+    cmd - the 8-bit command to send
+    data - the destination byte buffer
+    bytes - the number of bytes to read
+ 
+  Returns:
+    * GFX_SUCCESS       - Operation successful
+    * GFX_FAILURE       - Operation failed
+*/
+GFX_Result GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data);
 
 /** 
   Function:
