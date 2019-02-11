@@ -19,8 +19,8 @@
           <Name dnOrder="1">drv_gfx_disp_intf_spi4.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A7D82EA09B8727EDEF1E6E5E50B8BFA3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A7D82EA09B8727EDEF1E6E5E50B8BFA3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EAE44DFF1857D2E2DDF379DC6320534D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EAE44DFF1857D2E2DDF379DC6320534D</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
@@ -43,16 +43,16 @@
           <Name dnOrder="1">drv_spi.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/driver/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/spi/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8E358229447EE1ED00705FC9F9534828</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8E358229447EE1ED00705FC9F9534828</UserChecksum>
+          <GeneratedChecksum dnOrder="4">55B757DA76609116AE2A1AEC28D3048C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">55B757DA76609116AE2A1AEC28D3048C</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_spi_local.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/driver/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/spi/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A0B568CEC02045C09C46777BE6BC57FF</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A0B568CEC02045C09C46777BE6BC57FF</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5613B6C5D8B9CAD82F4703B789101408</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5613B6C5D8B9CAD82F4703B789101408</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -459,8 +459,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D82348417F9A6F0FCC394EFC7D318580</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D82348417F9A6F0FCC394EFC7D318580</UserChecksum>
+          <GeneratedChecksum dnOrder="4">81E5BE10EFCE085A5392DDAD80FCA95B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">81E5BE10EFCE085A5392DDAD80FCA95B</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/system/cache/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/cache/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E5E8513E5217FF3332FA11AD7EFF5FF3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E5E8513E5217FF3332FA11AD7EFF5FF3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">25FF22692E153473C0D04CBCEAE87FEA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">25FF22692E153473C0D04CBCEAE87FEA</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
@@ -1371,8 +1371,8 @@
           <Name dnOrder="1">device.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAME70Q21B_DFP/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/ATSAME70Q21B_DFP/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A851494A0E1B6C1972E9EFC09A8EE7F9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A851494A0E1B6C1972E9EFC09A8EE7F9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">48CDE43C7421E1A5966478FC9A56274A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">48CDE43C7421E1A5966478FC9A56274A</UserChecksum>
         </File>
         <File dnOrder="171">
           <Type dnOrder="0">HEADER</Type>
@@ -1403,8 +1403,8 @@
           <Name dnOrder="1">drv_gfx_disp_intf.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/gfx/driver/ili9488</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ili9488/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5CBD6A5CAF0CC2D41857F46388733B95</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5CBD6A5CAF0CC2D41857F46388733B95</UserChecksum>
+          <GeneratedChecksum dnOrder="4">DB31FBEC44C8C9E9C281AE481908AE7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">DB31FBEC44C8C9E9C281AE481908AE7B</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
@@ -1443,8 +1443,8 @@
           <Name dnOrder="1">drv_spi_definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/driver/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/spi/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E576DF6EB583E68ACEF0ED63086441F0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E576DF6EB583E68ACEF0ED63086441F0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F1603EAAE91A583F0EEC609FBA6E58B3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F1603EAAE91A583F0EEC609FBA6E58B3</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
@@ -2475,8 +2475,8 @@
           <Name dnOrder="1">sys_int_mapping.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/system/int/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/int/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2030B346DC992B43C8E0E195D488BCF1</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2030B346DC992B43C8E0E195D488BCF1</UserChecksum>
+          <GeneratedChecksum dnOrder="4">00278F169FFB0CBBAB3A68B5D647F093</GeneratedChecksum>
+          <UserChecksum dnOrder="5">00278F169FFB0CBBAB3A68B5D647F093</UserChecksum>
         </File>
         <File dnOrder="309">
           <Type dnOrder="0">HEADER</Type>
@@ -2529,10 +2529,10 @@
         <File dnOrder="315">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">toolchain_specifics.h</Name>
-          <LogicalPath dnOrder="2">arm</LogicalPath>
-          <PhysicalPath dnOrder="3">/../../arm/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C9E62CD1B749DC3531FDD7A51C8FB9D0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C9E62CD1B749DC3531FDD7A51C8FB9D0</UserChecksum>
+          <LogicalPath dnOrder="2">config/ili9488_spi_rgb565/</LogicalPath>
+          <PhysicalPath dnOrder="3">/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">ECBE73246282EC07A1EC6DB84AE3A470</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ECBE73246282EC07A1EC6DB84AE3A470</UserChecksum>
         </File>
         <File dnOrder="316">
           <Type dnOrder="0">HEADER</Type>

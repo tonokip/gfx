@@ -243,6 +243,19 @@ GFX_Result GFX_Disp_Intf_ReadData(GFX_Disp_Intf intf, uint8_t * data, int bytes)
     return GFX_Disp_Intf_Read(intf, data, bytes);
 }
 
+GFX_Result GFX_Disp_Intf_ReadCommandData(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * data, int num_data)
+{
+    GFX_Result retval;
+
+    retval = GFX_Disp_Intf_WriteCommand(intf, cmd);
+    if (retval != GFX_SUCCESS)
+        return GFX_FAILURE;
+
+    GFX_Disp_Intf_PinControl(intf, GFX_DISP_INTF_PIN_RSDC, GFX_DISP_INTF_PIN_SET);
+    
+    return GFX_Disp_Intf_Read(intf, data, num_data);
+}
+
 GFX_Result GFX_Disp_Intf_WriteCommandParm(GFX_Disp_Intf intf, uint8_t cmd, uint8_t * parm, int num_parms)
 {
     GFX_Result retval;
