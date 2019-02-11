@@ -55,6 +55,23 @@
 // ****************************************************************************
 // ****************************************************************************
 
+#pragma config NVMCTRL_BOOTPROT = SIZE_0BYTES
+#pragma config NVMCTRL_EEPROM_SIZE = SIZE_0BYTES
+#pragma config BODVDDUSERLEVEL = 0x8 // Enter Hexadecimal value
+#pragma config BODVDD_DIS = DISABLED
+#pragma config BODVDD_ACTION = NONE
+
+#pragma config BODVDD_HYST = DISABLED
+#pragma config NVMCTRL_REGION_LOCKS = 0xffff // Enter Hexadecimal value
+
+#pragma config WDT_ENABLE = DISABLED
+#pragma config WDT_ALWAYSON = DISABLED
+#pragma config WDT_PER = CYC8
+
+#pragma config WDT_WINDOW = CYC8
+#pragma config WDT_EWOFFSET = CYC8
+#pragma config WDT_WEN = DISABLED
+
 
 
 // *****************************************************************************
@@ -94,8 +111,9 @@ const DRV_SPI_INTERRUPT_SOURCES drvSPI0InterruptSources =
 {
     /* Peripheral has single interrupt vector */
     .isSingleIntSrc                        = true,
+
     /* Peripheral interrupt line */
-    .intSources.spiInterrupt               = SERCOM1_IRQn,
+    .intSources.spiInterrupt             = SERCOM1_IRQn,
 };
 
 /* SPI Driver Initialization Data */
@@ -123,7 +141,7 @@ const DRV_SPI_INIT drvSPI0InitData =
     .dmaChannelReceive  = SYS_DMA_CHANNEL_NONE,
 
     /* SPI Queue Size */
-    .queueSize = DRV_SPI_QUEUE_SIZE_IDX0,
+    .transferObjPoolSize = DRV_SPI_QUEUE_SIZE_IDX0,
 
     /* SPI Transfer Objects Pool */
     .transferObjPool = (uintptr_t)&drvSPI0TransferObjPool[0],
@@ -183,8 +201,6 @@ void SYS_Initialize ( void* data )
 
 	BSP_Initialize();
 
-    NVIC_Initialize();
-
 
     GFX_Initialize();
 
@@ -201,7 +217,8 @@ void SYS_Initialize ( void* data )
     APP_Initialize();
 
 
-  
+    NVIC_Initialize();
+
 }
 
 
