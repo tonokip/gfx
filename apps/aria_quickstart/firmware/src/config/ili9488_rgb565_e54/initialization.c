@@ -135,10 +135,11 @@ const DRV_SPI_INTERRUPT_SOURCES drvSPI0InterruptSources =
 {
     /* Peripheral has more than one interrupt vectors */
     .isSingleIntSrc                        = false,
+
     /* Peripheral interrupt lines */
-    .intSources.multi.spiTxReadyInt        = SERCOM4_0_IRQn,
-    .intSources.multi.spiTxCompleteInt     = SERCOM4_1_IRQn,
-    .intSources.multi.spiRxInt             = SERCOM4_2_IRQn,
+    .intSources.multi.spiTxReadyInt      = SERCOM4_0_IRQn,
+    .intSources.multi.spiTxCompleteInt   = SERCOM4_1_IRQn,
+    .intSources.multi.spiRxInt           = SERCOM4_2_IRQn,
 };
 
 /* SPI Driver Initialization Data */
@@ -166,7 +167,7 @@ const DRV_SPI_INIT drvSPI0InitData =
     .dmaChannelReceive  = SYS_DMA_CHANNEL_NONE,
 
     /* SPI Queue Size */
-    .queueSize = DRV_SPI_QUEUE_SIZE_IDX0,
+    .transferObjPoolSize = DRV_SPI_QUEUE_SIZE_IDX0,
 
     /* SPI Transfer Objects Pool */
     .transferObjPool = (uintptr_t)&drvSPI0TransferObjPool[0],
@@ -226,8 +227,6 @@ void SYS_Initialize ( void* data )
 
 	BSP_Initialize();
 
-    NVIC_Initialize();
-
 
     GFX_Initialize();
 
@@ -244,7 +243,8 @@ void SYS_Initialize ( void* data )
     APP_Initialize();
 
 
-  
+    NVIC_Initialize();
+
 }
 
 

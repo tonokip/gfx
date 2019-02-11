@@ -48,8 +48,6 @@
 #include "device.h"
 #include "system/cache/sys_cache.h"
 
-#define DATA_CACHE_IS_ENABLED            (SCB->CCR & (uint32_t)SCB_CCR_DC_Msk)
-#define INSTRUCTION_CACHE_IS_ENABLED     (SCB->CCR & (uint32_t)SCB_CCR_IC_Msk)
 
 // *****************************************************************************
 // *****************************************************************************
