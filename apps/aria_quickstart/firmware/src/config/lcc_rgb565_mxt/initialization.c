@@ -140,10 +140,10 @@ const DRV_I2C_INIT drvI2C0InitData =
     .clientObjPool = (uintptr_t)&drvI2C0ClientObjPool[0],
 
     /* I2C TWI Queue Size */
-    .queueSize = DRV_I2C_QUEUE_SIZE_IDX0,
+    .transferObjPoolSize = DRV_I2C_QUEUE_SIZE_IDX0,
 
     /* I2C Transfer Objects */
-    .transferObj = (uintptr_t)&drvI2C0TransferObj[0],
+    .transferObjPool = (uintptr_t)&drvI2C0TransferObj[0],
 
     /* I2C interrupt sources */
     .interruptSources = &drvI2C0InterruptSources,
@@ -243,8 +243,6 @@ void SYS_Initialize ( void* data )
 	TWIHS0_Initialize();
 
 
-    NVIC_Initialize();
-
 
     GFX_Initialize();
 
@@ -268,7 +266,8 @@ void SYS_Initialize ( void* data )
     APP_Initialize();
 
 
-  
+    NVIC_Initialize();
+
 }
 
 
