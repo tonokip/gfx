@@ -654,7 +654,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>u-boot.bin</state>
+                    <state>harmony.bin</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>

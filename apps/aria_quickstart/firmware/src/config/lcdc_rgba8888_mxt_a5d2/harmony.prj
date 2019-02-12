@@ -35,16 +35,16 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BEB05ACC06E77A81D0BD01E93D5932C2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BEB05ACC06E77A81D0BD01E93D5932C2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">035B609617EB1001AF0D4BD595F434B2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">035B609617EB1001AF0D4BD595F434B2</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EA12D866B701209FB84938C9F16E2805</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EA12D866B701209FB84938C9F16E2805</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E81CF1A4F5B818DC4FD71814A9F2DFBD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E81CF1A4F5B818DC4FD71814A9F2DFBD</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -467,8 +467,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">54BCA09FF25CCE7F54EC989F815353D7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">54BCA09FF25CCE7F54EC989F815353D7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">ED5C1646B8A8A6D74A9BCD1E753B34EB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ED5C1646B8A8A6D74A9BCD1E753B34EB</UserChecksum>
         </File>
         <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
@@ -1211,8 +1211,8 @@
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/cache/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/cache/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D73ED69E3D5FA0DF36C78F445EB54007</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D73ED69E3D5FA0DF36C78F445EB54007</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E960BFEEC33C8C799601CD86A8379BB0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E960BFEEC33C8C799601CD86A8379BB0</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
@@ -1243,8 +1243,8 @@
           <Name dnOrder="1">sys_time.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/time/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/time/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8C2E63BFF655D2414237FD7A8F734A7E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C2E63BFF655D2414237FD7A8F734A7E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">70DAE413C209782D51F61D7C896593FB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">70DAE413C209782D51F61D7C896593FB</UserChecksum>
         </File>
         <File dnOrder="155">
           <Type dnOrder="0">SOURCE</Type>
@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">432D401F698BC48F31845565BC5323D0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">432D401F698BC48F31845565BC5323D0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">106C5A418879DE49192B6D208C23A9E7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">106C5A418879DE49192B6D208C23A9E7</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">HEADER</Type>
@@ -1403,8 +1403,8 @@
           <Name dnOrder="1">configuration.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AA016DBBADBE585E2C863759441A5CA0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AA016DBBADBE585E2C863759441A5CA0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D75914962FA9B567515AD7B93EA87BEA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D75914962FA9B567515AD7B93EA87BEA</UserChecksum>
         </File>
         <File dnOrder="175">
           <Type dnOrder="0">HEADER</Type>
@@ -1427,8 +1427,8 @@
           <Name dnOrder="1">device.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/</LogicalPath>
           <PhysicalPath dnOrder="3">/../../packs/ATSAMA5D27_DFP/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EB49B9A5383A152A937D6CCED68BB733</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EB49B9A5383A152A937D6CCED68BB733</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FAA04921E75A13B8730954676182E8F1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FAA04921E75A13B8730954676182E8F1</UserChecksum>
         </File>
         <File dnOrder="178">
           <Type dnOrder="0">HEADER</Type>
@@ -1467,16 +1467,16 @@
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2E9B5A882B66577D03295CE6F109E25C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2E9B5A882B66577D03295CE6F109E25C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F44645515479E033B969EE5CE6C40E64</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F44645515479E033B969EE5CE6C40E64</UserChecksum>
         </File>
         <File dnOrder="183">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5838C9A3BA9F6799AED8C77D5AF6362D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5838C9A3BA9F6799AED8C77D5AF6362D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9770A4C0480F3B5CCBBC180F193C54FC</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9770A4C0480F3B5CCBBC180F193C54FC</UserChecksum>
         </File>
         <File dnOrder="184">
           <Type dnOrder="0">HEADER</Type>
@@ -2667,8 +2667,8 @@
           <Name dnOrder="1">sys_int_mapping.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/int/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/int/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9C4EFA9DF7152D80FCBB7B7A8E9BA7B4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9C4EFA9DF7152D80FCBB7B7A8E9BA7B4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D5F3C8B8016B12FF575690A3CC761BFD</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D5F3C8B8016B12FF575690A3CC761BFD</UserChecksum>
         </File>
         <File dnOrder="333">
           <Type dnOrder="0">HEADER</Type>
@@ -2739,8 +2739,8 @@
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9096167262DC994CE75B9B9B302BF6C3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9096167262DC994CE75B9B9B302BF6C3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7580F49FC7F75F3E27B28C078A294688</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7580F49FC7F75F3E27B28C078A294688</UserChecksum>
         </File>
         <File dnOrder="342">
           <Type dnOrder="0">HEADER</Type>
