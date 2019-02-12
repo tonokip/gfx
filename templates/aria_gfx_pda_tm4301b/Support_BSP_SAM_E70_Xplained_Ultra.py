@@ -121,15 +121,14 @@ def eventHandlerSSD1963(event):
 			Database.setSymbolValue("core", "CoreUseMPU", True, 1)
 			Database.setSymbolValue("core", "MPU_Region_0_Enable", True, 1)
 			Database.setSymbolValue("core", "MPU_Region_Name0", "EBI_SMC", 1)
-			Database.setSymbolValue("core", "MPU_Region_0_Address", 0x60000000, 1)
 			Database.setSymbolValue("core", "MPU_Region_0_Type", 5, 1)
 		except:
 			return
 
 bspDisplayInterfaceList = ["LCC", "SSD1963"]
 
-sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, eventHandlerSSD1963)
-sam_e70_xplained_utra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, None)
+sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, None)
+sam_e70_xplained_utra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
 
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "LCC", sam_e70_xplained_utra_lcc)
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "SSD1963", sam_e70_xplained_utra_ssd1963)

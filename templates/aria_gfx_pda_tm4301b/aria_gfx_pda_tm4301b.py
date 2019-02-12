@@ -50,14 +50,14 @@ def enableConfig(bspID, configID, enable):
 			res = Database.deactivateComponents(deactivateIDTable)
 		if (autoConnectTable != None):
 			res = Database.connectDependencies(autoConnectTable)
+		try:
+			getBSPSupportNode(bspID, configID).getEventCallbackFxn()("configure")
+		except:
+			print("No event callback for " + bspID + " configID.")
 	elif (enable == False):
 		if (componentIDTable != None):
 			res = Database.deactivateComponents(componentIDTable)
 	enableConfigPins(bspID, configID, enable)
-	try:
-		getBSPSupportNode(bspID, configID).getEventCallbackFxn()("configure")
-	except:
-		print("No event callback for " + bspID + " configID.")
 
 def configureDisplayInterface(bspID, interface):
 	print("Configuring for " + str(interface) + " Interface.")
