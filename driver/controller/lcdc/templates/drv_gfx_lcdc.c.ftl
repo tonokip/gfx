@@ -194,7 +194,7 @@ LCDC_DMA_DESC __attribute__ ((aligned (32))) channelDesc${i} __REGION__;
 </#list>
 
 const char* DRIVER_NAME = "LCDC";
-static uint32_t supported_color_format = LCDC_DEFAULT_GFX_COLOR_MODE;
+static uint32_t supported_color_format = GFX_COLOR_MASK_RGBA_8888;
 uint32_t state;
 
 static DISPLAY_LAYER drvLayer[LCDC_NUM_LAYERS];

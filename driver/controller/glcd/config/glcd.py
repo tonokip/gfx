@@ -25,6 +25,14 @@
 def instantiateComponent(comp):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/glcd"
 	
+	GLCDInterruptVector = "GLCD_INTERRUPT_ENABLE"
+	GLCDInterruptHandler = "GLCD_INTERRUPT_HANDLER"
+	GLCDInterruptHandlerLock = "GLCD_INTERRUPT_HANDLER_LOCK"
+	
+	Database.setSymbolValue("core", GLCDInterruptVector, True, 1)
+	Database.setSymbolValue("core", GLCDInterruptHandlerLock, True, 1)
+	Database.setSymbolValue("core", GLCDInterruptHandler, "GLCD_Interrupt_Handler", 1)
+	
 	HALConnected = comp.createBooleanSymbol("HALConnected", None)
 	HALConnected.setVisible(False)
 	HALConnected.setDependencies(onHALConnected, ["HALConnected"])
@@ -40,7 +48,7 @@ def instantiateComponent(comp):
 	DriverInitFunction = comp.createStringSymbol("DriverInitFunction", None)
 	DriverInitFunction.setLabel("Driver Init Function Name")
 	DriverInitFunction.setReadOnly(True)
-	DriverInitFunction.setDefaultValue("driverGGLCDontextInitialize")
+	DriverInitFunction.setDefaultValue("driverGLCDContextInitialize")
 	DriverInitFunction.setVisible(False)
 	
 	# configuration options
@@ -253,7 +261,20 @@ def instantiateComponent(comp):
 	GFX_GLCD_H.setOutputName("drv_gfx_glcd.h")
 	GFX_GLCD_H.setProjectPath(projectPath)
 	GFX_GLCD_H.setType("HEADER")
-	#GFX_GLCD_H.setMarkup(True)
+	
+	GFX_GLCD_PLIB_C = comp.createFileSymbol("GFX_GLCD_PLIB_C", None)
+	GFX_GLCD_PLIB_C.setDestPath("gfx/driver/controller/glcd/")
+	GFX_GLCD_PLIB_C.setSourcePath("templates/plib_glcd.c")
+	GFX_GLCD_PLIB_C.setOutputName("plib_glcd.c")
+	GFX_GLCD_PLIB_C.setProjectPath(projectPath)
+	GFX_GLCD_PLIB_C.setType("SOURCE")
+	
+	GFX_GLCD_PLIB_H = comp.createFileSymbol("GFX_GLCD_PLIB_H", None)
+	GFX_GLCD_PLIB_H.setSourcePath("templates/plib_glcd.h")
+	GFX_GLCD_PLIB_H.setDestPath("gfx/driver/controller/glcd/")
+	GFX_GLCD_PLIB_H.setOutputName("plib_glcd.h")
+	GFX_GLCD_PLIB_H.setProjectPath(projectPath)
+	GFX_GLCD_PLIB_H.setType("HEADER")
 	
 	### Update the layers count - do this last
 	numLayers = 0

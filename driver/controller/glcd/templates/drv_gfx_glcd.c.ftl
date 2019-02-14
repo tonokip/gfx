@@ -70,6 +70,10 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
+#include <stdint.h>
+#include <stdbool.h>
+#include "peripheral/evic/plib_evic.h"
+#include "gfx/driver/controller/glcd/plib_glcd.h"
 #include "gfx/driver/controller/glcd/drv_gfx_glcd.h"
 #include "definitions.h"
 
@@ -87,43 +91,62 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 
 #define DISPLAY_WIDTH  ${Val_Width}
 #define DISPLAY_HEIGHT ${Val_Height}
+#define GFX_GLCD_LAYERS ${TotalNumLayers}
+#define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
+#define GFX_GLCD_CONFIG_CONTROL 0x80000000
+
+<#if FrameBufferMemoryMode == "DDR">
+/*** GLCD Layer 0 Configuration ***/
+#define  GFX_GLCD_LAYER0_BASEADDR                      0xA8000000
+#define  GFX_GLCD_LAYER0_DBL_BASEADDR                  0xA8465000
+/*** GLCD Layer 1 Configuration ***/
+#define  GFX_GLCD_LAYER1_BASEADDR                      0xA8177000
+#define  GFX_GLCD_LAYER1_DBL_BASEADDR                  0xA85DC000
+/*** GLCD Layer 2 Configuration ***/
+#define  GFX_GLCD_LAYER2_BASEADDR                      0xA82EE000
+#define  GFX_GLCD_LAYER2_DBL_BASEADDR                  0xA8753000
+</#if>
 
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_PTR_TYPE    uint8_t*
+#define FRAMEBUFFER_PIXEL_TYPE    uint8_t
 <#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGB_565
 #define FRAMEBUFFER_PTR_TYPE    uint16_t*
+#define FRAMEBUFFER_PIXEL_TYPE    uint16_t
 <#elseif FrameBufferColorMode == "GFX_COLOR_MODE_RGB_888" ||
          FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888" ||
          FrameBufferColorMode == "GFX_COLOR_MODE_ARGB_8888">
 #define LCDC_DEFAULT_GFX_COLOR_MODE ${Val_FrameBufferColorMode}
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
+#define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 <#else>
 //Unsupported  framebuffer type specified, default to RGBA8888
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGBA_8888
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
+#define FRAMEBUFFER_PIXEL_TYPE    uint32_t
 </#if>
 
 const char* DRIVER_NAME = "GLCD";
-<#if Val_FrameBufferColorMode == "RGBA_8888">
-static uint32_t supported_color_format = GFX_COLOR_MODE_RGBA_8888;
-<#elseif Val_FrameBufferColorMode == "RGB_565">
-static uint32_t supported_color_format = GFX_COLOR_MODE_RGB_565;
-<#elseif Val_FrameBufferColorMode == "LUT8">
-static uint32_t supported_color_format = GFX_COLOR_MODE_GS_8;
-</#if>
+static uint32_t supported_color_format = (GFX_COLOR_MASK_GS_8 |
+                                          GFX_COLOR_MASK_RGB_565 | 
+                                          GFX_COLOR_MASK_RGBA_8888);
+
 <#if FrameBufferMemoryMode == "INT_SRAM">
-<#if Val_FrameBufferColorMode == "RGBA_8888">
-uint32_t __attribute__((coherent, aligned(32))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
-<#elseif Val_FrameBufferColorMode == "RGB_565">
-uint16_t __attribute__((coherent, aligned(16))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
-<#elseif Val_FrameBufferColorMode == "LUT8">
-uint8_t __attribute__((coherent, aligned(32))) frameBuffer[BUFFER_PER_LAYER][DISPLAY_WIDTH * DISPLAY_HEIGHT];
-</#if></#if>
+<#list 0..(TotalNumLayers-1) as i>
+FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+</#list>
+
+<#if Val_DoubleBuffer == true>
+<#list 0..(TotalNumLayers-1) as i>
+FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer1_${i}[DISPLAY_WIDTH * DISPLAY_HEIGHT];
+</#list>
+</#if>
+</#if>
 uint32_t state;
 
-volatile int32_t waitForAlphaSetting[3] = {0};
+volatile int32_t waitForAlphaSetting[GFX_GLCD_LAYERS] = {0};
 
 //Layer Parameters
 //--------------------------------------------------------------------------
@@ -299,13 +322,10 @@ static GFX_Result globalPaletteSet(GFX_GlobalPalette palette)
     {
         pal = (uint32_t*)palette;
         lut[colorIndex] = GFX_ColorConvert(GFX_COLOR_MODE_RGBA_8888, GFX_COLOR_MODE_RGB_888, pal[colorIndex]);
-
-		*((SFR_TYPE *)(( (&GLCDCLUT0) + colorIndex )))  =  (lut[ colorIndex ]);
-
     }
 
-	//Enable Gamma Ramp
-	GLCDMODEbits.PGRAMPEN = 1;
+    PLIB_GLCD_GlobalColorLUTSet(GLCD_ID_0, lut );
+    PLIB_GLCD_PaletteGammaRampEnable(GLCD_ID_0);
 
 	return GFX_SUCCESS;
 }
@@ -316,13 +336,13 @@ static GFX_Result colorModeSet(GFX_ColorMode mode)
     GFX_Layer* layer;
     GFX_Context* context = GFX_ActiveContext();
     GLCD_LAYER_COLOR_MODE glcdMode;
-	uint32_t stride = 0;
+    uint32_t stride = 0;
     
     layer = context->layer.active;
-		
+    
    
     // use default implementation to initialize buffer struct
-	defColorModeSet(mode);
+    defColorModeSet(mode);
     
     // ensure all buffers are marked as managed by the driver so application
     // can't delete or modify them
@@ -330,19 +350,15 @@ static GFX_Result colorModeSet(GFX_ColorMode mode)
     //Translate
     //GFX->GLCD
     glcdMode = convertColorModeGfxToGLCD(mode);
-	stride = getColorModeStrideSize(glcdMode);
+    stride = getColorModeStrideSize(glcdMode);
     
     //Update the active layer's color mode and stride
-	drvLayer[layer->id].colorspace = glcdMode;
+    drvLayer[layer->id].colorspace = glcdMode;
 
-	*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layer->id * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layer->id * 8 ) )))) & ~(_GLCDL0MODE_COLORMODE_MASK) ) | ( (_GLCDL0MODE_COLORMODE_MASK)&(drvLayer[layer->id].colorspace) );
+    PLIB_GLCD_LayerColorModeSet(layer->id, drvLayer[layer->id].colorspace);
+    PLIB_GLCD_LayerStrideSet(layer->id, drvLayer[layer->id].resx * stride);
 
-	*((SFR_TYPE *)(( (&GLCDL0STRIDE) + ( layer->id * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0STRIDE) + ( layer->id * 8 ) )))) & ~(_GLCDL0STRIDE_STRIDE_MASK) ) | \
-		( (_GLCDL0STRIDE_STRIDE_MASK)&((stride)<<(_GLCDL0STRIDE_STRIDE_POSITION)) );  
-
-	return GFX_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 static GFX_Result layerBufferCountSet(uint32_t count)
@@ -352,14 +368,14 @@ static GFX_Result layerBufferCountSet(uint32_t count)
     uint32_t i;
     
     layer = context->layer.active;
-		
+    
     if(count > BUFFER_PER_LAYER)
-	{
-		count = BUFFER_PER_LAYER;
-	}
+    {
+    count = BUFFER_PER_LAYER;
+    }
     
     // use default implementation to initialize buffer struct
-	defLayerBufferCountSet(count);
+    defLayerBufferCountSet(count);
     
     // ensure all buffers are marked as managed by the driver so application
     // can't delete or modify them
@@ -372,12 +388,12 @@ static GFX_Result layerBufferCountSet(uint32_t count)
                   &layer->buffers[i].pb);
 
         layer->buffers[i].state = GFX_BS_MANAGED;
-	}
-	
-	// ensure GLCD buffers are in-sync with the library
-	*((SFR_TYPE *)(( (&GLCDL0BADDR) + ( layer->id * 8 ) )))  =  ( KVA_TO_PA( (void *) (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]) );
+    }
+    
+    // ensure GLCD buffers are in-sync with the library
+    PLIB_GLCD_LayerBaseAddressSet(layer->id, (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]);
 
-	return GFX_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 static GFX_Result layerBufferAddressSet(uint32_t idx, GFX_Buffer address)
@@ -397,9 +413,9 @@ static GFX_Result layerBufferAddressSet(uint32_t idx, GFX_Buffer address)
     
     drvLayer[layer->id].baseaddr[idx] = address;
 
-	*((SFR_TYPE *)(( (&GLCDL0BADDR) + ( layer->id * 8 ) )))  =  ( KVA_TO_PA( (void *) (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]) );
+    PLIB_GLCD_LayerBaseAddressSet(layer->id, (uint32_t)drvLayer[layer->id].baseaddr[idx]);
     
-	return GFX_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 static GFX_Result layerBufferAllocate(uint32_t idx)
@@ -407,7 +423,7 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
 <#if Val_FrameBufferColorMode != "LUT8">
     GFX_Layer* layer;
     GFX_Context* context = GFX_ActiveContext();
-	uint32_t  i,j;
+    uint32_t  i,j;
     uint32_t  color = 0;
     
     layer = context->layer.active;
@@ -418,25 +434,25 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
     }
     
     for(i = 0; i < layer->rect.display.height; i++)
-	{
+    {
         for(j = 0; j < layer->rect.display.width; j++)
-		{
-<#if Val_FrameBufferColorMode == "RGBA_8888">
+    {
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
             *(uint32_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-<#elseif Val_FrameBufferColorMode == "RGB_565">
+<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
             *(uint16_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
-<#elseif Val_FrameBufferColorMode == "LUT8">
+<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
             *(uint8_t*)(drvLayer[layer->id].baseaddr[idx] + i*layer->rect.display.width + j) = color;
 </#if>
-		}
-	}
+    }
+    }
 </#if>
-	return GFX_SUCCESS;
+    return GFX_SUCCESS;
 }
 
 static GFX_Result layerBufferFree(uint32_t idx)
 {
-	return GFX_UNSUPPORTED;
+    return GFX_UNSUPPORTED;
 }
 
 static GFX_Result layerPositionSet(int32_t x, int32_t y)
@@ -446,14 +462,10 @@ static GFX_Result layerPositionSet(int32_t x, int32_t y)
     idx = GFX_ActiveContext()->layer.active->id;
 
     defLayerPositionSet(x, y);    
-	
-	*((SFR_TYPE *)(( (&GLCDL0START) + ( idx * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0START) + ( layerId * 8 ) )))) & ~(_GLCDL0START_STARTX_MASK) ) | \
-		( (_GLCDL0START_STARTX_MASK)&((GFX_ActiveContext()->layer.active->rect.display.x)<<(_GLCDL0START_STARTX_POSITION)) );  
     
-	*((SFR_TYPE *)(( (&GLCDL0START) + ( idx * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0START) + ( idx * 8 ) )))) & ~(_GLCDL0START_STARTY_MASK) ) | \
-		( (_GLCDL0START_STARTY_MASK)&((GFX_ActiveContext()->layer.active->rect.display.y)<<(_GLCDL0START_STARTY_POSITION)) );  
+    PLIB_GLCD_LayerStartXYSet(idx,
+                              GFX_ActiveContext()->layer.active->rect.display.x,
+                              GFX_ActiveContext()->layer.active->rect.display.y);
 
     return GFX_SUCCESS;
 }
@@ -465,14 +477,10 @@ static GFX_Result layerSizeSet(int32_t width, int32_t height)
     idx = GFX_ActiveContext()->layer.active->id;
 
     defLayerSizeSet(width, height);
-    	
-	*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( idx * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( idx * 8 ) )))) & ~(_GLCDL0SIZE_SIZEX_MASK) ) | \
-		( (_GLCDL0SIZE_SIZEX_MASK)&((GFX_ActiveContext()->layer.active->rect.display.width)<<(_GLCDL0SIZE_SIZEX_POSITION)) );  
-    
-	*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( idx * 8 ) ))) = \
-        ( (*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( idx * 8 ) )))) & ~(_GLCDL0SIZE_SIZEY_MASK) ) | \
-		( (_GLCDL0SIZE_SIZEY_MASK)&((GFX_ActiveContext()->layer.active->rect.display.height)<<(_GLCDL0SIZE_SIZEY_POSITION)) );  
+        
+    PLIB_GLCD_LayerSizeXYSet(idx,
+                             GFX_ActiveContext()->layer.active->rect.display.width,
+                             GFX_ActiveContext()->layer.active->rect.display.height);
 
     return GFX_SUCCESS;    
 }
@@ -493,12 +501,10 @@ static GFX_Result layerAlphaAmountSet(uint32_t alpha, GFX_Bool wait)
         
         defLayerAlphaAmountSet(alpha, wait);
 
-		*((SFR_TYPE *)(( (&GLCDL0MODE) + ( idx * 8 ) ))) = \
-				( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( idx * 8 ) )))) & ~(_GLCDL0MODE_ALPHA_MASK) ) \
-				| ( (_GLCDL0MODE_ALPHA_MASK)&((alpha)<<(_GLCDL0MODE_ALPHA_POSITION)) );
+        PLIB_GLCD_LayerGlobalAlphaSet(idx, alpha);
     }
     
-	return GFX_SUCCESS;
+    return GFX_SUCCESS;
 }
     
 static uint32_t layerAlphaAmountGet(void)
@@ -507,8 +513,7 @@ static uint32_t layerAlphaAmountGet(void)
     
     idx = GFX_ActiveContext()->layer.active->id;
 
-	return (  ( *((SFR_TYPE *)(( (&GLCDL0MODE) + ( idx * 8 ) )))&(_GLCDL0MODE_ALPHA_MASK) ) \
-            >> (_GLCDL0MODE_ALPHA_POSITION)  );
+    return PLIB_GLCD_LayerGlobalAlphaGet(idx);
 }
 
 void layerSwapped(GFX_Layer* layer)
@@ -517,29 +522,23 @@ void layerSwapped(GFX_Layer* layer)
     if(layer->id == GFX_ActiveContext()->layer.layers[${i}].id)
     {
         if (layer->buffer_count > BUFFER_PER_LAYER)
-			return;
+        return;
 
-		*((SFR_TYPE *)(( (&GLCDL0BADDR) + ( ${i} * 8 ) )))  =  ( KVA_TO_PA( (void *) (uint32_t)drvLayer[${i}].baseaddr[layer->buffer_read_idx]) );
+        PLIB_GLCD_LayerBaseAddressSet(0, (uint32_t)drvLayer[0].baseaddr[layer->buffer_read_idx]);
     }
 </#list>
 }
 
 static GFX_Result layerEnabledSet(GFX_Bool val)
 {
-	GFX_ActiveContext()->layer.active->enabled = val;
-	
+    GFX_ActiveContext()->layer.active->enabled = val;
+    
     if(val == GFX_TRUE)
-	{
-   		*((SFR_TYPE *)(( (&GLCDL0MODE)  + ( GFX_ActiveContext()->layer.active->id * 8 ) ))) = ( ( *((SFR_TYPE *)(( (&GLCDL0MODE)  + ( GFX_ActiveContext()->layer.active->id * 8 ) ))) ) & \
-		~(1<<(_GLCDL0MODE_LAYEREN_POSITION)) ) | (0x1&(1))<<(_GLCDL0MODE_LAYEREN_POSITION);
-	}
-	else
-	{
-   		*((SFR_TYPE *)(( (&GLCDL0MODE)  + ( GFX_ActiveContext()->layer.active->id * 8 ) ))) = ( ( *((SFR_TYPE *)(( (&GLCDL0MODE)  + ( GFX_ActiveContext()->layer.active->id * 8 ) ))) ) & \
-		~(1<<(_GLCDL0MODE_LAYEREN_POSITION)) ) | (0x1&(0))<<(_GLCDL0MODE_LAYEREN_POSITION);
-	}
-		
-	return GFX_SUCCESS;
+        PLIB_GLCD_LayerEnable(GFX_ActiveContext()->layer.active->id);
+    else
+        PLIB_GLCD_LayerDisable(GFX_ActiveContext()->layer.active->id);
+    
+    return GFX_SUCCESS;
 }
 
 static GFX_Result glcdInitialize(GFX_Context* context)
@@ -553,8 +552,8 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     uint32_t      leftMargin;
     uint32_t      upperMargin;
     uint32_t      stride;
-	uint32_t      layerCount;
-	uint32_t      i,j;
+    uint32_t      layerCount;
+    uint32_t      i,j;
 
     cntxt = context;
 
@@ -568,16 +567,16 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     context->hal.layerBufferCountSet = &layerBufferCountSet;
     context->hal.layerBufferAddressSet = &layerBufferAddressSet;
     context->hal.layerBufferAllocate = &layerBufferAllocate;
-	context->hal.layerBufferFree = &layerBufferFree;
-	context->hal.layerSwapped = &layerSwapped;
+    context->hal.layerBufferFree = &layerBufferFree;
+    context->hal.layerSwapped = &layerSwapped;
     context->hal.layerPositionSet = &layerPositionSet;
     context->hal.layerSizeSet = &layerSizeSet;
-	context->hal.layerEnabledSet = &layerEnabledSet;
+    context->hal.layerEnabledSet = &layerEnabledSet;
 
-	context->hal.layerAlphaAmountSet = &layerAlphaAmountSet;
-	context->hal.layerAlphaAmountGet = &layerAlphaAmountGet;
+    context->hal.layerAlphaAmountSet = &layerAlphaAmountSet;
+    context->hal.layerAlphaAmountGet = &layerAlphaAmountGet;
 
-	context->hal.colorModeSet = &colorModeSet;
+    context->hal.colorModeSet = &colorModeSet;
 <#if Val_FrameBufferColorMode == "LUT8">
     context->hal.globalPaletteSet = &globalPaletteSet;
 </#if>
@@ -593,84 +592,45 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     lowerMargin     = context->display_info->attributes.vert.front_porch;
 
     /* glcd initialization */
-	//Disable GLCD
-	GLCDMODEbits.LCDEN = 0;				
-	CFGCON2bits.GLCDPINEN = 0;	
+    PLIB_GLCD_Disable();
+    PLIB_GLCD_BackgroundColorSet( GFX_GLCD_BACKGROUND_COLOR);
+    PLIB_GLCD_VSyncInterruptDisable();
+    PLIB_GLCD_HSyncInterruptDisable();
+    PLIB_GLCD_RGBSequentialModeSet( 1<<31);
 
-	//Set Background
-    GLCDBGCOLOR = GFX_GLCD_BACKGROUND_COLOR;
-	
-	//Disable V-sync and H-sync interrupts
-    GLCDINTbits.VSYNCINT = 0;
-    GLCDINTbits.HSYNCINT = 0;
+    PLIB_GLCD_FrontPorchXYSet( xResolution + rightMargin, yResolution + lowerMargin);
+    PLIB_GLCD_BlankingXYSet( xResolution + rightMargin + hsyncLength, yResolution + lowerMargin + vsyncLength);
+    PLIB_GLCD_BackPorchXYSet( xResolution + rightMargin + hsyncLength + leftMargin, yResolution + lowerMargin + vsyncLength + upperMargin);
 
-<#if Val_FrameBufferColorMode == "RGB_565">
-	//RGB Output 565, 16 output pins
-	CFGCON2bits.GLCDMODE = 1;
-    GLCDMODEbits.RGBSEQ = 0;
-<#elseif Val_FrameBufferColorMode == "RGBA_8888">
-	//RGBA8888 or RGB888 output
-	CFGCON2bits.GLCDMODE = 0;
-    GLCDMODEbits.RGBSEQ = 0;
+    PLIB_GLCD_ClockDividerSet( 10);
+    PLIB_GLCD_ResolutionXYSet( xResolution, yResolution);
+
+    PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE );
+    PLIB_GLCD_SignalPolaritySet( GLCD_HSYNC_POLARITY_NEGATIVE );
+    PLIB_GLCD_PaletteGammaRampDisable();
+
+    PLIB_GLCD_Enable();
+
+<#if FrameBufferMemoryMode == "INT_SRAM">
+    <#list 0..(TotalNumLayers-1) as i>
+    drvLayer[${i}].baseaddr[0] = framebuffer_${i};
+    </#list>
+    <#if Val_DoubleBuffer == true>
+    <#list 0..(TotalNumLayers-1) as i>
+    drvLayer[${i}].baseaddr[1] = framebuffer1_${i};
+    </#list>
+</#if>
+<#else>
+    <#list 0..(TotalNumLayers-1) as i>
+    <#if Val_DoubleBuffer == true>
+    drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
+    drvLayer[${i}].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_DBL_BASEADDR;
+    <#else>
+    drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
+    </#if>
+    </#list>
 </#if>
 
-	//Set front porches
-    GLCDFPORCHbits.FPORCHX = xResolution + rightMargin;
-    GLCDFPORCHbits.FPORCHY = yResolution + lowerMargin;
-
-	//Set blanking
-    GLCDBLANKINGbits.BLANKINGX = xResolution + rightMargin + hsyncLength;
-    GLCDBLANKINGbits.BLANKINGY = yResolution + lowerMargin + vsyncLength;
-
-	//Set back porches
-    GLCDBPORCHbits.BPORCHX = xResolution + rightMargin + hsyncLength + leftMargin;
-    GLCDBPORCHbits.BPORCHY = yResolution + lowerMargin + vsyncLength + upperMargin;    
-
-	//Set clock divider
-	*((SFR_TYPE *)(&GLCDCLKCON)) = \
-        ( (*((SFR_TYPE *)(&GLCDCLKCON))) & ~(_GLCDCLKCON_CLKDIV_MASK) ) | ( (_GLCDCLKCON_CLKDIV_MASK)& \
-		((${PixelClockDivider}-1)<<(_GLCDCLKCON_CLKDIV_POSITION)) );
-
-	//Set Viewport Resolution
-    GLCDRESbits.RESX = xResolution;
-    GLCDRESbits.RESY = yResolution;
-
-    uint32_t mask = _GLCDMODE_PCLKPOL_MASK | _GLCDMODE_DEPOL_MASK |
-                    _GLCDMODE_HSYNCPOL_MASK | _GLCDMODE_VSYNCPOL_MASK;
-    <#if DisplayVSYNCNegative == true && DisplayHSYNCNegative == false>
-    GLCDMODE = GLCD_VSYNC_POLARITY_NEGATIVE & mask;
-    </#if>
-    <#if DisplayHSYNCNegative == true && DisplayVSYNCNegative == false>
-    GLCDMODE = GLCD_HSYNC_POLARITY_NEGATIVE & mask;
-    </#if>
-    <#if DisplayHSYNCNegative == true && DisplayVSYNCNegative == true>
-    GLCDMODE = GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE & mask;
-    </#if>
-
-	//Reset Palette Gamma Ramp
-    GLCDMODEbits.PGRAMPEN = 0;
-
-	//Enable GLCD
-	GLCDMODEbits.LCDEN = 1;				
-	CFGCON2bits.GLCDPINEN = 1;	
-
-<#list 0..(TotalNumLayers-1) as i>
-<#if CONFIG_DRV_GFX_GLCD_MEMORY_MODE == "Internal SRAM">
-	<#if Val_DoubleBuffer == true>
-    drvLayer[${i}].baseaddr[0] = frameBuffer[0];
-    drvLayer[${i}].baseaddr[1] = frameBuffer[1];
-	<#else>
-    drvLayer[${i}].baseaddr[0] = frameBuffer[0];
-	</#if>
-<#else>
-	<#if Val_DoubleBuffer == true>
-	drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
-	drvLayer[${i}].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_DBL_BASEADDR;
-	<#else>
-	drvLayer[${i}].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER${i}_BASEADDR;
-</#if></#if>
-</#list>
-    
     for (layerCount = 0; layerCount < context->layer.count; layerCount++)
     {
         drvLayer[layerCount].resx       = context->layer.layers[layerCount].rect.display.width;
@@ -689,103 +649,53 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         {
             for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
             {
-<#if Val_FrameBufferColorMode == "RGBA_8888">
-	<#if Val_DoubleBuffer == true>
-				*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-				*(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-	<#else>
-				*(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-	</#if>
-<#elseif Val_FrameBufferColorMode == "RGB_565">
-	<#if Val_DoubleBuffer == true>
-				*(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-				*(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-	<#else>
-				*(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-	</#if>
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGBA_8888">
+    <#if Val_DoubleBuffer == true>
+        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+        *(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+    <#else>
+        *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+    </#if>
+<#elseif Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_565">
+    <#if Val_DoubleBuffer == true>
+        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+        *(uint16_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+    <#else>
+        *(uint16_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+    </#if>
 </#if>
             }
         }
         
         stride = getColorModeStrideSize(drvLayer[layerCount].colorspace);
 
-		//Base Address Set        
-		*((SFR_TYPE *)(( (&GLCDL0BADDR) + ( layerCount * 8 ) )))  =  ( KVA_TO_PA( (void *) (uint32_t)drvLayer[layerCount].baseaddr[0]) );
+        PLIB_GLCD_LayerBaseAddressSet( layerCount, (uint32_t)drvLayer[layerCount].baseaddr[0]);
+        PLIB_GLCD_LayerStrideSet( layerCount, drvLayer[layerCount].resx * stride );
+        PLIB_GLCD_LayerResXYSet(layerCount, drvLayer[layerCount].resx, drvLayer[layerCount].resy );
+        PLIB_GLCD_LayerStartXYSet(layerCount, drvLayer[layerCount].startx, drvLayer[layerCount].starty );
+        PLIB_GLCD_LayerSizeXYSet(layerCount, drvLayer[layerCount].sizex, drvLayer[layerCount].sizey);
+        PLIB_GLCD_LayerGlobalAlphaSet(layerCount, drvLayer[layerCount].alpha);
+        PLIB_GLCD_LayerDestBlendFuncSet( layerCount, drvLayer[layerCount].dblend );
+        PLIB_GLCD_LayerSrcBlendFuncSet( layerCount, drvLayer[layerCount].sblend );
+        PLIB_GLCD_LayerColorModeSet( layerCount, drvLayer[layerCount].colorspace );
 
-		//Set layer stride
-		*((SFR_TYPE *)(( (&GLCDL0STRIDE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0STRIDE) + ( layerCount * 8 ) )))) & ~(_GLCDL0STRIDE_STRIDE_MASK) ) | \
-			( (_GLCDL0STRIDE_STRIDE_MASK)&((stride)<<(_GLCDL0STRIDE_STRIDE_POSITION)) );  
-
-		//Set Layer Resolution
-		*((SFR_TYPE *)(( (&GLCDL0RES) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0RES) + ( layerCount * 8 ) )))) & ~(_GLCDL0RES_RESX_MASK) ) | \
-			( (_GLCDL0RES_RESX_MASK)&((drvLayer[layerCount].resx)<<(_GLCDL0RES_RESX_POSITION)) );  
-    
-		*((SFR_TYPE *)(( (&GLCDL0RES) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0RES) + ( layerCount * 8 ) )))) & ~(_GLCDL0RES_RESY_MASK) ) | \
-			( (_GLCDL0RES_RESY_MASK)&((drvLayer[layerCount].resy)<<(_GLCDL0RES_RESY_POSITION)) ); 
-
-		//Set Layer Start X/Y
-		*((SFR_TYPE *)(( (&GLCDL0START) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0START) + ( layerCount * 8 ) )))) & ~(_GLCDL0START_STARTX_MASK) ) | \
-			( (_GLCDL0START_STARTX_MASK)&((drvLayer[layerCount].startx)<<(_GLCDL0START_STARTX_POSITION)) );  
-    
-		*((SFR_TYPE *)(( (&GLCDL0START) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0START) + ( layerCount * 8 ) )))) & ~(_GLCDL0START_STARTY_MASK) ) | \
-			( (_GLCDL0START_STARTY_MASK)&((drvLayer[layerCount].starty)<<(_GLCDL0START_STARTY_POSITION)) );  
-		
-		//Set Layer Size
-		*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( layerCount * 8 ) )))) & ~(_GLCDL0SIZE_SIZEX_MASK) ) | \
-			( (_GLCDL0SIZE_SIZEX_MASK)&((drvLayer[layerCount].sizex)<<(_GLCDL0SIZE_SIZEX_POSITION)) );  
-    
-		*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0SIZE) + ( layerCount * 8 ) )))) & ~(_GLCDL0SIZE_SIZEY_MASK) ) | \
-			( (_GLCDL0SIZE_SIZEY_MASK)&((drvLayer[layerCount].sizey)<<(_GLCDL0SIZE_SIZEY_POSITION)) );  
-
-		//Set Layer Global Alpha
-		*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) ))) = \
-				( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) )))) & ~(_GLCDL0MODE_ALPHA_MASK) ) \
-				| ( (_GLCDL0MODE_ALPHA_MASK)&((drvLayer[layerCount].alpha)<<(_GLCDL0MODE_ALPHA_POSITION)) );
-
-		//Set Layer Destinary Blending Function
-		*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) )))) & ~(_GLCDL0MODE_DESTBLEND_MASK) ) | \
-			( (_GLCDL0MODE_DESTBLEND_MASK)&(drvLayer[layerCount].dblend) );
-
-		//Set Layer Source Blending Function
-		*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) )))) & ~(_GLCDL0MODE_SRCBLEND_MASK) ) | \
-			( (_GLCDL0MODE_SRCBLEND_MASK)&(drvLayer[layerCount].sblend) );  
-
-		//Set Layer Color Mode
-		*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) ))) = \
-			( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( layerCount * 8 ) )))) & ~(_GLCDL0MODE_COLORMODE_MASK) ) | \
-			( (_GLCDL0MODE_COLORMODE_MASK)&(drvLayer[layerCount].colorspace) );
-
-    	// all layers off by default
+        // all layers off by default
         context->layer.layers[layerCount].enabled = GFX_FALSE;
     }
-	
-	SYS_INT_VectorPrioritySet(INT_VECTOR_GLCD, INT_PRIORITY_LEVEL1);
-    SYS_INT_VectorSubprioritySet(INT_VECTOR_GLCD, INT_SUBPRIORITY_LEVEL0);
-    SYS_INT_SourceStatusClear(INT_SOURCE_GLCD);
-    SYS_INT_SourceEnable(INT_SOURCE_GLCD);
 
     return GFX_SUCCESS;
 }
 
 static void layerSwapPending(GFX_Layer* layer)
 {
-	uint32_t l;
-	GFX_Context* context = GFX_ActiveContext();
+    uint32_t l;
+    GFX_Context* context = GFX_ActiveContext();
     GFX_Layer* lyr;
-	
-	if(context->layerSwapSync)
-	{
-		for(l = 0; l < context->layer.count; l++)
-		{
+    
+    if(context->layerSwapSync)
+    {
+    for(l = 0; l < context->layer.count; l++)
+    {
             lyr = &context->layer.layers[l];
             
             if(lyr->enabled == GFX_TRUE)
@@ -793,53 +703,47 @@ static void layerSwapPending(GFX_Layer* layer)
                 if(lyr->invalid == GFX_TRUE && lyr->swap == GFX_FALSE)
                     return;
             }
-		}
-	}
+    }
+    }
 
-    // enable vsync interrupt
-    GLCDINTbits.VSYNCINT = 1;
+    PLIB_GLCD_VSyncInterruptEnable(); // enable vsync interrupt
 
     waitingForVSync = GFX_TRUE;
     
-	// need to spin until vsync happens to ensure content does not get
-	// drawn to the wrong frame buffer
-    while(waitingForVSync == GFX_TRUE || (!GLCDSTATbits.ACTIVE) == true)
+    // need to spin until vsync happens to ensure content does not get
+    // drawn to the wrong frame buffer
+    while(waitingForVSync == GFX_TRUE ||
+          PLIB_GLCD_IsVerticalBlankingActive() == true)
     { }
 }
 
 // function that initialized the driver context
 GFX_Result driverGLCDContextInitialize(GFX_Context* context)
 {
-	// set driver-specific data initialization function address
-	context->hal.initialize = &glcdInitialize;
+    // set driver-specific data initialization function address
+    context->hal.initialize = &glcdInitialize;
 
-	// set driver-specific destroy function address
-	context->hal.destroy = &glcdDestroy;
-	
-	// vsync support
-	context->hal.layerSwapPending = &layerSwapPending; 
-	
-	return GFX_SUCCESS;
+    // set driver-specific destroy function address
+    context->hal.destroy = &glcdDestroy;
+    
+    // vsync support
+    context->hal.layerSwapPending = &layerSwapPending; 
+    
+    return GFX_SUCCESS;
 }
 
-void __ISR(_GLCD_VECTOR, ipl1AUTO) _IntHandlerVSync(void)
+void GLCD_Interrupt_Handler(void)
 {
-	// GLCD interrrupt vector calculation
-	uint32_t source = 192; //INT_SOURCE_GLCD
-    volatile uint32_t *IFSx = (volatile uint32_t *) (&IFS0 + ((0x10 * (source / 32)) / 4));
-    volatile uint32_t *IFSxCLR = (volatile uint32_t *)(IFSx + 1);
-
     uint32_t i;
     GFX_Context* context = GFX_ActiveContext();
     
-	// disable vsync interrupt
-    GLCDINTbits.VSYNCINT = 0;
-	
-	// Clears GLCD interrupt flag
-    *IFSxCLR = 1 << (source & 0x1f);
-    *IFSxCLR;
-    
-	// swap all pending layers
+    // disable vsync interrupt
+    PLIB_GLCD_VSyncInterruptDisable(); 
+
+    // clear interrupt flag
+    EVIC_SourceStatusClear(INT_SOURCE_GLCD);
+
+    // swap all pending layers
     for(i = 0; i < context->layer.count; i++)
     {
         if(context->layer.layers[i].swap == GFX_TRUE)
@@ -849,14 +753,11 @@ void __ISR(_GLCD_VECTOR, ipl1AUTO) _IntHandlerVSync(void)
         {
             context->layer.layers[i].alphaAmount = waitForAlphaSetting[i];
 
-			// Set Layer Global Alpha
-			*((SFR_TYPE *)(( (&GLCDL0MODE) + ( i * 8 ) ))) = \
-					( (*((SFR_TYPE *)(( (&GLCDL0MODE) + ( i * 8 ) )))) & ~(_GLCDL0MODE_ALPHA_MASK) ) \
-					| ( (_GLCDL0MODE_ALPHA_MASK)&(((uint8_t)waitForAlphaSetting[i])<<(_GLCDL0MODE_ALPHA_POSITION)) );
+            PLIB_GLCD_LayerGlobalAlphaSet(i, (uint8_t)waitForAlphaSetting[i]);
         }
     }
-	
-	waitingForVSync = GFX_FALSE;
+    
+    waitingForVSync = GFX_FALSE;
 }
 
 /**** End Hardware Abstraction Interfaces ****/
@@ -866,50 +767,6 @@ static int DRV_GFX_GLCD_Start()
 {
     return 0;
 }
-
-
-/* Unimplemented Cursor Feature
-
-void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, bool enable)
-{
-    if ( enable )
-    {
-        PLIB_GLCD_CursorEnable(GLCD_ID_0);
-        PLIB_GLCD_CursorXYSet(GLCD_ID_0, x, y);
-    } else 
-	{
-        PLIB_GLCD_CursorDisable(GLCD_ID_0);
-    }
-}
-
-void  DRV_GFX_GLCD_CursorImageSet(uint32_t * cursorImage)
-{
-    int addr;
-    int mask;
-    int shift;
-    int x, y;
-    int color;
-    uint32_t cursorData[128];
-
-    for(x=0;x<32;x++)
-        for(y=0;y<32;y++)
-        {
-            color = cursorImage[y*32+x] & 0xf;
-            shift = (x*4);
-            addr  = (y*4)+(x>>3);
-            mask  = (0xf << shift);
-            cursorData[addr] = (cursorData[addr] & ~mask) | (mask & (color << (shift) ));
-        }
-
-    PLIB_GLCD_CursorDataSet(GLCD_ID_0, cursorData );
-}
-
-void  DRV_GFX_GLCD_CursorPaletteSet(uint32_t * cursorPalette)
-{
-    PLIB_GLCD_CursorLUTSet( 0, cursorPalette );
-}
-
-*/
 
 /*******************************************************************************
  End of File

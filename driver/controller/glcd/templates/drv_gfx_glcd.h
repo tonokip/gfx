@@ -61,12 +61,9 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
           this file.
 */
 
-#include "system_config.h"
-#include "driver/driver_common.h"
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_driver_interface.h"
 #include "gfx/hal/inc/gfx_default_impl.h"
-#include "peripheral/glcd/plib_glcd.h"
 
 #ifdef __cplusplus
     extern "C" {
@@ -224,7 +221,7 @@ void DRV_GFX_GLCD_LayerColorSpaceSet(GLCD_LAYER_COLOR_MODE colorSpace);
 
 // *****************************************************************************
 /* Function:
-    void DRV_GFX_GLCD_LayerEnableSet(bool enable)
+    void DRV_GFX_GLCD_LayerEnableSet(GFX_Bool enable)
 
   Summary:
     Enables or disables the specified layer index based on the given enable flag.
@@ -244,7 +241,7 @@ void DRV_GFX_GLCD_LayerColorSpaceSet(GLCD_LAYER_COLOR_MODE colorSpace);
 
   Remarks:
 */
-void DRV_GFX_GLCD_LayerEnableSet(bool enable);
+void DRV_GFX_GLCD_LayerEnableSet(GFX_Bool enable);
 
 // *****************************************************************************
 /* Function:
@@ -299,7 +296,7 @@ void DRV_GFX_GLCD_LayerFrameBufferSet(uint32_t * frame);
 
 // *****************************************************************************
 /* Function:
-     void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, bool enable)
+     void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, GFX_Bool enable)
 
   Summary:
      Sets the position and enable state of the cursor.
@@ -322,7 +319,7 @@ void DRV_GFX_GLCD_LayerFrameBufferSet(uint32_t * frame);
 
   Remarks:
 */
-void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, bool enable);
+void  DRV_GFX_GLCD_CursorSetPosition(uint32_t x, uint32_t y, GFX_Bool enable);
 
 // *****************************************************************************
 /* Function:
