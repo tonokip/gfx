@@ -17,7 +17,7 @@
 | Driver | Name | Feature | 
 | --- | --- | --- |
 | LCDC| LCDC | Added LCDC Driver|
-| maXtouch| drv_maxtouch | Added LCDC Driver|
+| maXtouch| drv_maxtouch | Added maXtouch Configuration APIs|
 
 - **New Middleware/HAL support** - The following table provides the list of middleware and HAL support for different product families.
 
@@ -27,29 +27,25 @@
 | | Added backlight driver to GFX LCC driver|
 | | Added LCDC Component and driver in MHC|
 | | Added SSD1963 Component and Driver|
-| | Added RTOS support for Input System
-Service|
-| | Added ILI9488 SPI display driver support on
-E54|
-| | Fixed laRectArray_RemoveDuplicates()
-block when arr->size is 0|
-| | Fixed Color picker decimal value update for
-Alpha channel after setting the Hex value|
-| | Fixed Circular Gauge Widget - wrong order
-for laCircularGaugeWidget_SetValue() call|
+| | Added RTOS support for Input System Service|
+| | Added ILI9488 SPI display driver support on E54|
+| | Fixed laRectArray_RemoveDuplicates() block when arr->size is 0|
+| | Fixed Color picker decimal value update for Alpha channel after setting the Hex value|
+| | Fixed Circular Gauge Widget - wrong order for laCircularGaugeWidget_SetValue() call|
 
 - **New Graphics Application Templates** - The following table provides the list of middleware and HAL support for different product families.
 
 | Template | Description |
 | --- | --- |
-| aria_gfx_pda_tm4301b | "Aria Graphics w/ PDA TM4301B Display" -
-New to Harmony 3 |
-| aria_gfx_xplained_pro | "Aria Graphics w/ Xplained Pro Display" - New to Harmony 3 |
+| aria_gfx_pda_tm4301b | "Aria Graphics w/ PDA TM4301B Display"  |
+| aria_gfx_xplained_pro | "Aria Graphics w/ Xplained Pro Display" |
 
 - **New Board Support Packages (BSP)s** - The following table provides the list of middleware and HAL support for different product families.
 
 | BSP | Description |
 | --- | --- |
+| none | |
+
 
 - **New Applications** - The following table provides the list of middleware and HAL support for different product families.
 
@@ -102,4 +98,4 @@ The current known issues are as follows:
 - [MPLAB X IDE v5.10](https://www.microchip.com/mplab/mplab-x-ide)
 - [MPLAB XC32 C/C++ Compiler v2.15](https://www.microchip.com/mplab/compilers)
 - MPLAB X IDE plug-ins:
-- MPLAB Harmony Configurator (MHC) v3.1.0.
+- MPLAB Harmony Configurator (MHC) v.2.0.

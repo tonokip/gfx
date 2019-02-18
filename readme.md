@@ -1,4 +1,4 @@
-# MPLAB® Harmony 3 Chip Support Package
+# MPLAB® Harmony 3 GFX, Support Package
 
 MPLAB Harmony 3 is an extension of the MPLAB® ecosystem for creating
 embedded firmware solutions for Microchip 32-bit SAM and PIC microcontroller
@@ -10,7 +10,7 @@ and microprocessor devices.  Refer to the following links for more information.
  - [Microchip MPLAB Harmony Pages](https://microchip-mplab-harmony.github.io/)
 
 This repository contains the MPLAB® Harmony 3 Graphics Package (GFX).  The
-GFX supports a free fast to market graphics development environment microprocessor devices.  Refer to
+GFX supports a free fast to market, graphics development environment for Microchip 32-bit SAM and PIC microprocessor devices.  Refer to
 the following links for release notes, training materials, and interface
 reference information.
  - [Release Notes](./release_notes.md)
