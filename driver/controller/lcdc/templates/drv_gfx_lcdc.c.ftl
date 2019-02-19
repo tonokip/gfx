@@ -614,7 +614,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
 
 <#if BacklightPWMEnable == true>
     LCDC_WaitForSyncInProgress();
-    LCDC_SetPWMCompareValue(0xF0);
+    LCDC_SetPWMCompareValue(0xFF);
     LCDC_SetPWMSignalPolarity(LCDC_PWM_POLARITY);
     LCDC_SetPWMPrescaler(LCDC_PWM_PRESCALER);
 </#if>
