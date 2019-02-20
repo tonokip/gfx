@@ -51,16 +51,16 @@
           <Name dnOrder="1">drv_gfx_lcdc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/driver/lcdc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcdc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">439E9A146D752A48DF58164BA7DFC99A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">439E9A146D752A48DF58164BA7DFC99A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">40F5BB548FF4694536120AFDE7AB5A7D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">40F5BB548FF4694536120AFDE7AB5A7D</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8A7603E82B8E0581FAE0D3E9BF74B242</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8A7603E82B8E0581FAE0D3E9BF74B242</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1ADEFA5C99CD9DD9BB56F35E5348CA7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1ADEFA5C99CD9DD9BB56F35E5348CA7B</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -515,8 +515,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F66211D0423138BBB6434EE88F3F5032</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F66211D0423138BBB6434EE88F3F5032</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FF60CA0568D14C06FDE4E70CFD5AB11F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FF60CA0568D14C06FDE4E70CFD5AB11F</UserChecksum>
         </File>
         <File dnOrder="64">
           <Type dnOrder="0">SOURCE</Type>
@@ -620,7 +620,7 @@
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">0FA812EBBCF3C942CB2CF54BCCA9100B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0FA812EBBCF3C942CB2CF54BCCA9100B</UserChecksum>
+          <UserChecksum dnOrder="5">FFCB30C569F0225C883E23841C2D1E77</UserChecksum>
         </File>
         <File dnOrder="77">
           <Type dnOrder="0">SOURCE</Type>
@@ -1275,8 +1275,8 @@
           <Name dnOrder="1">plib_mmu.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/mmu/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/mmu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0276E23B4DF2AEC84426E7A7AE6A5F92</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0276E23B4DF2AEC84426E7A7AE6A5F92</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CA8A02E541FB5BBC2DB9FE7A35588B6F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CA8A02E541FB5BBC2DB9FE7A35588B6F</UserChecksum>
         </File>
         <File dnOrder="159">
           <Type dnOrder="0">SOURCE</Type>
@@ -1347,8 +1347,8 @@
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/system/cache/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/cache/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8861163BDCA0A27993A22F9EFFE95B3F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8861163BDCA0A27993A22F9EFFE95B3F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2B6EF5AAF13176F5A5E93B547721DB50</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2B6EF5AAF13176F5A5E93B547721DB50</UserChecksum>
         </File>
         <File dnOrder="168">
           <Type dnOrder="0">SOURCE</Type>
@@ -1611,8 +1611,8 @@
           <Name dnOrder="1">device_cache.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DE92713037D1259B70C0B072FF6F7568</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DE92713037D1259B70C0B072FF6F7568</UserChecksum>
+          <GeneratedChecksum dnOrder="4">18669A3AEE1115DA27AACDFADB1416ED</GeneratedChecksum>
+          <UserChecksum dnOrder="5">18669A3AEE1115DA27AACDFADB1416ED</UserChecksum>
         </File>
         <File dnOrder="201">
           <Type dnOrder="0">HEADER</Type>
@@ -1700,7 +1700,7 @@
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/inc/</PhysicalPath>
           <GeneratedChecksum dnOrder="4">03D6F07EA97DC28CB23E13A6D7F2D582</GeneratedChecksum>
-          <UserChecksum dnOrder="5">03D6F07EA97DC28CB23E13A6D7F2D582</UserChecksum>
+          <UserChecksum dnOrder="5">356FBC563AD8A30990B7701AB487EA10</UserChecksum>
         </File>
         <File dnOrder="212">
           <Type dnOrder="0">HEADER</Type>
@@ -2643,8 +2643,8 @@
           <Name dnOrder="1">plib_mmu.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/peripheral/mmu/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/mmu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F641667E440B1889213CD73FF19DB8BC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F641667E440B1889213CD73FF19DB8BC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">497F212892928092BEDF9990F02E636D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">497F212892928092BEDF9990F02E636D</UserChecksum>
         </File>
         <File dnOrder="330">
           <Type dnOrder="0">HEADER</Type>
