@@ -27,24 +27,24 @@
           <Name dnOrder="1">drv_gfx_lcdc.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/driver/lcdc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcdc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BB113FD88742B0F3118A7952B04762AD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BB113FD88742B0F3118A7952B04762AD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">06BCB5413291294842DB2E929955B74C</GeneratedChecksum>
+          <UserChecksum dnOrder="5">06BCB5413291294842DB2E929955B74C</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">035B609617EB1001AF0D4BD595F434B2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">035B609617EB1001AF0D4BD595F434B2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1ADEFA5C99CD9DD9BB56F35E5348CA7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1ADEFA5C99CD9DD9BB56F35E5348CA7B</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E81CF1A4F5B818DC4FD71814A9F2DFBD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E81CF1A4F5B818DC4FD71814A9F2DFBD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">56728194E73D695E178AF2B34855ADBB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">56728194E73D695E178AF2B34855ADBB</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -467,8 +467,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ED5C1646B8A8A6D74A9BCD1E753B34EB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ED5C1646B8A8A6D74A9BCD1E753B34EB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">25C254BF6143F30E330AC74F95C50F3A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">25C254BF6143F30E330AC74F95C50F3A</UserChecksum>
         </File>
         <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
@@ -1179,16 +1179,16 @@
           <Name dnOrder="1">plib_mmu.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/mmu/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/mmu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0276E23B4DF2AEC84426E7A7AE6A5F92</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0276E23B4DF2AEC84426E7A7AE6A5F92</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CA8A02E541FB5BBC2DB9FE7A35588B6F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CA8A02E541FB5BBC2DB9FE7A35588B6F</UserChecksum>
         </File>
         <File dnOrder="147">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_pio.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3F985618CEFFC1321C3BD4B32B7D1AF2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3F985618CEFFC1321C3BD4B32B7D1AF2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BA3CB6476BCC917FA8485B0D5A6A4B7F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BA3CB6476BCC917FA8485B0D5A6A4B7F</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1211,8 +1211,8 @@
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/cache/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/cache/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E960BFEEC33C8C799601CD86A8379BB0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E960BFEEC33C8C799601CD86A8379BB0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">2B6EF5AAF13176F5A5E93B547721DB50</GeneratedChecksum>
+          <UserChecksum dnOrder="5">2B6EF5AAF13176F5A5E93B547721DB50</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
@@ -1435,8 +1435,8 @@
           <Name dnOrder="1">device_cache.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DE92713037D1259B70C0B072FF6F7568</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DE92713037D1259B70C0B072FF6F7568</UserChecksum>
+          <GeneratedChecksum dnOrder="4">18669A3AEE1115DA27AACDFADB1416ED</GeneratedChecksum>
+          <UserChecksum dnOrder="5">18669A3AEE1115DA27AACDFADB1416ED</UserChecksum>
         </File>
         <File dnOrder="179">
           <Type dnOrder="0">HEADER</Type>
@@ -1475,8 +1475,8 @@
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9770A4C0480F3B5CCBBC180F193C54FC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9770A4C0480F3B5CCBBC180F193C54FC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A2D12C1907596C873BA91F3009960CF0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A2D12C1907596C873BA91F3009960CF0</UserChecksum>
         </File>
         <File dnOrder="184">
           <Type dnOrder="0">HEADER</Type>
@@ -2395,26 +2395,18 @@
           <Name dnOrder="1">plib_mmu.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/mmu/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/mmu/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F641667E440B1889213CD73FF19DB8BC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F641667E440B1889213CD73FF19DB8BC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">497F212892928092BEDF9990F02E636D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">497F212892928092BEDF9990F02E636D</UserChecksum>
         </File>
         <File dnOrder="299">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_pio.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/pio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">38C37C7683B8F027477860EB24566A77</GeneratedChecksum>
-          <UserChecksum dnOrder="5">38C37C7683B8F027477860EB24566A77</UserChecksum>
+          <GeneratedChecksum dnOrder="4">496839ADEA5A6836F9D076E49307382E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">496839ADEA5A6836F9D076E49307382E</UserChecksum>
         </File>
         <File dnOrder="300">
-          <Type dnOrder="0">HEADER</Type>
-          <Name dnOrder="1">plib_pio_pin.h</Name>
-          <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/pio/</LogicalPath>
-          <PhysicalPath dnOrder="3">/peripheral/pio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7B454A75264BEBEBF2DC35738CDECBE3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7B454A75264BEBEBF2DC35738CDECBE3</UserChecksum>
-        </File>
-        <File dnOrder="301">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc0.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/tc/</LogicalPath>
@@ -2422,7 +2414,7 @@
           <GeneratedChecksum dnOrder="4">888D98CF27C0AF2F986426B6EC73AF82</GeneratedChecksum>
           <UserChecksum dnOrder="5">888D98CF27C0AF2F986426B6EC73AF82</UserChecksum>
         </File>
-        <File dnOrder="302">
+        <File dnOrder="301">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_tc_common.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/tc/</LogicalPath>
@@ -2430,7 +2422,7 @@
           <GeneratedChecksum dnOrder="4">A2F276372C68B8EE16FB32AE5DF1BE37</GeneratedChecksum>
           <UserChecksum dnOrder="5">A2F276372C68B8EE16FB32AE5DF1BE37</UserChecksum>
         </File>
-        <File dnOrder="303">
+        <File dnOrder="302">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_twihs1.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/twihs/</LogicalPath>
@@ -2438,7 +2430,7 @@
           <GeneratedChecksum dnOrder="4">6225BA8D0864000807959254C48853A4</GeneratedChecksum>
           <UserChecksum dnOrder="5">6225BA8D0864000807959254C48853A4</UserChecksum>
         </File>
-        <File dnOrder="304">
+        <File dnOrder="303">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">plib_twihs_master.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/peripheral/twihs/</LogicalPath>
@@ -2446,7 +2438,7 @@
           <GeneratedChecksum dnOrder="4">6C35835C0E606C77662E3C611566519F</GeneratedChecksum>
           <UserChecksum dnOrder="5">6C35835C0E606C77662E3C611566519F</UserChecksum>
         </File>
-        <File dnOrder="305">
+        <File dnOrder="304">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pmc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2454,7 +2446,7 @@
           <GeneratedChecksum dnOrder="4">D001ED4D04E4CAB45C53BBDF917B597E</GeneratedChecksum>
           <UserChecksum dnOrder="5">D001ED4D04E4CAB45C53BBDF917B597E</UserChecksum>
         </File>
-        <File dnOrder="306">
+        <File dnOrder="305">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ptc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2462,7 +2454,7 @@
           <GeneratedChecksum dnOrder="4">20ABB839154EF1D5F1C12FA51A2418F0</GeneratedChecksum>
           <UserChecksum dnOrder="5">20ABB839154EF1D5F1C12FA51A2418F0</UserChecksum>
         </File>
-        <File dnOrder="307">
+        <File dnOrder="306">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">pwm.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2470,7 +2462,7 @@
           <GeneratedChecksum dnOrder="4">368DFE9BA2A172479033022E464D921B</GeneratedChecksum>
           <UserChecksum dnOrder="5">368DFE9BA2A172479033022E464D921B</UserChecksum>
         </File>
-        <File dnOrder="308">
+        <File dnOrder="307">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">qspi.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2478,7 +2470,7 @@
           <GeneratedChecksum dnOrder="4">BF3B6909A8F0BF89502582B49C54CBD8</GeneratedChecksum>
           <UserChecksum dnOrder="5">BF3B6909A8F0BF89502582B49C54CBD8</UserChecksum>
         </File>
-        <File dnOrder="309">
+        <File dnOrder="308">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">rstc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2486,7 +2478,7 @@
           <GeneratedChecksum dnOrder="4">0F213508CA396BF6F53035B8D9AFA0E9</GeneratedChecksum>
           <UserChecksum dnOrder="5">0F213508CA396BF6F53035B8D9AFA0E9</UserChecksum>
         </File>
-        <File dnOrder="310">
+        <File dnOrder="309">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">rtc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2494,7 +2486,7 @@
           <GeneratedChecksum dnOrder="4">FACB77466D656AEB71B2D070264B0D84</GeneratedChecksum>
           <UserChecksum dnOrder="5">FACB77466D656AEB71B2D070264B0D84</UserChecksum>
         </File>
-        <File dnOrder="311">
+        <File dnOrder="310">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">rxlp.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2502,7 +2494,7 @@
           <GeneratedChecksum dnOrder="4">F78A4042E393995F17BBB720B6291FA2</GeneratedChecksum>
           <UserChecksum dnOrder="5">F78A4042E393995F17BBB720B6291FA2</UserChecksum>
         </File>
-        <File dnOrder="312">
+        <File dnOrder="311">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sama5d27.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/pio/</LogicalPath>
@@ -2510,7 +2502,7 @@
           <GeneratedChecksum dnOrder="4">CD544AFA714212F458ECC664C71A2C36</GeneratedChecksum>
           <UserChecksum dnOrder="5">CD544AFA714212F458ECC664C71A2C36</UserChecksum>
         </File>
-        <File dnOrder="313">
+        <File dnOrder="312">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sckc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2518,7 +2510,7 @@
           <GeneratedChecksum dnOrder="4">E045B769F1159DE80FD3C9AFBE69D811</GeneratedChecksum>
           <UserChecksum dnOrder="5">E045B769F1159DE80FD3C9AFBE69D811</UserChecksum>
         </File>
-        <File dnOrder="314">
+        <File dnOrder="313">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sdmmc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2526,7 +2518,7 @@
           <GeneratedChecksum dnOrder="4">80611322406A53F09AD30A3CE5BD127F</GeneratedChecksum>
           <UserChecksum dnOrder="5">80611322406A53F09AD30A3CE5BD127F</UserChecksum>
         </File>
-        <File dnOrder="315">
+        <File dnOrder="314">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">secumod.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2534,7 +2526,7 @@
           <GeneratedChecksum dnOrder="4">C47B29A869E8508E040E281AAA82C104</GeneratedChecksum>
           <UserChecksum dnOrder="5">C47B29A869E8508E040E281AAA82C104</UserChecksum>
         </File>
-        <File dnOrder="316">
+        <File dnOrder="315">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sfc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2542,7 +2534,7 @@
           <GeneratedChecksum dnOrder="4">D45F55EF4E8C42F16E8A36DC5992EB58</GeneratedChecksum>
           <UserChecksum dnOrder="5">D45F55EF4E8C42F16E8A36DC5992EB58</UserChecksum>
         </File>
-        <File dnOrder="317">
+        <File dnOrder="316">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sfr.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2550,7 +2542,7 @@
           <GeneratedChecksum dnOrder="4">D0E8A2F28BCEB56A605FC3C2A70F5CF2</GeneratedChecksum>
           <UserChecksum dnOrder="5">D0E8A2F28BCEB56A605FC3C2A70F5CF2</UserChecksum>
         </File>
-        <File dnOrder="318">
+        <File dnOrder="317">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sfrbu.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2558,7 +2550,7 @@
           <GeneratedChecksum dnOrder="4">BDEBE6557E04E33B03E8B95E67AE50B8</GeneratedChecksum>
           <UserChecksum dnOrder="5">BDEBE6557E04E33B03E8B95E67AE50B8</UserChecksum>
         </File>
-        <File dnOrder="319">
+        <File dnOrder="318">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sha.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2566,7 +2558,7 @@
           <GeneratedChecksum dnOrder="4">8CEEE08E137C603AE5934E06BF9F2046</GeneratedChecksum>
           <UserChecksum dnOrder="5">8CEEE08E137C603AE5934E06BF9F2046</UserChecksum>
         </File>
-        <File dnOrder="320">
+        <File dnOrder="319">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">shdwc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2574,7 +2566,7 @@
           <GeneratedChecksum dnOrder="4">6A3DB03C7A7EA5A0FB7DC29A567CF4D8</GeneratedChecksum>
           <UserChecksum dnOrder="5">6A3DB03C7A7EA5A0FB7DC29A567CF4D8</UserChecksum>
         </File>
-        <File dnOrder="321">
+        <File dnOrder="320">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">smc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2582,7 +2574,7 @@
           <GeneratedChecksum dnOrder="4">B1EE31CD3800E1EC00E92F93653C122C</GeneratedChecksum>
           <UserChecksum dnOrder="5">B1EE31CD3800E1EC00E92F93653C122C</UserChecksum>
         </File>
-        <File dnOrder="322">
+        <File dnOrder="321">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">spi.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2590,7 +2582,7 @@
           <GeneratedChecksum dnOrder="4">BAC6F35768BE0767C1A8D400B37DE11B</GeneratedChecksum>
           <UserChecksum dnOrder="5">BAC6F35768BE0767C1A8D400B37DE11B</UserChecksum>
         </File>
-        <File dnOrder="323">
+        <File dnOrder="322">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">ssc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2598,7 +2590,7 @@
           <GeneratedChecksum dnOrder="4">E17A443B3CC28C9FE8FAD1A4DE2E27C3</GeneratedChecksum>
           <UserChecksum dnOrder="5">E17A443B3CC28C9FE8FAD1A4DE2E27C3</UserChecksum>
         </File>
-        <File dnOrder="324">
+        <File dnOrder="323">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_cache.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/cache/</LogicalPath>
@@ -2606,7 +2598,7 @@
           <GeneratedChecksum dnOrder="4">AFAAF7D896D57569CA4CF73BB3339481</GeneratedChecksum>
           <UserChecksum dnOrder="5">AFAAF7D896D57569CA4CF73BB3339481</UserChecksum>
         </File>
-        <File dnOrder="325">
+        <File dnOrder="324">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2614,7 +2606,7 @@
           <GeneratedChecksum dnOrder="4">E46CD03317E52EB0289EEDFD75955911</GeneratedChecksum>
           <UserChecksum dnOrder="5">E46CD03317E52EB0289EEDFD75955911</UserChecksum>
         </File>
-        <File dnOrder="326">
+        <File dnOrder="325">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_gesture.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2622,7 +2614,7 @@
           <GeneratedChecksum dnOrder="4">A863ECB93BE89231B0C73CF6EBBD8E8D</GeneratedChecksum>
           <UserChecksum dnOrder="5">A863ECB93BE89231B0C73CF6EBBD8E8D</UserChecksum>
         </File>
-        <File dnOrder="327">
+        <File dnOrder="326">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_keyboard.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2630,7 +2622,7 @@
           <GeneratedChecksum dnOrder="4">B849D1EDFFC06E0D56A93A80AE8A76D1</GeneratedChecksum>
           <UserChecksum dnOrder="5">B849D1EDFFC06E0D56A93A80AE8A76D1</UserChecksum>
         </File>
-        <File dnOrder="328">
+        <File dnOrder="327">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_listener.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2638,7 +2630,7 @@
           <GeneratedChecksum dnOrder="4">AADAC81B4AD8450C9E63F467185E6071</GeneratedChecksum>
           <UserChecksum dnOrder="5">AADAC81B4AD8450C9E63F467185E6071</UserChecksum>
         </File>
-        <File dnOrder="329">
+        <File dnOrder="328">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_mouse.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2646,7 +2638,7 @@
           <GeneratedChecksum dnOrder="4">6F84622A4CCDDC262324A8CBD73C8137</GeneratedChecksum>
           <UserChecksum dnOrder="5">6F84622A4CCDDC262324A8CBD73C8137</UserChecksum>
         </File>
-        <File dnOrder="330">
+        <File dnOrder="329">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_input_touch.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/input</LogicalPath>
@@ -2654,7 +2646,7 @@
           <GeneratedChecksum dnOrder="4">B7CD2C89CC5063C931217935D7FA1460</GeneratedChecksum>
           <UserChecksum dnOrder="5">B7CD2C89CC5063C931217935D7FA1460</UserChecksum>
         </File>
-        <File dnOrder="331">
+        <File dnOrder="330">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/int/</LogicalPath>
@@ -2662,7 +2654,7 @@
           <GeneratedChecksum dnOrder="4">1329D2DEB6E5AC9515AD4D165C60DC74</GeneratedChecksum>
           <UserChecksum dnOrder="5">1329D2DEB6E5AC9515AD4D165C60DC74</UserChecksum>
         </File>
-        <File dnOrder="332">
+        <File dnOrder="331">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_int_mapping.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/int/</LogicalPath>
@@ -2670,7 +2662,7 @@
           <GeneratedChecksum dnOrder="4">D5F3C8B8016B12FF575690A3CC761BFD</GeneratedChecksum>
           <UserChecksum dnOrder="5">D5F3C8B8016B12FF575690A3CC761BFD</UserChecksum>
         </File>
-        <File dnOrder="333">
+        <File dnOrder="332">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/time/</LogicalPath>
@@ -2678,7 +2670,7 @@
           <GeneratedChecksum dnOrder="4">5B1C0201624F17531B457421E59F38CD</GeneratedChecksum>
           <UserChecksum dnOrder="5">5B1C0201624F17531B457421E59F38CD</UserChecksum>
         </File>
-        <File dnOrder="334">
+        <File dnOrder="333">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_definitions.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/time/</LogicalPath>
@@ -2686,7 +2678,7 @@
           <GeneratedChecksum dnOrder="4">F8165EAB8A02643100386E92CD7EB3C6</GeneratedChecksum>
           <UserChecksum dnOrder="5">F8165EAB8A02643100386E92CD7EB3C6</UserChecksum>
         </File>
-        <File dnOrder="335">
+        <File dnOrder="334">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">sys_time_local.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/time/</LogicalPath>
@@ -2694,7 +2686,7 @@
           <GeneratedChecksum dnOrder="4">62F39464265EC34979649F761FB4FE57</GeneratedChecksum>
           <UserChecksum dnOrder="5">62F39464265EC34979649F761FB4FE57</UserChecksum>
         </File>
-        <File dnOrder="336">
+        <File dnOrder="335">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/</LogicalPath>
@@ -2702,7 +2694,7 @@
           <GeneratedChecksum dnOrder="4">BE95B4F134C5C929787B9DA6FDBF3501</GeneratedChecksum>
           <UserChecksum dnOrder="5">BE95B4F134C5C929787B9DA6FDBF3501</UserChecksum>
         </File>
-        <File dnOrder="337">
+        <File dnOrder="336">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_common.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/</LogicalPath>
@@ -2710,7 +2702,7 @@
           <GeneratedChecksum dnOrder="4">C3F5136D520DAC4416512EBFCCA023C3</GeneratedChecksum>
           <UserChecksum dnOrder="5">C3F5136D520DAC4416512EBFCCA023C3</UserChecksum>
         </File>
-        <File dnOrder="338">
+        <File dnOrder="337">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">system_module.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/</LogicalPath>
@@ -2718,7 +2710,7 @@
           <GeneratedChecksum dnOrder="4">1C75A8A6B60598A2FD0D533F57839B72</GeneratedChecksum>
           <UserChecksum dnOrder="5">1C75A8A6B60598A2FD0D533F57839B72</UserChecksum>
         </File>
-        <File dnOrder="339">
+        <File dnOrder="338">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">tc.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2726,7 +2718,7 @@
           <GeneratedChecksum dnOrder="4">D2FE84EE78EA500B23ED5CBF34AE3112</GeneratedChecksum>
           <UserChecksum dnOrder="5">D2FE84EE78EA500B23ED5CBF34AE3112</UserChecksum>
         </File>
-        <File dnOrder="340">
+        <File dnOrder="339">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">tdes.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2734,7 +2726,7 @@
           <GeneratedChecksum dnOrder="4">D577BA440F1E7E04E24C756131FBC858</GeneratedChecksum>
           <UserChecksum dnOrder="5">D577BA440F1E7E04E24C756131FBC858</UserChecksum>
         </File>
-        <File dnOrder="341">
+        <File dnOrder="340">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>
@@ -2742,7 +2734,7 @@
           <GeneratedChecksum dnOrder="4">7580F49FC7F75F3E27B28C078A294688</GeneratedChecksum>
           <UserChecksum dnOrder="5">7580F49FC7F75F3E27B28C078A294688</UserChecksum>
         </File>
-        <File dnOrder="342">
+        <File dnOrder="341">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">trng.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2750,7 +2742,7 @@
           <GeneratedChecksum dnOrder="4">F4590630257431A81CFA32CA0BB26EDF</GeneratedChecksum>
           <UserChecksum dnOrder="5">F4590630257431A81CFA32CA0BB26EDF</UserChecksum>
         </File>
-        <File dnOrder="343">
+        <File dnOrder="342">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">twihs.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2758,7 +2750,7 @@
           <GeneratedChecksum dnOrder="4">E42EBC3FEB067F4FA14690DE9B0D0812</GeneratedChecksum>
           <UserChecksum dnOrder="5">E42EBC3FEB067F4FA14690DE9B0D0812</UserChecksum>
         </File>
-        <File dnOrder="344">
+        <File dnOrder="343">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">uart.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2766,7 +2758,7 @@
           <GeneratedChecksum dnOrder="4">885F075F75AF33786CD11ABC610E30A6</GeneratedChecksum>
           <UserChecksum dnOrder="5">885F075F75AF33786CD11ABC610E30A6</UserChecksum>
         </File>
-        <File dnOrder="345">
+        <File dnOrder="344">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">udphs.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2774,7 +2766,7 @@
           <GeneratedChecksum dnOrder="4">CC03410FC995CA12B92E57951662CEB0</GeneratedChecksum>
           <UserChecksum dnOrder="5">CC03410FC995CA12B92E57951662CEB0</UserChecksum>
         </File>
-        <File dnOrder="346">
+        <File dnOrder="345">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">uhphs.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2782,7 +2774,7 @@
           <GeneratedChecksum dnOrder="4">FAF45D1EE8AFA245ACF96DB64F4C27BF</GeneratedChecksum>
           <UserChecksum dnOrder="5">FAF45D1EE8AFA245ACF96DB64F4C27BF</UserChecksum>
         </File>
-        <File dnOrder="347">
+        <File dnOrder="346">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">wdt.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2790,7 +2782,7 @@
           <GeneratedChecksum dnOrder="4">951795FA70E72E265EB6F6716780DB39</GeneratedChecksum>
           <UserChecksum dnOrder="5">951795FA70E72E265EB6F6716780DB39</UserChecksum>
         </File>
-        <File dnOrder="348">
+        <File dnOrder="347">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">xdmac.h</Name>
           <LogicalPath dnOrder="2">packs/ATSAMA5D27_DFP/component/</LogicalPath>
@@ -2798,7 +2790,7 @@
           <GeneratedChecksum dnOrder="4">62FF7F27983186A419D65A536D50C8FE</GeneratedChecksum>
           <UserChecksum dnOrder="5">62FF7F27983186A419D65A536D50C8FE</UserChecksum>
         </File>
-        <File dnOrder="349">
+        <File dnOrder="348">
           <Type dnOrder="0">LINKER</Type>
           <Name dnOrder="1">ddr.icf</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/</LogicalPath>

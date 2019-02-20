@@ -2806,9 +2806,6 @@
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\peripheral\pio\plib_pio.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\peripheral\pio\plib_pio_pin.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\src\config\lcdc_rgba8888_mxt_a5d2\peripheral\tc\plib_tc0.h</name>
             </file>
             <file>

@@ -121,7 +121,7 @@ LCDC_DMA_DESC __attribute__ ((aligned (32))) channelDesc1 __REGION__;
 LCDC_DMA_DESC __attribute__ ((aligned (32))) channelDesc2 __REGION__;
 
 const char* DRIVER_NAME = "LCDC";
-static uint32_t supported_color_format = LCDC_DEFAULT_GFX_COLOR_MODE;
+static uint32_t supported_color_format = GFX_COLOR_MASK_RGBA_8888;
 uint32_t state;
 
 static DISPLAY_LAYER drvLayer[LCDC_NUM_LAYERS];
@@ -495,7 +495,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
     LCDC_SetHSYNCPolarity(LCDC_HSYNC_POLARITY);
 
     LCDC_WaitForSyncInProgress();
-    LCDC_SetPWMCompareValue(0xF0);
+    LCDC_SetPWMCompareValue(0xFF);
     LCDC_SetPWMSignalPolarity(LCDC_PWM_POLARITY);
     LCDC_SetPWMPrescaler(LCDC_PWM_PRESCALER);
 
