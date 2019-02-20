@@ -43,16 +43,16 @@
           <Name dnOrder="1">drv_spi.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/driver/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/spi/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FE7BA61F5DD7F97995BEC50CDE726406</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FE7BA61F5DD7F97995BEC50CDE726406</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0F15370E7C460AEF2C48F624E26B3058</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0F15370E7C460AEF2C48F624E26B3058</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_spi_local.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/driver/spi/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/spi/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">5613B6C5D8B9CAD82F4703B789101408</GeneratedChecksum>
-          <UserChecksum dnOrder="5">5613B6C5D8B9CAD82F4703B789101408</UserChecksum>
+          <GeneratedChecksum dnOrder="4">097A6213CF0F4D2B7E49DE6ADA05C7B3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">097A6213CF0F4D2B7E49DE6ADA05C7B3</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -459,8 +459,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4C48B428EBBBF07D1148F585ECC5A3FE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4C48B428EBBBF07D1148F585ECC5A3FE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3496F83F3E046D2C1EEF4B1F0BA333E7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3496F83F3E046D2C1EEF4B1F0BA333E7</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -1387,8 +1387,8 @@
           <Name dnOrder="1">device_cache.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6D7E462FF2BAB390D1846FBB4F1BBEB6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6D7E462FF2BAB390D1846FBB4F1BBEB6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">9ED2219AFB6FDB7A6E9A066E468DAE8B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">9ED2219AFB6FDB7A6E9A066E468DAE8B</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>

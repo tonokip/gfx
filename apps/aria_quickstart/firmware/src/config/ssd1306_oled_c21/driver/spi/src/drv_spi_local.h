@@ -149,8 +149,9 @@ typedef struct _DRV_SPI_TRANSFER_OBJ
     /* Number of bytes to be written */
     size_t                          txSize;
 
-    /* Number of bytes to be written */
+    /* Number of bytes to be read */
     size_t                          rxSize;
+
 
     /* Current status of the buffer */
     DRV_SPI_TRANSFER_EVENT          event;
@@ -253,6 +254,14 @@ typedef struct
     const uint32_t*                 remapClockPolarity;
 
     const uint32_t*                 remapClockPhase;
+
+    bool                            spiTxReadyIntStatus;
+    bool                            spiTxCompleteIntStatus;
+    bool                            spiRxIntStatus;
+    bool                            dmaRxChannelIntStatus;
+    bool                            dmaTxChannelIntStatus;
+    bool                            spiInterruptStatus;
+    bool                            dmaInterruptStatus;
 
     const DRV_SPI_INTERRUPT_SOURCES*      interruptSources;
 
