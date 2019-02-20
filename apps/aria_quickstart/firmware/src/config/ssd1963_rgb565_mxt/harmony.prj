@@ -35,16 +35,16 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">035B609617EB1001AF0D4BD595F434B2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">035B609617EB1001AF0D4BD595F434B2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1ADEFA5C99CD9DD9BB56F35E5348CA7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1ADEFA5C99CD9DD9BB56F35E5348CA7B</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_i2c_local.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E81CF1A4F5B818DC4FD71814A9F2DFBD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E81CF1A4F5B818DC4FD71814A9F2DFBD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">56728194E73D695E178AF2B34855ADBB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">56728194E73D695E178AF2B34855ADBB</UserChecksum>
         </File>
         <File dnOrder="5">
           <Type dnOrder="0">SOURCE</Type>
@@ -459,8 +459,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">82E1516737BB161AD56BAB25B03A0422</GeneratedChecksum>
-          <UserChecksum dnOrder="5">82E1516737BB161AD56BAB25B03A0422</UserChecksum>
+          <GeneratedChecksum dnOrder="4">555C4C97FE4EEABF7A1A7F0F342E5B7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">555C4C97FE4EEABF7A1A7F0F342E5B7B</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -1219,8 +1219,8 @@
           <Name dnOrder="1">sys_cache.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/system/cache/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/cache/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">25FF22692E153473C0D04CBCEAE87FEA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">25FF22692E153473C0D04CBCEAE87FEA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">BFFD794B7A8ACF7103CEC494FF24EB72</GeneratedChecksum>
+          <UserChecksum dnOrder="5">BFFD794B7A8ACF7103CEC494FF24EB72</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
@@ -1419,8 +1419,8 @@
           <Name dnOrder="1">device_cache.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DE0BBDD8687E108E911CE625D8E93CDB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DE0BBDD8687E108E911CE625D8E93CDB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3ED2C1D9BD295E1B1E1864B52AE72D95</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3ED2C1D9BD295E1B1E1864B52AE72D95</UserChecksum>
         </File>
         <File dnOrder="177">
           <Type dnOrder="0">HEADER</Type>
@@ -1483,8 +1483,8 @@
           <Name dnOrder="1">drv_i2c_definitions.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9770A4C0480F3B5CCBBC180F193C54FC</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9770A4C0480F3B5CCBBC180F193C54FC</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A2D12C1907596C873BA91F3009960CF0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A2D12C1907596C873BA91F3009960CF0</UserChecksum>
         </File>
         <File dnOrder="185">
           <Type dnOrder="0">HEADER</Type>
