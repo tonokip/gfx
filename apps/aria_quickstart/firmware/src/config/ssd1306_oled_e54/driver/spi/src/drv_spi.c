@@ -45,6 +45,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
+#include <string.h>
 #include "configuration.h"
 #include "driver/spi/drv_spi.h"
 
@@ -56,9 +57,8 @@
 
 /* This is the driver instance object array. */
 static DRV_SPI_OBJ gDrvSPIObj[DRV_SPI_INSTANCES_NUMBER];
-
 /* Dummy data being transmitted by TX DMA */
-static uint8_t __attribute__((aligned(32))) txDummyData[32];
+static CACHE_ALIGN uint8_t txDummyData[32];
 
 // *****************************************************************************
 // *****************************************************************************
@@ -90,53 +90,47 @@ static void _DRV_SPI_DisableInterrupts(DRV_SPI_OBJ* dObj)
 {
     bool interruptStatus;
     const DRV_SPI_INTERRUPT_SOURCES* intInfo = dObj->interruptSources;
-
+    const DRV_SPI_MULTI_INT_SRC* multiVector = &intInfo->intSources.multi;
     /* Disable DMA interrupt */
     if((dObj->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (dObj->rxDMAChannel != SYS_DMA_CHANNEL_NONE))
     {
         if (intInfo->isSingleIntSrc == true)
         {
-            /* Disable DMA interrupt */
-            SYS_INT_SourceDisable(intInfo->intSources.dmaInterrupt);
+            dObj->dmaInterruptStatus = SYS_INT_SourceDisable(intInfo->intSources.dmaInterrupt);
         }
         else
         {
             /* Disable DMA interrupt sources */
             interruptStatus = SYS_INT_Disable();
 
-            SYS_INT_SourceDisable(intInfo->intSources.multi.dmaTxChannelInt);
-            SYS_INT_SourceDisable(intInfo->intSources.multi.dmaRxChannelInt);
+            dObj->dmaTxChannelIntStatus = SYS_INT_SourceDisable(multiVector->dmaTxChannelInt);
+            dObj->dmaRxChannelIntStatus = SYS_INT_SourceDisable(multiVector->dmaRxChannelInt);
 
             SYS_INT_Restore(interruptStatus);
         }
     }
     else
     {
+        /* Disable SPI interrupt */
         if (intInfo->isSingleIntSrc == true)
         {
-            /* Disable SPI interrupt */
-            SYS_INT_SourceDisable(intInfo->intSources.spiInterrupt);
+            dObj->spiInterruptStatus = SYS_INT_SourceDisable(intInfo->intSources.spiInterrupt);
         }
         else
         {
-            /* Disable SPI interrupt sources */
             interruptStatus = SYS_INT_Disable();
-
-            if(intInfo->intSources.multi.spiTxReadyInt != -1)
+            if(multiVector->spiTxReadyInt != -1)
             {
-                SYS_INT_SourceDisable(intInfo->intSources.multi.spiTxReadyInt);
+                dObj->spiTxReadyIntStatus = SYS_INT_SourceDisable(multiVector->spiTxReadyInt);
             }
-
-            if(intInfo->intSources.multi.spiTxCompleteInt != -1)
+            if(multiVector->spiTxCompleteInt != -1)
             {
-                SYS_INT_SourceDisable(intInfo->intSources.multi.spiTxCompleteInt);
+                dObj->spiTxCompleteIntStatus = SYS_INT_SourceDisable(multiVector->spiTxCompleteInt);
             }
-
-            if(intInfo->intSources.multi.spiRxInt != -1)
+            if(multiVector->spiRxInt != -1)
             {
-                SYS_INT_SourceDisable(intInfo->intSources.multi.spiRxInt);
+                dObj->spiRxIntStatus = SYS_INT_SourceDisable(multiVector->spiRxInt);
             }
-
             SYS_INT_Restore(interruptStatus);
         }
     }
@@ -146,52 +140,47 @@ static void _DRV_SPI_EnableInterrupts(DRV_SPI_OBJ* dObj)
 {
     bool interruptStatus;
     const DRV_SPI_INTERRUPT_SOURCES* intInfo = dObj->interruptSources;
-
+    const DRV_SPI_MULTI_INT_SRC* multiVector = &intInfo->intSources.multi;
     /* Enable DMA interrupt */
     if((dObj->txDMAChannel != SYS_DMA_CHANNEL_NONE) && (dObj->rxDMAChannel != SYS_DMA_CHANNEL_NONE))
     {
         if (intInfo->isSingleIntSrc == true)
         {
-            SYS_INT_SourceEnable(intInfo->intSources.dmaInterrupt);
+            SYS_INT_SourceRestore(intInfo->intSources.dmaInterrupt, dObj->dmaInterruptStatus);
         }
         else
         {
             interruptStatus = SYS_INT_Disable();
 
             /* Enable DMA interrupt sources */
-            SYS_INT_SourceEnable(intInfo->intSources.multi.dmaTxChannelInt);
-            SYS_INT_SourceEnable(intInfo->intSources.multi.dmaRxChannelInt);
+            SYS_INT_SourceRestore(multiVector->dmaTxChannelInt, dObj->dmaTxChannelIntStatus);
+            SYS_INT_SourceRestore(multiVector->dmaRxChannelInt, dObj->dmaRxChannelIntStatus);
 
             SYS_INT_Restore(interruptStatus);
         }
     }
     else
     {
+        /* Enable SPI interrupt */
         if (intInfo->isSingleIntSrc == true)
         {
-            /* Enable SPI interrupt */
-            SYS_INT_SourceEnable(intInfo->intSources.spiInterrupt);
+            SYS_INT_SourceRestore(intInfo->intSources.spiInterrupt, dObj->spiInterruptStatus);
         }
         else
         {
-            /* Enable SPI interrupt sources */
             interruptStatus = SYS_INT_Disable();
-
-            if(intInfo->intSources.multi.spiTxReadyInt != -1)
+            if(multiVector->spiTxReadyInt != -1)
             {
-                SYS_INT_SourceEnable(intInfo->intSources.multi.spiTxReadyInt);
+                SYS_INT_SourceRestore(multiVector->spiTxReadyInt, dObj->spiTxReadyIntStatus);
             }
-
-            if(intInfo->intSources.multi.spiTxCompleteInt != -1)
+            if(multiVector->spiTxCompleteInt != -1)
             {
-                SYS_INT_SourceEnable(intInfo->intSources.multi.spiTxCompleteInt);
+                SYS_INT_SourceRestore(multiVector->spiTxCompleteInt,dObj->spiTxCompleteIntStatus);
             }
-
-            if(intInfo->intSources.multi.spiRxInt != -1)
+            if(multiVector->spiRxInt != -1)
             {
-                SYS_INT_SourceEnable(intInfo->intSources.multi.spiRxInt);
+                SYS_INT_SourceRestore(multiVector->spiRxInt, dObj->spiRxIntStatus);
             }
-
             SYS_INT_Restore(interruptStatus);
         }
     }
@@ -199,10 +188,9 @@ static void _DRV_SPI_EnableInterrupts(DRV_SPI_OBJ* dObj)
 
 static bool _DRV_SPI_ResourceLock(DRV_SPI_OBJ * dObj)
 {
-    /* We will allow buffers to be added in the interrupt
-       context of the SPI driver. But we must make
-       sure that if we are inside interrupt, then we should
-       not modify mutexes. */
+    /* We will allow buffers to be added in the interrupt context of the SPI
+     * driver. But we must make sure that if we are inside interrupt, then we
+     * should not modify mutexes. */
     if(dObj->interruptNestingCount == 0)
     {
         /* Grab a mutex. This is okay because we are not in an interrupt context */
@@ -210,20 +198,19 @@ static bool _DRV_SPI_ResourceLock(DRV_SPI_OBJ * dObj)
         {
             return false;
         }
+        /* We will disable interrupts so that the queue status does not get updated asynchronously */
+        _DRV_SPI_DisableInterrupts(dObj);
     }
-
-    /* We will disable interrupts so that the queue status does not get updated asynchronously */
-    _DRV_SPI_DisableInterrupts(dObj);
 
     return true;
 }
 
 static void _DRV_SPI_ResourceUnlock(DRV_SPI_OBJ * dObj)
 {
-    _DRV_SPI_EnableInterrupts(dObj);
-
     if(dObj->interruptNestingCount == 0)
     {
+        _DRV_SPI_EnableInterrupts(dObj);
+
         /* Release mutex */
         OSAL_MUTEX_Unlock(&(dObj->mutexTransferObjects));
     }
@@ -373,7 +360,7 @@ static void _DRV_SPI_RemoveClientTransfersFromList(
     while (*pTransferObjList != NULL)
     {
         // Do not remove the buffer object that is already in process
-        if (((*pTransferObjList)->clientHandle == clientObj->clientHandle) && \
+        if (((*pTransferObjList)->clientHandle == clientObj->clientHandle) && 
                 ((*pTransferObjList)->currentState == DRV_SPI_TRANSFER_OBJ_IS_IN_QUEUE))
         {
             // Save the node to be deleted off the list
@@ -405,13 +392,14 @@ static void _DRV_SPI_StartDMATransfer(DRV_SPI_TRANSFER_OBJ* transferObj)
     (void) size;
 
     /* Get the client object that owns this buffer */
-    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)\
+    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)
     [transferObj->clientHandle & DRV_SPI_INDEX_MASK];
 
     dObj = (DRV_SPI_OBJ*)&gDrvSPIObj[clientObj->drvIndex];
 
     dObj->txDummyDataSize = 0;
     dObj->rxDummyDataSize = 0;
+
 
     if (transferObj->rxSize >= transferObj->txSize)
     {
@@ -476,8 +464,6 @@ static void _DRV_SPI_StartDMATransfer(DRV_SPI_TRANSFER_OBJ* transferObj)
         {
             size = transferObj->txSize;
         }
-
-
         SYS_DMA_ChannelTransfer(dObj->txDMAChannel, (const void *)transferObj->pTransmitData, (const void*)dObj->txAddress, size);
     }
 }
@@ -490,7 +476,7 @@ static void _DRV_SPI_UpdateTransferSetupAndAssertCS(
     DRV_SPI_CLIENT_OBJ* clientObj;
 
     /* Get the client object that owns this buffer */
-    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)\
+    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)
     [transferObj->clientHandle & DRV_SPI_INDEX_MASK];
 
     dObj = (DRV_SPI_OBJ*)&gDrvSPIObj[clientObj->drvIndex];
@@ -530,7 +516,7 @@ static void _DRV_SPI_PlibCallbackHandler(uintptr_t contextHandle)
     transferObj = _DRV_SPI_TransferObjListGet(dObj);
 
     /* Get the client object that owns this buffer */
-    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)\
+    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)
     [transferObj->clientHandle & DRV_SPI_INDEX_MASK];
 
     /* De-assert Chip Select if it is defined by user */
@@ -593,6 +579,7 @@ static void _DRV_SPI_PlibCallbackHandler(uintptr_t contextHandle)
     }
 }
 
+
 void _DRV_SPI_TX_DMA_CallbackHandler(
     SYS_DMA_TRANSFER_EVENT event,
     uintptr_t context
@@ -603,7 +590,7 @@ void _DRV_SPI_TX_DMA_CallbackHandler(
     DRV_SPI_OBJ* dObj;
 
     /* Get the client object that owns this buffer */
-    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)\
+    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)
     [transferObj->clientHandle & DRV_SPI_INDEX_MASK];
 
     dObj = &gDrvSPIObj[clientObj->drvIndex];
@@ -633,7 +620,7 @@ void _DRV_SPI_RX_DMA_CallbackHandler(
     DRV_SPI_TRANSFER_HANDLE transferHandle;
 
     /* Get the client object that owns this buffer */
-    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)\
+    clientObj = &((DRV_SPI_CLIENT_OBJ *)gDrvSPIObj[((transferObj->clientHandle & DRV_SPI_INSTANCE_MASK) >> 8)].clientObjPool)
     [transferObj->clientHandle & DRV_SPI_INDEX_MASK];
 
     dObj = &gDrvSPIObj[clientObj->drvIndex];
@@ -641,7 +628,7 @@ void _DRV_SPI_RX_DMA_CallbackHandler(
     if (dObj->rxDummyDataSize > 0)
     {
         /* Configure DMA to receive dummy data */
-        SYS_DMA_AddressingModeSetup(dObj->txDMAChannel, SYS_DMA_SOURCE_ADDRESSING_MODE_FIXED, SYS_DMA_DESTINATION_ADDRESSING_MODE_FIXED);
+        SYS_DMA_AddressingModeSetup(dObj->rxDMAChannel, SYS_DMA_SOURCE_ADDRESSING_MODE_FIXED, SYS_DMA_DESTINATION_ADDRESSING_MODE_FIXED);
 
         SYS_DMA_ChannelTransfer(dObj->rxDMAChannel, (const void*)dObj->rxAddress, (const void *)&dObj->rxDummyData, dObj->rxDummyDataSize);
 
@@ -669,6 +656,7 @@ void _DRV_SPI_RX_DMA_CallbackHandler(
             {
                 transferObj->event = DRV_SPI_TRANSFER_EVENT_ERROR;
             }
+
             /* Save the transfer handle and event locally before freeing the transfer object*/
             transferEvent = transferObj->event;
             transferHandle = transferObj->transferHandle;
@@ -725,6 +713,7 @@ SYS_MODULE_OBJ DRV_SPI_Initialize (
 {
     DRV_SPI_OBJ* dObj = (DRV_SPI_OBJ*)NULL;
     DRV_SPI_INIT* spiInit = (DRV_SPI_INIT*)init;
+
     size_t  txDummyDataIdx;
 
     /* Validate the request */
@@ -877,7 +866,7 @@ DRV_HANDLE DRV_SPI_Open(
             dObj->nClients ++;
 
             /* Generate the client handle */
-            clientObj->clientHandle = (DRV_HANDLE)_DRV_SPI_MAKE_HANDLE(dObj->spiTokenCount, \
+            clientObj->clientHandle = (DRV_HANDLE)_DRV_SPI_MAKE_HANDLE(dObj->spiTokenCount, 
                     (uint8_t)drvIndex, iClient);
 
             /* Increment the instance specific token counter */
@@ -1017,7 +1006,7 @@ bool DRV_SPI_TransferSetup (
         setupRemap.clockPhase = (DRV_SPI_CLOCK_PHASE)dObj->remapClockPhase[setup->clockPhase];
         setupRemap.dataBits = (DRV_SPI_DATA_BITS)dObj->remapDataBits[setup->dataBits];
 
-        if ((setupRemap.clockPhase != DRV_SPI_CLOCK_PHASE_INVALID) && (setupRemap.clockPolarity != DRV_SPI_CLOCK_POLARITY_INVALID) \
+        if ((setupRemap.clockPhase != DRV_SPI_CLOCK_PHASE_INVALID) && (setupRemap.clockPolarity != DRV_SPI_CLOCK_POLARITY_INVALID) 
                 && (setupRemap.dataBits != DRV_SPI_DATA_BITS_INVALID))
         {
             /* Save the required setup in client object which can be used while
@@ -1041,7 +1030,6 @@ void DRV_SPI_WriteReadTransferAdd (
     size_t rxSize,
     DRV_SPI_TRANSFER_HANDLE* const transferHandle
 )
-
 {
     DRV_SPI_CLIENT_OBJ* clientObj = (DRV_SPI_CLIENT_OBJ*)NULL;
     DRV_SPI_OBJ* dObj = (DRV_SPI_OBJ*)NULL;
@@ -1185,7 +1173,3 @@ DRV_SPI_TRANSFER_EVENT DRV_SPI_TransferStatusGet(const DRV_SPI_TRANSFER_HANDLE t
         return dObj->transferObjPool[transferIndex].event;
     }
 }
-
-/*******************************************************************************
- End of File
-*/
