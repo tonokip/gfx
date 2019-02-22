@@ -2,15 +2,45 @@
 ## GFX Release v3.2.0
 ### NEW FEATURES
 
-- **Development kit support** - The following table provides  applications available for different development kits
 
-| Development Kits | applications |
+- **GFX Contents** - This GFX release consist of apps, displays, drivers, hardware abstractions, input, middleware, and templates. The following table lists the contents in this GFX release.
+
+| Category | Component | Description | 
+| --- | --- | ---- |
+| apps | aria_quickstart | Getting started in Graphics | Release Type |
+|      | aria_benchmark | Metrics on Aria Graphics Library | Beta |
+|      | aria_mxt_configure | Example maXTouch configuration | Beta |
+|      | aria_showcase | Example of Aria Graphics Library Widgets| Beta |
+|      | aria_showcase_reloaded | Example of Aria Graphics Library Widgets| Beta |Beta |
+|      | aria_vending_machine | Example Vending Machine UI | 
+|      | aria_weather_forecast | Example weather UI | Beta |
+| displays | ATMXT-XPRO-480x320 | ATMXT Xplained Pro 480x320| Beta |
+|      | ATOLED1_XPRO-128x32 | AT OLED Xplained Pro 128x32| Beta |
+|      | PDA TM4301B 480x272| PDA 4.3" 480x272 | Beta |
+|  drivers    | glcd | Graphics 3 Layer Display Driver | Beta |
+|      | ili9488| Display Driver for the ili9488 Controller |Beta | 
+|      | interface | Display Driver interface driver | Beta |
+|      | LCC | Display Driver for the LCC software Controller| Beta |
+|      | LCDC | Display Driver for the LCDC Controller| Beta |
+|      | ssd1306 | Display Driver for the ssd1306 Controller  | Beta |
+|      | ssd1963 | Display Driver for the ssd1963 Controller |     Beta |
+|  hal    | hal | Aria Hardware Abstration Layer | Beta |
+|  input    | maxtouch | Microchip maXTouch Touch Input Driver | Beta |
+|  middleware    | aria | Harmony Graphics Middleware Solution | Beta |
+| templates   | aria_gfx_oled1_xpro | MHC for oled xpro| Beta |
+|             | aria_gfx_pda_tm4301b| MHC config for pda | Beta |
+|             | aria_gfx_xplained_pro| MHC config for xpro | Beta |
+|             | common| MHC config for common board |Beta |
+
+
+- **New Applications** - The following table provides the list of new applications.
+
+| Application | Description | 
 | --- | --- |
-| [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMC21-XPRO) | aria_quickstart |
-| [SAM D20 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD20-XPRO) | aria_quickstart |
-| [SAM D21 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD21-XPRO) | aria_quickstart |
-| [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAME70-XULT) | aria_quickstart |
-| [SAM V71 Xplained Ultra Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMV71-XULT) | aria_quickstart |
+| aria_mxt_configure | maXTouch configuration | 
+| aria_flash |  Widgets and advance capabilities|
+| aria_flash (redisign) | Circular and graphing widgets| 
+| aria_benchmark | Metrics on graphics operations | 
 
 - **New driver support** - The following table provides the list of new support for graphics and input drivers.
 
@@ -19,7 +49,7 @@
 | LCDC| LCDC | Added LCDC Driver|
 | maXtouch| drv_maxtouch | Added maXtouch Configuration APIs|
 
-- **New Middleware/HAL support** - The following table provides the list of middleware and HAL support for different product families.
+- **New Middleware/HAL support** - The following table provides the list of added middleware and HAL content.
 
 | Middleware/HAL | Additions | 
 | --- | --- |
@@ -33,38 +63,28 @@
 | | Fixed Color picker decimal value update for Alpha channel after setting the Hex value|
 | | Fixed Circular Gauge Widget - wrong order for laCircularGaugeWidget_SetValue() call|
 
-- **New Graphics Application Templates** - The following table provides the list of middleware and HAL support for different product families.
+- **New Graphics Application Templates** - The following table provides the list of new MHC templates for use within MHC.
 
 | Template | Description |
 | --- | --- |
 | aria_gfx_pda_tm4301b | "Aria Graphics w/ PDA TM4301B Display"  |
 | aria_gfx_xplained_pro | "Aria Graphics w/ Xplained Pro Display" |
 
-- **New Board Support Packages (BSP)s** - The following table provides the list of middleware and HAL support for different product families.
+- **New Board Support Packages (BSP)s** - The following table provides the list of new MHC board support packages for use within MHC.
 
 | BSP | Description |
 | --- | --- |
 | none | |
 
-
-- **New Applications** - The following table provides the list of middleware and HAL support for different product families.
-
-| Application | Description | 
-| --- | --- |
-| aria_mxt_configure | maXTouch configuration | 
-| aria_flash |  Widgets and advance capabilities|
-| aria_flash (redisign) | Circular and graphing widgets| 
-| aria_benchmark | Metrics on graphics operations | 
-
-- **New Development Interfaces** - The following table provides the list of middleware and HAL support for different product families.
+- **New Development Interfaces** - The following table provides the list of new interface tools support.
 
 | Interface Tool | Description |
 | --- | --- |
 | MPLAB Harmony 3 Interactive Help | Added interactive help menu using Show User Manual Mouse Right-click  |
 
-- **Development kit support** - The following table provides number of peripheral library application available for different development kits
+- **Development kit support** - The following table provides  applications available for different development kits.
 
-| Development Kit | applications |
+| Development Kits | applications |
 | --- | --- |
 | [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMC21-XPRO) | aria_quickstart |
 | [SAM D20 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD20-XPRO) | aria_quickstart |
