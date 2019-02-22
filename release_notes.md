@@ -5,8 +5,8 @@
 
 - **GFX Contents** - This GFX release consist of apps, displays, drivers, hardware abstractions, input, middleware, and templates. The following table lists the contents in this GFX release.
 
-| Category | Component | Description | 
-| --- | --- | ---- |
+| Category | Component | Description | Release Type | 
+| --- | --- | ---- |---- |
 | apps | aria_quickstart | Getting started in Graphics | Release Type |
 |      | aria_benchmark | Metrics on Aria Graphics Library | Beta |
 |      | aria_mxt_configure | Example maXTouch configuration | Beta |
