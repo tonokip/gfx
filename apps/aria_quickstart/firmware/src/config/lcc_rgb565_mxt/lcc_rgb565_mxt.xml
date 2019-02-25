@@ -6308,6 +6308,8 @@
               <Value dnOrder="7" id="gfx_driver_lcc" priority="1" value="true"/>
               <Value dnOrder="8" id="gfx_driver_lcc" priority="1" value="true"/>
               <Value dnOrder="9" id="gfx_driver_lcc" priority="1" value="true"/>
+              <Value dnOrder="10" id="gfx_driver_lcc" priority="1" value="true"/>
+              <Value dnOrder="11" id="gfx_driver_lcc" priority="1" value="true"/>
             </Dynamic>
           </Values>
         </Boolean>
@@ -6667,6 +6669,8 @@
               <Value dnOrder="4" id="gfx_hal" priority="1" value="6250000"/>
               <Value dnOrder="5" id="gfx_hal" priority="1" value="6250000"/>
               <Value dnOrder="6" id="gfx_hal" priority="1" value="6250000"/>
+              <Value dnOrder="7" id="gfx_hal" priority="1" value="6250000"/>
+              <Value dnOrder="8" id="gfx_hal" priority="1" value="6250000"/>
             </Dynamic>
           </Values>
         </Integer>

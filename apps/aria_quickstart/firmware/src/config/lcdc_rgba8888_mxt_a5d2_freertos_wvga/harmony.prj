@@ -403,8 +403,8 @@
           <Name dnOrder="1">gfxu_image_raw_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0801810E039133FFA4D7E92B7A1A7460</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0801810E039133FFA4D7E92B7A1A7460</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6AA78F4DD202953D04F915092DD94E43</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6AA78F4DD202953D04F915092DD94E43</UserChecksum>
         </File>
         <File dnOrder="50">
           <Type dnOrder="0">SOURCE</Type>
@@ -419,8 +419,8 @@
           <Name dnOrder="1">gfxu_image_rle_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CA501D8A1452656A8908DF1080FC0580</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CA501D8A1452656A8908DF1080FC0580</UserChecksum>
+          <GeneratedChecksum dnOrder="4">98ABE6FE390AC01285D3F37FBA82D19A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">98ABE6FE390AC01285D3F37FBA82D19A</UserChecksum>
         </File>
         <File dnOrder="52">
           <Type dnOrder="0">SOURCE</Type>
@@ -619,8 +619,8 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0FA812EBBCF3C942CB2CF54BCCA9100B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">FFCB30C569F0225C883E23841C2D1E77</UserChecksum>
+          <GeneratedChecksum dnOrder="4">30549F58EED572A3A1AB9182A73AE7F9</GeneratedChecksum>
+          <UserChecksum dnOrder="5">30549F58EED572A3A1AB9182A73AE7F9</UserChecksum>
         </File>
         <File dnOrder="77">
           <Type dnOrder="0">SOURCE</Type>
@@ -1699,8 +1699,8 @@
           <Name dnOrder="1">gfx_color.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2_freertos_wvga/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">03D6F07EA97DC28CB23E13A6D7F2D582</GeneratedChecksum>
-          <UserChecksum dnOrder="5">356FBC563AD8A30990B7701AB487EA10</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34EFDE5A865EDDC717CF3EA42DFF8415</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34EFDE5A865EDDC717CF3EA42DFF8415</UserChecksum>
         </File>
         <File dnOrder="212">
           <Type dnOrder="0">HEADER</Type>

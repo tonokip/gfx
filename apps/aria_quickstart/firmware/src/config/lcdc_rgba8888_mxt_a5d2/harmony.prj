@@ -363,8 +363,8 @@
           <Name dnOrder="1">gfxu_image_raw_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0801810E039133FFA4D7E92B7A1A7460</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0801810E039133FFA4D7E92B7A1A7460</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6AA78F4DD202953D04F915092DD94E43</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6AA78F4DD202953D04F915092DD94E43</UserChecksum>
         </File>
         <File dnOrder="45">
           <Type dnOrder="0">SOURCE</Type>
@@ -379,8 +379,8 @@
           <Name dnOrder="1">gfxu_image_rle_external.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CA501D8A1452656A8908DF1080FC0580</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CA501D8A1452656A8908DF1080FC0580</UserChecksum>
+          <GeneratedChecksum dnOrder="4">98ABE6FE390AC01285D3F37FBA82D19A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">98ABE6FE390AC01285D3F37FBA82D19A</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
@@ -555,8 +555,8 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">FD711C1B10E8CDEB4D6A3048C66F3E62</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AEF0ADB9C39676460505593D28362FF9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">56353253896B64554257511701293587</GeneratedChecksum>
+          <UserChecksum dnOrder="5">56353253896B64554257511701293587</UserChecksum>
         </File>
         <File dnOrder="69">
           <Type dnOrder="0">SOURCE</Type>
@@ -1515,8 +1515,8 @@
           <Name dnOrder="1">gfx_color.h</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">03D6F07EA97DC28CB23E13A6D7F2D582</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4ED090C1ADF83D6D9F52D63B307F0BDD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34EFDE5A865EDDC717CF3EA42DFF8415</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34EFDE5A865EDDC717CF3EA42DFF8415</UserChecksum>
         </File>
         <File dnOrder="189">
           <Type dnOrder="0">HEADER</Type>

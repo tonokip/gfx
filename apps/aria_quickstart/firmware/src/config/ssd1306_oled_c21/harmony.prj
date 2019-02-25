@@ -363,8 +363,8 @@
           <Name dnOrder="1">gfxu_image_raw_external.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0801810E039133FFA4D7E92B7A1A7460</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0801810E039133FFA4D7E92B7A1A7460</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6AA78F4DD202953D04F915092DD94E43</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6AA78F4DD202953D04F915092DD94E43</UserChecksum>
         </File>
         <File dnOrder="45">
           <Type dnOrder="0">SOURCE</Type>
@@ -379,8 +379,8 @@
           <Name dnOrder="1">gfxu_image_rle_external.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">CA501D8A1452656A8908DF1080FC0580</GeneratedChecksum>
-          <UserChecksum dnOrder="5">CA501D8A1452656A8908DF1080FC0580</UserChecksum>
+          <GeneratedChecksum dnOrder="4">98ABE6FE390AC01285D3F37FBA82D19A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">98ABE6FE390AC01285D3F37FBA82D19A</UserChecksum>
         </File>
         <File dnOrder="47">
           <Type dnOrder="0">SOURCE</Type>
@@ -547,8 +547,8 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3BCE4C4B930DAD098D1EF5173D48A237</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3BCE4C4B930DAD098D1EF5173D48A237</UserChecksum>
+          <GeneratedChecksum dnOrder="4">83FE922E2C57A9C67C1D1DF5F51AA4FE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">83FE922E2C57A9C67C1D1DF5F51AA4FE</UserChecksum>
         </File>
         <File dnOrder="68">
           <Type dnOrder="0">SOURCE</Type>
@@ -1531,8 +1531,8 @@
           <Name dnOrder="1">gfx_color.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">03D6F07EA97DC28CB23E13A6D7F2D582</GeneratedChecksum>
-          <UserChecksum dnOrder="5">03D6F07EA97DC28CB23E13A6D7F2D582</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34EFDE5A865EDDC717CF3EA42DFF8415</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34EFDE5A865EDDC717CF3EA42DFF8415</UserChecksum>
         </File>
         <File dnOrder="191">
           <Type dnOrder="0">HEADER</Type>
