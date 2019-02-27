@@ -166,7 +166,7 @@ def instantiateComponent(comp):
 
 	DisplayHSYNCNegative = comp.createBooleanSymbol("DisplayHSYNCNegative", DisplaySettingsMenu)
 	DisplayHSYNCNegative.setLabel("HSYNC Polarity Positive?")
-	DisplayHSYNCNegative.setDescription("Indicates if this display requries postive HSYNC polarity.")
+	DisplayHSYNCNegative.setDescription("Indicates if this display requries positive HSYNC polarity.")
 	DisplayHSYNCNegative.setDefaultValue(False)
 
 	DisplayDataEnable = comp.createBooleanSymbol("DisplayDataEnable", DisplaySettingsMenu)
