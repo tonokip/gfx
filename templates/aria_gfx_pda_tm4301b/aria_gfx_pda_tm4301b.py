@@ -28,6 +28,7 @@ execfile(Module.getPath() + "../common/display_utils.py")
 
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_A5D2_Xplained_Ultra.py")
+execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 
 def enableConfigPins(bspID, configID, enable):
 	if (enable == True):
