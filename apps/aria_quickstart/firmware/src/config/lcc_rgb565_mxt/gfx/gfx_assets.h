@@ -62,39 +62,53 @@ extern "C" {
  *****************************************************************************/
 /*********************************
  * GFX Image Asset
- * Name:   NewHarmonyLogo
- * Size:   300x180 pixels
- * Mode:   RGB_888
- * Format: JPEG
+ * Name:   NewHarmonyLogo_Small
+ * Size:   172x120 pixels
+ * Mode:   INDEX_8
+ * Format: RAW
  ***********************************/
-extern GFXU_ImageAsset NewHarmonyLogo;
+extern GFXU_ImageAsset NewHarmonyLogo_Small;
+	
+/*****************************************************************************
+ * MPLAB Harmony Graphics Palette Assets
+ *****************************************************************************/
+/*********************************
+ * GFX Palette Asset
+ * Name:   NewHarmonyLogo_Small_palette
+ * Colors: 131
+ * Format: RGB_565
+ ***********************************/
+extern GFXU_PaletteAsset NewHarmonyLogo_Small_palette;
 	
 /*****************************************************************************
  * MPLAB Harmony Graphics Font Assets
  *****************************************************************************/
 /*********************************
  * GFX Font Asset
- * Name:         TimesNewRoman18
- * Height:       22
- * Style:        Bold
- * Glyph Count:  13
- * Range Count:  9
- * Glyph Ranges: 0x46-0x47
-			     0x51
-			     0x58
-			     0x5F
+ * Name:         NotoSans_Bold
+ * Height:       24
+ * Style:        Plain
+ * Glyph Count:  21
+ * Range Count:  12
+ * Glyph Ranges: 0x20
+			     0x41-0x43
+			     0x47-0x48
+			     0x4C-0x4D
+			     0x50
 			     0x61
 			     0x63
-			     0x69
-			     0x6B
-			     0x72-0x75
+			     0x65
+			     0x68-0x69
+			     0x6D-0x70
+			     0x72-0x73
+			     0x79
  ***********************************/
-extern GFXU_FontAsset TimesNewRoman18;
+extern GFXU_FontAsset NotoSans_Bold;
 	
 /*********************************
  * GFX Font Asset
- * Name:         TimesNewRoman12
- * Height:       14
+ * Name:         NotoSans_Regular
+ * Height:       21
  * Style:        Plain
  * Glyph Count:  16
  * Range Count:  12
@@ -104,14 +118,14 @@ extern GFXU_FontAsset TimesNewRoman18;
 			     0x4D
 			     0x52
 			     0x61
-			     0x63
-			     0x65
-			     0x67-0x68
-			     0x6B
-			     0x6E
-			     0x72-0x75
+			     0x64-0x66
+			     0x69
+			     0x6E-0x6F
+			     0x72
+			     0x74-0x75
+			     0x79
  ***********************************/
-extern GFXU_FontAsset TimesNewRoman12;
+extern GFXU_FontAsset NotoSans_Regular;
 	
 /*****************************************************************************
  * MPLAB Harmony Graphics String Table
@@ -127,8 +141,8 @@ extern GFXU_FontAsset TimesNewRoman12;
 #define language_default    0
 
 // string IDs
-#define string_GFX_Quickstart    0
-#define string_Instructions    1
+#define string_Slogan    0
+#define string_TitleString    1
  
 extern GFXU_StringTableAsset stringTable;
 

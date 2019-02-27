@@ -41,41 +41,22 @@
 
 #include "gfx/libaria/libaria_init.h"
 
-laScheme defaultScheme;
-laLabelWidget* LabelWidget1;
-laImageWidget* ImageWidget1;
-laButtonWidget* ButtonWidget1;
+laImageWidget* LogoWidget;
+laLabelWidget* TitleLabel;
+laButtonWidget* SloganButton;
 
 
-static void ScreenCreate_default(laScreen* screen);
+static void ScreenCreate_screen1(laScreen* screen);
 
 
 int32_t libaria_initialize(void)
 {
     laScreen* screen;
 
-    laScheme_Initialize(&defaultScheme, GFX_COLOR_MODE_RGB_565);
-    defaultScheme.base = 0xC67A;
-    defaultScheme.highlight = 0xC67A;
-    defaultScheme.highlightLight = 0xFFFF;
-    defaultScheme.shadow = 0x8410;
-    defaultScheme.shadowDark = 0x4208;
-    defaultScheme.foreground = 0x0;
-    defaultScheme.foregroundInactive = 0xD71C;
-    defaultScheme.foregroundDisabled = 0x8410;
-    defaultScheme.background = 0xFFFF;
-    defaultScheme.backgroundInactive = 0xD71C;
-    defaultScheme.backgroundDisabled = 0xC67A;
-    defaultScheme.text = 0x0;
-    defaultScheme.textHighlight = 0x1F;
-    defaultScheme.textHighlightText = 0xFFFF;
-    defaultScheme.textInactive = 0xD71C;
-    defaultScheme.textDisabled = 0x8C92;
-
-    GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCU);
+    GFX_Set(GFXF_DRAW_PIPELINE_MODE, GFX_PIPELINE_GCUGPU);
     laContext_SetStringTable(&stringTable);
 
-    screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_default);
+    screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_screen1);
     laContext_AddScreen(screen);
 
     laContext_SetActiveScreen(0);
@@ -83,7 +64,7 @@ int32_t libaria_initialize(void)
 	return 0;
 }
 
-static void ScreenCreate_default(laScreen* screen)
+static void ScreenCreate_screen1(laScreen* screen)
 {
     laLayer* layer0;
 
@@ -92,33 +73,32 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_SetSize((laWidget*)layer0, 480, 272);
     laWidget_SetBackgroundType((laWidget*)layer0, LA_WIDGET_BACKGROUND_FILL);
     laLayer_SetBufferCount(layer0, 1);
-    laLayer_SetVSync(layer0, LA_FALSE);
 
     laScreen_SetLayer(screen, 0, layer0);
 
-    LabelWidget1 = laLabelWidget_New();
-    laWidget_SetPosition((laWidget*)LabelWidget1, 146, 1);
-    laWidget_SetSize((laWidget*)LabelWidget1, 179, 39);
-    laWidget_SetBackgroundType((laWidget*)LabelWidget1, LA_WIDGET_BACKGROUND_NONE);
-    laWidget_SetBorderType((laWidget*)LabelWidget1, LA_WIDGET_BORDER_NONE);
-    laLabelWidget_SetText(LabelWidget1, laString_CreateFromID(string_GFX_Quickstart));
-    laWidget_AddChild((laWidget*)layer0, (laWidget*)LabelWidget1);
+    LogoWidget = laImageWidget_New();
+    laWidget_SetPosition((laWidget*)LogoWidget, 151, 48);
+    laWidget_SetSize((laWidget*)LogoWidget, 184, 136);
+    laWidget_SetBackgroundType((laWidget*)LogoWidget, LA_WIDGET_BACKGROUND_NONE);
+    laWidget_SetBorderType((laWidget*)LogoWidget, LA_WIDGET_BORDER_NONE);
+    laImageWidget_SetImage(LogoWidget, &NewHarmonyLogo_Small);
+    laWidget_AddChild((laWidget*)layer0, (laWidget*)LogoWidget);
 
-    ImageWidget1 = laImageWidget_New();
-    laWidget_SetPosition((laWidget*)ImageWidget1, 113, 39);
-    laWidget_SetSize((laWidget*)ImageWidget1, 242, 150);
-    laWidget_SetBackgroundType((laWidget*)ImageWidget1, LA_WIDGET_BACKGROUND_NONE);
-    laWidget_SetBorderType((laWidget*)ImageWidget1, LA_WIDGET_BORDER_NONE);
-    laImageWidget_SetImage(ImageWidget1, &NewHarmonyLogo);
-    laWidget_AddChild((laWidget*)layer0, (laWidget*)ImageWidget1);
+    TitleLabel = laLabelWidget_New();
+    laWidget_SetPosition((laWidget*)TitleLabel, 71, 18);
+    laWidget_SetSize((laWidget*)TitleLabel, 343, 25);
+    laWidget_SetBackgroundType((laWidget*)TitleLabel, LA_WIDGET_BACKGROUND_NONE);
+    laWidget_SetBorderType((laWidget*)TitleLabel, LA_WIDGET_BORDER_NONE);
+    laLabelWidget_SetText(TitleLabel, laString_CreateFromID(string_TitleString));
+    laWidget_AddChild((laWidget*)layer0, (laWidget*)TitleLabel);
 
-    ButtonWidget1 = laButtonWidget_New();
-    laWidget_SetPosition((laWidget*)ButtonWidget1, 101, 201);
-    laWidget_SetSize((laWidget*)ButtonWidget1, 270, 40);
-    laWidget_SetBackgroundType((laWidget*)ButtonWidget1, LA_WIDGET_BACKGROUND_FILL);
-    laWidget_SetBorderType((laWidget*)ButtonWidget1, LA_WIDGET_BORDER_BEVEL);
-    laButtonWidget_SetText(ButtonWidget1, laString_CreateFromID(string_Instructions));
-    laWidget_AddChild((laWidget*)layer0, (laWidget*)ButtonWidget1);
+    SloganButton = laButtonWidget_New();
+    laWidget_SetPosition((laWidget*)SloganButton, 124, 206);
+    laWidget_SetSize((laWidget*)SloganButton, 238, 37);
+    laWidget_SetBackgroundType((laWidget*)SloganButton, LA_WIDGET_BACKGROUND_FILL);
+    laWidget_SetBorderType((laWidget*)SloganButton, LA_WIDGET_BORDER_BEVEL);
+    laButtonWidget_SetText(SloganButton, laString_CreateFromID(string_Slogan));
+    laWidget_AddChild((laWidget*)layer0, (laWidget*)SloganButton);
 
 }
 

@@ -35,8 +35,8 @@
           <Name dnOrder="1">drv_i2c.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">1ADEFA5C99CD9DD9BB56F35E5348CA7B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">1ADEFA5C99CD9DD9BB56F35E5348CA7B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">00BE2152C659AE45DBA8630ACD809BD2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">00BE2152C659AE45DBA8630ACD809BD2</UserChecksum>
         </File>
         <File dnOrder="4">
           <Type dnOrder="0">SOURCE</Type>
@@ -1235,8 +1235,8 @@
           <Name dnOrder="1">sys_int.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/system/int/</LogicalPath>
           <PhysicalPath dnOrder="3">/system/int/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A17DE6CBDF8A45F795A0668213CA9E0E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A17DE6CBDF8A45F795A0668213CA9E0E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0128FD5EAC2B910A9EA7090F32CFE236</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0128FD5EAC2B910A9EA7090F32CFE236</UserChecksum>
         </File>
         <File dnOrder="154">
           <Type dnOrder="0">SOURCE</Type>

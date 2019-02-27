@@ -58,15 +58,14 @@ extern "C" {
 #define LIBARIA_SCREEN_COUNT   1
 
 // reference IDs for generated libaria screens
-// screen "default"
-#define default_ID    0
+// screen "screen1"
+#define screen1_ID    0
 
 
 
-extern laScheme defaultScheme;
-extern laLabelWidget* LabelWidget1;
-extern laImageWidget* ImageWidget1;
-extern laButtonWidget* ButtonWidget1;
+extern laImageWidget* LogoWidget;
+extern laLabelWidget* TitleLabel;
+extern laButtonWidget* SloganButton;
 
 
 int32_t libaria_initialize(void);

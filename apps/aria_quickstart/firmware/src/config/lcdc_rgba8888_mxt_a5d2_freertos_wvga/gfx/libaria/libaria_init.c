@@ -114,8 +114,8 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)layer0, (laWidget*)ButtonWidget1);
 
     LabelWidget1 = laLabelWidget_New();
-    laWidget_SetPosition((laWidget*)LabelWidget1, 300, 40);
-    laWidget_SetSize((laWidget*)LabelWidget1, 210, 57);
+    laWidget_SetPosition((laWidget*)LabelWidget1, 120, 30);
+    laWidget_SetSize((laWidget*)LabelWidget1, 560, 57);
     laWidget_SetBackgroundType((laWidget*)LabelWidget1, LA_WIDGET_BACKGROUND_NONE);
     laWidget_SetBorderType((laWidget*)LabelWidget1, LA_WIDGET_BORDER_NONE);
     laLabelWidget_SetText(LabelWidget1, laString_CreateFromID(string_Title));

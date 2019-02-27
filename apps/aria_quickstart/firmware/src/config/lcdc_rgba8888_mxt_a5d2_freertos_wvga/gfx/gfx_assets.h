@@ -74,8 +74,8 @@ extern GFXU_ImageAsset NewHarmonyLogo;
  *****************************************************************************/
 /*********************************
  * GFX Font Asset
- * Name:         TimesNewRoman18
- * Height:       22
+ * Name:         Arial_22
+ * Height:       26
  * Style:        Plain
  * Glyph Count:  16
  * Range Count:  12
@@ -85,33 +85,36 @@ extern GFXU_ImageAsset NewHarmonyLogo;
 			     0x4D
 			     0x52
 			     0x61
-			     0x63
-			     0x65
-			     0x67-0x68
-			     0x6B
-			     0x6E
-			     0x72-0x75
+			     0x64-0x66
+			     0x69
+			     0x6E-0x6F
+			     0x72
+			     0x74-0x75
+			     0x79
  ***********************************/
-extern GFXU_FontAsset TimesNewRoman18;
+extern GFXU_FontAsset Arial_22;
 	
 /*********************************
  * GFX Font Asset
- * Name:         TimesNewRoman26
- * Height:       31
+ * Name:         Arial_30
+ * Height:       35
  * Style:        Plain
- * Glyph Count:  13
- * Range Count:  9
- * Glyph Ranges: 0x46-0x47
-			     0x51
-			     0x58
-			     0x5F
+ * Glyph Count:  21
+ * Range Count:  12
+ * Glyph Ranges: 0x20
+			     0x41-0x43
+			     0x47-0x48
+			     0x4C-0x4D
+			     0x50
 			     0x61
 			     0x63
-			     0x69
-			     0x6B
-			     0x72-0x75
+			     0x65
+			     0x68-0x69
+			     0x6D-0x70
+			     0x72-0x73
+			     0x79
  ***********************************/
-extern GFXU_FontAsset TimesNewRoman26;
+extern GFXU_FontAsset Arial_30;
 	
 /*****************************************************************************
  * MPLAB Harmony Graphics String Table
