@@ -39,7 +39,6 @@
 
 #include "definitions.h"
 
-#include "peripheral/port/plib_port.h"
 #include "gfx/hal/inc/gfx_common.h"
 #include "gfx/hal/inc/gfx_context.h"
 #include "gfx/interface/drv_gfx_disp_intf.h"
