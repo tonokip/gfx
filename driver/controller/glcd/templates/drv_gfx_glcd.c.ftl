@@ -605,8 +605,15 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     PLIB_GLCD_ClockDividerSet( 10);
     PLIB_GLCD_ResolutionXYSet( xResolution, yResolution);
 
-    PLIB_GLCD_SignalPolaritySet( GLCD_VSYNC_POLARITY_NEGATIVE );
-    PLIB_GLCD_SignalPolaritySet( GLCD_HSYNC_POLARITY_NEGATIVE );
+    <#if Val_VSYNCNegative == true && Val_HSYNCNegative == false>
+    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_VSYNC_POLARITY_NEGATIVE );
+    </#if>
+    <#if Val_HSYNCNegative == true && Val_VSYNCNegative == false>
+    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_HSYNC_POLARITY_NEGATIVE );
+    </#if>
+    <#if Val_HSYNCNegative == true && Val_VSYNCNegative == true>
+    PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_VSYNC_POLARITY_NEGATIVE | GLCD_HSYNC_POLARITY_NEGATIVE );
+    </#if>
     PLIB_GLCD_PaletteGammaRampDisable();
 
     PLIB_GLCD_Enable();

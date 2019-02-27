@@ -160,14 +160,14 @@ def instantiateComponent(comp):
 	DisplayBacklightEnable.setDefaultValue(1)
 
 	DisplayVSYNCNegative = comp.createBooleanSymbol("DisplayVSYNCNegative", DisplaySettingsMenu)
-	DisplayVSYNCNegative.setLabel("VSYNC Negative?")
-	DisplayVSYNCNegative.setDescription("Indicates if this display requries negative VSYNC polarity.")
-	DisplayVSYNCNegative.setDefaultValue(True)
+	DisplayVSYNCNegative.setLabel("VSYNC Polarity Positive?")
+	DisplayVSYNCNegative.setDescription("Indicates if this display requries positive VSYNC polarity.")
+	DisplayVSYNCNegative.setDefaultValue(False)
 
 	DisplayHSYNCNegative = comp.createBooleanSymbol("DisplayHSYNCNegative", DisplaySettingsMenu)
-	DisplayHSYNCNegative.setLabel("HSYNC Negative?")
-	DisplayHSYNCNegative.setDescription("Indicates if this display requries negative HSYNC polarity.")
-	DisplayHSYNCNegative.setDefaultValue(True)
+	DisplayHSYNCNegative.setLabel("HSYNC Polarity Positive?")
+	DisplayHSYNCNegative.setDescription("Indicates if this display requries postive HSYNC polarity.")
+	DisplayHSYNCNegative.setDefaultValue(False)
 
 	DisplayDataEnable = comp.createBooleanSymbol("DisplayDataEnable", DisplaySettingsMenu)
 	DisplayDataEnable.setLabel("Use Data Enable?")

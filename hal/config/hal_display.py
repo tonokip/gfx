@@ -155,14 +155,14 @@ DisplayPolarityMenu.setLabel("Polarity Settings")
 DisplayPolarityMenu.setDescription("Contains the display polarity values.")
 
 DisplayVSYNCNegative = halComponent.createBooleanSymbol("DisplayVSYNCNegative", DisplayPolarityMenu)
-DisplayVSYNCNegative.setLabel("VSYNC Negative?")
-DisplayVSYNCNegative.setDescription("Indicates if this display requires negative VSYNC polarity.")
-DisplayVSYNCNegative.setDefaultValue(False)
+DisplayVSYNCNegative.setLabel("VSYNC Polarity Positive?")
+DisplayVSYNCNegative.setDescription("Indicates if this display requires positive VSYNC polarity.")
+DisplayVSYNCNegative.setDefaultValue(True)
 
 DisplayHSYNCNegative = halComponent.createBooleanSymbol("DisplayHSYNCNegative", DisplayPolarityMenu)
-DisplayHSYNCNegative.setLabel("HSYNC Negative?")
-DisplayHSYNCNegative.setDescription("Indicates if this display requires negative HSYNC polarity.")
-DisplayHSYNCNegative.setDefaultValue(False)
+DisplayHSYNCNegative.setLabel("HSYNC Polarity Positive?")
+DisplayHSYNCNegative.setDescription("Indicates if this display requires positive HSYNC polarity.")
+DisplayHSYNCNegative.setDefaultValue(True)
 
 DisplayDataEnable = halComponent.createBooleanSymbol("DisplayDataEnable", DisplayMenu)
 DisplayDataEnable.setLabel("Use Data Enable?")
@@ -170,9 +170,9 @@ DisplayDataEnable.setDescription("Indicates if this display requires the use of 
 DisplayDataEnable.setDefaultValue(True)
 
 DisplayDataEnablePolarity = halComponent.createBooleanSymbol("DisplayDataEnablePolarity", DisplayMenu)
-DisplayDataEnablePolarity.setLabel("Data Enable Polarity Negative?")
+DisplayDataEnablePolarity.setLabel("Data Enable Polarity Positive?")
 DisplayDataEnablePolarity.setDescription("Indicates if this display Data Enable polarity is positive.")
-DisplayDataEnablePolarity.setDefaultValue(False)
+DisplayDataEnablePolarity.setDefaultValue(True)
 
 DisplayUseReset = halComponent.createBooleanSymbol("DisplayUseReset", DisplayMenu)
 DisplayUseReset.setLabel("Use Reset?")
