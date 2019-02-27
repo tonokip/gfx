@@ -66,6 +66,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "drv_gfx_ssd1963_common.h"
 #include "drv_gfx_ssd1963.h"
 
+#include "system/time/sys_time.h"
+
 // Number of layers
 #define LAYER_COUNT     1
 
@@ -138,9 +140,11 @@ const char* DRIVER_NAME = "SSD1963";
 
 static inline void SSD1963_DelayMS(int ms)
 {
-    //Temporary delay code. Will switch over to a system delay API.
-    volatile int i = 300000*ms;
-    while (i--);
+    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+
+    if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+        return;
+    while (SYS_TIME_DelayIsComplete(timer) == false);
 }
 
 /**

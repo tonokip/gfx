@@ -3,3 +3,4 @@ def loadModule():
 	cntlComponent.setDisplayType("SSD1963 Display Driver")
 	cntlComponent.addCapability("gfx_driver_ssd1963", "Display Driver", False)
 	cntlComponent.addDependency("Display Interface", "Display Interface", False, True)
+	cntlComponent.addDependency("SYS_TIME", "SYS_TIME", True, True)
