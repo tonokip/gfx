@@ -257,15 +257,15 @@ static GFX_Result SSD1963_Configure(SSD1963_DRV *drv)
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_VER_PERIOD, parm, 7);
 
     //Set pixel format, i.e. the bpp
-    parm[0] = 0x55; // set 16bpp
+    parm[0] = 0x55; // set 16bpp, (565 format) 
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PIXEL_FORMAT, parm, 1);
     
     //Set pixel data interface
 <#if ParallelInterfaceWidth == "16-bit">
-    parm[0] = 0x03; //16-bit pixel data (565 format) 
+    parm[0] = 0x03; //16-bit pixel data
 </#if>
 <#if ParallelInterfaceWidth == "8-bit">
-    parm[0] = 0x00; //8-bit pixel data (RGB888 format) 
+    parm[0] = 0x00; //8-bit pixel data
 </#if>
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_DATA_INTERFACE, parm, 1);
 
