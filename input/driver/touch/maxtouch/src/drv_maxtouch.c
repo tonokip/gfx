@@ -40,9 +40,9 @@
 
 // DOM-IGNORE-END
 
+#include "definitions.h"
 #include "driver/i2c/drv_i2c.h"
 #include "driver/input/drv_maxtouch.h"
-#include "peripheral/pio/plib_pio.h"
 #include "system/input/sys_input.h"
 #include "system/time/sys_time.h"
 
