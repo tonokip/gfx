@@ -94,6 +94,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define GFX_GLCD_LAYERS ${TotalNumLayers}
 #define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
+#define GFX_GLCD_CONFIG_CLK_DIVIDER ${PixelClockDivider}
 
 <#if FrameBufferMemoryMode == "DDR">
 /*** GLCD Layer 0 Configuration ***/
@@ -593,17 +594,17 @@ static GFX_Result glcdInitialize(GFX_Context* context)
 
     /* glcd initialization */
     PLIB_GLCD_Disable();
-    PLIB_GLCD_BackgroundColorSet( GFX_GLCD_BACKGROUND_COLOR);
+    PLIB_GLCD_BackgroundColorSet(GFX_GLCD_BACKGROUND_COLOR);
     PLIB_GLCD_VSyncInterruptDisable();
     PLIB_GLCD_HSyncInterruptDisable();
-    PLIB_GLCD_RGBSequentialModeSet( 1<<31);
+    PLIB_GLCD_RGBSequentialModeSet(1<<31);
 
-    PLIB_GLCD_FrontPorchXYSet( xResolution + rightMargin, yResolution + lowerMargin);
-    PLIB_GLCD_BlankingXYSet( xResolution + rightMargin + hsyncLength, yResolution + lowerMargin + vsyncLength);
-    PLIB_GLCD_BackPorchXYSet( xResolution + rightMargin + hsyncLength + leftMargin, yResolution + lowerMargin + vsyncLength + upperMargin);
+    PLIB_GLCD_FrontPorchXYSet(xResolution + rightMargin, yResolution + lowerMargin);
+    PLIB_GLCD_BlankingXYSet(xResolution + rightMargin + hsyncLength, yResolution + lowerMargin + vsyncLength);
+    PLIB_GLCD_BackPorchXYSet(xResolution + rightMargin + hsyncLength + leftMargin, yResolution + lowerMargin + vsyncLength + upperMargin);
 
-    PLIB_GLCD_ClockDividerSet( 10);
-    PLIB_GLCD_ResolutionXYSet( xResolution, yResolution);
+    PLIB_GLCD_ClockDividerSet(GFX_GLCD_CONFIG_CLK_DIVIDER);
+    PLIB_GLCD_ResolutionXYSet(xResolution, yResolution);
 
     <#if Val_VSYNCNegative == true && Val_HSYNCNegative == false>
     PLIB_GLCD_SignalPolaritySet(  GLCD_ID_0, GLCD_VSYNC_POLARITY_NEGATIVE );
@@ -676,15 +677,15 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         
         stride = getColorModeStrideSize(drvLayer[layerCount].colorspace);
 
-        PLIB_GLCD_LayerBaseAddressSet( layerCount, (uint32_t)drvLayer[layerCount].baseaddr[0]);
-        PLIB_GLCD_LayerStrideSet( layerCount, drvLayer[layerCount].resx * stride );
+        PLIB_GLCD_LayerBaseAddressSet(layerCount, (uint32_t)drvLayer[layerCount].baseaddr[0]);
+        PLIB_GLCD_LayerStrideSet(layerCount, drvLayer[layerCount].resx * stride );
         PLIB_GLCD_LayerResXYSet(layerCount, drvLayer[layerCount].resx, drvLayer[layerCount].resy );
         PLIB_GLCD_LayerStartXYSet(layerCount, drvLayer[layerCount].startx, drvLayer[layerCount].starty );
         PLIB_GLCD_LayerSizeXYSet(layerCount, drvLayer[layerCount].sizex, drvLayer[layerCount].sizey);
         PLIB_GLCD_LayerGlobalAlphaSet(layerCount, drvLayer[layerCount].alpha);
-        PLIB_GLCD_LayerDestBlendFuncSet( layerCount, drvLayer[layerCount].dblend );
-        PLIB_GLCD_LayerSrcBlendFuncSet( layerCount, drvLayer[layerCount].sblend );
-        PLIB_GLCD_LayerColorModeSet( layerCount, drvLayer[layerCount].colorspace );
+        PLIB_GLCD_LayerDestBlendFuncSet(layerCount, drvLayer[layerCount].dblend );
+        PLIB_GLCD_LayerSrcBlendFuncSet(layerCount, drvLayer[layerCount].sblend );
+        PLIB_GLCD_LayerColorModeSet(layerCount, drvLayer[layerCount].colorspace );
 
         // all layers off by default
         context->layer.layers[layerCount].enabled = GFX_FALSE;
