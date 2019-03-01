@@ -7,13 +7,7 @@
 
 | Category | Component | Description | Release Type | 
 | --- | --- | ---- |---- |
-| apps | aria_quickstart | Getting started in Graphics | Release Type |
-|      | aria_benchmark | Metrics on Aria Graphics Library | Beta |
-|      | aria_mxt_configure | Example maXTouch configuration | Beta |
-|      | aria_showcase | Example of Aria Graphics Library Widgets| Beta |
-|      | aria_showcase_reloaded | Example of Aria Graphics Library Widgets| Beta |Beta |
-|      | aria_vending_machine | Example Vending Machine UI | 
-|      | aria_weather_forecast | Example weather UI | Beta |
+| apps | aria_quickstart | Getting started in Graphics | Beta|
 | displays | ATMXT-XPRO-480x320 | ATMXT Xplained Pro 480x320| Beta |
 |      | ATOLED1_XPRO-128x32 | AT OLED Xplained Pro 128x32| Beta |
 |      | PDA TM4301B 480x272| PDA 4.3" 480x272 | Beta |
@@ -32,15 +26,6 @@
 |             | aria_gfx_xplained_pro| MHC config for xpro | Beta |
 |             | common| MHC config for common board |Beta |
 
-
-- **New Applications** - The following table provides the list of new applications.
-
-| Application | Description | 
-| --- | --- |
-| aria_mxt_configure | maXTouch configuration | 
-| aria_flash |  Widgets and advance capabilities|
-| aria_flash (redisign) | Circular and graphing widgets| 
-| aria_benchmark | Metrics on graphics operations | 
 
 - **New driver support** - The following table provides the list of new support for graphics and input drivers.
 
@@ -86,11 +71,10 @@
 
 | Development Kits | applications |
 | --- | --- |
-| [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMC21-XPRO) | aria_quickstart |
-| [SAM D20 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD20-XPRO) | aria_quickstart |
-| [SAM D21 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD21-XPRO) | aria_quickstart |
-| [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAME70-XULT) | aria_quickstart |
-| [SAM V71 Xplained Ultra Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMV71-XULT) | aria_quickstart |
+| [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | aria_quickstart |
+| [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | aria_quickstart |
+| [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | aria_quickstart |
+| [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | aria_quickstart |
 
 ### KNOWN ISSUES
 
@@ -118,4 +102,4 @@ The current known issues are as follows:
 - [MPLAB X IDE v5.10](https://www.microchip.com/mplab/mplab-x-ide)
 - [MPLAB XC32 C/C++ Compiler v2.15](https://www.microchip.com/mplab/compilers)
 - MPLAB X IDE plug-ins:
-- MPLAB Harmony Configurator (MHC) v.2.0.
+- MPLAB Harmony Configurator (MHC) v3.2.0.
