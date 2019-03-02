@@ -23,7 +23,7 @@
 ##############################################################################
 
 def instantiateComponent(component):
-	component.setHelpFile("../../doc/html/help_harmony_gfx_html_alias.h")
+	component.setHelpFile("../../docs/help_harmony_gfx_html_alias.h")
 	#component.setHelp("IDH_HTML_GFX_CMP__7__Input_System_Service_Component")
 
 	RTOSMenu = component.createMenuSymbol("RTOSMenu", None)

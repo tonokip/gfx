@@ -27,7 +27,7 @@ import re
 def instantiateComponent(comp):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/lcc"
 	
-	comp.setHelpFile("../../../doc/html/help_harmony_gfx_html_alias.h")
+	comp.setHelpFile("../../../docs/help_harmony_gfx_html_alias.h")
 	#comp.setHelp("IDH_HTML_GFX_CMP__3__Display_Driver_Component")
 	
 	HALConnected = comp.createBooleanSymbol("HALConnected", None)

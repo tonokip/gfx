@@ -32,6 +32,7 @@ useRTOSExtensions = component.createBooleanSymbol("useRTOSExtensions", AriaRTOSM
 useRTOSExtensions.setLabel("Use RTOS Extensions?")
 useRTOSExtensions.setDefaultValue(Database.getSymbolValue("HarmonyCore", "SELECT_RTOS") != "BareMetal")
 useRTOSExtensions.setDependencies(enableAriaRTOSExtensions, ["useRTOSExtensions"])
+useRTOSExtensions.setHelp("IDH_HTML_MHGC_UG_Enabling_RTOS")
 
 rtosFullBlockingMode = component.createBooleanSymbol("rtosFullBlockingMode", useRTOSExtensions)
 rtosFullBlockingMode.setLabel("Full Blocking?")

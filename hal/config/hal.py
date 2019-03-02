@@ -25,7 +25,7 @@
 def instantiateComponent(halComponent):
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/hal"
 	
-	halComponent.setHelpFile("../doc/html/help_harmony_gfx_html_alias.h")
+	halComponent.setHelpFile("../docs/help_harmony_gfx_html_alias.h")
 	#halComponent.setHelp("IDH_HTML_GFX_CMP__4__GFX_Core_Component")
 	
 	execfile(Module.getPath() + "/config/hal_pipeline.py")
