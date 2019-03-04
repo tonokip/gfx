@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00639.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00020.html" target="topic">Demonstrations</a> &gt; <a href="00004.html" target="topic">aria_quickstart</a> &gt; <a href="00007.html" target="topic">Running the Demonstration</a></div>
+<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00004.html" target="topic">aria_mxt_configure</a> &gt; <a href="00007.html" target="topic">Running the Demonstration</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,13 +26,13 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
 <a href="00006.html" target="topic">Previous</a> | <a href="00004.html" target="topic">Up</a> | <a href="00008.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_mxt_configure_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
 Running the Demonstration</div>
 </div>
@@ -49,21 +49,118 @@ Running the Demonstration</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-When power-on is successful, the demonstration will display a similar menu to that shown in the following figure (different configurations may have slight variation in the screen aspect ratio): </p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_1.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
+ &nbsp;</p>
+<p class="Element10">
+Upon boot-up, the application displays the animation Splash Screen, which shows an animated splash bar while blending in the MPLAB Harmony and Microchip PIC32 logos, as shown in the following figure.&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-When <strong>Make changes. Generate. Run.</strong> is touched, the button will toggle with each individual touch. (Note: The aria_qs_e70_xu_xpro_spi configuration does not support touch input.) </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart_run Make change Generate Run button touch.png" border="0" alt="" title=""></p></div>
+When Splash Screen animation is successful, the demonstration will display a similar menu to that shown in the following figure.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="APPS GFX aria_showcase_splash_screen_blend.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+When power-on is successful, the application Home Screen will be displayed&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="APP GFX aria_mxt_configure home.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The demonstration supports three configuration file input options: Program Flash, SDCard, and Host PC. ProgramFlash is the default option and requires no manual source file interaction.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element15">
+Program Flash</div>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+This is the default option. The config content is embedded in program flash of the firmware. This option requires no external file preparation.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+To run this option.:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<ol class="Element630">
+<li value="1" class="Element600">On the Main Menu Press the Load Button.The application will transition to the State Configuration screen</li>
+<li value="2" class="Element600">On the State Configuration Screen, select Program radio button. This will enable the reading of Program Flash.</li>
+<li value="3" class="Element600">Press the Stage button. This step will stage and parse the configuration information located in Program Flash.</li>
+<li value="4" class="Element600">Observe the Target board UI .</li>
+<li value="5" class="Element600">When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
+<li value="6" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+SD Card</div>
+<p class="Element10">
+This option requires a SDCARD. The SDCARD should be loaded with maxtouch.xcfg or maxtouch.raw file in the root folder. Only 1 file can be store on the SDCARD for this release. An example maxtouch.xcfg file can be found at the following location: &lt;installdir&gt;/apps/gfx_apps/aria_mxt_configure /firmware/src/config_files&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+To run this option.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<ol class="Element630">
+<li value="1" class="Element600">On the Main Menu Press the Load Button. The application will transition to the State Configuration screen.</li>
+<li value="2" class="Element600">On the State Configuration Screen, select SDCARD radio button. This will enable the reading from SDCARD.</li>
+<li value="3" class="Element600">Press the Stage button. The step will stage and parse the configuration information located in the maxtouch.xcfg or maxtouch.raw file.</li>
+<li value="4" class="Element600">Observe the Target board UI . When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
+<li value="5" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+Host PC</div>
+<p class="Element10">
+This option requires a HOST PC connected to the Target board. The configuration file will be streamed from the Host PC to the Target board. For the purpose of this option, the user should establish a host PC connected to the Target board via a USB cable. A USB cable needs to be connected to the micro-B USB connector on the bottom of the starter kit in use. When the demonstration runs, it will create a USB CDC device on the USB bus. The demonstration can be executed once you have connected to this device through RealTerm terminal program. See the following download link: RealTerm&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+https://sourceforge.net/projects/realterm/&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Please refer to the connection diagram shown below.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+To run this option.:</p>
+<ol class="Element630">
+<li value="1" class="Element600">On the Main Menu Press the Load Button. The application will transition to the State Configuration screen.</li>
+<li value="2" class="Element600">On the State Configuration Screen, select PC radio button. This will enable the reading from Host PC.</li>
+<li value="3" class="Element600">Press the Stage button. The step will create the USB CDC device on the USB bus and wait for a file transfer operation from the Host PC. Once initiated, the app will stage and parse the configuration. On the PC, Invoke RealTerm application .</li>
+<li value="4" class="Element600">Using the Port Tab, connect to the new Serial comm port.</li>
+<li value="5" class="Element600">Using the Send Tab, select the File to Port.</li>
+<li value="6" class="Element600">Set Delays to 1 and 5</li>
+<li value="7" class="Element600">Set Repeats 0 and 0</li>
+<li value="8" class="Element600">Select the Send File button</li>
+<li value="9" class="Element600">When complete, the Progress bar on the RealTerm interface will display “Done”</li>
+<li value="10" class="Element600"> Observe the Target board UI , When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
+<li value="11" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+All Options</div>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+To complete the demonstration for all options.</p>
+<ol class="Element630">
+<li value="1" class="Element600">Use the Next button to transition to the Load Configuration Screen</li>
+<li value="2" class="Element600">Select Load on the Load Configuration screen.</li>
+<li value="3" class="Element600">Use the Next button to transition to the Key Pad Touch Accuracy test screen.</li>
+<li value="4" class="Element600">Press key pad buttons</li>
+<li value="5" class="Element600">Use Next to transition to the Multi Touch Test Screen</li>
+<li value="6" class="Element600">Drag finger across display</li>
+<li value="7" class="Element600">Use Next Button to transition to the Store Configuration (Flash) Screen</li>
+<li value="8" class="Element600">Press Save</li>
+</ol></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00639.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00020.html" target="topic">Demonstrations</a> &gt; <a href="00004.html" target="topic">aria_quickstart</a> &gt; <a href="00007.html" target="topic">Running the Demonstration</a></div>
+<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00004.html" target="topic">aria_mxt_configure</a> &gt; <a href="00007.html" target="topic">Running the Demonstration</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -71,13 +168,13 @@ When <strong>Make changes. Generate. Run.</strong> is touched, the button will t
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
 <a href="00006.html" target="topic">Previous</a> | <a href="00004.html" target="topic">Up</a> | <a href="00008.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_mxt_configure_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

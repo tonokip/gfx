@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00639.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00020.html" target="topic">Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_benchmark</a></div>
+<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_benchmark</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,10 +26,10 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00020.html" target="topic">Previous</a> | <a href="00020.html" target="topic">Up</a> | <a href="00001.html" target="topic">Next</a></div>
+<a href="00024.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00001.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
 <a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_benchmark Topic Title: aria_benchmark)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
@@ -74,13 +74,70 @@ Demonstration Features</div>
 <li class="Element600">JPEG and PNG images stored in internal flash</li>
 </ul><p class="Element10">
 &nbsp;</p>
-<div class="Element15">
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>sam_bm_a5d2_xu_tm4301b</strong>&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+In this configuration, the Aria Graphics library renders the frame to a 32-bit frame buffer in external DDR. The LCDC display controller on the A5D2 is used to drive frame data from DDR to the display. 32-bit RGBA8888 frame buffer is stored in the external DDR memory.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+User touch input on the display panel is received thru the PCAP capacitive touch controller, which sends a notification to the Touch Input Driver. The Touch Input Driver reads the touch information over I2C and sends the touch event to the Graphics Library thru the Input System Service.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<img src="APPS GFX a5d2 arch.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
+Demonstration Features</div>
+<p class="Element10">
+• Input system service and driver&nbsp;</p>
+<p class="Element10">
+• Time system service, timer-counter peripheral library and driver&nbsp;</p>
+<p class="Element10">
+• LCDC peripheral and driver&nbsp;</p>
+<p class="Element10">
+• I2C driver&nbsp;</p>
+<p class="Element10">
+• 32-bit RGBA8888 color depth support&nbsp;</p>
+<p class="Element10">
+• RAW, RAW RLE, JPEG and PNG images stored in internal flash&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element15">
 MPLAB Harmony Configurator Setup</div>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>aria_bm_e70_xu_tm4301b</strong>&nbsp;</p>
 <p class="Element10">
 The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
 <p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP”and the “Aria Graphics w/ PDA TMA4301B Display” components into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_benchmark Final Project Graph.png" border="0" alt="" title=""></p></div>
+Adding the “SAM E70 XPlained Ultra BSP”and the “Aria Graphics w/ PDA TMA4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
+<img src="APPS GFX aria_benchmark Final Project Graph.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>sam_bm_a5d2_xu_tm4301b</strong>&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
+<p class="Element10">
+Adding the “SAM A5D2 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<img src="APPS GFX archdiag_bench_a5d2.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The GFX template automatically sets the heap size to 32768 bytes. The heap is set in the System component properties as shown in the image below.&nbsp;</p>
+<p class="Element10">
+<img src="APPS GFX a5d2_config_options.png" border="0" alt="" title="">&nbsp;</p></div>
 </div>
 <a name="546F70696373"></a><div class="Element14">
 Topics</div>
@@ -117,7 +174,7 @@ This section provides information on how to run and use the application.&nbsp;</
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00639.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00020.html" target="topic">Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_benchmark</a></div>
+<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00000.html" target="topic">aria_benchmark</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -125,10 +182,10 @@ This section provides information on how to run and use the application.&nbsp;</
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00020.html" target="topic">Previous</a> | <a href="00020.html" target="topic">Up</a> | <a href="00001.html" target="topic">Next</a></div>
+<a href="00024.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00001.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
 <a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_benchmark Topic Title: aria_benchmark)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>

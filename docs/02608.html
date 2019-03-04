@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Adding an Event to the Aria Quickstart Demonstration</title>
+<title>Speed and Performance of Different Image Decode Formats in MHGC</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02610.html" target="topic">Quick Start Guides</a> &gt; <a href="02608.html" target="topic">Adding an Event to the Aria Quickstart Demonstration</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02608.html" target="topic">Speed and Performance of Different Image Decode Formats in MHGC</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02609.html" target="topic">Previous</a> | <a href="02610.html" target="topic">Up</a> | <a href="02607.html" target="topic">Next</a></div>
+<a href="02570.html" target="topic">Previous</a> | <a href="02570.html" target="topic">Up</a> | <a href="02576.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG ARIA Adding an Event to the Aria Quickstart Demonstration Topic Title: Adding an Event to the Aria Quickstart Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Speed and Performance of Different Image Decode Formats in MHGC Topic Title: Speed and Performance of Different Image Decode Formats in MHGC)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Adding an Event to the Aria Quickstart Demonstration</div>
+Speed and Performance of Different Image Decode Formats in MHGC</div>
 </div>
 </div>
 
@@ -49,100 +49,73 @@ Adding an Event to the Aria Quickstart Demonstration</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This Quick Start tutorial shows how to add a simple event to the Aria Quickstart demonstration’s button. For details on how to load, build, program, and run this project, see<i> </i>MPLAB Harmony Graphics Library Help &gt; <i>Graphics Demonstrations &gt; Demonstrations &gt; <a href="00004.html" target="topic">aria_quickstart</a></i>.&nbsp;</p>
+MHGC supports various image formats and the MHGC Image Assets Manager provides the ability to convert and store a source image into to the following formats</p>
+<ul class="Element630">
+<li class="Element600">Bitmap RAW</li>
+<li class="Element600">Bitmap Raw Run-Length Encoded (RLE)</li>
+<li class="Element600">JPEG</li>
+<li class="Element600">PNG</li>
+<li class="Element600">Predecoded RAW Bitmap in DDR (PIC32MZ DA)</li>
+</ul><p class="Element10">
+The following table shows the relative rendering time and Flash memory requirements of the different image formats in the MPLAB Harmony Graphics Library. The rendering time includes decoding the image and drawing it to the screen. This information is helpful when optimizing a MPLAB Harmony graphics project for performance and Flash memory space. For example, as shown by the red highlighted text in the table, a 40x40 pixel 16-bit RAW image renders 2.38 times faster and uses 2.59 times more Flash space than a JPEG image. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Decode Table.png" border="0" alt="" title=""></p><div class="Element15">
+Predecoded Images in DDR (RAW)</div>
 <p class="Element10">
-&nbsp;</p>
+For PIC32MZ DA devices with DDR, the MHGC Image Asset Manager provides an option to predecode images from Flash and store them into DDR as RAW images. The GPU is used to render the decoded image from DDR to the frame buffer. This provides a faster render time than an equivalent RAW image in Flash memory, specifically for large images (up to 10 times faster for a 200x200 image). Conversely, predecoding small images 40x40 pixels or smaller in DDR may not render faster due to the additional overhead of setting up the GPU.&nbsp;</p>
 <p class="Element10">
-<strong>The steps are as follows:</strong>&nbsp;</p>
-<ol class="Element630">
-<li value="1" class="Element600">Launch the MPLAB Harmony Configurator:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Aria Launch MHC3.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="2" class="Element600">Open the project’s default saved state:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Aria Quickstart Open Default Saved State.png" border="0" alt="" title=""></p><p class="Element10">
-When the Configuration Database Setup dialog appears, just hit <strong>Launch</strong>.</p>
-<ol class="Element630">
-<li value="3" class="Element600">Select the Graphics Composer from the MHC Pull-Down Menu which will open a ,</li>
-</ol><div class="Element63">
+<i>Recommendations:</i>&nbsp;</p>
+<ul class="Element630">
+<li class="Element600">If there is adequate DDR memory available, consider predecoding images to DDR for best performance</li>
+<li class="Element600">Using JPEG images and predecoding them into DDR can provide the best rendering performance and most Flash memory savings.</li>
+</ul><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table0">
 <tr>
-<td class="Element67" valign="top" width="70%" style="border:none;">
+<td class="Element67" valign="top" width="10%" style="border:none;">
 <div class="Element68">
-new window for the MPLAB Harmony Graphics Composer:&nbsp;</div></td><td class="Element67" valign="top" width="30%" style="border:none;">
+<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
 <div class="Element68">
-<img src="QSG Launch Graphics Composer.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
-<p class="Element10" style="text-align: center;">
-<img src="QSG QuickStart Graphics Composer.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="4" class="Element600">In step 8, below, we will change the behavior of the screen’s button by adding <strong>Pressed</strong> and <strong>Released</strong> events.</li>
-</ol><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="70%" style="border:none;">
-<div class="Element68">
-The <strong>Pressed</strong> event will change the text of the button. First, we must add the needed text. Select the <strong>Asset</strong> menu and click <strong>Strings</strong>.&nbsp;</div></td><td class="Element67" valign="top" width="30%" style="border:none;">
-<div class="Element68">
-<img src="QSG Asset Strings.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
-
-<ol class="Element630">
-<li value="5" class="Element600">Click the Add icon, <img src="QSG String Assets Add New String Icon.png" border="0" alt="" title="">, and name the new string “Ouch_String” and then select <strong>Create</strong>.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Add Ouch_String.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="6" class="Element600">Enter the string value of <strong>Ouch! Ouch! Ouch!</strong>. Next, Select <strong>TimesNewRoman12</strong> as the font . On completion, the screen should show:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG ARIA String Output.png" border="0" alt="" title=""></p><p class="Element10">
-When finished, close the String Asset dialog.</p>
-<ol class="Element630">
-<li value="7" class="Element600">Select the Composer Screen Designer panel and select the <strong>ButtonWidget1</strong> (“Make changes. Generate. Run”).</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Select ButtonWidget1.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="8" class="Element600">Under the <strong>Properties Editor</strong> panel on the right side of the screen, the properties of ButtonWidget1 should appear. Enable the <strong>Pressed</strong> and <strong>Released</strong> events:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG ARIA ButtonWidget1 Properties.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="9" class="Element600">Click the <img src="QSG ARIA Triple Dot Button.png" border="0" alt="" title=""> button on the right side to bring up the Events Editor for the <strong>Pressed</strong> event and create a new action.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Step 10 Create New Action.png" border="0" alt="" title=""></p><p class="Element10">
-When the <strong>Action</strong> <strong>Edit</strong> dialog appears. Enter the name <strong>ButtonPressed</strong> and click <strong>Next</strong>.</p>
-<ol class="Element630">
-<li value="10" class="Element600">Now select which widget the ButtonPressed event of ButtonWidget1 affects. This event can affect any of the display's widgets. However, the objective is for the ButtonPressed event to change the text of its own widget. Therefore, select <strong>ButtonWidget1</strong> and click <strong>Next</strong>.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Add an Event Step 11.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="11" class="Element600">The next dialog window provides instructions to select the action associated with this event. There are many choices, from <strong>Adjust</strong> <strong>Position</strong> to <strong>Set Y Position</strong>, all of which are related to properties of the button widget. Select <strong>Set Text</strong> as the action, and then click <strong>Next</strong>.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Add Events Step 12.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="12" class="Element600">In the next <strong>Action Edit</strong> <strong>Dialog</strong> window select the <strong>Ouch_String</strong> from steps 5 and 6, and then click <strong>Finish</strong>. This action resurfaces the <strong>Event Editor - Pressed</strong> dialog. Click <strong>OK</strong> to close this dialog.</li>
-<li value="13" class="Element600">Follow the same steps for the <strong>Released</strong> event, but instead create a new event named <strong>ButtonReleased</strong>. Use the same <strong>Set Text</strong> action as before, but use the <strong>Instructions</strong> string instead.</li>
-<li value="14" class="Element600">Examine the events the has been created by the Window:Event Manager menu. The Event Manager dialog is an alternative way of creating and managing graphics events for the application.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG ARIA Event Manager Dialog.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="15" class="Element600">Close the Graphics Composer window and save the new design.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG Add Event Step 15.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="16" class="Element600">In the MPLAB Harmony Configurator (MHC) window save the new configuration, since it has been modified. Generate code for this new project configuration by selecting the Generate icon ( <img src="QSG ARIA Generate Code Icon.png" border="0" alt="" title=""> ). Select <strong>Overwrite</strong> as the Merging Strategy, since we don't need to review all the changes made to the graphics design. The select the <strong>Generate</strong> button to generate the new code that implements the events that have just been added.</li>
-<li value="17" class="Element600">Select the Run Main Project icon ( <img src="QSG ARIA Run Main Project Icon.png" border="0" alt="" title=""> ) to build, load, and run this new configuration.</li>
-<li value="18" class="Element600">After the project has loaded, click the “Make changes. Generate. Run.” button. The button’s text should change to <strong>Ouch! Ouch! Ouch!</strong> when pressed and revert back to the original text when released.</li>
-</ol></div>
+The images are decoded from Flash to DDR memory by the Graphics Library during initialization and may introduce delay at boot-up, depending on the number and size of the images.&nbsp;</div></td></tr></table></div></div>
+<div class="Element15">
+RAW Images</div>
+<p class="Element10">
+RAW images provide fast rendering time, as there is no decoding needed. However, depending on image content, it can be two times larger than a Run-Length Encoded (RLE) image and about 3 to 10 times larger than a JPEG.&nbsp;</p>
+<p class="Element10">
+<i>Recommendation:</i>&nbsp;</p>
+<p class="Element10">
+For small images that are to be rendered frequently, consider using a RAW image for better performance</p><div class="Element15">
+JPEG Images</div>
+<p class="Element10">
+JPEG images provide the most Flash space savings, but are slower to render compared to RAW and RAW RLE.&nbsp;</p>
+<p class="Element10">
+<i>Recommendations:</i>&nbsp;</p>
+<ul class="Element630">
+<li class="Element600">If images are large and not used frequently, consider using the JPEG image format to save flash memory space</li>
+<li class="Element600">If DDR memory is available, consider predecoding JPEG images in DDR for better rendering performance</li>
+</ul><div class="Element15">
+Run-Length Encoded RAW Images</div>
+<p class="Element10">
+In terms of rendering speed and size, RAW RLE images are in between RAW and other compressed formats like JPEG or PNG. Depending on the image contents, RAW RLE can be approximately 1.5 times faster than JPEG, but could be significantly larger in size for large images. Again, depending on the image content, RAW RLE can be about half the size and performance of a RAW image.&nbsp;</p>
+<p class="Element10">
+<i>Recommendation:</i>&nbsp;</p>
+<p class="Element10">
+If optimizing your application for both speed and flash size consider using RAW RLE images</p><div class="Element15">
+PNG Images</div>
+<p class="Element10">
+Among the image formats, PNG is slowest to render and requires more memory to decode.&nbsp;</p>
+<p class="Element10">
+<i>Recommendations:</i>&nbsp;</p>
+<ul class="Element630">
+<li class="Element600">Unless fine levels of alpha-blending are needed, it is better to use other image formats to achieve the best performance. Use the MHGC Asset Manager to convert the source PNG image and store it in a different image format.</li>
+<li class="Element600">If you would like to use an image with a transparent background, it may be better to use a RAW RLE image with background color masking to achieve the same effect with better performance than a PNG. Color masking is supported in the MHGC Image Asset Manager.</li>
+</ul></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02610.html" target="topic">Quick Start Guides</a> &gt; <a href="02608.html" target="topic">Adding an Event to the Aria Quickstart Demonstration</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02608.html" target="topic">Speed and Performance of Different Image Decode Formats in MHGC</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -150,13 +123,13 @@ When the <strong>Action</strong> <strong>Edit</strong> dialog appears. Enter the
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02609.html" target="topic">Previous</a> | <a href="02610.html" target="topic">Up</a> | <a href="02607.html" target="topic">Next</a></div>
+<a href="02570.html" target="topic">Previous</a> | <a href="02570.html" target="topic">Up</a> | <a href="02576.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG ARIA Adding an Event to the Aria Quickstart Demonstration Topic Title: Adding an Event to the Aria Quickstart Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Speed and Performance of Different Image Decode Formats in MHGC Topic Title: Speed and Performance of Different Image Decode Formats in MHGC)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Composer Window User Interface</title>
+<title>Lesson 1: Dynamic Images, Part 1</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02577.html" target="topic">Dynamic Graphics</a> &gt; <a href="02579.html" target="topic">Lesson 1: Dynamic Images, Part 1</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02587.html" target="topic">Previous</a> | <a href="02604.html" target="topic">Up</a> | <a href="02595.html" target="topic">Next</a></div>
+<a href="02577.html" target="topic">Previous</a> | <a href="02577.html" target="topic">Up</a> | <a href="02580.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Window User Interface Topic Title: Graphics Composer Window User Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Images, Part 1 Topic Title: Lesson 1: Dynamic Images, Part 1)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Composer Window User Interface</div>
+Lesson 1: Dynamic Images, Part 1</div>
 </div>
 </div>
 
@@ -49,150 +49,148 @@ Graphics Composer Window User Interface</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-MPLAB Harmony Graphics Composer (MHGC) is launched from the MPLAB Harmony Configurator (MHC) Tools menu. Launching the Graphics Composer creates a new screen. Shown below is the MHGC screen for the Aria Showcase demonstration. (If you don’t see this screen layout, reset the screen by selecting <i>Window &gt; Reset Dock Areas</i> from the window’s menus.) </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG MHC Window Overview.png" border="0" alt="" title=""></p><div class="Element15">
-Panels</div>
+This tutorial lesson shows how to add a simple event to the Aria Quickstart demonstration’s button. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG QuickStart Home Screen.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-By default, there are five active panels and one minimize panel on this screen:</p>
-<ul class="Element630">
-<li class="Element600"><a href="02595.html" target="topic">Screen Designer</a> – Shows the screen design for the selected screen. Tabs on the bottom of the Screen Designer panel show the available screens.</li>
-<li class="Element600"><a href="02601.html" target="topic">Tree View</a> – Shows the layer and widget hierarchy for the current screen.</li>
-<li class="Element600"><a href="02596.html" target="topic">Screens</a> – Manages screens in the application.</li>
-<li class="Element600"><a href="02594.html" target="topic">Schemes</a> – Manages coloring schemes in the application.</li>
-<li class="Element600"><a href="02603.html" target="topic">Widget Tool Box</a> – Available graphics widgets are shown on this panel. Widgets are added to the screen by selecting an icon and dragging or clicking. Widget properties are discussed in the Widget Properties section below.</li>
-<li class="Element600">Properties Editor – All properties for the currently selected object are shown in this panel.</li>
-<li class="Element600">The MHGC Output console is parked at the bottom of the Screen Designer window. This console panel can be used to debug problems when the Graphics Composer boots up or during its operation.</li>
-</ul><p class="Element10">
-Each of the panels has a window tool icon at the upper right corner. Minimizing a panel parks it on the screen just like the Output Console. Undocking the panel creates a new, free floating window. Redocking returns a previously undocked window to its original location on the Screen Designer window. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG  Panel Docking.png" border="0" alt="" title="">&nbsp;</p>
+Pressing the “Make Changes. Generate. Run.” button will hide the MPLAB Harmony Logo image. Releasing the button will restore the logo. (For details on how to load, build, program, and run this project, see MPLAB Harmony Graphics Library Help &gt; Graphics Demonstrations &gt; Demonstrations &gt; aria_quickstart.)&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>The steps are as follows:</strong>&nbsp;</p>
+<p class="Element10">
+1. Make a copy of the ./gfx/apps/aria_quickstart folder on your hard drive.&nbsp;</p>
+<p class="Element10">
+(Located at .\gfx\apps\aria_quickstart\firmware\aria_qs_e70_xu_tm4301b.X)&nbsp;</p>
+<p class="Element10">
+Then Load the copied aria_quickstart project into the MPLAB.X IDE.&nbsp;</p>
+<p class="Element10">
+2. Launch the MPLAB Harmony Configurator: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Launch H3 Configurator.png" border="0" alt="" title=""></p><p class="Element10">
+3. Open the project’s default saved state: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Config Save State.png" border="0" alt="" title=""></p><p class="Element10">
+4. Select the Graphics Composer from the MHC Pull-Down Menu which will open a new window for the MPLAB Harmony Graphics Composer: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Pull Down Menu.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="MHGC UG Graphics Composer.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-When a panel is undocked, its edges become active and support moving or manipulating the panel as an independent window. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Panel Undocking.png" border="0" alt="" title=""></p><div class="Element15">
-Tool Bar</div>
+5. Select the Composer Screen Designer panel and select the <strong>ButtonWidget1</strong> (“Make changes. Generate. Run”): </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ButtonWidget1.png" border="0" alt="" title=""></p><p class="Element10">
+6. Under the Properties Edtor panel on the right side of the screen, the properties of ButtonWidget1 should appear. Make the button <strong>Toggleable</strong>: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ButonWidget1 Toggle.png" border="0" alt="" title=""></p><p class="Element10">
+7. Enable the <strong>Pressed</strong> and <strong>Released</strong> events: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ButtonWidget1 PressRelease.png" border="0" alt="" title=""></p><p class="Element10">
+8. Click the button on the right side to bring up the<strong> Events Editor</strong> for the <strong>Pressed</strong> event and create a new action. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Create New.png" border="0" alt="" title=""></p><p class="Element10">
+9. When the <strong>Action Edit</strong> dialog appears. Enter the name <strong>ButtonPressed</strong> and click <strong>Next</strong>.&nbsp;</p>
 <p class="Element10">
-There are 18 tool bar icons on the Screen Designer Window, as described in the following figure. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Screen Designer Window Icons.png" border="0" alt="" title="">&nbsp;</p>
+10. Now select which widget the <strong>ButtonPressed</strong> event of ButtonWidget1 affects. This event can affect any of the display's widgets. However, the objective is for the <strong>ButtonPressed</strong> event to change the visibility of the <strong>ImageWidget1</strong> widget (MPLAB Harmony Logo).&nbsp;</p>
+<p class="Element10">
+Therefore, select <strong>ImageWidget1</strong> and click <strong>Next</strong>: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ImageWidget1 ActionEdit.png" border="0" alt="" title=""></p><p class="Element10">
+11. The next dialog window provides instructions to select the action associated with this event. There are many choices, from Adjust Position to Set Y Position, all of which are related to properties of the image widget. Select <strong>Set Visible</strong> as the action, and then click <strong>Next</strong>: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ButtonPress_AED.png" border="0" alt="" title=""></p><p class="Element10">
+12. Set the argument for the Set Visible action by disabling visibility: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ButtonPress_SetVis.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-<strong>Create New Design</strong> brings up a New Project Wizard dialog that allows you to select anew the screen size, color mode, memory size, and project type. This will erase the currently displayed design.&nbsp;</p>
+Then select the <strong>Finish</strong> button. This action resurfaces the<strong> Event Editor – Pressed</strong> dialog. Click on <strong>OK</strong> to close this dialog.&nbsp;</p>
 <p class="Element10">
-<strong>Save Design</strong> saves the current graphics design.&nbsp;</p>
+13. Follow the same steps for the <strong>Released</strong> event, but instead create a new event named <strong>ButtonReleased</strong>. Use the same <strong>Set Visible</strong> action as before but leave the visibility argument enabled. This will restore the logo’s visibility when the button is released.&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
-<div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
-<div class="Element68">
-The target configuration's <span class="Element146">configuration.xml</span> will not be updated to reflect these changes in the graphics design until one of the following events happens:&nbsp;</p>
-<ol class="Element630">
-<li value="1" class="Element600">The application is regenerated in MHC,</li>
-<li value="2" class="Element600">The target configurations are changed in the MPLAB X IDE,</li>
-<li value="3" class="Element600">MPLAB X IDE is exited.</li>
-</ol><p class="Element68">
-In items 2 and 3 you will be prompted to save the new configuration.&nbsp;</div></td></tr></table></div></div>
+14. Close the Graphics Composer window and save the new design. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG CloseComposer.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+15. In the MPLAB Harmony Configurator (MHC) window save the new configuration, since it has been modified. Generate code for this new project configuration by selecting the Generate icon&nbsp;</p>
+<p class="Element10">
+( <img src="MHGC UG GenerateCodeSelection.png" border="0" alt="" title="">). Select <strong>USER_ALL</strong> as the Merging Strategy, since a review all the changes made to the graphics design is not necessary. Then select the <strong>Generate</strong> button to generate the new code that implements the events that have just been added.&nbsp;</p>
+<p class="Element10">
+16. Select the <strong>Run Main Project</strong> icon (<img src="MHGC UG RunMainProject.png" border="0" alt="" title=""> ) to build, load, and run this new configuration.&nbsp;</p>
+<p class="Element10">
+17. Pressing the screen’s button should hide the logo and releasing the button should cause the logo to reappear.&nbsp;</p>
+<p class="Element10">
+Exploring the code:&nbsp;</p>
+<p class="Element10">
+Double click on the libaria_events.c file to examine the graphics events just created:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>Exploring the code</strong>:&nbsp;</p>
+<p class="Element10">
+Double click on the libaria_events.c file to examine the graphics events just created: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ExploreEvents.png" border="0" alt="" title=""></p><p class="Element10">
+(This file is located in .\aria_quickstart\firmware\src\config\lcc_rgb565_mxt\gfx\libaria folder.)&nbsp;</p>
+<p class="Element10">
+The two events are defined in:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element13"><div class="Element12"><pre class="Element12"><strong><span style="color: #000080">#include</span></strong> &quot;gfx/libaria/libaria_events.h&quot;
 
-<ul class="Element630">
-<li class="Element600"><strong>Undo</strong> and <strong>Redo</strong> manipulate changes in the screen design into internal MHC memory.</li>
-<li class="Element600"><strong>Cut/Copy/Paste</strong> support the manipulation of graphics objects (widgets).</li>
-<li class="Element600"><strong>Canvas Size Dialog</strong> brings up a dialog window allowing changes in the pixel width and height of the Screen Designer panel. (Note: Dimensions smaller than the display’s dimensions are ignored).</li>
-<li class="Element600"><strong>Center View</strong> centers the panel’s view of the screen.</li>
-<li class="Element600"><strong>Zoom In and Zoom Out</strong> allow you to change the scale of the Screen Designer’s display of the current window. Currently this only supports coarse zooming (powers of two zooms in and out).</li>
-<li class="Element600"><strong>Toggle Line Snapping</strong> enables/disables line snapping when moving objects (widgets).</li>
-<li class="Element600"><strong>Show Grid</strong> turns the Screen Designer pixel grid on/off.</li>
-<li class="Element600"><strong>X and Y Grid Size</strong> adjust the pixel grid.</li>
-<li class="Element600"><strong>Grid Color</strong> selects the pixel grid color.</li>
-<li class="Element600"><strong>Toggle Object Clipping</strong> turns object clipping on/off.</li>
-<li class="Element600"><strong>Toggle Screen Info</strong> turns the display of screen information (X and Y axes) on/off.</li>
-<li class="Element600"><strong>Select Text Preview Language</strong> changes the language used on all text strings shown, when the application supports more than one language.</li>
-</ul></div>
-</div>
-<a name="546F70696373"></a><div class="Element14">
-Topics</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="35%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02595.html" target="topic">Screen Designer Window</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Most of the work of the MPLAB Harmony Graphics Composer is done using the Screen Designer. This section covers the basics of how a graphical user interface is designed using the screen designer.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02589.html" target="topic">Menus</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section provides information on the menus for the MPLAB Harmony Graphics Composer screen.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02591.html" target="topic">New Project Wizard</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The New Project Wizard is launched from the Welcome dialog of the MPLAB Harmony Graphics Composer (MHGC), which supports the creation of a new graphics design, or the importing of an existing graphics design.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02601.html" target="topic">Tree View Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The organization of application widgets and layers, including draw order, is managed using this panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02596.html" target="topic">Screens Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Application screens are managed using the Screens Panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02594.html" target="topic">Schemes Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Application color schemes are managed using the Schemes Panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02592.html" target="topic">Options</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the defeatured Options window.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02603.html" target="topic">Widget Tool Box Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Widget Tool Box panel is the interface by which users add widgets into the screen representation.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02593.html" target="topic">Properties Editor Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The properties for all layers and widgets are managed using this panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02578.html" target="topic">Graphics Composer Asset Management</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Asset menu supports managing all graphical assets (memory, images, languages, fonts, strings, and binary data).&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02590.html" target="topic">MHGC Tools</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Tools menu supports managing all graphics events, using a global palette, and estimating heap memory usage.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02602.html" target="topic">Widget Colors</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on widget coloring.&nbsp;</div></td></tr></table></div></div>
-</div>
+<i><span style="color: #008000">// ButtonWidget1 - PressedEvent</span></i>
+<strong><span style="color: #000080">void</span></strong> ButtonWidget1_PressedEvent(laButtonWidget* btn)
+{
+    <i><span style="color: #008000">// ButtonPressed - Set Visible - ImageWidget1</span></i>
+    laWidget_SetVisible((laWidget*)ImageWidget1, LA_FALSE);
+}
+
+<i><span style="color: #008000">// ButtonWidget1 - ReleasedEvent</span></i>
+<strong><span style="color: #000080">void</span></strong> ButtonWidget1_ReleasedEvent(laButtonWidget* btn)
+{
+    <i><span style="color: #008000">// ButtonReleased - Set Visible - ImageWidget1</span></i>
+    laWidget_SetVisible((laWidget*)ImageWidget1, LA_TRUE);
+}</pre></div></div>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The MPLAB Logo image is created in the ScreenCreate_default function found in libaria_init.c.&nbsp;</p>
+<p class="Element10">
+(Located in the same folder as libaria_events.c):&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element13"><div class="Element12"><pre class="Element12"><strong><span style="color: #000080">static</span></strong> <strong><span style="color: #000080">void</span></strong> ScreenCreate_default(laScreen* screen)
+{
+    laLayer* layer0;
+
+    layer0 = laLayer_New();
+    laWidget_SetPosition((laWidget*)layer0, 0, 0);
+    laWidget_SetSize((laWidget*)layer0, 480, 272);
+    laWidget_SetBackgroundType((laWidget*)layer0, LA_WIDGET_BACKGROUND_FILL);
+    laLayer_SetBufferCount(layer0, 1);
+    laLayer_SetVSync(layer0, LA_FALSE);
+
+    laScreen_SetLayer(screen, 0, layer0);
+        .
+        .
+        .
+    ImageWidget1 = laImageWidget_New();
+    laWidget_SetPosition((laWidget*)ImageWidget1, 113, 39);
+    laWidget_SetSize((laWidget*)ImageWidget1, 242, 150);
+    laWidget_SetBackgroundType((laWidget*)ImageWidget1, LA_WIDGET_BACKGROUND_NONE);
+    laWidget_SetBorderType((laWidget*)ImageWidget1, LA_WIDGET_BORDER_NONE);
+    laImageWidget_SetImage(ImageWidget1, &amp;NewHarmonyLogo);
+    laWidget_AddChild((laWidget*)layer0, (laWidget*)ImageWidget1);
+        .
+        .
+        .
+}</pre></div></div>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+One might ask whether it would be more “efficient” to delete the image widget instead of setting it to be invisible and then recreating it again to make it visible. Launching the <strong>Heap Estimator</strong> tool from the MPLAB Harmony Graphics Configurator (MHGC) Tools menu and then selecting <strong>Calculate</strong> shows that only 172 bytes of heap space is used to create the image in the first place: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG ImageWidgetHeapEst.png" border="0" alt="" title=""></p><p class="Element10">
+So not much heap space is saved by deleting the image. It is simpler to hide/reveal the image using the visibility property instead. Note that the logo image is stored separately in flash memory.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02570.html" target="topic">Advanced Topics</a> &gt; <a href="02577.html" target="topic">Dynamic Graphics</a> &gt; <a href="02579.html" target="topic">Lesson 1: Dynamic Images, Part 1</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -200,13 +198,13 @@ Provides information on widget coloring.&nbsp;</div></td></tr></table></div></di
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02587.html" target="topic">Previous</a> | <a href="02604.html" target="topic">Up</a> | <a href="02595.html" target="topic">Next</a></div>
+<a href="02577.html" target="topic">Previous</a> | <a href="02577.html" target="topic">Up</a> | <a href="02580.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Window User Interface Topic Title: Graphics Composer Window User Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Images, Part 1 Topic Title: Lesson 1: Dynamic Images, Part 1)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

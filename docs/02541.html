@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_widget_circular_gauge.h</title>
+<title>libaria_widget_bar_graph.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00467.html" target="topic">Files</a> &gt; <a href="02541.html" target="topic">libaria_widget_circular_gauge.h</a></div>
+<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02541.html" target="topic">libaria_widget_bar_graph.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02540.html" target="topic">Previous</a> | <a href="00467.html" target="topic">Up</a> | <a href="02542.html" target="topic">Next</a></div>
+<a href="02540.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02542.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_circular_gauge.h Topic Title: libaria_widget_circular_gauge.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_bar_graph.h Topic Title: libaria_widget_bar_graph.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_widget_circular_gauge.h</div>
+libaria_widget_bar_graph.h</div>
 </div>
 </div>
 
@@ -56,7 +56,7 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-libaria_widget_circular_gauge.h</p></div>
+libaria_widget_bar_graph.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
@@ -65,7 +65,7 @@ Description</div>
 <p class="Element10">
 Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
 <p class="Element10">
-This module implements circular gauge drawing widget functions.</p></div>
+This module implements bar graph drawing widget functions.</p></div>
 </div>
 <a name="456E756D65726174696F6E73"></a><div class="Element14">
 Enumerations</div>
@@ -86,23 +86,16 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00964.html" target="topic">laCircularGaugeWidgetArcType_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00691.html" target="topic">laBarGraphTickPosition_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Type of arc&nbsp;</div></td></tr><tr>
+The tick position relative to axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00967.html" target="topic">laCircularGaugeWidgetDir_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00695.html" target="topic">laBarGraphValueAxis_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Direction of the gauge&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="00970.html" target="topic">laCircularGaugeWidgetLabelPosition_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Direction of the gauge&nbsp;</div></td></tr></table></div></div>
+The value axis index value&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
@@ -124,296 +117,310 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00898.html" target="topic">laCircularGaugeWidget_AddAngularArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00697.html" target="topic">laBarGraphWidget_AddCategory</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Adds an 'angular arc' in the gauge.&nbsp;</div></td></tr><tr>
+Adds a category to the graph&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00899.html" target="topic">laCircularGaugeWidget_AddMinorTickLabels</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00698.html" target="topic">laBarGraphWidget_AddDataToSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Adds minor tick labels in the gauge.&nbsp;</div></td></tr><tr>
+Adds a data (value) to the specified series at categoryID index&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00900.html" target="topic">laCircularGaugeWidget_AddMinorTicks</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00699.html" target="topic">laBarGraphWidget_AddSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Adds minor ticks in the gauge.&nbsp;</div></td></tr><tr>
+Adds a series to the graph&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00901.html" target="topic">laCircularGaugeWidget_AddValueArc</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00700.html" target="topic">laBarGraphWidget_DestroyAll</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Adds a 'value arc' in the gauge.&nbsp;</div></td></tr><tr>
+Destroys data, series and categories and frees the memory allocated&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00902.html" target="topic">laCircularGaugeWidget_DeleteArcs</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00701.html" target="topic">laBarGraphWidget_GetCategoryAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Deletes all arcs in the gauge widget&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the category axis labels are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00903.html" target="topic">laCircularGaugeWidget_DeleteMinorTickLabels</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00702.html" target="topic">laBarGraphWidget_GetCategoryAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Deletes all the minor tick labels in the gauge widget&nbsp;</div></td></tr><tr>
+Returns the position of the ticks in the category axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00904.html" target="topic">laCircularGaugeWidget_DeleteMinorTicks</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00703.html" target="topic">laBarGraphWidget_GetCategoryAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Deletes all the minor ticks in the gauge widget&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the category axis ticks are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00905.html" target="topic">laCircularGaugeWidget_GetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00704.html" target="topic">laBarGraphWidget_GetCategoryText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the center angle of the circular gauge&nbsp;</div></td></tr><tr>
+Gets a copy of the string used to label the category&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00906.html" target="topic">laCircularGaugeWidget_GetCenterCircleRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00705.html" target="topic">laBarGraphWidget_GetFillGraphArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns radius of the center circle&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the category axis labels are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00907.html" target="topic">laCircularGaugeWidget_GetCenterCircleThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00706.html" target="topic">laBarGraphWidget_GetGridlinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns thickness of the center circle&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the axis gridlines are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00908.html" target="topic">laCircularGaugeWidget_GetCenterCircleVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00707.html" target="topic">laBarGraphWidget_GetMaxValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns GFX_TRUE if the center circle is visible&nbsp;</div></td></tr><tr>
+Returns the max value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00909.html" target="topic">laCircularGaugeWidget_GetDirection</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00708.html" target="topic">laBarGraphWidget_GetMinValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the direction of the gauge.&nbsp;</div></td></tr><tr>
+Returns the min value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00910.html" target="topic">laCircularGaugeWidget_GetEndValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00709.html" target="topic">laBarGraphWidget_GetSeriesScheme</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the end value of the gauge&nbsp;</div></td></tr><tr>
+Returns scheme of the specified series&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00911.html" target="topic">laCircularGaugeWidget_GetHandRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00710.html" target="topic">laBarGraphWidget_GetStacked</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the radius/length of the gauge hand in pixels&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the bars are stacked&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00912.html" target="topic">laCircularGaugeWidget_GetHandVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00711.html" target="topic">laBarGraphWidget_GetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns GFX_TRUE if the gauge hand is visible&nbsp;</div></td></tr><tr>
+Returns the length of the ticks&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00913.html" target="topic">laCircularGaugeWidget_GetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00712.html" target="topic">laBarGraphWidget_GetValueAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Gets the radius of a gauge widget&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the value axis labels are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00914.html" target="topic">laCircularGaugeWidget_GetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00713.html" target="topic">laBarGraphWidget_GetValueAxisSubtickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the start angle of the circular gauge&nbsp;</div></td></tr><tr>
+Returns the interval between minor ticks in the value axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00915.html" target="topic">laCircularGaugeWidget_GetStartValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00714.html" target="topic">laBarGraphWidget_GetValueAxisSubticksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the start value of the gauge&nbsp;</div></td></tr><tr>
+Returns the position of the subticks in the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00916.html" target="topic">laCircularGaugeWidget_GetTickLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00715.html" target="topic">laBarGraphWidget_GetValueAxisSubticksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns GFX_TRUE if the tick labels are visible&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the value axis subticks are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00917.html" target="topic">laCircularGaugeWidget_GetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00716.html" target="topic">laBarGraphWidget_GetValueAxisTickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the length of the ticks in the gauge in pixels&nbsp;</div></td></tr><tr>
+Returns the interval between major ticks in the value axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00918.html" target="topic">laCircularGaugeWidget_GetTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00717.html" target="topic">laBarGraphWidget_GetValueAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns GFX_TRUE if the ticks in the gauge are visible&nbsp;</div></td></tr><tr>
+Returns the position of the ticks in the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00919.html" target="topic">laCircularGaugeWidget_GetTickValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00718.html" target="topic">laBarGraphWidget_GetValueAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the tick increment value in the gauge&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the value axis ticks are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00920.html" target="topic">laCircularGaugeWidget_GetValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the value of the gauge hand&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="00921.html" target="topic">laCircularGaugeWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00719.html" target="topic">laBarGraphWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
 Allocates memory for and initializes a new widget of this type. The application is responsible for the management of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00922.html" target="topic">laCircularGaugeWidget_SetCenterAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00720.html" target="topic">laBarGraphWidget_SetCategoryAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the center angle of the gauge.&nbsp;</div></td></tr><tr>
+Shows/Hides the category axis labels&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00923.html" target="topic">laCircularGaugeWidget_SetCenterCircleRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00721.html" target="topic">laBarGraphWidget_SetCategoryAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the center radius of the center circle&nbsp;</div></td></tr><tr>
+Sets the position of the ticks in the category axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00924.html" target="topic">laCircularGaugeWidget_SetCenterCircleThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00722.html" target="topic">laBarGraphWidget_SetCategoryAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the thickness of the center circle&nbsp;</div></td></tr><tr>
+Shows/Hides the category axis ticks&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00925.html" target="topic">laCircularGaugeWidget_SetCenterCircleVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00723.html" target="topic">laBarGraphWidget_SetCategoryText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the center circle visible/invisible&nbsp;</div></td></tr><tr>
+Sets the string used to label the category&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00926.html" target="topic">laCircularGaugeWidget_SetEndValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00724.html" target="topic">laBarGraphWidget_SetDataInSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the end value of the gauge&nbsp;</div></td></tr><tr>
+Sets the value of the entry in the series index. The entry should have been previously&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00927.html" target="topic">laCircularGaugeWidget_SetHandRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00725.html" target="topic">laBarGraphWidget_SetFillGraphArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the radius/length of the hand&nbsp;</div></td></tr><tr>
+Sets the graph area filled or not&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00928.html" target="topic">laCircularGaugeWidget_SetHandVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00726.html" target="topic">laBarGraphWidget_SetGridlinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the hand visible/invisible&nbsp;</div></td></tr><tr>
+Shows/Hides the gridlines&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00929.html" target="topic">laCircularGaugeWidget_SetRadius</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00727.html" target="topic">laBarGraphWidget_SetMaxValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the radius of a gauge widget&nbsp;</div></td></tr><tr>
+Sets the max value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00930.html" target="topic">laCircularGaugeWidget_SetStartAngle</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00728.html" target="topic">laBarGraphWidget_SetMinValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the start angle of the gauge.&nbsp;</div></td></tr><tr>
+Sets the min value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00931.html" target="topic">laCircularGaugeWidget_SetStartValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00729.html" target="topic">laBarGraphWidget_SetSeriesScheme</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the start value of the gauge&nbsp;</div></td></tr><tr>
+Sets the color scheme of the series&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00932.html" target="topic">laCircularGaugeWidget_SetStringTable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00730.html" target="topic">laBarGraphWidget_SetStacked</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the string table to be used for the tick labels&nbsp;</div></td></tr><tr>
+Stacks the bar graph&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00933.html" target="topic">laCircularGaugeWidget_SetTickLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00731.html" target="topic">laBarGraphWidget_SetStringTable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the tick labels visible/invisible&nbsp;</div></td></tr><tr>
+Sets the string table used for the generated axis labels&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00934.html" target="topic">laCircularGaugeWidget_SetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00732.html" target="topic">laBarGraphWidget_SetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
 Sets the length of the ticks&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00935.html" target="topic">laCircularGaugeWidget_SetTicksLabelsStringID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00733.html" target="topic">laBarGraphWidget_SetTicksLabelsStringID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the ID of the string character superset to be used for the tick labels&nbsp;</div></td></tr><tr>
+Sets the ID of the superset string used for the value axis tick labels&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00936.html" target="topic">laCircularGaugeWidget_SetTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00734.html" target="topic">laBarGraphWidget_SetValueAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the increments/distance between ticks&nbsp;</div></td></tr><tr>
+Shows/Hides the labels in the value axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00937.html" target="topic">laCircularGaugeWidget_SetTickValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00735.html" target="topic">laBarGraphWidget_SetValueAxisSubtickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the increments/distance between ticks&nbsp;</div></td></tr><tr>
+Sets the minor tick interval in the value axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00938.html" target="topic">laCircularGaugeWidget_SetValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00736.html" target="topic">laBarGraphWidget_SetValueAxisSubticksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the value of the gauge hand&nbsp;</div></td></tr><tr>
+Sets the position of the subticks in the value axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00939.html" target="topic">laCircularGaugeWidget_SetValueChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00737.html" target="topic">laBarGraphWidget_SetValueAxisSubticksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the function to be called back when the gauge value changes.&nbsp;</div></td></tr></table></div></div>
+Shows/Hides the subticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00738.html" target="topic">laBarGraphWidget_SetValueAxisTickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the tick interval in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00739.html" target="topic">laBarGraphWidget_SetValueAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the position of the ticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00740.html" target="topic">laBarGraphWidget_SetValueAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the ticks in the value axis&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="53747275637475726573"></a><div class="Element14">
@@ -435,30 +442,23 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00875.html" target="topic">laCircularGaugeArc_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00685.html" target="topic">laBarGraphCategory_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Internal structure for the arcs in the circular gauge widget&nbsp;</div></td></tr><tr>
+Contains the Category properties&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00884.html" target="topic">laCircularGaugeLabel_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00687.html" target="topic">laBarGraphDataSeries_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Label object for the circular gauge&nbsp;</div></td></tr><tr>
+The data series object that contains the series properties and data&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="00891.html" target="topic">laCircularGaugeTick_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00741.html" target="topic">laBarGraphWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Tick object for the circular gauge&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="00940.html" target="topic">laCircularGaugeWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a circular gauge widget.&nbsp;</div></td></tr></table></div></div>
+Implementation of a bar graph widget.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -466,7 +466,7 @@ Implementation of a circular gauge widget.&nbsp;</div></td></tr></table></div></
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00465.html" target="topic">Aria User Interface Library</a> &gt; <a href="00467.html" target="topic">Files</a> &gt; <a href="02541.html" target="topic">libaria_widget_circular_gauge.h</a></div>
+<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02541.html" target="topic">libaria_widget_bar_graph.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -474,13 +474,13 @@ Implementation of a circular gauge widget.&nbsp;</div></td></tr></table></div></
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02540.html" target="topic">Previous</a> | <a href="00467.html" target="topic">Up</a> | <a href="02542.html" target="topic">Next</a></div>
+<a href="02540.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02542.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_circular_gauge.h Topic Title: libaria_widget_circular_gauge.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_bar_graph.h Topic Title: libaria_widget_bar_graph.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Composer Asset Management</title>
+<title>Dynamics Graphics Overview</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02578.html" target="topic">Graphics Composer Asset Management</a></div>
+<a href="02578.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02612.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02588.html" target="topic">Next</a></div>
+<a href="00387.html" target="topic">Previous</a> | <a href="02620.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Asset Management Topic Title: Graphics Composer Asset Management)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Composer Asset Management</div>
+Dynamics Graphics Overview</div>
 </div>
 </div>
 
@@ -46,60 +46,60 @@ Graphics Composer Asset Management</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="546F70696373"></a><div class="Element14">
-Topics</div>
-<div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<div class="Element212">
+<p class="Element10">
+ &nbsp;</p>
+<p class="Element10">
+Introduction&nbsp;</p>
+<p class="Element10">
+The MPLAB Harmony Graphics Configurator (MHGC) makes it easy to create static (i.e. non-changing) graphics. Creating dynamic (i.e. changing) graphics is slightly more difficult. The purpose of this Advanced Topic is to explore how to add dynamic graphics to a simple graphics application, in this case Aria Quickstart.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+Examples of Dynamic Graphics&nbsp;</p>
+<p class="Element10">
+The Quick Start tutorial Adding an Event to The Aria Quickstart Demonstration shows how to use the press of a button to change the button’s text using Aria Events.&nbsp;</p>
+<p class="Element10">
+There are many examples of non-static, i.e. dynamic graphics, in the graphics demos found in&nbsp;</p>
+<p class="Element10">
+the ./gfx_apps/apps folder:&nbsp;</p>
+<p class="Element10">
+• <strong>aria_benchmark</strong>: This project shows an opening splash screen and three separate screens. One display calculates performance of text updates. The next display calculates performance of one or more moving squares. The final display calculates performance for image rendering.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_showcase</strong>: This project shows an opening splash screen and five screens, with each screen demonstrating a different widget. It also provides support for both English and Chinese text. There is an additional help screen as well.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_showcase_reloaded</strong>: This project shows an opening splash screen and seven separate screens: a main menu screen and six additional screens with each screen demonstrating a different advanced widget.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_weather_forecast</strong>: This project shows an opening splash screen and three additional screens, each screen showing the weather for a different city using the language native to that city&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+This project demonstrates the following events/macros </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element200" valign="top" width="35%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02588.html" target="topic">Memory Configuration</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on configuring memory locations.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02570.html" target="topic">DDR Organizer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The DDR Organizer tool supports managing buffers, raw images, and other memory resources in the DDR memory of DA devices and only DDR-enabled DA devices.<br>A Graphics Hardware Accelerator (Graphics Processor) must be installed in the MHC's Project Graph. For the GFX Core component, do a right mouse click on the Graphics Processor component and then select among the available Graphics Processors. Select the &quot;Nano2D&quot; processor from the Satisfiers list: </p><p class="Element207" style="text-align: center;">
-<img src="MHCG UG Selecting GFX Processor.png" border="0" alt="" title=""></p><p class="Element207">
-Next, click on the Aria Graphics Library component and in its Configuration Panel enable display acceleration: </p><p class="Element207" style="text-align: center;">
-<img src="MHGC UG Aria Graphics Library Component.png" border="0" alt="" title=""> <img src="MHGC UG EnableDisplayAccel.png" border="0" alt="" title=""></p><p class="Element207">
-<br>The DDR Organizer tool is launched from the Assets Management pull-down menu: </p><p class="Element207" style="text-align: center;">
-<img src="MHGC UG DDR organization pull down menu.png" border="0" alt="" title=""><br><br>&nbsp;</p><p class="Element207">
-The following... <a href="02570.html" target="topic">more</a>&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02584.html" target="topic">Image Assets</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the Image Assets features.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02565.html" target="topic">Font Assets</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the Font Assets features.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02600.html" target="topic">String Table Configuration</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the String Assets features.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02599.html" target="topic">String Assets</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the String Assets features.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02568.html" target="topic">Binary Assets</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the Binary Assets features.&nbsp;</div></td></tr></table></div></div>
+<td class="Element65" valign="top" width="7%">
+<div class="Element66">
+Source&nbsp;</div></td><td class="Element65" valign="top" width="45%">
+<div class="Element66">
+Internal Destination&nbsp;</div></td><td class="Element65" valign="top" width="48%">
+<div class="Element66">
+External Destination&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Inside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 1: Dynamic Images<br>Button widget press event hides MPLAB Harmony Logo.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 2: Buttons and LEDs, Real and Virtual Switch widget events change board LEDs in APP_Tasks via a boolean semaphore.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Outside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Macro&quot; - Lesson 2. Buttons and LEDs, Real and Virtual Button widget press is polled in APP_Tasks to change color scheme for Virtual LEDs, mirroring board LEDs.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+<strong>Not supported by Event Manager Tool</strong><br>Lesson 2. Buttons and LEDs, Real and Virtual Board switch changes board LEDs in APP_Tasks.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -107,7 +107,7 @@ Provides information on the Binary Assets features.&nbsp;</div></td></tr></table
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02578.html" target="topic">Graphics Composer Asset Management</a></div>
+<a href="02578.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -115,13 +115,13 @@ Provides information on the Binary Assets features.&nbsp;</div></td></tr></table
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02612.html" target="topic">Previous</a> | <a href="02579.html" target="topic">Up</a> | <a href="02588.html" target="topic">Next</a></div>
+<a href="00387.html" target="topic">Previous</a> | <a href="02620.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Asset Management Topic Title: Graphics Composer Asset Management)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

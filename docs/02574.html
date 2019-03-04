@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Composer Events</title>
+<title>Code Generation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02590.html" target="topic">MHGC Tools</a> &gt; <a href="02573.html" target="topic">Event Manager</a> &gt; <a href="02574.html" target="topic">Graphics Composer Events</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02574.html" target="topic">Code Generation</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02573.html" target="topic">Previous</a> | <a href="02573.html" target="topic">Up</a> | <a href="02576.html" target="topic">Next</a></div>
+<a href="02612.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02570.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Graphics Composer Events Topic Title: Graphics Composer Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Code Generation Topic Title: Code Generation)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Composer Events</div>
+Code Generation</div>
 </div>
 </div>
 
@@ -49,64 +49,25 @@ Graphics Composer Events</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The Graphics Composer Screen Designer shows that there is one layer and three widgets in this demonstration. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Graphics Composer Events Tree View.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-Of the three widgets shown above, only ButtonWidget1 can have events associated with it, one for button pressed and a second for button released. This can be seen in the Graphics Composer Event Manager window, which is available from the Tools menu: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Event Management Pressed.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-The events shown under “ButtonWidget1” are mirrored in the widget’s properties. Selecting or clearing an event in one window does the same in the other window, thus enabling (selecting) or disabling (clearing) the corresponding event. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Event Selection.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-We can add a Check Box widget to the applications display and then use the Event Manager to assign actions to the widget’s events. A Check Box widget has two events, one for being “Checked” (i.e., selected) and another for being “Unchecked” (i.e., cleared). Enabling the “Checked” event then allows the selection of the action or actions for that event. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Checked Unchecked Events.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-The Actions: sub-window has five tool icons for managing the actions associated with an event: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Actions Subwindow.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-Clicking the Create New Action icon ( <img src="MHGC UG Create New Action Icon.png" border="0" alt="" title=""> ) opens the Action Edit dialog. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Action Edit Dialog.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-Select Custom and click <strong>Next</strong>, the user will see the following dialog. Unfortunately, there is no C code error checking with this window. It just copies the code into libaria.c and libaria.h. If there is a problem with the code, the user will not know about it until the user try to build the application. An alternative is just to type a comment such as /*My event goes here*/, generate the code, and then find out where this comment landed in the code. (Typically, inside libaria_events.c, or libaria_macros.c) The user can then write the action routine from within the MPLAB X IDE editor and compile just that file to debug the code written. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Action Edit Dialog CheckBoxAction.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-If Template is selected, the Action Edit dialog will update, as follows. Select ButtonWidget1. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Action Edit Dialog Template Selection.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-As shown previously, the user next needs to select the widget that if the desire is to manipulate with this action. Note that the event originated with CheckBoxWidget1, but the event’s action can manipulate any of the existing widgets. In this case, ButtonWidget1 has been selected. Clicking Next will then bring up a list of the actions available in manipulating a button widget. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Action Edit Dialog Set Text.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-Select the “Set Text” action, which will then change the button’s text property, followed by NEXT, which will open a dialog to select the text string for this action. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Action Edit Dialog Select Text String.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-Next, select from the available (already defined) strings which text to use for the button’s text field. Press the Finish button to complete the definition of this action.</p></div>
+MPLAB Harmony Graphics Composer data is generated the same way as the rest of the project within MHC through the Generate button.</p>
+<ul class="Element630">
+<li class="Element600"><strong>libaria_harmony.h/c</strong> – These files provide the interface that binds libaria to the overall MPLAB Harmony framework. They contain the implementations for the standard state management, variable storage, and initialization and tasks functions. If the touch functionality is enabled then the touch bindings are also generated in <span class="Element146">libaria_harmony.c</span>.</li>
+<li class="Element600"><strong>libaria_init.h/c</strong> - These files contain the main initialization functions for the library state and screens. The header file contains all predefined information for the library state including screen IDs, schemes, and widget pointers. The main initialization function initializes all schemes and screens, creates all screen objects, and sets the initial state of the library context. As each screen must be capable of being created at any time, each screen has a unique create function that can be called at any time by the library. The <span class="Element146">libaria_init.c</span> file contains these create functions.</li>
+<li class="Element600"><strong>libaria_events.h/c</strong> – The event files contain the definitions and implementations of all enabled MHGC events. Each event implementation will contain all generated actions for that event.</li>
+<li class="Element600"><strong>libaria_macros.h/c</strong> – The macro files contain the definitions and implementations of all defined MHGC screen macros. A macro is similar to an event in that it can contain actions. However, it is meant to be called from an external source such as the main application.</li>
+<li class="Element600"><strong>libaria_config.h</strong> – This file contains configuration values for the library. These are controlled through settings defined in MHC.</li>
+<li class="Element600"><strong>gfx_display_def.c</strong> – This file contains generated definitions for enabled graphics displays.</li>
+<li class="Element600"><strong>gfx_driver_def.c</strong> – This file contains generated definitions for enabled graphics drivers.</li>
+<li class="Element600"><strong>gfx_processor_def.c</strong> – This file contains generated definitions for enabled graphics processors.</li>
+<li class="Element600"><strong>gfx_assets.h/c</strong> – These files contain generated asset data.</li>
+</ul></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02579.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02590.html" target="topic">MHGC Tools</a> &gt; <a href="02573.html" target="topic">Event Manager</a> &gt; <a href="02574.html" target="topic">Graphics Composer Events</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02574.html" target="topic">Code Generation</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -114,13 +75,13 @@ Next, select from the available (already defined) strings which text to use for 
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02573.html" target="topic">Previous</a> | <a href="02573.html" target="topic">Up</a> | <a href="02576.html" target="topic">Next</a></div>
+<a href="02612.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02570.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Graphics Composer Events Topic Title: Graphics Composer Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Code Generation Topic Title: Code Generation)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

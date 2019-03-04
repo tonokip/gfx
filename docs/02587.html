@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Introduction</title>
+<title>Global Palette</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02587.html" target="topic">Introduction</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02600.html" target="topic">MHGC Tools</a> &gt; <a href="02587.html" target="topic">Global Palette</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02604.html" target="topic">Previous</a> | <a href="02604.html" target="topic">Up</a> | <a href="02579.html" target="topic">Next</a></div>
+<a href="02585.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="02593.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Global Palette Topic Title: Global Palette)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Introduction</div>
+Global Palette</div>
 </div>
 </div>
 
@@ -49,85 +49,81 @@ Introduction</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The MPLAB Harmony Graphics Composer (MHGC), also referred to as the graphics composer, is a graphics user interface design tool that is integrated as part of the MPLAB Harmony Configurator (MHC). MHGC is tightly coupled with the Aria User Interface Library to facilitate rapid prototyping and optimization of the application's graphical user interface (GUI). The tool provides a &quot;What you see is what you get&quot; (WSYWIG) environment for users to design the graphics user interface for their application. Refer to <i>MPLAB Harmony Graphics Library Help &gt; Graphics Library Help &gt; <a href="00465.html" target="topic">Aria User Interface Library</a></i> for more information.&nbsp;</p>
+The Global Palette window is launched from the Graphics Composer’s Asset pull-down menu.&nbsp;</p>
 <p class="Element10">
-The MPLAB Harmony Graphics Composer (MHGC) Tool Suite and the Aria User Interface Library provide the following benefits to developers:</p>
+Using a Global Palette enables frame buffer compression for the LCC graphics controller. It creates a 256 color look up table (LUT) and then changes the entire user interface design to adhere to that LUT. Frame buffers are stored as 8 bits/pixel (bpp) indices rather than 16-32 bpp colors. The display driver performs a LUT operation to change each LUT index into a color before writing to the display/controller memory. This enables the use of double buffering, without using external memory, on devices that could not support it before. It also supports single buffering on larger displays. Of course, running the LUT requires more processing on the host. Currently only the LCC graphics controller supports this feature. The Aria demonstration Aria Basic Motion is an example of how using a Global Palette greatly improves the efficiency and capabilities of a design.&nbsp;</p>
+<p class="Element10">
+Enable the Global Palette by clicking on the Enable Global Palette check box in the window or using the <i>File &gt; Settings &gt; Color Settings</i> menu. (The Global palette can always be disabled. MHGC will then restore the project back to its original configuration.)&nbsp;</p>
+<p class="Element10">
+If the global palette is enabled here, you will have to check the &quot;Enable Global Palette Mode?&quot; in the Configuration Option for the Aria Graphics Library component in MHC's Project Graph: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Aria Graphics Library Component.png" border="0" alt="" title=""> <img src="MHGC UG Enable Global Palette Mode in Aria Config.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The results of enabling the Global Palette:</p>
 <ul class="Element630">
-<li class="Element600"><strong>Enhanced User Experience</strong> – Libraries and tools are easy to learn and use.</li>
-<li class="Element600"><strong>Intuitive MHGC Window Tool</strong> – Flexible window docking/undocking. Undo/Redo and Copy/Paste support. Tree-based design model. Display design canvas control including zooming.</li>
-<li class="Element600"><strong>Tight Integration Experience</strong> – Graphics design &amp; code generator tools are tightly integrated, providing rapid prototyping and optimization of look and feel</li>
-<li class="Element600"><strong>Powerful User Interface (UI) Library</strong> – Provides graphics objects and touch support</li>
-<li class="Element600"><strong>Multi-Layer UI design</strong> – Supported in the MHGC tool and Aria Library</li>
-<li class="Element600"><strong>Complete Code Generation</strong> – Can generate code for library initialization, library management, touch integration, color schemes and event handling with a single click</li>
-<li class="Element600"><strong>Supports Performance and Resource Optimization</strong> – Draw order, background caching, and advanced color mode support improve performance</li>
-<li class="Element600"><strong>Resource Optimization</strong> – Measures Flash memory usage and can direct resources to external memory if needed. Global 8-bit color look-up table (LUT) supports reduced memory footprint. Heap Estimator tool, which helps to manage the SRAM memory footprint.</li>
-<li class="Element600"><strong>Text Localization</strong> – Easily integrate international language characters into a design and seamlessly change between defined languages at run-time</li>
-<li class="Element600"><strong>Easy to Use Asset Management</strong> – Tools provide intuitive management of all graphics assets (fonts, images, text strings)</li>
-<li class="Element600"><strong>Image Optimization</strong> – Supports cropping, resizing, and color mode tuning of images</li>
-<li class="Element600"><strong>Expanded Color Mode Support</strong> – The graphics stack can manage frame buffers using 8-bit to 32-bit color</li>
-<li class="Element600"><strong>Powerful Asset Converter</strong> – Inputs several image formats, auto converts from input format to several popular internal asset formats, performs auto palette generation for image compression, supports run-length encoding. Supports automatic font character inclusion &amp; rasterization.</li>
-<li class="Element600"><strong>Event Management</strong> – Wizard-based event configuration. Tight coupling to enable touch user events and external logical events to change the graphics state machine and graphics properties.</li>
-<li class="Element600"><strong>Abstract Hardware Support</strong> – Graphics controllers and accelerators can be added or removed without any change to the application.</li>
-</ul><div class="Element15">
-Glossary of Terms</div>
+<li class="Element600">8bpp frame buffers. In the case of the most common demonstrations this means a 50% reduction in the size of the frame buffer.</li>
+<li class="Element600">This also opens up the capability to support a single frame buffer for some larger displays.</li>
+</ul><p class="Element10">
+What is lost by enabling the Global Palette:</p>
+<ul class="Element630">
+<li class="Element600">First and foremost - No Dynamic Colors. Dynamic colors are unlikely to match up with an entry in the global palette’s look-up table.</li>
+<li class="Element600">No alpha blending capability. The level of alpha blending can be changed during run-time. (See No Dynamic Colors.)</li>
+<li class="Element600">No JPEGs or PNGs. Again, no dynamic colors. All images in MGHC will be changed to the color mode of the project, and generated as Raw.</li>
+<li class="Element600">No font anti-aliasing. Again, no dynamic colors. While the 8-bits/pixel for each glyph is known, the color of the text depends on the color scheme used, and color schemes can change at run time.</li>
+<li class="Element600">Additional overhead when performing LUT (index-&gt;color) operations in the display driver.</li>
+</ul><p class="Element10">
+The following figure shows the default “Global Palette” when Project Color Mode is set to RGB_888. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Global Palette.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-Throughout this user's guide the following terms are used: </p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table2">
-<tr>
-<td class="Element65" valign="top" width="20%">
-<div class="Element66">
-Acronym or Term&nbsp;</div></td><td class="Element65" valign="top" width="80%">
-<div class="Element66">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Action&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-A specific task to perform when an event occurs.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Asset&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-An image, font, or binary data blob that is used by a user interface.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Event&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-A notification that a specific occurrence has taken place.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Resolution&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-The size of the target device screen in pixels.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Screen&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-A discrete presentation of organized objects.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Tool&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-An interface used to create objects.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-UI&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-Abbreviation for User Interface.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Widget&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-A graphical object that resides on the user interface screen.&nbsp;</div></td></tr></table></div></div>
-</div>
+This default palette is good for designs that use a wide array of colors. MHGC also supports developing a custom palette by importing an image defining the palette or by analyzing the pixel colors already in use by the application’s images. The palette’s color mode is determined by the Project Color Mode, which is determined by the graphics controller.&nbsp;</p>
+<p class="Element10">
+Clicking on an entry in the palette with bring up the Color Picker dialog window, allowing you to edit the entry’s color.</p><div class="Element15">
+Window Toolbar</div>
+<p class="Element10">
+There are four icons on the toolbar:</p>
+<ol class="Element630">
+<li value="1" class="Element600"><strong>Import From Image File</strong> - Importing a global palette from an image file. Selecting this brings up the following warning. Images can be imported as a BMP,.GIF, JPEG, and PNG (but not TIFF).</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Import Image Warning.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="2" class="Element600"><strong>Auto-Calculate Palette</strong> – Calculates a new palette using the current design. Selecting this brings up the following warning.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Auto-Calculate Global Palette Warning.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ul class="Element630">
+<li class="Element600">Selecting <strong>Yes</strong> opens a status window that shows the progress made in selecting a palette of 256 colors</li>
+</ul><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Auto-Calculating Global Palette Progress Window.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ul class="Element630">
+<li class="Element600">This can be lengthy operation, but it will effectively generate a palette better tailored to the design. However, extreme (or rare) colors will be changed to nearby, more-plentiful colors, thereby eliminating some of the contrast in images. Whites will tend to darken and blacks lighten. This can be remedied by editing the calculated palette to whiten the whites, darken the blacks, and make other colors closer to the original. This of course may increase the posterization of the image, but that is a natural trade-off in using only 256 colors.</li>
+</ul>
+<ol class="Element630">
+<li value="3" class="Element600"><strong>Reset to Default</strong> – This returns the Global Palette to its default values, which opens the Reset Global Palette dialog.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Reset Global Palette Warning.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="4" class="Element600"><strong>Enable Global Palette</strong> – This performs the same function as <i>File &gt; Settings: Using a Global Palette</i>. Selecting this opens the Enable Global Palette Mode warning.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Enable Global Palette Mode Warning.png" border="0" alt="" title=""></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02604.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02587.html" target="topic">Introduction</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02600.html" target="topic">MHGC Tools</a> &gt; <a href="02587.html" target="topic">Global Palette</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -135,13 +131,13 @@ A graphical object that resides on the user interface screen.&nbsp;</div></td></
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02604.html" target="topic">Previous</a> | <a href="02604.html" target="topic">Up</a> | <a href="02579.html" target="topic">Next</a></div>
+<a href="02585.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="02593.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Global Palette Topic Title: Global Palette)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

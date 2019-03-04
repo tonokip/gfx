@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>It's Fast</title>
+<title>Example Graphics Projects</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00378.html" target="topic">Graphics Overview</a> &gt; <a href="00385.html" target="topic">Why use MPLAB Harmony Graphics?</a> &gt; <a href="00380.html" target="topic">It's Fast</a></div>
+<a href="00382.html" target="topic">Graphics Overview</a> &gt; <a href="00380.html" target="topic">Example Graphics Projects</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00382.html" target="topic">Previous</a> | <a href="00385.html" target="topic">Up</a> | <a href="00381.html" target="topic">Next</a></div>
+<a href="00383.html" target="topic">Previous</a> | <a href="00382.html" target="topic">Up</a> | <a href="00387.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR It%27s Fast Topic Title: It%27s Fast)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Example Graphics Projects Topic Title: Example Graphics Projects)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-It's Fast</div>
+Example Graphics Projects</div>
 </div>
 </div>
 
@@ -49,27 +49,45 @@ It's Fast</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-It produces fast graphics on target (PIC32 or SAM) processors, minimizing the processor resources and processing bandwidth dedicated to graphics. This provides smaller footprint designs and lowers BOM costs.&nbsp;</p>
+<strong><i>The <a href="00000.html" target="topic">aria_benchmark</a> Demonstration</i></strong>&nbsp;</p>
 <p class="Element10">
-Unlike 3rd party graphics tools, it is deeply embedded and tightly coupled with the existing development tools (MPLAB X, Harmony, MPLAB Harmony Configurator).&nbsp;</p>
-<p class="Element10">
-With 3rd party tools each step in the graphics development is outside of the development environment (e.g. MPLAB X) and the code must be assembled manually: </p><p class="Element10" style="text-align: center;">
-<img src="GFX_OVR  3rd Party Design Flow.png" border="0" alt="" title="">&nbsp;</p>
+This application presents frame update rate metrics on the various rendering operations in the Harmony graphics library. </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR aria_benchmark screen.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p><p class="Element10">
-This process takes more time and is subject to user error because of the manual assembly of all the code developed by the tools outside of MPLAB X. Typically, the development of a graphical user interface (GUI) is a highly iterative process, requiring many loops through the process shown above before converging to the final GUI design. The faster the loop time of each iteration the faster the final design.&nbsp;</p>
+<strong><i>The <a href="00012.html" target="topic">aria_showcase</a> Demonstration</i></strong>&nbsp;</p>
 <p class="Element10">
-All MPLAB Harmony Graphics tools are tightly integrated into the MPLAB X/Harmony/MPLAB Harmony Configurator tool suite. The only place for manual software changes is in the application code of the project, everything else is automated and free from user error: </p><p class="Element10" style="text-align: center;">
-<img src="GFX_OVR Harmony Design Flow.png" border="0" alt="" title="">&nbsp;</p>
+This demonstration provides a subset of capabilities offered by the Aria Graphics Library using Low-Cost Controllerless (LCC) driver features with touch screen capabilities. </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR aria_showcase screen.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p><p class="Element10">
-The Aria Graphics Library is optimized to exploit MPLAB Harmony Graphics capabilities. It’s not a one-design-fits-all processors library, it is focused solely on PIC32 or SAM. Thus, it can take full advantage of PIC32 or SAM features, such as the 2D Graphics Processing Unit (2D GPU) and built-in display controller when these features are available in the target processor.&nbsp;</p>
+<strong><i>The <a href="00015.html" target="topic">aria_showcase_reloaded</a> Demonstration</i></strong>&nbsp;</p>
 <p class="Element10">
-The available graphics application examples provide optimized graphics designs that wring the maximum graphics performance out of each target processor. <strong>Advanced Topics</strong> in the documentation discuss additional performance-enhancing techniques, such as “Draw Pipeline Options” and “Improving Touch Performance with Phantom Buttons”. </p><p class="Element10" style="text-align: center;">
+This application showcases the circular and graphing widgets – arc, circular slider, circular gauge, pie chart, bar graph, line graph. These widgets are available and ready-to-use using the Harmony Graphics Composer suite. </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR aria_showcase_reloaded screen.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+<strong><i>The <a href="00008.html" target="topic">aria_quickstart</a> Demonstration</i></strong>&nbsp;</p>
+<p class="Element10">
+This demonstration provides a touch-enabled starting point for Aria Graphics development. </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR aria_quickstart screen.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+<strong><i>The <a href="00020.html" target="topic">aria_weather_forecast</a> Demonstration</i></strong>&nbsp;</p>
+<p class="Element10">
+This demonstration provides a practical single-layered single-buffered application using the Aria User Interface Library. </p><p class="Element10" style="text-align: center;">
+<img src="GFX_OVR aria_weather_forecast screen.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p></div>
@@ -79,7 +97,7 @@ The available graphics application examples provide optimized graphics designs t
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00378.html" target="topic">Graphics Overview</a> &gt; <a href="00385.html" target="topic">Why use MPLAB Harmony Graphics?</a> &gt; <a href="00380.html" target="topic">It's Fast</a></div>
+<a href="00382.html" target="topic">Graphics Overview</a> &gt; <a href="00380.html" target="topic">Example Graphics Projects</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -87,13 +105,13 @@ The available graphics application examples provide optimized graphics designs t
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00382.html" target="topic">Previous</a> | <a href="00385.html" target="topic">Up</a> | <a href="00381.html" target="topic">Next</a></div>
+<a href="00383.html" target="topic">Previous</a> | <a href="00382.html" target="topic">Up</a> | <a href="00387.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR It%27s Fast Topic Title: It%27s Fast)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Example Graphics Projects Topic Title: Example Graphics Projects)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Creating New Graphics Applications</title>
+<title>String Assets</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02610.html" target="topic">Quick Start Guides</a> &gt; <a href="02609.html" target="topic">Creating New Graphics Applications</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02588.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02609.html" target="topic">String Assets</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02610.html" target="topic">Previous</a> | <a href="02610.html" target="topic">Up</a> | <a href="02608.html" target="topic">Next</a></div>
+<a href="02610.html" target="topic">Previous</a> | <a href="02588.html" target="topic">Up</a> | <a href="02572.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG Creating New Graphics Applications Topic Title: Creating New Graphics Applications)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Creating New Graphics Applications</div>
+String Assets</div>
 </div>
 </div>
 
@@ -49,174 +49,89 @@ Creating New Graphics Applications</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This tutorial provides information on how to create a new touch input-enabled graphics project using the MPLAB Harmony Graphics Composer (MHGC). The following hardware setups are supported:</p>
+The String Assets window is launched from the Graphics Composer’s Asset menu.&nbsp;</p>
+<p class="Element10">
+The String Assets window supports managing the strings in the application. Strings are referenced by graphic widgets using an application-wide unique name. This unique name is built into an enumeration that the application’s C code uses. For each language supported text is defined and a font asset selected. </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+There are three dimensions to text support: Languages, Fonts, and Strings. Language “ID” strings are identified when an application supports more than one language. (In the case of single language support, the language default is provided.) Fonts are imported and organized using the Font Assets window. Strings are defined by a string name, and this name is used by widgets to reference the string. For each string and each language supported the glyphs are defined to spell out the string’s text and the font is chosen for that text.</p>
 <ul class="Element630">
-<li class="Element600">SAM E70 Xplained Ultra board (DM320113) with High-Performance 4.3&quot; WQVGA Display Module with maXTouch (AC320005-4) Display (Plus ICD4 In-Circuit Debugger (dv164045), ICD4/PICKit Adapter Board (ac102015))</li>
-</ul><p class="Element10">
+<li class="Element600">Languages are managed within the <a href="02610.html" target="topic">String Table Configuration</a> window</li>
+<li class="Element600">Fonts are managed within the <a href="02569.html" target="topic">Font Assets</a> window</li>
+<li class="Element600">Strings are managed within the String Assets window (this topic)</li>
+</ul><p class="Element68">
+&nbsp;</div></td></tr></table></div></div>
+<p class="Element10">
+The following figure shows an example taken from the <span class="Element145">Aria Coffee Maker</span> demonstration. The string name, InfoText_Desc9, defines a string asset that is used by the application. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets InfoText_Desc9.png" border="0" alt="" title=""></p><p class="Element10">
+The Total Size in Byte: for a string asset represents the memory needed to store the glyph indices for all the text defined for that string asset. Adding more text will increase the number of glyph indices needed thus increasing the size of the string’s memory. Adding another language will do the same, since the number of glyph indices also increases. Changing the font does not increase the size of the string’s memory, but may increase the size of the font chosen if it is a “bigger” font and adds more glyphs to the new font. (By “bigger” we mean a font with more pixels, for example because it is bigger in size, or perhaps because it is anti-aliased and the original font was not.) </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+The Reference Count shown reflects the number of build-time references to the string. Dynamic uses of a string, such as through macros or events, is not reflected in this number.&nbsp;</div></td></tr></table></div></div>
+<div class="Element15">
+Window Toolbar</div>
+<p class="Element10">
+There are four icons on the toolbar:</p>
+<ol class="Element630">
+<li value="1" class="Element600"><strong>Add New String</strong> – Adds a new string.</li>
+<li value="2" class="Element600"><strong>Rename Selected Item</strong> – Allows renaming the string.</li>
+<li value="3" class="Element600"><strong>Describe Selected String</strong> - Provides a <i>Description</i> field value for selected string.</li>
+<li value="4" class="Element600"><strong>Create New Virtual Folder</strong> – Creates a new virtual folder, allowing the user to organize strings in a hierarchy. Here’s an example reorganization of the existing strings. Note the order of virtual folders or items in the list is strictly alphabetical. Virtual folders and string asset organization is merely for the convenience of the developer. Neither has an effect on how the application is built.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets GPU_On.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="5" class="Element600"><strong>Delete Selected Items</strong> – Deletes selected strings from the application.</li>
+<li value="6" class="Element600"><strong>Import String Table</strong> - Imports an Excel CSV (Comma Separated Value) file to replace the current string table.</li>
+<li value="7" class="Element600"><strong>Export String Table</strong> - Exports the current string table as an Excel CSV (Comma Separated Value) text file.</li>
+</ol><p class="Element10">
 &nbsp;</p>
 <div class="Element15">
-Getting Started</div>
+Creating New Strings</div>
 <p class="Element10">
-Before beginning this tutorial, ensure that the MPLAB X IDE is installed and necessary language tools as described in Getting Started With MPLAB Harmony. In addition, ensure that the MPLAB Harmony framework is installed on a local hard drive and that the correct version of MHC plug-in is installed within the MPLAB X IDE.&nbsp;</p>
+To create a new string, click Add New String ( <img src="MHGC UG Add New String Icon.png" border="0" alt="" title=""> ).&nbsp;</p>
 <p class="Element10">
-Follow the tutorial found in MPLAB Harmony Core Library Help &gt; Creating Your First Project to first learn about the basics of software development using MPLAB Harmony. Successfully completing the tutorial can serve as a confirmation of the software setup.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element15">
-Configuring the Hardware</div>
-<p class="Element10">
-<strong>SAM E70 Xplained Ultra board with 4.3” WQVGA Display</strong>&nbsp;</p>
-<p class="Element10">
-There are two programming options. The primary option is the Micro B Embedded Debugger (EDBG) port. Power to the board can also be supplied via this connection. The secondary option is via the ICD4 debugger with the ICD4/PICKit 4 Target Adapter Board (Power has to be provided from power supply in this alternative setup). The image below shows both the EDBG and the ICD4 connection options: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Final Setup.png" border="0" alt="" title=""></p><p class="Element10">
-Configuring the 4.3” WQVGA Display requires disconnecting the ribbon cable that connects the display to the interposer board. </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Bottom of WQVGA Display.png" border="0" alt="" title=""></p><p class="Element10">
-First, release the ribbon cable from the interposer board. Next, release the black clamp on the E70’s J2 connector and turn the display over. Finally, insert the ribbon cable into J2 and close the clamp. </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Connecting Ribbon Cable.png" border="0" alt="" title=""></p><p class="Element10">
-The board and display are powered by a Micro B – USB A cable from PC to the “Debug USB” port on the E70 board. The ICD4 Debugger and ICD4/PICKit4 Adapter Board are connected as shown above.</p><div class="Element15">
-Tutorial Steps</div>
-
-<ol class="Element630">
-<li value="1" class="Element600">Launch the MPLAB X IDE. From the File pull-down menu, select New Project. (This will bring up the New Project dialog window.)</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds New Project.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="2" class="Element600">On the New Project dialog window, be sure the project type is 32-bit MPLAB Harmony Project, then hit the <strong>Next &gt;</strong> button.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds New Project Choose Project.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="3" class="Element600">In the New Project dialog window, fill in or select the information needed as follows:</li>
-</ol>
-<ul class="Element630">
-<li class="Element600"><strong>Harmony Path</strong> - be sure it is pointing to the MPLAB Harmony framework installation.</li>
-<li class="Element600"><strong>Project Name</strong> - Type in MyProject or some other name.</li>
-<li class="Element600">For the SAM E70 Xplained Ultra board, select the ATSAME70Q21B as the target device.</li>
-</ul><p class="Element10">
-The New Project dialog should show the following: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds New Project Name and Loc.png" border="0" alt="" title=""></p><p class="Element10">
-Select <strong>Finish</strong> when done.</p>
-<ol class="Element630">
-<li value="4" class="Element600">In the MPLAB Harmony Launcher dialog window select the Launch Path that corresponds to the Harmony installation to be used. In the example below, both MPLAB X IDE’s default configuration and the project’s path point to the same MPLAB Harmony installation:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Harmony Launcher Example.png" border="0" alt="" title=""></p><p class="Element10">
-The select the <strong>Launch</strong> button.&nbsp;</p>
-<p class="Element10">
-When the “Configuration Database Setup” dialog window appears, just select <strong>Launch</strong>: </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Config Database Setup.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-MHC’s component graph should show: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Beginning Project Graph.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="5" class="Element600">In the MHC’s Available Components panel drag and drop the SAM E70 Xplained Ultra BSP onto the project’s Component Graph</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Chose BSP.png" border="0" alt="" title="">&nbsp;</p>
+Selecting this icon opens the Add String dialog to name the string. The text chosen for the string name should be acceptable as a C variable. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Add String Dialog.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-
-<ol class="Element630">
-<li value="6" class="Element600">Next drag the Aria Graphics w/ PDA TM4301B Display graphics template onto the project graph:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Choose Graphics Template.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+After entering the new string’s name and click Create, the following String Assets window appears. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets Add String.png" border="0" alt="" title=""></p><p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-Then answer <strong>Yes</strong> to all the dialogs that follow. The Project Graph should show: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Initial Project Graph.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
+In the String Assets window, there will be a line for each of the languages defined for the application. Provide the string text and font for each of the languages. An empty string will be used if the text is not provided. Not providing a font causes the string to be rendered as a string of boxes ( <img src="MHGC UG Unrendered Font Notification.png" border="0" alt="" title=""> ).</p><div class="Element15">
+Importing and Exporting String Tables</div>
 <p class="Element10">
-After rearranging the components: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Final Project Graph.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="7" class="Element600">Launch the Graphics Composer from the MHC Tools Menu:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Launch MHGC.png" border="0" alt="" title=""></p><p class="Element10">
-Next, the MHGC’s Welcome Dialog should appear. Click the first icon to create a new graphics design. </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds MHGC Welcome Dialog.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
+Importing an Excel CSV (Comma Separated Values) file replaces the existing string assets table. Exporting creates an Excel CSV file that can be imported into another project or target configuration. Exported string tables can be manipulated in Excel, even combining multiple string tables into a single string table that can then be imported.&nbsp;</p>
 <p class="Element10">
-If the Welcome Dialog does not appear, it is because it had been disabled previously. In the MPLAB Harmony Graphics Composer (MHGC) screen use the left-most icon to create a new graphics design. </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Create New Design.png" border="0" alt="" title=""></p><p class="Element10">
-<strong>NOTE: </strong>The Welcome Dialog can be re-enabled by using MHGC’s File &gt; Settings &gt; General menu: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Reenable Welcome Dialog.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="8" class="Element600">In the New Project Wizard, for the Color Mode step, select RGB_565 and hit <strong>NEXT</strong>.</li>
-<li value="9" class="Element600">For the Memory Size step, accept the default Flash Memory Size and hit <strong>NEXT</strong>.</li>
-<li value="10" class="Element600">For the Project Type step, chose the second option to create a new project using a basic template:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds New Project Wizard New Project Type.png" border="0" alt="" title=""></p><p class="Element10">
-The MHGC window should now show: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds MHGC Screen Design.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="11" class="Element600">Launch the Pin Configuration tool and verify that the display is correctly setup:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Launch Pin Config Tool.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Pin Diagram.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="12" class="Element600">Generate the application’s code for the first time. Select the Generate Code button of MHC’s window:</li>
-</ol><p class="Element10" style="text-align: right;">
-<img src="QSG 60 Seconds Generate Code.png" border="0" alt="" title=""></p><p class="Element10">
-Save the project’s configuration (any name will do for the .xml file): </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Modified Config Save As.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Save Databse State As.png" border="0" alt="" title=""></p><p class="Element10">
-Select USER_ALL as the Merge Strategy : </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Generate Project USER_ALL.png" border="0" alt="" title=""></p><p class="Element10">
-Click Generate: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Click Generate.png" border="0" alt="" title=""></p><p class="Element10">
-Now the project’s initial software has been configured.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>NOTE</strong>: Here is a brief explanation of the different merge strategies that are available:&nbsp;</p>
-<ul class="Element630">
-<li class="Element600"><strong>ALL</strong>: The user will be prompted with a merge window for all generated files. This includes files that have no user modifications but are changed because of changes in MHC configuration or component updates. (This choice is always the safest.)</li>
-<li class="Element600"><strong>USER_ALL</strong>: The user will always be prompted with a merge window for all generated files that contain user modifications.</li>
-<li class="Element600"><strong>USER_RECENT</strong>: The user will be prompted with a merge window for all generated files that contain user modifications.</li>
-<li class="Element600"><strong>OVERWRITE</strong>: All generated file content will be replaced by the contents of this generate operation. All user changes will be overwritten.</li>
-</ul><p class="Element10">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="13" class="Element600">Right mouse click on the project’s name and bring up the Project Properties dialog:</li>
-</ol><p class="Element10" style="text-align: right;">
-<img src="QSG 60 Seconds Modify Project Properties.png" border="0" alt="" title=""></p><p class="Element10">
-Select the debugger (here ICD 4) and the XC32 compiler (here V2.15). Then hit OK. </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Project Properties Mod.png" border="0" alt="" title=""></p><p class="Element10">
-If you are using the Embedded Debugger (EDBG) instead: </p><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Project Properties Mod2.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="14" class="Element600">Build and run the project:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Run Main Project.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="15" class="Element600">The follow should appear on the display:</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="QSG 60 Seconds Final Display.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<div class="Element15">
-Next Steps</div>
-
-<ul class="Element630">
-<li class="Element600">Learn how to add events to the project: <i>MPLAB Harmony Graphics Library Help &gt; Quick Start Guides &gt; Graphics and Touch Quick Start Guides &gt; Adding an Event to the Aria Quickstart Demonstration</i></li>
-<li class="Element600">Learn how to use phantom buttons to improve touch performance: <i>MPLAB Harmony Graphics Library Help &gt; MPLAB Harmony Graphics Composer User’s Guide &gt; Advanced Topics &gt; Improved Touch Performance with Phantom Buttons</i></li>
-</ul></div>
+If the string asset table contains UTF-8 then the file cannot be directly loaded into Excel. Instead, within Excel create a new sheet. Import the string table using <i>Get Data</i>, selecting <i>From File, From Text</i>, or <i>CSV</i>. Then in the dialog window change the <i>File Origin </i>to <i>Unicode (UTF-8</i>). </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+Excel does not support importing UTF-16.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02610.html" target="topic">Quick Start Guides</a> &gt; <a href="02609.html" target="topic">Creating New Graphics Applications</a></div>
+<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02588.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02609.html" target="topic">String Assets</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -224,13 +139,13 @@ Next Steps</div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02610.html" target="topic">Previous</a> | <a href="02610.html" target="topic">Up</a> | <a href="02608.html" target="topic">Next</a></div>
+<a href="02610.html" target="topic">Previous</a> | <a href="02588.html" target="topic">Up</a> | <a href="02572.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG Creating New Graphics Applications Topic Title: Creating New Graphics Applications)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
