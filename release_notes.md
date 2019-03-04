@@ -52,8 +52,8 @@
 
 | Template | Description |
 | --- | --- |
-| aria_gfx_pda_tm4301b | "Aria Graphics w/ PDA TM4301B Display"  |
-| aria_gfx_xplained_pro | "Aria Graphics w/ Xplained Pro Display" |
+| aria_gfx_pda_tm4301b | Aria Graphics w/ PDA TM4301B Display  |
+| aria_gfx_xplained_pro | Aria Graphics w/ Xplained Pro Display |
 
 - **New Board Support Packages (BSP)s** - The following table provides the list of new MHC board support packages for use within MHC.
 
@@ -69,12 +69,9 @@
 
 - **Development kit support** - The following table provides  applications available for different development kits.
 
-| Development Kits | applications |
-| --- | --- |
-| [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | aria_quickstart |
-| [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | aria_quickstart |
-| [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | aria_quickstart |
-| [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | aria_quickstart |
+| Applications | [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) |
+| --- | --- | --- | --- | --- |
+| aria_quickstart           | x | x | x | x |
 
 ### KNOWN ISSUES
 
