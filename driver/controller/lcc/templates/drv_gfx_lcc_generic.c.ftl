@@ -62,6 +62,7 @@
 <#assign Val_DataEnablePolarity = gfx_hal.DisplayDataEnablePolarity>
 <#assign Val_DoubleBuffer = gfx_hal.DoubleBufferHint>
 <#assign Val_PaletteMode = gfx_hal.GlobalPaletteModeHint>
+<#assign Val_FrameBufferColorMode = gfx_hal.ColorModeHint>
 
 <#else>
 
@@ -78,6 +79,7 @@
 <#assign Val_DataEnablePolarity = DisplayDataEnablePolarity>
 <#assign Val_DoubleBuffer = DoubleBuffer>
 <#assign Val_PaletteMode = PaletteMode>
+<#assign Val_FrameBufferColorMode = FrameBufferColorMode>
 
 </#if>
 
@@ -111,26 +113,32 @@
 
 <#if Val_PaletteMode == true>
 #define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_GS_8
+#define FRAMEBUFFER_TYPE uint8_t
+<#else>
+<#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_332">
+#define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_332
+#define FRAMEBUFFER_TYPE uint8_t
+#define FRAMEBUFFER_PIXEL_BYTES 1
 <#else>
 #define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_565
+#define FRAMEBUFFER_TYPE uint16_t
+#define FRAMEBUFFER_PIXEL_BYTES 2
+</#if>
 </#if>
 
 const char* DRIVER_NAME = "LCC SMC";
-static uint32_t supported_color_formats = GFX_COLOR_MASK_RGB_565;
+static uint32_t supported_color_formats = (GFX_COLOR_MASK_RGB_565 | GFX_COLOR_MASK_RGB_332);
 
 <#if FrameBufferMemory == "External SDRAM">
-<#if Val_PaletteMode == true>
-uint8_t * frameBuffer = (uint8_t *) FRAMEBUFFER_BASE_ADDR;
-<#else>
-uint16_t * frameBuffer = (uint16_t *) FRAMEBUFFER_BASE_ADDR;
-</#if>
+FRAMEBUFFER_TYPE * frameBuffer = (FRAMEBUFFER_TYPE *) FRAMEBUFFER_BASE_ADDR;
 <#else>
 <#if Val_PaletteMode == true>
-uint8_t frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+FRAMEBUFFER_TYPE frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 <#else>
-uint16_t __attribute__((aligned(16))) frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+FRAMEBUFFER_TYPE __attribute__((aligned(FRAMEBUFFER_PIXEL_BYTES*8))) frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
 </#if>
 </#if>
+
 <#if Val_PaletteMode == true>
 uint16_t __attribute__((aligned(16))) frameLine[DISPLAY_WIDTH];
 </#if>
@@ -437,7 +445,7 @@ GFX_Result driverLCCContextInitialize(GFX_Context* context)
 static void lccDMAStartTransfer(const void *srcAddr, size_t srcSize,
                                        const void *destAddr)
 {
-    XDMAC_ChannelBlockLengthSet(DRV_GFX_LCC_DMA_CHANNEL_INDEX, (srcSize >> 1) - 1);
+    XDMAC_ChannelBlockLengthSet(DRV_GFX_LCC_DMA_CHANNEL_INDEX, (srcSize / FRAMEBUFFER_PIXEL_BYTES) - 1);
 
 <#if UseCachedFrameBuffer == true>
     SCB_CleanInvalidateDCache_by_Addr(
@@ -458,7 +466,7 @@ static int DRV_GFX_LCC_Start()
                         (const void *) EBI_BASE_ADDR);
 <#else>    
     lccDMAStartTransfer(frameBuffer, 
-                        2,
+                        FRAMEBUFFER_PIXEL_BYTES,
                         (const void *) EBI_BASE_ADDR);
 </#if>
     
@@ -663,11 +671,11 @@ static void DRV_GFX_LCC_DisplayRefresh(void)
 
 <#if Val_PaletteMode == true>
     lccDMAStartTransfer(frameLine,
-                        (pixels << 1), //2 bytes per pixel
+                        (pixels * 2), //2 bytes per pixel
                         (uint32_t*) EBI_BASE_ADDR);
 <#else>
     lccDMAStartTransfer(buffer_to_tx,
-                        (pixels << 1), //2 bytes per pixel
+                        (pixels * FRAMEBUFFER_PIXEL_BYTES), //2 bytes per pixel
                         (uint32_t*) EBI_BASE_ADDR);
 </#if>
 }
