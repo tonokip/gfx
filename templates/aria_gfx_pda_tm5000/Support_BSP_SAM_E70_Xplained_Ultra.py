@@ -23,8 +23,9 @@
 ##############################################################################
 
 ############ SSD1963 CONFIG ######################################################
-ssd1963ActivateList = ["smc", "gfx_driver_ssd1963", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
-ssd1963AutoConnectList = [["gfx_driver_ssd1963", "SMC_CS", "smc", "smc_cs0"],
+ssd1963ActivateList = ["smc", "gfx_intf_parallel_smc", "gfx_driver_ssd1963", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+ssd1963AutoConnectList = [["gfx_driver_ssd1963", "Display Interface", "gfx_intf_parallel_smc", "gfx_intf_parallel_smc"],
+						["gfx_intf_parallel_smc", "SMC_CS", "smc", "smc_cs0"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_ssd1963", "gfx_driver_ssd1963"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS0_I2C"],
 						["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],

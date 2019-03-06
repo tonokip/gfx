@@ -26,6 +26,7 @@ execfile(Module.getPath() + "../common/pin_config.py")
 execfile(Module.getPath() + "../common/bsp_utils.py")
 execfile(Module.getPath() + "../common/display_utils.py")
 
+execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_A5D2_Xplained_Ultra.py")
 
