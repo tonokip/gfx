@@ -459,8 +459,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">555C4C97FE4EEABF7A1A7F0F342E5B7B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">555C4C97FE4EEABF7A1A7F0F342E5B7B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">43188B8F87A81B9ADC91B6B89D5DD3D1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">43188B8F87A81B9ADC91B6B89D5DD3D1</UserChecksum>
         </File>
         <File dnOrder="57">
           <Type dnOrder="0">SOURCE</Type>
@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A8552DC975401FEEB9F1DE98807E992E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A8552DC975401FEEB9F1DE98807E992E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">29A3A3654FFAFE4707AE246D81A17014</GeneratedChecksum>
+          <UserChecksum dnOrder="5">29A3A3654FFAFE4707AE246D81A17014</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -1475,8 +1475,8 @@
           <Name dnOrder="1">drv_i2c.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/driver/i2c/</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/i2c/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F44645515479E033B969EE5CE6C40E64</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F44645515479E033B969EE5CE6C40E64</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7DC093674665965E223A7AD52F7BAF83</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7DC093674665965E223A7AD52F7BAF83</UserChecksum>
         </File>
         <File dnOrder="184">
           <Type dnOrder="0">HEADER</Type>
@@ -2323,8 +2323,8 @@
           <Name dnOrder="1">osal_definitions.h</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
           <PhysicalPath dnOrder="3">/osal/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0C6AF7550A40F9EDF5A15DB9444D7D8E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0C6AF7550A40F9EDF5A15DB9444D7D8E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0AC88C49E4585B606FD5AC6804F0C340</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0AC88C49E4585B606FD5AC6804F0C340</UserChecksum>
         </File>
         <File dnOrder="290">
           <Type dnOrder="0">HEADER</Type>
@@ -2347,8 +2347,8 @@
           <Name dnOrder="1">plib_clk.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3176DF5386ABD348A93A3A6169F52E8B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3176DF5386ABD348A93A3A6169F52E8B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">115B0136EFE9ED871D67D3B10CBEBDC8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">115B0136EFE9ED871D67D3B10CBEBDC8</UserChecksum>
         </File>
         <File dnOrder="293">
           <Type dnOrder="0">HEADER</Type>
@@ -2675,8 +2675,8 @@
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">ECBE73246282EC07A1EC6DB84AE3A470</GeneratedChecksum>
-          <UserChecksum dnOrder="5">ECBE73246282EC07A1EC6DB84AE3A470</UserChecksum>
+          <GeneratedChecksum dnOrder="4">05E9A0D057500FDF32C8D711811FF003</GeneratedChecksum>
+          <UserChecksum dnOrder="5">05E9A0D057500FDF32C8D711811FF003</UserChecksum>
         </File>
         <File dnOrder="334">
           <Type dnOrder="0">HEADER</Type>

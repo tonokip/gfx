@@ -2299,8 +2299,8 @@
           <Name dnOrder="1">osal_definitions.h</Name>
           <LogicalPath dnOrder="2">/osal/</LogicalPath>
           <PhysicalPath dnOrder="3">/osal/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0C6AF7550A40F9EDF5A15DB9444D7D8E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0C6AF7550A40F9EDF5A15DB9444D7D8E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0AC88C49E4585B606FD5AC6804F0C340</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0AC88C49E4585B606FD5AC6804F0C340</UserChecksum>
         </File>
         <File dnOrder="287">
           <Type dnOrder="0">HEADER</Type>
@@ -2547,8 +2547,8 @@
           <Name dnOrder="1">toolchain_specifics.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_c21/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">17977FA08815BEA33AFA421957178FD6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">17977FA08815BEA33AFA421957178FD6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4F3C5B6A299E310404C004FB60312B4A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4F3C5B6A299E310404C004FB60312B4A</UserChecksum>
         </File>
         <File dnOrder="318">
           <Type dnOrder="0">HEADER</Type>
