@@ -158,23 +158,20 @@ def instantiateComponent(comp):
 	DMAMenu = comp.createMenuSymbol("DMAMenu", None)
 	DMAMenu.setLabel("DMA Settings")
 	
-	# temporary config symbol
-	# need to use the graph to draw a line to the DMA provider
-	# to claim a DMA channel or some other intuitive method
-	# this current method is only guessing at the max
-	# and could allow the user to assign duplicate channels
 	DMAChannel = comp.createIntegerSymbol("DMAChannel", DMAMenu)
-	DMAChannel.setLabel("DMA Instance")
+	DMAChannel.setLabel("DMA Channel")
 	DMAChannel.setDefaultValue(0)
 	DMAChannel.setMin(0)
-	DMAChannel.setMax(5) # HARD HACK
+	DMAChannel.setMax(23)
 	DMAChannel.setDependencies(onDMAChannelSet, ["DMAChannel"])
+
+	OldDMAChannel = comp.createIntegerSymbol("OldDMAChannel", DMAMenu)
+	OldDMAChannel.setLabel("Old DMA Channel")
+	OldDMAChannel.setVisible(False)
 	
-	CurrDMAChannel = comp.createIntegerSymbol("CurrDMAChannel", DMAMenu)
-	CurrDMAChannel.setMin(0)
-	CurrDMAChannel.setMax(64)
-	CurrDMAChannel.setDefaultValue(0)
-	CurrDMAChannel.setVisible(False)
+	DMAChannelSelected = comp.createBooleanSymbol("DMAChannelSelected", DMAMenu)
+	DMAChannelSelected.setDefaultValue(False)
+	DMAChannelSelected.setVisible(False)
 	
 	# IntPriority = comp.createIntegerSymbol("IntPriority", DMAMenu)
 	# IntPriority.setLabel("Interrupt Priority Level")
@@ -249,23 +246,33 @@ def instantiateComponent(comp):
 	GFX_LCC_C.setSourcePath("templates/drv_gfx_lcc_generic.c.ftl")
 	GFX_LCC_H.setSourcePath("templates/drv_gfx_lcc_generic.h.ftl")
 
-	configureDMAChannel(str(DMAChannel.getValue()), str(CurrDMAChannel.getValue()))
+	autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel)
 
-def configureDMAChannel(newChannel, oldChannel):
-	# print("old channel " + str(oldChannel))
-	# print("new channel " + str(newChannel))
-	Database.clearSymbolValue("core", "XDMAC_CH" + str(oldChannel) + "_ENABLE")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_DAM")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_DWIDTH")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_SIF")
-	Database.clearSymbolValue("core", "XDMAC_CC" + str(oldChannel) + "_MBSIZE")
+def autoSelectDMAChannel(DMAChannelSelected, DMAChannel, OldDMAChannel):
+	if DMAChannelSelected.getValue() == False:
+		for channel in range(0, 23):
+			enabled = Database.getComponentByID("core").getSymbolByID("XDMAC_CH" + str(channel) + "_ENABLE").getValue();
+			if enabled == False:
+				configureDMAChannel(channel)
+				DMAChannelSelected.setValue(True, 1)
+				DMAChannel.setValue(channel, 1)
+				OldDMAChannel.setValue(channel, 1)
+				break
+
+def configureDMAChannel(channel):
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CH" + str(channel) + "_ENABLE").setValue(True, 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(channel) + "_DAM").setSelectedKey("FIXED_AM", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(channel) + "_DWIDTH").setSelectedKey("HALFWORD", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(channel) + "_SIF").setSelectedKey("AHB_IF0", 1)
+	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(channel) + "_MBSIZE").setSelectedKey("SIXTEEN", 1)
+
+def unconfigureDMAChannel(channel):
+	Database.clearSymbolValue("core", "XDMAC_CH" + str(channel) + "_ENABLE")
+	Database.clearSymbolValue("core", "XDMAC_CC" + str(channel) + "_DAM")
+	Database.clearSymbolValue("core", "XDMAC_CC" + str(channel) + "_DWIDTH")
+	Database.clearSymbolValue("core", "XDMAC_CC" + str(channel) + "_SIF")
+	Database.clearSymbolValue("core", "XDMAC_CC" + str(channel) + "_MBSIZE")
 	
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CH" + str(newChannel) + "_ENABLE").setValue(True, 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_DAM").setSelectedKey("FIXED_AM", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_DWIDTH").setSelectedKey("HALFWORD", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_SIF").setSelectedKey("AHB_IF0", 1)
-	Database.getComponentByID("core").getSymbolByID("XDMAC_CC" + str(newChannel) + "_MBSIZE").setSelectedKey("SIXTEEN", 1)
-
 def onHALConnected(halConnected, event):
 	halConnected.getComponent().getSymbolByID("HALComment").setVisible(event["value"] == True)
 	halConnected.getComponent().getSymbolByID("DisplayWidth").setVisible(event["value"] == False)
@@ -277,9 +284,10 @@ def onHALConnected(halConnected, event):
 	
 def onDMAChannelSet(dmaChannelSet, event):
 	newDMAChannel = dmaChannelSet.getComponent().getSymbolByID("DMAChannel").getValue()
-	currDMAChannel = dmaChannelSet.getComponent().getSymbolByID("CurrDMAChannel").getValue()
-	configureDMAChannel(str(newDMAChannel), str(currDMAChannel))
-	dmaChannelSet.getComponent().getSymbolByID("CurrDMAChannel").setValue(newDMAChannel, 1)	
+	oldDMAChannel = dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").getValue()
+	configureDMAChannel(str(newDMAChannel))
+	unconfigureDMAChannel(str(oldDMAChannel))
+	dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").setValue(newDMAChannel, 1)
 
 def configureSMCComponent(lccComponent, smcComponent, smcChipSelNum):
 	print("LCC: Connecting SMC_CS" + str(smcChipSelNum))
