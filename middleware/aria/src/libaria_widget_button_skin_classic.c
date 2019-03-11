@@ -108,7 +108,7 @@ void _laButtonWidget_GetTextRect(laButtonWidget* btn,
 {
     GFX_Rect bounds;
     
-    GFX_Rect imgRect = {0};
+    GFX_Rect imgRect = {0,0,0,0};
     
     bounds = laUtils_WidgetLocalRect((laWidget*)btn);
     
