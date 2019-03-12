@@ -52,7 +52,7 @@ void _laProgressBarWidget_GetBarRect(laProgressBarWidget* bar,
                                      GFX_Rect* barRect)
 {
     GFX_Rect rect;
-    GFX_Rect fill = {0};
+    GFX_Rect fill = {0,0,0,0};
     int32_t i;
     uint32_t p1, p2;
     

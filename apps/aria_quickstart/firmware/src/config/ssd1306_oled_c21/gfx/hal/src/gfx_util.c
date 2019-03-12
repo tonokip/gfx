@@ -212,7 +212,7 @@ GFX_Point GFX_UtilPointToOrientedSpace(const GFX_Rect* screenRect,
                                        GFX_Orientation ori,
                                        GFX_Bool mirrored)
 {
-    GFX_Point res = {0};
+    GFX_Point res = {0,0};
 
     switch(ori)
     {

@@ -508,7 +508,7 @@ GFX_Rect laWidget_RectToParentSpace(laWidget* wgt)
 
 GFX_Rect laWidget_RectToLayerSpace(laWidget* wgt)
 {
-    GFX_Rect rect = {0};
+    GFX_Rect rect = {0,0,0,0};
     
     if(wgt == NULL)
         return rect;
