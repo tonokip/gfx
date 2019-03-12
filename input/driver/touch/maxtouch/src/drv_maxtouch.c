@@ -2392,8 +2392,8 @@ bool mxt_configure_objects(struct DEVICE_OBJECT* pDeviceObject, DRV_MAXTOUCH_Fir
 bool mxt_load_xcfg_file(struct DEVICE_OBJECT * pDeviceObject, const char *filename)
 {
     char c;
-    char item[255];
-	char readline[255] = {''};
+	char item[255] = { '\0' };
+	char readline[255] = {'\0'};
     char *substr;
     int instance;
     int object_address;
