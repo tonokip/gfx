@@ -2392,8 +2392,8 @@ bool mxt_configure_objects(struct DEVICE_OBJECT* pDeviceObject, DRV_MAXTOUCH_Fir
 bool mxt_load_xcfg_file(struct DEVICE_OBJECT * pDeviceObject, const char *filename)
 {
     char c;
-	char item[255] = { '\0' };
-	char readline[255] = {'\0'};
+	char item[255];
+	char readline[255];
     char *substr;
     int instance;
     int object_address;
@@ -2407,6 +2407,8 @@ bool mxt_load_xcfg_file(struct DEVICE_OBJECT * pDeviceObject, const char *filena
     uint32_t config_crc = 0, calculated_crc = 0;
 
     i = 0;
+	item[0] = '\0';
+	readline[0] = '\0';
     
     /* Malloc memory to store configuration */
     pDeviceObject->data.cfg_start_ofs = MXT_OBJECT_START +

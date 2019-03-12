@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A21A0304D232DEC95F461BDC55E1D18C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A21A0304D232DEC95F461BDC55E1D18C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">79685F98523A218CD33E4AC07B11C8E6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">79685F98523A218CD33E4AC07B11C8E6</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -75,8 +75,8 @@
           <Name dnOrder="1">gfx_assets.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">13520B72429F7574BD3515EA743EF3F7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">13520B72429F7574BD3515EA743EF3F7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5ECED0F440C1386089DDF440CD3448B1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5ECED0F440C1386089DDF440CD3448B1</UserChecksum>
         </File>
         <File dnOrder="9">
           <Type dnOrder="0">SOURCE</Type>
@@ -307,8 +307,8 @@
           <Name dnOrder="1">gfx_util.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/hal</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/hal/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F1EFC9A99FAA5EF47DB44C8085F53EDE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F1EFC9A99FAA5EF47DB44C8085F53EDE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">440E52664C5DFBA6C53C49EC88F76EED</GeneratedChecksum>
+          <UserChecksum dnOrder="5">440E52664C5DFBA6C53C49EC88F76EED</UserChecksum>
         </File>
         <File dnOrder="38">
           <Type dnOrder="0">SOURCE</Type>
@@ -643,16 +643,16 @@
           <Name dnOrder="1">libaria_utils.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E9C23306796B9538A0327A9BFCDF4158</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E9C23306796B9538A0327A9BFCDF4158</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A076D7D3B7A7134978B5ABFE8345BEB7</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A076D7D3B7A7134978B5ABFE8345BEB7</UserChecksum>
         </File>
         <File dnOrder="80">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">7DD64E93BD20651FF23C1024A196DE4F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">7DD64E93BD20651FF23C1024A196DE4F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0C1EE97E167A52E89C7200CF45D274E8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0C1EE97E167A52E89C7200CF45D274E8</UserChecksum>
         </File>
         <File dnOrder="81">
           <Type dnOrder="0">SOURCE</Type>
@@ -683,8 +683,8 @@
           <Name dnOrder="1">libaria_widget_bar_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E4B61235615F3C620F2AB9F61739A903</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E4B61235615F3C620F2AB9F61739A903</UserChecksum>
+          <GeneratedChecksum dnOrder="4">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</UserChecksum>
         </File>
         <File dnOrder="85">
           <Type dnOrder="0">SOURCE</Type>
@@ -699,8 +699,8 @@
           <Name dnOrder="1">libaria_widget_button_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8C063BE9722C52EB9D404F870360197B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8C063BE9722C52EB9D404F870360197B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E408E7010B69EBB5706A54935E360864</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E408E7010B69EBB5706A54935E360864</UserChecksum>
         </File>
         <File dnOrder="87">
           <Type dnOrder="0">SOURCE</Type>
@@ -915,8 +915,8 @@
           <Name dnOrder="1">libaria_widget_line_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2030B6D0EA162A2EE33DE41ABB4813D4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2030B6D0EA162A2EE33DE41ABB4813D4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">885DF5ECE30B82357DD94D305C529547</GeneratedChecksum>
+          <UserChecksum dnOrder="5">885DF5ECE30B82357DD94D305C529547</UserChecksum>
         </File>
         <File dnOrder="114">
           <Type dnOrder="0">SOURCE</Type>
@@ -987,8 +987,8 @@
           <Name dnOrder="1">libaria_widget_progressbar_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcdc_rgba8888_mxt_a5d2/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">F1B167290554BFC82B6D87D336399AE2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">F1B167290554BFC82B6D87D336399AE2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6DBE943B316E64C95BFDB5A1AAD20D57</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6DBE943B316E64C95BFDB5A1AAD20D57</UserChecksum>
         </File>
         <File dnOrder="123">
           <Type dnOrder="0">SOURCE</Type>
