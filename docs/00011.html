@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Running the Demonstration</title>
+<title>(5) Aria Graphics Library Component</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00008.html" target="topic">aria_quickstart</a> &gt; <a href="00011.html" target="topic">Running the Demonstration</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00011.html" target="topic">(5) Aria Graphics Library Component</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00010.html" target="topic">Previous</a> | <a href="00008.html" target="topic">Up</a> | <a href="00012.html" target="topic">Next</a></div>
+<a href="00010.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00012.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (5) Aria Graphics LIbrary Component Topic Title: (5) Aria Graphics Library Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Running the Demonstration</div>
+(5) Aria Graphics Library Component</div>
 </div>
 </div>
 
@@ -49,89 +49,28 @@ Running the Demonstration</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-When power-on is successful, the demonstration will display a similar menu to that shown in the following figure (different configurations may have slight variation in the screen aspect ratio): </p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-When <strong>Make changes. Generate. Run.</strong> is touched, the button will toggle with each individual touch. (Note: The aria_qs_e70_xu_xpro_spi configuration does not support touch input.) </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
+The Aria Graphics Library component adds to the application the <a href="00449.html" target="topic">Aria User Interface Library</a>. It requires a connection to the GFX Core component to provide <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> support. If the “Enable Input Event Interface?” configuration is enabled, then it will also need an implied connection to the Input System Service component: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Component.png" border="0" alt="" title=""><img src="GFX CMP Enable Input Event Interface.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
+<p class="Element10">
+The configuration options for this component are: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Config Options.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen_pressed.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
+<p class="Element10">
+The Widget Configuration sub-menu allows disabling graphics widgets that are not used to reduce code size: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Aria Lib Widget Config Options.png" border="0" alt="" title=""></p><p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-For the <strong>SAM C21 Xplained Ultra board with Xplained Pro Display</strong> project, the demonstration will show the figure below on the display:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX e70_run.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For the <strong>SAM E70 Xplained Ultra board with Xplained Pro Display</strong> project, the demonstration will display the figure below. The project does not support touch input.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX e70_run.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For the <strong>SAM E54 Xplained Ultra board with Xplained Pro Display</strong> project, the demonstration will show the figure below on the display:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX e70_run.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For the <strong>SAM A5D2 Xplained Ultra board, 4.3” WQVGA PCAP Touch Display</strong> project, the demonstration will show the figure below on the display:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-When <strong>Make changes. Generate. Run</strong>. is touched, the button will toggle with each individual touch.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen_pressed.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-For the <strong>SAM A5D2 Xplained Ultra board, 5.0” WVGA PCAP Touch Display </strong> project, the demonstration will show the figure below on the display:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-When Make changes. Generate. Run. is touched, the button will toggle with each individual touch.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_screen_pressed.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p></div>
+For more information see : <a href="00449.html" target="topic">Aria User Interface Library</a></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00008.html" target="topic">aria_quickstart</a> &gt; <a href="00011.html" target="topic">Running the Demonstration</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00011.html" target="topic">(5) Aria Graphics Library Component</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -139,13 +78,13 @@ When Make changes. Generate. Run. is touched, the button will toggle with each i
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00010.html" target="topic">Previous</a> | <a href="00008.html" target="topic">Up</a> | <a href="00012.html" target="topic">Next</a></div>
+<a href="00010.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00012.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart_run Topic Title: Running the Demonstration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (5) Aria Graphics LIbrary Component Topic Title: (5) Aria Graphics Library Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_showcase_reloaded</title>
+<title>Exploring Aria Quickstart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00015.html" target="topic">aria_showcase_reloaded</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00019.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00016.html" target="topic">Next</a></div>
+<a href="00016.html" target="topic">Previous</a> | <a href="00017.html" target="topic">Up</a> | <a href="00014.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_showcase_reloaded Topic Title: aria_showcase_reloaded)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP Exploring aria_quickstart Topic Title: Exploring Aria Quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_showcase_reloaded</div>
+Exploring Aria Quickstart</div>
 </div>
 </div>
 
@@ -49,64 +49,31 @@ aria_showcase_reloaded</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This application showcases the circular and graphing widgets – arc, circular slider, circular gauge, pie chart, bar graph, line graph.</p>
-<ul class="Element630">
-<li class="Element600"><strong>Arc</strong> – a primitive drawing widget that can be used to draw filled arcs or circles.</li>
-<li class="Element600"><strong>Circular Slider</strong> – a circular widget that takes user input to set/show a value within a specified range.</li>
-<li class="Element600"><strong>Circular Gauge</strong> – a circular widget that shows a value within a range using a needle and tick marks.</li>
-<li class="Element600"><strong>Pie Chart</strong> – a graphing widget that shows data values as sectors in a circle.</li>
-<li class="Element600"><strong>Bar Graph</strong> – a graphing widget that shows data values in categories using rectangular bars.</li>
-<li class="Element600"><strong>Line Graph</strong> – a graphing widget that shows data values in categories using points and lines.</li>
-</ul><p class="Element10">
-Each widget is demonstrated on a separate application screen. Touching the screen or an applicable widget button will show each widget change in form or value.&nbsp;</p>
+ &nbsp;</p>
 <p class="Element10">
-The application has Demo Mode enabled, and will run autonomously if no touch input is detected after 20 seconds.&nbsp;</p>
+The Project Graph for aria_quickstart is typical of a graphics-enabled application. Details may vary for other graphics applications, primarily with the display, display driver, and touch capabilities. The basic graphics structure will be the same for all graphics-enabled applications.&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><div class="Element15">
-Architecture</div>
-<p class="Element10">
-The block diagrams below show the various software and hardware blocks used in this application.&nbsp;</p>
-<p class="Element10">
-In all configurations, the graphics library renders the widgets to the frame buffer(s), which is periodically refreshed to the display. The graphics library also processes user input via the touch screen and sends events to the application code which updates the widgets appropriately.&nbsp;</p>
-<p class="Element10">
-<strong>aria_scr_e70_xu_tm4301b_lut8</strong>&nbsp;</p>
-<p class="Element10">
-Since two 16-bit RGB565 frame buffers cannot fit into the internal device SRAM, this configuration uses two 8-bit buffers to support double-buffering. The 8-bit buffers contain the indices of 16-bit colors in a palette lookup table (CLUT). The graphics library renders the widgets by writing the index of a pixel color into the buffer. During a display line refresh, the LCC (low-cost controllerless) driver performs a palette lookup to convert the 8-bit indices to their 16-bit color equivalent for each line and then writes the line data to the display via DMA. Using 8-bit palettized buffers allows for double-buffering and eliminates tearing during rendering. On the other hand, the lookup table conversion requires extra processing time and reduces performance. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded block diagram.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-
-<ul class="Element630">
-<li class="Element600">Circular widgets – arc, circular slider, circular gauge</li>
-<li class="Element600">Graphing widgets – pie chart, bar graph, line graph</li>
-<li class="Element600">Timer HW and Timer System Service</li>
-<li class="Element600">Image compression techniques using Run-Length Encoding</li>
-<li class="Element600">Double-buffering using LUT (lookup-table) based frame buffers</li>
-</ul><div class="Element15">
-MPLAB Harmony Configurator Setup</div>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP”and the “Aria Graphics w/ PDA TMA4301B Display” Graphic Template components into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_benchmark Final Project Graph.png" border="0" alt="" title="">&nbsp;</p>
+The Project Graph for aria_quickstart shows: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP aria_quickstart project graph.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p><p class="Element10">
-Enable the global 8-bit color palette by selecting the Aria Graphics Library component: </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded enable global palette.png" border="0" alt="" title="">&nbsp;</p>
+Components typically have connections to “Satisfiers” (aka services) on the left side and “Consumers” (aka clients) on the right side: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP typical component.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-For the GFX Core component enable double buffering. (Global Palette Mode is enabled and grayed out since it is inherited from the Aria Graphics Library component.) </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded enable palette and double buffering.png" border="0" alt="" title=""></p><p class="Element10">
+Diamonds are for direct connections between components, as shown above. Circles are for implied connections, as is seen between the Aria Graphics Library and Input System Service components. Red shows that a connection is required and green shows that a connection exists. Yellow shows that a direct connection is optional: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP implied connections and connection coloring.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-The heap size is set to 32768 bytes. This is done by setting the Device &amp; Project Configuration &gt; Project Configuration &gt; XC32 (Global Options) xc32-ld &gt; General &gt; Heap Size option for the “System” component: </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded Heap Setup.png" border="0" alt="" title=""></p></div>
+Clicking on a component in the Project Graph brings up the configuration options in the MHC Configuration Options panel. A mouse-over above any of the listed configuration options provides a brief explanation of the option: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP mouse over example.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+</div>
 </div>
 <a name="546F70696373"></a><div class="Element14">
 Topics</div>
@@ -123,19 +90,87 @@ Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00016.html" target="topic">Building the Application</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00014.html" target="topic">Components to Graph Map</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This section identifies the MPLAB X IDE project name and location and lists and describes the available configurations for the Aria Showcase Reloaded demonstration.&nbsp;</div></td></tr><tr>
+Here is a map between the graphics components available and the components of aria_quickstart: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Components to Graph Mapping.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+The circled numbers link components in the Components panel and the components in the Project Graph.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00017.html" target="topic">Configuring the Hardware</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00007.html" target="topic">(1) Board Support Package</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This section describes how to configure the supported hardware.&nbsp;</div></td></tr><tr>
+In Harmony 3 a Board Support Package (BSP) is selected from the Available Components panel. The equivalent selection in Harmony 2 is accomplished by a check box in the MPLAB Harmony &amp; Application Configuration Menu: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP H2 Equivalent to MHC Menu.png" border="0" alt="" title=""><br><br>&nbsp;</p><p class="Element207">
+Clicking on the SAM E70 Xplained Ultra BSP brings up the Configuration Options for this component. The BSP Pin Types defined are available for use in MHC’s Pin Setting Tool: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP SAM E70 Xplained Ultra BSP Config Options.png" border="0" alt="" title=""></p><p class="Element207">
+&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00018.html" target="topic">Running the Demonstration</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00008.html" target="topic">(2) Display Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This section provides information on how to run and use the application.&nbsp;</div></td></tr></table></div></div>
+The PDA TM4301B component has two “Consumer” connections. A right click on a connection will bring up a list of the available consumers. Selecting one will add the consumer component to the project’s graph: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP PDA TM4301B Display.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+A click on the display component will bring up its configuration options in the Configuration Options panel. In this case all options are fixed (grayed out): </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Display Config Options.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+When connected to the GFX Core component, most of these options are handed off to the GFX Core: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP display options handed off to GFX.png" border="0" alt="" title=""></p><p class="Element207">
+&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00009.html" target="topic">(3) Display Driver Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Since the SAM E70 lacks a on-chip graphics display driver, the Low-Cost Controllerless (LCC) driver is used to drive the display. The LCC component needs an SMC driver as a client and is connected to the GFX Core as a server: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP LCC Driver Component.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+When not connected to the GFX Core the LCC Display Driver component has the following configuration options: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP LCC Driver Config Options.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+When connected to the GFX Core component, most of these options are handed off to the GFX Core: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP LCC Driver Config Handoff to GFX Core.png" border="0" alt="" title=""></p><p class="Element207">
+&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00010.html" target="topic">(4) GFX Core Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+ <br>The GFX Core component adds to the application the <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a>:<br>&nbsp;</p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP GFX Core Component.png" border="0" alt="" title="">&nbsp;</p><p class="Element207">
+Only the Display Driver connection is required (it is shown in red above).<br>The GFX Core component has many options: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP GFX Core Config Options.png" border="0" alt="" title=""><br><img src="GFX CMP GFX Core Back Light options.png" border="0" alt="" title=""><br><img src="GFX CMP GFX Core Remaining Options.png" border="0" alt="" title=""><br><br>&nbsp;</p><p class="Element207">
+When connected to a display the Display Settings part of the GFX Core’s configuration options inherits timing information from the display: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP GFX Core Inherited Options.png" border="0" alt="" title=""></p><p class="Element207">
+<br>For more information see : <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a>&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00011.html" target="topic">(5) Aria Graphics Library Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+The Aria Graphics Library component adds to the application the <a href="00449.html" target="topic">Aria User Interface Library</a>. It requires a connection to the GFX Core component to provide <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> support. If the “Enable Input Event Interface?” configuration is enabled, then it will also need an implied connection to the Input System Service component: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Aria Lib Component.png" border="0" alt="" title=""><img src="GFX CMP Enable Input Event Interface.png" border="0" alt="" title=""><br><br>&nbsp;</p><p class="Element207">
+The configuration options for this component are: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Aria Lib Config Options.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+The Widget Configuration sub-menu allows disabling graphics widgets that are not used to reduce code size: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Aria Lib Widget Config Options.png" border="0" alt="" title=""></p><p class="Element207">
+<br>For more information see : <a href="00449.html" target="topic">Aria User Interface Library</a>&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00012.html" target="topic">(6) Graphics Application Template</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Templates package graphics components so that building a graphics-enabled application can be done in a single step by selecting the right template. The Aria Graphics w/ PDA TM4301b Display Template has no configuration options: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP PDA TM4301B Template.png" border="0" alt="" title=""><br><br>&nbsp;</p><p class="Element207">
+The Aria Graphics w/ Xplained Pro Display has one option, related to the display’s interface: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Xplained Pro Display template.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+To properly use a Graphics Template, a supported Board Support Package (BSP) component must first be added. Having a BSP lets the Template know what the part and board the project is supposed to run on. Based on the BSP the template knows what drivers and pin settings need to be... <a href="00012.html" target="topic">more</a>&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00013.html" target="topic">(7) Input System Service Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This component is needed to support touch event processing by the Aria Graphics Library component.<br>It has no configuration options: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP Input System Service Component.png" border="0" alt="" title=""></p><p class="Element207">
+&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00006.html" target="topic">(8) MaxTouch Controller Component</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This component supports the display’s MaxTouch touch controller: </p><p class="Element207" style="text-align: center;">
+<img src="GFX CMP MaxTouch Controller Component.png" border="0" alt="" title=""><br><br></p><p class="Element207">
+The display width and height are adjustable and can be reduced from the display’s actual size.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -143,7 +178,7 @@ This section provides information on how to run and use the application.&nbsp;</
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00015.html" target="topic">aria_showcase_reloaded</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -151,13 +186,13 @@ This section provides information on how to run and use the application.&nbsp;</
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00019.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00016.html" target="topic">Next</a></div>
+<a href="00016.html" target="topic">Previous</a> | <a href="00017.html" target="topic">Up</a> | <a href="00014.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_showcase_reloaded Topic Title: aria_showcase_reloaded)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP Exploring aria_quickstart Topic Title: Exploring Aria Quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

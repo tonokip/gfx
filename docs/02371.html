@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laWidget_GetCumulativeAlphaAmount Function</title>
+<title>laWidget_RectToParentSpace Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00468.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02371.html" target="topic">laWidget_GetCumulativeAlphaAmount Function</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02371.html" target="topic">laWidget_RectToParentSpace Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02370.html" target="topic">Previous</a> | <a href="00468.html" target="topic">Up</a> | <a href="02372.html" target="topic">Next</a></div>
+<a href="02370.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02372.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_GetCumulativeAlphaAmount@laWidget* Topic Title: laWidget_GetCumulativeAlphaAmount Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_RectToParentSpace@laWidget* Topic Title: laWidget_RectToParentSpace Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laWidget_GetCumulativeAlphaAmount Function</div>
+laWidget_RectToParentSpace Function</div>
 </div>
 </div>
 
@@ -49,12 +49,12 @@ laWidget_GetCumulativeAlphaAmount Function</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Alpha blending amounts are cumulative from parent to child. If a parent is blended at 50% then logically a child should also implicitely be blended at 50%. If a child further explictely enables blending at 50% then the cumulative amount is 25%.</p></div>
+Returns the rectangle containing the parent of the widget specified If the widget and the parent are not null, the rectangle defining the parent widget with its upper left corner x and y coordinates is returned</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT uint32_t <strong><span style="color: #000000">laWidget_GetCumulativeAlphaAmount</span></strong>(
-    <a href="02360.html" target="topic">laWidget</a>* <strong><span style="color: #000000">wgt</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="00414.html" target="topic">GFX_Rect</a> <strong><span style="color: #000000">laWidget_RectToParentSpace</span></strong>(
+    <a href="02340.html" target="topic">laWidget</a>* <strong><span style="color: #000000">wgt</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -71,7 +71,7 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-lawidget* wgt&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+laWidget* wgt&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
 the widget&nbsp;</div></td></tr></table></div></div>
 </div>
@@ -81,14 +81,14 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-uint32_t - the cumulative blending amount</p></div>
+<a href="00414.html" target="topic">GFX_Rect</a> - the widget rectangle in parent space</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00468.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02371.html" target="topic">laWidget_GetCumulativeAlphaAmount Function</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02371.html" target="topic">laWidget_RectToParentSpace Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -96,13 +96,13 @@ uint32_t - the cumulative blending amount</p></div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02370.html" target="topic">Previous</a> | <a href="00468.html" target="topic">Up</a> | <a href="02372.html" target="topic">Next</a></div>
+<a href="02370.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02372.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_GetCumulativeAlphaAmount@laWidget* Topic Title: laWidget_GetCumulativeAlphaAmount Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWidget_RectToParentSpace@laWidget* Topic Title: laWidget_RectToParentSpace Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

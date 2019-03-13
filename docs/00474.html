@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>MPLAB Harmony Graphics Composer (MHGC) Suite</title>
+<title>Using the Library</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00446.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00470.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00474.html" target="topic">Using the Library</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00480.html" target="topic">Previous</a> | <a href="00480.html" target="topic">Up</a> | <a href="00473.html" target="topic">Next</a></div>
+<a href="00472.html" target="topic">Previous</a> | <a href="00470.html" target="topic">Up</a> | <a href="00469.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB Graphics Composer Suite Topic Title: MPLAB Harmony Graphics Composer (MHGC) Suite)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-MPLAB Harmony Graphics Composer (MHGC) Suite</div>
+Using the Library</div>
 </div>
 </div>
 
@@ -46,6 +46,13 @@ MPLAB Harmony Graphics Composer (MHGC) Suite</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+<strong>Interface Header File:</strong> <span class="Element146">drv_gfx_ili9488.h</span>&nbsp;</p>
+<p class="Element10">
+The top-level interface to the ILI9488 Display Controller Driver Library is defined in the <span class="Element146">drv_gfx_ili9488.h</span> header file. Any C language source (<span class="Element146">.c</span>), particularly in the graphics framework, file that uses the ILI9488 Display Controller Driver Library should include <span class="Element146">drv_gfx_ili9488.h</span>.</p></div>
+</div>
 <a name="546F70696373"></a><div class="Element14">
 Topics</div>
 <div class="Element11">
@@ -61,24 +68,19 @@ Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00473.html" target="topic">Introduction</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00469.html" target="topic">Abstraction Model</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This section provides an overview of the MPLAB Harmony Graphics Composer (MHGC) Suite.&nbsp;</div></td></tr><tr>
+This section describes how the ILI9488 Display Controller Driver Library provides the APIs that abstracts the interface-specific implementation from the application layer.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00469.html" target="topic">Aria User Interface Library</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00473.html" target="topic">LIbrary Overview</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This section describes the Aria User Interface for the graphics capabilities and operations.&nbsp;</div></td></tr><tr>
+Refer to the <span class="Element145">Driver Library Overview</span> section for information on how the driver operates in a system.<br><span style="color: #000000">The library interface routines are divided into various </span>sub-sections<span style="color: #000000">, which address one of the blocks or the overall operation of the ILI9488 Display Controller Driver.</span> &nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<a href="00476.html" target="topic">Hardware Abstraction Layer (HAL)</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="00471.html" target="topic">How the Library Works</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-This topic describes the Hardware Abstraction Layer (HAL) of the MPLAB Harmony Graphics Composer (MHGC) Suite, which is a component of MHGC Suite.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00483.html" target="topic">Graphics Utilities Library</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section provides information about the Graphics Utilities Library within the MPLAB Harmony framework for graphics applications.&nbsp;</div></td></tr></table></div></div>
+This section describes how the ILI9488 Display Controller Driver Library works .&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -86,7 +88,7 @@ This section provides information about the Graphics Utilities Library within th
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00446.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00470.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00474.html" target="topic">Using the Library</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -94,13 +96,13 @@ This section provides information about the Graphics Utilities Library within th
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00480.html" target="topic">Previous</a> | <a href="00480.html" target="topic">Up</a> | <a href="00473.html" target="topic">Next</a></div>
+<a href="00472.html" target="topic">Previous</a> | <a href="00470.html" target="topic">Up</a> | <a href="00469.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB Graphics Composer Suite Topic Title: MPLAB Harmony Graphics Composer (MHGC) Suite)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_screen.h</title>
+<title>libaria_widget_line_graph.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02536.html" target="topic">libaria_screen.h</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00451.html" target="topic">Files</a> &gt; <a href="02536.html" target="topic">libaria_widget_line_graph.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02535.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02537.html" target="topic">Next</a></div>
+<a href="02535.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="02537.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_screen.h Topic Title: libaria_screen.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_line_graph.h Topic Title: libaria_widget_line_graph.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_screen.h</div>
+libaria_widget_line_graph.h</div>
 </div>
 </div>
 
@@ -56,14 +56,16 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-libaria_screen.h</p></div>
+libaria_widget_line_graph.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Module for Microchip Graphics Library - Aria User Interface Library</p></div>
+Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
+<p class="Element10">
+This module implements line graph drawing widget functions.</p></div>
 </div>
 <a name="456E756D65726174696F6E73"></a><div class="Element14">
 Enumerations</div>
@@ -84,16 +86,23 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02149.html" target="topic">laScreenOrientation_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01535.html" target="topic">laLineGraphDataPointType_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Possible values for screen orientation.&nbsp;</div></td></tr><tr>
+The graph data point type&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02149.html" target="topic">laScreenOrientation</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01547.html" target="topic">laLineGraphTickPosition_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Possible values for screen orientation.&nbsp;</div></td></tr></table></div></div>
+The tick position relative to axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01551.html" target="topic">laLineGraphValueAxis_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+The value axis index value&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
@@ -115,114 +124,380 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02120.html" target="topic">laScreen_Delete</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01553.html" target="topic">laLineGraphWidget_AddCategory</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Frees all memory for all layers and widgets for this screen&nbsp;</div></td></tr><tr>
+Adds a category to the graph&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02121.html" target="topic">laScreen_GetHideEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01554.html" target="topic">laLineGraphWidget_AddDataToSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the hide call back event function pointer for the specified screen&nbsp;</div></td></tr><tr>
+Adds a data (value) to the specified series at categoryID index&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02122.html" target="topic">laScreen_GetLayerIndex</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01555.html" target="topic">laLineGraphWidget_AddSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the index of the layer for the screen specified.&nbsp;</div></td></tr><tr>
+Adds a series to the graph&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02123.html" target="topic">laScreen_GetLayerSwapSync</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01556.html" target="topic">laLineGraphWidget_DestroyAll</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the layer swap sync setting for the specified screen&nbsp;</div></td></tr><tr>
+Destroys data, series and categories and frees the memory allocated&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02124.html" target="topic">laScreen_GetMirrored</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01557.html" target="topic">laLineGraphWidget_GetCategoryAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the mirror setting for the specified screen&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the category axis labels are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02125.html" target="topic">laScreen_GetOrientation</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01558.html" target="topic">laLineGraphWidget_GetCategoryAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the orientation object associated with the specified screen&nbsp;</div></td></tr><tr>
+Returns the position of the ticks in the category axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02126.html" target="topic">laScreen_GetShowEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01559.html" target="topic">laLineGraphWidget_GetCategoryAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the show call back event function pointer for the specified screen&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the category axis ticks are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02127.html" target="topic">laScreen_Hide</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01560.html" target="topic">laLineGraphWidget_GetCategoryText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Hide the currently active screen<br>This function has been deprecated in favor of <a href="01072.html" target="topic">laContext_SetActiveScreen</a>&nbsp;</div></td></tr><tr>
+Gets a copy of the string used to label the category&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02128.html" target="topic">laScreen_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01561.html" target="topic">laLineGraphWidget_GetFillGraphArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Create a new screen, initialize it to the values specified.&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the graph area is filled&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02129.html" target="topic">laScreen_SetHideEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01562.html" target="topic">laLineGraphWidget_GetFillSeriesArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Set the hide call back event function pointer for the specified screen&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the series area are filled&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02130.html" target="topic">laScreen_SetLayer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01563.html" target="topic">laLineGraphWidget_GetGridlinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Assigns the provided layer pointer to the screen at the given index<br>This function has been deprecated in favor of <a href="01072.html" target="topic">laContext_SetActiveScreen</a>&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the axis gridlines are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02131.html" target="topic">laScreen_SetLayerSwapSync</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01564.html" target="topic">laLineGraphWidget_GetMaxValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the layer swap sync setting for the specified screen&nbsp;</div></td></tr><tr>
+Returns the max value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02132.html" target="topic">laScreen_SetMirrored</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01565.html" target="topic">laLineGraphWidget_GetMinValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the mirror setting for the specified screen&nbsp;</div></td></tr><tr>
+Returns the min value of the axis&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02133.html" target="topic">laScreen_SetOrientation</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01566.html" target="topic">laLineGraphWidget_GetSeriesFillPoints</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the orientation object to the specified screen&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the series points are filled&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02134.html" target="topic">laScreen_SetShowEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01567.html" target="topic">laLineGraphWidget_GetSeriesLinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Set the show call back event function pointer for the specified screen&nbsp;</div></td></tr><tr>
+Returns GFX_TRUE if the series lines are visible&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02135.html" target="topic">laScreen_Show</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01568.html" target="topic">laLineGraphWidget_GetSeriesPointSize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Make the specified screen active and show it on the display&nbsp;</div></td></tr></table></div></div>
+Returns the size of the drawn point&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01569.html" target="topic">laLineGraphWidget_GetSeriesPointType</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the type of point drawn for the series data points&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01570.html" target="topic">laLineGraphWidget_GetSeriesScheme</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns scheme of the specified series&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01571.html" target="topic">laLineGraphWidget_GetStacked</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the bars are stacked&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01572.html" target="topic">laLineGraphWidget_GetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the length of the ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01573.html" target="topic">laLineGraphWidget_GetValueAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the value axis labels are visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01574.html" target="topic">laLineGraphWidget_GetValueAxisSubtickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the interval between minor ticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01575.html" target="topic">laLineGraphWidget_GetValueAxisSubticksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the position of the subticks in the axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01576.html" target="topic">laLineGraphWidget_GetValueAxisSubticksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the value axis subticks are visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01577.html" target="topic">laLineGraphWidget_GetValueAxisTickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the interval between major ticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01578.html" target="topic">laLineGraphWidget_GetValueAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the position of the ticks in the axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01579.html" target="topic">laLineGraphWidget_GetValueAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns GFX_TRUE if the value axis ticks are visible&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01580.html" target="topic">laLineGraphWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Allocates memory for and initializes a new widget of this type. The application is responsible for the management of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01581.html" target="topic">laLineGraphWidget_SetCategoryAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the category axis labels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01582.html" target="topic">laLineGraphWidget_SetCategoryAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the position of the ticks in the category axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01583.html" target="topic">laLineGraphWidget_SetCategoryAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the category axis ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01584.html" target="topic">laLineGraphWidget_SetCategoryText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the string used to label the category&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01585.html" target="topic">laLineGraphWidget_SetDataInSeries</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the value of the entry in the series index. The entry should have been previously&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01586.html" target="topic">laLineGraphWidget_SetFillGraphArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the graph area filled or not&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01587.html" target="topic">laLineGraphWidget_SetFillSeriesArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the series area filled or not&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01588.html" target="topic">laLineGraphWidget_SetGridlinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the gridlines&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01589.html" target="topic">laLineGraphWidget_SetMaxValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the max value of the axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01590.html" target="topic">laLineGraphWidget_SetMinValue</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the min value of the axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01591.html" target="topic">laLineGraphWidget_SetSeriesFillPoints</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the series points filled&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01592.html" target="topic">laLineGraphWidget_SetSeriesLinesVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/hides the lines between series points&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01593.html" target="topic">laLineGraphWidget_SetSeriesPointSize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the size of the point drawn for the series data&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01594.html" target="topic">laLineGraphWidget_SetSeriesPointType</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the type of point drawn for the series data points&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01595.html" target="topic">laLineGraphWidget_SetSeriesScheme</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the color scheme of the series&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01596.html" target="topic">laLineGraphWidget_SetStacked</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Stacks the line graph&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01597.html" target="topic">laLineGraphWidget_SetStringTable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the string table used for the generated axis labels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01598.html" target="topic">laLineGraphWidget_SetTickLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the length of the ticks&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01599.html" target="topic">laLineGraphWidget_SetTicksLabelsStringID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the ID of the superset string used for the value axis tick labels&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01600.html" target="topic">laLineGraphWidget_SetValueAxisLabelsVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the labels in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01601.html" target="topic">laLineGraphWidget_SetValueAxisSubtickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the minor tick interval in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01602.html" target="topic">laLineGraphWidget_SetValueAxisSubticksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the position of the subticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01603.html" target="topic">laLineGraphWidget_SetValueAxisSubticksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the subticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01604.html" target="topic">laLineGraphWidget_SetValueAxisTickInterval</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the tick interval in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01605.html" target="topic">laLineGraphWidget_SetValueAxisTicksPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the position of the ticks in the value axis&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01606.html" target="topic">laLineGraphWidget_SetValueAxisTicksVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Shows/Hides the ticks in the value axis&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="53747275637475726573"></a><div class="Element14">
@@ -244,47 +519,23 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02118.html" target="topic">laScreen_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01532.html" target="topic">laLineGraphCategory_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-The structure to maintain the screen related variables and event handling&nbsp;</div></td></tr><tr>
+Contains the Category properties&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02118.html" target="topic">laScreen</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01539.html" target="topic">laLineGraphDataSeries_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-The structure to maintain the screen related variables and event handling&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="5479706573"></a><div class="Element14">
-Types</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
+The data series object that contains the series properties and data&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02119.html" target="topic">laScreen_CreateCallback_FnPtr</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01607.html" target="topic">laLineGraphWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Callback pointer for a new screen create event notification. This is called when the library attempts to create a screen.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02136.html" target="topic">laScreen_ShowHideCallback_FnPtr</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Callback pointer for the active screen show or hide event change notification.&nbsp;</div></td></tr></table></div></div>
+Implementation of a line graph widget.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -292,7 +543,7 @@ Callback pointer for the active screen show or hide event change notification.&n
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02536.html" target="topic">libaria_screen.h</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00451.html" target="topic">Files</a> &gt; <a href="02536.html" target="topic">libaria_widget_line_graph.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -300,13 +551,13 @@ Callback pointer for the active screen show or hide event change notification.&n
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02535.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02537.html" target="topic">Next</a></div>
+<a href="02535.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="02537.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_screen.h Topic Title: libaria_screen.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_line_graph.h Topic Title: libaria_widget_line_graph.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_widget_listwheel.h</title>
+<title>Dynamics Graphics Overview</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02558.html" target="topic">libaria_widget_listwheel.h</a></div>
+<a href="02558.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02557.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02559.html" target="topic">Next</a></div>
+<a href="00367.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_listwheel.h Topic Title: libaria_widget_listwheel.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_widget_listwheel.h</div>
+Dynamics Graphics Overview</div>
 </div>
 </div>
 
@@ -46,464 +46,60 @@ libaria_widget_listwheel.h</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="436F6D70616E79"></a><div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Microchip Technology Inc.</p></div>
-</div>
-<a name="46696C65204E616D65"></a><div class="Element14">
-File Name</div>
-<div class="Element11">
-<div class="Element10">
+ &nbsp;</p>
 <p class="Element10">
-libaria_widget_listwheel.h</p></div>
-</div>
-<a name="4465736372697074696F6E"></a><div class="Element14">
-Description</div>
-<div class="Element11">
-<div class="Element10">
+Introduction&nbsp;</p>
 <p class="Element10">
-Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
+The MPLAB Harmony Graphics Configurator (MHGC) makes it easy to create static (i.e. non-changing) graphics. Creating dynamic (i.e. changing) graphics is slightly more difficult. The purpose of this Advanced Topic is to explore how to add dynamic graphics to a simple graphics application, in this case Aria Quickstart.&nbsp;</p>
 <p class="Element10">
-This module implements list wheel (drawing-style list box) widget functions.</p></div>
-</div>
-<a name="456E756D65726174696F6E73"></a><div class="Element14">
-Enumerations</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
+&nbsp;</p>
+<p class="Element10">
+Examples of Dynamic Graphics&nbsp;</p>
+<p class="Element10">
+The Quick Start tutorial Adding an Event to The Aria Quickstart Demonstration shows how to use the press of a button to change the button’s text using Aria Events.&nbsp;</p>
+<p class="Element10">
+There are many examples of non-static, i.e. dynamic graphics, in the graphics demos found in&nbsp;</p>
+<p class="Element10">
+the ./gfx_apps/apps folder:&nbsp;</p>
+<p class="Element10">
+• <strong>aria_benchmark</strong>: This project shows an opening splash screen and three separate screens. One display calculates performance of text updates. The next display calculates performance of one or more moving squares. The final display calculates performance for image rendering.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_showcase</strong>: This project shows an opening splash screen and five screens, with each screen demonstrating a different widget. It also provides support for both English and Chinese text. There is an additional help screen as well.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_showcase_reloaded</strong>: This project shows an opening splash screen and seven separate screens: a main menu screen and six additional screens with each screen demonstrating a different advanced widget.&nbsp;</p>
+<p class="Element10">
+• <strong>aria_weather_forecast</strong>: This project shows an opening splash screen and three additional screens, each screen showing the weather for a different city using the language native to that city&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+This project demonstrates the following events/macros </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01693.html" target="topic">laListWheelIndicatorFill_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Indicates the fill type for the listwheel indicator area.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01786.html" target="topic">laListWheelZoomEffects_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Indicates the zoom effects for the list wheel items.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01693.html" target="topic">laListWheelIndicatorFill</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Indicates the fill type for the listwheel indicator area.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01786.html" target="topic">laListWheelZoomEffects</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Indicates the zoom effects for the list wheel items.&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="46756E6374696F6E73"></a><div class="Element14">
-Functions</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01703.html" target="topic">laListWheelWidget_AppendItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Appends a new item entry to the list. The initial value of the item will be empty.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01704.html" target="topic">laListWheelWidget_GetAlignment</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the horizontal alignment for the list widget&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01705.html" target="topic">laListWheelWidget_GetAutoHideWheel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the list wheel auto hide setting&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01706.html" target="topic">laListWheelWidget_GetFlickInitSpeed</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the flick init speed for the wheel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01707.html" target="topic">laListWheelWidget_GetIconMargin</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the icon margin value for the list wheel widget&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01708.html" target="topic">laListWheelWidget_GetIconPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the icon position for the list wheel widget.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01709.html" target="topic">laListWheelWidget_GetIndicatorArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the spacing for the selected item indicator bars.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01710.html" target="topic">laListWheelWidget_GetIndicatorFill</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the indicator area fill type&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01711.html" target="topic">laListWheelWidget_GetItemCount</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the number of items currently contained in the list&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01712.html" target="topic">laListWheelWidget_GetItemIcon</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the pointer to the image asset for the icon for the item at the given index.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01713.html" target="topic">laListWheelWidget_GetItemText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the text value for an item in the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01714.html" target="topic">laListWheelWidget_GetMaxMomentum</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the maximum momentum value for the wheel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01715.html" target="topic">laListWheelWidget_GetMomentumFalloffRate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the momentum falloff rate for the wheel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01716.html" target="topic">laListWheelWidget_GetRotationUpdateRate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the wheel rotation update rate.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01717.html" target="topic">laListWheelWidget_GetSelectedItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the index of the currently selected item.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01718.html" target="topic">laListWheelWidget_GetSelectedItemChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the callback for the item selected changed event&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01719.html" target="topic">laListWheelWidget_GetShaded</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns true if the list is using gradient shading to illustrate depth&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01720.html" target="topic">laListWheelWidget_GetShowIndicators</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns true if the list is displaying its selected item indicators&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01721.html" target="topic">laListWheelWidget_GetVisibleItemCount</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Returns the list's visible item count&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01722.html" target="topic">laListWheelWidget_GetZoomEffects</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Gets the list wheel zoom effect&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01723.html" target="topic">laListWheelWidget_InsertItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to insert a new item at the desired index. Existing items at idx or greater will be shuffled one index to the right.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01724.html" target="topic">laListWheelWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Allocates memory for a new widget of this type. The application is responsible for the managment of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01725.html" target="topic">laListWheelWidget_RemoveAllItems</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to remove all items from the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01726.html" target="topic">laListWheelWidget_RemoveItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to remove an item from the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01728.html" target="topic">laListWheelWidget_SelectNextItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to move the selected item index to the next item in the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01729.html" target="topic">laListWheelWidget_SelectPreviousItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to move the selected item index to the previous item in the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01730.html" target="topic">laListWheelWidget_SetAlignment</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the horizontal alignment mode for the list widget.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01731.html" target="topic">laListWheelWidget_SetAutoHideWheel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the list wheel to auto hide when not active&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01732.html" target="topic">laListWheelWidget_SetFlickInitSpeed</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the flick init speed for the list wheel&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01733.html" target="topic">laListWheelWidget_SetIconMargin</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the icon margin value for the list widget.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01734.html" target="topic">laListWheelWidget_SetIconPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the icon position for the list wheel widget&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01735.html" target="topic">laListWheelWidget_SetIndicatorArea</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the display area for the list selection indicator bars&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01736.html" target="topic">laListWheelWidget_SetIndicatorFill</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the indicator fill type&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01737.html" target="topic">laListWheelWidget_SetItemIcon</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the icon pointer for a given index.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01738.html" target="topic">laListWheelWidget_SetItemText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the text value for an item in the list.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01739.html" target="topic">laListWheelWidget_SetMaxMomentum</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the maximum momentum value for the wheel&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01740.html" target="topic">laListWheelWidget_SetMomentumFalloffRate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the momentum falloff rate for the wheel&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01741.html" target="topic">laListWheelWidget_SetRotationUpdateRate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the rotation update rate for a wheel&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01742.html" target="topic">laListWheelWidget_SetSelectedItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to set the selectedi tem index&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01743.html" target="topic">laListWheelWidget_SetSelectedItemChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01744.html" target="topic">laListWheelWidget_SetShaded</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the list to use gradient or flat background shading&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01745.html" target="topic">laListWheelWidget_SetShowIndicators</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Configures the list to display the selected item indicator bars&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01746.html" target="topic">laListWheelWidget_SetVisibleItemCount</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the number of visible items in the list. Must be greater than or equal to three and must be an odd number.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01747.html" target="topic">laListWheelWidget_SetZoomEffects</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Sets the list wheel zoom effect&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="53747275637475726573"></a><div class="Element14">
-Structures</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01698.html" target="topic">laListWheelItem_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a list wheel widget item struct&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01702.html" target="topic">laListWheelWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a list wheel widget struct&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01698.html" target="topic">laListWheelItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a list wheel widget item struct&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01702.html" target="topic">laListWheelWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a list wheel widget struct&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="5479706573"></a><div class="Element14">
-Types</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="01727.html" target="topic">laListWheelWidget_SelectedItemChangedEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Selected item changed event function callback type&nbsp;</div></td></tr></table></div></div>
+<td class="Element65" valign="top" width="7%">
+<div class="Element66">
+Source&nbsp;</div></td><td class="Element65" valign="top" width="45%">
+<div class="Element66">
+Internal Destination&nbsp;</div></td><td class="Element65" valign="top" width="48%">
+<div class="Element66">
+External Destination&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Inside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 1: Dynamic Images<br>Button widget press event hides MPLAB Harmony Logo.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+&quot;Event&quot; - Lesson 2: Buttons and LEDs, Real and Virtual Switch widget events change board LEDs in APP_Tasks via a boolean semaphore.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="7%">
+<div class="Element68">
+Outside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Macro&quot; - Lesson 2. Buttons and LEDs, Real and Virtual Button widget press is polled in APP_Tasks to change color scheme for Virtual LEDs, mirroring board LEDs.&nbsp;</div></td><td class="Element67" valign="top" width="48%">
+<div class="Element68">
+<strong>Not supported by Event Manager Tool</strong><br>Lesson 2. Buttons and LEDs, Real and Virtual Board switch changes board LEDs in APP_Tasks.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -511,7 +107,7 @@ Selected item changed event function callback type&nbsp;</div></td></tr></table>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02558.html" target="topic">libaria_widget_listwheel.h</a></div>
+<a href="02558.html" target="topic">Dynamics Graphics Overview</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -519,13 +115,13 @@ Selected item changed event function callback type&nbsp;</div></td></tr></table>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02557.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02559.html" target="topic">Next</a></div>
+<a href="00367.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_listwheel.h Topic Title: libaria_widget_listwheel.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Graphics Overview Topic Title: Dynamics Graphics Overview)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_string.h</title>
+<title>libaria_widget_list.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02537.html" target="topic">libaria_string.h</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00451.html" target="topic">Files</a> &gt; <a href="02537.html" target="topic">libaria_widget_list.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02536.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
+<a href="02536.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_string.h Topic Title: libaria_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_list.h Topic Title: libaria_widget_list.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_string.h</div>
+libaria_widget_list.h</div>
 </div>
 </div>
 
@@ -56,7 +56,7 @@ File Name</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-libaria_string.h</p></div>
+libaria_widget_list.h</p></div>
 </div>
 <a name="4465736372697074696F6E"></a><div class="Element14">
 Description</div>
@@ -65,9 +65,38 @@ Description</div>
 <p class="Element10">
 Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
 <p class="Element10">
-This is a string library implementation that is used internally by the Aria user interface library. All of the memory operations are handled by the memory interface that is provided by the active libaria context. Applications that wish to use this implementation must ensure that the appropriate libaria context is active when calling these functions.&nbsp;</p>
-<p class="Element10">
-This implementation relies on the <a href="00517.html" target="topic">GFXU_CHAR</a> definition for characters provided by the GFX Utils library. This chararcter definition is 32 bits in size and allows libaria to support international character code points and Unicode encoding standards.</p></div>
+This module implements list box widget functions.</p></div>
+</div>
+<a name="456E756D65726174696F6E73"></a><div class="Element14">
+Enumerations</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01795.html" target="topic">laListWidget_SelectionMode_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Defines the list selection modes&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01795.html" target="topic">laListWidget_SelectionMode</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Defines the list selection modes&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 <a name="46756E6374696F6E73"></a><div class="Element14">
 Functions</div>
@@ -88,247 +117,233 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02235.html" target="topic">laString_Allocate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01773.html" target="topic">laListWidget_AppendItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Attempts to resize the local data buffer for a string.&nbsp;</div></td></tr><tr>
+Appends a new item entry to the list. The initial value of the item will be empty.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02236.html" target="topic">laString_Append</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01774.html" target="topic">laListWidget_DeselectAll</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Appends a string onto the end of another string&nbsp;</div></td></tr><tr>
+Attempts to set all item states as not selected.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02237.html" target="topic">laString_Capacity</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01775.html" target="topic">laListWidget_GetAlignment</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the capacity of a string&nbsp;</div></td></tr><tr>
+Gets the horizontal alignment for the list widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02238.html" target="topic">laString_CharAt</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01776.html" target="topic">laListWidget_GetAllowEmptySelection</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Extracts the code point for the character in a string at a given index.&nbsp;</div></td></tr><tr>
+Returns true of the list allows an empty selection set&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02239.html" target="topic">laString_Clear</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01777.html" target="topic">laListWidget_GetFirstSelectedItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets a string's length to zero and its string table reference to NULL. Does not free any associated data and preserves capacity.&nbsp;</div></td></tr><tr>
+Returns the lowest selected item index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02240.html" target="topic">laString_Compare</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01778.html" target="topic">laListWidget_GetIconMargin</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Compares two string objects&nbsp;</div></td></tr><tr>
+Gets the icon margin value for the list widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02241.html" target="topic">laString_CompareBuffer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01779.html" target="topic">laListWidget_GetIconPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Compares a string object and a <a href="00517.html" target="topic">GFXU_CHAR</a>* buffer&nbsp;</div></td></tr><tr>
+Gets the icon position for the list&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02242.html" target="topic">laString_Copy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01780.html" target="topic">laListWidget_GetItemCount</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Copies the values from one string into another&nbsp;</div></td></tr><tr>
+Gets the number of items currently contained in the list&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02243.html" target="topic">laString_CreateFromBuffer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01781.html" target="topic">laListWidget_GetItemEnable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Creates a string object from a <a href="00517.html" target="topic">GFXU_CHAR</a> buffer and a font asset pointer&nbsp;</div></td></tr><tr>
+Returns the enable state of the item in the list widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02244.html" target="topic">laString_CreateFromCharBuffer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01782.html" target="topic">laListWidget_GetItemIcon</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Creates a string object from a const char* buffer and a font asset pointer. This method provides compatibility with standard c-style strings. Input string will be converted from 8-bit with to 32-bit width.&nbsp;</div></td></tr><tr>
+Gets the pointer to the image asset for the icon for the item at the given index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02245.html" target="topic">laString_CreateFromID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01783.html" target="topic">laListWidget_GetItemSelected</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Creates a string object that simply references a string in the string table.&nbsp;</div></td></tr><tr>
+Returns true if the item at the given index is currently selected.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02246.html" target="topic">laString_Delete</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01784.html" target="topic">laListWidget_GetItemText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Deletes all memory associated with a string object&nbsp;</div></td></tr><tr>
+Gets the text value for an item in the list.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02247.html" target="topic">laString_Destroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01785.html" target="topic">laListWidget_GetLastSelectedItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Destroys a string object. This frees the strings internal data buffer, if it exists, sets its string table reference to null, and clears all supporting attributes.&nbsp;</div></td></tr><tr>
+Returns the highest selected item index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02248.html" target="topic">laString_Draw</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01786.html" target="topic">laListWidget_GetSelectedItemChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Wrapper around GFX Utility string draw function for Aria user interface library. Internal use only.&nbsp;</div></td></tr><tr>
+Gets the callback for the item selected changed event&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02249.html" target="topic">laString_DrawClipped</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01787.html" target="topic">laListWidget_GetSelectionCount</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Wrapper around GFX Utility string draw function for Aria user interface library. Draws only a clipped area of a string. Internal use only.&nbsp;</div></td></tr><tr>
+Returns the number of selected items in the list.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02250.html" target="topic">laString_DrawSubStringClipped</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01788.html" target="topic">laListWidget_GetSelectionMode</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Wrapper around GFX Utility string draw function for Aria user interface library. Draws the substring between the start and end offset, and draws only the section of the string within the clipping rectangle. Internal use only.&nbsp;</div></td></tr><tr>
+Gets the selection mode for the list&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02251.html" target="topic">laString_ExtractFromTable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01789.html" target="topic">laListWidget_InsertItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Extracts a read-only string from the string table into a modifiable string object. This relies on the active context to indicate which string table to reference as well as which language entry to extract.&nbsp;</div></td></tr><tr>
+Attempts to insert a new item at the desired index. Existing items at idx or greater will be shuffled one index to the right.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02252.html" target="topic">laString_GetAscent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01790.html" target="topic">laListWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the ascent of a string by referencing its associated font asset data.&nbsp;</div></td></tr><tr>
+Allocates memory for and initializes a new widget of this type. The application is responsible for the managment of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02253.html" target="topic">laString_GetCharIndexAtPoint</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01791.html" target="topic">laListWidget_RemoveAllItems</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Given an offset in pixels returns the corresponding character index.&nbsp;</div></td></tr><tr>
+Attempts to remove all items from the list.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02254.html" target="topic">laString_GetCharOffset</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01792.html" target="topic">laListWidget_RemoveItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the offset of a given character index in pixels.&nbsp;</div></td></tr><tr>
+Attempts to remove an item from the list.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02255.html" target="topic">laString_GetCharWidth</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01793.html" target="topic">laListWidget_SelectAll</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Given a character index, gets the width of that character. Only accurate if the string has a font associated with it and that font contains all the characters in the string in question.&nbsp;</div></td></tr><tr>
+Attempts to set all item states to selected.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02256.html" target="topic">laString_GetHeight</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01800.html" target="topic">laListWidget_SetAlignment</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns the height of a string by referencing its associated font asset data.&nbsp;</div></td></tr><tr>
+Sets the horizontal alignment mode for the list widget.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02257.html" target="topic">laString_GetLineRect</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01801.html" target="topic">laListWidget_SetAllowEmptySelection</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the rectangle for a line in a string object. References the associated font for the height but must perform a summation for each character in the string by doing a font meta-data lookup. The line ends when a line feed or end of string is reached.&nbsp;</div></td></tr><tr>
+Configures the list to allow an empty selection set.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02258.html" target="topic">laString_GetMultiLineRect</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01802.html" target="topic">laListWidget_SetIconMargin</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the rectangle for a given multi-line string object. References the associated font for the height but must perform a summation for each character in the string by doing a font meta-data lookup. The height the sum of the heights of the bounding rectangles for each line and the width is the widest among the bounding rectangles.&nbsp;</div></td></tr><tr>
+Sets the icon margin value for the list widget.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02259.html" target="topic">laString_GetRect</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01803.html" target="topic">laListWidget_SetIconPosition</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the rectangle for a given string object. References the associated font for the height but must perform a summation for each character in the string by doing a font meta-data lookup.&nbsp;</div></td></tr><tr>
+Sets the icon position for the list widget&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02260.html" target="topic">laString_Initialize</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01804.html" target="topic">laListWidget_SetItemEnable</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Initializes a string struct to default&nbsp;</div></td></tr><tr>
+Enables or disables an item in the list. A disable item becomes un-selectable.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02261.html" target="topic">laString_Insert</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01805.html" target="topic">laListWidget_SetItemIcon</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Inserts a string into another string at a given index&nbsp;</div></td></tr><tr>
+Sets the icon pointer for a given index.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02262.html" target="topic">laString_IsEmpty</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01806.html" target="topic">laListWidget_SetItemSelected</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Returns a boolean indicating if the provided string contains data or has a link to the string table.&nbsp;</div></td></tr><tr>
+Attempts to set the item at idx as selected.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02263.html" target="topic">laString_Length</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01807.html" target="topic">laListWidget_SetItemText</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Calculates the length of a string in characters&nbsp;</div></td></tr><tr>
+Sets the text value for an item in the list.&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02264.html" target="topic">laString_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01808.html" target="topic">laListWidget_SetItemVisible</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Allocates a memory for a new string&nbsp;</div></td></tr><tr>
+&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02265.html" target="topic">laString_ReduceLength</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01809.html" target="topic">laListWidget_SetSelectedItemChangedEventCallback</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Reduces the length of a string. This simply slides the null terminator to the left and does not affect the string's capacity value.&nbsp;</div></td></tr><tr>
+Sets the callback for the item selected changed event&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02266.html" target="topic">laString_Remove</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01810.html" target="topic">laListWidget_SetSelectionMode</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Removes a number of characters from a string at a given index&nbsp;</div></td></tr><tr>
+Set the list selection mode&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02267.html" target="topic">laString_Set</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01828.html" target="topic">laListWidget_ToggleItemSelected</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Attempts to set the local data buffer of a string to an input buffer&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02268.html" target="topic">laString_SetCapacity</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Attempts to adjust the capacity of a string&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02275.html" target="topic">laString_ToCharBuffer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Extracts the data buffer from a string and copies it into the provided buffer argument.&nbsp;</div></td></tr></table></div></div>
+Attempts to toggle the selected state of the item at idx.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="53747275637475726573"></a><div class="Element14">
@@ -350,16 +365,30 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02234.html" target="topic">laString_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01662.html" target="topic">laListItem_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-String definition&nbsp;</div></td></tr><tr>
+Defines a list item struct&nbsp;</div></td></tr><tr>
 <td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="02234.html" target="topic">laString</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01772.html" target="topic">laListWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-String definition&nbsp;</div></td></tr></table></div></div>
+Defines the implementation of a list widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01662.html" target="topic">laListItem</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Defines a list item struct&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01772.html" target="topic">laListWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Defines the implementation of a list widget&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="5479706573"></a><div class="Element14">
@@ -381,9 +410,9 @@ Description&nbsp;</div></td></tr><tr>
 <div class="Element203">
 <img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
 <div class="Element203">
-<a href="01049.html" target="topic">laContext</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="01794.html" target="topic">laListWidget_SelectedItemChangedEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-An instance of the Aria user interface library.&nbsp;</div></td></tr></table></div></div>
+Selected item changed event function callback type&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -391,7 +420,7 @@ An instance of the Aria user interface library.&nbsp;</div></td></tr></table></d
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02537.html" target="topic">libaria_string.h</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00451.html" target="topic">Files</a> &gt; <a href="02537.html" target="topic">libaria_widget_list.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -399,13 +428,13 @@ An instance of the Aria user interface library.&nbsp;</div></td></tr></table></d
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02536.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
+<a href="02536.html" target="topic">Previous</a> | <a href="00451.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_string.h Topic Title: libaria_string.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_list.h Topic Title: libaria_widget_list.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

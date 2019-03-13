@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Composer Window User Interface</title>
+<title>String Assets</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a></div>
+<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02568.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02589.html" target="topic">String Assets</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02597.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02605.html" target="topic">Next</a></div>
+<a href="02590.html" target="topic">Previous</a> | <a href="02568.html" target="topic">Up</a> | <a href="02552.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Window User Interface Topic Title: Graphics Composer Window User Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Composer Window User Interface</div>
+String Assets</div>
 </div>
 </div>
 
@@ -49,142 +49,81 @@ Graphics Composer Window User Interface</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-MPLAB Harmony Graphics Composer (MHGC) is launched from the MPLAB Harmony Configurator (MHC) Tools menu. Launching the Graphics Composer creates a new screen. Shown below is the MHGC screen for the Aria Showcase demonstration. (If you don’t see this screen layout, reset the screen by selecting <i>Window &gt; Reset Dock Areas</i> from the window’s menus.) </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG MHC Window Overview.png" border="0" alt="" title=""></p><div class="Element15">
-Panels</div>
+The String Assets window is launched from the Graphics Composer’s Asset menu.&nbsp;</p>
 <p class="Element10">
-By default, there are five active panels and one minimize panel on this screen:</p>
-<ul class="Element630">
-<li class="Element600"><a href="02605.html" target="topic">Screen Designer</a> – Shows the screen design for the selected screen. Tabs on the bottom of the Screen Designer panel show the available screens.</li>
-<li class="Element600"><a href="02611.html" target="topic">Tree View</a> – Shows the layer and widget hierarchy for the current screen.</li>
-<li class="Element600"><a href="02606.html" target="topic">Screens</a> – Manages screens in the application.</li>
-<li class="Element600"><a href="02604.html" target="topic">Schemes</a> – Manages coloring schemes in the application.</li>
-<li class="Element600"><a href="02613.html" target="topic">Widget Tool Box</a> – Available graphics widgets are shown on this panel. Widgets are added to the screen by selecting an icon and dragging or clicking. Widget properties are discussed in the Widget Properties section below.</li>
-<li class="Element600">Properties Editor – All properties for the currently selected object are shown in this panel.</li>
-<li class="Element600">The MHGC Output console is parked at the bottom of the Screen Designer window. This console panel can be used to debug problems when the Graphics Composer boots up or during its operation.</li>
-</ul><p class="Element10">
-Each of the panels has a window tool icon at the upper right corner. Minimizing a panel parks it on the screen just like the Output Console. Undocking the panel creates a new, free floating window. Redocking returns a previously undocked window to its original location on the Screen Designer window. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG  Panel Docking.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-When a panel is undocked, its edges become active and support moving or manipulating the panel as an independent window. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Panel Undocking.png" border="0" alt="" title=""></p><div class="Element15">
-Tool Bar</div>
-<p class="Element10">
-There are 18 tool bar icons on the Screen Designer Window, as described in the following figure. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Screen Designer Window Icons.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10">
-<strong>Create New Design</strong> brings up a New Project Wizard dialog that allows you to select anew the screen size, color mode, memory size, and project type. This will erase the currently displayed design.&nbsp;</p>
-<p class="Element10">
-<strong>Save Design</strong> saves the current graphics design.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element63">
+The String Assets window supports managing the strings in the application. Strings are referenced by graphic widgets using an application-wide unique name. This unique name is built into an enumeration that the application’s C code uses. For each language supported text is defined and a font asset selected. </p><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table0">
 <tr>
 <td class="Element67" valign="top" width="10%" style="border:none;">
 <div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
 <div class="Element68">
-The target configuration's <span class="Element146">configuration.xml</span> will not be updated to reflect these changes in the graphics design until one of the following events happens:&nbsp;</p>
-<ol class="Element630">
-<li value="1" class="Element600">The application is regenerated in MHC,</li>
-<li value="2" class="Element600">The target configurations are changed in the MPLAB X IDE,</li>
-<li value="3" class="Element600">MPLAB X IDE is exited.</li>
-</ol><p class="Element68">
-In items 2 and 3 you will be prompted to save the new configuration.&nbsp;</div></td></tr></table></div></div>
-
+There are three dimensions to text support: Languages, Fonts, and Strings. Language “ID” strings are identified when an application supports more than one language. (In the case of single language support, the language default is provided.) Fonts are imported and organized using the Font Assets window. Strings are defined by a string name, and this name is used by widgets to reference the string. For each string and each language supported the glyphs are defined to spell out the string’s text and the font is chosen for that text.</p>
 <ul class="Element630">
-<li class="Element600"><strong>Undo</strong> and <strong>Redo</strong> manipulate changes in the screen design into internal MHC memory.</li>
-<li class="Element600"><strong>Cut/Copy/Paste</strong> support the manipulation of graphics objects (widgets).</li>
-<li class="Element600"><strong>Canvas Size Dialog</strong> brings up a dialog window allowing changes in the pixel width and height of the Screen Designer panel. (Note: Dimensions smaller than the display’s dimensions are ignored).</li>
-<li class="Element600"><strong>Center View</strong> centers the panel’s view of the screen.</li>
-<li class="Element600"><strong>Zoom In and Zoom Out</strong> allow you to change the scale of the Screen Designer’s display of the current window. Currently this only supports coarse zooming (powers of two zooms in and out).</li>
-<li class="Element600"><strong>Toggle Line Snapping</strong> enables/disables line snapping when moving objects (widgets).</li>
-<li class="Element600"><strong>Show Grid</strong> turns the Screen Designer pixel grid on/off.</li>
-<li class="Element600"><strong>X and Y Grid Size</strong> adjust the pixel grid.</li>
-<li class="Element600"><strong>Grid Color</strong> selects the pixel grid color.</li>
-<li class="Element600"><strong>Toggle Object Clipping</strong> turns object clipping on/off.</li>
-<li class="Element600"><strong>Toggle Screen Info</strong> turns the display of screen information (X and Y axes) on/off.</li>
-<li class="Element600"><strong>Select Text Preview Language</strong> changes the language used on all text strings shown, when the application supports more than one language.</li>
-</ul></div>
-</div>
-<a name="546F70696373"></a><div class="Element14">
-Topics</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
+<li class="Element600">Languages are managed within the <a href="02590.html" target="topic">String Table Configuration</a> window</li>
+<li class="Element600">Fonts are managed within the <a href="02549.html" target="topic">Font Assets</a> window</li>
+<li class="Element600">Strings are managed within the String Assets window (this topic)</li>
+</ul><p class="Element68">
+&nbsp;</div></td></tr></table></div></div>
+<p class="Element10">
+The following figure shows an example taken from the <span class="Element145">Aria Coffee Maker</span> demonstration. The string name, InfoText_Desc9, defines a string asset that is used by the application. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets InfoText_Desc9.png" border="0" alt="" title=""></p><p class="Element10">
+The Total Size in Byte: for a string asset represents the memory needed to store the glyph indices for all the text defined for that string asset. Adding more text will increase the number of glyph indices needed thus increasing the size of the string’s memory. Adding another language will do the same, since the number of glyph indices also increases. Changing the font does not increase the size of the string’s memory, but may increase the size of the font chosen if it is a “bigger” font and adds more glyphs to the new font. (By “bigger” we mean a font with more pixels, for example because it is bigger in size, or perhaps because it is anti-aliased and the original font was not.) </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table0">
 <tr>
-<td class="Element200" valign="top" width="35%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02605.html" target="topic">Screen Designer Window</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Most of the work of the MPLAB Harmony Graphics Composer is done using the Screen Designer. This section covers the basics of how a graphical user interface is designed using the screen designer.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02599.html" target="topic">Menus</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section provides information on the menus for the MPLAB Harmony Graphics Composer screen.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02601.html" target="topic">New Project Wizard</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The New Project Wizard is launched from the Welcome dialog of the MPLAB Harmony Graphics Composer (MHGC), which supports the creation of a new graphics design, or the importing of an existing graphics design.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02611.html" target="topic">Tree View Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The organization of application widgets and layers, including draw order, is managed using this panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02606.html" target="topic">Screens Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Application screens are managed using the Screens Panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02604.html" target="topic">Schemes Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Application color schemes are managed using the Schemes Panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02602.html" target="topic">Options</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on the defeatured Options window.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02613.html" target="topic">Widget Tool Box Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Widget Tool Box panel is the interface by which users add widgets into the screen representation.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02603.html" target="topic">Properties Editor Panel</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The properties for all layers and widgets are managed using this panel.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02588.html" target="topic">Graphics Composer Asset Management</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Asset menu supports managing all graphical assets (memory, images, languages, fonts, strings, and binary data).&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02600.html" target="topic">MHGC Tools</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-The Tools menu supports managing all graphics events, using a global palette, and estimating heap memory usage.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="02612.html" target="topic">Widget Colors</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Provides information on widget coloring.&nbsp;</div></td></tr></table></div></div>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+The Reference Count shown reflects the number of build-time references to the string. Dynamic uses of a string, such as through macros or events, is not reflected in this number.&nbsp;</div></td></tr></table></div></div>
+<div class="Element15">
+Window Toolbar</div>
+<p class="Element10">
+There are four icons on the toolbar:</p>
+<ol class="Element630">
+<li value="1" class="Element600"><strong>Add New String</strong> – Adds a new string.</li>
+<li value="2" class="Element600"><strong>Rename Selected Item</strong> – Allows renaming the string.</li>
+<li value="3" class="Element600"><strong>Describe Selected String</strong> - Provides a <i>Description</i> field value for selected string.</li>
+<li value="4" class="Element600"><strong>Create New Virtual Folder</strong> – Creates a new virtual folder, allowing the user to organize strings in a hierarchy. Here’s an example reorganization of the existing strings. Note the order of virtual folders or items in the list is strictly alphabetical. Virtual folders and string asset organization is merely for the convenience of the developer. Neither has an effect on how the application is built.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets GPU_On.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="5" class="Element600"><strong>Delete Selected Items</strong> – Deletes selected strings from the application.</li>
+<li value="6" class="Element600"><strong>Import String Table</strong> - Imports an Excel CSV (Comma Separated Value) file to replace the current string table.</li>
+<li value="7" class="Element600"><strong>Export String Table</strong> - Exports the current string table as an Excel CSV (Comma Separated Value) text file.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+Creating New Strings</div>
+<p class="Element10">
+To create a new string, click Add New String ( <img src="MHGC UG Add New String Icon.png" border="0" alt="" title=""> ).&nbsp;</p>
+<p class="Element10">
+Selecting this icon opens the Add String dialog to name the string. The text chosen for the string name should be acceptable as a C variable. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Add String Dialog.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+After entering the new string’s name and click Create, the following String Assets window appears. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets Add String.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+In the String Assets window, there will be a line for each of the languages defined for the application. Provide the string text and font for each of the languages. An empty string will be used if the text is not provided. Not providing a font causes the string to be rendered as a string of boxes ( <img src="MHGC UG Unrendered Font Notification.png" border="0" alt="" title=""> ).</p><div class="Element15">
+Importing and Exporting String Tables</div>
+<p class="Element10">
+Importing an Excel CSV (Comma Separated Values) file replaces the existing string assets table. Exporting creates an Excel CSV file that can be imported into another project or target configuration. Exported string tables can be manipulated in Excel, even combining multiple string tables into a single string table that can then be imported.&nbsp;</p>
+<p class="Element10">
+If the string asset table contains UTF-8 then the file cannot be directly loaded into Excel. Instead, within Excel create a new sheet. Import the string table using <i>Get Data</i>, selecting <i>From File, From Text</i>, or <i>CSV</i>. Then in the dialog window change the <i>File Origin </i>to <i>Unicode (UTF-8</i>). </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+Excel does not support importing UTF-16.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -192,7 +131,7 @@ Provides information on widget coloring.&nbsp;</div></td></tr></table></div></di
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a></div>
+<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02568.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02589.html" target="topic">String Assets</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -200,13 +139,13 @@ Provides information on widget coloring.&nbsp;</div></td></tr></table></div></di
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02597.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02605.html" target="topic">Next</a></div>
+<a href="02590.html" target="topic">Previous</a> | <a href="02568.html" target="topic">Up</a> | <a href="02552.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Graphics Composer Window User Interface Topic Title: Graphics Composer Window User Interface)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>libaria_widget_rectangle.h</title>
+<title>Event Manager</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02563.html" target="topic">libaria_widget_rectangle.h</a></div>
+<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02580.html" target="topic">MHGC Tools</a> &gt; <a href="02563.html" target="topic">Event Manager</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02562.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02564.html" target="topic">Next</a></div>
+<a href="02580.html" target="topic">Previous</a> | <a href="02580.html" target="topic">Up</a> | <a href="02564.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_rectangle.h Topic Title: libaria_widget_rectangle.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Manager Topic Title: Event Manager)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-libaria_widget_rectangle.h</div>
+Event Manager</div>
 </div>
 </div>
 
@@ -46,94 +46,77 @@ libaria_widget_rectangle.h</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="436F6D70616E79"></a><div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Microchip Technology Inc.</p></div>
-</div>
-<a name="46696C65204E616D65"></a><div class="Element14">
-File Name</div>
-<div class="Element11">
-<div class="Element10">
+The Graphics Composer Event Manager provides a GUI interface to manage all of the events associated with a graphics application. In a general sense, an event is an action or occurrence that is processed by software using an “event handler”. Button pushes or keystrokes are widely recognized and handled events. Events related to a touch screen are commonly called “gestures”. This GUI allows the assignment of actions to events associated with graphics widgets and to events outside of the graphics library. Under the Graphics Composer Event Manager tab there are two sub-tabs, one for “Events” and a second for “Macros”. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Event Manager.png" border="0" alt="" title=""></p><p class="Element10">
+The following table summarizes the difference between &quot;events&quot; and &quot;macros&quot; and provides examples of each instance of source to destination: </p><p class="Element10" style="text-align: center;">
+<strong>Differences Between Events and Macros</strong></p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element65" valign="top" width="15%">
+<div class="Element66">
+Source&nbsp;</div></td><td class="Element65" valign="top" width="45%">
+<div class="Element66">
+Inside of Graphics (Destination)&nbsp;</div></td><td class="Element65" valign="top" width="39%">
+<div class="Element66">
+Outside of Graphics (Destination)&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="15%">
+<div class="Element68">
+Inside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Event&quot;<br>Example: Button changes button text&nbsp;</div></td><td class="Element67" valign="top" width="39%">
+<div class="Element68">
+&quot;Event&quot;<br>Example: Button changes board LED&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="15%">
+<div class="Element68">
+Outside of Graphics&nbsp;</div></td><td class="Element67" valign="top" width="45%">
+<div class="Element68">
+&quot;Macro&quot;<br>Example: Mounting SD card changes screen&nbsp;</div></td><td class="Element67" valign="top" width="39%">
+<div class="Element68">
+Not supported by Event Manager Tool&nbsp;</div></td></tr></table></div></div>
 <p class="Element10">
-libaria_widget_rectangle.h</p></div>
-</div>
-<a name="4465736372697074696F6E"></a><div class="Element14">
-Description</div>
-<div class="Element11">
-<div class="Element10">
+“Events” under the first tab are generated from within graphics widgets and can manipulate the properties of screen widgets or set semaphores that engage with the rest of the application. “Macros” are executed outside of graphics widgets by other parts of the application. “Macros” allow the application to change widget properties or behavior.&nbsp;</p>
 <p class="Element10">
-Module for Microchip Graphics Library - Aria User Interface Library&nbsp;</p>
+Both “Events” and “Macros” event handlers can be built using collections of “Template” actions or using “Custom” developer-provided code. Most widget properties have an associated Template action that can be used to manipulate that property in an event handler (either “Event” or “Macro”). For more information on properties and related actions, see the discussion on the Properties Window below.&nbsp;</p>
 <p class="Element10">
-This module implements rectangle drawing widget functions.</p></div>
+To explore these capabilities, let’s look at the <a href="00000.html" target="topic">Aria Quickstart</a> project after the completion of the <a href="02598.html" target="topic">Adding an Event to the Aria Quickstart Demonstration</a> Quick Start Guide.</p></div>
 </div>
-<a name="46756E6374696F6E73"></a><div class="Element14">
-Functions</div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
 <div class="Element11">
 <div class="Element10">
 <div class="Element212">
 <div class="TableDiv">
 <table cellspacing="0" class="Table1">
 <tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<td class="Element200" valign="top" width="35%">
 <div class="Element201">
 Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
 <div class="Element205">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02063.html" target="topic">laRectangleWidget_GetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02564.html" target="topic">Graphics Composer Events</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Gets the rectangle border thickness setting&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+Events implement event handlers for events that originate inside of graphics primitives.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02064.html" target="topic">laRectangleWidget_New</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02566.html" target="topic">Screen vs. Widget Events</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Allocates memory for a new widget of this type. The application is responsible for the managment of this memory until the widget is added to a widget tree.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+All screens can generate events but not all widgets can do so.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02065.html" target="topic">laRectangleWidget_SetThickness</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02561.html" target="topic">Graphics Composer Macros</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Sets the rectangle border thickness setting&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="53747275637475726573"></a><div class="Element14">
-Structures</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element201">
- &nbsp;</div></td><td class="Element200" valign="top" width="25%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+Macros implement event handlers for events that originate outside of graphics primitives.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
 <div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02062.html" target="topic">laRectangleWidget_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<a href="02565.html" target="topic">Graphics Events Testbed</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
 <div class="Element207">
-Implementation of a rectangle widget struct&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
-<div class="Element203">
-<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
-<div class="Element203">
-<a href="02062.html" target="topic">laRectangleWidget</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-Implementation of a rectangle widget struct&nbsp;</div></td></tr></table></div></div>
+Additional examples of graphics events and macros are found in the Graphics Events Testbed.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -141,7 +124,7 @@ Implementation of a rectangle widget struct&nbsp;</div></td></tr></table></div><
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00471.html" target="topic">Files</a> &gt; <a href="02563.html" target="topic">libaria_widget_rectangle.h</a></div>
+<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02580.html" target="topic">MHGC Tools</a> &gt; <a href="02563.html" target="topic">Event Manager</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -149,13 +132,13 @@ Implementation of a rectangle widget struct&nbsp;</div></td></tr></table></div><
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02562.html" target="topic">Previous</a> | <a href="00471.html" target="topic">Up</a> | <a href="02564.html" target="topic">Next</a></div>
+<a href="02580.html" target="topic">Previous</a> | <a href="02580.html" target="topic">Up</a> | <a href="02564.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_widget_rectangle.h Topic Title: libaria_widget_rectangle.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Manager Topic Title: Event Manager)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

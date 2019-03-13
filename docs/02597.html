@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Introduction</title>
+<title>Enabling Demo Mode in a MPLAB Harmony Graphics Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02597.html" target="topic">Introduction</a></div>
+<a href="02600.html" target="topic">Quick Start Guides</a> &gt; <a href="02597.html" target="topic">Enabling Demo Mode in a MPLAB Harmony Graphics Application</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02614.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02589.html" target="topic">Next</a></div>
+<a href="02598.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="00623.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG  Enabling Demo Mode in a MPLAB Harmony Graphics Application Topic Title: Enabling Demo Mode in a MPLAB Harmony Graphics Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Introduction</div>
+Enabling Demo Mode in a MPLAB Harmony Graphics Application</div>
 </div>
 </div>
 
@@ -49,77 +49,92 @@ Introduction</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The MPLAB Harmony Graphics Composer (MHGC), also referred to as the graphics composer, is a graphics user interface design tool that is integrated as part of the MPLAB Harmony Configurator (MHC). MHGC is tightly coupled with the Aria User Interface Library to facilitate rapid prototyping and optimization of the application's graphical user interface (GUI). The tool provides a &quot;What you see is what you get&quot; (WSYWIG) environment for users to design the graphics user interface for their application. Refer to <i>MPLAB Harmony Graphics Library Help &gt; Graphics Library Help &gt; <a href="00469.html" target="topic">Aria User Interface Library</a></i> for more information.&nbsp;</p>
+Demo Mode is a feature in the MPLAB Harmony Graphics Library that enables an application to automatically replay touch input events after a specified period of idle time. This feature is useful for the application to automatically show simulated user activity, and show various screens and widgets without user input.&nbsp;</p>
 <p class="Element10">
-The MPLAB Harmony Graphics Composer (MHGC) Tool Suite and the Aria User Interface Library provide the following benefits to developers:</p>
-<ul class="Element630">
-<li class="Element600"><strong>Enhanced User Experience</strong> – Libraries and tools are easy to learn and use.</li>
-<li class="Element600"><strong>Intuitive MHGC Window Tool</strong> – Flexible window docking/undocking. Undo/Redo and Copy/Paste support. Tree-based design model. Display design canvas control including zooming.</li>
-<li class="Element600"><strong>Tight Integration Experience</strong> – Graphics design &amp; code generator tools are tightly integrated, providing rapid prototyping and optimization of look and feel</li>
-<li class="Element600"><strong>Powerful User Interface (UI) Library</strong> – Provides graphics objects and touch support</li>
-<li class="Element600"><strong>Multi-Layer UI design</strong> – Supported in the MHGC tool and Aria Library</li>
-<li class="Element600"><strong>Complete Code Generation</strong> – Can generate code for library initialization, library management, touch integration, color schemes and event handling with a single click</li>
-<li class="Element600"><strong>Supports Performance and Resource Optimization</strong> – Draw order, background caching, and advanced color mode support improve performance</li>
-<li class="Element600"><strong>Resource Optimization</strong> – Measures Flash memory usage and can direct resources to external memory if needed. Global 8-bit color look-up table (LUT) supports reduced memory footprint. Heap Estimator tool, which helps to manage the SRAM memory footprint.</li>
-<li class="Element600"><strong>Text Localization</strong> – Easily integrate international language characters into a design and seamlessly change between defined languages at run-time</li>
-<li class="Element600"><strong>Easy to Use Asset Management</strong> – Tools provide intuitive management of all graphics assets (fonts, images, text strings)</li>
-<li class="Element600"><strong>Image Optimization</strong> – Supports cropping, resizing, and color mode tuning of images</li>
-<li class="Element600"><strong>Expanded Color Mode Support</strong> – The graphics stack can manage frame buffers using 8-bit to 32-bit color</li>
-<li class="Element600"><strong>Powerful Asset Converter</strong> – Inputs several image formats, auto converts from input format to several popular internal asset formats, performs auto palette generation for image compression, supports run-length encoding. Supports automatic font character inclusion &amp; rasterization.</li>
-<li class="Element600"><strong>Event Management</strong> – Wizard-based event configuration. Tight coupling to enable touch user events and external logical events to change the graphics state machine and graphics properties.</li>
-<li class="Element600"><strong>Abstract Hardware Support</strong> – Graphics controllers and accelerators can be added or removed without any change to the application.</li>
-</ul><div class="Element15">
-Glossary of Terms</div>
-<p class="Element10">
-Throughout this user's guide the following terms are used: </p><div class="Element63">
+Demo Mode is enabled by clicking on the Aria Graphic Library component in MHC's Project Graph. Then under the component's Configuration Options panel, select &quot;Enable Demo Mode?&quot;: </p><p class="Element10" style="text-align: center;">
+<img src="QSG Enabling Demo Mode.png" border="0" alt="" title=""></p><p class="Element10">
+The following table lists the Demo Mode options and their functions: </p><div class="Element63">
 <div class="TableDiv">
 <table cellspacing="0" class="Table2">
 <tr>
-<td class="Element65" valign="top" width="20%">
+<td class="Element65" valign="top" width="25%">
 <div class="Element66">
-Acronym or Term&nbsp;</div></td><td class="Element65" valign="top" width="80%">
+MHC Option&nbsp;</div></td><td class="Element65" valign="top" width="75%">
+<div class="Element66">
+Function&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
+<div class="Element68">
+Record Input Events&nbsp;</div></td><td class="Element67" valign="top" width="75%">
+<div class="Element68">
+Enables input recording (touch input events are recorded and replayed).&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
+<div class="Element68">
+Record Tick Period&nbsp;</div></td><td class="Element67" valign="top" width="75%">
+<div class="Element68">
+Minimum time stamp interval between recorded input events.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
+<div class="Element68">
+Maximum number of events&nbsp;</div></td><td class="Element67" valign="top" width="75%">
+<div class="Element68">
+Size of the events list (statically allocated).&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
+<div class="Element68">
+Idle Timeout (seconds)&nbsp;</div></td><td class="Element67" valign="top" width="75%">
+<div class="Element68">
+Period of inactivity before Demo mode starts. The idle time-out counter resets when a touch input event occurs.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="25%">
+<div class="Element68">
+Replay Delay (seconds)&nbsp;</div></td><td class="Element67" valign="top" width="75%">
+<div class="Element68">
+Delay period in after Demo mode ends and restarts.&nbsp;</div></td></tr></table></div></div>
+<p class="Element10">
+The Demo Mode feature can record input touch events, or load a default (programmed) list of events and replay them after the idle time-out period lapses.&nbsp;</p>
+<p class="Element10">
+To configure Demo Mode to record touch events, select the Record Input Events option in Demo Mode in MHC. This will start capturing touch input events by recording the event type and the interval between events. Intervals will be a multiple of the Record Tick Period time. The first touch event should occur before the Idle Timeout period lapses; otherwise, it will stop recording and use a default list of events, if available.&nbsp;</p>
+<p class="Element10">
+To program a default list of touch events, go to LibAria_LoadDefaultEvents(void) in <span class="Element146">libaria_demo_mode.c</span> and call LibAria_DemoModeAddInputEvents with the desired touch parameters. This list of touch events will be loaded when Demo Mode starts.&nbsp;</p>
+<p class="Element10">
+The following figure shows the Demo Mode states and the actions in each state. </p><p class="Element10" style="text-align: center;">
+<img src="QSP Demo Mode Diagram.png" border="0" alt="" title=""></p><p class="Element10">
+The following table lists and describes each state. </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table2">
+<tr>
+<td class="Element65" valign="top" width="12%">
+<div class="Element66">
+State&nbsp;</div></td><td class="Element65" valign="top" width="88%">
 <div class="Element66">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Action&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Init&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-A specific task to perform when an event occurs.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+Initializes data structures, launches record and idle timeout timers.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Asset&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Recording&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-An image, font, or binary data blob that is used by a user interface.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+If recording is enabled, touch events are captured to a list. Idle timeout timer is reset when a touch event occurs.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Event&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Idle&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-A notification that a specific occurrence has taken place.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+Waits for idle timeout timer to trigger. If a touch event occurs, idle timeout timer is reset.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Resolution&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Starting&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-The size of the target device screen in pixels.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+Loads captured or default events list, reset application to first screen.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Screen&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Running&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-A discrete presentation of organized objects.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
+Replays events list. If a touch event occurs, demo is stopped and goes back to idle state. If all events have been replayed, starts replay delay timer.&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="12%">
 <div class="Element68">
-Tool&nbsp;</div></td><td class="Element67" valign="top" width="80%">
+Demo Restarting&nbsp;</div></td><td class="Element67" valign="top" width="88%">
 <div class="Element68">
-An interface used to create objects.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-UI&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-Abbreviation for User Interface.&nbsp;</div></td></tr><tr>
-<td class="Element67" valign="top" width="20%">
-<div class="Element68">
-Widget&nbsp;</div></td><td class="Element67" valign="top" width="80%">
-<div class="Element68">
-A graphical object that resides on the user interface screen.&nbsp;</div></td></tr></table></div></div>
+Restarts Demo Mode after the delay timer lapses.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -127,7 +142,7 @@ A graphical object that resides on the user interface screen.&nbsp;</div></td></
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02597.html" target="topic">Introduction</a></div>
+<a href="02600.html" target="topic">Quick Start Guides</a> &gt; <a href="02597.html" target="topic">Enabling Demo Mode in a MPLAB Harmony Graphics Application</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -135,13 +150,13 @@ A graphical object that resides on the user interface screen.&nbsp;</div></td></
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02614.html" target="topic">Previous</a> | <a href="02614.html" target="topic">Up</a> | <a href="02589.html" target="topic">Next</a></div>
+<a href="02598.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="00623.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Introduction Topic Title: Introduction)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG  Enabling Demo Mode in a MPLAB Harmony Graphics Application Topic Title: Enabling Demo Mode in a MPLAB Harmony Graphics Application)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

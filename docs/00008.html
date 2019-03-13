@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_quickstart</title>
+<title>(2) Display Component</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00008.html" target="topic">aria_quickstart</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00008.html" target="topic">(2) Display Component</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00007.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
+<a href="00007.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart Topic Title: aria_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (2) Display Component Topic Title: (2) Display Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_quickstart</div>
+(2) Display Component</div>
 </div>
 </div>
 
@@ -49,511 +49,25 @@ aria_quickstart</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This demonstration serves as a preconfigured starting point for a touch-enabled application powered by the Aria User Interface Library. The design contains an image widget, a label widget and a button widget. To create this project from scratch, see <i>MPLAB Harmony Graphics Library Help &gt; Quick Start Guides &gt; Creating New Graphics Applications</i>.</p><div class="Element15">
-Architecture</div>
-<p class="Element10">
-<strong>aria_qs_e70_xu_tm4301b</strong>&nbsp;</p>
-<p class="Element10">
-In this configuration, a 16-bit RGB565 frame buffer is stored in the internal SRAM. These configurations use the Low Cost Controller-less (LCC) display driver to manage the DMA that transfers the framebuffer contents to the display.&nbsp;</p>
-<p class="Element10">
-User touch input on the display panel is received thru the PCAP capacitive touch controller, which sends a notification to the Touch Input Driver. The Touch Input Driver reads the touch information over I2C and sends the touch event to the Graphics Library thru the Input System Service. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart block diagram.png" border="0" alt="" title="">&nbsp;</p>
+The PDA TM4301B component has two “Consumer” connections. A right click on a connection will bring up a list of the available consumers. Selecting one will add the consumer component to the project’s graph: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP PDA TM4301B Display.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-
-<ul class="Element630">
-<li class="Element600">Input system service and driver</li>
-<li class="Element600">Time system service, timer-counter peripheral library and driver</li>
-<li class="Element600">DMA System Service</li>
-<li class="Element600">Low-Cost Controllerless (LCC) graphics driver</li>
-<li class="Element600">I2C driver</li>
-<li class="Element600">16-bit RGB565 color depth support (65535 unique colors)</li>
-<li class="Element600">JPEG image stored in internal flash</li>
-</ul><p class="Element10">
-&nbsp;</p>
 <p class="Element10">
-<strong>aria_quickstart_e70_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart project uses a maXTouch Xplained Pro display panel that is connected to the E70 Xplained Ultra board. The display panel has an ILI9488 display controller that communicates to the E70 using the SPI peripheral. The ILI9488 contains a graphics memory (GRAM) that is used as frame buffer and the Aria graphics library uses the ILI9488 SPI driver to write pixel data to the ILI9488 GRAM. The maXTouch Xplained Pro board has a touch controller, but that is not supported in this project. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart aria_qs_e70_xu_xpro_spi block diagram.png" border="0" alt="" title="">&nbsp;</p>
+A click on the display component will bring up its configuration options in the Configuration Options panel. In this case all options are fixed (grayed out): </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP Display Config Options.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><div class="Element15">
-Demonstration Features</div>
 <p class="Element10">
-• ILI9488 SPI display driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support&nbsp;</p>
-<p class="Element10">
-• JPEG image support&nbsp;</p>
-<p class="Element10">
-• SPI driver&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_c21_xpld_oled1</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart project uses an OLED1 Xplained Pro display panel that is connected to the C21 Xplained board. The display panel has an SSD1306 display controller that communicates to the C21 using the SPI peripheral. The SSD1306 contains a frame buffer and the Aria graphics library uses the SSD1306 driver to write pixel data to the SSD1306 frame buffer.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="aria_quickstart_c21_xpld_oled1.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• SSD1306 SPI display driver&nbsp;</p>
-<p class="Element10">
-• OLED 1-bit per pixel color depth support&nbsp;</p>
-<p class="Element10">
-• SPI driver&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_C21_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart project uses a maXTouch Xplained Pro display panel that is connected to the C21 Xplained board. The display panel has an ILI9488 display controller that communicates to the C21 using the SPI peripheral. The ILI9488 contains a graphics memory (GRAM) that is used as frame buffer and the Aria graphics library uses the ILI9488 SPI driver to write pixel data to the ILI9488 GRAM. The maXTouch Xplained Pro board has a touch controller, but that is not supported in this project.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_c21_xpld_xpro.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• ILI9488 SPI display driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support&nbsp;</p>
-<p class="Element10">
-• JPEG image support&nbsp;</p>
-<p class="Element10">
-• SPI driver&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e54_xpld_oled1</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart project uses an OLED1 Xplained Pro display panel that is connected to the E54 Xplained board. The display panel has an SSD1306 display controller that communicates to the E54 using the SPI peripheral. The SSD1306 contains a frame buffer and the Aria graphics library uses the SSD1306 driver to write pixel data to the SSD1306 frame buffer.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_c54_xpld_oled1.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e54_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart project uses a maXTouch Xplained Pro display panel that is connected to the E54 Xplained board. The display panel has an ILI9488 display controller that communicates to the E54 using the SPI peripheral. The ILI9488 contains a graphics memory (GRAM) that is used as frame buffer and the Aria graphics library uses the ILI9488 SPI driver to write pixel data to the ILI9488 GRAM. The maXTouch Xplained Pro board has a touch controller, but that is not supported in this project.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_c54_xpld_xpro.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• ILI9488 SPI display driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support&nbsp;</p>
-<p class="Element10">
-• JPEG image support&nbsp;</p>
-<p class="Element10">
-• SPI driver&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e70_xult_wqvga_ssd1963</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart configuration runs the Aria Graphics Library on the SAM E70 Xplained Ultra board with an external SSD1963 display controller driving a WQVGA display.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-In this configuration, the SSD1963 display controller is used to send the display data and timing to a WQVGA display. The SSD1963 is connected to the SAM E70 thru the SMC peripheral and GPIOs which are used to send 16-bit parallel data/commands and to bit-bang control signals to the SSD1963 controller, respectively. The frame buffer is stored externally in the SSD1963 controller.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_e70_xult_ssd1963.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• Aria Graphics Library&nbsp;</p>
-<p class="Element10">
-• Input system service and touch driver&nbsp;</p>
-<p class="Element10">
-• Time system service, timer-counter peripheral library and driver&nbsp;</p>
-<p class="Element10">
-• SSD1963 display controller driver&nbsp;</p>
-<p class="Element10">
-• SMC peripheral library and driver&nbsp;</p>
-<p class="Element10">
-• I2C driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support (65535 unique colors)&nbsp;</p>
-<p class="Element10">
-• JPEG image stored in internal flash&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e70_xult_wqvga_freertos</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart configuration runs the Aria Graphics Library in a FreeRTOS environment. The Aria Graphics Library runs as stand-alone task, fully-blocking and waiting for events from external tasks like system service task or the application task. Thread-safe APIs for sending events to the Aria task are provided by the Aria RTOS extension library.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-In this configuration, a 16-bit RGB565 frame buffer is stored in the internal SRAM. These configurations use the Low Cost Controller-less (LCC) display driver to manage the DMA that transfers the framebuffer contents to the display.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-User touch input on the display panel is received thru the PCAP capacitive touch controller, which sends a notification to the Touch Input Driver. The Touch Input Driver reads the touch information over I2C and sends the touch event to the Graphics Library thru the Input System Service.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_e70_freertos.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• FreeRTOS and Aria Graphics Library RTOS extensions&nbsp;</p>
-<p class="Element10">
-• Input system service and touch driver&nbsp;</p>
-<p class="Element10">
-• Time system service, timer-counter peripheral library and driver&nbsp;</p>
-<p class="Element10">
-• DMA System Service&nbsp;</p>
-<p class="Element10">
-• Low-Cost Controllerless (LCC) graphics driver&nbsp;</p>
-<p class="Element10">
-• I2C driver&nbsp;</p>
-<p class="Element10">
-• 16-bit RGB565 color depth support (65535 unique colors)&nbsp;</p>
-<p class="Element10">
-• JPEG image stored in internal flash&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_qs_a5d2_xu_tm4301b</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-In this configuration, the Aria Graphics library renders the frame to a 32-bit frame buffer in external DDR. The LCDC display controller on the A5D2 is used to drive frame data from DDR to the display. 32-bit RGBA8888 frame buffer is stored in external DDR memory.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-User touch input on the display panel is received thru the PCAP capacitive touch controller, which sends a notification to the Touch Input Driver. The Touch Input Driver reads the touch information over I2C and sends the touch event to the Graphics Library thru the Input System Service.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_qs_a5d2.png" border="0" alt="" title="">&nbsp;</p><div class="Element15">
-Demonstration Features</div>
-<p class="Element10">
-• Input system service and driver&nbsp;</p>
-<p class="Element10">
-• Time system service, timer-counter peripheral library and driver&nbsp;</p>
-<p class="Element10">
-• LCDC peripheral and driver&nbsp;</p>
-<p class="Element10">
-• I2C driver&nbsp;</p>
-<p class="Element10">
-• 32-bit RGBA8888 color depth support&nbsp;</p>
-<p class="Element10">
-• RAW RLE image stored in internal flash&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_qs_a5d2_xu_tm4301b</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-This aria_quickstart configuration runs the Aria Graphics Library in a FreeRTOS environment. The Aria Graphics Library runs as stand-alone task, fully-blocking and waiting for events from external tasks like system service task or the application task. Thread-safe APIs for sending events to the Aria task are provided by the Aria RTOS extension library.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-In this configuration, the Aria Graphics library renders the frame to a 32-bit frame buffer in external DDR. The LCDC display controller on the A5D2 is used to drive frame data from DDR to the display. 16-bit RGB565 frame buffer is stored in the internal SRAM.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-User touch input on the display panel is received thru the PCAP capacitive touch controller, which sends a notification to the Touch Input Driver. The Touch Input Driver reads the touch information over I2C and sends the touch events to the Aria Graphics Library Task thru the Input System Service Task.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX archdiag_freertos_a5d2.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-<strong>Demonstration Features</strong>&nbsp;</p>
-<p class="Element10">
-• Aria RTOS extensions, FreeRTOS&nbsp;</p>
-<p class="Element10">
-• LCDC peripheral and driver, external DDR frame buffer&nbsp;</p>
-<p class="Element10">
-• Touch input driver, Input System Service&nbsp;</p>
-<p class="Element10">
-• 32-bit RGBA8888 color depth support&nbsp;</p>
-<p class="Element10">
-• Button, Label and Image widgets&nbsp;</p>
-<p class="Element10">
-• WVGA 800x480 display resolution&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>MPLAB Harmony Configurator Setup</strong>&nbsp;</p>
-<p class="Element10">
-<strong>aria_qs_e70_xu_tm4301b</strong>&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart project graph.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The heap size is set to 32768 bytes. This is done by setting the Device &amp; Project Configuration &gt; Project Configuration &gt; XC32 (Global Options) xc32-ld &gt; General &gt; Heap Size option for the “System” component. <img src="APPS GFX aria_showcase_reloaded System component click.png" border="0" alt="" title="">: </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded Heap Setup.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-<strong>aria_quickstart_e70_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides. Adding the “SAM E70 XPlained Ultra BSP” and “Aria Graphics w/ Xplained Pro Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller. </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart aria_qs_e70_xu_xpro_spi project graph.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-Under the configuration options for the “Aria Graphics w/ Xplained Pro Display” GFX template component, the “Display Interface” is set to “SPI 4-line”: </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_quickstart aria_qs_e70_xu_xpro_spi spi 4-line.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The heap size is set to 32768 bytes. This is done by setting the Device &amp; Project Configuration &gt; Project Configuration &gt; XC32 (Global Options) xc32-ld &gt; General &gt; Heap Size option for the “System” component. <img src="APPS GFX aria_showcase_reloaded System component click.png" border="0" alt="" title="">: </p><p class="Element10" style="text-align: center;">
-<img src="APPS GFX aria_showcase_reloaded Heap Setup.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_C21_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides. Adding the “SAM C21 Xplained Pro BSP” and “Aria Graphics w/ Xplained Pro Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_c21_xpld_xpro.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Under the configuration options for the “Aria Graphics w/ Xplained Pro Display” GFX template component, the “Display Interface” is set to “SPI 4-line”.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_c21_xpld_xpro_spi.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e54_xpld_oled1</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides. Adding the “SAM E54 Xplained Pro BSP” and “Aria Graphics w/ OLED1 Xplained Pro Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display controller&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_c21_xpld_oled1.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e54_xult_xpro_spi</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides. Adding the “SAM E54 Xplained Pro BSP” and “Aria Graphics w/ Xplained Pro Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e54_xpld_xpro.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Under the configuration options for the “Aria Graphics w/ Xplained Pro Display” GFX template component, the “Display Interface” is set to “SPI 4-line”.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_c21_xpld_xpro_spi.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e70_xult_wqvga_ssd1963</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_xult_wqvga_ssd1963.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-By default, the template is configured to use the Low-Cost Controller-less (LCC) interface to the display. To configure the project for an SSD1963, set the Display Interface setting for the Aria component from LCC to SSD1963.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_ssd1963_disp.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The heap size is set to 32768 bytes. The heap is set in Device &amp; Project Configuration -&gt; Project Configuration -&gt; XC32 (Global Options) xc32-ld -&gt; General -&gt; Heap Size option in the “System” component.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_ssd1963_heap.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_quickstart_e70_xult_wqvga_freertos</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM E70 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-By default, FreeRTOS is not enabled in the template. To enable FreeRTOS, add the FreeRTOS component into the Project Graph.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_freertos.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Adding the FreeRTOS component enables the RTOS Settings for the Graphics components. For example, below is the RTOS settings menu for the Aria component. The RTOS extensions are enabled by default, the RTOS extensions allow the Aria task to run as a stand-alone, blocking task and provides thread-safe APIs for sending events from other tasks to the Aria task.&nbsp;</p>
-<p class="Element10">
-Also, the Task Priority is set to ‘2’ to run the Aria task at a higher priority than the other tasks, and perform UI updates more rapidly.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_freertos_setting.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The heap size is set to 32768 bytes. The heap is set in Device &amp; Project Configuration -&gt; Project Configuration -&gt; XC32 (Global Options) xc32-ld -&gt; General -&gt; Heap Size option in the “System” component.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX confdiag_e70_freertos_heap.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_qs_a5d2_xu_tm5000_wqvga_freertos</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM A5D2 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM4301B Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX a5d2_project_graph.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The GFX template automatically sets the heap size to 32768 bytes. The heap is set in the System component properties as shown in the image below.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<img src="APPS GFX a5d2_config_options.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>aria_qs_a5d2_xu_tm4301b</strong>&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The Project Graph diagram below shows the Harmony components that are included in this application. Lines between components are drawn to satisfy components that depend on a capability that another component provides.&nbsp;</p>
-<p class="Element10">
-Adding the “SAM A5D2 XPlained Ultra BSP” and “Aria Graphics w/ PDA TM5000 Display” Graphics Template component into the project graph will automatically add the components needed for a graphics project and resolve their dependencies. It will also configure the pins needed to drive the external peripherals like the display and the touch controller.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APP GFX aria_quickstart freertos config a5d2.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-The GFX template automatically sets the heap size to 32768 bytes. The heap is set in the System component properties as shown in the image below.&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="APP GFX aria_quickstart confopt a5d2.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-Adding the FreeRTOS component enables the RTOS Settings for the Graphics components. For example, below is the RTOS settings menu for the Aria component. The RTOS extensions are enabled by default, the RTOS extensions allow the Aria task to run as a stand-alone, blocking task and provides thread-safe APIs for sending events from other tasks to the Aria task.&nbsp;</p>
-<p class="Element10">
-Also, the Task Priority is set to ‘2’ to run the Aria task at a higher priority than the other tasks, and perform UI updates more rapidly. </p><p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="APP GFX aria_quickstart confopt task a5d2.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p></div>
-</div>
-<a name="546F70696373"></a><div class="Element14">
-Topics</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element212">
-<div class="TableDiv">
-<table cellspacing="0" class="Table1">
-<tr>
-<td class="Element200" valign="top" width="35%">
-<div class="Element201">
-Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
-<div class="Element205">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00009.html" target="topic">Building the Application</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section identifies the MPLAB X IDE project name and location and lists and describes the available configurations for the Aria Quickstart demonstration.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00010.html" target="topic">Configuring the Hardware</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section describes how to configure the supported hardware.&nbsp;</div></td></tr><tr>
-<td class="Element202" valign="top" width="35%">
-<div class="Element203">
-<a href="00011.html" target="topic">Running the Demonstration</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
-<div class="Element207">
-This section provides instructions about how to build and run the Aria Quick Start demonstration.&nbsp;</div></td></tr></table></div></div>
-</div>
+When connected to the GFX Core component, most of these options are handed off to the GFX Core: </p><p class="Element10" style="text-align: center;">
+<img src="GFX CMP display options handed off to GFX.png" border="0" alt="" title=""></p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00643.html" target="topic">Graphics Demonstrations</a> &gt; <a href="00024.html" target="topic">Demonstrations</a> &gt; <a href="00008.html" target="topic">aria_quickstart</a></div>
+<a href="00017.html" target="topic">MHC GFX Components</a> &gt; <a href="00015.html" target="topic">Exploring Aria Quickstart</a> &gt; <a href="00008.html" target="topic">(2) Display Component</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -561,13 +75,13 @@ This section provides instructions about how to build and run the Aria Quick Sta
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00007.html" target="topic">Previous</a> | <a href="00024.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
+<a href="00007.html" target="topic">Previous</a> | <a href="00015.html" target="topic">Up</a> | <a href="00009.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: APPS GFX aria_quickstart Topic Title: aria_quickstart)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX CMP (2) Display Component Topic Title: (2) Display Component)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

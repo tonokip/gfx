@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Graphics Basics</title>
+<title>gfx_pixel_buffer.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00382.html" target="topic">Graphics Overview</a> &gt; <a href="00381.html" target="topic">Graphics Basics</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00458.html" target="topic">Files</a> &gt; <a href="00381.html" target="topic">gfx_pixel_buffer.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00382.html" target="topic">Previous</a> | <a href="00382.html" target="topic">Up</a> | <a href="00388.html" target="topic">Next</a></div>
+<a href="00300.html" target="topic">Previous</a> | <a href="00458.html" target="topic">Up</a> | <a href="00412.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Graphics Basics Topic Title: Graphics Basics)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: gfx_pixel_buffer.h Topic Title: gfx_pixel_buffer.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Graphics Basics</div>
+gfx_pixel_buffer.h</div>
 </div>
 </div>
 
@@ -46,55 +46,199 @@ Graphics Basics</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
+<a name="436F6D70616E79"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<strong>For someone new to graphics, this section provides definitions of basic concepts found in most discussions of graphics.</strong></p>
-<ul class="Element630">
-<li class="Element600"><strong>Pixel</strong>: A pixel is a physical point in a raster image, or the smallest addressable element in an all points addressable display device. The number of pixels per inch (PPI) is a metric for how finely the image is displayed:</li>
-</ul><p class="Element10" style="text-align: center;">
-<img src="gfx_ovr Pixels Per Inch.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600"><strong>Primitive</strong>: A primitive is a basic building block for drawing to the screen: e.g. point, line, arc, circle, bar. Widgets are created by assembling multiple primitives.</li>
-<li class="Element600"><strong>Widget</strong>: A widget is a graphical object that is used to convey information or provide user input to the system.</li>
-</ul><p class="Element10">
-Examples of Widgets in MPLAB Harmony Graphics are: </p><p class="Element10" style="text-align: center;">
-<img src="grx_ovr example widgets.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600"><strong>Font: </strong>A set of type or characters of one style and size, for example:</li>
-</ul><p class="Element10" style="text-align: center;">
-<img src="gfx_ovr font examples.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600"><strong>Glyph</strong>: A pixel representation of an individual character in a given typeface, such as Times New Roman or Arial. On a computer a Font is a digital collection of glyphs for a given typeface.</li>
-<li class="Element600"><strong>BLIT</strong>: Bit Block Transfer, a data operation that combines two or more bitmaps using Boolean functions. An example BLIT would be to add an animated object (sprite) on top of a background image while ignoring the background (black) pixels in the sprite’s bitmap.</li>
-<li class="Element600"><strong>Layer</strong>: The objects of a graphics design can be organized into a hierarchy with child objects inheriting properties from a parent object, which can also a child of another parent object higher in the hierarchy. Every design in MPLAB Harmony Graphics has a Layer0. Additional layers can be added in the Tree View panel to provide overlapping layers of objects which are all children of their parent layer.</li>
-<li class="Element600"><strong>Sprite</strong>: A small two-dimensional bit map that is added to a larger scene. Typically, sprites are used to simulate movement by quickly erasing a prior drawing and redrawing the sprite in a slightly different position.</li>
-<li class="Element600"><strong>Display Resolution or Resolution</strong>: The number of distinct pixels in each dimension that can be displayed. It is usually quoted in width x height in units of pixels.</li>
-<li class="Element600"><strong>Alpha Blending</strong>: A graphical technique which blends pixels of overlapping widgets together instead of overwriting one with another. Alpha blending ranges from fully transparent (invisible) to fully visible (blocking all beneath).</li>
-<li class="Element600"><strong>Color Depth</strong>: The number of bits required to represent the color of a single pixel. It is expressed as bits per pixel (bpp). Typical bits per pixel are 8, 16, 24, and 32.</li>
-<li class="Element600"><strong>Color Model, RGB</strong>: The RGB Color Model is an additive color model in which red, green, and blue light are added together in various ways to reproduce a broad array of colors. Colors are expressed as a triplet (RGB) (Source: Wikipedia).</li>
-</ul><p class="Element10">
-Examples of color models are:</p>
-<ul class="Element630">
-<li class="Element600"> <strong> RGB 565</strong> (16 bpp, Red: 5 bits, Green: 6 bits, Blue: 5 bits)</li>
-<li class="Element600"> <strong> RGBA 8888</strong> (32 bpp, Red: 8 bits, Green 8 bits, Blue: 8 bits, Alpha: 8 Bits)</li>
-<li class="Element600"><strong>Graphics Controller</strong>: The peripheral of a processor or separate device responsible for driving the pixel data to the display.</li>
-<li class="Element600"><strong>Frame Buffer</strong>: The block of memory that stores the pixel data to be transferred to the screen. A Frame Buffer can be thought of as a copy of the display’s pixel values.</li>
-<li class="Element600"><strong>Graphics Processor</strong>: A dedicated hardware within the microcontroller designed to accelerate updating the frame buffer for primitives such as lines and rectangles and for bit block transfers (blits).</li>
-</ul><p class="Element10">
-Here is an example Display Hardware Block Diagram: </p><p class="Element10" style="text-align: center;">
-<img src="gfx_ovr example LCD hardware architecture.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
+Microchip Technology Inc.</p></div>
+</div>
+<a name="46696C65204E616D65"></a><div class="Element14">
+File Name</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+gfx_pixel_buffer.h</p></div>
+</div>
+<a name="4465736372697074696F6E"></a><div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Module for Microchip Graphics Library - Hardware Abstraction Layer&nbsp;</p>
+<p class="Element10">
+Pixel buffer generation and management functions.</p></div>
+</div>
+<a name="46756E6374696F6E73"></a><div class="Element14">
+Functions</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00389.html" target="topic">GFX_PixelBufferAreaFill</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Fills an area of a pixel buffer with a solid color. Caller is responsible for ensuring that the color is the same color format as the destination buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00390.html" target="topic">GFX_PixelBufferAreaFill_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Fills an area of a pixel buffer with a solid color. Caller is responsible for ensuring that the color is the same color format as the destination buffer. Like <a href="00389.html" target="topic">GFX_PixelBufferAreaFill</a> but performs no bounds checking.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00391.html" target="topic">GFX_PixelBufferAreaGet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Extracts a rectanglar section of pixels from a pixel buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00392.html" target="topic">GFX_PixelBufferAreaGet_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Extracts a rectanglar section of pixels from a pixel buffer. Like <a href="00391.html" target="topic">GFX_PixelBufferAreaGet</a> but performs no clipping between the rectangles of the extract area and the source buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00393.html" target="topic">GFX_PixelBufferAreaSet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Copies an area of pixels from a source buffer to a destination buffer. If the source buffer format does not match the destination format the data will be converted to match during the copy operation.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00394.html" target="topic">GFX_PixelBufferAreaSet_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Copies an area of pixels from a source buffer to a destination buffer. If the source buffer format does not match the destination format the data will be converted to match during the copy operation. Like <a href="00393.html" target="topic">GFX_PixelBufferAreaSet</a> but performs no bounds checking.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00395.html" target="topic">GFX_PixelBufferClipRect</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Clips a rectangle against a pixel buffer. The result is guaranteed to fit inside the buffer's area.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00396.html" target="topic">GFX_PixelBufferConvert</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Duplicates a pixel buffer and converts the copy to another color mode.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00397.html" target="topic">GFX_PixelBufferCopy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Creates a copy of the input buffer. If the input buffer's pixel data is not null then the data will be duplicated for the result buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00398.html" target="topic">GFX_PixelBufferCreate</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Initializes a pixel buffer struct. Does not actually allocate any memory.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00399.html" target="topic">GFX_PixelBufferDestroy</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Destroys a pixel buffer construct. If the buffer's pixels pointer is not zero this function will attempt to free it using the provided <a href="00339.html" target="topic">GFX_MemoryIntf</a> memory interface.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00400.html" target="topic">GFX_PixelBufferGet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the value of the pixel that resides at the provided point in the given buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00401.html" target="topic">GFX_PixelBufferGet_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the value of the pixel that resides at the provided point in the given buffer. Like <a href="00400.html" target="topic">GFX_PixelBufferGet</a> but performs no bounds checking.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00402.html" target="topic">GFX_PixelBufferGetIndex</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Interprets the pixel buffer as a table of indices and looks up a specific index at position 'idx'. Indices may be 1bpp, 4bpp, or 8bpp in size and are indicated by the color mode of the pixel buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00403.html" target="topic">GFX_PixelBufferOffsetGet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the offset address of the pixel that resides at the provided point in the given buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00404.html" target="topic">GFX_PixelBufferOffsetGet_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Gets the offset address of the pixel that resides at the provided point in the given buffer. Similar to <a href="00403.html" target="topic">GFX_PixelBufferOffsetGet</a> but performs no bounds checking.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00405.html" target="topic">GFX_PixelBufferSet</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets a pixel in a pixel buffer at a point to a specified color. Caller is responsible for ensuring that the input color is in the same color format as the pixel buffer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00406.html" target="topic">GFX_PixelBufferSet_Unsafe</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets a pixel in a pixel buffer at a point to a specified color. Caller is responsible for ensuring that the input color is in the same color format as the pixel buffer. Like <a href="00405.html" target="topic">GFX_PixelBufferSet</a> but performs no bounds checking.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="53747275637475726573"></a><div class="Element14">
+Structures</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00382.html" target="topic">GFX_PixelBuffer_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+A pixel buffer is a wrapper around a basic data pointer. A pixel buffer has a color mode, a pixel count, a rectangular dimension, a pixel count, and a lenght in bytes.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="00382.html" target="topic">GFX_PixelBuffer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+A pixel buffer is a wrapper around a basic data pointer. A pixel buffer has a color mode, a pixel count, a rectangular dimension, a pixel count, and a lenght in bytes.&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 </div>
@@ -102,7 +246,7 @@ Here is an example Display Hardware Block Diagram: </p><p class="Element10" styl
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00382.html" target="topic">Graphics Overview</a> &gt; <a href="00381.html" target="topic">Graphics Basics</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00456.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00458.html" target="topic">Files</a> &gt; <a href="00381.html" target="topic">gfx_pixel_buffer.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -110,13 +254,13 @@ Here is an example Display Hardware Block Diagram: </p><p class="Element10" styl
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00382.html" target="topic">Previous</a> | <a href="00382.html" target="topic">Up</a> | <a href="00388.html" target="topic">Next</a></div>
+<a href="00300.html" target="topic">Previous</a> | <a href="00458.html" target="topic">Up</a> | <a href="00412.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Graphics Basics Topic Title: Graphics Basics)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: gfx_pixel_buffer.h Topic Title: gfx_pixel_buffer.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Menus</title>
+<title>Creating New Graphics Applications</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02599.html" target="topic">Menus</a></div>
+<a href="02600.html" target="topic">Quick Start Guides</a> &gt; <a href="02599.html" target="topic">Creating New Graphics Applications</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02605.html" target="topic">Previous</a> | <a href="02589.html" target="topic">Up</a> | <a href="02601.html" target="topic">Next</a></div>
+<a href="02600.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="02598.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Menus Topic Title: Menus)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG Creating New Graphics Applications Topic Title: Creating New Graphics Applications)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Menus</div>
+Creating New Graphics Applications</div>
 </div>
 </div>
 
@@ -48,107 +48,175 @@ Menus</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
-<div class="Element15">
-File Menu</div>
 <p class="Element10">
-<img src="MHGC UG File Pull-Down Menu.png" border="0" alt="" title=""></p>
+This tutorial provides information on how to create a new touch input-enabled graphics project using the MPLAB Harmony Graphics Composer (MHGC). The following hardware setups are supported:</p>
 <ul class="Element630">
-<li class="Element600"><strong>New</strong> – Same as the Create New Design tool icon.</li>
-<li class="Element600"><strong>Save</strong> – Same as the Save Design tool icon.</li>
-<li class="Element600"><strong>Save As</strong> – Supports exporting the design under a new name. By default, the name is <span class="Element146">composer_export.xml</span>. See <a href="02595.html" target="topic">Importing and Exporting Graphics Data</a> for more information.</li>
-<li class="Element600"><strong>Import</strong> - Reads in (imports) a previously exported design or a .<span class="Element146">/framework/src/system_config/{board_config}/configuration.xml</span> file that contains the graphics design to be imported. See <a href="02595.html" target="topic">Importing and Exporting Graphics Data</a> for more information.</li>
-<li class="Element600"><strong>Export</strong> – Same as Save As. See <a href="02595.html" target="topic">Importing and Exporting Graphics Data</a> for more information.</li>
-<li class="Element600"><strong>Settings</strong> – Brings up Project and User Settings dialog, including:
-<ul class="Element631">
-<li class="Element601">Color Settings &gt; Project Color Mode - How colors are managed</li>
-<li class="Element601">Color Settings &gt; Using a Global Palette</li>
-<li class="Element601">General &gt; Show Welcome Dialog</li>
-<li class="Element601">General &gt; Pre-emption Level – Allows for sharing of the device’s cycles with other parts of the application</li>
-<li class="Element601">General &gt; Hardware Acceleration – Is graphics hardware accelerator enabled in software?</li>
-</ul></li>
-<li class="Element600"><strong>Exit</strong> – Closes the MHGC window and exits</li>
+<li class="Element600">SAM E70 Xplained Ultra board (DM320113) with High-Performance 4.3&quot; WQVGA Display Module with maXTouch (AC320005-4) Display (Plus ICD4 In-Circuit Debugger (dv164045), ICD4/PICKit Adapter Board (ac102015))</li>
 </ul><p class="Element10">
 &nbsp;</p>
+<div class="Element15">
+Getting Started</div>
 <p class="Element10">
-The choices for<i> </i>Project Color Mode are:</p>
+Before beginning this tutorial, ensure that the MPLAB X IDE is installed and necessary language tools as described in Getting Started With MPLAB Harmony. In addition, ensure that the MPLAB Harmony framework is installed on a local hard drive and that the correct version of MHC plug-in is installed within the MPLAB X IDE.&nbsp;</p>
+<p class="Element10">
+Follow the tutorial found in MPLAB Harmony Core Library Help &gt; Creating Your First Project to first learn about the basics of software development using MPLAB Harmony. Successfully completing the tutorial can serve as a confirmation of the software setup.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element15">
+Configuring the Hardware</div>
+<p class="Element10">
+<strong>SAM E70 Xplained Ultra board with 4.3” WQVGA Display</strong>&nbsp;</p>
+<p class="Element10">
+There are two programming options. The primary option is the Micro B Embedded Debugger (EDBG) port. Power to the board can also be supplied via this connection. The secondary option is via the ICD4 debugger with the ICD4/PICKit 4 Target Adapter Board (Power has to be provided from power supply in this alternative setup). The image below shows both the EDBG and the ICD4 connection options: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Final Setup.png" border="0" alt="" title=""></p><p class="Element10">
+Configuring the 4.3” WQVGA Display requires disconnecting the ribbon cable that connects the display to the interposer board. </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Bottom of WQVGA Display.png" border="0" alt="" title=""></p><p class="Element10">
+First, release the ribbon cable from the interposer board. Next, release the black clamp on the E70’s J2 connector and turn the display over. Finally, insert the ribbon cable into J2 and close the clamp. </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Connecting Ribbon Cable.png" border="0" alt="" title=""></p><p class="Element10">
+The board and display are powered by a Micro B – USB A cable from PC to the “Debug USB” port on the E70 board. The ICD4 Debugger and ICD4/PICKit4 Adapter Board are connected as shown above.</p><div class="Element15">
+Tutorial Steps</div>
+
+<ol class="Element630">
+<li value="1" class="Element600">Launch the MPLAB X IDE. From the File pull-down menu, select New Project. (This will bring up the New Project dialog window.)</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds New Project.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600">On the New Project dialog window, be sure the project type is 32-bit MPLAB Harmony Project, then hit the <strong>Next &gt;</strong> button.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds New Project Choose Project.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="3" class="Element600">In the New Project dialog window, fill in or select the information needed as follows:</li>
+</ol>
 <ul class="Element630">
-<li class="Element600"><strong>GS_8</strong> - 8-bit gray scale</li>
-<li class="Element600"><strong>RGB_332</strong> - Red/Green/Blue, 3 bits Red/Green, 2 bits Blue</li>
-<li class="Element600"><strong>RGB_565</strong> - Red/Green/Blue, 5 bits Red, 6 bits Green, 5 bits Blue</li>
-<li class="Element600"><strong>RGBA_5551</strong> - Red/Green/Blue/Alpha, 5 bits Red/ Green/Blue, 1 bit for Alpha Blending</li>
-<li class="Element600"><strong>RGB_888</strong> - Red/Green/Blue, 8 bits Red/Green/Blue</li>
-<li class="Element600"><strong>RGBA_8888</strong> - Red/Green/Blue/Alpha, 8 bits Red/Green/Blue/Alpha Blending</li>
-<li class="Element600"><strong>ARGB_8888</strong> - Alpha/Red/Green/Blue, 8 bits Alpha Blending/Red/Green/Blue</li>
+<li class="Element600"><strong>Harmony Path</strong> - be sure it is pointing to the MPLAB Harmony framework installation.</li>
+<li class="Element600"><strong>Project Name</strong> - Type in MyProject or some other name.</li>
+<li class="Element600">For the SAM E70 Xplained Ultra board, select the ATSAME70Q21B as the target device.</li>
 </ul><p class="Element10">
-Ensure that the Project Color Mode chosen is compatible with the display hardware being used; otherwise, the colors shown on the display will not match those shown on the Graphics Composer Screen Designer.&nbsp;</p>
+The New Project dialog should show the following: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds New Project Name and Loc.png" border="0" alt="" title=""></p><p class="Element10">
+Select <strong>Finish</strong> when done.</p>
+<ol class="Element630">
+<li value="4" class="Element600">In the MPLAB Harmony Launcher dialog window select the Launch Path that corresponds to the Harmony installation to be used. In the example below, both MPLAB X IDE’s default configuration and the project’s path point to the same MPLAB Harmony installation:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Harmony Launcher Example.png" border="0" alt="" title=""></p><p class="Element10">
+The select the <strong>Launch</strong> button.&nbsp;</p>
 <p class="Element10">
-Using a Global Palette enables frame buffer compression for applications using the Low-Cost Controllerless (LCC) Graphics Controller. If the global palette is enabled here, make sure to check the &quot;Enable Global Palette Mode?&quot; in the Configuration Option for the Aria Graphics Library component in MHC's Project Graph: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Aria Graphics Library Component.png" border="0" alt="" title=""> <img src="MHGC UG Enable Global Palette Mode in Aria Config.png" border="0" alt="" title=""></p><p class="Element10">
-If <strong>Using a Global Palette</strong> is enabled, the following warning appears. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Global Palette Warning.png" border="0" alt="" title=""></p><p class="Element10">
-If <strong>Show Welcome Dialog</strong> is enabled, the following welcome screen appears when launching MHGC. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Show Welcome Dialog Welcome Screen.png" border="0" alt="" title=""></p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
-<div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
-<div class="Element68">
-  <br>This window's sole purpose is to support creating a new MHGC project.&nbsp;</div></td></tr></table></div></div>
+When the “Configuration Database Setup” dialog window appears, just select <strong>Launch</strong>: </p><p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Config Database Setup.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+MHC’s component graph should show: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Beginning Project Graph.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="5" class="Element600">In the MHC’s Available Components panel drag and drop the SAM E70 Xplained Ultra BSP onto the project’s Component Graph</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Chose BSP.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="6" class="Element600">Next drag the Aria Graphics w/ PDA TM4301B Display graphics template onto the project graph:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Choose Graphics Template.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
 <p class="Element10">
-When the <strong>Preemption Level</strong> is set to zero, all dirty graphics objects are refreshed before the graphics process relinquishes control of the device. (Dirty means needing a redraw.) With the level set to two, graphics provides maximum sharing with the rest of the application, at the cost of slower display refreshes. A level of one provides an intermediate level of sharing.&nbsp;</p>
+Then answer <strong>Yes</strong> to all the dialogs that follow. The Project Graph should show: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Initial Project Graph.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
 <p class="Element10">
-The <strong>Hardware Acceleration</strong> check box determines whether the device’s built-in graphics hardware accelerator is used. </p><div class="Element63">
-<div class="TableDiv">
-<table cellspacing="0" class="Table0">
-<tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
-<div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
-<div class="Element68">
-Optionally, a graphics hardware accelerator may also be installed in the MHC's Project Graph. For the GFX Core component, do a right mouse click on the Graphics Processor component and then select among the available Graphics Processors:<br><br>Next, click on the Aria Graphics Library component and in its Configuration Panel enable display acceleration:<br><img src="MHGC UG Aria Graphics Library Component.png" border="0" alt="" title=""> <img src="MHGC UG EnableDisplayAccel.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
+After rearranging the components: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Final Project Graph.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="7" class="Element600">Launch the Graphics Composer from the MHC Tools Menu:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Launch MHGC.png" border="0" alt="" title=""></p><p class="Element10">
+Next, the MHGC’s Welcome Dialog should appear. Click the first icon to create a new graphics design. </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds MHGC Welcome Dialog.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+If the Welcome Dialog does not appear, it is because it had been disabled previously. In the MPLAB Harmony Graphics Composer (MHGC) screen use the left-most icon to create a new graphics design. </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Create New Design.png" border="0" alt="" title=""></p><p class="Element10">
+<strong>NOTE: </strong>The Welcome Dialog can be re-enabled by using MHGC’s File &gt; Settings &gt; General menu: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Reenable Welcome Dialog.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="8" class="Element600">In the New Project Wizard, for the Color Mode step, select RGB_565 and hit <strong>NEXT</strong>.</li>
+<li value="9" class="Element600">For the Memory Size step, accept the default Flash Memory Size and hit <strong>NEXT</strong>.</li>
+<li value="10" class="Element600">For the Project Type step, chose the second option to create a new project using a basic template:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds New Project Wizard New Project Type.png" border="0" alt="" title=""></p><p class="Element10">
+The MHGC window should now show: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds MHGC Screen Design.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="11" class="Element600">Launch the Pin Configuration tool and verify that the display is correctly setup:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Launch Pin Config Tool.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Pin Diagram.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="12" class="Element600">Generate the application’s code for the first time. Select the Generate Code button of MHC’s window:</li>
+</ol><p class="Element10" style="text-align: right;">
+<img src="QSG 60 Seconds Generate Code.png" border="0" alt="" title=""></p><p class="Element10">
+Save the project’s configuration (any name will do for the .xml file): </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Modified Config Save As.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Save Databse State As.png" border="0" alt="" title=""></p><p class="Element10">
+Select USER_ALL as the Merge Strategy : </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Generate Project USER_ALL.png" border="0" alt="" title=""></p><p class="Element10">
+Click Generate: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Click Generate.png" border="0" alt="" title=""></p><p class="Element10">
+Now the project’s initial software has been configured.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+<strong>NOTE</strong>: Here is a brief explanation of the different merge strategies that are available:&nbsp;</p>
+<ul class="Element630">
+<li class="Element600"><strong>ALL</strong>: The user will be prompted with a merge window for all generated files. This includes files that have no user modifications but are changed because of changes in MHC configuration or component updates. (This choice is always the safest.)</li>
+<li class="Element600"><strong>USER_ALL</strong>: The user will always be prompted with a merge window for all generated files that contain user modifications.</li>
+<li class="Element600"><strong>USER_RECENT</strong>: The user will be prompted with a merge window for all generated files that contain user modifications.</li>
+<li class="Element600"><strong>OVERWRITE</strong>: All generated file content will be replaced by the contents of this generate operation. All user changes will be overwritten.</li>
+</ul><p class="Element10">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="13" class="Element600">Right mouse click on the project’s name and bring up the Project Properties dialog:</li>
+</ol><p class="Element10" style="text-align: right;">
+<img src="QSG 60 Seconds Modify Project Properties.png" border="0" alt="" title=""></p><p class="Element10">
+Select the debugger (here ICD 4) and the XC32 compiler (here V2.15). Then hit OK. </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Project Properties Mod.png" border="0" alt="" title=""></p><p class="Element10">
+If you are using the Embedded Debugger (EDBG) instead: </p><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Project Properties Mod2.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="14" class="Element600">Build and run the project:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Run Main Project.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="15" class="Element600">The follow should appear on the display:</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="QSG 60 Seconds Final Display.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <div class="Element15">
-Edit Menu</div>
-<p class="Element10">
-This menu implements the same functions as the first seven tool icons. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Edit Menu.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<div class="Element15">
-View Menu</div>
-<p class="Element10">
-This implements the same functions as the remaining tool icons. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG View Menu.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<div class="Element15">
-Asset Menu</div>
-<p class="Element10">
-These menu features are discussed in <a href="02588.html" target="topic">Graphics Composer Asset Management</a>. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG NewAssetMenu.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-<div class="Element15">
-Tools Menu</div>
-<p class="Element10">
-The Event Manager, Global Palette, and Heap Estimator are discussed in <a href="02600.html" target="topic">MHGC Tools</a>. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Tools Menu.png" border="0" alt="" title=""></p><div class="Element15">
-Window Menu</div>
-<p class="Element10">
-Selecting <strong>Console</strong> opens the Output Console for the Graphics Composer. This console panel can be used to debug problems when the Graphics Composer boots up or during its operation.&nbsp;</p>
-<p class="Element10">
-Selecting <strong>Reset Dock Areas</strong> restores the MHGC panel configuration to the default setup by redocking all of the panels that have been undocked into separate windows. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Window Menu.png" border="0" alt="" title=""></p></div>
+Next Steps</div>
+
+<ul class="Element630">
+<li class="Element600">Learn how to add events to the project: <i>MPLAB Harmony Graphics Library Help &gt; Quick Start Guides &gt; Graphics and Touch Quick Start Guides &gt; Adding an Event to the Aria Quickstart Demonstration</i></li>
+<li class="Element600">Learn how to use phantom buttons to improve touch performance: <i>MPLAB Harmony Graphics Library Help &gt; MPLAB Harmony Graphics Composer User’s Guide &gt; Advanced Topics &gt; Improved Touch Performance with Phantom Buttons</i></li>
+</ul></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02614.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02589.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02599.html" target="topic">Menus</a></div>
+<a href="02600.html" target="topic">Quick Start Guides</a> &gt; <a href="02599.html" target="topic">Creating New Graphics Applications</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -156,13 +224,13 @@ Selecting <strong>Reset Dock Areas</strong> restores the MHGC panel configuratio
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02605.html" target="topic">Previous</a> | <a href="02589.html" target="topic">Up</a> | <a href="02601.html" target="topic">Next</a></div>
+<a href="02600.html" target="topic">Previous</a> | <a href="02600.html" target="topic">Up</a> | <a href="02598.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Menus Topic Title: Menus)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: QSG Creating New Graphics Applications Topic Title: Creating New Graphics Applications)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
