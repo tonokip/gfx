@@ -67,9 +67,20 @@ When power-on is successful, the application Home Screen will be displayed&nbsp;
 <img src="APP GFX aria_mxt_configure home.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-The demonstration supports three configuration file input options: Program Flash, SDCard, and Host PC. ProgramFlash is the default option and requires no manual source file interaction.&nbsp;</p>
+The demonstration supports three input options for reading the configuration file:</p>
+<ul class="Element630">
+<li class="Element600">Program Flash - ProgramFlash is the default option and requires no manual source file interaction. The maxtouch config data is save in program flash as an array.</li>
+<li class="Element600">SDCard - requires a microSDHC flash memory card. Copy <strong>maxtouch.raw</strong> onto root directory of memory card. Install memory card into micro SD card slot.</li>
+<li class="Element600">Host PC - requires a micro-usb cable connection from PC to Target USB port. For this option install <span class="Element145">RealTerm</span>: Serial/TCP Terminal program.</li>
+</ul><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><div class="Element15">
+Following instructions below for each specific option of choice:&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><p class="Element10" style="text-align: center;">
+<img src="APP_MXT_home_screen.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
 Program Flash</div>
 <p class="Element10">
 &nbsp;</p>
@@ -82,12 +93,19 @@ To run this option.:&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <ol class="Element630">
-<li value="1" class="Element600">On the Main Menu Press the Load Button.The application will transition to the State Configuration screen</li>
-<li value="2" class="Element600">On the State Configuration Screen, select Program radio button. This will enable the reading of Program Flash.</li>
-<li value="3" class="Element600">Press the Stage button. This step will stage and parse the configuration information located in Program Flash.</li>
-<li value="4" class="Element600">Observe the Target board UI .</li>
-<li value="5" class="Element600">When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
-<li value="6" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+<li value="1" class="Element600">On the Main Menu, press the <strong>Configure </strong>button<strong>. </strong>The application will transition to the Stage Configuration screen.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="APP_MXT_stage_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600">On the Stage Configuration Screen, select <strong>Program</strong> radio button. This will enable configuration reading from Program Flash.</li>
+<li value="3" class="Element600">Press the <strong>Stage (<img src="APP_MXT_stage_button.png" border="0" alt="" title="">) </strong>button. This step will stage and parse the configuration information located in Program Flash.</li>
+<li value="4" class="Element600">Observe the target board UI progress bar.</li>
+<li value="5" class="Element600">When complete, the <strong>Stage</strong> button will be removed, and the <strong>Next (<img src="APP_MXT_next_button.png" border="0" alt="" title="">)</strong> screen button image will be displayed.</li>
+</ol><p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="6" class="Element600">Go to Step &quot;<strong>All Options</strong>&quot; below.</li>
 </ol><p class="Element10">
 &nbsp;</p>
 <div class="Element15">
@@ -101,21 +119,20 @@ To run this option.&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <ol class="Element630">
-<li value="1" class="Element600">On the Main Menu Press the Load Button. The application will transition to the State Configuration screen.</li>
-<li value="2" class="Element600">On the State Configuration Screen, select SDCARD radio button. This will enable the reading from SDCARD.</li>
-<li value="3" class="Element600">Press the Stage button. The step will stage and parse the configuration information located in the maxtouch.xcfg or maxtouch.raw file.</li>
-<li value="4" class="Element600">Observe the Target board UI . When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
-<li value="5" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+<li value="1" class="Element600">On the Main Menu Press the <strong>Configure</strong> Button. The application will transition to the Stage Configuration screen.</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="APP_MXT_stage_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600">On the Stage Configuration Screen, select <strong>SD Card</strong> radio button. This will enable the reading from the microSD card inserted in the SD Card slot.</li>
+<li value="3" class="Element600">Press the <strong>Stage (<img src="APP_MXT_stage_button.png" border="0" alt="" title="">)</strong> button. The step will stage and parse the configuration information located in the maxtouch.xcfg or maxtouch.raw file.</li>
+<li value="4" class="Element600">Observe the target board UI progress bar . When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
+<li value="5" class="Element600">Go to Step &quot;<strong>All Options</strong>&quot; below.</li>
 </ol><p class="Element10">
 &nbsp;</p>
 <div class="Element15">
 Host PC</div>
 <p class="Element10">
-This option requires a HOST PC connected to the Target board. The configuration file will be streamed from the Host PC to the Target board. For the purpose of this option, the user should establish a host PC connected to the Target board via a USB cable. A USB cable needs to be connected to the micro-B USB connector on the bottom of the starter kit in use. When the demonstration runs, it will create a USB CDC device on the USB bus. The demonstration can be executed once you have connected to this device through RealTerm terminal program. See the following download link: RealTerm&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-https://sourceforge.net/projects/realterm/&nbsp;</p>
+This option requires a HOST PC connected to the Target board. The configuration file will be streamed from the Host PC to the Target board. For the purpose of this option, the user should establish a host PC connected to the Target board via a USB cable. A USB cable needs to be connected to the micro-B USB connector on the bottom of the starter kit in use. When the demonstration runs, it will create a USB CDC device on the USB bus. The demonstration can be executed once you have connected to this device through RealTerm terminal program. See the following download link: <a href="#" onclick="openExternalLink('https://sourceforge.net/projects/realterm');"><img src="indicator_external_link.gif" border="0" alt="" title="">RealTerm</a>&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
@@ -125,17 +142,23 @@ Please refer to the connection diagram shown below.&nbsp;</p>
 <p class="Element10">
 To run this option.:</p>
 <ol class="Element630">
-<li value="1" class="Element600">On the Main Menu Press the Load Button. The application will transition to the State Configuration screen.</li>
-<li value="2" class="Element600">On the State Configuration Screen, select PC radio button. This will enable the reading from Host PC.</li>
-<li value="3" class="Element600">Press the Stage button. The step will create the USB CDC device on the USB bus and wait for a file transfer operation from the Host PC. Once initiated, the app will stage and parse the configuration. On the PC, Invoke RealTerm application .</li>
-<li value="4" class="Element600">Using the Port Tab, connect to the new Serial comm port.</li>
-<li value="5" class="Element600">Using the Send Tab, select the File to Port.</li>
-<li value="6" class="Element600">Set Delays to 1 and 5</li>
-<li value="7" class="Element600">Set Repeats 0 and 0</li>
-<li value="8" class="Element600">Select the Send File button</li>
-<li value="9" class="Element600">When complete, the Progress bar on the RealTerm interface will display “Done”</li>
-<li value="10" class="Element600"> Observe the Target board UI , When complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
-<li value="11" class="Element600">Go to Step &quot;All Options&quot; below.</li>
+<li value="1" class="Element600">On the Main Menu Press the <strong>Configure</strong> Button. The application will transition to the Stage Configuration screen.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="APP_MXT_stage_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600">On the Stage Configuration Screen, select PC radio button. This will enable the reading from Host PC.</li>
+<li value="3" class="Element600">Press the <strong>Stage</strong> (<img src="APP_MXT_stage_button.png" border="0" alt="" title="">) button. The step will create the USB CDC device on the USB bus, establish connection, and wait for PC to initiate the transfer.</li>
+<li value="4" class="Element600">On the PC, invoke <strong>RealTerm</strong> application .</li>
+<li value="5" class="Element600">Using the <strong>Port</strong> Tab, connect to the new Serial comm port.</li>
+<li value="6" class="Element600">Using the <strong>Send</strong> Tab, select the <strong>Dump File to Port</strong> drop down.</li>
+<li value="7" class="Element600">Set <strong>Delays</strong> to 1 and 5</li>
+<li value="8" class="Element600">Set <strong>Repeats</strong> 0 and 0</li>
+<li value="9" class="Element600">Finally, select the <strong>Send</strong> <strong>File</strong> button</li>
+<li value="10" class="Element600"> When complete, the <strong>Progress</strong> bar on the RealTerm interface will display “Done”</li>
+<li value="11" class="Element600"> Observe the Target board UI , when complete, the Stage button will be removed, and the Next screen button image will be displayed.</li>
+<li value="12" class="Element600"> Go to Step &quot;All Options&quot; below.</li>
 </ol><p class="Element10">
 &nbsp;</p>
 <div class="Element15">
@@ -145,14 +168,44 @@ All Options</div>
 <p class="Element10">
 To complete the demonstration for all options.</p>
 <ol class="Element630">
-<li value="1" class="Element600">Use the Next button to transition to the Load Configuration Screen</li>
-<li value="2" class="Element600">Select Load on the Load Configuration screen.</li>
-<li value="3" class="Element600">Use the Next button to transition to the Key Pad Touch Accuracy test screen.</li>
+<li value="1" class="Element600">Use the <strong>Next</strong> (<img src="APP_MXT_stage_button.png" border="0" alt="" title="">) button to transition to the Load Configuration Screen</li>
+</ol><p class="Element10" style="text-align: center;">
+<img src="APP_MXT_load_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="2" class="Element600">Select <strong>Load</strong> on the Load Configuration screen.</li>
+<li value="3" class="Element600">Use the <strong>Next {<img src="APP_MXT_next_button.png" border="0" alt="" title="">}</strong> button to transition to the Key Pad Touch Accuracy test screen.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="APP_MXT_keypad_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
 <li value="4" class="Element600">Press key pad buttons</li>
-<li value="5" class="Element600">Use Next to transition to the Multi Touch Test Screen</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="APP_MXT_load_screen.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+&nbsp;</p>
+
+<ol class="Element630">
+<li value="5" class="Element600">Use <strong>Next </strong> to transition to the Multi Touch Test Screen</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="APP_MXT_test_screen.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+
+<ol class="Element630">
 <li value="6" class="Element600">Drag finger across display</li>
-<li value="7" class="Element600">Use Next Button to transition to the Store Configuration (Flash) Screen</li>
-<li value="8" class="Element600">Press Save</li>
+<li value="7" class="Element600">Use <strong>Next</strong> button Button to transition to the Store Configuration (Flash) Screen</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+<img src="APP_MXT_store_screen.png" border="0" alt="" title=""></p>
+<ol class="Element630">
+<li value="8" class="Element600">Press <strong>Save </strong>button</li>
 </ol></div>
 </div>
 </div>
