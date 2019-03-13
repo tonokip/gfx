@@ -18,6 +18,21 @@ the following GFX links for release notes, home page, training materials, framew
  - [MPLAB Harmony 3 GFX Help](https://github.com/Microchip-MPLAB-Harmony/gfx/tree/master/doc)
  - [MPLAB Harmony 3 GFX Apps Help](https://github.com/Microchip-MPLAB-Harmony/gfx_apps/tree/master/doc)
 
+# Features
+
+The key features of the GFX package are the following:
+
+- Supports both Microchip 32-bit SAM and PIC microprocessor devices
+- Conforms to the Harmony 3 Software Framework
+- Fully MISRA-compliant
+- Designed for integration with both RTOS and non-RTOS based systems
+- Tightly-coupled with Microchip hardware
+- Powerful building blocks buttons, labels, lists, sliders, images, charts
+- Multi-language support with UTF-8 encoding
+- Support for single and double frame buffers
+- WYSWYG UI design editor - Graphics Composer
+- Variety of support tools - Heap Estimator, Event Manager, Palette generator, Asset Manager, String and Font interface, DDR memory organizer
+- Demonstrations and quick-starts to enable new development
 
 # Contents Summary
 
