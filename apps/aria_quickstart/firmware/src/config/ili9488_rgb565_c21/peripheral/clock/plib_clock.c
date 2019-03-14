@@ -105,6 +105,9 @@ void CLOCK_Initialize (void)
         /* Wait for synchronization */
     }
 
+    /* Configure the AHB Bridge Clocks */
+    MCLK_REGS->MCLK_AHBMASK = 0x1cff;
+
     /* Configure the APBC Bridge Clocks */
     MCLK_REGS->MCLK_APBCMASK = 0x4;
 

@@ -73,7 +73,7 @@
 #define GFX_DISP_INTF_PIN_BACKLIGHT_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 12)) & 0x01)
 #define GFX_DISP_INTF_PIN_BACKLIGHT_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 12)
 #define GFX_DISP_INTF_PIN_BACKLIGHT_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 12)
-#define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  PORT_PIN_0
+#define GFX_DISP_INTF_PIN_BACKLIGHT_PIN                  PORT_PIN_PB12
 
 /*** Macros for GFX_DISP_INTF_PIN_RESET pin ***/
 #define GFX_DISP_INTF_PIN_RESET_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = 1 << 15)
@@ -82,7 +82,7 @@
 #define GFX_DISP_INTF_PIN_RESET_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 15)) & 0x01)
 #define GFX_DISP_INTF_PIN_RESET_OutputEnable()      (PORT_REGS->GROUP[1].PORT_DIRSET = 1 << 15)
 #define GFX_DISP_INTF_PIN_RESET_InputEnable()       (PORT_REGS->GROUP[1].PORT_DIRCLR = 1 << 15)
-#define GFX_DISP_INTF_PIN_RESET_PIN                  PORT_PIN_0
+#define GFX_DISP_INTF_PIN_RESET_PIN                  PORT_PIN_PB15
 
 /*** Macros for GFX_DISP_INTF_PIN_CS pin ***/
 #define GFX_DISP_INTF_PIN_CS_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = 1 << 17)
@@ -91,7 +91,7 @@
 #define GFX_DISP_INTF_PIN_CS_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 17)) & 0x01)
 #define GFX_DISP_INTF_PIN_CS_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = 1 << 17)
 #define GFX_DISP_INTF_PIN_CS_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = 1 << 17)
-#define GFX_DISP_INTF_PIN_CS_PIN                  PORT_PIN_0
+#define GFX_DISP_INTF_PIN_CS_PIN                  PORT_PIN_PA17
 
 /*** Macros for GFX_DISP_INTF_PIN_RSDC pin ***/
 #define GFX_DISP_INTF_PIN_RSDC_Set()               (PORT_REGS->GROUP[0].PORT_OUTSET = 1 << 20)
@@ -100,7 +100,7 @@
 #define GFX_DISP_INTF_PIN_RSDC_Get()               (((PORT_REGS->GROUP[0].PORT_IN >> 20)) & 0x01)
 #define GFX_DISP_INTF_PIN_RSDC_OutputEnable()      (PORT_REGS->GROUP[0].PORT_DIRSET = 1 << 20)
 #define GFX_DISP_INTF_PIN_RSDC_InputEnable()       (PORT_REGS->GROUP[0].PORT_DIRCLR = 1 << 20)
-#define GFX_DISP_INTF_PIN_RSDC_PIN                  PORT_PIN_0
+#define GFX_DISP_INTF_PIN_RSDC_PIN                  PORT_PIN_PA20
 
 
 
@@ -132,9 +132,6 @@ typedef enum
 
     /* Group 1 */
     PORT_GROUP_1 = PORT_BASE_ADDRESS + 1 * (0x80),
-
-    /* Group 2 */
-    PORT_GROUP_2 = PORT_BASE_ADDRESS + 2 * (0x80),
 } PORT_GROUP;
 
 // *****************************************************************************
@@ -302,113 +299,17 @@ typedef enum
     /* PB17 pin */
     PORT_PIN_PB17 = 49,
 
-    /* PB18 pin */
-    PORT_PIN_PB18 = 50,
-
-    /* PB19 pin */
-    PORT_PIN_PB19 = 51,
-
-    /* PB20 pin */
-    PORT_PIN_PB20 = 52,
-
-    /* PB21 pin */
-    PORT_PIN_PB21 = 53,
-
     /* PB22 pin */
     PORT_PIN_PB22 = 54,
 
     /* PB23 pin */
     PORT_PIN_PB23 = 55,
 
-    /* PB24 pin */
-    PORT_PIN_PB24 = 56,
-
-    /* PB25 pin */
-    PORT_PIN_PB25 = 57,
-
     /* PB30 pin */
     PORT_PIN_PB30 = 62,
 
     /* PB31 pin */
     PORT_PIN_PB31 = 63,
-
-    /* PC00 pin */
-    PORT_PIN_PC00 = 64,
-
-    /* PC01 pin */
-    PORT_PIN_PC01 = 65,
-
-    /* PC02 pin */
-    PORT_PIN_PC02 = 66,
-
-    /* PC03 pin */
-    PORT_PIN_PC03 = 67,
-
-    /* PC05 pin */
-    PORT_PIN_PC05 = 69,
-
-    /* PC06 pin */
-    PORT_PIN_PC06 = 70,
-
-    /* PC07 pin */
-    PORT_PIN_PC07 = 71,
-
-    /* PC08 pin */
-    PORT_PIN_PC08 = 72,
-
-    /* PC09 pin */
-    PORT_PIN_PC09 = 73,
-
-    /* PC10 pin */
-    PORT_PIN_PC10 = 74,
-
-    /* PC11 pin */
-    PORT_PIN_PC11 = 75,
-
-    /* PC12 pin */
-    PORT_PIN_PC12 = 76,
-
-    /* PC13 pin */
-    PORT_PIN_PC13 = 77,
-
-    /* PC14 pin */
-    PORT_PIN_PC14 = 78,
-
-    /* PC15 pin */
-    PORT_PIN_PC15 = 79,
-
-    /* PC16 pin */
-    PORT_PIN_PC16 = 80,
-
-    /* PC17 pin */
-    PORT_PIN_PC17 = 81,
-
-    /* PC18 pin */
-    PORT_PIN_PC18 = 82,
-
-    /* PC19 pin */
-    PORT_PIN_PC19 = 83,
-
-    /* PC20 pin */
-    PORT_PIN_PC20 = 84,
-
-    /* PC21 pin */
-    PORT_PIN_PC21 = 85,
-
-    /* PC24 pin */
-    PORT_PIN_PC24 = 88,
-
-    /* PC25 pin */
-    PORT_PIN_PC25 = 89,
-
-    /* PC26 pin */
-    PORT_PIN_PC26 = 90,
-
-    /* PC27 pin */
-    PORT_PIN_PC27 = 91,
-
-    /* PC28 pin */
-    PORT_PIN_PC28 = 92,
 
     /* This element should not be used in any of the PORT APIs.
      * It will be used by other modules or application to denote that none of
