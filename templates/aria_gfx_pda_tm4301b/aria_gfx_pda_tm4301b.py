@@ -26,12 +26,15 @@ execfile(Module.getPath() + "../common/pin_config.py")
 execfile(Module.getPath() + "../common/bsp_utils.py")
 execfile(Module.getPath() + "../common/display_utils.py")
 
+pinConfigureFxn = configurePins
+
 execfile(Module.getPath() + "Support_BSP_SAM_E70_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_A5D2_Xplained_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_SAM_E54_Curiosity_Ultra.py")
 execfile(Module.getPath() + "Support_BSP_PIC32MZ_DAS_Starter_Kit_MEB2.py")
 
 def enableConfigPins(bspID, configID, enable):
+	global pinConfigureFxn
 	if (enable == True):
 		print("enableCOnfig " + configID)
 	else:
@@ -39,7 +42,7 @@ def enableConfigPins(bspID, configID, enable):
 	pinConfig = getBSPSupportNode(bspID, configID).getPinConfig()
 
 	if (enable == True):
-		configurePins(pinConfig)
+		pinConfigureFxn(pinConfig)
 
 def enableConfig(bspID, configID, enable):
 	componentIDTable = getBSPSupportNode(bspID, configID).getComponentActivateList()
