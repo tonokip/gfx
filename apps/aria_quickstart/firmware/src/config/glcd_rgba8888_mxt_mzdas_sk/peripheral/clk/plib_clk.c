@@ -1,3 +1,25 @@
+/*******************************************************************************
+* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+*
+* Subject to your compliance with these terms, you may use Microchip software
+* and any derivatives exclusively with Microchip products. It is your
+* responsibility to comply with third party license terms applicable to your
+* use of third party software (including open source software) that may
+* accompany Microchip software.
+*
+* THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+* EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+* WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+* PARTICULAR PURPOSE.
+*
+* IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+* INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+* WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+* BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+* FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+* ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+* THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+*******************************************************************************/
 
  /*******************************************************************************
   SYS CLK Static Functions for Clock System Service
@@ -62,7 +84,7 @@
 void CLK_Initialize( void )
 {
     bool int_flag = false;
-
+ 
     int_flag = (bool)__builtin_disable_interrupts();
     /* unlock system for clock configuration */
     SYSKEY = 0x00000000;
@@ -93,14 +115,22 @@ void CLK_Initialize( void )
 
     /* CFGMPLL */
     /* MPLLDIS = DISABLED */
-    /* MPLLODIV2 = DIV_7 */
-    /* MPLLODIV1 = DIV_7 */
+    /* MPLLODIV2 = DIV_1 */
+    /* MPLLODIV1 = DIV_3 */
     /* MPLLVREGDIS = DISABLED */
-    /* MPLLMULT = MUL_160 */
+    /* MPLLMULT = MUL_25 */
     /* INTVREFCON = INTERNAL_DDRV */
-    /* MPLLIDIV = DIV_63 */
-    CFGMPLL = 0x7f40ffff;
-  
+    /* MPLLIDIV = DIV_1 */
+    //CFGMPLL = 0x4b4019c1;
+    CFGMPLLbits.MPLLVREGDIS = 0;
+    while(!(CFGMPLLbits.MPLLVREGRDY));
+    CFGMPLLbits.INTVREFCON = 0;
+    CFGMPLLbits.MPLLIDIV = 1;
+    CFGMPLLbits.MPLLMULT = 25;
+    CFGMPLLbits.MPLLODIV1 = 3;
+    CFGMPLLbits.MPLLODIV2 = 1;
+    CFGMPLLbits.MPLLDIS = 0;
+    while(!(CFGMPLLbits.MPLLRDY)); 
     /* Lock system since done with clock configuration */
     int_flag = (bool)__builtin_disable_interrupts();
     SYSKEY = 0x33333333;
