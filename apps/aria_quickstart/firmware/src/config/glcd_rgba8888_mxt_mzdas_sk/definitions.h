@@ -58,6 +58,7 @@
 #include "peripheral/i2c/plib_i2c1.h"
 #include "system/input/sys_input.h"
 #include "bsp/bsp.h"
+#include "peripheral/ddr/plib_ddr.h"
 #include "gfx/libaria/libaria_harmony.h"
 #include "driver/input/drv_maxtouch.h"
 #include "system/int/sys_int.h"

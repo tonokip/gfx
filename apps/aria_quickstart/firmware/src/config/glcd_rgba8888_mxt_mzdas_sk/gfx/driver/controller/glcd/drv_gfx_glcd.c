@@ -60,7 +60,7 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-#define BUFFER_PER_LAYER    1
+#define BUFFER_PER_LAYER    2
 
 #define DISPLAY_WIDTH  480
 #define DISPLAY_HEIGHT 272
@@ -69,6 +69,15 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
 #define GFX_GLCD_CONFIG_CLK_DIVIDER 6
 
+/*** GLCD Layer 0 Configuration ***/
+#define  GFX_GLCD_LAYER0_BASEADDR                      0xA8000000
+#define  GFX_GLCD_LAYER0_DBL_BASEADDR                  0xA8465000
+/*** GLCD Layer 1 Configuration ***/
+#define  GFX_GLCD_LAYER1_BASEADDR                      0xA8177000
+#define  GFX_GLCD_LAYER1_DBL_BASEADDR                  0xA85DC000
+/*** GLCD Layer 2 Configuration ***/
+#define  GFX_GLCD_LAYER2_BASEADDR                      0xA82EE000
+#define  GFX_GLCD_LAYER2_DBL_BASEADDR                  0xA8753000
 
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_RGBA_8888
 #define FRAMEBUFFER_PTR_TYPE    uint32_t*
@@ -78,8 +87,6 @@ const char* DRIVER_NAME = "GLCD";
 static uint32_t supported_color_format = (GFX_COLOR_MASK_GS_8 |
                                           GFX_COLOR_MASK_RGB_565 | 
                                           GFX_COLOR_MASK_RGBA_8888);
-
-FRAMEBUFFER_PIXEL_TYPE  __attribute__ ((coherent, aligned (32))) framebuffer_0[DISPLAY_WIDTH * DISPLAY_HEIGHT];
 
 uint32_t state;
 
@@ -505,13 +512,12 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     PLIB_GLCD_ClockDividerSet(GFX_GLCD_CONFIG_CLK_DIVIDER);
     PLIB_GLCD_ResolutionXYSet(xResolution, yResolution);
 
-    PLIB_GLCD_SignalPolaritySet(GLCD_VSYNC_POLARITY_NEGATIVE );
-    PLIB_GLCD_SignalPolaritySet(GLCD_HSYNC_POLARITY_NEGATIVE );
     PLIB_GLCD_PaletteGammaRampDisable();
 
     PLIB_GLCD_Enable();
 
-    drvLayer[0].baseaddr[0] = framebuffer_0;
+    drvLayer[0].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER0_BASEADDR;
+    drvLayer[0].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER0_DBL_BASEADDR;
 
     for (layerCount = 0; layerCount < context->layer.count; layerCount++)
     {
@@ -532,6 +538,7 @@ static GFX_Result glcdInitialize(GFX_Context* context)
             for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
             {
         *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
+        *(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
             }
         }
         
@@ -550,6 +557,9 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         // all layers off by default
         context->layer.layers[layerCount].enabled = GFX_FALSE;
     }
+
+    EVIC_SourceStatusClear(INT_SOURCE_GLCD);
+    EVIC_SourceEnable(INT_SOURCE_GLCD);
 
     return GFX_SUCCESS;
 }

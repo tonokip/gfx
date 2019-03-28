@@ -45,6 +45,13 @@
 #include "gfx/libaria/libaria.h"
 
 
+#include "system/input/sys_input.h"
+
+SYS_INP_InputListener inputListener;
+
+static void touchDownHandler(const SYS_INP_TouchStateEvent* const evt);
+static void touchUpHandler(const SYS_INP_TouchStateEvent* const evt);
+static void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt);
 
 /*** libaria Object Global ***/
 libaria_objects libariaObj;
@@ -96,6 +103,9 @@ int32_t LibAria_Initialize(void)
 
     libaria_initialize(); // use auto-generated initialization functions
 
+    inputListener.handleTouchDown = &touchDownHandler;
+    inputListener.handleTouchUp = &touchUpHandler;
+    inputListener.handleTouchMove = &touchMoveHandler;
 
     libariaState = LIBARIA_STATE_INIT;
 
@@ -108,7 +118,10 @@ void LibAria_Tasks(void)
     {
         case LIBARIA_STATE_INIT:
         {
+            SYS_INP_AddListener(&inputListener);
+
             libariaState = LIBARIA_STATE_RUNNING;
+
             break;
         }
         case LIBARIA_STATE_RUNNING:
@@ -128,6 +141,20 @@ void LibAria_Tasks(void)
     }
 }
 
+void touchDownHandler(const SYS_INP_TouchStateEvent* const evt)
+{
+    laInput_InjectTouchDown(evt->index, evt->x, evt->y);
+}
+
+void touchUpHandler(const SYS_INP_TouchStateEvent* const evt)
+{
+    laInput_InjectTouchUp(evt->index, evt->x, evt->y);
+}
+
+void touchMoveHandler(const SYS_INP_TouchMoveEvent* const evt)
+{
+    laInput_InjectTouchMoved(evt->index, evt->x, evt->y);
+}
 
 
 static GFX_Result LibAria_MediaOpenRequest(GFXU_AssetHeader* asset)
