@@ -691,6 +691,9 @@ static GFX_Result glcdInitialize(GFX_Context* context)
         context->layer.layers[layerCount].enabled = GFX_FALSE;
     }
 
+    EVIC_SourceStatusClear(INT_SOURCE_GLCD);
+    EVIC_SourceEnable(INT_SOURCE_GLCD);
+
     return GFX_SUCCESS;
 }
 
