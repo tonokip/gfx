@@ -22,14 +22,16 @@
 # THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 ##############################################################################
 
-spi4PinComponentIDList = ["sercom1"]
-spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom1", "SERCOM1_SPI"]]
-spi4PinConfigs = [{"pin": 70, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA20
-				{"pin": 53, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA17
-				{"pin": 52, "name": "SERCOM1_PAD0", "type": "SERCOM1_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PA16
-				{"pin": 54, "name": "SERCOM1_PAD2", "type": "SERCOM1_PAD2", "direction": "", "latch": "", "abcd": "C"}, #PA18
-				{"pin": 55, "name": "SERCOM1_PAD3", "type": "SERCOM1_PAD3", "direction": "", "latch": "", "abcd": "C"}, #PA19
-				{"pin": 35, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB15
+spi4PinComponentIDList = ["sercom1", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
+spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom1", "SERCOM1_SPI"],
+						  ["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
+						  ["gfx_driver_ssd1306", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
+spi4PinConfigs = [{"pin": 41, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA20
+				{"pin": 36, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA17
+				{"pin": 35, "name": "SERCOM1_PAD0", "type": "SERCOM1_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PA16
+				{"pin": 37, "name": "SERCOM1_PAD2", "type": "SERCOM1_PAD2", "direction": "", "latch": "", "abcd": "C"}, #PA18
+				{"pin": 38, "name": "SERCOM1_PAD3", "type": "SERCOM1_PAD3", "direction": "", "latch": "", "abcd": "C"}, #PA19
+				{"pin": 28, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB15
 
 def eventHandlerSPI4line(event):
 	if (event == "configure"):
@@ -45,8 +47,10 @@ def eventHandlerSPI4line(event):
 			print("Unable to configure SERCOM1 DOPO Pads.")
 		### set heap to 16kB for C21
 		Database.setSymbolValue("core", "XC32_HEAP_SIZE", 16384, 0)
+		### set default color mode to Grayscale
+		Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_GS_8", 0)
 
-sam_c21n_oled1_xpro_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
+sam_c21_oled1_xpro_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
 
-addBSPSupport("BSP_SAM_C21N_Xplained_Pro", "SPI 4-line", sam_c21n_oled1_xpro_SPI)
+addBSPSupport("BSP_SAM_C21_Xplained_Pro", "SPI 4-line", sam_c21_oled1_xpro_SPI)
 

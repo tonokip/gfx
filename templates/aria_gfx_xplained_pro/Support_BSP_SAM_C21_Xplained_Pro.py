@@ -26,13 +26,13 @@ spi4PinComponentIDList = ["sercom1", "drv_spi", "drv_spi_0", "gfx_intf_spi4"]
 spi4PinAutoConnectList = [["drv_spi_0", "drv_spi_SPI_dependency", "sercom1", "SERCOM1_SPI"],
 							["gfx_intf_spi4", "DRV_SPI", "drv_spi_0", "drv_spi"],
 							["gfx_driver_ili9488", "Display Interface", "gfx_intf_spi4", "gfx_intf_spi4"]]
-spi4PinConfigs = [{"pin": 70, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA20
-				{"pin": 53, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA17
-				{"pin": 52, "name": "SERCOM1_PAD0", "type": "SERCOM1_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PA16
-				{"pin": 54, "name": "SERCOM1_PAD2", "type": "SERCOM1_PAD2", "direction": "", "latch": "", "abcd": "C"}, #PA18
-				{"pin": 55, "name": "SERCOM1_PAD3", "type": "SERCOM1_PAD3", "direction": "", "latch": "", "abcd": "C"}, #PA19
-				{"pin": 32, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB12
-				{"pin": 35, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB15
+spi4PinConfigs = [{"pin": 41, "name": "GFX_DISP_INTF_PIN_RSDC", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA20
+				{"pin": 36, "name": "GFX_DISP_INTF_PIN_CS", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PA17
+				{"pin": 35, "name": "SERCOM1_PAD0", "type": "SERCOM1_PAD0", "direction": "", "latch": "", "abcd": "C"}, #PA16
+				{"pin": 37, "name": "SERCOM1_PAD2", "type": "SERCOM1_PAD2", "direction": "", "latch": "", "abcd": "C"}, #PA18
+				{"pin": 38, "name": "SERCOM1_PAD3", "type": "SERCOM1_PAD3", "direction": "", "latch": "", "abcd": "C"}, #PA19
+				{"pin": 25, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PB12
+				{"pin": 28, "name": "GFX_DISP_INTF_PIN_RESET", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PB15
 
 def eventHandlerSPI4line(event):
 	if (event == "configure"):
@@ -52,8 +52,8 @@ def eventHandlerSPI4line(event):
 def eventHandlerParallel(event):
 	print("Parallel mode is not supported.")
 
-sam_c21n_xplained_pro_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
-sam_c21n_xplained_pro_Parallel = bspSupportObj(None, None, None, None, eventHandlerParallel)
+sam_c21_xplained_pro_SPI = bspSupportObj(spi4PinConfigs, spi4PinComponentIDList, None, spi4PinAutoConnectList, eventHandlerSPI4line)
+sam_c21_xplained_pro_Parallel = bspSupportObj(None, None, None, None, eventHandlerParallel)
 
-addBSPSupport("BSP_SAM_C21N_Xplained_Pro", "SPI 4-line", sam_c21n_xplained_pro_SPI)
-addBSPSupport("BSP_SAM_C21N_Xplained_Pro", "Parallel", sam_c21n_xplained_pro_Parallel)
+addBSPSupport("BSP_SAM_C21_Xplained_Pro", "SPI 4-line", sam_c21_xplained_pro_SPI)
+addBSPSupport("BSP_SAM_C21_Xplained_Pro", "Parallel", sam_c21_xplained_pro_Parallel)
