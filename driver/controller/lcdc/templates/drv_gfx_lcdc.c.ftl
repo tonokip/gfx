@@ -81,6 +81,7 @@
 #define LCDC_PWM_POLARITY LCDC_POLARITY_POSITIVE
 #define GFX_LCDC_BACKGROUND_COLOR 0xffffffff
 #define LCDC_NUM_LAYERS ${TotalNumLayers}
+#define LCDC_DEFAULT_BRIGHTNESS_PCT ${BacklightBrightnessDefault}
 
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">
 #define LCDC_DEFAULT_GFX_COLOR_MODE GFX_COLOR_MODE_GS_8
@@ -383,7 +384,7 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
 {
     GFX_Layer* layer;
     GFX_Context* context = GFX_ActiveContext();
-	uint32_t  i,j;
+    uint32_t  i,j;
     uint32_t  color = 0;
     
     layer = context->layer.active;
@@ -407,6 +408,22 @@ static GFX_Result layerBufferAllocate(uint32_t idx)
 static GFX_Result layerBufferFree(uint32_t idx)
 {
     return GFX_UNSUPPORTED;
+}
+
+static GFX_Result LCDC_BrightnessRangeGet(uint32_t *low, uint32_t *high)
+{
+    *low = 0;
+    *high = 100;
+
+    return GFX_SUCCESS;
+}
+
+static GFX_Result LCDC_BrightnessSet(uint32_t brightness)
+{
+
+    LCDC_SetPWMCompareValue(brightness * 0xff / 100);
+
+    return GFX_SUCCESS;
 }
 
 static GFX_Result layerPositionSet(int32_t x, int32_t y)
@@ -485,7 +502,7 @@ static uint32_t layerAlphaAmountGet(void)
 void layerSwapped(GFX_Layer* layer)
 {
     if (layer->buffer_count > BUFFER_PER_LAYER)
-	return;
+        return;
     
     switch(drvLayer[layer->id].hwLayerID)
     {
@@ -508,7 +525,7 @@ static GFX_Result layerEnabledSet(GFX_Bool val)
 {
     GFX_ActiveContext()->layer.active->enabled = val;
     uint32_t layerIdx = GFX_ActiveContext()->layer.active->id;
-	
+    
     if(val == GFX_TRUE)
     {
         LCDC_SetChannelEnable(drvLayer[layerIdx].hwLayerID, true);
@@ -614,7 +631,7 @@ static GFX_Result LCDCInitialize(GFX_Context* context)
 
 <#if BacklightPWMEnable == true>
     LCDC_WaitForSyncInProgress();
-    LCDC_SetPWMCompareValue(0xFF);
+    LCDC_SetPWMCompareValue(LCDC_DEFAULT_BRIGHTNESS_PCT * 0xFF / 100);
     LCDC_SetPWMSignalPolarity(LCDC_PWM_POLARITY);
     LCDC_SetPWMPrescaler(LCDC_PWM_PRESCALER);
 </#if>
@@ -726,8 +743,8 @@ static void layerSwapPending(GFX_Layer* layer)
 
     if(context->layerSwapSync)
     {
-	for(l = 0; l < context->layer.count; l++)
-	{
+    for(l = 0; l < context->layer.count; l++)
+    {
             lyr = &context->layer.layers[l];
             hwLayerID = drvLayer[lyr->id].hwLayerID;
 
@@ -770,16 +787,21 @@ static void layerSwapPending(GFX_Layer* layer)
 // function that initialized the driver context
 GFX_Result driverLCDCContextInitialize(GFX_Context* context)
 {
-	// set driver-specific data initialization function address
-	context->hal.initialize = &LCDCInitialize;
+    // set driver-specific data initialization function address
+    context->hal.initialize = &LCDCInitialize;
 
-	// set driver-specific destroy function address
-	context->hal.destroy = &LCDCDestroy;
-	
-	// vsync support
-	context->hal.layerSwapPending = &layerSwapPending; 
-	
-	return GFX_SUCCESS;
+    // set driver-specific destroy function address
+    context->hal.destroy = &LCDCDestroy;
+    
+    // vsync support
+    context->hal.layerSwapPending = &layerSwapPending; 
+
+    // Backlight PWM brightness support
+    context->hal.brightnessRangeGet = &LCDC_BrightnessRangeGet;
+    context->hal.brightnessSet = &LCDC_BrightnessSet;
+
+
+    return GFX_SUCCESS;
 }
 
 void _IntHandlerVSync(uintptr_t context)

@@ -263,6 +263,13 @@ def instantiateComponent(comp):
 	BacklightPWMClockPrescaler.addKey("DIV_32", str(5), "Div 32")
 	BacklightPWMClockPrescaler.addKey("DIV_64", str(6), "Div 64")
 	BacklightPWMClockPrescaler.setDefaultValue(5)
+	
+	BacklightBrightnessDefault = comp.createIntegerSymbol("BacklightBrightnessDefault", BacklightPWMSettingsMenu)
+	BacklightBrightnessDefault.setLabel("Backlight Brightness %")
+	BacklightBrightnessDefault.setDescription("Backlight Brightness Percent (0 - 100)")
+	BacklightBrightnessDefault.setDefaultValue(100)
+	BacklightBrightnessDefault.setMin(0)
+	BacklightBrightnessDefault.setMax(100)
 	### End of Backlight PWM Menu
 	
 
