@@ -421,6 +421,114 @@ static GFX_Result ILI9488_SetPixel(const GFX_PixelBuffer *buf,
 }
 </#if>
 
+GFX_Result ILI9488_DrawRect_Fill(const GFX_Rect* rect, const GFX_DrawState* state)
+{
+    int32_t row, row_max;
+    GFX_Point pnt1, pnt2;
+    GFX_Context *context = GFX_ActiveContext();
+    ILI9488_DRV *drv;
+<#if DisplayInterfaceType == "SPI 4-line">
+    uint8_t *pixelBuffer;
+<#else>
+<#if ParallelInterfaceWidth == "16-bit">
+    uint16_t *pixelBuffer;
+<#else>
+    uint8_t *pixelBuffer;
+</#if>
+</#if>
+    GFX_Point drawPoint;
+    
+    GFX_Rect lrect;
+#if GFX_LAYER_CLIPPING_ENABLED || GFX_BOUNDS_CLIPPING_ENABLED
+    GFX_Rect clipRect;
+#endif
+
+    lrect = *rect;
+    
+#if GFX_LAYER_CLIPPING_ENABLED
+    // clip rect against layer rect
+    GFX_RectClip(&state->targetClipRect,
+                 &lrect,
+                 &clipRect);
+                 
+    lrect = clipRect;        
+#endif
+    
+#if GFX_BOUNDS_CLIPPING_ENABLED
+    if((state->clipEnable == GFX_TRUE) && 
+        GFX_RectIntersects(&state->clipRect, &lrect) == GFX_FALSE)
+        return GFX_FAILURE;
+        
+    // clip rect against global clipping rect
+    if(state->clipEnable == GFX_TRUE)
+    {
+        GFX_RectClip(&state->clipRect,
+                     &lrect,
+                     &clipRect);
+                     
+        lrect = clipRect; 
+    }
+#endif
+
+    // calculate minimums
+    row_max = lrect.height;
+    
+    pnt1.x = lrect.x;
+    pnt2.x = lrect.x + lrect.width - 1;
+    
+    if (!context)
+        return GFX_FAILURE;
+
+    if (context->colorMode == GFX_COLOR_MODE_RGB_565)
+    {    
+        uint8_t color[3];
+        drv = (ILI9488_DRV *) context->driver_data;
+        pixelBuffer = drv->pixelBuffer;
+            
+        drv->lineX_Start = pnt1.x;
+        drv->lineX_End = pnt2.x;
+
+<#if DisplayInterfaceType == "SPI 4-line">
+        color[0] = ((state->color & 0xf800) >> 8) | 0x7; //R
+        color[1] = ((state->color & 0x07e0) >> 3 ) | 0x3; //G
+        color[2] = ((state->color & 0x001f) << 3) | 0x7; //B                
+                
+        for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
+        {
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = color[0];
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = color[1];
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 2] = color[2];
+        }
+<#else>
+<#if ParallelInterfaceWidth == "16-bit">
+        for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
+        {
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = color;
+        }
+<#else>
+        for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
+        {
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = (uint8_t) (color >> 8);
+            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = (uint8_t) (uint8_t) (color & 0xff);
+        }
+</#if>
+</#if>
+
+        for(row = 0; row < row_max; row++)
+        {
+            drv->currentLine = lrect.y + row;
+
+            ILI9488_Intf_WritePixels(drv,
+                                     drv->lineX_Start,
+                                     drv->currentLine,
+                                     &pixelBuffer[drv->lineX_Start * BYTES_PER_PIXEL_BUFFER],
+                                     (drv->lineX_End - drv->lineX_Start + 1));
+        }
+    }    
+    
+    return GFX_SUCCESS;
+}
+
 /**
   Function:
     GFX_Result driverILI9488InfoGet(GFX_DriverInfo *info)
@@ -751,7 +859,6 @@ static GFX_Result ILI9488_Initialize(GFX_Context *context)
     drv->pixelBuffer = NULL;
     drv->state = INIT;
 
-<#if DrawBufferSize == "Line">
     drv->pixelBuffer = (void*) context->memory.calloc(
                                context->display_info->rect.width,
                                BYTES_PER_PIXEL_BUFFER);
@@ -760,7 +867,6 @@ static GFX_Result ILI9488_Initialize(GFX_Context *context)
         context->memory.free(drv);
         return GFX_FAILURE;
     }
-</#if>
 
 <#if DrawBufferSize == "Frame">
     drv->pixelBuffer = (uint8_t *) frameBuffer;
@@ -1186,9 +1292,11 @@ GFX_Result driverILI9488ContextInitialize(GFX_Context *context)
 <#else>
     context->hal.drawPipeline[GFX_PIPELINE_GCU].pixelSet = &ILI9488_SetPixel;
     context->hal.drawPipeline[GFX_PIPELINE_GCU].pixelGet = &ILI9488_PixelGet;
+    context->hal.drawPipeline[GFX_PIPELINE_GCU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &ILI9488_DrawRect_Fill;
 
     context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].pixelSet = &ILI9488_SetPixel;
     context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].pixelGet = &ILI9488_PixelGet;
+    context->hal.drawPipeline[GFX_PIPELINE_GCUGPU].drawRect[GFX_DRAW_FILL][GFX_ANTIALIAS_OFF] = &ILI9488_DrawRect_Fill;
 </#if>
 
 
