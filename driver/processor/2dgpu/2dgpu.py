@@ -27,95 +27,56 @@ def setCommonMode(symbol, event):
 
 
 def instantiateComponent(comp):
-	print("Instantiated 2DGPU driver component")
+	print("Instantiated 2DGPU nano2d driver component")
 	projectPath = "config/" + Variables.get("__CONFIGURATION_NAME") + "/gfx/driver/2dgpu"
 
-        gfx2DGPU_default_mode = "Synchronous"
+        nano2d_default_mode = "Synchronous"
 
-    	gfx2DGPUSymLIB = comp.createStringSymbol("DRV_2DGPU_LIB", None)
-    	gfx2DGPUSymLIB.setLabel("LIB Used")
-    	gfx2DGPUSymLIB.setReadOnly(True)
-    	gfx2DGPUSymLIB.setDefaultValue("")
+    	Nano2DSymLIB = comp.createStringSymbol("DRV_NANO2D_LIB", None)
+    	Nano2DSymLIB.setLabel("LIB Used")
+    	Nano2DSymLIB.setReadOnly(True)
+    	Nano2DSymLIB.setDefaultValue("")
 
-    	gfx2DGPUMode = comp.createComboSymbol("DRV_2DGPU_MODE", None, ["Asynchronous", "Synchronous"])
-    	gfx2DGPUMode.setLabel("Driver Mode")
-    	gfx2DGPUMode.setDefaultValue(gfx2DGPU_default_mode)
-    	gfx2DGPUMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
+    	Nano2DMode = comp.createComboSymbol("DRV_NANO2D_MODE", None, ["Asynchronous", "Synchronous"])
+    	Nano2DMode.setLabel("Driver Mode")
+    	Nano2DMode.setDefaultValue(nano2d_default_mode)
+    	Nano2DMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
 
-    	gfx2DGPUSymQueueSize = comp.createIntegerSymbol("DRV_2DGPU_QUEUE_SIZE", None)
-    	gfx2DGPUSymQueueSize.setLabel("Transfer Queue Size")
-    	gfx2DGPUSymQueueSize.setMax(64)
-    	gfx2DGPUSymQueueSize.setVisible((Database.getSymbolValue("drv_2dgpu", "DRV_2DGPU_MODE") == "Asynchronous"))
-    	gfx2DGPUSymQueueSize.setDefaultValue(2)
-    	gfx2DGPUSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_2DGPU_MODE"])
+    	Nano2DSymQueueSize = comp.createIntegerSymbol("DRV_NANO2D_QUEUE_SIZE", None)
+    	Nano2DSymQueueSize.setLabel("Transfer Queue Size")
+    	Nano2DSymQueueSize.setMax(64)
+    	Nano2DSymQueueSize.setVisible((Database.getSymbolValue("drv_2dgpu", "DRV_NANO2D_MODE") == "Asynchronous"))
+    	Nano2DSymQueueSize.setDefaultValue(2)
+    	Nano2DSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_NANO2D_MODE"])
 
-	# generated code files
-	GFX_2DGPU_A = comp.createFileSymbol("DRV_LIB_2DGPU", None)
-	GFX_2DGPU_A.setDestPath("gfx/driver/processor/2dgpu/lib")
-	GFX_2DGPU_A.setOutputName("lib2dgpu.a")
-	GFX_2DGPU_A.setProjectPath(projectPath)
-	GFX_2DGPU_A.setType("LIBRARY")
-	#GFX_2DGPU_A.setMarkup(True)
-	GFX_2DGPU_A.setSourcePath("lib/lib2dgpu.a")
+	# library files
+	# libnano2d_a = comp.createLibrarySymbol("DRV_LIB_NANO2D", None)
+	# libnano2d_a.setDestPath("gfx/driver/processor/2dgpu/lib")
+	# libnano2d_a.setOutputName("libnano2d.a")
+	# libnano2d_a.setProjectPath(projectPath)
+	# libnano2d_a.setType("LINKER")
+	#libnano2d_a.setMarkup(True)
+	# libnano2d_a.setSourcePath("lib/libnano2d.a")
 
-    	# System Template Files
-    	gfx2DGPUSymSystemDefObjFile = comp.createFileSymbol("DRV_2DGPU_FILE_SYS_DEF_OBJ", None)
-    	gfx2DGPUSymSystemDefObjFile.setType("STRING")
-    	gfx2DGPUSymSystemDefObjFile.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_OBJECTS")
-    	gfx2DGPUSymSystemDefObjFile.setSourcePath("templates/system/system_definitions_objects.h.ftl")
-    	gfx2DGPUSymSystemDefObjFile.setMarkup(True)
 
-    	gfx2DGPUSymSystemConfigFile = comp.createFileSymbol("DRV_2DGPU_FILE_SYS_CONFIG", None)
-    	gfx2DGPUSymSystemConfigFile.setType("STRING")
-    	gfx2DGPUSymSystemConfigFile.setOutputName("core.LIST_SYSTEM_CONFIG_H_DRIVER_CONFIGURATION")
-    	gfx2DGPUSymSystemConfigFile.setSourcePath("templates/system/system_config.h.ftl")
-    	gfx2DGPUSymSystemConfigFile.setMarkup(True)
+    	# Global Files
+    	Nano2DHeaderFile = comp.createFileSymbol("NANO2D_FILE_MAIN_HEADER", None)
+    	Nano2DHeaderFile.setSourcePath("templates/libnano2D.h.ftl")
+    	Nano2DHeaderFile.setOutputName("libnano2D.h")
+        Nano2DHeaderFile.setDestPath("gfx/driver/processor/2dgpu")
+    	Nano2DHeaderFile.setProjectPath(projectPath)
+    	Nano2DHeaderFile.setType("HEADER")
+        Nano2DHeaderFile.setMarkup(True)
+    	Nano2DHeaderFile.setOverwrite(True)
 
-    	gfx2DSymSystemInitDataFile = comp.createFileSymbol("DRV_2DGPU_FILE_SYS_INIT_DATA", None)
-    	gfx2DSymSystemInitDataFile.setType("STRING")
-    	gfx2DSymSystemInitDataFile.setOutputName("core.LIST_SYSTEM_INIT_C_DRIVER_INITIALIZATION_DATA")
-    	gfx2DSymSystemInitDataFile.setSourcePath("templates/system/system_initialize_data.c.ftl")
-    	gfx2DSymSystemInitDataFile.setMarkup(True)
-
-    	gfx2DSymSystemInitFile = comp.createFileSymbol("DRV_2DGPU_FILE_SYS_INIT", None)
-    	gfx2DSymSystemInitFile.setType("STRING")
-    	gfx2DSymSystemInitFile.setOutputName("core.LIST_SYSTEM_INIT_C_SYS_INITIALIZE_DRIVERS")
-    	gfx2DSymSystemInitFile.setSourcePath("templates/system/system_initialize.c.ftl")
-    	gfx2DSymSystemInitFile.setMarkup(True)
-
-        gfx2DSymSystemDefFile = comp.createFileSymbol("DRV_2DGPU_FILE_SYS_DEF", None)
-        gfx2DSymSystemDefFile.setType("STRING")
-        gfx2DSymSystemDefFile.setOutputName("core.LIST_SYSTEM_DEFINITIONS_H_INCLUDES")
-        gfx2DSymSystemDefFile.setSourcePath("templates/system/system_definitions.h.ftl")
-        gfx2DSymSystemDefFile.setMarkup(True)
-
-    	# Global Header Files
-    	gfx2DSymHeaderDefFile = comp.createFileSymbol("DRV_2DGPU_FILE_DEF_HEADER", None)
-    	gfx2DSymHeaderDefFile.setSourcePath("templates/drv_2dgpu_definitions.h.ftl")
-    	gfx2DSymHeaderDefFile.setOutputName("drv_2dgpu_definitions.h")
-    	gfx2DSymHeaderDefFile.setDestPath("gfx/driver/processor/2dgpu/")
-    	gfx2DSymHeaderDefFile.setProjectPath(projectPath)
-    	gfx2DSymHeaderDefFile.setType("HEADER")
-    	gfx2DSymHeaderDefFile.setMarkup(True)
-    	gfx2DSymHeaderDefFile.setOverwrite(True)
-
-    	gfx2DSymHeaderFile = comp.createFileSymbol("DRV_2DGPU_FILE_MAIN_HEADER", None)
-    	gfx2DSymHeaderFile.setSourcePath("templates/drv_2dgpu.h.ftl")
-    	gfx2DSymHeaderFile.setOutputName("drv_2dgpu.h")
-        gfx2DSymHeaderFile.setDestPath("gfx/driver/processor/2dgpu")
-    	gfx2DSymHeaderFile.setProjectPath(projectPath)
-    	gfx2DSymHeaderFile.setType("HEADER")
-        gfx2DSymHeaderFile.setMarkup(True)
-    	gfx2DSymHeaderFile.setOverwrite(True)
-
-    	gfx2DHalFile = comp.createFileSymbol("DRV_2DGPU_FILE_HAL", None)
-    	gfx2DHalFile.setSourcePath("templates/drv_2dgpu_hal.c.ftl")
-    	gfx2DHalFile.setOutputName("drv_2dgpu_hal.c")
-    	gfx2DHalFile.setDestPath("gfx/driver/processor/2dgpu")
-    	gfx2DHalFile.setProjectPath(projectPath)
-    	gfx2DHalFile.setType("SOURCE")
-        gfx2DHalFile.setMarkup(True)
-    	gfx2DHalFile.setOverwrite(True)
+    	Nano2DHalFile = comp.createFileSymbol("NANO2D_FILE_HAL", None)
+    	Nano2DHalFile.setSourcePath("templates/libnano2D_hal.c.ftl")
+    	Nano2DHalFile.setOutputName("libnano2D_hal.c")
+    	Nano2DHalFile.setDestPath("gfx/driver/processor/2dgpu")
+    	Nano2DHalFile.setProjectPath(projectPath)
+    	Nano2DHalFile.setType("SOURCE")
+        Nano2DHalFile.setMarkup(True)
+    	Nano2DHalFile.setOverwrite(True)
 
 
 def asyncModeOptions(symbol, event):
@@ -125,10 +86,10 @@ def asyncModeOptions(symbol, event):
         symbol.setVisible(False)
 
 def configure2DGPUComponent(gpuComponent, comp):
-	print("2DGPU Driver: Connecting 2DGPU")
+	print("2DGPU Nano2D Driver: Connecting Nano2D") 
 	
 def reset2DGPUComponent(gpuComponent, comp):
-	print("2DGPU Driver: Disconnecting 2DGPU")
+	print("2DGPU Nano2D Driver: Disconnecting Nano2D")
 
 def onAttachmentConnected(source, target):
 	print("dependency Connected = " + str(target['id']))
