@@ -49,7 +49,7 @@ def instantiateComponent(comp):
     	Nano2DSymQueueSize.setDefaultValue(2)
     	Nano2DSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_NANO2D_MODE"])
 
-	# library files
+	# note: TBD need automatic way add library file to project
 	# libnano2d_a = comp.createLibrarySymbol("DRV_LIB_NANO2D", None)
 	# libnano2d_a.setDestPath("gfx/driver/processor/2dgpu/lib")
 	# libnano2d_a.setOutputName("libnano2d.a")
@@ -77,6 +77,18 @@ def instantiateComponent(comp):
     	Nano2DHalFile.setType("SOURCE")
         Nano2DHalFile.setMarkup(True)
     	Nano2DHalFile.setOverwrite(True)
+
+	# these two symbols are read by the HAL for initialization purposes
+	# they must match the function names in the actual driver code
+	ProcInfoFunction = comp.createStringSymbol("ProcInfoFunction", None)
+	ProcInfoFunction.setLabel("Processor Info Function Name")
+	ProcInfoFunction.setDefaultValue("procNANO2DInfoGet")
+	ProcInfoFunction.setReadOnly(True)
+
+	ProcInitFunction = comp.createStringSymbol("ProcInitFunction", None)
+	ProcInitFunction.setLabel("Processor Init Function Name")
+	ProcInitFunction.setDefaultValue("procNANO2DContextInitialize")
+	ProcInitFunction.setReadOnly(True)
 
 
 def asyncModeOptions(symbol, event):
