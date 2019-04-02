@@ -236,7 +236,7 @@ GFX_Result ILI9488_Intf_ReadCmd(struct ILI9488_DRV *drv,
     drv             - ILI9488 driver handle
     start_x         - Start column position
     start_y         - Start page position
-    data            - Array of 8-bit pixel data (8-bit/pixel RGB)
+    data            - Array of pixel data
     num_pixels      - Number of pixels
  
   Returns:

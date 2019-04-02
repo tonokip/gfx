@@ -427,17 +427,7 @@ GFX_Result ILI9488_DrawRect_Fill(const GFX_Rect* rect, const GFX_DrawState* stat
     GFX_Point pnt1, pnt2;
     GFX_Context *context = GFX_ActiveContext();
     ILI9488_DRV *drv;
-<#if DisplayInterfaceType == "SPI 4-line">
-    uint8_t *pixelBuffer;
-<#else>
-<#if ParallelInterfaceWidth == "16-bit">
-    uint16_t *pixelBuffer;
-<#else>
-    uint8_t *pixelBuffer;
-</#if>
-</#if>
     GFX_Point drawPoint;
-    
     GFX_Rect lrect;
 #if GFX_LAYER_CLIPPING_ENABLED || GFX_BOUNDS_CLIPPING_ENABLED
     GFX_Rect clipRect;
@@ -481,10 +471,10 @@ GFX_Result ILI9488_DrawRect_Fill(const GFX_Rect* rect, const GFX_DrawState* stat
 
     if (context->colorMode == GFX_COLOR_MODE_RGB_565)
     {    
+<#if DisplayInterfaceType == "SPI 4-line">
         uint8_t color[3];
+</#if>
         drv = (ILI9488_DRV *) context->driver_data;
-        pixelBuffer = drv->pixelBuffer;
-            
         drv->lineX_Start = pnt1.x;
         drv->lineX_End = pnt2.x;
 
@@ -495,21 +485,21 @@ GFX_Result ILI9488_DrawRect_Fill(const GFX_Rect* rect, const GFX_DrawState* stat
                 
         for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
         {
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = color[0];
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = color[1];
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 2] = color[2];
+            drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = color[0];
+            drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = color[1];
+            drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 2] = color[2];
         }
 <#else>
 <#if ParallelInterfaceWidth == "16-bit">
         for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
         {
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = color;
+            *((uint16_t *) &drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER]) = state->color;
         }
 <#else>
         for(drawPoint.x = drv->lineX_Start; drawPoint.x <= drv->lineX_End; drawPoint.x++)
         {
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = (uint8_t) (color >> 8);
-            pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = (uint8_t) (uint8_t) (color & 0xff);
+            drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER] = (uint8_t) (state->color >> 8);
+            drv->pixelBuffer[drawPoint.x * BYTES_PER_PIXEL_BUFFER + 1] = (uint8_t) (uint8_t) (state->color & 0xff);
         }
 </#if>
 </#if>
@@ -521,7 +511,7 @@ GFX_Result ILI9488_DrawRect_Fill(const GFX_Rect* rect, const GFX_DrawState* stat
             ILI9488_Intf_WritePixels(drv,
                                      drv->lineX_Start,
                                      drv->currentLine,
-                                     &pixelBuffer[drv->lineX_Start * BYTES_PER_PIXEL_BUFFER],
+                                     &drv->pixelBuffer[drv->lineX_Start * BYTES_PER_PIXEL_BUFFER],
                                      (drv->lineX_End - drv->lineX_Start + 1));
         }
     }    
