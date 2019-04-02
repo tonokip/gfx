@@ -29,10 +29,8 @@ ProcInfoMenu.setDescription("Displays graphics processor information.")
 
 ProcInfoFunction = halComponent.createStringSymbol("ProcInfoFunction", ProcInfoMenu)
 ProcInfoFunction.setLabel("Processor Info Function Name")
-ProcInfoFunction.setDefaultValue("procNANO2DInfoGet")
 ProcInfoFunction.setReadOnly(True)
 
 ProcInitFunction = halComponent.createStringSymbol("ProcInitFunction", ProcInfoMenu)
 ProcInitFunction.setLabel("Processor Init Function Name")
-ProcInitFunction.setDefaultValue("procNANO2DContextInitialize")
 ProcInitFunction.setReadOnly(True)
