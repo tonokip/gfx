@@ -53,11 +53,12 @@
 // *****************************************************************************
 // *****************************************************************************
 
+
 /* SERCOM4 clk freq value for the baud calculation */
-#define SERCOM4_Frequency      (uint32_t) (48000000UL)
+#define SERCOM4_Frequency      (uint32_t) (120000000UL)
 
 /* SERCOM4 SPI baud value for 8000000 Hz baud rate */
-#define SERCOM4_SPIM_BAUD_VALUE			(2U)
+#define SERCOM4_SPIM_BAUD_VALUE         (6U)
 
 /*Global object to save SPI Exchange related data  */
 SPI_OBJECT sercom4SPIObj;
