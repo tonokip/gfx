@@ -17,18 +17,18 @@
         <File dnOrder="1">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_disp_intf_parallel_smc.c</Name>
-          <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/driver/ssd1963</LogicalPath>
-          <PhysicalPath dnOrder="3">/gfx/driver/controller/ssd1963/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B8C775B345A32187DDC8F51C26D03B6B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B8C775B345A32187DDC8F51C26D03B6B</UserChecksum>
+          <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/interface/parallel_smc</LogicalPath>
+          <PhysicalPath dnOrder="3">/gfx/interface/parallel_smc/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">542FA551B6D280686C6E58F78FC68966</GeneratedChecksum>
+          <UserChecksum dnOrder="5">542FA551B6D280686C6E58F78FC68966</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">drv_gfx_ssd1963.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/driver/ssd1963</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/ssd1963/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">41DCA48755790E4150E04FC927214582</GeneratedChecksum>
-          <UserChecksum dnOrder="5">41DCA48755790E4150E04FC927214582</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D1A5B077A7D06305F03FA55684ACE319</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D1A5B077A7D06305F03FA55684ACE319</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">79685F98523A218CD33E4AC07B11C8E6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">79685F98523A218CD33E4AC07B11C8E6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">314C1119A4BF44999DC94DBC5D4FCDF3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">314C1119A4BF44999DC94DBC5D4FCDF3</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -667,16 +667,16 @@
           <Name dnOrder="1">libaria_widget_bar_graph.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">134D9CF69FE36D7CD3CFE6AA6D046FE0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">134D9CF69FE36D7CD3CFE6AA6D046FE0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C7B76B9A9DA78A4A710997DB7E8BB885</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C7B76B9A9DA78A4A710997DB7E8BB885</UserChecksum>
         </File>
         <File dnOrder="83">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_bar_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</UserChecksum>
+          <GeneratedChecksum dnOrder="4">019D9C165F2C62EE9C820C3971A0DF04</GeneratedChecksum>
+          <UserChecksum dnOrder="5">019D9C165F2C62EE9C820C3971A0DF04</UserChecksum>
         </File>
         <File dnOrder="84">
           <Type dnOrder="0">SOURCE</Type>
@@ -739,8 +739,8 @@
           <Name dnOrder="1">libaria_widget_circular_gauge_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">05CD4B147193F64BABD42C407253C3CD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">05CD4B147193F64BABD42C407253C3CD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F228D5405961464F9A25F6C3FF0B0A54</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F228D5405961464F9A25F6C3FF0B0A54</UserChecksum>
         </File>
         <File dnOrder="92">
           <Type dnOrder="0">SOURCE</Type>
@@ -907,8 +907,8 @@
           <Name dnOrder="1">libaria_widget_line_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">885DF5ECE30B82357DD94D305C529547</GeneratedChecksum>
-          <UserChecksum dnOrder="5">885DF5ECE30B82357DD94D305C529547</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1B25B1FE187504F6841D6899EE925716</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1B25B1FE187504F6841D6899EE925716</UserChecksum>
         </File>
         <File dnOrder="113">
           <Type dnOrder="0">SOURCE</Type>
@@ -963,8 +963,8 @@
           <Name dnOrder="1">libaria_widget_pie_chart_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C193F5A5B2DC631334A4FFB50C7693ED</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C193F5A5B2DC631334A4FFB50C7693ED</UserChecksum>
+          <GeneratedChecksum dnOrder="4">137DC0FA31D6AFA2DCCB2E2EF50D84F2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">137DC0FA31D6AFA2DCCB2E2EF50D84F2</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
@@ -1203,8 +1203,8 @@
           <Name dnOrder="1">plib_twihs0.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/peripheral/twihs/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/twihs/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0FA339DA4C7A00906731F1188256DC92</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0FA339DA4C7A00906731F1188256DC92</UserChecksum>
+          <GeneratedChecksum dnOrder="4">04EF478D9DD1818A3FE4C82AB9AC1ABB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">04EF478D9DD1818A3FE4C82AB9AC1ABB</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
@@ -1441,10 +1441,10 @@
         <File dnOrder="179">
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">drv_gfx_disp_intf.h</Name>
-          <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/driver/ssd1963</LogicalPath>
-          <PhysicalPath dnOrder="3">/gfx/driver/controller/ssd1963/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DB31FBEC44C8C9E9C281AE481908AE7B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DB31FBEC44C8C9E9C281AE481908AE7B</UserChecksum>
+          <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/gfx/interface</LogicalPath>
+          <PhysicalPath dnOrder="3">/gfx/interface/</PhysicalPath>
+          <GeneratedChecksum dnOrder="4">EDC4D048F35C4DB44A6A77048FA1466E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">EDC4D048F35C4DB44A6A77048FA1466E</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
@@ -2419,8 +2419,8 @@
           <Name dnOrder="1">plib_twihs_master.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt/peripheral/twihs/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/twihs/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6C35835C0E606C77662E3C611566519F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6C35835C0E606C77662E3C611566519F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FC25293FE06FB1B3797B0BE737DF7DD3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FC25293FE06FB1B3797B0BE737DF7DD3</UserChecksum>
         </File>
         <File dnOrder="302">
           <Type dnOrder="0">HEADER</Type>

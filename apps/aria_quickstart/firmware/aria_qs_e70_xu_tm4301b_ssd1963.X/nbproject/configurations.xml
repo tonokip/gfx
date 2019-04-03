@@ -23,7 +23,6 @@
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_ssd1963.h</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_ssd1963_common.h</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_ssd1963_cmd_defs.h</itemPath>
-                <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_disp_intf.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -53,7 +52,10 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/hal/inc/gfx_math.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f3" displayName="interface" projectFiles="true">
+              <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/interface/drv_gfx_disp_intf.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_harmony.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_config.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_init.h</itemPath>
@@ -109,12 +111,12 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_events.h</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_macros.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/third_party/lodepng/lodepng.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="inc" projectFiles="true">
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/utils/inc/gfxu_binary.h</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/utils/inc/gfxu_font.h</itemPath>
@@ -291,7 +293,6 @@
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="ssd1963" projectFiles="true">
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_ssd1963.c</itemPath>
-                <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/driver/controller/ssd1963/drv_gfx_disp_intf_parallel_smc.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -326,7 +327,12 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f3" displayName="interface" projectFiles="true">
+              <logicalFolder name="f1" displayName="parallel_smc" projectFiles="true">
+                <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/interface/parallel_smc/drv_gfx_disp_intf_parallel_smc.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_harmony.c</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_init.c</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/src/libaria.c</itemPath>
@@ -409,13 +415,13 @@
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_events.c</itemPath>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/libaria/libaria_macros.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/third_party/src/lodepng/lodepng.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/third_party/decoder/src/jidctint.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
                 <itemPath>../src/config/ssd1963_rgb565_mxt/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
@@ -514,7 +520,7 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME70_DFP" vendor="Microchip" version="3.0.11"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="3.0.10"/>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
       </packs>
       <compileType>

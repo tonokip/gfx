@@ -42,10 +42,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "gfx/hal/inc/gfx_common.h"
 
-#include "drv_gfx_disp_intf.h"
+#include "gfx/interface/drv_gfx_disp_intf.h"
 #include "drv_gfx_ssd1963_cmd_defs.h"
 #include "drv_gfx_ssd1963_common.h"
 #include "drv_gfx_ssd1963.h"
+
+#include "system/time/sys_time.h"
 
 // Number of layers
 #define LAYER_COUNT     1
@@ -119,17 +121,11 @@ const char* DRIVER_NAME = "SSD1963";
 
 static inline void SSD1963_DelayMS(int ms)
 {
-    //Temporary delay code. Will switch over to a system delay API.
-    volatile int i = 300000*ms;
-    while (i--);
-}
+    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
 
-static inline void SSD1963_DelayNOP(void)
-{
-    asm("nop");
-    asm("nop");
-    asm("nop");
-    asm("nop");
+    if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+        return;
+    while (SYS_TIME_DelayIsComplete(timer) == false);
 }
 
 /**
@@ -242,11 +238,11 @@ static GFX_Result SSD1963_Configure(SSD1963_DRV *drv)
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_VER_PERIOD, parm, 7);
 
     //Set pixel format, i.e. the bpp
-    parm[0] = 0x55; // set 16bpp
+    parm[0] = 0x55; // set 16bpp, (565 format) 
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_PIXEL_FORMAT, parm, 1);
     
     //Set pixel data interface
-    parm[0] = 0x03; //16-bit pixel data (565 format) 
+    parm[0] = 0x03; //16-bit pixel data
     GFX_Disp_Intf_WriteCommandParm(intf, CMD_SET_DATA_INTERFACE, parm, 1);
 
     // Turn on display; show the image on display
@@ -323,14 +319,10 @@ static GFX_Color SSD1963_PixelGet(const GFX_PixelBuffer *buf,
     
         
     SSD1963_NCSAssert(intf);
-    
-    SSD1963_DelayNOP();
 
     SetArea(drv, pnt->x, pnt->y, DISP_HOR_RESOLUTION, DISP_VER_RESOLUTION);
     GFX_Disp_Intf_WriteCommand(intf, CMD_RD_MEMSTART);
     GFX_Disp_Intf_ReadData16(intf, (uint16_t *) &pixel, 1);
-    
-    SSD1963_DelayNOP();
     
     SSD1963_NCSDeassert(intf);
 
@@ -380,15 +372,11 @@ static GFX_Result SSD1963_PixelSet(const GFX_PixelBuffer *buf,
 
 
     SSD1963_NCSAssert(intf);
-    
-    SSD1963_DelayNOP();
 
     SetArea(drv, pnt->x, pnt->y, DISP_HOR_RESOLUTION, DISP_VER_RESOLUTION);
     GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
     GFX_Disp_Intf_WriteData16(intf, (uint16_t *) &color, 1);
-    
-    SSD1963_DelayNOP();
-    
+
     SSD1963_NCSDeassert(intf);
 
     return GFX_SUCCESS;
@@ -448,8 +436,7 @@ GFX_Result SSD1963_fillRect(const GFX_Rect* pRect,
 
 
     SSD1963_NCSAssert(intf);
-    SSD1963_DelayNOP();
-    
+
     SetArea(drv, left,top,right,bottom);
 
     GFX_Disp_Intf_WriteCommand(intf, CMD_WR_MEMSTART);
@@ -460,8 +447,7 @@ GFX_Result SSD1963_fillRect(const GFX_Rect* pRect,
         }
     }
     
-    SSD1963_DelayNOP();
-    
+
     SSD1963_NCSDeassert(intf);
 
     return(GFX_SUCCESS);
@@ -526,12 +512,10 @@ static GFX_Result SSD1963_BrightnessSet(uint32_t brightness)
                       };
     
     SSD1963_NCSAssert((GFX_Disp_Intf) drv->port_priv);
-    SSD1963_DelayNOP();
-    
+
     GFX_Disp_Intf_WriteCommandParm((GFX_Disp_Intf) drv->port_priv,
                                     CMD_SET_PWM_CONF, parm, 5);
-    
-    SSD1963_DelayNOP();
+
     SSD1963_NCSDeassert((GFX_Disp_Intf) drv->port_priv);
     
     return GFX_SUCCESS;
@@ -719,7 +703,7 @@ static GFX_Result SSD1963_Initialize(GFX_Context *context)
     context->layer.layers[0].buffers[0].state = GFX_BS_MANAGED;
 
     //Open interface to SSD1963 controller
-    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx, 0);
+    drv->port_priv = (void *) GFX_Disp_Intf_Open(drv->gfx);
     if (drv->port_priv == 0)
     {
         if (drv)
