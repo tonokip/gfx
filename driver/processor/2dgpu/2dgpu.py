@@ -80,16 +80,17 @@ def instantiateComponent(comp):
 
 	# these two symbols are read by the HAL for initialization purposes
 	# they must match the function names in the actual driver code
-	#ProcInfoFunction = comp.createStringSymbol("ProcInfoFunction", None)
-	#ProcInfoFunction.setLabel("Processor Info Function Name")
-	#ProcInfoFunction.setDefaultValue("procNANO2DInfoGet")
-	#ProcInfoFunction.setReadOnly(True)
+	ProcInfoFunction = comp.createStringSymbol("ProcInfoFunction", None)
+	ProcInfoFunction.setLabel("Processor Info Function Name")
+	ProcInfoFunction.setDefaultValue("procNANO2DInfoGet")
+	ProcInfoFunction.setReadOnly(True)
+	ProcInfoFunction.setVisible(False)
 
-	#ProcInitFunction = comp.createStringSymbol("ProcInitFunction", None)
-	#ProcInitFunction.setLabel("Processor Init Function Name")
-	#ProcInitFunction.setDefaultValue("procNANO2DContextInitialize")
-	#ProcInitFunction.setReadOnly(True)
-
+	ProcInitFunction = comp.createStringSymbol("ProcInitFunction", None)
+	ProcInitFunction.setLabel("Processor Init Function Name")
+	ProcInitFunction.setDefaultValue("procNANO2DContextInitialize")
+	ProcInitFunction.setReadOnly(True)
+	ProcInfoFunction.setVisible(False)
 
 def asyncModeOptions(symbol, event):
     if (event["value"] == "Asynchronous"):

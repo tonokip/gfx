@@ -124,6 +124,11 @@ def onAttachmentConnected(source, target):
 		except:
 			pass
 
+	if source["id"] == "gfx_graphics_processor":
+		source["component"].setSymbolValue("ProcInfoFunction", target["component"].getSymbolValue("ProcInfoFunction"), 1)
+		source["component"].setSymbolValue("ProcInitFunction", target["component"].getSymbolValue("ProcInitFunction"), 1)
+		
+
 	if source["id"] == "gfx_display":
 		updateDisplayValues(source["component"], target["component"])
 	
@@ -139,6 +144,10 @@ def onAttachmentDisconnected(source, target):
 				hideDisplayTimingSettings(source["component"], target["component"])
 		except:
 			pass
+
+	if source["id"] == "gfx_graphics_processor":
+		source["component"].clearSymbolValue("ProcInfoFunction")
+		source["component"].clearSymbolValue("ProcInitFunction")
 	
 	if source["id"] == "gfx_display":
 		clearDisplayValues(source["component"])

@@ -28,9 +28,8 @@ import os.path
 def loadModule():
 
         # load 2DGPU module
-	cntlComponent = Module.CreateComponent("gfx_2dgpu", "2DGPU", "/Graphics/Processor", "2dgpu.py")
+	cntlComponent = Module.CreateComponent("gfx_driver_2dgpu", "2DGPU", "/Graphics/Processor", "2dgpu.py")
 	cntlComponent.setDisplayType("Graphics Processor")
 	cntlComponent.addCapability("gfx_driver_2dgpu", "Graphics Processor", False)
-	# cntlComponent.addDependency("2DGPU", "2DGPU", False, True)
 
 
