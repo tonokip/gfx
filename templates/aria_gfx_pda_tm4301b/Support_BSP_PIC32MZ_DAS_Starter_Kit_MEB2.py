@@ -55,4 +55,5 @@ addBSPSupport("BSP_PIC32MZ_DA_Starter_Kit", "GLCD", pic32mz_das_sk_meb2)
 addDisplayIntfSupport("BSP_PIC32MZ_DA_Starter_Kit", bspDisplayInterfaceList)
 
 #override default pin config fxn w/ PIC32M version
-pinConfigureFxn = configurePinsPIC32M
+if ("PIC32MZ2064DAS169" in Variables.get("__PROCESSOR")): 
+    pinConfigureFxn = configurePinsPIC32M

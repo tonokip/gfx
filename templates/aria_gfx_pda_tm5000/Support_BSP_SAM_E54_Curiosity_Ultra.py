@@ -54,12 +54,14 @@ def eventHandlerSSD1963(event):
 			Database.setSymbolValue("gfx_intf_parallel_portgroup", "PortGroup", "2", 1)
 			#Use 8-bit interface for 
 			Database.setSymbolValue("gfx_driver_ssd1963", "ParallelInterfaceWidth", "8-bit", 1)
+			#Set Sercom/I2C baud to 400kHz
+			Database.setSymbolValue("sercom4", "I2C_CLOCK_SPEED", 400, 1)
 		except:
 			return
 
-bspDisplayInterfaceList = ["SSD1963"]
+xbspDisplayInterfaceList = ['SSD1963']
 
 sam_e54_curiosity_ultra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
 
-addBSPSupport("BSP_default", "SSD1963", sam_e54_curiosity_ultra_ssd1963)
-addDisplayIntfSupport("BSP_default", bspDisplayInterfaceList)
+addBSPSupport("BSP_SAM_E54_Xplained_Pro", "SSD1963", sam_e54_curiosity_ultra_ssd1963)
+addDisplayIntfSupport("BSP_SAM_E54_Xplained_Pro", xbspDisplayInterfaceList)
