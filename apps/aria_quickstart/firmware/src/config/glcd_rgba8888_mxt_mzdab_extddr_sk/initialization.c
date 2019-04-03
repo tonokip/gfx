@@ -276,9 +276,9 @@ void SYS_Initialize ( void* data )
 
 
 
+    CORETIMER_Initialize();
     I2C1_Initialize();
 
-    CORETIMER_Initialize();
 	DDR_Initialize();
 
 
