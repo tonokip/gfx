@@ -27,8 +27,8 @@
           <Name dnOrder="1">drv_gfx_lcc.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/driver/lcc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/driver/controller/lcc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">13F9BB0C8205E832FA02497CB16E62BD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">13F9BB0C8205E832FA02497CB16E62BD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">72EE4A1994067A0330082A68D4261662</GeneratedChecksum>
+          <UserChecksum dnOrder="5">72EE4A1994067A0330082A68D4261662</UserChecksum>
         </File>
         <File dnOrder="3">
           <Type dnOrder="0">SOURCE</Type>
@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">79685F98523A218CD33E4AC07B11C8E6</GeneratedChecksum>
-          <UserChecksum dnOrder="5">79685F98523A218CD33E4AC07B11C8E6</UserChecksum>
+          <GeneratedChecksum dnOrder="4">314C1119A4BF44999DC94DBC5D4FCDF3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">314C1119A4BF44999DC94DBC5D4FCDF3</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -667,16 +667,16 @@
           <Name dnOrder="1">libaria_widget_bar_graph.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">134D9CF69FE36D7CD3CFE6AA6D046FE0</GeneratedChecksum>
-          <UserChecksum dnOrder="5">134D9CF69FE36D7CD3CFE6AA6D046FE0</UserChecksum>
+          <GeneratedChecksum dnOrder="4">C7B76B9A9DA78A4A710997DB7E8BB885</GeneratedChecksum>
+          <UserChecksum dnOrder="5">C7B76B9A9DA78A4A710997DB7E8BB885</UserChecksum>
         </File>
         <File dnOrder="83">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_bar_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EA5B5ED3F2E9A6700E0C9A0B6CA13A62</UserChecksum>
+          <GeneratedChecksum dnOrder="4">019D9C165F2C62EE9C820C3971A0DF04</GeneratedChecksum>
+          <UserChecksum dnOrder="5">019D9C165F2C62EE9C820C3971A0DF04</UserChecksum>
         </File>
         <File dnOrder="84">
           <Type dnOrder="0">SOURCE</Type>
@@ -739,8 +739,8 @@
           <Name dnOrder="1">libaria_widget_circular_gauge_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">05CD4B147193F64BABD42C407253C3CD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">05CD4B147193F64BABD42C407253C3CD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F228D5405961464F9A25F6C3FF0B0A54</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F228D5405961464F9A25F6C3FF0B0A54</UserChecksum>
         </File>
         <File dnOrder="92">
           <Type dnOrder="0">SOURCE</Type>
@@ -907,8 +907,8 @@
           <Name dnOrder="1">libaria_widget_line_graph_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">885DF5ECE30B82357DD94D305C529547</GeneratedChecksum>
-          <UserChecksum dnOrder="5">885DF5ECE30B82357DD94D305C529547</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1B25B1FE187504F6841D6899EE925716</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1B25B1FE187504F6841D6899EE925716</UserChecksum>
         </File>
         <File dnOrder="113">
           <Type dnOrder="0">SOURCE</Type>
@@ -963,8 +963,8 @@
           <Name dnOrder="1">libaria_widget_pie_chart_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C193F5A5B2DC631334A4FFB50C7693ED</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C193F5A5B2DC631334A4FFB50C7693ED</UserChecksum>
+          <GeneratedChecksum dnOrder="4">137DC0FA31D6AFA2DCCB2E2EF50D84F2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">137DC0FA31D6AFA2DCCB2E2EF50D84F2</UserChecksum>
         </File>
         <File dnOrder="120">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">plib_twihs0.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/twihs/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/twihs/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">0FA339DA4C7A00906731F1188256DC92</GeneratedChecksum>
-          <UserChecksum dnOrder="5">0FA339DA4C7A00906731F1188256DC92</UserChecksum>
+          <GeneratedChecksum dnOrder="4">04EF478D9DD1818A3FE4C82AB9AC1ABB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">04EF478D9DD1818A3FE4C82AB9AC1ABB</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
@@ -2387,8 +2387,8 @@
           <Name dnOrder="1">plib_twihs_master.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/peripheral/twihs/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/twihs/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">6C35835C0E606C77662E3C611566519F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">6C35835C0E606C77662E3C611566519F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">FC25293FE06FB1B3797B0BE737DF7DD3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">FC25293FE06FB1B3797B0BE737DF7DD3</UserChecksum>
         </File>
         <File dnOrder="298">
           <Type dnOrder="0">HEADER</Type>
