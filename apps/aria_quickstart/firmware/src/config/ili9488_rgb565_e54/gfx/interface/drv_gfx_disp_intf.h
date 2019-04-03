@@ -83,7 +83,7 @@ extern "C" {
 
 /** 
   Function:
-    GFX_Disp_Intf_Open(GFX_Context * gfx, unsigned int index)
+    GFX_Disp_Intf_Open(GFX_Context * gfx)
 
   Summary:
     Opens the interface to the graphics display
@@ -93,12 +93,11 @@ extern "C" {
 
   Parameters:
     gfx         - the GFX HAL context
-    index       - port index
  
   Returns:
     * GFX_Intf       - the interface handle, 0 if failed
 */
-GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx, unsigned int index);
+GFX_Disp_Intf GFX_Disp_Intf_Open(GFX_Context * gfx);
 
 /** 
   Function:

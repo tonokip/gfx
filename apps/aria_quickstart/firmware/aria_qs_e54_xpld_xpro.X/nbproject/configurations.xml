@@ -18,12 +18,11 @@
             <itemPath>../src/config/ili9488_rgb565_e54/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+            <logicalFolder name="f3" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_ili9488.h</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_ili9488_common.h</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_ili9488_cmd_defs.h</itemPath>
-                <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_disp_intf.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -53,7 +52,10 @@
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/hal/inc/gfx_math.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f2" displayName="interface" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/gfx/interface/drv_gfx_disp_intf.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_harmony.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_config.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_init.h</itemPath>
@@ -109,12 +111,12 @@
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_events.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_macros.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/third_party/lodepng/lodepng.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="inc" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/utils/inc/gfxu_binary.h</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/utils/inc/gfxu_font.h</itemPath>
@@ -135,6 +137,9 @@
             <logicalFolder name="f3" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="f5" displayName="cmcc" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/cmcc/plib_cmcc.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/evsys/plib_evsys.h</itemPath>
             </logicalFolder>
@@ -144,7 +149,7 @@
             <logicalFolder name="f2" displayName="port" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f6" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom4_spi.h</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom_spi_common.h</itemPath>
@@ -152,7 +157,10 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f5" displayName="system" projectFiles="true">
-            <logicalFolder name="f3" displayName="dma" projectFiles="true">
+            <logicalFolder name="f3" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/system/cache/sys_cache.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma.h</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma_mapping.h</itemPath>
             </logicalFolder>
@@ -273,11 +281,10 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+            <logicalFolder name="f3" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_ili9488.c</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_ili9488_intf.c</itemPath>
-                <itemPath>../src/config/ili9488_rgb565_e54/gfx/driver/controller/ili9488/drv_gfx_disp_intf_spi4.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -312,7 +319,12 @@
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f2" displayName="interface" projectFiles="true">
+              <logicalFolder name="f1" displayName="spi4" projectFiles="true">
+                <itemPath>../src/config/ili9488_rgb565_e54/gfx/interface/spi4/drv_gfx_disp_intf_spi4.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_harmony.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_init.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/src/libaria.c</itemPath>
@@ -395,13 +407,13 @@
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_events.c</itemPath>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/libaria/libaria_macros.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/third_party/src/lodepng/lodepng.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/ili9488_rgb565_e54/gfx/third_party/decoder/src/jidctint.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
@@ -429,6 +441,9 @@
             <logicalFolder name="f3" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
+            <logicalFolder name="f5" displayName="cmcc" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/cmcc/plib_cmcc.c</itemPath>
+            </logicalFolder>
             <logicalFolder name="f1" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/evsys/plib_evsys.c</itemPath>
             </logicalFolder>
@@ -438,7 +453,7 @@
             <logicalFolder name="f2" displayName="port" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f6" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom4_spi.c</itemPath>
               </logicalFolder>
@@ -448,7 +463,10 @@
             <itemPath>../src/config/ili9488_rgb565_e54/stdio/xc32_monitor.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f6" displayName="system" projectFiles="true">
-            <logicalFolder name="f2" displayName="dma" projectFiles="true">
+            <logicalFolder name="f2" displayName="cache" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/system/cache/sys_cache.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="dma" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/system/dma/sys_dma.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f1" displayName="int" projectFiles="true">
@@ -489,8 +507,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="SAME54_DFP" vendor="Microchip" version="2.0.15"/>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
+        <pack name="SAME54_DFP" vendor="Microchip" version="2.0.12"/>
       </packs>
       <compileType>
         <linkerTool>
@@ -610,7 +628,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="16384"/>
+        <property key="heap-size" value="32768"/>
         <property key="input-libraries" value=""/>
         <property key="kseg-length" value=""/>
         <property key="kseg-origin" value=""/>
@@ -696,49 +714,6 @@
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
       </EdbgTool>
-      <ICD4Tool>
-        <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
-        <property key="ToolFirmwareFilePath"
-                  value="Press to browse for a specific firmware version"/>
-        <property key="ToolFirmwareOption.UpdateOptions"
-                  value="ToolFirmwareOption.UseLatest"/>
-        <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="hwtoolclock.frcindebug" value="false"/>
-        <property key="memories.aux" value="false"/>
-        <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="true"/>
-        <property key="memories.configurationmemory2" value="true"/>
-        <property key="memories.dataflash" value="true"/>
-        <property key="memories.eeprom" value="true"/>
-        <property key="memories.exclude.configurationmemory" value="true"/>
-        <property key="memories.flashdata" value="true"/>
-        <property key="memories.id" value="true"/>
-        <property key="memories.instruction.ram.ranges"
-                  value="${memories.instruction.ram.ranges}"/>
-        <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-fffff"/>
-        <property key="poweroptions.powerenable" value="false"/>
-        <property key="programoptions.donoteraseauxmem" value="false"/>
-        <property key="programoptions.eraseb4program" value="true"/>
-        <property key="programoptions.ledbrightness" value="5"/>
-        <property key="programoptions.pgcconfig" value="pull down"/>
-        <property key="programoptions.pgcresistor.value" value="4.7"/>
-        <property key="programoptions.pgdconfig" value="pull down"/>
-        <property key="programoptions.pgdresistor.value" value="4.7"/>
-        <property key="programoptions.pgmentry.voltage" value="low"/>
-        <property key="programoptions.pgmspeed" value="Med"/>
-        <property key="programoptions.preservedataflash" value="false"/>
-        <property key="programoptions.preserveeeprom" value="false"/>
-        <property key="programoptions.preserveeeprom.ranges" value=""/>
-        <property key="programoptions.preserveprogram.ranges" value=""/>
-        <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveuserid" value="false"/>
-        <property key="programoptions.programcalmem" value="false"/>
-        <property key="programoptions.programuserotp" value="false"/>
-        <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
-        <property key="voltagevalue" value="3.25"/>
-      </ICD4Tool>
       <PICkit3PlatformTool>
         <property key="ADC 1" value="true"/>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -804,7 +779,6 @@
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>
         <property key="codecoverage.outputfile" value=""/>
-        <property key="codecoverage.report" value=""/>
         <property key="oscillator.auxfrequency" value="120"/>
         <property key="oscillator.auxfrequencyunit" value="Mega"/>
         <property key="oscillator.frequency" value="1"/>
@@ -929,6 +903,8 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0034_CORE_UNALIGNED_MEMORY_ACCESS"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0035_CORE_UNIMPLEMENTED_RAMACCESS_NOTRAP"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W0040_FPU_DIFF_CP10_CP11"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0041_FPU_ACCESS_DENIED"
@@ -977,6 +953,10 @@
         <property key="warningmessagebreakoptions.W0116_SIM_STACK_OVERFLOW"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0117_SIM_STACK_UNDERFLOW"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0118_SIM_INVALID_FIELD_VALUE"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0119_SIM_SAMPLING_RATE_VIOLATION"
                   value="report"/>
         <property key="warningmessagebreakoptions.W0201_ADC_NO_STIMULUS_FILE"
                   value="report"/>
@@ -1074,6 +1054,20 @@
                   value="report"/>
         <property key="warningmessagebreakoptions.W0702_CLC_CIRCULAR_LOOP"
                   value="report"/>
+        <property key="warningmessagebreakoptions.W0800_ACC_INPUT_INVALID_CONFIG"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0801_ACC_INPUT_NOT_SUPPORTED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0802_ACC_INVERTED_WINDOW_LIMITS"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0803_ACC_MISMATCHED_POS_INPUTS"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0804_ACC_WINDOW_COMP_DISABLED"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0805_ACC_WINDOW_COMPS_MODES"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W0806_ACC_FEATURE_NOT_SUPPORTED"
+                  value="report"/>
         <property key="warningmessagebreakoptions.W10001_RESERVED_IRQ_HANDLER_INVOKED"
                   value="report"/>
         <property key="warningmessagebreakoptions.W10002_UNSUPPORTED_CLK_SOURCE"
@@ -1085,6 +1079,8 @@
         <property key="warningmessagebreakoptions.W10103_UNSUPPORTED_RECEIVER_FILTER"
                   value="report"/>
         <property key="warningmessagebreakoptions.W10301_NO_PORT_PINS_FOUND"
+                  value="report"/>
+        <property key="warningmessagebreakoptions.W10500_UNSUPPORTED_SOURCE"
                   value="report"/>
         <property key="warningmessagebreakoptions.W1201_DATAFLASH_MEM_OUTSIDE_RANGE"
                   value="report"/>
