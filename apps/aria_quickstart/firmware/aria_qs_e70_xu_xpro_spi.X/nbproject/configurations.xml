@@ -15,12 +15,11 @@
             <itemPath>../src/config/ili9488_spi_rgb565/driver/driver_common.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+            <logicalFolder name="f3" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.h</itemPath>
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_common.h</itemPath>
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_cmd_defs.h</itemPath>
-                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_disp_intf.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -50,7 +49,10 @@
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/inc/gfx_math.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/gfx_config.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f2" displayName="interface" projectFiles="true">
+              <itemPath>../src/config/ili9488_spi_rgb565/gfx/interface/drv_gfx_disp_intf.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_harmony.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_config.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_init.h</itemPath>
@@ -106,12 +108,12 @@
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_events.h</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_macros.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/third_party/lodepng/lodepng.h</itemPath>
               </logicalFolder>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="inc" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/utils/inc/gfxu_binary.h</itemPath>
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/utils/inc/gfxu_font.h</itemPath>
@@ -262,11 +264,10 @@
             </logicalFolder>
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
-            <logicalFolder name="f2" displayName="driver" projectFiles="true">
+            <logicalFolder name="f3" displayName="driver" projectFiles="true">
               <logicalFolder name="f1" displayName="ili9488" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488.c</itemPath>
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_ili9488_intf.c</itemPath>
-                <itemPath>../src/config/ili9488_spi_rgb565/gfx/driver/controller/ili9488/drv_gfx_disp_intf_spi4.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="f1" displayName="hal" projectFiles="true">
@@ -301,7 +302,12 @@
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/src/gfx_draw_stretchblit.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/hal/src/gfx_math.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="libaria" projectFiles="true">
+            <logicalFolder name="f2" displayName="interface" projectFiles="true">
+              <logicalFolder name="f1" displayName="spi4" projectFiles="true">
+                <itemPath>../src/config/ili9488_spi_rgb565/gfx/interface/spi4/drv_gfx_disp_intf_spi4.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+            <logicalFolder name="f6" displayName="libaria" projectFiles="true">
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_harmony.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_init.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/src/libaria.c</itemPath>
@@ -384,13 +390,13 @@
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_events.c</itemPath>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/libaria/libaria_macros.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="third_party" projectFiles="true">
+            <logicalFolder name="f5" displayName="third_party" projectFiles="true">
               <logicalFolder name="f1" displayName="lodepng" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/third_party/src/lodepng/lodepng.c</itemPath>
               </logicalFolder>
               <itemPath>../src/config/ili9488_spi_rgb565/gfx/third_party/decoder/src/jidctint.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="utils" projectFiles="true">
+            <logicalFolder name="f4" displayName="utils" projectFiles="true">
               <logicalFolder name="f1" displayName="src" projectFiles="true">
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/utils/src/gfxu_image_jpg_common.c</itemPath>
                 <itemPath>../src/config/ili9488_spi_rgb565/gfx/utils/src/gfxu_image_jpg_internal.c</itemPath>
@@ -477,7 +483,7 @@
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.0.1"/>
-        <pack name="SAME70_DFP" vendor="Microchip" version="3.0.11"/>
+        <pack name="SAME70_DFP" vendor="Microchip" version="3.0.10"/>
       </packs>
       <compileType>
         <linkerTool>
