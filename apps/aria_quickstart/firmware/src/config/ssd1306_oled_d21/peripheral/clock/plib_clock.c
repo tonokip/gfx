@@ -43,15 +43,6 @@
 
 static void SYSCTRL_Initialize(void)
 {
-
-	/* Configure 8MHz Oscillator */
-    SYSCTRL_REGS->SYSCTRL_OSC8M = (SYSCTRL_REGS->SYSCTRL_OSC8M & (SYSCTRL_OSC8M_CALIB_Msk | SYSCTRL_OSC8M_FRANGE_Msk)) | SYSCTRL_OSC8M_ENABLE_Msk | SYSCTRL_OSC8M_PRESC(0x0) ;
-
-    while((SYSCTRL_REGS->SYSCTRL_PCLKSR & SYSCTRL_PCLKSR_OSC8MRDY_Msk) != SYSCTRL_PCLKSR_OSC8MRDY_Msk)
-    {
-        /* Waiting for the OSC8M Ready state */
-    }
-
     /****************** XOSC32K initialization  ******************************/
 
     /* Configure 32K External Oscillator */
@@ -139,4 +130,7 @@ void CLOCK_Initialize (void)
     /* Configure the APBC Bridge Clocks */
     PM_REGS->PM_APBCMASK = 0x10004;
 
+
+    /*Disable RC oscillator*/
+    SYSCTRL_REGS->SYSCTRL_OSC8M = 0x0;
 }
