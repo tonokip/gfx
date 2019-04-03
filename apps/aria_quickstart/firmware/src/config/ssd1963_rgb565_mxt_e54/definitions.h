@@ -58,9 +58,11 @@
 #include "driver/i2c/drv_i2c.h"
 #include "system/time/sys_time.h"
 #include "system/input/sys_input.h"
+#include "bsp/bsp.h"
 #include "gfx/libaria/libaria_harmony.h"
 #include "driver/input/drv_maxtouch.h"
 #include "system/int/sys_int.h"
+#include "system/cache/sys_cache.h"
 #include "osal/osal.h"
 #include "app.h"
 

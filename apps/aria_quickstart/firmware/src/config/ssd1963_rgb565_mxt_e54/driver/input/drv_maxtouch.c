@@ -40,9 +40,9 @@
 
 // DOM-IGNORE-END
 
+#include "definitions.h"
 #include "driver/i2c/drv_i2c.h"
 #include "driver/input/drv_maxtouch.h"
-#include "definitions.h"
 #include "system/input/sys_input.h"
 #include "system/time/sys_time.h"
 
@@ -79,7 +79,7 @@
 #define DEFAULT_YRES               271
 
 #define DRV_MAXTOUCH_NUM_QUEUE      2
-#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 75
+#define DRV_MAXTOUCH_RESET_TIMER_PERIOD_MS 38
 
 /* MXT_GEN_COMMAND_T6 field */
 #define MXT_COMMAND_RESET       0
@@ -104,6 +104,7 @@
 #define MXT_FW_CHG_TIMEOUT          300     /* msec */
 #define MXT_POWER_CFG_RUN           0
 #define MXT_POWER_CFG_DEEPSLEEP		1
+#define MXT_PROGRAM_DELAY           500     /*msec */
 
 /* MXT_GEN_MESSAGE_T5 object */
 #define MXT_RPTID_NOMSG             0xff
@@ -587,21 +588,14 @@ struct DEVICE_OBJECT sMAXTOUCHDriverInstances[DRV_MAXTOUCH_INDEX_COUNT];
 
 static SYS_TIME_HANDLE resetTimer;
 
-static void msleep(uint32_t delay)
+void _DelayMS(int ms)
 {
-//    uint32_t i, count;
-// 
-//    /* delay * (CPU_FREQ/1000000) / 6 */
-//    count = delay *  (300000000/1000000)/6;
-// 
-//    /* 6 CPU cycles per iteration */
-//    for (i = 0; i < count; i++)
-//        __NOP();
-    SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
+	SYS_TIME_HANDLE timer = SYS_TIME_HANDLE_INVALID;
 
-    if (SYS_TIME_DelayMS(delay, &timer) != SYS_TIME_SUCCESS)
-        return;
-    while (SYS_TIME_DelayIsComplete(timer) == false);
+	if (SYS_TIME_DelayMS(ms, &timer) != SYS_TIME_SUCCESS)
+	return;
+	
+	while (SYS_TIME_DelayIsComplete(timer) == false);
 } 
 
 static void resetTimer_Callback ( uintptr_t context )
@@ -1212,7 +1206,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
     
         case DEVICE_STATE_CONFIG_LOAD:
         {
-            msleep(500000);
+            _DelayMS(MXT_PROGRAM_DELAY);
 
             int index = mxt_upload_cfg_mem(pDrvObject);
             if ( index == 0 ) {
@@ -1239,7 +1233,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 
                 case CONFIG_STATE_MXT_COMMAND_BACKUPNV_READ:
                 {
-                    msleep(50000);
+                    _DelayMS(MXT_PROGRAM_DELAY);
                     _RegRead(pDrvObject, pDrvObject->data.msg_buf, 1, &pDrvObject->hBackupNVRead);
                     pDrvObject->deviceState = DEVICE_STATE_WAIT;
                     break;
@@ -1282,7 +1276,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 {
                     /* Ignore CHG line for 100ms after reset */
                     /* no need to read response - go to ready state */
-                    msleep(50000);
+                    _DelayMS(MXT_PROGRAM_DELAY);
                     pDrvObject->callback(100);
 //                    _RegRead(pDrvObject, pDrvObject->data.msg_buf, 1, &pDrvObject->hResetRead);
 //                    pDrvObject->deviceState = DEVICE_STATE_WAIT;
@@ -1331,12 +1325,12 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
         case DEVICE_STATE_READ_RESET:
         {
             uint8_t command_register;
-                        msleep(200);
+            _DelayMS(MXT_PROGRAM_DELAY);
 
             DRV_I2C_ReadTransferAdd(pDrvObject->drvI2CHandle, I2C_MASTER_READ_ID, &command_register, 1, &pDrvObject->hResetRead);
 
             /* Ignore CHG line for 100ms after reset */
-            msleep(MXT_RESET_INVALID_CHG);
+            _DelayMS(MXT_RESET_INVALID_CHG);
             pDrvObject->deviceState = DEVICE_STATE_WAIT;
             break;
         }
@@ -1482,7 +1476,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 
         case DEVICE_STATE_PROCESS_T5_MESSAGE:
         {
-            int num_valid;
+            int num_valid = 0;
             int i;
             int ret;
             for (i = 0;  i < pDrvObject->data.num_left; i++) 
@@ -1587,7 +1581,7 @@ void DRV_MAXTOUCH_Tasks ( SYS_MODULE_OBJ object )
                 pDrvObject->deviceState = DEVICE_STATE_READY;
                 val = 1;
             }
-            msleep(2000);
+            _DelayMS(MXT_RESET_GPIO_TIME);
             break;
         }
         
@@ -1945,7 +1939,7 @@ static bool mxt_t6_command(struct DEVICE_OBJECT *pDrvObject, uint16_t cmd_offset
 		return true;
 
 	do {
-		msleep(20);
+		_DelayMS(MXT_RESET_GPIO_TIME);
 		__mxt_read_reg(pDrvObject->data.client, reg, 1, &command_register);
 
 	} while (command_register != 0 && timeout_counter++ <= 100);
@@ -1981,7 +1975,7 @@ bool mxt_soft_reset(struct DEVICE_OBJECT *pDrvObject)
 		return false;
 
 	/* Ignore CHG line for 100ms after reset */
-	msleep(MXT_RESET_INVALID_CHG);
+	_DelayMS(MXT_RESET_INVALID_CHG);
 
 //	mxt_acquire_irq(data);
 
@@ -2397,21 +2391,23 @@ bool mxt_configure_objects(struct DEVICE_OBJECT* pDeviceObject, DRV_MAXTOUCH_Fir
 bool mxt_load_xcfg_file(struct DEVICE_OBJECT * pDeviceObject, const char *filename)
 {
     char c;
-    char item[255];
-    char readline[255];
+	char item[255];
+	char readline[255];
     char *substr;
     int instance;
     int object_address;
     bool ignore_line = true;
     int i;
     struct mxt_object * object;
-    unsigned int type, last_type, size;
+    unsigned int type, last_type=0, size=0;
     int object_num=0;
     unsigned int byte_offset;
     uint16_t reg;
-    uint32_t config_crc, calculated_crc;
+    uint32_t config_crc = 0, calculated_crc = 0;
 
     i = 0;
+	item[0] = '\0';
+	readline[0] = '\0';
     
     /* Malloc memory to store configuration */
     pDeviceObject->data.cfg_start_ofs = MXT_OBJECT_START +

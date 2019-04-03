@@ -1,21 +1,21 @@
 /*******************************************************************************
-  CLOCK PLIB
+  Board Support Package Header File.
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_clock.h
+    bsp.h
 
   Summary:
-    CLOCK PLIB Header File.
+    Board Support Package Header File 
 
   Description:
-    The Clock PLIB initializes all the oscillators based on the
-    requirements.
-
+    This file contains constants, macros, type definitions and function
+    declarations 
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -38,33 +38,32 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef PLIB_CLOCK_H
-#define PLIB_CLOCK_H
+#ifndef _BSP_H
+#define _BSP_H
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-/* This section lists the other files that are included in this file.
-*/
+
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include <stddef.h>
-
-// DOM-IGNORE-BEGIN
-#ifdef __cplusplus // Provide C++ Compatibility
-extern "C" {
-#endif
-
-// DOM-IGNORE-END
+#include "device.h"
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: Data Types
+// Section: BSP Macros
 // *****************************************************************************
 // *****************************************************************************
+/*** SWITCH Macros for SWITCH ***/
+#define SWITCH_Get() ((PORT_REGS->GROUP[1].PORT_IN >> 31) & 0x01)
+#define SWITCH_STATE_PRESSED 0
+#define SWITCH_STATE_RELEASED 1
 
 
 
@@ -73,68 +72,42 @@ extern "C" {
 // Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-/* The following functions make up the methods (set of possible operations) of
-this interface.
-*/
 
 // *****************************************************************************
 /* Function:
-    void CLOCK_Initialize (void);
+    void BSP_Initialize(void)
 
   Summary:
-    Initializes all the modules related to the system clock.
+    Performs the necessary actions to initialize a board
 
   Description:
-    This function initializes the clock as defined by the MHC and Clock Manager
-    selections. The function will configure the NVM Flash Wait states based on
-    the configured CPU operational frequency. It will then configure the
-    oscillators.
-
-    For each of the clock sources (External Oscillator, Digital Phase Locked
-    Loop, Internal 48MHz Oscillator, External 32KHz oscillator and the Internal
-    32KHz oscillator) enabled in MHC, the function will configure the clock
-    settings and will then wait till the clock is ready. In case of DPLL, the
-    function will wait till a lock is obtained.
-
-    The function will then configure the Generic clock generators based on MHC
-    configurations. If a Generic Clock is enabled in MHC, this will be enabled
-    in the CLOCK_Initialize() function. The function will apply the CPU clock
-    divider and will wait for the Main Clock module to get ready. If the Main
-    Clock to the Peripheral APB and AHB interfaces was enabled in MHC, these
-    will be enabled in the CLOCK_Initialize() function. If the Peripheral Clock
-    Channels were enabled in MHC, these will be enabled in the
-    CLOCK_Initialize() function.
-
-    The peripheral AHB and APB main clock and peripheral channel clocks will be
-    enabled when the peripheral specific initialize functions are called. This
-    will override the setting in MHC. The Generic Clock Generator source for
-    desired peripheral channel must be configured in MHC.
+    This function initializes the LED and Switch ports on the board.  This
+    function must be called by the user before using any APIs present on this
+    BSP.
 
   Precondition:
-    MHC GUI should be configured with the right values. Incorrect configuration
-    of the Clock will result in incorrect peripheral behavior or a non
-    functional device.
+    None.
 
   Parameters:
-    None.
+    None
 
   Returns:
     None.
 
   Example:
     <code>
-        CLOCK_Initialize();
+    //Initialize the BSP
+    BSP_Initialize();
     </code>
 
   Remarks:
-    This function should be called before calling other Clock library functions.
+    None
 */
 
-void CLOCK_Initialize (void);
+void BSP_Initialize(void);
 
+#endif // _BSP_H
 
-#ifdef __cplusplus // Provide C++ Compatibility
-}
-#endif
-
-#endif /* PLIB_CLOCK_H */
+/*******************************************************************************
+ End of File
+*/

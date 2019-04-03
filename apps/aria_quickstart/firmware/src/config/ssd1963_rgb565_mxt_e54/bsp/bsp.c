@@ -1,23 +1,22 @@
 /*******************************************************************************
-  Cache System Service Library Implementation Source File
+  Board Support Package Implementation
 
-  Company
+  Company:
     Microchip Technology Inc.
 
-  File Name
-    sys_cache.c
+  File Name:
+    bsp.c
 
-  Summary
-    Cache System Service Library interface implementation.
+  Summary:
+    Board Support Package implementation.
 
-  Description
-    This file implements the interface to the Cache System Service Library.
-
+  Description:
+    This file contains routines that implement the board support package
 *******************************************************************************/
 
 // DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -45,63 +44,39 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-#include "device.h"
-#include "device_cache.h"
-#include "system/cache/sys_cache.h"
 
+#include "bsp.h"
 
 // *****************************************************************************
 // *****************************************************************************
-// Section: System Cache Interface Functions
+// *****************************************************************************
+// Section: Interface Routines
 // *****************************************************************************
 // *****************************************************************************
-void SYS_CACHE_EnableCaches (void)
+
+// *****************************************************************************
+/* Function:
+    void BSP_Initialize(void)
+
+  Summary:
+    Performs the necessary actions to initialize a board
+
+  Description:
+    This function initializes the LED, Switch and other ports on the board.
+    This function must be called by the user before using any APIs present in
+    this BSP.
+
+  Remarks:
+    Refer to bsp.h for usage information.
+*/
+
+void BSP_Initialize(void )
 {
+
+
+
 }
 
-void SYS_CACHE_DisableCaches (void)
-{
-}
-void SYS_CACHE_EnableICache (void)
-{
-}
-
-void SYS_CACHE_DisableICache (void)
-{
-}
-
-void SYS_CACHE_InvalidateICache (void)
-{
-}
-
-void SYS_CACHE_EnableDCache (void)
-{
-}
-
-void SYS_CACHE_DisableDCache (void)
-{
-}
-
-void SYS_CACHE_InvalidateDCache (void)
-{
-}
-
-void SYS_CACHE_CleanDCache (void)
-{
-}
-
-void SYS_CACHE_CleanInvalidateDCache (void)
-{
-}
-
-void SYS_CACHE_InvalidateDCache_by_Addr (uint32_t *addr, int32_t size)
-{
-}
-
-void SYS_CACHE_CleanDCache_by_Addr (uint32_t *addr, int32_t size)
-{
-}
-
-void SYS_CACHE_CleanInvalidateDCache_by_Addr (uint32_t *addr, int32_t size)
-{
-}
+/*******************************************************************************
+ End of File
+*/
