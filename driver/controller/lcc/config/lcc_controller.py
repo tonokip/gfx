@@ -285,8 +285,8 @@ def onHALConnected(halConnected, event):
 def onDMAChannelSet(dmaChannelSet, event):
 	newDMAChannel = dmaChannelSet.getComponent().getSymbolByID("DMAChannel").getValue()
 	oldDMAChannel = dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").getValue()
-	configureDMAChannel(str(newDMAChannel))
 	unconfigureDMAChannel(str(oldDMAChannel))
+	configureDMAChannel(str(newDMAChannel))
 	dmaChannelSet.getComponent().getSymbolByID("OldDMAChannel").setValue(newDMAChannel, 1)
 
 def configureSMCComponent(lccComponent, smcComponent, smcChipSelNum):
