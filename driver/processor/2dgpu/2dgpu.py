@@ -34,13 +34,14 @@ def instantiateComponent(comp):
 
     	Nano2DSymLIB = comp.createStringSymbol("DRV_NANO2D_LIB", None)
     	Nano2DSymLIB.setLabel("LIB Used")
+	Nano2DSymLIB.setDefaultValue("libnano2d.a")
     	Nano2DSymLIB.setReadOnly(True)
-    	Nano2DSymLIB.setDefaultValue("")
 
     	Nano2DMode = comp.createComboSymbol("DRV_NANO2D_MODE", None, ["Asynchronous", "Synchronous"])
     	Nano2DMode.setLabel("Driver Mode")
     	Nano2DMode.setDefaultValue(nano2d_default_mode)
     	Nano2DMode.setDependencies(setCommonMode, ["HarmonyCore.SELECT_RTOS"])
+	Nano2DMode.setReadOnly(True)
 
     	Nano2DSymQueueSize = comp.createIntegerSymbol("DRV_NANO2D_QUEUE_SIZE", None)
     	Nano2DSymQueueSize.setLabel("Transfer Queue Size")
@@ -48,18 +49,15 @@ def instantiateComponent(comp):
     	Nano2DSymQueueSize.setVisible((Database.getSymbolValue("drv_2dgpu", "DRV_NANO2D_MODE") == "Asynchronous"))
     	Nano2DSymQueueSize.setDefaultValue(2)
     	Nano2DSymQueueSize.setDependencies(asyncModeOptions, ["drv_2dgpu.DRV_NANO2D_MODE"])
+	Nano2DSymQueueSize.setReadOnly(True)
 
-	# note: TBD need automatic way add library file to project
-	# libnano2d_a = comp.createLibrarySymbol("DRV_LIB_NANO2D", None)
-	# libnano2d_a.setDestPath("gfx/driver/processor/2dgpu/lib")
-	# libnano2d_a.setOutputName("libnano2d.a")
-	# libnano2d_a.setProjectPath(projectPath)
-	# libnano2d_a.setType("LINKER")
-	#libnano2d_a.setMarkup(True)
-	# libnano2d_a.setSourcePath("lib/libnano2d.a")
+	# Add Library
+	libnano2d_a = comp.createLibrarySymbol("DRV_LIB_NANO2D", None)
+	libnano2d_a.setDestPath("gfx/driver/processor/2dgpu/lib")
+	libnano2d_a.setOutputName("libnano2d.a")
+	libnano2d_a.setSourcePath("lib/libnano2d.a")
 
-
-    	# Global Files
+    	# Add Interface
     	Nano2DHeaderFile = comp.createFileSymbol("NANO2D_FILE_MAIN_HEADER", None)
     	Nano2DHeaderFile.setSourcePath("templates/libnano2D.h.ftl")
     	Nano2DHeaderFile.setOutputName("libnano2D.h")
@@ -69,6 +67,7 @@ def instantiateComponent(comp):
         Nano2DHeaderFile.setMarkup(True)
     	Nano2DHeaderFile.setOverwrite(True)
 
+	# Add Adapter
     	Nano2DHalFile = comp.createFileSymbol("NANO2D_FILE_HAL", None)
     	Nano2DHalFile.setSourcePath("templates/libnano2D_hal.c.ftl")
     	Nano2DHalFile.setOutputName("libnano2D_hal.c")
