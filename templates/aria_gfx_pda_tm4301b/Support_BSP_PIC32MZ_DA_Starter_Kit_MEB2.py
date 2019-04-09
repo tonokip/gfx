@@ -23,11 +23,12 @@
 ##############################################################################
 
 ############ GLCD + TOUCH I2C CONFIG ######################################################
-skActivateList = ["gfx_driver_glcd", "i2c1", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ddr"]
+skActivateList = ["gfx_driver_glcd", "i2c1", "drv_i2c", "drv_i2c0", "core_timer", "sys_time", "ddr", "gfx_driver_2dgpu"]
 skAutoConnectList = [["gfx_hal", "gfx_display_driver", "gfx_driver_glcd", "gfx_driver_glcd"],
 					["drv_i2c_0", "drv_i2c_I2C_dependency", "i2c1", "I2C1_I2C"],
 					["gfx_maxtouch_controller", "i2c", "drv_i2c_0", "drv_i2c"],
-					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"]]
+					["sys_time", "sys_time_TMR_dependency", "core_timer", "CORE_TIMER_TMR"],
+					["gfx_hal", "gfx_graphics_processor", "gfx_driver_2dgpu", "gfx_driver_2dgpu"]]
 intddrPinConfig = [{"pin": 16, "name": "CAMERA_ENABLE", "type": "GPIO", "direction": "Out", "latch": "", "abcd": ""}, #RE4, B3
 				{"pin": 22, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #RB1, B9
 				{"pin": 146, "name": "TM4301B_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #RE3, M3
