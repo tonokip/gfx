@@ -92,7 +92,7 @@ static void ScreenCreate_screen1(laScreen* screen)
     laWidget_SetSize((laWidget*)layer0, 480, 272);
     laWidget_SetBackgroundType((laWidget*)layer0, LA_WIDGET_BACKGROUND_FILL);
     laWidget_SetScheme((laWidget*)layer0, &NewScheme);
-    laLayer_SetBufferCount(layer0, 2);
+    laLayer_SetBufferCount(layer0, 1);
 
     laScreen_SetLayer(screen, 0, layer0);
 

@@ -24,6 +24,9 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
+              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
+                <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/processor/2dgpu/libnano2D.h</itemPath>
+              </logicalFolder>
               <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/controller/glcd/drv_gfx_glcd.h</itemPath>
                 <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/controller/glcd/plib_glcd.h</itemPath>
@@ -138,7 +141,7 @@
             <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="coretimer" projectFiles="true">
+            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/coretimer/plib_coretimer.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="ddr" projectFiles="true">
@@ -150,7 +153,7 @@
             <logicalFolder name="f2" displayName="gpio" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="i2c" projectFiles="true">
+            <logicalFolder name="f4" displayName="i2c" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/i2c/plib_i2c1.h</itemPath>
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/i2c/plib_i2c_master.h</itemPath>
             </logicalFolder>
@@ -222,6 +225,9 @@
           </logicalFolder>
           <logicalFolder name="f1" displayName="gfx" projectFiles="true">
             <logicalFolder name="f2" displayName="driver" projectFiles="true">
+              <logicalFolder name="f2" displayName="2dgpu" projectFiles="true">
+                <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/processor/2dgpu/libnano2D_hal.c</itemPath>
+              </logicalFolder>
               <logicalFolder name="f1" displayName="glcd" projectFiles="true">
                 <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/controller/glcd/drv_gfx_glcd.c</itemPath>
                 <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/controller/glcd/plib_glcd.c</itemPath>
@@ -376,7 +382,7 @@
             <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="coretimer" projectFiles="true">
+            <logicalFolder name="f5" displayName="coretimer" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/coretimer/plib_coretimer.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f6" displayName="ddr" projectFiles="true">
@@ -388,7 +394,7 @@
             <logicalFolder name="f2" displayName="gpio" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="i2c" projectFiles="true">
+            <logicalFolder name="f4" displayName="i2c" projectFiles="true">
               <itemPath ex="false">../src/config/glcd_rgba8888_mxt_mzdas_sk/peripheral/i2c/plib_i2c1.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -444,6 +450,7 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
+            <linkerLibFileItem>../src/config/glcd_rgba8888_mxt_mzdas_sk/gfx/driver/processor/2dgpu/lib/libnano2d.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
