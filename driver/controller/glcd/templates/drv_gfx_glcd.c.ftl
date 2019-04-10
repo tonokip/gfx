@@ -97,15 +97,21 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 #define GFX_GLCD_CONFIG_CLK_DIVIDER ${PixelClockDivider}
 
 <#if FrameBufferMemoryMode == "DDR">
+<#if Layer0Enable == true>
 /*** GLCD Layer 0 Configuration ***/
-#define  GFX_GLCD_LAYER0_BASEADDR                      0xA8000000
-#define  GFX_GLCD_LAYER0_DBL_BASEADDR                  0xA8465000
+#define  GFX_GLCD_LAYER0_BASEADDR                      ${Layer0Buffer0}
+#define  GFX_GLCD_LAYER0_DBL_BASEADDR                  ${Layer0Buffer1}
+</#if>
+<#if Layer1Enable == true>
 /*** GLCD Layer 1 Configuration ***/
-#define  GFX_GLCD_LAYER1_BASEADDR                      0xA8177000
-#define  GFX_GLCD_LAYER1_DBL_BASEADDR                  0xA85DC000
+#define  GFX_GLCD_LAYER1_BASEADDR                      ${Layer1Buffer0}
+#define  GFX_GLCD_LAYER1_DBL_BASEADDR                  ${Layer1Buffer1}
+</#if>
+<#if Layer2Enable == true>
 /*** GLCD Layer 2 Configuration ***/
-#define  GFX_GLCD_LAYER2_BASEADDR                      0xA82EE000
-#define  GFX_GLCD_LAYER2_DBL_BASEADDR                  0xA8753000
+#define  GFX_GLCD_LAYER2_BASEADDR                      ${Layer2Buffer0}
+#define  GFX_GLCD_LAYER2_DBL_BASEADDR                  ${Layer2Buffer1}
+</#if>
 </#if>
 
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_GS_8">

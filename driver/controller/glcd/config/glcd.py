@@ -144,7 +144,28 @@ def instantiateComponent(comp):
 	Layer2Enable.setDescription("Enables Layer 2")
 	Layer2Enable.setDefaultValue(True)
 	Layer2Enable.setDependencies(OnLayersEnabled, ["Layer2Enable"])
-	
+
+	Layer0Buffer0 = comp.createStringSymbol("Layer0Buffer0", None)
+	Layer0Buffer0.setDefaultValue("0xA8000000")
+	Layer0Buffer0.setVisible(False)
+	Layer0Buffer1 = comp.createStringSymbol("Layer0Buffer1", None)
+	Layer0Buffer1.setDefaultValue("0xA8465000")
+	Layer0Buffer1.setVisible(False)
+
+	Layer1Buffer0 = comp.createStringSymbol("Layer1Buffer0", None)
+	Layer1Buffer0.setDefaultValue("0xA8000000")
+	Layer1Buffer0.setVisible(False)
+	Layer1Buffer1 = comp.createStringSymbol("Layer1Buffer1", None)
+	Layer1Buffer1.setDefaultValue("0xA8465000")
+	Layer1Buffer1.setVisible(False)
+
+	Layer2Buffer0 = comp.createStringSymbol("Layer2Buffer0", None)
+	Layer2Buffer0.setDefaultValue("0xA8000000")
+	Layer2Buffer0.setVisible(False)
+	Layer2Buffer1 = comp.createStringSymbol("Layer2Buffer1", None)
+	Layer2Buffer1.setDefaultValue("0xA8465000")
+	Layer2Buffer1.setVisible(False)
+
 	#Shadow symbol counter for number of layers used - not user modifiable (hidden)
 	TotalNumLayers = comp.createIntegerSymbol("TotalNumLayers", LayerConfigurationMenu)
 	TotalNumLayers.setLabel("Number of Layers")
