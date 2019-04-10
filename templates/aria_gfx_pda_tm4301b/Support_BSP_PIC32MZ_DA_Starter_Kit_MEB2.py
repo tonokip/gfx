@@ -42,7 +42,7 @@ extddrPinConfig = [{"pin": 24, "name": "CAMERA_ENABLE", "type": "GPIO", "directi
 				{"pin": 268, "name": "SDA1", "type": "SDA1", "direction": "", "latch": "", "abcd": ""}] #RA15, U16
 ##################################################################################
 
-def eventHandler(event):
+def intddrEventHandler(event):
 	global pinConfigureFxn
 	if (event == "configure"):
 		#Override default pin configur function w/ PIC32M specific one
@@ -50,17 +50,28 @@ def eventHandler(event):
 		try:
 			Database.setSymbolValue("gfx_driver_glcd", "PixelClockDivider", 6, 1)
 			Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_RGBA_8888", 1)
-			### Temporary fuse settings
-			Database.setSymbolValue("core", "CONFIG_POSCMOD", "EC", 1)
-			Database.setSymbolValue("core", "CONFIG_ICESEL", "ICS_PGx2", 1)
-			Database.setSymbolValue("core", "CONFIG_POSCAGC", "OFF", 1)
 		except:
 			return
+			
+def extddrEventHandler(event):
+	global pinConfigureFxn
+	if (event == "configure"):
+		#Override default pin configur function w/ PIC32M specific one
+		pinConfigureFxn = configurePinsPIC32M
+		try:
+			Database.setSymbolValue("gfx_driver_glcd", "PixelClockDivider", 12, 1)
+			Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_RGBA_8888", 1)
+			Database.setSymbolValue("ddr", "DDR_TYPE", 1, 1)
+			Database.setSymbolValue("ddr", "DDR_SIZE_MB", 128, 1)
+		except:
+			return
+			
+			
 
 bspDisplayInterfaceList = ["GLCD"]
 
-pic32mz_da_intddr_sk_meb2 = bspSupportObj(intddrPinConfig, skActivateList, None, skAutoConnectList, eventHandler)
-pic32mz_da_extddr_sk_meb2 = bspSupportObj(extddrPinConfig, skActivateList, None, skAutoConnectList, eventHandler)
+pic32mz_da_intddr_sk_meb2 = bspSupportObj(intddrPinConfig, skActivateList, None, skAutoConnectList, intddrEventHandler)
+pic32mz_da_extddr_sk_meb2 = bspSupportObj(extddrPinConfig, skActivateList, None, skAutoConnectList, extddrEventHandler)
 
 addDisplayIntfSupport("BSP_PIC32MZ_DA_Starter_Kit", bspDisplayInterfaceList)
 externalDDRPartsList = ["PIC32MZ2064DAA288", "PIC32MZ2064DAB288"]
