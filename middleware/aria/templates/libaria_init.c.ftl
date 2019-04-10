@@ -40,6 +40,7 @@
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_init.h"
+#include "gfx/libaria/inc/libaria_utils.h"
 <#if useRTOSExtensions == true>
 #include "gfx/libaria/inc/libaria_context_rtos.h"
 </#if>
@@ -65,6 +66,14 @@ ${ARIA_INIT_CODE}
 
 <#if ARIA_INIT_LOCAL_FUNCS??>
 ${ARIA_INIT_LOCAL_FUNCS}
+</#if>
+
+<#if preProcessAssetsCode??>
+int32_t libaria_preprocess_assets(void)
+{
+${preProcessAssetsCode}
+    return 0;
+}
 </#if>
 
 <#--

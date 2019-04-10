@@ -59,7 +59,8 @@
 #include "gfx/libaria/libaria_events.h"
 <#if useRTOSExtensions == true>
 #include "gfx/libaria/inc/libaria_events_rtos.h"
-</#if></#if>
+</#if>
+</#if>
 
 <#if ARIA_HAS_MACROS??>
 #include "gfx/libaria/libaria_macros.h"
@@ -77,8 +78,11 @@ extern "C" {
 typedef enum
 {
     LIBARIA_STATE_INIT = 0,
+<#if preProcessAssetsCode??>
+    LIBARIA_STATE_PREPROCESS_ASSETS,
+</#if>
     LIBARIA_STATE_RUNNING,
-	LIBARIA_STATE_ERROR
+    LIBARIA_STATE_ERROR
 } LIBARIA_STATES;
 
 // *****************************************************************************

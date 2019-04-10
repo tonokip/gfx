@@ -74,6 +74,12 @@ ${ARIA_GLOBAL_IDS}
 ${ARIA_INIT_GLOBAL_VARS}
 
 </#if>
+
+
+<#if preProcessAssetsCode??>
+int32_t libaria_preprocess_assets(void);
+</#if>
+
 int32_t libaria_initialize(void);
 
 //DOM-IGNORE-BEGIN

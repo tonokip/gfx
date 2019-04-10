@@ -164,17 +164,58 @@ void LibAria_Tasks(void)
     {
         case LIBARIA_STATE_INIT:
         {
+<#if preProcessAssetsCode??>
+            LIBARIA_STATES nextState = LIBARIA_STATE_PREPROCESS_ASSETS;
+<#else>
+            LIBARIA_STATES nextState = LIBARIA_STATE_RUNNING;
+</#if>
+
 <#if enableInput?? && enableInput == true>
             SYS_INP_AddListener(&inputListener);
 
-            libariaState = LIBARIA_STATE_RUNNING;
+            libariaState = nextState;
 
             break;
 <#else>
-            libariaState = LIBARIA_STATE_RUNNING;
+            libariaState = nextState;
             break;
 </#if>
         }
+<#if preProcessAssetsCode??>
+        case LIBARIA_STATE_PREPROCESS_ASSETS:
+        {
+            laResult retval = LA_SUCCESS;
+            
+            if (libariaObj.context->preprocessStateChangedCB != NULL)
+            {
+                retval = libariaObj.context->preprocessStateChangedCB
+                                   (LA_CONTEXT_PREPROCESS_ASSETS_PENDING);
+            }
+            
+            if (retval == LA_SUCCESS)
+            {
+                if (libariaObj.context->preprocessStateChangedCB != NULL)
+                    libariaObj.context->preprocessStateChangedCB
+                                (LA_CONTEXT_PREPROCESS_ASSETS_IN_PROGRESS);
+
+                libaria_preprocess_assets();
+
+                if (libariaObj.context->preprocessStateChangedCB != NULL)
+                    libariaObj.context->preprocessStateChangedCB
+                                (LA_CONTEXT_PREPROCESS_ASSETS_DONE);
+            
+                libariaState = LIBARIA_STATE_RUNNING;
+            }
+            else
+            {
+                //Call update to allow screen updates while there is a pending 
+                //pre-process operation
+                laUpdate(0);
+            }
+            
+            break;
+        }
+</#if>
         case LIBARIA_STATE_RUNNING:
         {
             laContext_SetActive(libariaObj.context);
