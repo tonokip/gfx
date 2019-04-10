@@ -60,14 +60,14 @@ SUBSTITUTE  GOODS,  TECHNOLOGY,  SERVICES,  OR  ANY  CLAIMS  BY  THIRD   PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-#define BUFFER_PER_LAYER    2
+#define BUFFER_PER_LAYER    1
 
 #define DISPLAY_WIDTH  480
 #define DISPLAY_HEIGHT 272
-#define GFX_GLCD_LAYERS 1
+#define GFX_GLCD_LAYERS 3
 #define GFX_GLCD_BACKGROUND_COLOR 0xFFFFFF00
 #define GFX_GLCD_CONFIG_CONTROL 0x80000000
-#define GFX_GLCD_CONFIG_CLK_DIVIDER 6
+#define GFX_GLCD_CONFIG_CLK_DIVIDER 12
 
 /*** GLCD Layer 0 Configuration ***/
 #define  GFX_GLCD_LAYER0_BASEADDR                      0xA8000000
@@ -437,6 +437,20 @@ void layerSwapped(GFX_Layer* layer)
 
         PLIB_GLCD_LayerBaseAddressSet(0, (uint32_t)drvLayer[0].baseaddr[layer->buffer_read_idx]);
     }
+    if(layer->id == GFX_ActiveContext()->layer.layers[1].id)
+    {
+        if (layer->buffer_count > BUFFER_PER_LAYER)
+        return;
+
+        PLIB_GLCD_LayerBaseAddressSet(0, (uint32_t)drvLayer[0].baseaddr[layer->buffer_read_idx]);
+    }
+    if(layer->id == GFX_ActiveContext()->layer.layers[2].id)
+    {
+        if (layer->buffer_count > BUFFER_PER_LAYER)
+        return;
+
+        PLIB_GLCD_LayerBaseAddressSet(0, (uint32_t)drvLayer[0].baseaddr[layer->buffer_read_idx]);
+    }
 }
 
 static GFX_Result layerEnabledSet(GFX_Bool val)
@@ -517,7 +531,8 @@ static GFX_Result glcdInitialize(GFX_Context* context)
     PLIB_GLCD_Enable();
 
     drvLayer[0].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER0_BASEADDR;
-    drvLayer[0].baseaddr[1] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER0_DBL_BASEADDR;
+    drvLayer[1].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER1_BASEADDR;
+    drvLayer[2].baseaddr[0] = (FRAMEBUFFER_PTR_TYPE)GFX_GLCD_LAYER2_BASEADDR;
 
     for (layerCount = 0; layerCount < context->layer.count; layerCount++)
     {
@@ -538,7 +553,6 @@ static GFX_Result glcdInitialize(GFX_Context* context)
             for(j = 0; j < context->layer.layers[layerCount].rect.display.width; j++)
             {
         *(uint32_t*)(drvLayer[layerCount].baseaddr[0] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
-        *(uint32_t*)(drvLayer[layerCount].baseaddr[1] + i*context->layer.layers[layerCount].rect.display.width + j) = 0;
             }
         }
         

@@ -187,13 +187,15 @@ static void DDR_Init(void)
 	DDRXFERCFGbits.NXTDATAVDLY = 4;
 	DDRDLYCFG1bits.NXTDATAVDLY4 = (((5 + 5u) & 0x10u) != 0) ? 1 : 0;
 	DDRXFERCFGbits.RDATENDLY = 2;/*5 - 1*/
-	DDRDLYCFG3bits.FAWTDLY = round_up(45000, CTRL_CLK_PERIOD) - 1;
+	DDRDLYCFG3bits.FAWTDLY = round_up(35000, CTRL_CLK_PERIOD) - 1;
 
     /* On-Die Termination */
 	DDRODTCFGbits.ODTCSEN = 0;
 	DDRODTENCFGbits.ODTREN = 0;
 	DDRODTCFGbits.ODTCSEN = 0;
-	DDRODTENCFGbits.ODTWEN = 0;
+	DDRODTENCFGbits.ODTWEN = 1;
+	DDRODTCFGbits.ODTWLEN = 3;
+	DDRODTCFGbits.ODTWDLY = 1;
 
     /* Controller Settings */
 	DDRXFERCFGbits.BIGENDIAN = 0;
@@ -260,7 +262,7 @@ static void DDR_Init(void)
 	*(&DDRCMD10 + DDR_HOST_CMD_REG_211) = (0x00 | (0x01 << 8) | (sys_mem_ddr_hc_clk_dly(140 * 2500) << 11));
 
 	/* Set number of host commands */
-	DDRCMDISSUEbits.NUMHOSTCMDS = 0xc;
+	DDRCMDISSUEbits.NUMHOSTCMDS = 0xb;
 	DDRCMDISSUEbits.VALID = 1;
 	DDRMEMCONbits.STINIT = 1;
 	while (DDRCMDISSUEbits.VALID);

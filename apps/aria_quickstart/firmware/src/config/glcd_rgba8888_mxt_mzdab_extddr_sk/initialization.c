@@ -275,10 +275,10 @@ void SYS_Initialize ( void* data )
     CFGCONbits.ECCCON = 3;
 
 
-
     CORETIMER_Initialize();
     I2C1_Initialize();
 
+	BSP_Initialize();
 	DDR_Initialize();
 
 

@@ -114,14 +114,14 @@ void CLK_Initialize( void )
 
 
     /* CFGMPLL */
-    /* MPLLDIS = ENABLED */
+    /* MPLLVREGDIS = ENABLED */
+    /* INTVREFCON = EXTERNAL_DDRV */
+    /* MPLLIDIV = DIV_1 */
+    /* MPLLMULT = MUL_25 */
     /* MPLLODIV2 = DIV_1 */
     /* MPLLODIV1 = DIV_3 */
-    /* MPLLVREGDIS = DISABLED */
-    /* MPLLMULT = MUL_25 */
-    /* INTVREFCON = INTERNAL_DDRV */
-    /* MPLLIDIV = DIV_1 */
-    //CFGMPLL = 0x4b4019c1;
+    /* MPLLDIS = ENABLED */
+    
     CFGMPLLbits.MPLLVREGDIS = 0;
     while(!(CFGMPLLbits.MPLLVREGRDY));
     CFGMPLLbits.INTVREFCON = 0;
@@ -130,8 +130,9 @@ void CLK_Initialize( void )
     CFGMPLLbits.MPLLODIV1 = 3;
     CFGMPLLbits.MPLLODIV2 = 1;
     CFGMPLLbits.MPLLDIS = 0;
-    while(!(CFGMPLLbits.MPLLRDY)); 
+    while(!(CFGMPLLbits.MPLLRDY));
     
+  
     /* Lock system since done with clock configuration */
     int_flag = (bool)__builtin_disable_interrupts();
     SYSKEY = 0x33333333;

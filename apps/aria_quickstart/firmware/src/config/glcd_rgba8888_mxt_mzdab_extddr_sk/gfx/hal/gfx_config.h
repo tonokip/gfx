@@ -31,6 +31,7 @@
 #define GFX_MAX_BUFFER_COUNT    2
 #define GFX_DRIVER_COUNT        1
 #define GFX_DISPLAY_COUNT       1
+#define GFX_PROCESSOR_COUNT     1
 
 /* configuration flags */
 #define GFX_DRAW_PIPELINE_ENABLED     1
