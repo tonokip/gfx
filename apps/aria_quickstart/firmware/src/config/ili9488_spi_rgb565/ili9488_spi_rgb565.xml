@@ -3,12 +3,82 @@
   <Components>
     <UniqueComponent dnOrder="0" id="aria_gfx_library">
       <Symbols dnOrder="0">
-        <Boolean dnOrder="0" id="useGlobalPalette">
+        <Menu dnOrder="0" id="AriaRTOSMenu">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Menu>
+        <File dnOrder="1" id="LIBARIA_CONTEXT_RTOS_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="2" id="LIBARIA_CONTEXT_RTOS_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="3" id="LIBARIA_EVENT_RTOS_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="4" id="LIBARIA_EVENT_RTOS_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="5" id="LIBARIA_INPUT_RTOS_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="6" id="LIBARIA_INPUT_RTOS_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="7" id="LIBARIA_RTOS_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="8" id="LIBARIA_RTOS_H">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <File dnOrder="9" id="LIBARIA_SYS_RTOS_TASK_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <Boolean dnOrder="10" id="useGlobalPalette">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="1" id="useRTOSExtensions">
+        <Boolean dnOrder="11" id="useRTOSExtensions">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_library" value="false"/>
           </Values>
@@ -4550,26 +4620,40 @@
       <Instances dnOrder="1">
         <InstanceComponent dnOrder="0" id="drv_spi" instance="0">
           <Symbols dnOrder="0">
-            <String dnOrder="0" id="DRV_SPI_MODE">
+            <Comment dnOrder="0" id="DRV_SPI_DEPENDENCY_DMA_COMMENT">
+              <Attributes dnOrder="0">
+                <Boolean dnOrder="0" id="visible">
+                  <Value dnOrder="0">false</Value>
+                </Boolean>
+              </Attributes>
+            </Comment>
+            <String dnOrder="1" id="DRV_SPI_MODE">
               <Values dnOrder="0">
                 <Dynamic dnOrder="0" id="drv_spi_0" value="Asynchronous"/>
               </Values>
             </String>
-            <String dnOrder="1" id="DRV_SPI_PLIB">
+            <String dnOrder="2" id="DRV_SPI_PLIB">
               <Values dnOrder="0">
                 <Dynamic dnOrder="0" id="drv_spi_0" value="SPI0"/>
               </Values>
             </String>
-            <Integer dnOrder="2" id="DRV_SPI_RX_DMA_CHANNEL">
+            <Integer dnOrder="3" id="DRV_SPI_RX_DMA_CHANNEL">
               <Values dnOrder="0">
                 <Dynamic dnOrder="0" id="drv_spi_0" value="-1"/>
               </Values>
             </Integer>
-            <Integer dnOrder="3" id="DRV_SPI_TX_DMA_CHANNEL">
+            <Integer dnOrder="4" id="DRV_SPI_TX_DMA_CHANNEL">
               <Values dnOrder="0">
                 <Dynamic dnOrder="0" id="drv_spi_0" value="-1"/>
               </Values>
             </Integer>
+            <Boolean dnOrder="5" id="DRV_SPI_TX_RX_DMA">
+              <Attributes dnOrder="0">
+                <Boolean dnOrder="0" id="readOnly">
+                  <Value dnOrder="0">false</Value>
+                </Boolean>
+              </Attributes>
+            </Boolean>
           </Symbols>
           <Attachments dnOrder="1">
             <DirectCapability dnOrder="0" id="drv_spi">
@@ -4612,45 +4696,17 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="7" id="gfx_driver_ili9488">
       <Symbols dnOrder="0">
-        <Integer dnOrder="0" id="DisplayHeight">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Integer>
-        <String dnOrder="1" id="DisplayInterface">
+        <String dnOrder="0" id="DisplayInterface">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_driver_ili9488" value="gfx_intf_spi4"/>
           </Values>
         </String>
-        <String dnOrder="2" id="DisplayInterfaceType">
+        <String dnOrder="1" id="DisplayInterfaceType">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_driver_ili9488" value="SPI 4-line"/>
           </Values>
         </String>
-        <Integer dnOrder="3" id="DisplayWidth">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Integer>
-        <File dnOrder="4" id="GFX_ILI9488_SPI">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="enabled">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </File>
-        <Comment dnOrder="5" id="HALComment">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">true</Value>
-            </Boolean>
-          </Attributes>
-        </Comment>
-        <Boolean dnOrder="6" id="HALConnected">
+        <Boolean dnOrder="2" id="HALConnected">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_hal" value="true"/>
           </Values>
@@ -4801,12 +4857,31 @@
             <Dynamic dnOrder="0" id="gfx_hal" value="driverILI9488ContextInitialize"/>
           </Values>
         </String>
-        <Boolean dnOrder="24" id="GlobalPaletteModeHint">
-          <Values dnOrder="0">
+        <Menu dnOrder="24" id="GFXRTOSMenu">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="visible">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </Menu>
+        <File dnOrder="25" id="GFX_SYS_RTOS_TASK_C">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="enabled">
+              <Value dnOrder="0">false</Value>
+            </Boolean>
+          </Attributes>
+        </File>
+        <Boolean dnOrder="26" id="GlobalPaletteModeHint">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
+          <Values dnOrder="1">
             <Dynamic dnOrder="0" id="aria_gfx_library" value="false"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="25" id="RefreshRate">
+        <Integer dnOrder="27" id="RefreshRate">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="gfx_hal" value="0"/>
           </Values>
@@ -5123,33 +5198,33 @@
     </UniqueComponent>
     <UniqueComponent dnOrder="11" id="spi0">
       <Symbols dnOrder="0">
-        <Comment dnOrder="0" id="SPI0_NVIC_ENABLE_COMMENT">
-          <Attributes dnOrder="0">
-            <Boolean dnOrder="0" id="visible">
-              <Value dnOrder="0">false</Value>
-            </Boolean>
-          </Attributes>
-        </Comment>
-        <Integer dnOrder="1" id="SPI_BAUD_RATE">
+        <Integer dnOrder="0" id="SPI_BAUD_RATE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_xplained_pro" value="20000000"/>
             <User dnOrder="1" value="20000000"/>
           </Values>
         </Integer>
-        <Integer dnOrder="2" id="SPI_CSR_INDEX">
+        <Integer dnOrder="1" id="SPI_CSR_INDEX">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="spi0" value="0"/>
           </Values>
         </Integer>
-        <Integer dnOrder="3" id="SPI_CSR_SCBR_VALUE">
+        <Integer dnOrder="2" id="SPI_CSR_SCBR_VALUE">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="spi0" value="7"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="4" id="SPI_DRIVER_CONTROLLED">
+        <Boolean dnOrder="3" id="SPI_DRIVER_CONTROLLED">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="drv_spi_0" value="true"/>
           </Values>
+        </Boolean>
+        <Boolean dnOrder="4" id="SPI_INTERRUPT_MODE">
+          <Attributes dnOrder="0">
+            <Boolean dnOrder="0" id="readOnly">
+              <Value dnOrder="0">true</Value>
+            </Boolean>
+          </Attributes>
         </Boolean>
         <Integer dnOrder="5" id="SPI_MASTER_CLOCK">
           <Values dnOrder="0">
@@ -5177,8 +5252,7 @@
     </UniqueComponent>
   </Components>
   <UserData>
-    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="0"/>
-    <ComponentGraph dnOrder="1" id="__ROOTVIEW">
+    <ComponentGraph dnOrder="0" id="__ROOTVIEW">
       <ElementPositions dnOrder="0">
         <ElementPosition dnOrder="0" id="HarmonyCore" x="702" y="11"/>
         <ElementPosition dnOrder="1" id="aria_gfx_library" x="744" y="154"/>
@@ -5194,5 +5268,6 @@
         <ElementPosition dnOrder="11" id="spi0" x="56" y="241"/>
       </ElementPositions>
     </ComponentGraph>
+    <GraphSettings canvasHeight="400" canvasWidth="400" dnOrder="1"/>
   </UserData>
 </Configuration>
