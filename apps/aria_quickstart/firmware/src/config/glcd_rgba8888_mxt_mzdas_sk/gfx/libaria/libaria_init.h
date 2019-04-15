@@ -69,6 +69,9 @@ extern laLabelWidget* TitleLabel;
 extern laButtonWidget* SloganButton;
 
 
+
+
+
 int32_t libaria_initialize(void);
 
 //DOM-IGNORE-BEGIN

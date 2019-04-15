@@ -40,6 +40,7 @@
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_init.h"
+#include "gfx/libaria/inc/libaria_utils.h"
 
 laScheme NewScheme;
 laImageWidget* LogoWidget;
@@ -121,6 +122,7 @@ static void ScreenCreate_screen1(laScreen* screen)
     laWidget_AddChild((laWidget*)layer0, (laWidget*)SloganButton);
 
 }
+
 
 
 
