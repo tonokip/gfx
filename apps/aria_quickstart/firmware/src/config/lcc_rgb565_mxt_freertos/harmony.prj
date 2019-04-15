@@ -59,8 +59,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">314C1119A4BF44999DC94DBC5D4FCDF3</GeneratedChecksum>
-          <UserChecksum dnOrder="5">314C1119A4BF44999DC94DBC5D4FCDF3</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8DCF8D2BF0FA6D59F808896EF8EA5F8E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8DCF8D2BF0FA6D59F808896EF8EA5F8E</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -339,8 +339,8 @@
           <Name dnOrder="1">gfxu_image.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B38F94C8C207B1158069E8A91462F623</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B38F94C8C207B1158069E8A91462F623</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7CD749945ECB6DD10B195AB56898A36E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7CD749945ECB6DD10B195AB56898A36E</UserChecksum>
         </File>
         <File dnOrder="42">
           <Type dnOrder="0">SOURCE</Type>
@@ -531,8 +531,8 @@
           <Name dnOrder="1">libaria_context.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B8D7C672E3C35838045C35AC06EC46F9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B8D7C672E3C35838045C35AC06EC46F9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7569390DE08F0FECCDF0EE3E3D08AC86</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7569390DE08F0FECCDF0EE3E3D08AC86</UserChecksum>
         </File>
         <File dnOrder="66">
           <Type dnOrder="0">SOURCE</Type>
@@ -595,16 +595,16 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">DB64225A71C271AD572B3FFD280AA0FB</GeneratedChecksum>
-          <UserChecksum dnOrder="5">DB64225A71C271AD572B3FFD280AA0FB</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3ACFE32CAA0C73245CA89F7C321602D8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3ACFE32CAA0C73245CA89F7C321602D8</UserChecksum>
         </File>
         <File dnOrder="74">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_init.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">232CF60860636903135D1593CE5AE25E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">232CF60860636903135D1593CE5AE25E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">39D8DFE25CA5FD055865166853EFBCFE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">39D8DFE25CA5FD055865166853EFBCFE</UserChecksum>
         </File>
         <File dnOrder="75">
           <Type dnOrder="0">SOURCE</Type>
@@ -699,8 +699,8 @@
           <Name dnOrder="1">libaria_utils.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A076D7D3B7A7134978B5ABFE8345BEB7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A076D7D3B7A7134978B5ABFE8345BEB7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3888B07BBFA0CEDA76FB0872E50683A5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3888B07BBFA0CEDA76FB0872E50683A5</UserChecksum>
         </File>
         <File dnOrder="87">
           <Type dnOrder="0">SOURCE</Type>
@@ -883,8 +883,8 @@
           <Name dnOrder="1">libaria_widget_image_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3BE8F28AE97DA1EDBBA331655CBE65B4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3BE8F28AE97DA1EDBBA331655CBE65B4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E55BA4C2B140A5D4806C8C6109384BDE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E55BA4C2B140A5D4806C8C6109384BDE</UserChecksum>
         </File>
         <File dnOrder="110">
           <Type dnOrder="0">SOURCE</Type>
@@ -899,8 +899,8 @@
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">843C793C33265B8CF03D412EB1787F22</GeneratedChecksum>
-          <UserChecksum dnOrder="5">843C793C33265B8CF03D412EB1787F22</UserChecksum>
+          <GeneratedChecksum dnOrder="4">46BD2F156B707497750CA91FEFBF148A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">46BD2F156B707497750CA91FEFBF148A</UserChecksum>
         </File>
         <File dnOrder="112">
           <Type dnOrder="0">SOURCE</Type>
@@ -915,8 +915,8 @@
           <Name dnOrder="1">libaria_widget_imagesequence_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A1A62046E3664250EB047E258B4E8442</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A1A62046E3664250EB047E258B4E8442</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6FE31A92332D0234858512057BB90929</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6FE31A92332D0234858512057BB90929</UserChecksum>
         </File>
         <File dnOrder="114">
           <Type dnOrder="0">SOURCE</Type>
@@ -1059,8 +1059,8 @@
           <Name dnOrder="1">libaria_widget_radial_menu_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">92A0762DB052DD6EDF00C8B24978841C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">92A0762DB052DD6EDF00C8B24978841C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0DBD93E1C6F85B875961BBD7BD41A0B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0DBD93E1C6F85B875961BBD7BD41A0B</UserChecksum>
         </File>
         <File dnOrder="132">
           <Type dnOrder="0">SOURCE</Type>
@@ -1883,8 +1883,8 @@
           <Name dnOrder="1">gfxu_image.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/utils/inc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">75077F6DA77CA21D2C947E60B7E2D242</GeneratedChecksum>
-          <UserChecksum dnOrder="5">75077F6DA77CA21D2C947E60B7E2D242</UserChecksum>
+          <GeneratedChecksum dnOrder="4">11478329344E3B4FA2C8FED6A213DF62</GeneratedChecksum>
+          <UserChecksum dnOrder="5">11478329344E3B4FA2C8FED6A213DF62</UserChecksum>
         </File>
         <File dnOrder="235">
           <Type dnOrder="0">HEADER</Type>
@@ -2011,8 +2011,8 @@
           <Name dnOrder="1">libaria_context.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3839D2E1163A15F72089E87DD326326C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3839D2E1163A15F72089E87DD326326C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">47182B785FE62F2CE35B748C4C7CA127</GeneratedChecksum>
+          <UserChecksum dnOrder="5">47182B785FE62F2CE35B748C4C7CA127</UserChecksum>
         </File>
         <File dnOrder="251">
           <Type dnOrder="0">HEADER</Type>
@@ -2187,8 +2187,8 @@
           <Name dnOrder="1">libaria_utils.h</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt_freertos/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9FA42D5225DCA7576FE4ADF007A7D840</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9FA42D5225DCA7576FE4ADF007A7D840</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A6B4719E34EC78715458E5F6F160BF5F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A6B4719E34EC78715458E5F6F160BF5F</UserChecksum>
         </File>
         <File dnOrder="273">
           <Type dnOrder="0">HEADER</Type>
