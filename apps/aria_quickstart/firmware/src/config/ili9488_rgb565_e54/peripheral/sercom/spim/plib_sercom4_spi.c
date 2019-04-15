@@ -325,8 +325,14 @@ bool SERCOM4_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveDa
         sercom4SPIObj.transferIsBusy = true;
 
         /* Flush out any unread data in SPI read buffer */
-        dummyData = SERCOM4_REGS->SPIM.SERCOM_DATA;
-        (void)dummyData;
+        while(SERCOM4_REGS->SPIM.SERCOM_INTFLAG & SERCOM_SPIM_INTFLAG_RXC_Msk)
+        {
+            dummyData = SERCOM4_REGS->SPIM.SERCOM_DATA;
+            (void)dummyData;
+        }
+
+        SERCOM4_REGS->SPIM.SERCOM_STATUS |= SERCOM_SPIM_STATUS_BUFOVF_Msk;
+        SERCOM4_REGS->SPIM.SERCOM_INTFLAG |= SERCOM_SPIM_INTFLAG_ERROR_Msk;
 
         if(sercom4SPIObj.rxSize > sercom4SPIObj.txSize)
         {
