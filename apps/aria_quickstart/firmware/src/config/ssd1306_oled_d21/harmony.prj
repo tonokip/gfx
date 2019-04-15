@@ -315,8 +315,8 @@
           <Name dnOrder="1">gfxu_image.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/utils</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B38F94C8C207B1158069E8A91462F623</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B38F94C8C207B1158069E8A91462F623</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7CD749945ECB6DD10B195AB56898A36E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7CD749945ECB6DD10B195AB56898A36E</UserChecksum>
         </File>
         <File dnOrder="39">
           <Type dnOrder="0">SOURCE</Type>
@@ -499,8 +499,8 @@
           <Name dnOrder="1">libaria_context.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B8D7C672E3C35838045C35AC06EC46F9</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B8D7C672E3C35838045C35AC06EC46F9</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7569390DE08F0FECCDF0EE3E3D08AC86</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7569390DE08F0FECCDF0EE3E3D08AC86</UserChecksum>
         </File>
         <File dnOrder="62">
           <Type dnOrder="0">SOURCE</Type>
@@ -547,16 +547,16 @@
           <Name dnOrder="1">libaria_harmony.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">83FE922E2C57A9C67C1D1DF5F51AA4FE</GeneratedChecksum>
-          <UserChecksum dnOrder="5">83FE922E2C57A9C67C1D1DF5F51AA4FE</UserChecksum>
+          <GeneratedChecksum dnOrder="4">122F65C18442C9EED3BE58990D54DBDE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">122F65C18442C9EED3BE58990D54DBDE</UserChecksum>
         </File>
         <File dnOrder="68">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_init.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">55E97739051B98B3E043C8212A602ADD</GeneratedChecksum>
-          <UserChecksum dnOrder="5">55E97739051B98B3E043C8212A602ADD</UserChecksum>
+          <GeneratedChecksum dnOrder="4">8623CF13AB86FF092207C47C8C466543</GeneratedChecksum>
+          <UserChecksum dnOrder="5">8623CF13AB86FF092207C47C8C466543</UserChecksum>
         </File>
         <File dnOrder="69">
           <Type dnOrder="0">SOURCE</Type>
@@ -635,8 +635,8 @@
           <Name dnOrder="1">libaria_utils.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A076D7D3B7A7134978B5ABFE8345BEB7</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A076D7D3B7A7134978B5ABFE8345BEB7</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3888B07BBFA0CEDA76FB0872E50683A5</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3888B07BBFA0CEDA76FB0872E50683A5</UserChecksum>
         </File>
         <File dnOrder="79">
           <Type dnOrder="0">SOURCE</Type>
@@ -819,8 +819,8 @@
           <Name dnOrder="1">libaria_widget_image_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3BE8F28AE97DA1EDBBA331655CBE65B4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3BE8F28AE97DA1EDBBA331655CBE65B4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">E55BA4C2B140A5D4806C8C6109384BDE</GeneratedChecksum>
+          <UserChecksum dnOrder="5">E55BA4C2B140A5D4806C8C6109384BDE</UserChecksum>
         </File>
         <File dnOrder="102">
           <Type dnOrder="0">SOURCE</Type>
@@ -835,8 +835,8 @@
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">843C793C33265B8CF03D412EB1787F22</GeneratedChecksum>
-          <UserChecksum dnOrder="5">843C793C33265B8CF03D412EB1787F22</UserChecksum>
+          <GeneratedChecksum dnOrder="4">46BD2F156B707497750CA91FEFBF148A</GeneratedChecksum>
+          <UserChecksum dnOrder="5">46BD2F156B707497750CA91FEFBF148A</UserChecksum>
         </File>
         <File dnOrder="104">
           <Type dnOrder="0">SOURCE</Type>
@@ -851,8 +851,8 @@
           <Name dnOrder="1">libaria_widget_imagesequence_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">A1A62046E3664250EB047E258B4E8442</GeneratedChecksum>
-          <UserChecksum dnOrder="5">A1A62046E3664250EB047E258B4E8442</UserChecksum>
+          <GeneratedChecksum dnOrder="4">6FE31A92332D0234858512057BB90929</GeneratedChecksum>
+          <UserChecksum dnOrder="5">6FE31A92332D0234858512057BB90929</UserChecksum>
         </File>
         <File dnOrder="106">
           <Type dnOrder="0">SOURCE</Type>
@@ -995,8 +995,8 @@
           <Name dnOrder="1">libaria_widget_radial_menu_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">92A0762DB052DD6EDF00C8B24978841C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">92A0762DB052DD6EDF00C8B24978841C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D0DBD93E1C6F85B875961BBD7BD41A0B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D0DBD93E1C6F85B875961BBD7BD41A0B</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clock.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/peripheral/clock/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clock/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">726D763496ADE4115EF61DC7B4F8ACDA</GeneratedChecksum>
-          <UserChecksum dnOrder="5">726D763496ADE4115EF61DC7B4F8ACDA</UserChecksum>
+          <GeneratedChecksum dnOrder="4">94F399ECC0E9DB386BFC3BA2771B5D92</GeneratedChecksum>
+          <UserChecksum dnOrder="5">94F399ECC0E9DB386BFC3BA2771B5D92</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_sercom0_spi.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/peripheral/sercom/spim/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sercom/spim/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">788F98849B5873C00446B7D35173853E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">788F98849B5873C00446B7D35173853E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">014F4B3375C44A6AA271646C63FF4112</GeneratedChecksum>
+          <UserChecksum dnOrder="5">014F4B3375C44A6AA271646C63FF4112</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1731,8 +1731,8 @@
           <Name dnOrder="1">gfxu_image.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/utils/inc</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/utils/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">75077F6DA77CA21D2C947E60B7E2D242</GeneratedChecksum>
-          <UserChecksum dnOrder="5">75077F6DA77CA21D2C947E60B7E2D242</UserChecksum>
+          <GeneratedChecksum dnOrder="4">11478329344E3B4FA2C8FED6A213DF62</GeneratedChecksum>
+          <UserChecksum dnOrder="5">11478329344E3B4FA2C8FED6A213DF62</UserChecksum>
         </File>
         <File dnOrder="216">
           <Type dnOrder="0">HEADER</Type>
@@ -1827,8 +1827,8 @@
           <Name dnOrder="1">libaria_context.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">3839D2E1163A15F72089E87DD326326C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">3839D2E1163A15F72089E87DD326326C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">47182B785FE62F2CE35B748C4C7CA127</GeneratedChecksum>
+          <UserChecksum dnOrder="5">47182B785FE62F2CE35B748C4C7CA127</UserChecksum>
         </File>
         <File dnOrder="228">
           <Type dnOrder="0">HEADER</Type>
@@ -1971,8 +1971,8 @@
           <Name dnOrder="1">libaria_utils.h</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_d21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/inc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">9FA42D5225DCA7576FE4ADF007A7D840</GeneratedChecksum>
-          <UserChecksum dnOrder="5">9FA42D5225DCA7576FE4ADF007A7D840</UserChecksum>
+          <GeneratedChecksum dnOrder="4">A6B4719E34EC78715458E5F6F160BF5F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">A6B4719E34EC78715458E5F6F160BF5F</UserChecksum>
         </File>
         <File dnOrder="246">
           <Type dnOrder="0">HEADER</Type>
