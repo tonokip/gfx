@@ -108,7 +108,9 @@ void LibAria_Tasks(void)
     {
         case LIBARIA_STATE_INIT:
         {
-            libariaState = LIBARIA_STATE_RUNNING;
+            LIBARIA_STATES nextState = LIBARIA_STATE_RUNNING;
+
+            libariaState = nextState;
             break;
         }
         case LIBARIA_STATE_RUNNING:
