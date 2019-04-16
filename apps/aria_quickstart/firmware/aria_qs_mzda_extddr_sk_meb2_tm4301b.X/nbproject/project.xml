@@ -17,7 +17,7 @@
             </sourceRootList>
             <confList>
                 <confElem>
-                    <name>glcd_rgba8888_mxt_mzdab_extddr_sk</name>
+                    <name>glcd_rgba8888_mxt_mzda_extddr_sk</name>
                     <type>2</type>
                 </confElem>
             </confList>
