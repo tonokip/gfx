@@ -525,15 +525,10 @@ static uint32_t layerAlphaAmountGet(void)
 
 void layerSwapped(GFX_Layer* layer)
 {
-<#list 0..(TotalNumLayers-1) as i>
-    if(layer->id == GFX_ActiveContext()->layer.layers[${i}].id)
-    {
-        if (layer->buffer_count > BUFFER_PER_LAYER)
+    if (layer->buffer_count > BUFFER_PER_LAYER)
         return;
 
-        PLIB_GLCD_LayerBaseAddressSet(0, (uint32_t)drvLayer[0].baseaddr[layer->buffer_read_idx]);
-    }
-</#list>
+    PLIB_GLCD_LayerBaseAddressSet(layer->id, (uint32_t)drvLayer[layer->id].baseaddr[layer->buffer_read_idx]);
 }
 
 static GFX_Result layerEnabledSet(GFX_Bool val)
