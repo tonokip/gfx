@@ -46,7 +46,7 @@ sdramPinConfig = [{"pin": 12, "name": "EBI_A9/SDA7", "type": "EBI_A9/SDA7", "dir
 ##################################################################################
 
 ############### LCC CONFIG #######################################################
-lccActivateList = ["smc", "gfx_driver_lcc", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time"]
+lccActivateList = ["smc", "gfx_driver_lcc", "twihs0", "drv_i2c", "drv_i2c0", "tc0", "sys_time", "tc2"]
 lccAutoConnectList = [["gfx_driver_lcc", "SMC_CS", "smc", "smc_cs0"],
 						["gfx_hal", "gfx_display_driver", "gfx_driver_lcc", "gfx_driver_lcc"],
 						["drv_i2c_0", "drv_i2c_I2C_dependency", "twihs0", "TWIHS0_I2C"],
@@ -75,7 +75,7 @@ lccPinConfig = [{"pin": 4, "name": "EBI_D8", "type": "EBI_D8", "direction": "", 
 				{"pin": 71, "name": "BSP_MAXTOUCH_CHG", "type": "GPIO", "direction": "In", "latch": "", "abcd": ""}, #PD28
 				{"pin": 77, "name": "TWIHS0_TWCK0", "type": "TWIHS0_TWCK0", "direction": "", "latch": "", "abcd": "A"}, #PA4
 				{"pin": 82, "name": "EBI_NWR0/NWE", "type": "EBI_NWR0/NWE", "direction": "", "latch": "", "abcd": "A"}, #PC8
-				{"pin": 86, "name": "GFX_DISP_INTF_PIN_BACKLIGHT", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}, #PC9
+				{"pin": 86, "name": "TC2_TIOB7", "type": "TC2_TIOB7", "direction": "", "latch": "", "abcd": "B"}, #PC9, backlight via TC2
 				{"pin": 91, "name": "TWIHS0_TWD0", "type": "TWIHS0_TWD0", "direction": "", "latch": "", "abcd": "A"}, #PA8
 				{"pin": 94, "name": "GFX_DISP_INTF_PIN_DE", "type": "GPIO", "direction": "Out", "latch": "High", "abcd": ""}] #PC11
 ##################################################################################
@@ -126,9 +126,27 @@ def eventHandlerSSD1963(event):
 		except:
 			return
 
+def eventHandlerLCC(event):
+	lccBacklightAutoConnectList = [["gfx_driver_lcc", "TMR", "tc2", "TC2_TMR"]]
+	if (event == "configure"):
+		print("Configuring for LCC")
+		try:
+			Database.setSymbolValue("gfx_driver_lcc", "PeripheralControl", "TC", 1)
+			Database.connectDependencies(lccBacklightAutoConnectList)
+			Database.setSymbolValue("tc2", "TC1_ENABLE", True, 1)
+			Database.setSymbolValue("tc2", "TC1_OPERATING_MODE", "COMPARE", 1)
+			Database.setSymbolValue("tc2", "TC1_OPERATING_MODE", "COMPARE", 1)
+			Database.setSymbolValue("gfx_driver_lcc", "TCInstance", 2, 1)
+			Database.setSymbolValue("gfx_driver_lcc", "TCChannel", 1, 1)
+			Database.setSymbolValue("gfx_driver_lcc", "TCChannelCompare", "B", 1)
+			print("Done confguring backlight")
+		except:
+			print("Failed confguring backlight")
+			return
+
 bspDisplayInterfaceList = ["LCC", "SSD1963"]
 
-sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, None)
+sam_e70_xplained_utra_lcc = bspSupportObj(lccPinConfig, lccActivateList, None, lccAutoConnectList, eventHandlerLCC)
 sam_e70_xplained_utra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
 
 addBSPSupport("BSP_SAM_E70_Xplained_Ultra", "LCC", sam_e70_xplained_utra_lcc)
