@@ -114,6 +114,7 @@
 <#if Val_PaletteMode == true>
 #define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_GS_8
 #define FRAMEBUFFER_TYPE uint8_t
+#define FRAMEBUFFER_PIXEL_BYTES 2
 <#else>
 <#if Val_FrameBufferColorMode == "GFX_COLOR_MODE_RGB_332">
 #define FRAMEBUFFER_COLOR_MODE GFX_COLOR_MODE_RGB_332
