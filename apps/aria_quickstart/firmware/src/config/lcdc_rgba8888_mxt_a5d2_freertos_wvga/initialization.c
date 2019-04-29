@@ -198,7 +198,6 @@ void SYS_Initialize ( void* data )
     CLK_Initialize();
 	PIO_Initialize();
 
-
 	PIT_TimerInitialize();
 
     MMU_Initialize();

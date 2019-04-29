@@ -241,7 +241,7 @@ void SERCOM1_SPI_CallbackRegister(SERCOM_SPI_CALLBACK callBack, uintptr_t contex
 
 bool SERCOM1_SPI_IsBusy(void)
 {
-    return sercom1SPIObj.transferIsBusy;
+    return ((sercom1SPIObj.transferIsBusy == true) || ((SERCOM1_REGS->SPIM.SERCOM_INTFLAG & SERCOM_SPIM_INTFLAG_TXC_Msk) == 0));
 }
 
 // *****************************************************************************
@@ -332,6 +332,7 @@ bool SERCOM1_SPI_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveDa
         }
 
         SERCOM1_REGS->SPIM.SERCOM_STATUS |= SERCOM_SPIM_STATUS_BUFOVF_Msk;
+
         SERCOM1_REGS->SPIM.SERCOM_INTFLAG |= SERCOM_SPIM_INTFLAG_ERROR_Msk;
 
         if(sercom1SPIObj.rxSize > sercom1SPIObj.txSize)

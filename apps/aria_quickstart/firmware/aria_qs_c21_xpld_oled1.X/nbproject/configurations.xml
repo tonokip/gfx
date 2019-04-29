@@ -134,19 +134,22 @@
             <itemPath>../src/config/ssd1306_oled_c21/gfx/gfx_assets.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="clock" projectFiles="true">
+            <logicalFolder name="f5" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f3" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/evsys/plib_evsys.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="port" projectFiles="true">
+            <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
+              <itemPath>../src/config/ssd1306_oled_c21/peripheral/nvmctrl/plib_nvmctrl.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="port" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f2" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ssd1306_oled_c21/peripheral/sercom/spim/plib_sercom1_spi.h</itemPath>
                 <itemPath>../src/config/ssd1306_oled_c21/peripheral/sercom/spim/plib_sercom_spi_common.h</itemPath>
@@ -423,19 +426,22 @@
             <itemPath>../src/config/ssd1306_oled_c21/gfx/gfx_assets.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f4" displayName="clock" projectFiles="true">
+            <logicalFolder name="f5" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f3" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/evsys/plib_evsys.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f6" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="port" projectFiles="true">
+            <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
+              <itemPath>../src/config/ssd1306_oled_c21/peripheral/nvmctrl/plib_nvmctrl.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f4" displayName="port" projectFiles="true">
               <itemPath>../src/config/ssd1306_oled_c21/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f2" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ssd1306_oled_c21/peripheral/sercom/spim/plib_sercom1_spi.c</itemPath>
               </logicalFolder>

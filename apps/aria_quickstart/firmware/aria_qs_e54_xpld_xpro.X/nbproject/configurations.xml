@@ -134,22 +134,25 @@
             <itemPath>../src/config/ili9488_rgb565_e54/gfx/gfx_assets.h</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f3" displayName="clock" projectFiles="true">
+            <logicalFolder name="f4" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/clock/plib_clock.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="cmcc" projectFiles="true">
+            <logicalFolder name="f6" displayName="cmcc" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/cmcc/plib_cmcc.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f2" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/evsys/plib_evsys.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/nvic/plib_nvic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="port" projectFiles="true">
+            <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/nvmctrl/plib_nvmctrl.h</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="port" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f7" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom4_spi.h</itemPath>
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom_spi_common.h</itemPath>
@@ -438,22 +441,25 @@
             <itemPath>../src/config/ili9488_rgb565_e54/gfx/gfx_assets.c</itemPath>
           </logicalFolder>
           <logicalFolder name="f2" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f3" displayName="clock" projectFiles="true">
+            <logicalFolder name="f4" displayName="clock" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/clock/plib_clock.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f5" displayName="cmcc" projectFiles="true">
+            <logicalFolder name="f6" displayName="cmcc" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/cmcc/plib_cmcc.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="evsys" projectFiles="true">
+            <logicalFolder name="f2" displayName="evsys" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/evsys/plib_evsys.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="nvic" projectFiles="true">
+            <logicalFolder name="f5" displayName="nvic" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/nvic/plib_nvic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f2" displayName="port" projectFiles="true">
+            <logicalFolder name="f1" displayName="nvmctrl" projectFiles="true">
+              <itemPath>../src/config/ili9488_rgb565_e54/peripheral/nvmctrl/plib_nvmctrl.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="f3" displayName="port" projectFiles="true">
               <itemPath>../src/config/ili9488_rgb565_e54/peripheral/port/plib_port.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f6" displayName="sercom" projectFiles="true">
+            <logicalFolder name="f7" displayName="sercom" projectFiles="true">
               <logicalFolder name="f1" displayName="spim" projectFiles="true">
                 <itemPath>../src/config/ili9488_rgb565_e54/peripheral/sercom/spim/plib_sercom4_spi.c</itemPath>
               </logicalFolder>
