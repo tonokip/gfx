@@ -217,10 +217,11 @@ void LibAria_DemoModeProcessEvents(void)
             if (demoModeEvents.recordEnabled == LA_TRUE) 
             {
                 //Start recording tick timer
-                demoModeEvents.recordTickTimer = SYS_TMR_CallbackPeriodic(
-                        RECORD_TICK_PERIOD_MS,
+                demoModeEvents.recordTickTimer = SYS_TIME_CallbackRegisterMS(
+                        LibAria_DemoModeRecordTickTimerCallback,
                         (uintptr_t) & demoModeEvents,
-                        LibAria_DemoModeRecordTickTimerCallback);
+                        RECORD_TICK_PERIOD_MS,
+                        SYS_TIME_PERIODIC);
                 
                 demoModeEvents.state = DEMO_RECORDING;
             }
@@ -247,7 +248,7 @@ void LibAria_DemoModeProcessEvents(void)
             // and start demo
             if (demoModeEvents.demoEventFlags & DEMO_EVENT_START)
             {
-                SYS_TMR_ObjectDelete(demoModeEvents.recordTickTimer);
+                SYS_TIME_TimerDestroy(demoModeEvents.recordTickTimer);
                 demoModeEvents.demoEventFlags &= ~DEMO_EVENT_START;
                 demoModeEvents.state = DEMO_STARTING;
             }
@@ -272,7 +273,7 @@ void LibAria_DemoModeProcessEvents(void)
             // Events list is full, switch to idle
             if (demoModeEvents.numEvents >= demoModeEvents.maxEvents)
             {
-                SYS_TMR_ObjectDelete(demoModeEvents.recordTickTimer);
+                SYS_TIME_TimerDestroy(demoModeEvents.recordTickTimer);
                 demoModeEvents.state = DEMO_IDLE;
             }
             
