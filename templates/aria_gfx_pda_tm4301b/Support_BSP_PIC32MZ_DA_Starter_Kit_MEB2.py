@@ -48,7 +48,7 @@ def intddrEventHandler(event):
 		#Override default pin configur function w/ PIC32M specific one
 		pinConfigureFxn = configurePinsPIC32M
 		try:
-			Database.setSymbolValue("gfx_driver_glcd", "PixelClockDivider", 6, 1)
+			Database.setSymbolValue("gfx_driver_glcd", "PixelClockDivider", 12, 1)
 			Database.setSymbolValue("gfx_hal", "ColorModeHint", "GFX_COLOR_MODE_RGBA_8888", 1)
 		except:
 			return
