@@ -120,6 +120,16 @@ void CLK_Initialize( void )
 
     while(!(CFGMPLLbits.MPLLRDY));
   
+
+    /* Peripheral Module Disable Configuration */
+    PMD1 = 0xffffffff;
+    PMD2 = 0xffffffff;
+    PMD3 = 0xffffffff;
+    PMD4 = 0xffffffff;
+    PMD5 = 0xfefeffff;
+    PMD6 = 0xffe9e0ff;
+    PMD7 = 0xefffffef;
+
     /* Lock system since done with clock configuration */
     int_flag = (bool)__builtin_disable_interrupts();
 

@@ -835,8 +835,8 @@
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_e54/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">46BD2F156B707497750CA91FEFBF148A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">46BD2F156B707497750CA91FEFBF148A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">30C059CE062A627CF3A73CC63A0AC7D0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">30C059CE062A627CF3A73CC63A0AC7D0</UserChecksum>
         </File>
         <File dnOrder="104">
           <Type dnOrder="0">SOURCE</Type>
@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clock.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_e54/peripheral/clock/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clock/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">B192AECFB792D7D38716A328DE7DCE3C</GeneratedChecksum>
-          <UserChecksum dnOrder="5">B192AECFB792D7D38716A328DE7DCE3C</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D5E85D646CB62BAC44EFD782A71007BA</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D5E85D646CB62BAC44EFD782A71007BA</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -1187,8 +1187,8 @@
           <Name dnOrder="1">plib_nvmctrl.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_e54/peripheral/nvmctrl/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/nvmctrl/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AEA5D4D1D6AA6186422018CFC542BF4A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AEA5D4D1D6AA6186422018CFC542BF4A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4D87AA590411EFCF464FFED838D01C7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4D87AA590411EFCF464FFED838D01C7B</UserChecksum>
         </File>
         <File dnOrder="148">
           <Type dnOrder="0">SOURCE</Type>
@@ -1203,8 +1203,8 @@
           <Name dnOrder="1">plib_sercom4_spi.c</Name>
           <LogicalPath dnOrder="2">config/ssd1306_oled_e54/peripheral/sercom/spim/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sercom/spim/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">018ABB724CBF6A216A64745637F9A251</GeneratedChecksum>
-          <UserChecksum dnOrder="5">018ABB724CBF6A216A64745637F9A251</UserChecksum>
+          <GeneratedChecksum dnOrder="4">0874F63B91FC6340F846448618478E02</GeneratedChecksum>
+          <UserChecksum dnOrder="5">0874F63B91FC6340F846448618478E02</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>

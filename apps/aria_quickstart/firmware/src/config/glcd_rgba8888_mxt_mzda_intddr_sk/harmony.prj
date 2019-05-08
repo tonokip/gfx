@@ -51,8 +51,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8DCF8D2BF0FA6D59F808896EF8EA5F8E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8DCF8D2BF0FA6D59F808896EF8EA5F8E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
         </File>
         <File dnOrder="6">
           <Type dnOrder="0">SOURCE</Type>
@@ -835,8 +835,8 @@
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">46BD2F156B707497750CA91FEFBF148A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">46BD2F156B707497750CA91FEFBF148A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">30C059CE062A627CF3A73CC63A0AC7D0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">30C059CE062A627CF3A73CC63A0AC7D0</UserChecksum>
         </File>
         <File dnOrder="104">
           <Type dnOrder="0">SOURCE</Type>
@@ -1155,8 +1155,8 @@
           <Name dnOrder="1">plib_clk.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk/peripheral/clk/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clk/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">51D6355B4DB8D3ECEEAA81B5E324CC08</GeneratedChecksum>
-          <UserChecksum dnOrder="5">51D6355B4DB8D3ECEEAA81B5E324CC08</UserChecksum>
+          <GeneratedChecksum dnOrder="4">CAC2DFA2E335E4E4CFDC664637F15E52</GeneratedChecksum>
+          <UserChecksum dnOrder="5">CAC2DFA2E335E4E4CFDC664637F15E52</UserChecksum>
         </File>
         <File dnOrder="144">
           <Type dnOrder="0">SOURCE</Type>
@@ -1171,8 +1171,8 @@
           <Name dnOrder="1">plib_ddr.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk/peripheral/ddr/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/ddr/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EAC5AED196B7065F546504F307D12890</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EAC5AED196B7065F546504F307D12890</UserChecksum>
+          <GeneratedChecksum dnOrder="4">F2735B8924EB7B4D0FB6F74AFF50B3DB</GeneratedChecksum>
+          <UserChecksum dnOrder="5">F2735B8924EB7B4D0FB6F74AFF50B3DB</UserChecksum>
         </File>
         <File dnOrder="146">
           <Type dnOrder="0">SOURCE</Type>

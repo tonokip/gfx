@@ -59,8 +59,8 @@
           <Name dnOrder="1">drv_maxtouch.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/driver/input</LogicalPath>
           <PhysicalPath dnOrder="3">/driver/input/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">8DCF8D2BF0FA6D59F808896EF8EA5F8E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">8DCF8D2BF0FA6D59F808896EF8EA5F8E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4131161BDCB6C6BC3623214A9ABAE2B8</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4131161BDCB6C6BC3623214A9ABAE2B8</UserChecksum>
         </File>
         <File dnOrder="7">
           <Type dnOrder="0">SOURCE</Type>
@@ -843,8 +843,8 @@
           <Name dnOrder="1">libaria_widget_imageplus_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">46BD2F156B707497750CA91FEFBF148A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">46BD2F156B707497750CA91FEFBF148A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">30C059CE062A627CF3A73CC63A0AC7D0</GeneratedChecksum>
+          <UserChecksum dnOrder="5">30C059CE062A627CF3A73CC63A0AC7D0</UserChecksum>
         </File>
         <File dnOrder="105">
           <Type dnOrder="0">SOURCE</Type>
@@ -1163,8 +1163,8 @@
           <Name dnOrder="1">plib_clock.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/peripheral/clock/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/clock/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2A3DD2B89EC6D0F7870850F7C0252E9E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2A3DD2B89EC6D0F7870850F7C0252E9E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">7249D5DAC3CFE1C7A462FF2A3F04AC06</GeneratedChecksum>
+          <UserChecksum dnOrder="5">7249D5DAC3CFE1C7A462FF2A3F04AC06</UserChecksum>
         </File>
         <File dnOrder="145">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">plib_nvmctrl.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/peripheral/nvmctrl/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/nvmctrl/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">AEA5D4D1D6AA6186422018CFC542BF4A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">AEA5D4D1D6AA6186422018CFC542BF4A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4D87AA590411EFCF464FFED838D01C7B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4D87AA590411EFCF464FFED838D01C7B</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
@@ -1211,16 +1211,16 @@
           <Name dnOrder="1">plib_sercom4_i2c.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/peripheral/sercom/i2cm/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/sercom/i2cm/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E1AB0B6CD2CD26E4A47331F1404CD205</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E1AB0B6CD2CD26E4A47331F1404CD205</UserChecksum>
+          <GeneratedChecksum dnOrder="4">825254108048C4EBA81402393869ED3D</GeneratedChecksum>
+          <UserChecksum dnOrder="5">825254108048C4EBA81402393869ED3D</UserChecksum>
         </File>
         <File dnOrder="151">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">plib_tc0.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/peripheral/tc/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/tc/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">E917579088EACDED43F13634E8BC9B4E</GeneratedChecksum>
-          <UserChecksum dnOrder="5">E917579088EACDED43F13634E8BC9B4E</UserChecksum>
+          <GeneratedChecksum dnOrder="4">5D288853593E3C6FA2C8A0A4229EF350</GeneratedChecksum>
+          <UserChecksum dnOrder="5">5D288853593E3C6FA2C8A0A4229EF350</UserChecksum>
         </File>
         <File dnOrder="152">
           <Type dnOrder="0">SOURCE</Type>
