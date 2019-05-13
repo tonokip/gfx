@@ -48,8 +48,8 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
-#include "gfx/hal/gfx.h"
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
+#include "gfx/hal/gfx.h"
 #include "peripheral/sercom/spim/plib_sercom1_spi.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/port/plib_port.h"

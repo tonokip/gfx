@@ -1003,8 +1003,8 @@
           <Name dnOrder="1">libaria_widget_radial_menu_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D0DBD93E1C6F85B875961BBD7BD41A0B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D0DBD93E1C6F85B875961BBD7BD41A0B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">482BE097BDCA778E2EB12255B09B98F1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">482BE097BDCA778E2EB12255B09B98F1</UserChecksum>
         </File>
         <File dnOrder="125">
           <Type dnOrder="0">SOURCE</Type>
@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">plib_port.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/peripheral/port/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/port/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">21D9B051AE72B7AC40A3165FE968BDE4</GeneratedChecksum>
-          <UserChecksum dnOrder="5">21D9B051AE72B7AC40A3165FE968BDE4</UserChecksum>
+          <GeneratedChecksum dnOrder="4">1405B7365AF77ACAB0A316C2A2EDCC5B</GeneratedChecksum>
+          <UserChecksum dnOrder="5">1405B7365AF77ACAB0A316C2A2EDCC5B</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
@@ -1387,8 +1387,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">54E2E67370AE4FE61DDFBBA58805DA36</GeneratedChecksum>
-          <UserChecksum dnOrder="5">54E2E67370AE4FE61DDFBBA58805DA36</UserChecksum>
+          <GeneratedChecksum dnOrder="4">286AB37A287CF141AECD0BCE01F59F08</GeneratedChecksum>
+          <UserChecksum dnOrder="5">286AB37A287CF141AECD0BCE01F59F08</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
@@ -2625,10 +2625,15 @@
   </Configurator>
   <MHGC>
     <GAC dnOrder="0">
-      <Locations dnOrder="0">
+      <MemoryManager address="2818572288" dnOrder="0" size="33554432">
+        <Blocks dnOrder="0">
+          <FrameBufferBlock address="0" buffer="0" dnOrder="0" layer="0" movable="true" name="Frame Layer 0 Buffer 0" renameable="false" resizable="false" size="307200"/>
+        </Blocks>
+      </MemoryManager>
+      <Locations dnOrder="1">
         <Location dnOrder="0" fileName="gfx_assets" index="0" maxSize="524288"/>
       </Locations>
-      <Assets dnOrder="1">
+      <Assets dnOrder="2">
         <StringTable dnOrder="0" encoding="ASCII" location="0" name="stringTable">
           <Languages default="0" dnOrder="0">
             <Language dnOrder="0" enabled="true" name="default"/>
@@ -2936,7 +2941,7 @@
           </Strings>
         </Font>
       </Assets>
-      <FolderTree dnOrder="2">
+      <FolderTree dnOrder="3">
         <ImageTree dnOrder="0"/>
         <StringTree dnOrder="1"/>
       </FolderTree>
