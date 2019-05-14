@@ -995,8 +995,8 @@
           <Name dnOrder="1">libaria_widget_radial_menu.c</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C0B97A0D08C37D4A66F4FC4491925DB2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C0B97A0D08C37D4A66F4FC4491925DB2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34BFE6720B220A59A0C2AEE07302BAE3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34BFE6720B220A59A0C2AEE07302BAE3</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
@@ -1387,8 +1387,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ili9488_rgb565_c21/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">286AB37A287CF141AECD0BCE01F59F08</GeneratedChecksum>
-          <UserChecksum dnOrder="5">286AB37A287CF141AECD0BCE01F59F08</UserChecksum>
+          <GeneratedChecksum dnOrder="4">54E2E67370AE4FE61DDFBBA58805DA36</GeneratedChecksum>
+          <UserChecksum dnOrder="5">54E2E67370AE4FE61DDFBBA58805DA36</UserChecksum>
         </File>
         <File dnOrder="173">
           <Type dnOrder="0">HEADER</Type>
