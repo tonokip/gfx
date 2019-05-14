@@ -63,5 +63,5 @@ xbspDisplayInterfaceList = ['SSD1963']
 
 sam_e54_curiosity_ultra_ssd1963 = bspSupportObj(ssd1963PinConfig, ssd1963ActivateList, None, ssd1963AutoConnectList, eventHandlerSSD1963)
 
-addBSPSupport("BSP_SAM_E54_Xplained_Pro", "SSD1963", sam_e54_curiosity_ultra_ssd1963)
-addDisplayIntfSupport("BSP_SAM_E54_Xplained_Pro", xbspDisplayInterfaceList)
+addBSPSupport("BSP_SAM_E54_Curiosity_Ultra", "SSD1963", sam_e54_curiosity_ultra_ssd1963)
+addDisplayIntfSupport("BSP_SAM_E54_Curiosity_Ultra", xbspDisplayInterfaceList)
