@@ -119,7 +119,7 @@ void CLK_Initialize( void )
     CFGMPLL = 0x0B001901;
 
     while(!(CFGMPLLbits.MPLLRDY));
-
+  
 
     /* Peripheral Module Disable Configuration */
     PMD1 = 0xffffffff;
