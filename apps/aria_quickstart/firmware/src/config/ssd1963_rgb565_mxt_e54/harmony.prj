@@ -19,8 +19,8 @@
           <Name dnOrder="1">bsp.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">2F6CC050E57B9E5BA8A6C6C9A2D8F09A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">3E59F5E2CC619BC6273282ECE032DF6F</GeneratedChecksum>
+          <UserChecksum dnOrder="5">3E59F5E2CC619BC6273282ECE032DF6F</UserChecksum>
         </File>
         <File dnOrder="2">
           <Type dnOrder="0">SOURCE</Type>
@@ -467,8 +467,8 @@
           <Name dnOrder="1">initialization.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">54F5767EBDC1A3F59A03941B6D6D841B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">54F5767EBDC1A3F59A03941B6D6D841B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">ED2D2A141ED8D4BAED2AE8A4023D7F0E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">ED2D2A141ED8D4BAED2AE8A4023D7F0E</UserChecksum>
         </File>
         <File dnOrder="58">
           <Type dnOrder="0">SOURCE</Type>
@@ -995,16 +995,16 @@
           <Name dnOrder="1">libaria_widget_radial_menu.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">C0B97A0D08C37D4A66F4FC4491925DB2</GeneratedChecksum>
-          <UserChecksum dnOrder="5">C0B97A0D08C37D4A66F4FC4491925DB2</UserChecksum>
+          <GeneratedChecksum dnOrder="4">34BFE6720B220A59A0C2AEE07302BAE3</GeneratedChecksum>
+          <UserChecksum dnOrder="5">34BFE6720B220A59A0C2AEE07302BAE3</UserChecksum>
         </File>
         <File dnOrder="124">
           <Type dnOrder="0">SOURCE</Type>
           <Name dnOrder="1">libaria_widget_radial_menu_skin_classic.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/src/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">D0DBD93E1C6F85B875961BBD7BD41A0B</GeneratedChecksum>
-          <UserChecksum dnOrder="5">D0DBD93E1C6F85B875961BBD7BD41A0B</UserChecksum>
+          <GeneratedChecksum dnOrder="4">482BE097BDCA778E2EB12255B09B98F1</GeneratedChecksum>
+          <UserChecksum dnOrder="5">482BE097BDCA778E2EB12255B09B98F1</UserChecksum>
         </File>
         <File dnOrder="125">
           <Type dnOrder="0">SOURCE</Type>
@@ -1203,8 +1203,8 @@
           <Name dnOrder="1">plib_port.c</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/peripheral/port/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/port/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">613A7B5CF09CCF724857497CEF49C94D</GeneratedChecksum>
-          <UserChecksum dnOrder="5">613A7B5CF09CCF724857497CEF49C94D</UserChecksum>
+          <GeneratedChecksum dnOrder="4">25D3B2FA341B71788627C176A9B0D3A2</GeneratedChecksum>
+          <UserChecksum dnOrder="5">25D3B2FA341B71788627C176A9B0D3A2</UserChecksum>
         </File>
         <File dnOrder="150">
           <Type dnOrder="0">SOURCE</Type>
@@ -1355,8 +1355,8 @@
           <Name dnOrder="1">bsp.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/bsp/</LogicalPath>
           <PhysicalPath dnOrder="3">/bsp/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">4EECFA8398BB4108929791BECB0C042A</GeneratedChecksum>
-          <UserChecksum dnOrder="5">4EECFA8398BB4108929791BECB0C042A</UserChecksum>
+          <GeneratedChecksum dnOrder="4">537CAB46F4E3993D34034D8367024171</GeneratedChecksum>
+          <UserChecksum dnOrder="5">537CAB46F4E3993D34034D8367024171</UserChecksum>
         </File>
         <File dnOrder="169">
           <Type dnOrder="0">HEADER</Type>
@@ -1443,8 +1443,8 @@
           <Name dnOrder="1">definitions.h</Name>
           <LogicalPath dnOrder="2">config/ssd1963_rgb565_mxt_e54/</LogicalPath>
           <PhysicalPath dnOrder="3">/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">EB1DC6C8A47BB354AF67583C45ECB5ED</GeneratedChecksum>
-          <UserChecksum dnOrder="5">EB1DC6C8A47BB354AF67583C45ECB5ED</UserChecksum>
+          <GeneratedChecksum dnOrder="4">B0CA0E553AE63365C7A7C66519505493</GeneratedChecksum>
+          <UserChecksum dnOrder="5">B0CA0E553AE63365C7A7C66519505493</UserChecksum>
         </File>
         <File dnOrder="180">
           <Type dnOrder="0">HEADER</Type>
