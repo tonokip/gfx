@@ -60,10 +60,7 @@
 // Section: BSP Macros
 // *****************************************************************************
 // *****************************************************************************
-/*** SWITCH Macros for SWITCH ***/
-#define SWITCH_Get() ((PIOA_REGS->PIO_PDSR >> 11) & 0x1)
-#define SWITCH_STATE_PRESSED 0
-#define SWITCH_STATE_RELEASED 1
+
 
 
 

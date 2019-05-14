@@ -212,6 +212,7 @@ void SYS_Initialize ( void* data )
     TC0_CH0_TimerInitialize(); 
      
     
+	BSP_Initialize();
     SMC_Initialize();
 
 	TWIHS0_Initialize();
