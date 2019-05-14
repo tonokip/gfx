@@ -225,9 +225,9 @@ void SYS_Initialize ( void* data )
 
     SERCOM4_I2C_Initialize();
 
+	BSP_Initialize();
     TC0_TimerInitialize();
 
-	BSP_Initialize();
 
 
     GFX_Initialize();
