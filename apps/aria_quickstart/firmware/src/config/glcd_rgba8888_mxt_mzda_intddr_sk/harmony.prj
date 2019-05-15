@@ -1195,8 +1195,8 @@
           <Name dnOrder="1">plib_gpio.c</Name>
           <LogicalPath dnOrder="2">config/glcd_rgba8888_mxt_mzda_intddr_sk/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="3">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">205B0E9A86829CE4A337F63463876049</GeneratedChecksum>
-          <UserChecksum dnOrder="5">205B0E9A86829CE4A337F63463876049</UserChecksum>
+          <GeneratedChecksum dnOrder="4">4730BB53A4A3A4C54850548D2687A6D6</GeneratedChecksum>
+          <UserChecksum dnOrder="5">4730BB53A4A3A4C54850548D2687A6D6</UserChecksum>
         </File>
         <File dnOrder="149">
           <Type dnOrder="0">SOURCE</Type>
