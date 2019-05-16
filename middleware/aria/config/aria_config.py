@@ -250,6 +250,12 @@ enableWindowWidget.setDefaultValue(True)
 enableWindowWidget.setDescription("Enables the Aria Window widget.  Disabling this will remove the code for this widget and it will not be available for use.")
 enableWindowWidget.setHelp("IDH_HTML_MHGC_UG_Widget_Tool_Box_Panel")
 
+enableAppSupport = component.createBooleanSymbol("enableAppSupport", None)
+enableAppSupport.setLabel("enableAppSupport")
+enableAppSupport.setDescription("Enable App Support")
+enableAppSupport.setVisible(False)
+enableAppSupport.setDependencies(onAppFileEnabled, ["HarmonyCore.ENABLE_APP_FILE"])
+
 global onAriaHeapChanged
 def onAriaHeapChanged(sym, event):
 	Database.setSymbolValue("core", "XC32_HEAP_SIZE", sym.getValue(), 0)
@@ -259,3 +265,5 @@ ariaHeap.setLabel("Requested Heap")
 ariaHeap.setVisible(False)
 ariaHeap.setDependencies(onAriaHeapChanged, ["ariaHeap"])
 ariaHeap.setDefaultValue(32768)
+
+

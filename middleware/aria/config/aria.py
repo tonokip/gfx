@@ -147,3 +147,6 @@ def enableAriaRTOSTask(symbol, event):
         symbol.setEnabled(True)
     else:
         symbol.setEnabled(False)
+
+def onAppFileEnabled(symbol, event):
+	symbol.setValue(event["value"])

@@ -40,6 +40,9 @@
 // DOM-IGNORE-END
 
 #include "gfx/libaria/libaria_events.h"
+<#if enableAppSupport == true>
+#include "app.h"
+</#if>
 
 <#if ARIA_EVENT_FUNCTIONS??>
 ${ARIA_EVENT_FUNCTIONS}
