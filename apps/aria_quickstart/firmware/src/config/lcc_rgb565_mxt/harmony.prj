@@ -539,8 +539,8 @@
           <Name dnOrder="1">libaria_events.c</Name>
           <LogicalPath dnOrder="2">config/lcc_rgb565_mxt/gfx/libaria</LogicalPath>
           <PhysicalPath dnOrder="3">/gfx/libaria/</PhysicalPath>
-          <GeneratedChecksum dnOrder="4">BD64FFDD0757B3A339F87AACE434519F</GeneratedChecksum>
-          <UserChecksum dnOrder="5">BD64FFDD0757B3A339F87AACE434519F</UserChecksum>
+          <GeneratedChecksum dnOrder="4">D720F2FEA1CCAEEF4CF05F5B06D7933E</GeneratedChecksum>
+          <UserChecksum dnOrder="5">D720F2FEA1CCAEEF4CF05F5B06D7933E</UserChecksum>
         </File>
         <File dnOrder="67">
           <Type dnOrder="0">SOURCE</Type>
