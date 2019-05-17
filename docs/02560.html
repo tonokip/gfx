@@ -182,11 +182,11 @@ Note: This is an easy way to keep the image visible in MHGC but prevent it from 
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-In _<strong><span class="Element146">APP_Image_Create</span>, </strong>a call to <strong><span class="Element146"><a href="01035.html" target="topic">laContext_GetActiveScreen</a>()</span></strong> issued to get a handle for the layer that will be the parent of the image. Then the image creation code from <strong>libaria_init.c</strong>, which was commented out there to create the image here<strong>.</strong>&nbsp;</p>
+In _<strong><span class="Element146">APP_Image_Create</span>, </strong>a call to <strong><span class="Element146"><a href="01034.html" target="topic">laContext_GetActiveScreen</a>()</span></strong> issued to get a handle for the layer that will be the parent of the image. Then the image creation code from <strong>libaria_init.c</strong>, which was commented out there to create the image here<strong>.</strong>&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-In <strong><span class="Element146">_APP_Image_Delete</span></strong> deleting the image with a call to<span class="Element146"> <strong><a href="02342.html" target="topic">laWidget_Delete</a></span></strong> will cause an exception. Before deleting the image it must first be removed as a child from its parent (<strong>layer0</strong>). A call to<span class="Element146"> <a href="01035.html" target="topic">laContext_GetActiveScreen</a>()</span> is used to get a handle for the parent layer. Then the image is removed as a child of the layer before being deleted.&nbsp;</p>
+In <strong><span class="Element146">_APP_Image_Delete</span></strong> deleting the image with a call to<span class="Element146"> <strong><a href="02342.html" target="topic">laWidget_Delete</a></span></strong> will cause an exception. Before deleting the image it must first be removed as a child from its parent (<strong>layer0</strong>). A call to<span class="Element146"> <a href="01034.html" target="topic">laContext_GetActiveScreen</a>()</span> is used to get a handle for the parent layer. Then the image is removed as a child of the layer before being deleted.&nbsp;</p>
 <p class="Element10">
 &nbsp;</p>
 <ol class="Element630">
@@ -223,7 +223,7 @@ In <strong><span class="Element146">_APP_Image_Delete</span></strong> deleting t
 <p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-If <strong><span class="Element146"><a href="01046.html" target="topic">laContext_IsDrawing</a>()</span></strong> returns <strong><span class="Element146">LA_TRUE</span></strong> then updating the image is postponed.&nbsp;</p>
+If <strong><span class="Element146"><a href="01045.html" target="topic">laContext_IsDrawing</a>()</span></strong> returns <strong><span class="Element146">LA_TRUE</span></strong> then updating the image is postponed.&nbsp;</p>
 <p class="Element10">
 This prevents <strong><span class="Element146">APP_Tasks</span></strong> from interfering with the ongoing work of the graphics layer.&nbsp;</p>
 <p class="Element10">

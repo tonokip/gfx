@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laButtonWidget_SetPressedImage Function</title>
+<title>laButtonWidget_SetPressedOffset Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="00781.html" target="topic">laButtonWidget_SetPressedImage Function</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="00781.html" target="topic">laButtonWidget_SetPressedOffset Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -32,9 +32,9 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="00780.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="00782.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laButtonWidget_SetPressedImage@laButtonWidget*@GFXU_ImageAsset* Topic Title: laButtonWidget_SetPressedImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laButtonWidget_SetPressedOffset@laButtonWidget*@int32_t Topic Title: laButtonWidget_SetPressedOffset Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laButtonWidget_SetPressedImage Function</div>
+laButtonWidget_SetPressedOffset Function</div>
 </div>
 </div>
 
@@ -46,11 +46,16 @@ laButtonWidget_SetPressedImage Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+This value will be applied to all of the contents of the button when it is pressed. This helps to visualize the button being pressed.</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02075.html" target="topic">laResult</a> <strong><span style="color: #000000">laButtonWidget_SetPressedImage</span></strong>(
-    <a href="00759.html" target="topic">laButtonWidget</a>* <strong><span style="color: #000000">btn</span></strong>, 
-    <a href="00559.html" target="topic">GFXU_ImageAsset</a>* <strong><span style="color: #000000">img</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02075.html" target="topic">laResult</a> <strong><span style="color: #000000">laButtonWidget_SetPressedOffset</span></strong>(
+    <a href="00758.html" target="topic">laButtonWidget</a>* <strong><span style="color: #000000">btn</span></strong>, 
+    int32_t <strong><span style="color: #000000">offs</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -72,9 +77,9 @@ laButtonWidget* btn&nbsp;</div></td><td class="Element306" valign="top" width="6
 the widget&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-GFXU_ImageAsset* img&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+int32_t&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-pointer to an image asset&nbsp;</div></td></tr></table></div></div>
+the distance value&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -89,7 +94,7 @@ Returns</div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="00781.html" target="topic">laButtonWidget_SetPressedImage Function</a></div>
+<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="00781.html" target="topic">laButtonWidget_SetPressedOffset Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -103,7 +108,7 @@ MPLAB Harmony Graphics Library Help</div>
 <a href="00780.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="00782.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laButtonWidget_SetPressedImage@laButtonWidget*@GFXU_ImageAsset* Topic Title: laButtonWidget_SetPressedImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laButtonWidget_SetPressedOffset@laButtonWidget*@int32_t Topic Title: laButtonWidget_SetPressedOffset Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
