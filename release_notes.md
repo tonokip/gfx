@@ -53,6 +53,10 @@
 | | Fixed Draw Surface widget not generating custom code|
 | | Fixed coded generation failure in MHC for radial menu widget|
 | | Added Alpha Enable flag to HAL|
+| | Fixed GLCD layer buffer swaps incorrectly|
+| | Fixed alpha blending of 32bpp images|
+| | Added parse to configLoad API|
+| | Fixed color masking for images|
 
 - **Graphics Application Templates** - The following table provides the list of updates for GFX templates use within MHC.
 
@@ -93,7 +97,9 @@ The current known issues are as follows:
 | rswdt\_timeout | SAM V71 Xplained Ultra Evaluation Kit  |
 | wdt\_timeout | SAM V71 Xplained Ultra Evaluation Kit  |
 
-* Code is compliant to MISRA C 2012 Mandatory guidelines, except for Rules R.9.1 and R.17.3
+* Code is compliant to MISRA C 2012 Mandatory guidelines, with the exception of Rule 9.1 (Code 530). 
+In gfx.c, the variable args is falsely detected in violation of Code 530: &quot;Symbol not initialized&quot at line 358.  In fact, va_start at line 358 is exactly where args is initialized.
+
 
 * Interactive help using the Show User Manual Entry in the Right-click menu for configuration options provided by this module is not yet available from within the MPLAB Harmony Configurator (MHC).  Please see the *Configuring the Library* section in the help documentation in the doc folder for this Harmony 3 module instead.  Help is available in both CHM and PDF formats.
 
