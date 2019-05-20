@@ -73,22 +73,27 @@
             </Boolean>
           </Attributes>
         </File>
-        <Boolean dnOrder="10" id="enableInput">
+        <Boolean dnOrder="10" id="enableAppSupport">
+          <Values dnOrder="0">
+            <Dynamic dnOrder="0" id="aria_gfx_library" value="true"/>
+          </Values>
+        </Boolean>
+        <Boolean dnOrder="11" id="enableInput">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_pda_tm5000" value="true"/>
           </Values>
         </Boolean>
-        <Integer dnOrder="11" id="rtosTaskPriority">
+        <Integer dnOrder="12" id="rtosTaskPriority">
           <Values dnOrder="0">
             <User dnOrder="0" value="2"/>
           </Values>
         </Integer>
-        <Boolean dnOrder="12" id="useGlobalPalette">
+        <Boolean dnOrder="13" id="useGlobalPalette">
           <Values dnOrder="0">
             <User dnOrder="0" value="false"/>
           </Values>
         </Boolean>
-        <Boolean dnOrder="13" id="useRTOSExtensions">
+        <Boolean dnOrder="14" id="useRTOSExtensions">
           <Values dnOrder="0">
             <Dynamic dnOrder="0" id="aria_gfx_library" value="true"/>
           </Values>
