@@ -122,7 +122,9 @@ void CLK_Initialize( void )
   
 
     /* Peripheral Module Disable Configuration */
-    PMD1 = 0xffffffff;
+//CUSTOM CODE - DO NOT MODIFY OR REMOVE!!
+    PMD1 = 0xefffffff;
+//END OF CUSTOM CODE
     PMD2 = 0xffffffff;
     PMD3 = 0xffffffff;
     PMD4 = 0xffffffff;
