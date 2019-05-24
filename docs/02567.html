@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Global Palette</title>
+<title>String Assets</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02580.html" target="topic">MHGC Tools</a> &gt; <a href="02567.html" target="topic">Global Palette</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02546.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02567.html" target="topic">String Assets</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02565.html" target="topic">Previous</a> | <a href="02580.html" target="topic">Up</a> | <a href="02573.html" target="topic">Next</a></div>
+<a href="02568.html" target="topic">Previous</a> | <a href="02546.html" target="topic">Up</a> | <a href="02530.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Global Palette Topic Title: Global Palette)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Global Palette</div>
+String Assets</div>
 </div>
 </div>
 
@@ -49,81 +49,89 @@ Global Palette</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The Global Palette window is launched from the Graphics Composer’s Asset pull-down menu.&nbsp;</p>
+The String Assets window is launched from the Graphics Composer’s Asset menu.&nbsp;</p>
 <p class="Element10">
-Using a Global Palette enables frame buffer compression for the LCC graphics controller. It creates a 256 color look up table (LUT) and then changes the entire user interface design to adhere to that LUT. Frame buffers are stored as 8 bits/pixel (bpp) indices rather than 16-32 bpp colors. The display driver performs a LUT operation to change each LUT index into a color before writing to the display/controller memory. This enables the use of double buffering, without using external memory, on devices that could not support it before. It also supports single buffering on larger displays. Of course, running the LUT requires more processing on the host. Currently only the LCC graphics controller supports this feature. The Aria demonstration Aria Basic Motion is an example of how using a Global Palette greatly improves the efficiency and capabilities of a design.&nbsp;</p>
-<p class="Element10">
-Enable the Global Palette by clicking on the Enable Global Palette check box in the window or using the <i>File &gt; Settings &gt; Color Settings</i> menu. (The Global palette can always be disabled. MHGC will then restore the project back to its original configuration.)&nbsp;</p>
-<p class="Element10">
-If the global palette is enabled here, you will have to check the &quot;Enable Global Palette Mode?&quot; in the Configuration Option for the Aria Graphics Library component in MHC's Project Graph: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Aria Graphics Library Component.png" border="0" alt="" title=""> <img src="MHGC UG Enable Global Palette Mode in Aria Config.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-The results of enabling the Global Palette:</p>
+The String Assets window supports managing the strings in the application. Strings are referenced by graphic widgets using an application-wide unique name. This unique name is built into an enumeration that the application’s C code uses. For each language supported text is defined and a font asset selected. </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+There are three dimensions to text support: Languages, Fonts, and Strings. Language “ID” strings are identified when an application supports more than one language. (In the case of single language support, the language default is provided.) Fonts are imported and organized using the Font Assets window. Strings are defined by a string name, and this name is used by widgets to reference the string. For each string and each language supported the glyphs are defined to spell out the string’s text and the font is chosen for that text.</p>
 <ul class="Element630">
-<li class="Element600">8bpp frame buffers. In the case of the most common demonstrations this means a 50% reduction in the size of the frame buffer.</li>
-<li class="Element600">This also opens up the capability to support a single frame buffer for some larger displays.</li>
-</ul><p class="Element10">
-What is lost by enabling the Global Palette:</p>
-<ul class="Element630">
-<li class="Element600">First and foremost - No Dynamic Colors. Dynamic colors are unlikely to match up with an entry in the global palette’s look-up table.</li>
-<li class="Element600">No alpha blending capability. The level of alpha blending can be changed during run-time. (See No Dynamic Colors.)</li>
-<li class="Element600">No JPEGs or PNGs. Again, no dynamic colors. All images in MGHC will be changed to the color mode of the project, and generated as Raw.</li>
-<li class="Element600">No font anti-aliasing. Again, no dynamic colors. While the 8-bits/pixel for each glyph is known, the color of the text depends on the color scheme used, and color schemes can change at run time.</li>
-<li class="Element600">Additional overhead when performing LUT (index-&gt;color) operations in the display driver.</li>
-</ul><p class="Element10">
-The following figure shows the default “Global Palette” when Project Color Mode is set to RGB_888. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Global Palette.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
+<li class="Element600">Languages are managed within the <a href="02568.html" target="topic">String Table Configuration</a> window</li>
+<li class="Element600">Fonts are managed within the <a href="02527.html" target="topic">Font Assets</a> window</li>
+<li class="Element600">Strings are managed within the String Assets window (this topic)</li>
+</ul><p class="Element68">
+&nbsp;</div></td></tr></table></div></div>
 <p class="Element10">
-This default palette is good for designs that use a wide array of colors. MHGC also supports developing a custom palette by importing an image defining the palette or by analyzing the pixel colors already in use by the application’s images. The palette’s color mode is determined by the Project Color Mode, which is determined by the graphics controller.&nbsp;</p>
-<p class="Element10">
-Clicking on an entry in the palette with bring up the Color Picker dialog window, allowing you to edit the entry’s color.</p><div class="Element15">
+The following figure shows an example taken from the <span class="Element145">Aria Coffee Maker</span> demonstration. The string name, InfoText_Desc9, defines a string asset that is used by the application. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets InfoText_Desc9.png" border="0" alt="" title=""></p><p class="Element10">
+The Total Size in Byte: for a string asset represents the memory needed to store the glyph indices for all the text defined for that string asset. Adding more text will increase the number of glyph indices needed thus increasing the size of the string’s memory. Adding another language will do the same, since the number of glyph indices also increases. Changing the font does not increase the size of the string’s memory, but may increase the size of the font chosen if it is a “bigger” font and adds more glyphs to the new font. (By “bigger” we mean a font with more pixels, for example because it is bigger in size, or perhaps because it is anti-aliased and the original font was not.) </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+The Reference Count shown reflects the number of build-time references to the string. Dynamic uses of a string, such as through macros or events, is not reflected in this number.&nbsp;</div></td></tr></table></div></div>
+<div class="Element15">
 Window Toolbar</div>
 <p class="Element10">
 There are four icons on the toolbar:</p>
 <ol class="Element630">
-<li value="1" class="Element600"><strong>Import From Image File</strong> - Importing a global palette from an image file. Selecting this brings up the following warning. Images can be imported as a BMP,.GIF, JPEG, and PNG (but not TIFF).</li>
+<li value="1" class="Element600"><strong>Add New String</strong> – Adds a new string.</li>
+<li value="2" class="Element600"><strong>Rename Selected Item</strong> – Allows renaming the string.</li>
+<li value="3" class="Element600"><strong>Describe Selected String</strong> - Provides a <i>Description</i> field value for selected string.</li>
+<li value="4" class="Element600"><strong>Create New Virtual Folder</strong> – Creates a new virtual folder, allowing the user to organize strings in a hierarchy. Here’s an example reorganization of the existing strings. Note the order of virtual folders or items in the list is strictly alphabetical. Virtual folders and string asset organization is merely for the convenience of the developer. Neither has an effect on how the application is built.</li>
 </ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Import Image Warning.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
+<img src="MHGC UG String Assets GPU_On.png" border="0" alt="" title=""></p>
 <ol class="Element630">
-<li value="2" class="Element600"><strong>Auto-Calculate Palette</strong> – Calculates a new palette using the current design. Selecting this brings up the following warning.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Auto-Calculate Global Palette Warning.png" border="0" alt="" title="">&nbsp;</p>
+<li value="5" class="Element600"><strong>Delete Selected Items</strong> – Deletes selected strings from the application.</li>
+<li value="6" class="Element600"><strong>Import String Table</strong> - Imports an Excel CSV (Comma Separated Value) file to replace the current string table.</li>
+<li value="7" class="Element600"><strong>Export String Table</strong> - Exports the current string table as an Excel CSV (Comma Separated Value) text file.</li>
+</ol><p class="Element10">
+&nbsp;</p>
+<div class="Element15">
+Creating New Strings</div>
+<p class="Element10">
+To create a new string, click Add New String ( <img src="MHGC UG Add New String Icon.png" border="0" alt="" title=""> ).&nbsp;</p>
+<p class="Element10">
+Selecting this icon opens the Add String dialog to name the string. The text chosen for the string name should be acceptable as a C variable. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Add String Dialog.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">Selecting <strong>Yes</strong> opens a status window that shows the progress made in selecting a palette of 256 colors</li>
-</ul><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Auto-Calculating Global Palette Progress Window.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+After entering the new string’s name and click Create, the following String Assets window appears. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG String Assets Add String.png" border="0" alt="" title=""></p><p class="Element10">
 &nbsp;</p>
-
-<ul class="Element630">
-<li class="Element600">This can be lengthy operation, but it will effectively generate a palette better tailored to the design. However, extreme (or rare) colors will be changed to nearby, more-plentiful colors, thereby eliminating some of the contrast in images. Whites will tend to darken and blacks lighten. This can be remedied by editing the calculated palette to whiten the whites, darken the blacks, and make other colors closer to the original. This of course may increase the posterization of the image, but that is a natural trade-off in using only 256 colors.</li>
-</ul>
-<ol class="Element630">
-<li value="3" class="Element600"><strong>Reset to Default</strong> – This returns the Global Palette to its default values, which opens the Reset Global Palette dialog.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Reset Global Palette Warning.png" border="0" alt="" title="">&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-&nbsp;</p>
-
-<ol class="Element630">
-<li value="4" class="Element600"><strong>Enable Global Palette</strong> – This performs the same function as <i>File &gt; Settings: Using a Global Palette</i>. Selecting this opens the Enable Global Palette Mode warning.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Enable Global Palette Mode Warning.png" border="0" alt="" title=""></p></div>
+<p class="Element10">
+In the String Assets window, there will be a line for each of the languages defined for the application. Provide the string text and font for each of the languages. An empty string will be used if the text is not provided. Not providing a font causes the string to be rendered as a string of boxes ( <img src="MHGC UG Unrendered Font Notification.png" border="0" alt="" title=""> ).</p><div class="Element15">
+Importing and Exporting String Tables</div>
+<p class="Element10">
+Importing an Excel CSV (Comma Separated Values) file replaces the existing string assets table. Exporting creates an Excel CSV file that can be imported into another project or target configuration. Exported string tables can be manipulated in Excel, even combining multiple string tables into a single string table that can then be imported.&nbsp;</p>
+<p class="Element10">
+If the string asset table contains UTF-8 then the file cannot be directly loaded into Excel. Instead, within Excel create a new sheet. Import the string table using <i>Get Data</i>, selecting <i>From File, From Text</i>, or <i>CSV</i>. Then in the dialog window change the <i>File Origin </i>to <i>Unicode (UTF-8</i>). </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""><strong> Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+Excel does not support importing UTF-16.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02569.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02580.html" target="topic">MHGC Tools</a> &gt; <a href="02567.html" target="topic">Global Palette</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02546.html" target="topic">Graphics Composer Asset Management</a> &gt; <a href="02567.html" target="topic">String Assets</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -131,13 +139,13 @@ There are four icons on the toolbar:</p>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02565.html" target="topic">Previous</a> | <a href="02580.html" target="topic">Up</a> | <a href="02573.html" target="topic">Next</a></div>
+<a href="02568.html" target="topic">Previous</a> | <a href="02546.html" target="topic">Up</a> | <a href="02530.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Global Palette Topic Title: Global Palette)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG String Assets Topic Title: String Assets)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

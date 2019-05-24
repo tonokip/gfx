@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laWindowWidget Structure</title>
+<title>libaria_input.h</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02487.html" target="topic">laWindowWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Files</a> &gt; <a href="02487.html" target="topic">libaria_input.h</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02483.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02595.html" target="topic">Next</a></div>
+<a href="02486.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02488.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWindowWidget Topic Title: laWindowWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_input.h Topic Title: libaria_input.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laWindowWidget Structure</div>
+libaria_input.h</div>
 </div>
 </div>
 
@@ -46,78 +46,260 @@ laWindowWidget Structure</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
+<a name="436F6D70616E79"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Structure: laWindowWidget_t&nbsp;</p>
-<p class="Element10">
-A window widget is an extension of a basic panel. It adds a title bar with text and an icon.</p></div>
+Microchip Technology Inc.</p></div>
 </div>
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laWindowWidget_t</span></strong> {
-  <a href="02340.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
-  <a href="02214.html" target="topic">laString</a> <strong><span style="color: #000000">title</span></strong>;
-  <a href="00559.html" target="topic">GFXU_ImageAsset</a>* <strong><span style="color: #000000">icon</span></strong>;
-  uint32_t <strong><span style="color: #000000">iconMargin</span></strong>;
-  <strong><span style="color: #000080">struct</span></strong> {
-    <a href="00414.html" target="topic">GFX_Rect</a> <strong><span style="color: #000000">barRect</span></strong>;
-  } paintData;
-  <a href="00506.html" target="topic">GFXU_ExternalAssetReader</a>* <strong><span style="color: #000000">reader</span></strong>;
-} laWindowWidget;</pre></div></div>
-<a name="4D656D62657273"></a><div class="Element14">
-Members</div>
+<a name="46696C65204E616D65"></a><div class="Element14">
+File Name</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element272">
+<p class="Element10">
+libaria_input.h</p></div>
+</div>
+<a name="4465736372697074696F6E"></a><div class="Element14">
+Description</div>
+<div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Module for Microchip Graphics Library - Aria User Interface Library</p></div>
+</div>
+<a name="456E756D65726174696F6E73"></a><div class="Element14">
+Enumerations</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
 <div class="TableDiv">
-<table cellspacing="0" class="Table4">
+<table cellspacing="0" class="Table0">
 <tr>
-<td class="Element260" valign="top" width="35%">
-<div class="Element261">
-Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
-<div class="Element265">
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-base widget class&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laString title;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-title text&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-GFXU_ImageAsset* icon;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-title icon&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t iconMargin;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-title icon margin&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-GFXU_ExternalAssetReader* reader;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-asset reader&nbsp;</div></td></tr></table></div></div>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01118.html" target="topic">laGestureID_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Placeholder for eventual gesture support.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01272.html" target="topic">laKey_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+All values possible for key entry from the libaria keyboard widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_enum.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01813.html" target="topic">laMouseButton_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+All values possible for mouse key entry from the libaria mouse input&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01118.html" target="topic">laGestureID</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Placeholder for eventual gesture support.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01272.html" target="topic">laKey</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+All values possible for key entry from the libaria keyboard widget&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01813.html" target="topic">laMouseButton</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+All values possible for mouse key entry from the libaria mouse input&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<a name="52656D61726B73"></a><div class="Element14">
-Remarks</div>
+<a name="46756E6374696F6E73"></a><div class="Element14">
+Functions</div>
 <div class="Element11">
 <div class="Element10">
-<p class="Element10">
-None.</p></div>
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01246.html" target="topic">laInput_GetEnabled</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Returns the input enabled status of the current context&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01247.html" target="topic">laInput_InjectTouchDown</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and track the touch down event and queue it for handling by associated widgets&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01248.html" target="topic">laInput_InjectTouchMoved</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and track the touch moved event and queue it for handling by associated widgets&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01249.html" target="topic">laInput_InjectTouchUp</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and track the touch up event and queue it for handling by associated widgets&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_method.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01250.html" target="topic">laInput_SetEnabled</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Sets the input status of the current context with the specified input argument&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="4D6163726F73"></a><div class="Element14">
+Macros</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02573.html" target="topic">NUM_BUTTONS</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro NUM_BUTTONS.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_interface.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02574.html" target="topic">NUM_KEYS</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This is macro NUM_KEYS.&nbsp;</div></td></tr></table></div></div>
+</div>
+</div>
+<a name="53747275637475726573"></a><div class="Element14">
+Structures</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element200" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element201">
+ &nbsp;</div></td><td class="Element200" valign="top" width="25%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01251.html" target="topic">laInput_TouchDownEvent_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch press detect event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01256.html" target="topic">laInput_TouchMovedEvent_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch coordinates changed event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01263.html" target="topic">laInput_TouchUpEvent_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch release detect event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01268.html" target="topic">laInputState_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Maintain a history of touch states; currently libaria keeps track of the last touch state only.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02265.html" target="topic">laTouchState_t</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Manage the touch input state and track the touch coordinate&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01251.html" target="topic">laInput_TouchDownEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch press detect event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01256.html" target="topic">laInput_TouchMovedEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch coordinates changed event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01263.html" target="topic">laInput_TouchUpEvent</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Register and handle the touch release detect event&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="01268.html" target="topic">laInputState</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Maintain a history of touch states; currently libaria keeps track of the last touch state only.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="10%" style="white-space: nowrap;">
+<div class="Element203">
+<img src="indicator_structure.gif" border="0" alt="" title="">&nbsp;</div></td><td class="Element202" valign="top" width="25%">
+<div class="Element203">
+<a href="02265.html" target="topic">laTouchState</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Manage the touch input state and track the touch coordinate&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02487.html" target="topic">laWindowWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Files</a> &gt; <a href="02487.html" target="topic">libaria_input.h</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -125,13 +307,13 @@ None.</p></div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02483.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02595.html" target="topic">Next</a></div>
+<a href="02486.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02488.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laWindowWidget Topic Title: laWindowWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: libaria_input.h Topic Title: libaria_input.h)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

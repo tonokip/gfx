@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>aria_coffeemaker Demonstration Example</title>
+<title>Heap Estimator</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02550.html" target="topic">Advanced Topics</a> &gt; <a href="02576.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="02551.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02558.html" target="topic">MHGC Tools</a> &gt; <a href="02551.html" target="topic">Heap Estimator</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02576.html" target="topic">Previous</a> | <a href="02576.html" target="topic">Up</a> | <a href="02587.html" target="topic">Next</a></div>
+<a href="02545.html" target="topic">Previous</a> | <a href="02558.html" target="topic">Up</a> | <a href="02570.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-aria_coffeemaker Demonstration Example</div>
+Heap Estimator</div>
 </div>
 </div>
 
@@ -49,37 +49,57 @@ aria_coffeemaker Demonstration Example</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Small buttons are hard to activate on the screen. The use of phantom (invisible) buttons can improve touch performance without increasing the size of the visible footprint of the button on the display.&nbsp;</p>
+Many parts of a graphics design are implemented using memory allocated from the application’s heap space. Therefore, it is important to allocate sufficient memory for the heap. This tool can estimate heap usage by the allocation based on the widgets, layers, screens, and decoders currently in the design.&nbsp;</p>
 <p class="Element10">
-The aria_coffee_maker has a sliding tray on each side of the display. Sliding a tray in, or out, is accomplished by a phantom (invisible) button. Looking at the left tray, we see the three parts of this phantom button.</p>
-<ol class="Element630">
-<li value="1" class="Element600"><i>LeftTrayLid</i>: An invisible button widget, whose outline is shown in blue. This area is the touch field.</li>
-<li value="2" class="Element600"><i>ImageWidget5</i>: An image widget containing a hand icon, providing a visual clue as to how to manipulate the tray.</li>
-<li value="3" class="Element600"><i>The Release Image and Pressed Image</i>: These are defined as part of the button widget properties. The Pressed Image has a darker coloring than the Released Image. This difference is what shows the user that the button has been pressed.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttraylid.png" border="0" alt="" title=""></p><p class="Element10">
-The drawing hierarchy for this part of the design is shows that ImageWidget5 is a daughter widget to the LeftTrayLid button widget. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Lefttray widget.png" border="0" alt="" title=""></p><p class="Element10">
-Examining the properties of the LeftTrayLid button widget reveals more about how this works. The following figure demonstrates these three properties.&nbsp;</p>
+When launching the tool from the Tools menu, the Heap Configuration window appears. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Heap Configuration.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-1. The <i>Border</i> is defined as <i>None</i>.&nbsp;</p>
+Clicking <strong>Calculate</strong> estimates heap usage. The following figure shows what occurs within the <a href="00000.html" target="topic">Aria Quickstart</a> demonstration if the heap space is only 4096 bytes: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Heap Configuration Insufficient Memory Alert.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p><p class="Element10">
+The <a href="02575.html" target="topic">Summary</a> tab shows how the estimated heap requirements was derived by summing up all the sizes shown under the “Size (Bytes)” column. Note that the largest contribution comes from the screen requiring the largest heap allocation (in this case MainMenu).&nbsp;</p>
 <p class="Element10">
-2. <i>Background Type</i> is defined as <i>None</i>.&nbsp;</p>
+If there is insufficient memory allocated to the heap, an exclamation point ( ! ) appears in the window. Hovering the mouse pointer over this icon and the following message appears: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Insufficient Heap Value.png" border="0" alt="" title=""></p><p class="Element10">
+The user can click <strong>Set MHC Heap Value</strong> to reset the heap allocation to match the estimated requirements. Selecting <strong>Add to MHC Heap Value</strong> adds the estimated heap requirements to the current heap value. (In the case above, this would change the heap allocation to 4096+10664 bytes.)&nbsp;</p>
 <p class="Element10">
-3. The different images used will show when the button is <i>Pressed</i> or <i>Released</i>.&nbsp;</p>
+Alternately, the user can set the heap allocation to a larger value by going to MHC's Project Graph panel, clicking on the System component, and then editing the Heap Size shown under the Configuration Options panel: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Setting Heap Size.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-&nbsp;</p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Left tray lid properties editor.png" border="0" alt="" title="">&nbsp;</p><p class="Element10">
-By setting the border and background to <i>None</i>, the button is invisible. Only by providing different images for <i>Released</i> versus <i>Pressed</i> does the user know when the button has been pressed.&nbsp;</p>
+The Screen Details tab (from the Aria Showcase demonstration) shows screen-by-screen the heap space needed for each layer and widget on the screen selected. </p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table3">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+After you have updated the Heap Size, either using the Heap Estimator tool or by directly editing the value as shown above, you must regenerate the project using the Generate Code button. This will update the actual heap size value used in building the application.&nbsp;</div></td></tr></table></div></div>
+<p class="Element10" style="text-align: center;">
+<img src="MHGC UG Heap Configuration Details.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
 <p class="Element10">
-The actual touch region defined by the button is much larger than the images shown on the display. This extra area increases the touch response of the display.</p></div>
+Clicking the “Name” column will alphabetize the list. Clicking the “Size (Bytes)” column sorts the assets by size, with the largest at the top and smallest at the bottom.&nbsp;</p>
+<p class="Element10">
+This sub-tab can help in managing the application’s utilization of heap space. For example, excess use of cached backgrounds for widgets can become ruinously expensive, expanding the application’s need for heap well beyond the capabilities of the device. As an example, consider a screen label from the Aria Showcase demonstration. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG List Wheel Widget Demo.png" border="0" alt="" title=""></p><p class="Element10">
+&nbsp;</p>
+<p class="Element10">
+The Heap Estimator tool shows that if caching is enabled for the label’s background, this widget requires 23699 bytes of heap to store the widget. Note that the label is twice the size of the text it contains, so one way of reducing the cost of the widget is to make it smaller, thereby reducing the number of background pixels that must be stored. If the label is resized, the heap allocation is reduced to 11688 bytes, which is a drop of appoximately 50%. Finally, if the background is changed from “Cache” to “Fill” the widget only needs 188 bytes.&nbsp;</p>
+<p class="Element10">
+The lesson learned is to use Cache as a background only for widgets where it is absolutely necessary and to make the “cached” widgets as small as possible.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="02594.html" target="topic">MPLAB Harmony Graphics Composer User's Guide</a> &gt; <a href="02550.html" target="topic">Advanced Topics</a> &gt; <a href="02576.html" target="topic">Improved Touch Performance with Phantom Buttons</a> &gt; <a href="02551.html" target="topic">aria_coffeemaker Demonstration Example</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02558.html" target="topic">MHGC Tools</a> &gt; <a href="02551.html" target="topic">Heap Estimator</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -87,13 +107,13 @@ The actual touch region defined by the button is much larger than the images sho
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02576.html" target="topic">Previous</a> | <a href="02576.html" target="topic">Up</a> | <a href="02587.html" target="topic">Next</a></div>
+<a href="02545.html" target="topic">Previous</a> | <a href="02558.html" target="topic">Up</a> | <a href="02570.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG aria_coffeemaker Demonstration Example Topic Title: aria_coffeemaker Demonstration Example)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Heap Estimator Topic Title: Heap Estimator)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

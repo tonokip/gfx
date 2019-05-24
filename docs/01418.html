@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laKeyPadWidget Structure</title>
+<title>laKeyPadWidget_SetKeyReleasedImage Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="01418.html" target="topic">laKeyPadWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01418.html" target="topic">laKeyPadWidget_SetKeyReleasedImage Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="01410.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="01425.html" target="topic">Next</a></div>
+<a href="01417.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="01419.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laKeyPadWidget Topic Title: laKeyPadWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laKeyPadWidget_SetKeyReleasedImage@laKeyPadWidget*@uint32_t@uint32_t@GFXU_ImageAsset* Topic Title: laKeyPadWidget_SetKeyReleasedImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laKeyPadWidget Structure</div>
+laKeyPadWidget_SetKeyReleasedImage Function</div>
 </div>
 </div>
 
@@ -46,87 +46,62 @@ laKeyPadWidget Structure</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="4465736372697074696F6E"></a><div class="Element11">
-<div class="Element10">
-<p class="Element10">
-Structure: <a href="01404.html" target="topic">laKeyPadCell_t</a>&nbsp;</p>
-<p class="Element10">
-A key pad is a widget that is comprised of an array of laButtonWidgets. This widget serves to issue edit events based on application or input interaction. Receptor edit widgets can then receive these edit events and react accordingly.</p></div>
-</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laKeyPadWidget_t</span></strong> {
-  <a href="02340.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
-  uint32_t <strong><span style="color: #000000">rows</span></strong>;
-  uint32_t <strong><span style="color: #000000">cols</span></strong>;
-  <a href="01400.html" target="topic">laKeyPadActionTrigger</a> <strong><span style="color: #000000">trigger</span></strong>;
-  <a href="01404.html" target="topic">laKeyPadCell</a>* <strong><span style="color: #000000">cells</span></strong>;
-  <a href="01430.html" target="topic">laKeyPadWidget_KeyClickEvent</a> <strong><span style="color: #000000">clickEvt</span></strong>;
-  <a href="00506.html" target="topic">GFXU_ExternalAssetReader</a>* <strong><span style="color: #000000">reader</span></strong>;
-} laKeyPadWidget;</pre></div></div>
-<a name="4D656D62657273"></a><div class="Element14">
-Members</div>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02053.html" target="topic">laResult</a> <strong><span style="color: #000000">laKeyPadWidget_SetKeyReleasedImage</span></strong>(
+    <a href="01396.html" target="topic">laKeyPadWidget</a>* <strong><span style="color: #000000">pad</span></strong>, 
+    uint32_t <strong><span style="color: #000000">row</span></strong>, 
+    uint32_t <strong><span style="color: #000000">col</span></strong>, 
+    <a href="00552.html" target="topic">GFXU_ImageAsset</a>* <strong><span style="color: #000000">img</span></strong>
+);</pre></div></div>
+<a name="506172616D6574657273"></a><div class="Element14">
+Parameters</div>
 <div class="Element11">
 <div class="Element10">
-<div class="Element272">
+<div class="Element312">
 <div class="TableDiv">
-<table cellspacing="0" class="Table4">
+<table cellspacing="0" class="Table1">
 <tr>
-<td class="Element260" valign="top" width="35%">
-<div class="Element261">
-Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
-<div class="Element265">
+<td class="Element300" valign="top" width="35%">
+<div class="Element301">
+Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
+<div class="Element305">
 Description&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-widget base class&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t rows;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-number of button rows&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-uint32_t cols;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-number of button columns&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laKeyPadActionTrigger trigger;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-trigger for action and events&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laKeyPadCell* cells;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-key cell array&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laKeyPadWidget_KeyClickEvent clickEvt;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-key click callback event&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-GFXU_ExternalAssetReader* reader;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-asset reader&nbsp;</div></td></tr></table></div></div>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+laKeyPadWidget* pad&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the widget&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t row&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the indicated row&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+uint32_t col&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the indicated column&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+GFXU_ImageAsset* img&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+pointer to an image asset&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
-<a name="52656D61726B73"></a><div class="Element14">
-Remarks</div>
+<a name="52657475726E73"></a><div class="Element14">
+Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-None.</p></div>
+<a href="02053.html" target="topic">laResult</a> - the result of the operation</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="01418.html" target="topic">laKeyPadWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="01418.html" target="topic">laKeyPadWidget_SetKeyReleasedImage Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -134,13 +109,13 @@ None.</p></div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="01410.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="01425.html" target="topic">Next</a></div>
+<a href="01417.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="01419.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laKeyPadWidget Topic Title: laKeyPadWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laKeyPadWidget_SetKeyReleasedImage@laKeyPadWidget*@uint32_t@uint32_t@GFXU_ImageAsset* Topic Title: laKeyPadWidget_SetKeyReleasedImage Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

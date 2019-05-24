@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laTextFieldWidget Structure</title>
+<title>laTouchTestWidget Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00468.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02276.html" target="topic">laTextFieldWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02276.html" target="topic">laTouchTestWidget Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02234.html" target="topic">Previous</a> | <a href="00468.html" target="topic">Up</a> | <a href="02306.html" target="topic">Next</a></div>
+<a href="02272.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02279.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTextFieldWidget Topic Title: laTextFieldWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTouchTestWidget Topic Title: laTouchTestWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laTextFieldWidget Structure</div>
+laTouchTestWidget Structure</div>
 </div>
 </div>
 
@@ -49,33 +49,28 @@ laTextFieldWidget Structure</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-Enumeration: laTextFieldWidget_t&nbsp;</p>
+Structure: laTouchTestWidget_t&nbsp;</p>
 <p class="Element10">
-A text field widget is a widget that is capable of displaying a single line of editable text. This widget is capable of receiving edit events from the Aria edit event system. It can also display a blinking cursor.</p></div>
+The touch test widget is a specialized widget that displays intersecting lines based on input events. This can help visualize touch interaction and aid determining accurate input coordinates.</p></div>
 </div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laTextFieldWidget_t</span></strong> {
-  <a href="01123.html" target="topic">laEditWidget</a> <strong><span style="color: #000000">editWidget</span></strong>;
-  <a href="02234.html" target="topic">laString</a> <strong><span style="color: #000000">text</span></strong>;
-  <a href="01187.html" target="topic">laHAlignment</a> <strong><span style="color: #000000">halign</span></strong>;
-  uint32_t <strong><span style="color: #000000">cursorPos</span></strong>;
-  uint32_t <strong><span style="color: #000000">cursorDelay</span></strong>;
-  uint32_t <strong><span style="color: #000000">cursorTime</span></strong>;
-  <a href="00764.html" target="topic">laBool</a> <strong><span style="color: #000000">cursorEnable</span></strong>;
-  <a href="00764.html" target="topic">laBool</a> <strong><span style="color: #000000">cursorVisible</span></strong>;
-  <a href="00764.html" target="topic">laBool</a> <strong><span style="color: #000000">clearOnFirstEdit</span></strong>;
-  <a href="02306.html" target="topic">laTextFieldWidget_TextChangedCallback</a> <strong><span style="color: #000000">textChangedEvent</span></strong>;
-  laTextFieldWidget_FocusChangedCallback <strong><span style="color: #000000">focusChangedEvent</span></strong>;
-  <a href="00526.html" target="topic">GFXU_ExternalAssetReader</a>* <strong><span style="color: #000000">reader</span></strong>;
-} laTextFieldWidget;</pre></div></div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laTouchTestWidget_t</span></strong> {
+  <a href="02318.html" target="topic">laWidget</a> <strong><span style="color: #000000">widget</span></strong>;
+  <a href="02272.html" target="topic">laTouchTestState</a> <strong><span style="color: #000000">state</span></strong>;
+  <a href="00398.html" target="topic">GFX_Point</a> <strong><span style="color: #000000">pnts</span></strong>[LA_TOUCHTEST_MEMORY_SIZE];
+  uint32_t <strong><span style="color: #000000">size</span></strong>;
+  uint32_t <strong><span style="color: #000000">start</span></strong>;
+  uint32_t <strong><span style="color: #000000">next</span></strong>;
+  <a href="02279.html" target="topic">laTouchTestWidget_PointAddedEventCallback</a> <strong><span style="color: #000000">cb</span></strong>;
+} laTouchTestWidget;</pre></div></div>
 <a name="4D656D62657273"></a><div class="Element14">
 Members</div>
 <div class="Element11">
 <div class="Element10">
 <div class="Element272">
 <div class="TableDiv">
-<table cellspacing="0" class="Table4">
+<table cellspacing="0" class="Table2">
 <tr>
 <td class="Element260" valign="top" width="35%">
 <div class="Element261">
@@ -84,64 +79,39 @@ Members&nbsp;</div></td><td class="Element264" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-laEditWidget editWidget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+laWidget widget;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-edit widget base class&nbsp;</div></td></tr><tr>
+widget base class&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-laString text;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+laTouchTestState state;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-the text to edit&nbsp;</div></td></tr><tr>
+touch test state&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-laHAlignment halign;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+GFX_Point pnts[LA_TOUCHTEST_MEMORY_SIZE];&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-horizontal alignment&nbsp;</div></td></tr><tr>
+touch point array&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-uint32_t cursorPos;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+uint32_t size;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-current cursor position&nbsp;</div></td></tr><tr>
+current number of valid touch points&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-uint32_t cursorDelay;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+uint32_t start;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-cursor blink delay&nbsp;</div></td></tr><tr>
+first valid touch point&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-uint32_t cursorTime;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+uint32_t next;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-current cursor tick counter&nbsp;</div></td></tr><tr>
+next available touch point entry&nbsp;</div></td></tr><tr>
 <td class="Element262" valign="top" width="35%">
 <div class="Element263">
-laBool cursorEnable;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
+laTouchTestWidget_PointAddedEventCallback cb;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
 <div class="Element267">
-cursor enabled flag&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laBool cursorVisible;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-cursor visbility flag&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laBool clearOnFirstEdit;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-needs clear on first edit&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laTextFieldWidget_TextChangedCallback textChangedEvent;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-text changed event&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-laTextFieldWidget_FocusChangedCallback focusChangedEvent;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-focus changed event&nbsp;</div></td></tr><tr>
-<td class="Element262" valign="top" width="35%">
-<div class="Element263">
-GFXU_ExternalAssetReader* reader;&nbsp;</div></td><td class="Element266" valign="top" width="65%">
-<div class="Element267">
-asset reader&nbsp;</div></td></tr></table></div></div>
+point added callback&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52656D61726B73"></a><div class="Element14">
@@ -156,7 +126,7 @@ None.</p></div>
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00469.html" target="topic">Aria User Interface Library</a> &gt; <a href="00468.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02276.html" target="topic">laTextFieldWidget Structure</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02276.html" target="topic">laTouchTestWidget Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -164,13 +134,13 @@ None.</p></div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02234.html" target="topic">Previous</a> | <a href="00468.html" target="topic">Up</a> | <a href="02306.html" target="topic">Next</a></div>
+<a href="02272.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02279.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTextFieldWidget Topic Title: laTextFieldWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laTouchTestWidget Topic Title: laTouchTestWidget Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

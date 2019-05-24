@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>laRectArray_PopFront Function</title>
+<title>laScheme Structure</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,7 +18,7 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02057.html" target="topic">laRectArray_PopFront Function</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02057.html" target="topic">laScheme Structure</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -26,15 +26,15 @@
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02056.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02058.html" target="topic">Next</a></div>
+<a href="02053.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02076.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRectArray_PopFront@laRectArray* Topic Title: laRectArray_PopFront Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laScheme Topic Title: laScheme Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-laRectArray_PopFront Function</div>
+laScheme Structure</div>
 </div>
 </div>
 
@@ -46,44 +46,46 @@ laRectArray_PopFront Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Enumeration: laScheme_t&nbsp;</p>
+<p class="Element10">
+A scheme is a collection of colors that can be referenced by widgets or other objects. While the color names strive to be intuitive they aren't always used in the manner in which they describe.</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <a href="02075.html" target="topic">laResult</a> <strong><span style="color: #000000">laRectArray_PopFront</span></strong>(
-    <a href="02049.html" target="topic">laRectArray</a>* <strong><span style="color: #000000">arr</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element312">
-<div class="TableDiv">
-<table cellspacing="0" class="Table3">
-<tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-laRectArray* arr&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-pointer to the array to modify&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">struct</span></strong> <strong><span style="color: #000000">laScheme_t</span></strong> {
+  GFX_Color <strong><span style="color: #000000">base</span></strong>;
+  GFX_Color <strong><span style="color: #000000">highlight</span></strong>;
+  GFX_Color <strong><span style="color: #000000">highlightLight</span></strong>;
+  GFX_Color <strong><span style="color: #000000">shadow</span></strong>;
+  GFX_Color <strong><span style="color: #000000">shadowDark</span></strong>;
+  GFX_Color <strong><span style="color: #000000">foreground</span></strong>;
+  GFX_Color <strong><span style="color: #000000">foregroundInactive</span></strong>;
+  GFX_Color <strong><span style="color: #000000">foregroundDisabled</span></strong>;
+  GFX_Color <strong><span style="color: #000000">background</span></strong>;
+  GFX_Color <strong><span style="color: #000000">backgroundInactive</span></strong>;
+  GFX_Color <strong><span style="color: #000000">backgroundDisabled</span></strong>;
+  GFX_Color <strong><span style="color: #000000">text</span></strong>;
+  GFX_Color <strong><span style="color: #000000">textHighlight</span></strong>;
+  GFX_Color <strong><span style="color: #000000">textHighlightText</span></strong>;
+  GFX_Color <strong><span style="color: #000000">textInactive</span></strong>;
+  GFX_Color <strong><span style="color: #000000">textDisabled</span></strong>;
+} laScheme;</pre></div></div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-<a href="02075.html" target="topic">laResult</a> - the result of the operation</p></div>
+None.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00460.html" target="topic">Graphics Library Help</a> &gt; <a href="00454.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00449.html" target="topic">Aria User Interface Library</a> &gt; <a href="00448.html" target="topic">Aria User Interface Library Interface</a> &gt; a) Functions &gt; <a href="02057.html" target="topic">laRectArray_PopFront Function</a></div>
+<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00446.html" target="topic">Aria User Interface Library</a> &gt; <a href="00445.html" target="topic">Aria User Interface Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="02057.html" target="topic">laScheme Structure</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
@@ -91,13 +93,13 @@ Returns</div>
 MPLAB Harmony Graphics Library Help</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00362.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02056.html" target="topic">Previous</a> | <a href="00448.html" target="topic">Up</a> | <a href="02058.html" target="topic">Next</a></div>
+<a href="02053.html" target="topic">Previous</a> | <a href="00445.html" target="topic">Up</a> | <a href="02076.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laRectArray_PopFront@laRectArray* Topic Title: laRectArray_PopFront Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: laScheme Topic Title: laScheme Structure)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->
