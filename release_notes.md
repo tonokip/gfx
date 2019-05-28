@@ -1,9 +1,9 @@
-# Microchip MPLAB Harmony 3 Release Notes
-## GFX Release v3.3.0
+# Microchip MPLAB® Harmony 3 Graphics Release Notes
+## Graphics Release v3.3.0
 ### NEW FEATURES
 
 
-- **GFX Contents** - This GFX release consist of apps, displays, drivers, hardware abstractions, input, middleware, and templates. The following table lists the contents in this GFX release.
+- **Graphics Contents** - This graphics release consist of apps, displays, drivers, hardware abstractions, input, middleware, and templates. The following table lists the contents in this graphics release.
 
 | Category | Component | Description | Release Type | 
 | --- | --- | ---- |---- |
@@ -58,12 +58,12 @@
 | | Added parse to configLoad API|
 | | Fixed color masking for images|
 
-- **Graphics Application Templates** - The following table provides the list of updates for GFX templates use within MHC.
+- **Graphics Application Templates** - The following table provides the list of updates for graphics templates use within MHC.
 
 | Template | Description |
 | --- | --- |
-| oled1_xpro| Fixed C21 GFX templates to target C21 XPLD board|
-| xplained_pro| Fixed C21 GFX templates to target C21 XPLD board|
+| oled1_xpro| Fixed C21 graphics templates to target C21 XPLD board|
+| xplained_pro| Fixed C21 graphics templates to target C21 XPLD board|
 | pda_tm4301b| Fixed PDA TM4301B template causing stretch display output|
 
 - **Board Support Packages (BSP)s** - The following table provides the list of updates for board support packages for use within MHC.
@@ -78,7 +78,7 @@
 | --- | --- |
 | MPLAB Harmony 3 Interactive Help | Added interactive help menu using Show User Manual Mouse Right-click  |
 
-- **Development kit support** - The following table provides  applications available for different development kits.
+- **Development kit support** - The following table lists  applications available for different development kits.
 
 | Applications | [SAM C21N Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAMC21-XPRO) | [SAM E54 Xplained Pro Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME54-XPRO) | [SAM E70 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/PartNO/ATSAME70-XPLD) | [SAM A5D2 Xplained Ultra Evaluation Kit](https://www.microchip.com/developmenttools/ProductDetails/atsama5d2c-xult) | [Multimedia Expansion Board II](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320005-5) |
 | --- | --- | --- | --- | --- | --- |
@@ -88,18 +88,8 @@
 
 The current known issues are as follows:
 
-* The ICD4 loads the reset line of the SAM V71 Xplained Ultra board. The following demo projects drive the reset line and requires the ICD4 flex cable to be removed after programming to run the application.
-
-| Project Name | Development Kit |
-| --- | --- |
-| supc\_wakeup\_rtc | SAM V71 Xplained Ultra Evaluation Kit  |
-| supc\_wakeup\_rtt | SAM V71 Xplained Ultra Evaluation Kit  |
-| rswdt\_timeout | SAM V71 Xplained Ultra Evaluation Kit  |
-| wdt\_timeout | SAM V71 Xplained Ultra Evaluation Kit  |
-
 * Code is compliant to MISRA C 2012 Mandatory guidelines, with the exception of Rule 9.1 (Code 530). 
 In gfx.c, the variable args is falsely detected in violation of Code 530: &quot;Symbol not initialized&quot; at line 358.  In fact, va_start at line 358 is exactly where args is initialized.
-
 
 * Interactive help using the Show User Manual Entry in the Right-click menu for configuration options provided by this module is not yet available from within the MPLAB Harmony Configurator (MHC).  Please see the *Configuring the Library* section in the help documentation in the doc folder for this Harmony 3 module instead.  Help is available in both CHM and PDF formats.
 
@@ -109,20 +99,18 @@ In gfx.c, the variable args is falsely detected in violation of Code 530: &quot;
 
 * Project regeneration from command line can remove Aria generated screens and widgets.
 
-* Touch is intermittently working on SSD1963 and SAME70/E54 Aria Quickstart solution
-
 * MHGC GAC does not generated a 2DGPU comaptible palette table. A translation step is required to create word values from little endian byte array. 
 
 ### DEVELOPMENT TOOLS
 
 | Tool | Version |
 | --- | --- |
-| [MPLAB X IDE v5.10](https://www.microchip.com/mplab/mplab-x-ide) | v5.10 |
-| [MPLAB XC32 C/C++ Compiler](https://www.microchip.com/mplab/compilers)      | v2.15 | 
+| [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) | v5.20 |
+| [MPLAB XC32 C/C++ Compiler](https://www.microchip.com/mplab/compilers)      | v2.20 | 
 | MPLAB X IDE plug-ins          |  |
-| MPLAB Harmony Configurator (MHC) plug-in   | v3.2.0 | 
-| Harmony 3 BSP (https://github.com/Microchip-MPLAB-Harmony/bsp)   | v3.2.1 |
-| Harmony 3 CSP (https://github.com/Microchip-MPLAB-Harmony/csp)  | v3.2.1 |
-| Harmony 3 Core (https://github.com/Microchip-MPLAB-Harmony/core)  | v3.2.1 |
-| Harmony 3 GFX (https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.2.0 |
-| Harmony 3 Dev_Packs (https://github.com/Microchip-MPLAB-Harmony/dev_packs)   | v3.2.1 |
+| MPLAB Harmony Configurator (MHC) plug-in   | v3.3.0 | 
+| Harmony 3 BSP (https://github.com/Microchip-MPLAB-Harmony/bsp)   | v3.3.0 |
+| Harmony 3 CSP (https://github.com/Microchip-MPLAB-Harmony/csp)  | v3.3.0 |
+| Harmony 3 Core (https://github.com/Microchip-MPLAB-Harmony/core)  | v3.3.0|
+| Harmony 3 Graphics (https://github.com/Microchip-MPLAB-Harmony/gfx)   | v3.3.0 |
+| Harmony 3 Dev_Packs (https://github.com/Microchip-MPLAB-Harmony/dev_packs)   | v3.3.0 |
