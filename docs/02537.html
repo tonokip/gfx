@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Lesson 1: Dynamic Images, Part 1</title>
+<title>Graphics Composer Events</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02528.html" target="topic">Advanced Topics</a> &gt; <a href="02535.html" target="topic">Dynamic Graphics</a> &gt; <a href="02537.html" target="topic">Lesson 1: Dynamic Images, Part 1</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02566.html" target="topic">Designer</a> &gt; <a href="02542.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02552.html" target="topic">MHGC Tools</a> &gt; <a href="02536.html" target="topic">Event Manager</a> &gt; <a href="02537.html" target="topic">Graphics Composer Events</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02536.html" target="topic">Previous</a> | <a href="02535.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
+<a href="02536.html" target="topic">Previous</a> | <a href="02536.html" target="topic">Up</a> | <a href="02539.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Images, Part 1 Topic Title: Lesson 1: Dynamic Images, Part 1)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Graphics Composer Events Topic Title: Graphics Composer Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Lesson 1: Dynamic Images, Part 1</div>
+Graphics Composer Events</div>
 </div>
 </div>
 
@@ -49,162 +49,78 @@ Lesson 1: Dynamic Images, Part 1</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-This tutorial lesson shows how to add a simple event to the Aria Quickstart demonstration’s button. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG QuickStart Home Screen.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-Pressing the “Make Changes. Generate. Run.” button will hide the MPLAB Harmony Logo image. Releasing the button will restore the logo. (For details on how to load, build, program, and run this project, see MPLAB Harmony Graphics Library Help &gt; Graphics Demonstrations &gt; Demonstrations &gt; aria_quickstart.)&nbsp;</p>
-<p class="Element10">
-&nbsp;</p>
-<p class="Element10">
-<strong>The steps are as follows:</strong>&nbsp;</p>
-<p class="Element10">
-1. Make a copy of the ./gfx/apps/aria_quickstart folder on your hard drive.&nbsp;</p>
-<p class="Element10">
-(Located at .\gfx\apps\aria_quickstart\firmware\aria_qs_e70_xu_tm4301b.X)&nbsp;</p>
-<p class="Element10">
-Then Load the copied aria_quickstart project into the MPLAB.X IDE.&nbsp;</p>
-<p class="Element10">
-2. Launch the MPLAB Harmony Configurator: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Launch H3 Configurator.png" border="0" alt="" title=""></p><p class="Element10">
-3. Open the project’s default saved state: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Config Save State.png" border="0" alt="" title=""></p><p class="Element10">
-4. Select the Graphics Composer from the MHC Pull-Down Menu which will open a new window for the MPLAB Harmony Graphics Composer: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Pull Down Menu.png" border="0" alt="" title=""></p><p class="Element10">
-&nbsp;</p>
-<p class="Element10" style="text-align: center;">
-<img src="MHGC UG Graphics Composer.png" border="0" alt="" title="">&nbsp;</p>
+The Graphics Composer Screen Designer shows that there is one layer and three widgets in this demonstration. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Graphics Composer Events Tree View.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-5. Select the Composer Screen Designer panel and select the <strong>ButtonWidget1</strong> (“Make changes. Generate. Run”): </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ButtonWidget1.png" border="0" alt="" title=""></p><p class="Element10">
-6. Under the Properties Edtor panel on the right side of the screen, the properties of ButtonWidget1 should appear. Make the button <strong>Toggleable</strong>: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ButonWidget1 Toggle.png" border="0" alt="" title=""></p><p class="Element10">
-7. Enable the <strong>Pressed</strong> and <strong>Released</strong> events: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ButtonWidget1 PressRelease.png" border="0" alt="" title=""></p><p class="Element10">
-8. Click the button on the right side to bring up the<strong> Events Editor</strong> for the <strong>Pressed</strong> event and create a new action. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Create New.png" border="0" alt="" title=""></p><p class="Element10">
-9. When the <strong>Action Edit</strong> dialog appears. Enter the name <strong>ButtonPressed</strong> and click <strong>Next</strong>.&nbsp;</p>
-<p class="Element10">
-10. Now select which widget the <strong>ButtonPressed</strong> event of ButtonWidget1 affects. This event can affect any of the display's widgets. However, the objective is for the <strong>ButtonPressed</strong> event to change the visibility of the <strong>ImageWidget1</strong> widget (MPLAB Harmony Logo).&nbsp;</p>
-<p class="Element10">
-Therefore, select <strong>ImageWidget1</strong> and click <strong>Next</strong>: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ImageWidget1 ActionEdit.png" border="0" alt="" title=""></p><p class="Element10">
-11. The next dialog window provides instructions to select the action associated with this event. There are many choices, from Adjust Position to Set Y Position, all of which are related to properties of the image widget. Select <strong>Set Visible</strong> as the action, and then click <strong>Next</strong>: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ButtonPress_AED.png" border="0" alt="" title=""></p><p class="Element10">
-12. Set the argument for the Set Visible action by disabling visibility: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ButtonPress_SetVis.png" border="0" alt="" title="">&nbsp;</p>
+Of the three widgets shown above, only ButtonWidget1 can have events associated with it, one for button pressed and a second for button released. This can be seen in the Graphics Composer Event Manager window, which is available from the Tools menu: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Event Management Pressed.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-Then select the <strong>Finish</strong> button. This action resurfaces the<strong> Event Editor – Pressed</strong> dialog. Click on <strong>OK</strong> to close this dialog.&nbsp;</p>
-<p class="Element10">
-13. Follow the same steps for the <strong>Released</strong> event, but instead create a new event named <strong>ButtonReleased</strong>. Use the same <strong>Set Visible</strong> action as before but leave the visibility argument enabled. This will restore the logo’s visibility when the button is released.&nbsp;</p>
-<p class="Element10">
-14. Close the Graphics Composer window and save the new design. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG CloseComposer.png" border="0" alt="" title="">&nbsp;</p>
+The events shown under “ButtonWidget1” are mirrored in the widget’s properties. Selecting or clearing an event in one window does the same in the other window, thus enabling (selecting) or disabling (clearing) the corresponding event. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Event Selection.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
 &nbsp;</p>
+<p class="Element10">
+We can add a Check Box widget to the applications display and then use the Event Manager to assign actions to the widget’s events. A Check Box widget has two events, one for being “Checked” (i.e., selected) and another for being “Unchecked” (i.e., cleared). Enabling the “Checked” event then allows the selection of the action or actions for that event. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Checked Unchecked Events.png" border="0" alt="" title="">&nbsp;</p>
 <p class="Element10" style="text-align: center;">
-&nbsp;</p><p class="Element10">
-15. In the MPLAB Harmony Configurator (MHC) window save the new configuration, since it has been modified. Generate code for this new project configuration by selecting the Generate icon&nbsp;</p>
-<p class="Element10">
-( <img src="MHGC UG GenerateCodeSelection.png" border="0" alt="" title="">). Select <strong>USER_ALL</strong> as the Merging Strategy, since a review all the changes made to the graphics design is not necessary. Then select the <strong>Generate</strong> button to generate the new code that implements the events that have just been added.&nbsp;</p>
-<p class="Element10">
-16. Select the <strong>Run Main Project</strong> icon (<img src="MHGC UG RunMainProject.png" border="0" alt="" title=""> ) to build, load, and run this new configuration.&nbsp;</p>
-<p class="Element10">
-17. Pressing the screen’s button should hide the logo and releasing the button should cause the logo to reappear.&nbsp;</p>
-<p class="Element10">
-Exploring the code:&nbsp;</p>
-<p class="Element10">
-Double click on the libaria_events.c file to examine the graphics events just created:&nbsp;</p>
-<p class="Element10">
 &nbsp;</p>
 <p class="Element10">
-<strong>Exploring the code</strong>:&nbsp;</p>
-<p class="Element10">
-Double click on the libaria_events.c file to examine the graphics events just created: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ExploreEvents.png" border="0" alt="" title=""></p><p class="Element10">
-(This file is located in .\aria_quickstart\firmware\src\config\lcc_rgb565_mxt\gfx\libaria folder.)&nbsp;</p>
-<p class="Element10">
-The two events are defined in:&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element13"><div class="Element12"><pre class="Element12"><strong><span style="color: #000080">#include</span></strong> &quot;gfx/libaria/libaria_events.h&quot;
-
-<i><span style="color: #008000">// ButtonWidget1 - PressedEvent</span></i>
-<strong><span style="color: #000080">void</span></strong> ButtonWidget1_PressedEvent(laButtonWidget* btn)
-{
-    <i><span style="color: #008000">// ButtonPressed - Set Visible - ImageWidget1</span></i>
-    laWidget_SetVisible((laWidget*)ImageWidget1, LA_FALSE);
-}
-
-<i><span style="color: #008000">// ButtonWidget1 - ReleasedEvent</span></i>
-<strong><span style="color: #000080">void</span></strong> ButtonWidget1_ReleasedEvent(laButtonWidget* btn)
-{
-    <i><span style="color: #008000">// ButtonReleased - Set Visible - ImageWidget1</span></i>
-    laWidget_SetVisible((laWidget*)ImageWidget1, LA_TRUE);
-}</pre></div></div>
-<p class="Element10">
+The Actions: sub-window has five tool icons for managing the actions associated with an event: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Actions Subwindow.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-The MPLAB Logo image is created in the ScreenCreate_default function found in libaria_init.c.&nbsp;</p>
-<p class="Element10">
-(Located in the same folder as libaria_events.c):&nbsp;</p>
-<p class="Element10">
-&nbsp;</p><div class="Element13"><div class="Element12"><pre class="Element12"><strong><span style="color: #000080">static</span></strong> <strong><span style="color: #000080">void</span></strong> ScreenCreate_default(laScreen* screen)
-{
-    laLayer* layer0;
-
-    layer0 = laLayer_New();
-    laWidget_SetPosition((laWidget*)layer0, 0, 0);
-    laWidget_SetSize((laWidget*)layer0, 480, 272);
-    laWidget_SetBackgroundType((laWidget*)layer0, LA_WIDGET_BACKGROUND_FILL);
-    laLayer_SetBufferCount(layer0, 1);
-    laLayer_SetVSync(layer0, LA_FALSE);
-
-    laScreen_SetLayer(screen, 0, layer0);
-        .
-        .
-        .
-    ImageWidget1 = laImageWidget_New();
-    laWidget_SetPosition((laWidget*)ImageWidget1, 113, 39);
-    laWidget_SetSize((laWidget*)ImageWidget1, 242, 150);
-    laWidget_SetBackgroundType((laWidget*)ImageWidget1, LA_WIDGET_BACKGROUND_NONE);
-    laWidget_SetBorderType((laWidget*)ImageWidget1, LA_WIDGET_BORDER_NONE);
-    laImageWidget_SetImage(ImageWidget1, &amp;NewHarmonyLogo);
-    laWidget_AddChild((laWidget*)layer0, (laWidget*)ImageWidget1);
-        .
-        .
-        .
-}</pre></div></div>
-<p class="Element10">
+Clicking the Create New Action icon ( <img src="MHGC UG Create New Action Icon.png" border="0" alt="" title=""> ) opens the Action Edit dialog. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Action Edit Dialog.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
 &nbsp;</p>
 <p class="Element10">
-One might ask whether it would be more “efficient” to delete the image widget instead of setting it to be invisible and then recreating it again to make it visible. Launching the <strong>Heap Estimator</strong> tool from the MPLAB Harmony Graphics Configurator (MHGC) Tools menu and then selecting <strong>Calculate</strong> shows that only 172 bytes of heap space is used to create the image in the first place: </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG ImageWidgetHeapEst.png" border="0" alt="" title=""></p><p class="Element10">
-So not much heap space is saved by deleting the image. It is simpler to hide/reveal the image using the visibility property instead. Note that the logo image is stored separately in flash memory.</p></div>
+Select Custom and click <strong>Next</strong>, the user will see the following dialog. Unfortunately, there is no C code error checking with this window. It just copies the code into libaria.c and libaria.h. If there is a problem with the code, the user will not know about it until the user try to build the application. An alternative is just to type a comment such as /*My event goes here*/, generate the code, and then find out where this comment landed in the code. (Typically, inside libaria_events.c, or libaria_macros.c) The user can then write the action routine from within the MPLAB X IDE editor and compile just that file to debug the code written. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Action Edit Dialog CheckBoxAction.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+If Template is selected, the Action Edit dialog will update, as follows. Select ButtonWidget1. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Action Edit Dialog Template Selection.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+As shown previously, the user next needs to select the widget that if the desire is to manipulate with this action. Note that the event originated with CheckBoxWidget1, but the event’s action can manipulate any of the existing widgets. In this case, ButtonWidget1 has been selected. Clicking Next will then bring up a list of the actions available in manipulating a button widget. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Action Edit Dialog Set Text.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+Select the “Set Text” action, which will then change the button’s text property, followed by NEXT, which will open a dialog to select the text string for this action. </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG Action Edit Dialog Select Text String.png" border="0" alt="" title="">&nbsp;</p>
+<p class="Element10" style="text-align: center;">
+&nbsp;</p>
+<p class="Element10">
+Next, select from the available (already defined) strings which text to use for the button’s text field. Press the Finish button to complete the definition of this action.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02528.html" target="topic">Advanced Topics</a> &gt; <a href="02535.html" target="topic">Dynamic Graphics</a> &gt; <a href="02537.html" target="topic">Lesson 1: Dynamic Images, Part 1</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02566.html" target="topic">Designer</a> &gt; <a href="02542.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02552.html" target="topic">MHGC Tools</a> &gt; <a href="02536.html" target="topic">Event Manager</a> &gt; <a href="02537.html" target="topic">Graphics Composer Events</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02536.html" target="topic">Previous</a> | <a href="02535.html" target="topic">Up</a> | <a href="02538.html" target="topic">Next</a></div>
+<a href="02536.html" target="topic">Previous</a> | <a href="02536.html" target="topic">Up</a> | <a href="02539.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Dynamic Images, Part 1 Topic Title: Lesson 1: Dynamic Images, Part 1)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Event Mgr Graphics Composer Events Topic Title: Graphics Composer Events)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

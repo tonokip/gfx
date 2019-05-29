@@ -7,26 +7,26 @@
 
 | Category | Component | Description | Release Type | 
 | --- | --- | ---- |---- |
-| apps | aria_quickstart | Getting started in Graphics | Beta|
-| displays | ATMXT-XPRO-480x320 | ATMXT Xplained Pro 480x320| Beta |
+| apps | aria_quickstart | Getting started in Graphics | N/A|
+| displays | ATMXT-XPRO-480x320 | ATMXT Xplained Pro 480x320| Production |
 |      | ATOLED1_XPRO-128x32 | AT OLED Xplained Pro 128x32| Beta |
-|      | PDA TM4301B 480x272| PDA 4.3" 480x272 | Beta |
+|      | PDA TM4301B 480x272| PDA 4.3" 480x272 | Production |
 |      | PDA TM50000 800x480| PDA 5" 800x480 | Beta |
 |  drivers    | glcd | Graphics 3 Layer Display Driver | Beta |
 |      | ili9488| Display Driver for the ili9488 Controller |Beta | 
-|      | interface | Display Driver interface driver | Beta |
-|      | LCC | Display Driver for the LCC software Controller| Beta |
+|      | interface | Display Driver interface driver | Production |
+|      | LCC | Display Driver for the LCC software Controller| Production |
 |      | LCDC | Display Driver for the LCDC Controller| Beta |
 |      | ssd1306 | Display Driver for the ssd1306 Controller  | Beta |
 |      | ssd1963 | Display Driver for the ssd1963 Controller |     Beta |
-|  hal    | hal | Aria Hardware Abstration Layer | Beta |
-|  input    | maxtouch | Microchip maXTouch Touch Input Driver | Beta |
-|  middleware    | aria | Harmony Graphics Middleware Solution | Beta |
+|  hal    | hal | Aria Hardware Abstration Layer | Production |
+|  input    | maxtouch | Microchip maXTouch Touch Input Driver | Production |
+|  middleware    | aria | Harmony Graphics Middleware Solution | Production |
 | templates   | aria_gfx_oled1_xpro | MHC for oled xpro| Beta |
-|             | aria_gfx_pda_tm4301b| MHC config for pda 4" display | Beta |
+|             | aria_gfx_pda_tm4301b| MHC config for pda 4" display | Production |
 |             | aria_gfx_pda_tm5000| MHC config for pda 5" display | Beta |
-|             | aria_gfx_xplained_pro| MHC config for xpro | Beta |
-|             | common| MHC config for common board |Beta |
+|             | aria_gfx_xplained_pro| MHC config for xpro | Production |
+|             | common| MHC config for common board |Production |
 
 - **Driver support** - The following table provides the list of updates for graphics and input drivers.
 
@@ -100,6 +100,8 @@ In gfx.c, the variable args is falsely detected in violation of Code 530: &quot;
 * Project regeneration from command line can remove Aria generated screens and widgets.
 
 * MHGC GAC does not generated a 2DGPU comaptible palette table. A translation step is required to create word values from little endian byte array. 
+
+* Applications for PIC32MZ DA using external DDR are only supported on Rev A1 silicon.
 
 ### DEVELOPMENT TOOLS
 

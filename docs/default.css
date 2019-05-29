@@ -11,26 +11,26 @@ pre {
     width: 100%;
 }
 
+table.Table3 {
+    width: 100%;
+    font-size: 9pt;
+}
+
+table.Table4 {
+    width: 100%;
+    font-size: 9pt;
+}
+
 table.Table1 {
     width: 100%;
     font-size: 9pt;
 }
 
-table.Table2 {
-    width: 100%;
-    font-size: 9pt;
-}
-
 table.Table0 {
-    width: 100%;
     font-size: 9pt;
 }
 
-table.Table3 {
-    font-size: 9pt;
-}
-
-table.Table4 {
+table.Table2 {
     font-size: 9pt;
 }
 

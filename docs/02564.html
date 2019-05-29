@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Screens Panel</title>
+<title>Widget Colors</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02564.html" target="topic">Screens Panel</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02566.html" target="topic">Designer</a> &gt; <a href="02542.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02564.html" target="topic">Widget Colors</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="02569.html" target="topic">Previous</a> | <a href="02547.html" target="topic">Up</a> | <a href="02562.html" target="topic">Next</a></div>
+<a href="02546.html" target="topic">Previous</a> | <a href="02542.html" target="topic">Up</a> | <a href="02548.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Screens Panel Topic Title: Screens Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Colors Topic Title: Widget Colors)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Screens Panel</div>
+Widget Colors</div>
 </div>
 </div>
 
@@ -48,58 +48,196 @@ Screens Panel</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
+<div class="Element15">
+Widget Colors</div>
 <p class="Element10">
-The Screens panel tab manages all the application’s screens, as shown in the following figure. </p><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Screens Panel UI.png" border="0" alt="" title=""></p><div class="Element63">
+Widget coloring can be customized by creating additional color schemes and assigning these customized schemes to a subset of the widgets uses. For example, a ButtonColorScheme could be customized and used only for Button Widgets.&nbsp;</p>
+<p class="Element10">
+To help highlight the different colors available for each widget, a “CrazyScheme”, with extreme contrast among the 16 available colors, was used as the color scheme for each widget: </p><p class="Element10" style="text-align: center;">
+<img src="MHGC UG CrazyScheme Color Scheme.png" border="0" alt="" title=""></p><p class="Element10">
+Use this color scheme to help identify the relevant colors for the widgets listed below.&nbsp;</p>
+<p class="Element10">
+The left column shows the coloring assignments for a Bezel boarder. The right side shows Line/No Border color assignments. </p><div class="Element63">
 <div class="TableDiv">
-<table cellspacing="0" class="Table3">
+<table cellspacing="0" class="Table2">
 <tr>
-<td class="Element67" valign="top" width="10%" style="border:none;">
+<td class="Element65" valign="top" width="54%">
+<div class="Element66">
+Widget With Bezel Border&nbsp;</div></td><td class="Element65" valign="top" width="46%">
+<div class="Element66">
+Widget With Line or No Borders&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
 <div class="Element68">
-<img src="Note Icon.png" border="0" alt="" title=""> <strong>Note:</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+Arc Widget:<br><img src="MHGC UG Arc with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
 <div class="Element68">
-These screens are examples from the <span class="Element145">Aria Showcase</span> demonstration project&nbsp;</div></td></tr></table></div></div>
-<p class="Element10">
-The <u>underlined</u> screen name identifies the primary screen (in this case, SplashScreen.) The <strong>bold</strong> screen name identifies the currently active screen in the Graphics Composer Screen Designer window (in this case MainMenu.) The blue background identifies the selected screen (i.e., the screen that is manipulated by the tool icons), in this case FirstScreen.</p><div class="Element15">
-Window Toolbar</div>
-<p class="Element10">
-The window’s tools icons support:</p>
-<ol class="Element630">
-<li value="1" class="Element600"><strong>Create New Screen</strong> – Create a new screen. The user would be prompted for the name of the new screen, which will appear at the bottom of the Screens list.</li>
-<li value="2" class="Element600"><strong>Delete Screen</strong> – Delete the selected screen. This removes the selected screen from the application.</li>
-<li value="3" class="Element600"><strong>Set as Primary Screen</strong> – Sets the selected screen as the default screen displayed by the application at boot-up.</li>
-<li value="4" class="Element600"><strong>Make Screen Active</strong> – This selected screen is displayed in the Screen Designer panel. The active screen can also be selected by clicking on the screen’s tab at the bottom of the Screen Designer panel.</li>
-</ol><p class="Element10" style="text-align: center;">
-<img src="MHGC UG Screens Make Screen Active.png" border="0" alt="" title=""></p>
-<ol class="Element630">
-<li value="5" class="Element600"><strong>Move Screen Up in Order</strong> – Moves the selected screen up in the list of screens, which is useful in organizing a large list of screens, but has no other significance.</li>
-<li value="6" class="Element600"><strong>Move Screen Down in Order</strong> – Moves the selected screen down in the list of screens.</li>
-</ol><p class="Element10">
-Useful in organizing a large list of screens, but has no other significance.</p><div class="Element15">
-Window Columns</div>
-<p class="Element10">
-The <strong>Generate</strong> check box is used in selecting those screens that will be included in the application when MPLAB Harmony Configurator (MHC) generates/regenerates the application. (This, along with the Enabled check box for languages, allows customization of the application’s build to support different end uses from the same project.) The <strong>Visible</strong> check box can be cleared to hide a screen from the sub-tabs located at the bottom of the Screen Designer. The <strong>View</strong> column provides a mouse-over preview of the screen.</p></div>
+<img src="MHGC UG Arc with Line or No Border.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+Bar Graph:<br><img src="MHGC UG Bar Graph Boundary with Bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Bar Graph Boundary with Line or None.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Button, unasserted.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Button, asserted.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Check Box, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Check Box.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Check Box Checked.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Check Box Unchecked.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Circle, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Circle.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Circular Slider with Bezel Border.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Circular Slider with line or none border.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Draw Surface, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Draw Surface.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Gradient, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Gradient.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Group Box, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Group Box.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Image or Image Sequence with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Image ImagePlus orImageSequence with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Key Pad, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Key Pad.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Label, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Label.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Line, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Line.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Line Graph Boundary, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Line Graph Boundary with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG List Wheel with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG List Wheel1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG List with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG List1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Panel, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Panel.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Pie Chart Boundary with Bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Pie Chart Boundary with line or none.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Progress Bar with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Progress Bar1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG RadialMenu.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Radio Buttons, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Radio Buttons.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Rectangle, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Rectangle.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Scroll Bar with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Scroll Bar1.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Scroll bar with bezel released and pressed.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Scroll bar with line or none released and pressed.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Slider, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Slider.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Text Field, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Text Field.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Touch Test, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Touch Test.png" border="0" alt="" title="">&nbsp;</div></td></tr><tr>
+<td class="Element67" valign="top" width="54%">
+<div class="Element68">
+<img src="MHGC UG Window, with bezel.png" border="0" alt="" title="">&nbsp;</div></td><td class="Element67" valign="top" width="46%">
+<div class="Element68">
+<img src="MHGC UG Window.png" border="0" alt="" title="">&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02572.html" target="topic">GUI Designer</a> &gt; <a href="02547.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02564.html" target="topic">Screens Panel</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="02566.html" target="topic">Designer</a> &gt; <a href="02542.html" target="topic">Graphics Composer Window User Interface</a> &gt; <a href="02564.html" target="topic">Widget Colors</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="02569.html" target="topic">Previous</a> | <a href="02547.html" target="topic">Up</a> | <a href="02562.html" target="topic">Next</a></div>
+<a href="02546.html" target="topic">Previous</a> | <a href="02542.html" target="topic">Up</a> | <a href="02548.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Screens Panel Topic Title: Screens Panel)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: MHGC UG Widget Colors Topic Title: Widget Colors)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

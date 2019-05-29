@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>Abstraction Model</title>
+<title>Using the Library</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00443.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00463.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00467.html" target="topic">Using the Library</a> &gt; <a href="00462.html" target="topic">Abstraction Model</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00440.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00458.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00462.html" target="topic">Using the Library</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00467.html" target="topic">Previous</a> | <a href="00467.html" target="topic">Up</a> | <a href="00466.html" target="topic">Next</a></div>
+<a href="00460.html" target="topic">Previous</a> | <a href="00458.html" target="topic">Up</a> | <a href="00457.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Abstraction Model Topic Title: Abstraction Model)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-Abstraction Model</div>
+Using the Library</div>
 </div>
 </div>
 
@@ -49,36 +49,60 @@ Abstraction Model</div>
 <a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-The following figure shows a high-level block diagram that describes the structure of the display driver. </p><p class="Element10" style="text-align: center;">
-<img src="GFXLIB ILI9488 Abstraction Model.png" border="0" alt="" title=""></p><p class="Element10">
-The top-level driver does the following:</p>
-<ul class="Element630">
-<li class="Element600">Glues the interface driver to the MPLAB Harmony Graphics Library’s hardware abstraction layer</li>
-<li class="Element600">Contains the ILI9488 setup routines and initialization commands, and calls to the interface driver layer</li>
-<li class="Element600">Manages the buffer that contains pixel data that is sent to the ILI9488 Controller for display</li>
-</ul><p class="Element10">
-The interface drivers provide the basic APIs for sending read/write commands, and reading/writing pixel data. The APIs contain corresponding calls to the interface’s peripheral drivers (<span class="Element145">SPI</span> or <span class="Element145">SMC</span>) for communicating with the ILI9488 Controller.</p></div>
+<strong>Interface Header File:</strong> <span class="Element146">drv_gfx_ili9488.h</span>&nbsp;</p>
+<p class="Element10">
+The top-level interface to the ILI9488 Display Controller Driver Library is defined in the <span class="Element146">drv_gfx_ili9488.h</span> header file. Any C language source (<span class="Element146">.c</span>), particularly in the graphics framework, file that uses the ILI9488 Display Controller Driver Library should include <span class="Element146">drv_gfx_ili9488.h</span>.</p></div>
+</div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="35%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00457.html" target="topic">Abstraction Model</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes how the ILI9488 Display Controller Driver Library provides the APIs that abstracts the interface-specific implementation from the application layer.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00461.html" target="topic">LIbrary Overview</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+Refer to the <span class="Element145">Driver Library Overview</span> section for information on how the driver operates in a system.<br><span style="color: #000000">The library interface routines are divided into various </span>sub-sections<span style="color: #000000">, which address one of the blocks or the overall operation of the ILI9488 Display Controller Driver.</span> &nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00459.html" target="topic">How the Library Works</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section describes how the ILI9488 Display Controller Driver Library works .&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00443.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00463.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00467.html" target="topic">Using the Library</a> &gt; <a href="00462.html" target="topic">Abstraction Model</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00440.html" target="topic">Aria HAL Driver Examples</a> &gt; <a href="00458.html" target="topic">ILI9488 Display Controller Driver Library</a> &gt; <a href="00462.html" target="topic">Using the Library</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00467.html" target="topic">Previous</a> | <a href="00467.html" target="topic">Up</a> | <a href="00466.html" target="topic">Next</a></div>
+<a href="00460.html" target="topic">Previous</a> | <a href="00458.html" target="topic">Up</a> | <a href="00457.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Abstraction Model Topic Title: Abstraction Model)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFXLIB ILI9488 Using the Library Topic Title: Using the Library)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

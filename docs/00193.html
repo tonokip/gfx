@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_DrawCircle Function</title>
+<title>GFX_DrawLine Function</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawCircle Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00456.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawLine Function</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00192.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00194.html" target="topic">Next</a></div>
+<a href="00191.html" target="topic">Previous</a> | <a href="00456.html" target="topic">Up</a> | <a href="00201.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawCircle@int32_t@int32_t@int32_t Topic Title: GFX_DrawCircle Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawLine@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawLine Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_DrawCircle Function</div>
+GFX_DrawLine Function</div>
 </div>
 </div>
 
@@ -48,10 +48,11 @@ GFX_DrawCircle Function</div>
 <a name="PageContent"></a><div class="Element58">
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT GFX_Result <strong><span style="color: #000000">GFX_DrawCircle</span></strong>(
-    int32_t <strong><span style="color: #000000">x</span></strong>, 
-    int32_t <strong><span style="color: #000000">y</span></strong>, 
-    int32_t <strong><span style="color: #000000">radius</span></strong>
+<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT GFX_Result <strong><span style="color: #000000">GFX_DrawLine</span></strong>(
+    int32_t <strong><span style="color: #000000">x1</span></strong>, 
+    int32_t <strong><span style="color: #000000">y1</span></strong>, 
+    int32_t <strong><span style="color: #000000">x2</span></strong>, 
+    int32_t <strong><span style="color: #000000">y2</span></strong>
 );</pre></div></div>
 <a name="506172616D6574657273"></a><div class="Element14">
 Parameters</div>
@@ -59,7 +60,7 @@ Parameters</div>
 <div class="Element10">
 <div class="Element312">
 <div class="TableDiv">
-<table cellspacing="0" class="Table1">
+<table cellspacing="0" class="Table3">
 <tr>
 <td class="Element300" valign="top" width="35%">
 <div class="Element301">
@@ -68,19 +69,24 @@ Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
 Description&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-x&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+x1&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the x component of the origin position&nbsp;</div></td></tr><tr>
+the x component of the first coordinate of the line&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-y&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+y1&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the y component of the origin position&nbsp;</div></td></tr><tr>
+the y component of the first coordinate of the line&nbsp;</div></td></tr><tr>
 <td class="Element302" valign="top" width="35%">
 <div class="Element303">
-radius&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+x2&nbsp;</div></td><td class="Element306" valign="top" width="65%">
 <div class="Element307">
-the radius of the circle in pixels&nbsp;</div></td></tr></table></div></div>
+the x component of the second coordinate of the line&nbsp;</div></td></tr><tr>
+<td class="Element302" valign="top" width="35%">
+<div class="Element303">
+y2&nbsp;</div></td><td class="Element306" valign="top" width="65%">
+<div class="Element307">
+the y component of the second coordinate of the line&nbsp;</div></td></tr></table></div></div>
 </div>
 </div>
 <a name="52657475726E73"></a><div class="Element14">
@@ -88,28 +94,28 @@ Returns</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-GFX_Result - Returns GFX_TRUE if the circle was drawn successfully. Otherwise returns GFX_FALSE.</p></div>
+GFX_Result - Returns GFX_TRUE if the line was drawn successfully. Otherwise returns GFX_FALSE.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00360.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00454.html" target="topic">Middleware Library</a> &gt; <a href="00450.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00460.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawCircle Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00456.html" target="topic">Library Interface</a> &gt; a) Functions &gt; <a href="00193.html" target="topic">GFX_DrawLine Function</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00360.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00192.html" target="topic">Previous</a> | <a href="00460.html" target="topic">Up</a> | <a href="00194.html" target="topic">Next</a></div>
+<a href="00191.html" target="topic">Previous</a> | <a href="00456.html" target="topic">Up</a> | <a href="00201.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawCircle@int32_t@int32_t@int32_t Topic Title: GFX_DrawCircle Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_DrawLine@int32_t@int32_t@int32_t@int32_t Topic Title: GFX_DrawLine Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

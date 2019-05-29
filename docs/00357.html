@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_Maxi Function</title>
+<title>MPLAB® Harmony Graphics Suite</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00483.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00482.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00357.html" target="topic">GFX_Maxi Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00356.html" target="topic">Previous</a> | <a href="00482.html" target="topic">Up</a> | <a href="00370.html" target="topic">Next</a></div>
+<a href="00431.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Maxi@int32_t@int32_t Topic Title: GFX_Maxi Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Graphics Overview Topic Title: MPLAB® Harmony Graphics Suite)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_Maxi Function</div>
+MPLAB® Harmony Graphics Suite</div>
 </div>
 </div>
 
@@ -46,64 +46,93 @@ GFX_Maxi Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
-<a name="43"></a><div class="Element99">
-C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT int32_t <strong><span style="color: #000000">GFX_Maxi</span></strong>(
-    int32_t <strong><span style="color: #000000">l</span></strong>, 
-    int32_t <strong><span style="color: #000000">r</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element312">
-<div class="TableDiv">
-<table cellspacing="0" class="Table3">
-<tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-l&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the first number to test&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-r&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-the second number to test&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
-<div class="Element11">
+<a name="4465736372697074696F6E"></a><div class="Element11">
 <div class="Element10">
 <p class="Element10">
-int32_t - the larger of the two numbers</p></div>
+MPLAB® Harmony Graphics Suite is an extension of the MPLAB® ecosystem for creating embedded graphic firmware solutions for 32-bit Microchip devices. Online documentation in addition to topics listed in this manual can be found at <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx/wiki');"><img src="indicator_external_link.gif" border="0" alt="" title="">Graphics Overview</a> and <a href="#" onclick="openExternalLink('https://github.com/Microchip-MPLAB-Harmony/gfx/wiki/Creating-a-New-Graphics-Application');"><img src="indicator_external_link.gif" border="0" alt="" title="">Creating a New Graphics Application</a>.&nbsp;</p>
+<p class="Element10">
+&nbsp;</p><div class="Element63">
+<div class="TableDiv">
+<table cellspacing="0" class="Table0">
+<tr>
+<td class="Element67" valign="top" width="10%" style="border:none;">
+<div class="Element68">
+<img src="Important Star.png" border="0" alt="" title=""><br><strong>Important!</strong>&nbsp;</div></td><td class="Element67" valign="top" width="90%" style="border:none;">
+<div class="Element68">
+Due to distribution streamlining, the demonstration applications are split between two repositories.<br>Quickstart applications, such as <a href="00000.html" target="topic">aria_quickstart</a>, can be found under the <strong>apps folder</strong> in Harmony <strong>gfx </strong>repository.<br>Non-quickstart graphics applications reside under the <strong>apps folder</strong> the Harmony <strong>gfx_apps </strong>repository.<br>Although each application can run standalone from within their respective repository, the use of MPLAB® Harmony Configurator and code regeneration require the presence of other Harmony repositories.&nbsp;</div></td></tr></table></div></div>
+<p class="Element10">
+Prior to using these demonstrations, it is recommended to review the <strong>MPLAB® Harmony Graphics Release Notes</strong> for any known issues.</p></div>
+</div>
+<a name="546F70696373"></a><div class="Element14">
+Topics</div>
+<div class="Element11">
+<div class="Element10">
+<div class="Element212">
+<div class="TableDiv">
+<table cellspacing="0" class="Table1">
+<tr>
+<td class="Element200" valign="top" width="35%">
+<div class="Element201">
+Name&nbsp;</div></td><td class="Element204" valign="top" width="65%">
+<div class="Element205">
+Description&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00431.html" target="topic">Introduction</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section provides an overview of MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="02566.html" target="topic">Designer</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This topic provides information about the graphics library GUI design components available in MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00450.html" target="topic">Graphics Library</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This topic provides information about the graphics library middleware components available in MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00434.html" target="topic">Drivers</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This topic provides information about the graphics library drivers available in MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00432.html" target="topic">Configurator</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This topic provides information about the graphics library code configuration and generation facilities available in MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="02523.html" target="topic">Advanced Topics</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section provides advanced information topics for MHGC.&nbsp;</div></td></tr><tr>
+<td class="Element202" valign="top" width="35%">
+<div class="Element203">
+<a href="00610.html" target="topic">Examples and Demonstrations</a>&nbsp;</div></td><td class="Element206" valign="top" width="65%">
+<div class="Element207">
+This section provides information about the applications available in the MPLAB® Harmony Graphics Suite.&nbsp;</div></td></tr></table></div></div>
+</div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00480.html" target="topic">Graphics Library Help</a> &gt; <a href="00474.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00483.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00482.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00357.html" target="topic">GFX_Maxi Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00382.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00356.html" target="topic">Previous</a> | <a href="00482.html" target="topic">Up</a> | <a href="00370.html" target="topic">Next</a></div>
+<a href="00431.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Maxi@int32_t@int32_t Topic Title: GFX_Maxi Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_OVR Graphics Overview Topic Title: MPLAB® Harmony Graphics Suite)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

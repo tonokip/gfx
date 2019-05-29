@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-<title>GFX_Atan Function</title>
+<title>GFX_BufferState Enumeration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="generator" content="Doc-O-Matic" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -18,23 +18,23 @@
 <!-- Begin Page Header -->
 <div class="Element710" id="areafixed">
 <div class="Element94">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00042.html" target="topic">GFX_Atan Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00456.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00042.html" target="topic">GFX_BufferState Enumeration</a></div>
 <div class="Element92">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element1">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element2">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element90">
-<a href="00034.html" target="topic">Previous</a> | <a href="00478.html" target="topic">Up</a> | <a href="00068.html" target="topic">Next</a></div>
+<a href="00038.html" target="topic">Previous</a> | <a href="00456.html" target="topic">Up</a> | <a href="00048.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element96">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Atan@double Topic Title: GFX_Atan Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_BufferState Topic Title: GFX_BufferState Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table><div class="Element5">
-GFX_Atan Function</div>
+GFX_BufferState Enumeration</div>
 </div>
 </div>
 
@@ -46,58 +46,52 @@ GFX_Atan Function</div>
 
 <!-- Begin Page Content -->
 <a name="PageContent"></a><div class="Element58">
+<a name="4465736372697074696F6E"></a><div class="Element11">
+<div class="Element10">
+<p class="Element10">
+Enumeration: GFX_BufferState_t&nbsp;</p>
+<p class="Element10">
+address - The buffer is set to a discrete address. This could be an address located in DDR memory, a buffer allocated by the application, or some other location.&nbsp;</p>
+<p class="Element10">
+malloc - The buffer has been dynamically allocated from some form of heap or memory manager. These can be freed as desired.&nbsp;</p>
+<p class="Element10">
+managed - The buffer is owned by the system and cannot be allocated or freed, it just is. This is common in systems where the memory is owned by the graphics driver or the memory resides on the graphics controller.</p></div>
+</div>
 <a name="43"></a><div class="Element99">
 C</div>
-<div class="Element101"><div class="Element100"><pre class="Element100">LIB_EXPORT <strong><span style="color: #000080">double</span></strong> <strong><span style="color: #000000">GFX_Atan</span></strong>(
-    <strong><span style="color: #000080">double</span></strong> <strong><span style="color: #000000">val</span></strong>
-);</pre></div></div>
-<a name="506172616D6574657273"></a><div class="Element14">
-Parameters</div>
-<div class="Element11">
-<div class="Element10">
-<div class="Element312">
-<div class="TableDiv">
-<table cellspacing="0" class="Table3">
-<tr>
-<td class="Element300" valign="top" width="35%">
-<div class="Element301">
-Parameters&nbsp;</div></td><td class="Element304" valign="top" width="65%">
-<div class="Element305">
-Description&nbsp;</div></td></tr><tr>
-<td class="Element302" valign="top" width="35%">
-<div class="Element303">
-val&nbsp;</div></td><td class="Element306" valign="top" width="65%">
-<div class="Element307">
-floating point value&nbsp;</div></td></tr></table></div></div>
-</div>
-</div>
-<a name="52657475726E73"></a><div class="Element14">
-Returns</div>
+<div class="Element101"><div class="Element100"><pre class="Element100"><strong><span style="color: #000080">typedef</span></strong> <strong><span style="color: #000080">enum</span></strong> <strong><span style="color: #000000">GFX_BufferState_t</span></strong> {
+  <strong><span style="color: #000000">GFX_BS_NONE</span></strong> = 0x0,
+  <strong><span style="color: #000000">GFX_BS_ADDRESS</span></strong>,
+  <strong><span style="color: #000000">GFX_BS_MALLOC</span></strong>,
+  <strong><span style="color: #000000">GFX_BS_MANAGED</span></strong>
+} GFX_BufferState;</pre></div></div>
+<a name="52656D61726B73"></a><div class="Element14">
+Remarks</div>
 <div class="Element11">
 <div class="Element10">
 <p class="Element10">
-double - the angle in radians</p></div>
+None.</p></div>
 </div>
 </div>
 <!-- End Page Content -->
 
 <!-- Begin Page Footer -->
 <div class="Element95">
-<a href="00476.html" target="topic">Graphics Library Help</a> &gt; <a href="00470.html" target="topic">MPLAB Harmony Graphics Composer (MHGC) Suite</a> &gt; <a href="00479.html" target="topic">Graphics Utilities Library</a> &gt; <a href="00478.html" target="topic">Graphics Utilities Interface</a> &gt; a) Functions &gt; <a href="00042.html" target="topic">GFX_Atan Function</a></div>
+<a href="00357.html" target="topic">MPLAB® Harmony Graphics Suite</a> &gt; <a href="00450.html" target="topic">Graphics Library</a> &gt; <a href="00446.html" target="topic">Hardware Abstraction Layer (HAL)</a> &gt; <a href="00456.html" target="topic">Library Interface</a> &gt; b) Data Types and Constants &gt; <a href="00042.html" target="topic">GFX_BufferState Enumeration</a></div>
 <div class="Element93">
 <table width="100%" cellspacing="0" cellpadding="0">
 <tr><td width="25%">
 <div class="Element3">
-MPLAB Harmony Graphics Library Help</div>
+MPLAB® Harmony Graphics Suite</div>
 </td><td width="25%">
 <div class="Element4">
-<a href="contents.html" target="tocidx">Contents</a> | <a href="00378.html" target="topic">Home</a></div>
+<a href="contents.html" target="tocidx">Contents</a> | <a href="00357.html" target="topic">Home</a></div>
 </td><td width="25%">
 <div class="Element91">
-<a href="00034.html" target="topic">Previous</a> | <a href="00478.html" target="topic">Up</a> | <a href="00068.html" target="topic">Next</a></div>
+<a href="00038.html" target="topic">Previous</a> | <a href="00456.html" target="topic">Up</a> | <a href="00048.html" target="topic">Next</a></div>
 </td><td width="25%">
 <div class="Element97">
-<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_Atan@double Topic Title: GFX_Atan Function)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
+<a href="mailto:docerrors@microchip.com&subject=MPLAB Harmony Documentation Feedback (Topic ID: GFX_BufferState Topic Title: GFX_BufferState Enumeration)&body=Thank you for your feedback! Please include a description of your feedback, and indicate whether you are reporting an an error in the documentation or an enhancement.">Documentation Feedback</a><br> <a href="http://support.microchip.com" target="_blank">Microchip Support</a></div>
 </td></tr></table></div>
 
 <!-- End Page Footer -->

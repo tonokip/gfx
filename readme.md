@@ -1,6 +1,6 @@
 # MPLAB® Harmony 3 Graphics Support Package
 
-MPLAB® Harmony 3 is an extension of the MPLABÂ® ecosystem for creating
+MPLAB® Harmony 3 is an extension of the MPLAB® ecosystem for creating
 embedded firmware solutions for Microchip 32-bit SAM and PIC microcontroller
 and microprocessor devices.  Refer to the following links for more information.
  - [Microchip 32-bit MCUs](https://www.microchip.com/design-centers/32-bit)
@@ -10,7 +10,7 @@ and microprocessor devices.  Refer to the following links for more information.
  - [Microchip MPLAB® Harmony Pages](https://microchip-mplab-harmony.github.io/)
 
 This repository contains the MPLAB® Harmony Graphics Suite.  The
-suite supports a free fast to market, graphics software development environment for MicrochipMPLAB® 32-bit SAM and PIC microprocessor devices.  Refer to
+suite supports a free fast to market, graphics software development environment for Microchip MPLAB® 32-bit SAM and PIC microprocessor devices.  Refer to
 the following graphics links for release notes, home page, training materials, framework and application help.
 Find multiple graphics application examples in the gfx_apps repo also on github.
  - [Release Notes](./release_notes.md)
@@ -29,6 +29,7 @@ The key features of the MPLAB® Harmony Graphics Suite are the following:
 - Designed for integration with both RTOS and non-RTOS based systems
 - Tightly-coupled with Microchip MPLAB® X IDE and tools
 - Powerful building block widgets: buttons, labels, lists, sliders, images, graphing and more
+- Color Modes RGB 32-bit, 16-bit 8-bit
 - Multi-language font support with UTF-8 encoding
 - Support for single and double frame buffers
 - WYSWYG UI design editor - Graphics Composer
